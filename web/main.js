@@ -73,6 +73,7 @@ function vacuumWorkbenchFields(){return {mode:$('mode').value,'modal-frame':$('m
 const motionGroups=[['rates','Rotation rate','deg / T'],['acceleration','Absolute acceleration','L / T²'],['angular_acceleration','Angular acceleration','deg / T²']];
 const poseGroups=[['position-earth','Body origin in Earth axes','input L',['x','y','z']],['attitude','Aircraft attitude','deg',['bank','elevation','heading']],['ground-normal','Ground normal in Earth axes','unit vector',['x','y','z']]];
 
+const buildCommit = typeof __OPENSWING_BUILD_COMMIT__ === 'string' ? __OPENSWING_BUILD_COMMIT__ : '';
 document.querySelector('#app').innerHTML = `
 <header class="topbar">
   <div class="brand-lockup">
@@ -271,7 +272,8 @@ document.querySelector('#app').innerHTML = `
   </aside>
 </main>
 <footer class="desktop-feedback">
-  <p id="github-note" class="github-note">Please submit bugs and feature requests <a href="https://github.com/kennyjensen/openswing/issues" target="_blank" rel="noopener noreferrer">here</a>.</p>
+  <p id="github-note" class="github-note">Please submit bugs and feature requests <a href="https://github.com/kennyjensen/openswing/issues" target="_blank" rel="noopener noreferrer">here</a>.${buildCommit ? `
+    <span class="build-revision"><a href="https://github.com/kennyjensen/openswing/commit/${buildCommit}" target="_blank" rel="noopener noreferrer" aria-label="View build commit ${buildCommit.slice(0,7)} on GitHub"><code>${buildCommit.slice(0,7)}</code></a></span>` : ''}</p>
 </footer>
 <div id="mobile-workbench" hidden>
   ${['editor','settings','plots','output'].map(key=>`<section id="workspace-${key}" class="workspace-panel" role="tabpanel" aria-labelledby="workspace-tab-${key}" tabindex="0" hidden></section>`).join('')}

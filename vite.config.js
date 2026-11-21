@@ -1,9 +1,23 @@
 import { defineConfig } from 'vite';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { devKernel } from './scripts/dev-kernel.mjs';
 import { devIsaeProgress } from './scripts/dev-isae-progress.mjs';
 import { readKernelSources } from './scripts/kernel-sources.mjs';
+
+function buildCommit() {
+  try {
+    const hash = execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd: fileURLToPath(new URL('./', import.meta.url)),
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    return /^[0-9a-f]{40}$/.test(hash) ? hash : '';
+  } catch {
+    return '';
+  }
+}
 
 export default defineConfig(async ({command}) => {
   const kernel = new URL('./openswing/', import.meta.url);
@@ -23,7 +37,10 @@ export default defineConfig(async ({command}) => {
     // Custom-domain Pages hosting serves the app and numerical assets at /.
     base: '/',
     plugins,
-    define: { __OPENSWING_KERNEL_URL__: JSON.stringify(kernelURL) },
+    define: {
+      __OPENSWING_KERNEL_URL__: JSON.stringify(kernelURL),
+      __OPENSWING_BUILD_COMMIT__: JSON.stringify(buildCommit()),
+    },
     // Crawl the workbench's imports, not every HTML file in retained evidence.
     optimizeDeps: { entries: ['index.html'] },
     server: {
