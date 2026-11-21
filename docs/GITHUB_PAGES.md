@@ -2,13 +2,13 @@
 
 The repository includes a GitHub Actions deployment workflow at
 [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). It builds the
-application on GitHub and publishes `dist/` on pushes to `main`, or when run
+application on GitHub and publishes `dist/` on pushes to `master`, or when run
 manually. The numerical kernel still runs entirely in the visitor's browser.
 
 ## One-time setup
 
 1. Push this project, including the workflow, to your GitHub repository's
-   `main` branch.
+   `master` branch.
 2. Open **Settings → Pages**. Under **Build and deployment**, select
    **Source: GitHub Actions**.
 3. Set **Custom domain** to **openswing.vibefoil.com** and save it.
@@ -23,7 +23,7 @@ manually. The numerical kernel still runs entirely in the visitor's browser.
    the custom domain on GitHub before adding the DNS record.
    [GitHub's custom-domain instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain).
 5. Under **Actions → Deploy OpenSwing to GitHub Pages**, choose **Run workflow**
-   on `main` (or rerun the initial push's workflow after completing setup).
+   on `master` (or rerun the initial push's workflow after completing setup).
 6. When GitHub's certificate is ready, enable **Enforce HTTPS** in Pages
    settings. DNS and certificate provisioning may take up to 24 hours.
    [GitHub's HTTPS/custom-domain instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain).
