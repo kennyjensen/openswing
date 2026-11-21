@@ -37,7 +37,9 @@ jobs:
       # The existing prebuild command uses this interpreter for the progress
       # charts. Building the web app requires no native scientific packages.
       - name: Prepare Python
-        run: python -m venv .venv
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install matplotlib
       - name: Install dependencies
         run: npm ci
       - name: Build static application

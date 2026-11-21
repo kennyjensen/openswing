@@ -30,11 +30,13 @@ Python 3.12 or newer.
 
 ```sh
 python3 -m venv .venv
+.venv/bin/python -m pip install matplotlib
 npm ci
 npm start
 ```
 
-Open **http://127.0.0.1:8000**. The first build downloads the browser's
+Open **http://127.0.0.1:8000**. The build uses Matplotlib to render the
+validation progress charts. The first build downloads the browser's
 numerical runtime. For development, run `npm run dev` after the initial build
 and open the URL it prints.
 

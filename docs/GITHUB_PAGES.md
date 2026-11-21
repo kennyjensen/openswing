@@ -36,8 +36,9 @@ setting; the CNAME file does not configure that setting by itself.
 ## Build and paths
 
 The workflow uses Node.js 24, Python 3.12 and `npm ci`, creates the `.venv`
-interpreter used by the existing prebuild script, and runs `npm run build`.
-No native NumPy/SciPy installation or numerical validation solve is required.
+interpreter used by the existing prebuild script, installs Matplotlib for
+the progress charts, and runs `npm run build`.
+No numerical validation solve is required.
 The build downloads and verifies the pinned browser runtime, bundles the
 Python kernel/examples/fonts and creates the existing source/local-app ZIPs.
 Only `dist/` is uploaded to Pages. Deployment uses GitHub's Pages artifact and
