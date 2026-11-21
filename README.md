@@ -40,7 +40,7 @@ validation progress charts. The first build downloads the browser's
 numerical runtime. For development, run `npm run dev` after the initial build
 and open the URL it prints.
 
-To use the prebuilt version, download **Local app** from the workbench,
+To use the prebuilt version, download the [local app ZIP](https://openswing.vibefoil.com/openswing-local.zip),
 extract the ZIP, and run this command from the extracted folder:
 
 ```sh

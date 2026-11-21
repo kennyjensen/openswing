@@ -11,7 +11,7 @@ functionality, `.asw` compatibility, and a JavaScript/WebAssembly web applicatio
 that runs locally in the browser. The JavaScript UI and worker use a self-hosted
 Pyodide WebAssembly runtime for the numerical kernel; no server executes analyses.
 
-For a prebuilt installation, use **Local app** and follow [Run locally](#run-locally).
+For a prebuilt installation, follow [Run locally](#run-locally).
 It includes the runtime, source code, tests, examples and validation summaries.
 Large raw experiment archives are a separate optional download under
 **Validation & scope**. See `VALIDATION-ARCHIVES.txt` in the source ZIP and the
@@ -612,7 +612,7 @@ pointing to your repository owner's `<owner>.github.io` hostname. See the
 
 ## Run locally
 
-**With Python only:** download **Local app** from the workbench, extract the ZIP,
+**With Python only:** download the [local app ZIP](https://openswing.vibefoil.com/openswing-local.zip), extract it,
 open a terminal in the extracted folder, and run:
 
 ```sh

@@ -243,7 +243,6 @@ document.querySelector('#app').innerHTML = `
               <div><dt>Moment reference · x, y, z</dt><dd id="reference-moment">—</dd></div>
             </dl>
             <div id="beam-list" class="beam-list" aria-label="Surfaces and beams"></div>
-            ${['localhost','127.0.0.1','[::1]'].includes(location.hostname)?'':`<a class="local-app-download" href="/openswing-local.zip" download>${icon('download')} Download local app</a>`}
           </div>
         </details>
         <details id="asw-panel" class="editor-panel" open>
