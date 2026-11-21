@@ -137,6 +137,12 @@ export function createResponsiveWorkbench({onLeavePlots=()=>{}}={}) {
         const card=panel($(`workspace-${group}`),name,details.find(tab=>tab.dataset.tab===name).textContent);
         move($(`pane-${name}`),card);
       }
+      const feedback=$('mobile-feedback');
+      if(feedback){
+        move(feedback,$('workspace-editor'));
+        move($('github-note'),feedback);
+        move($('github-star'),feedback);
+      }
       move($('analysis-actions'),$('mobile-action-bar'));
       desktop.hidden=true;mobile.hidden=false;nav.hidden=false;
       setAvailable();showWorkspace(activeWorkspace,{remember:false,scroll:false});

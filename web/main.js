@@ -83,6 +83,12 @@ document.querySelector('#app').innerHTML = `
       <a class="element-link" href="https://sim.vibefoil.com" target="_blank" rel="noopener noreferrer" aria-label="Vibesim (opens in a new tab)"><span class="element-symbol" aria-hidden="true">Vs</span><span class="element-name">Vibesim</span></a>
       <a class="element-link" href="https://avl.vibefoil.com" target="_blank" rel="noopener noreferrer" aria-label="Vibelattice (opens in a new tab)"><span class="element-symbol" aria-hidden="true">Vl</span><span class="element-name">Vibelattice</span></a>
     </nav>
+  <div id="github-star" class="github-star">
+    <a class="github-button" href="https://github.com/kennyjensen/openswing"
+       data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+       data-icon="octicon-star" data-size="large" data-show-count="true"
+       target="_blank" rel="noopener noreferrer" aria-label="Star OpenSwing on GitHub">Star</a>
+  </div>
 </header>
 <nav id="workspace-tabs" class="workspace-tabs" role="tablist" aria-label="Workspace" hidden>
   ${[['editor','Editor'],['settings','Settings'],['plots','Plots'],['output','Output']].map(([key,label])=>`<button id="workspace-tab-${key}" type="button" role="tab" aria-controls="workspace-${key}" aria-selected="${key==='plots'}" tabindex="${key==='plots'?0:-1}" data-workspace="${key}">${label}</button>`).join('')}
@@ -261,9 +267,13 @@ document.querySelector('#app').innerHTML = `
     ${totalForcesMarkup}
   </aside>
 </main>
+<footer class="desktop-feedback">
+  <p id="github-note" class="github-note">Please submit bugs and feature requests <a href="https://github.com/kennyjensen/openswing/issues" target="_blank" rel="noopener noreferrer">here</a>.</p>
+</footer>
 <div id="mobile-workbench" hidden>
   ${['editor','settings','plots','output'].map(key=>`<section id="workspace-${key}" class="workspace-panel" role="tabpanel" aria-labelledby="workspace-tab-${key}" tabindex="0" hidden></section>`).join('')}
   <div id="mobile-action-bar"></div>
+  <footer id="mobile-feedback"></footer>
 </div>
 <div id="error" class="error-banner" role="alert" hidden><strong>Unable to continue</strong><p></p><button id="close-error" aria-label="Dismiss error">×</button></div>
 
@@ -1356,3 +1366,16 @@ if($('example').value==='dae'){
   $('geometry-label').textContent=daedalusPreview.name;
 }
 $('example').onchange();
+
+// Load the same widget as VibeFoil after the workbench is ready. The repository
+// link remains usable if the widget cannot be downloaded.
+if(navigator.onLine){
+  const loadStarButton=()=>{
+    const script=document.createElement('script');
+    script.src='https://buttons.github.io/buttons.js';
+    script.async=true;
+    document.head.append(script);
+  };
+  if(document.readyState==='complete')setTimeout(loadStarButton,0);
+  else window.addEventListener('load',loadStarButton,{once:true});
+}
