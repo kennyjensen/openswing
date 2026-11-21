@@ -1,6 +1,6 @@
 # OpenSwing
 
-OpenSwing is a browser-based solver for the coupled aerodynamics and structural
+OpenSwing is an open-source, browser-based aerostructural solver for the coupled aerodynamics and structural
 response of flexible aircraft. It independently implements methods published by
 Mark Drela for ASWING. The numerical solver runs locally in the browser through
 WebAssembly. [Open the workbench](https://openswing.vibefoil.com/).
@@ -13,7 +13,7 @@ WebAssembly. [Open the workbench](https://openswing.vibefoil.com/).
   solve for elastic equilibrium with aerodynamic loads and structural deflection
   coupled together. Trim the aircraft for steady flight.
 - **Dynamics and stability.** Run nonlinear time responses to control inputs or
-  gusts. Compute coupled eigenmodes, track stability with airspeed, and plot
+  gusts. Compute coupled eigenmodes, track flutter and stability with airspeed, and plot
   linear frequency responses around a solved operating point.
 - **Visualization.** Inspect the aircraft and its deformed shape in 3D, plot
   aerodynamic and structural quantities along a beam, and review total forces
@@ -22,6 +22,11 @@ WebAssembly. [Open the workbench](https://openswing.vibefoil.com/).
 ASWING compatibility and validation are ongoing. See the
 [ISAE comparison status](docs/validation/ISAE_STATUS.md) for coverage and
 remaining differences.
+
+For related tools, Drela and Youngren’s [AVL](https://web.mit.edu/drela/Public/web/avl/)
+analyzes rigid aircraft and serves as an independent aerodynamic benchmark for
+OpenSwing. Drela’s [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) analyzes
+two-dimensional airfoil sections.
 
 ## Run locally
 
