@@ -1,0 +1,359 @@
+{
+  "status": "PASS_FIXED_FRAME_ZERO_DIAGNOSIS_AND_STEADY_FREE_FLIGHT_FUNCTIONAL_CHECK",
+  "aswing_reference_agreement": "UNVERIFIED; the chosen coarse trim does not establish agreement with the published curve",
+  "cause": "Fixed aircraft frame holds body motion fixed. Its operating yaw-rate perturbation is exactly zero while rudder forcing and aerodynamic responses remain nonzero. Free frame includes the aircraft rotational response.",
+  "implementation": {
+    "numerical_kernel_changed": false,
+    "ui": [
+      "Explain response-frame constraints next to settings and constrained rate plots.",
+      "Provide explicit free-flight settings button; retain grid and input selections and require a new analysis.",
+      "Name roll/pitch/yaw rates and annotate controls with affected beam names from model metadata.",
+      "Identify recorded accelerating bases as frozen responses requiring steady trim for steady-flight comparisons."
+    ],
+    "fixed_frame_default_retained": true
+  },
+  "reference": {
+    "url": "https://web.mit.edu/drela/Public/web/aswing/rudder-bode.pdf",
+    "input": "unit native F3 rudder setting",
+    "frequency_range_Hz": [
+      0.1,
+      10
+    ],
+    "yaw_rate_reference": "1 degree/second",
+    "operating_point": "labelled 1; speed, full trim settings and mesh are not provided in this PDF",
+    "pdf_pin": {
+      "bytes": 28726,
+      "sha256": "b37f684a57c2e93c1ec64566480d0051c05adf7b59376e409c004cfb581e0dfe"
+    },
+    "bode_is": "unit harmonic input response; time-domain step forcing is a separate calculation"
+  },
+  "default_condition_check": {
+    "panels": 8,
+    "speed_ft_s": 30,
+    "alpha_deg": 5,
+    "mach": 0.1,
+    "frequency_Hz": [
+      0.1,
+      1,
+      10
+    ],
+    "fixed_yaw_rate": [
+      0,
+      0,
+      0
+    ],
+    "free_base_steady": false,
+    "free_yaw_magnitude_deg_s_per_file_setting": [
+      0.0624142368,
+      0.145625742,
+      0.409839221
+    ],
+    "independent_audit": {
+      "passed": 216,
+      "total": 216
+    },
+    "not_a_steady_flight_reference": true
+  },
+  "steady_trim_check": {
+    "panels": 8,
+    "speed_ft_s": 30,
+    "mach": 0.1,
+    "gravity": "Earth-following; no fixed body gravity override",
+    "ground_effect": 0,
+    "operating_constraints": [
+      {
+        "variable": "alpha",
+        "quantity": "force.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.bank",
+        "quantity": "force.y",
+        "target": 0.0
+      },
+      {
+        "variable": "power.1",
+        "quantity": "force.x",
+        "target": 0.0
+      },
+      {
+        "variable": "beta",
+        "quantity": "moment.x",
+        "target": 0.0
+      },
+      {
+        "variable": "control.2",
+        "quantity": "moment.y",
+        "target": 0.0
+      },
+      {
+        "variable": "control.3",
+        "quantity": "moment.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.elevation",
+        "quantity": "flight_path",
+        "target": 0.0
+      }
+    ],
+    "solved_coordinates": {
+      "alpha": -1.6619581191089043,
+      "beta": 0.008743973456159678,
+      "attitude.bank": 0.0014436678241698396,
+      "attitude.elevation": -1.6619578983545353,
+      "control.2": -1.8058249055540216,
+      "control.3": -0.0025869808564224755,
+      "power.1": 7.908974869896494
+    },
+    "fresh_full_base_residual": 6.716771825544667e-13,
+    "kinematically_steady": true,
+    "flight_path_degrees": 1.4891319613025622e-15,
+    "samples": [
+      {
+        "frequency_Hz": 0.1,
+        "omega_rad_s": 0.6283185307179586,
+        "yaw_real_rad_s_per_file_setting": 0.006246688395518119,
+        "yaw_imag_rad_s_per_file_setting": 0.0023006119059892026,
+        "yaw_magnitude_deg_s_per_file_setting": 0.38141061109219354,
+        "harmonic_diagnostics": {
+          "reciprocal_condition": 1.021127281798168e-08,
+          "backward_errors": [
+            2.9716323886206298e-18
+          ],
+          "scaled_residuals": [
+            2.503982354272442e-17
+          ],
+          "factor_dimension": 1463,
+          "beam_equations_eliminated": 0
+        }
+      },
+      {
+        "frequency_Hz": 1.0,
+        "omega_rad_s": 6.283185307179586,
+        "yaw_real_rad_s_per_file_setting": 0.0003436182326974913,
+        "yaw_imag_rad_s_per_file_setting": -0.0003321723480285281,
+        "yaw_magnitude_deg_s_per_file_setting": 0.027383064624543815,
+        "harmonic_diagnostics": {
+          "reciprocal_condition": 2.6981968463066728e-08,
+          "backward_errors": [
+            1.405420926687781e-19
+          ],
+          "scaled_residuals": [
+            1.3943682178925394e-17
+          ],
+          "factor_dimension": 1463,
+          "beam_equations_eliminated": 0
+        }
+      },
+      {
+        "frequency_Hz": 10.0,
+        "omega_rad_s": 62.83185307179586,
+        "yaw_real_rad_s_per_file_setting": -0.0005505501558914953,
+        "yaw_imag_rad_s_per_file_setting": -0.005988115523634903,
+        "yaw_magnitude_deg_s_per_file_setting": 0.3445407894982572,
+        "harmonic_diagnostics": {
+          "reciprocal_condition": 8.17473834386427e-08,
+          "backward_errors": [
+            1.717158594560979e-19
+          ],
+          "scaled_residuals": [
+            1.4280257650026844e-16
+          ],
+          "factor_dimension": 1463,
+          "beam_equations_eliminated": 0
+        }
+      }
+    ],
+    "independent_audit": {
+      "passed": 193,
+      "total": 193
+    },
+    "recovery": "Original diagnostic harness stopped after saving the converged base and A/M because it compared reconstructed speed to 30 bitwise (30.000000000000004). The original failure is retained. A bounded recovery reused saved A/M, validated restored physical state and unchanged residual/near-pole gates, and completed the three harmonic samples.",
+    "accounting": {
+      "equilibrium_calls": 0,
+      "full_linearizations": 0,
+      "frequency_analysis_constructions": 0,
+      "harmonic_system_solves": 3,
+      "physical_residual_calls": {
+        "fresh_base": {
+          "entered": 1,
+          "completed": 1,
+          "failed": 0
+        },
+        "base_report": {
+          "entered": 2,
+          "completed": 2,
+          "failed": 0
+        },
+        "input_partials": {
+          "entered": 5,
+          "completed": 5,
+          "failed": 0
+        },
+        "outputs": {
+          "entered": 12,
+          "completed": 12,
+          "failed": 0
+        }
+      },
+      "summary_physics_calls": 0,
+      "summary_matrix_products": 0,
+      "summary_solves": 0
+    }
+  },
+  "ui_verification": {
+    "node_tests": {
+      "focused_helper_tests": 6,
+      "existing_comparison_and_overlay_tests": 26,
+      "all_passed": true,
+      "helper_log_pin": {
+        "bytes": 676,
+        "sha256": "9f5f6450b349fd888b3b10bd1d2e5f2d0cd001b929e3143a25d2a518b2c9d581"
+      },
+      "existing_run": {
+        "session_id": 23033,
+        "initial_chunk": "33e279",
+        "terminal_chunk": "2d6135",
+        "exit_code": 0,
+        "reaped": true
+      },
+      "final_helper_run": {
+        "session_id": 89564,
+        "initial_chunk": "df7ba4",
+        "terminal_chunk": "93f1d1",
+        "exit_code": 0,
+        "reaped": true
+      }
+    },
+    "browser_tests": {
+      "unique_tests_passed": 2,
+      "unique_tests_total": 2,
+      "test_executions": 3,
+      "retained_failed_executions": 1,
+      "numerical_frequency_calls": 0,
+      "first_report": {
+        "bytes": 7824,
+        "sha256": "3cf0fb7ffeaa47a9000b2f40dcf14b5995aa0ce257178dcde243579d16f30027"
+      },
+      "corrected_report": {
+        "bytes": 2717,
+        "sha256": "57fa6b04a9b85660ec76e5f767b7c3386b448d14629f3e6ec5f512c8e54b8fc5"
+      },
+      "note": "Original preset assertion omitted existing engine channel power.1; corrected only that expected input list. Actual implementation preserved inputs correctly."
+    },
+    "production_frontend_build": {
+      "passed": true,
+      "modules": 60,
+      "seconds": 2.01,
+      "public_assets_copied": false
+    },
+    "project_roundtrip": {
+      "status": "PASS",
+      "exact_configuration_reexport": true,
+      "exact_initial_state": true,
+      "seven_trim_constraints": true,
+      "frame": "free",
+      "controls": [
+        "control.2",
+        "control.3",
+        "power.1"
+      ],
+      "frequency_points": 21,
+      "numerical_launches": 0,
+      "earlier_export_timeout_retained": true,
+      "report": "/tmp/openswing-daedalus-rudder-20261024/ui/project-verify-r2/report.json",
+      "report_pin": {
+        "bytes": 76516,
+        "sha256": "5d413f0cefd8fb714c193f31474ac3b0a72ec74f8464f623e30f50275154e900"
+      },
+      "lifecycle_pin": {
+        "bytes": 947,
+        "sha256": "ca9849815fecc07189cea299a1f640788ee1242fd7a480e1c2aafaf85405ac79"
+      }
+    }
+  },
+  "example": {
+    "path": "examples/dae-rudder-project.json",
+    "served_path": "/examples/dae-rudder-project.json",
+    "pin": {
+      "bytes": 91944,
+      "sha256": "2daa61fed29caed43a944e1d3ec114d9487b41b5247c429d73f7325e5abeb068"
+    },
+    "purpose": "Reproducible chosen steady-flight example; not the identified Drela reference operating point. Saved equilibrium seed is included, with free frame and a 21-sample 0.1–10 Hz grid.",
+    "open": "Settings > Project & saved cases > Open project, then Load case and Run analysis. Select control.3 (Rudder), Flight frame, Yaw rate r.",
+    "units": "Plots use rad/input T. For this seconds-based model, multiply angular frequency by 1/(2*pi) for Hz and yaw-rate magnitude by 180/pi for deg/s.",
+    "http_asset_matches_source": true
+  },
+  "limits": [
+    "No original ASWING executable is available.",
+    "Published operating-point details and matching are unverified; no numerical tolerance against the PDF is claimed.",
+    "Eight panels and three checked frequencies establish functionality only, not spatial or frequency convergence or stability.",
+    "UI/browser checks render retained native results and verify requests; they do not execute a new WebAssembly harmonic sweep.",
+    "Bode magnitudes differing from the PDF remain an unresolved comparison."
+  ],
+  "evidence": {
+    "/tmp/openswing-daedalus-yaw-diagnosis-20261024/report.json": {
+      "bytes": 30340,
+      "sha256": "0359a2b0df14e5efd160b6e404594e9b78a48c05f6d9b96effec8995ebc3ab73"
+    },
+    "/tmp/openswing-daedalus-yaw-diagnosis-20261024/review/reference/audit-report.json": {
+      "bytes": 33202,
+      "sha256": "1ba14e60250ac5408e81db437326cad680627fa9430317f04ec00024435ce126"
+    },
+    "/tmp/openswing-daedalus-trim-resume-20261024/report.json": {
+      "bytes": 27770,
+      "sha256": "bc74e5da074f9d72a8e12212f758a562d2611009bd8be13b544ad3e4062b4d0e"
+    },
+    "/tmp/openswing-daedalus-trim-resume-20261024/session-closeout.json": {
+      "bytes": 2108,
+      "sha256": "b7a299a28086f6dd16d8c501b07a18599bfaf33f09467e1dbb944010a4a0b54a"
+    },
+    "/tmp/openswing-daedalus-trim-resume-20261024/review/reference/audit-report.json": {
+      "bytes": 26909,
+      "sha256": "164ff5c9eb1bdb123508f5e0d26747e12fd48caeb8d052c8edbffff880bd9cb8"
+    },
+    "/tmp/openswing-daedalus-trim-resume-20261024/review/reference/session-closeout.json": {
+      "bytes": 873,
+      "sha256": "a2f32f1f0d1220c08854d14fe350da3f3332eefc355440ff4328c4d72fd98da0"
+    },
+    "/tmp/openswing-daedalus-rudder-20261024/ui/summary.json": {
+      "bytes": 3401,
+      "sha256": "63d9c1d3d9c5161c161b8aa6dfce8077c0a8404c932534855c71f6be7e6381a4"
+    },
+    "/tmp/openswing-daedalus-rudder-20261024/ui/project-verify-r2/report.json": {
+      "bytes": 76516,
+      "sha256": "5d413f0cefd8fb714c193f31474ac3b0a72ec74f8464f623e30f50275154e900"
+    },
+    "/tmp/openswing-daedalus-rudder-20261024/ui/project-verify-r2/session-closeout.json": {
+      "bytes": 947,
+      "sha256": "ca9849815fecc07189cea299a1f640788ee1242fd7a480e1c2aafaf85405ac79"
+    }
+  },
+  "source_files": {
+    "examples/dae.asw": {
+      "bytes": 9555,
+      "sha256": "bb020c3bbcf049bef9f381c0242d9c4a5feaa0e60edbd2d363852885f7929386"
+    },
+    "web/frequency-results.js": {
+      "bytes": 32927,
+      "sha256": "f062b8c73283368745956759a0d04779cb9df92bcd39081d5be18d4c34fa875a"
+    },
+    "web/frequency-frame-help.js": {
+      "bytes": 2985,
+      "sha256": "9b7d1af9107915506c12e72240c19a345472b09b92042a88efe7b5b792a86a38"
+    },
+    "tests/frequency-frame-help.test.mjs": {
+      "bytes": 3231,
+      "sha256": "c4a1d66a974f652e6aa54ba72d27518d0ecf7cf3ef8baa6d28f8782578d2ef50"
+    },
+    "tests/browser/frequency-frame.spec.js": {
+      "bytes": 6725,
+      "sha256": "3df9d2994b3c63ed7c172c58713318cd2abd80471e8384d77cfd8a0638348d02"
+    },
+    "tests/data/daedalus-frame-response.json": {
+      "bytes": 38864,
+      "sha256": "52b06d5223188ae2159b241fdab5193be642828151f0c6d7040e312568a51fdd"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "status": "isolated-defect-reproduced-and-minimal-correction-verified",
+  "main_source_unchanged": true,
+  "all_main_source_pins_unchanged": 58,
+  "scope": "Five scalar Newton regressions only; no full native suite, initialization, transient, aeroelastic or browser run.",
+  "finding": "newton(check_rank=True) skips final regular_tangent certification on convergence immediately after a Newton correction.",
+  "before": {
+    "exit_code": 1,
+    "passed": 4,
+    "failed": 1,
+    "failure": "C1 zero plateau reached by a regular Newton correction was accepted instead of raising StepFailure."
+  },
+  "after": {
+    "exit_code": 0,
+    "passed": 5,
+    "failed": 0
+  },
+  "routes": [
+    "nonunique corrected root rejected",
+    "nonunique initial root rejected",
+    "regular corrected root accepted",
+    "regular initial root accepted",
+    "optional rank checking disabled retains prior behavior"
+  ],
+  "correction": "Three added lines at the accepted-correction return apply the existing regular_tangent check and count its build; no numerical tolerance, residual or physics changed.",
+  "test_sha256": "aef7fa3ca1917d28eff8d7edebd6345a57a4030a0aedc29473ecc01219840d72",
+  "before_source_sha256": "0c6cd21a3f0af5a9fd943fb0f1b25edf0d6360d21417d7f2e8166b86abc073b2",
+  "after_source_sha256": "3fb7f1c540c4241c84a3fd3131c876ce8458ddb1aadb8fbb3cfdde77404b45f8",
+  "patch_sha256": "1530040be0058fe691c51f0604fc08f5c0e9f63240ee17ced061a69e6b99b78f",
+  "all_recorded_test_processes_absent": true,
+  "retained_records": [
+    "run-before/status.json",
+    "run-before/pytest.log",
+    "run-after/status.json",
+    "run-after/pytest.log",
+    "results.json",
+    "source-pins.json"
+  ],
+  "requires_integration": "Root review/integration and applicable production checks; this isolated result is not a full-suite pass.",
+  "archive": {
+    "path": "newton-rank-evidence.zip",
+    "sha256": "4a68178a5bfe042a93740e5de96926458f9e45d445d54edbaf4d3d684c638aec",
+    "bytes": 471945,
+    "members": 128
+  },
+  "current_main_status": "Defect still present. Isolated candidate awaits integration and applicable production validation after the running frozen native baseline."
+}

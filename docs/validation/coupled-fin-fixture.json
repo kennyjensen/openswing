@@ -1,0 +1,308 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_FIXED_PHYSICAL_FIXTURE_MANUFACTURE_PENDING",
+  "units": {
+    "length": "m",
+    "time": "s",
+    "force": "N",
+    "mass": "kg",
+    "angle": "rad"
+  },
+  "gravity_constant": 9.80665,
+  "gravity_override": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "speed": 10.0,
+  "density": 1.225,
+  "sound_speed": 340.294,
+  "altitude_m": 0.0,
+  "mach": 0.0,
+  "ground_effect": 0,
+  "stall": false,
+  "carrier": {
+    "beam": 1,
+    "origin": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "material_t": [
+      0.0,
+      1.0
+    ],
+    "jig_end": [
+      1.2,
+      0.25,
+      0.15
+    ],
+    "mass": 4.0,
+    "cg": [
+      0.1,
+      -0.15,
+      0.05
+    ],
+    "inertia": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.2,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.5
+      ]
+    ],
+    "weight_attachment_t": 0.0
+  },
+  "hinge": {
+    "position": [
+      1.2,
+      0.25,
+      0.15
+    ],
+    "axis": [
+      1.0,
+      0.3,
+      0.2
+    ],
+    "base_angle_degrees": 4.0,
+    "stiffness": 12.0,
+    "stiffness_unit": "N m/rad",
+    "carrier_station": 1.0,
+    "fin_station": 0.0,
+    "joint_type": 3,
+    "joint_gap": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "spring_rest_angle": "mesh-specific Q32 manufactured eta-Q_eta/k; not yet evaluated"
+  },
+  "fin": {
+    "beam": 2,
+    "length": 2.0,
+    "material_t": [
+      0.0,
+      2.0
+    ],
+    "jig_chord_direction": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "jig_span_direction": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "chord": 0.6,
+    "Xax": 0.35,
+    "alpha_degrees": 2.0,
+    "CLa": 6.283185307179586,
+    "dCLdF3": 6.283185307179586,
+    "Cdf": 0.01,
+    "Cdp": 0.02,
+    "Cm": 0.02,
+    "CLmax": 100.0,
+    "CLmin": -100.0,
+    "mass": 1.0,
+    "cg": [
+      1.32,
+      0.33,
+      0.95
+    ],
+    "cg_offset_from_hinge": [
+      0.12,
+      0.08,
+      0.8
+    ],
+    "inertia": [
+      [
+        0.12,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.1,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.04
+      ]
+    ],
+    "weight_attachment_t": 0.0
+  },
+  "mechanics": {
+    "exact_rigid": true,
+    "distributed_mass": 0.0,
+    "spin": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "structural_damping": 0.0,
+    "point_CDA": 0.0,
+    "point_volume": 0.0,
+    "carrier_weight_location": "point pylon at carrier root",
+    "fin_weight_location": "point pylon at fin root",
+    "inertia_coordinates": "centroid tensors in undeformed jig/body axes; rotate with respective body"
+  },
+  "coordinates": {
+    "order": [
+      "r_x",
+      "r_y",
+      "r_z",
+      "phi_x",
+      "phi_y",
+      "phi_z",
+      "eta"
+    ],
+    "carrier_rotation": "exp(skew(phi))",
+    "phi_rate": "rotation-vector derivative; spatial angular velocity=J_left(phi)*phi_dot",
+    "reference_points": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "base_carrier_position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "base_carrier_attitude_degrees": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "base_frame_velocity": [
+      -10.0,
+      0.0,
+      0.0
+    ],
+    "base_rates": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "base_acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "base_angular_acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "condition": {
+    "alpha": 0.0,
+    "beta": 0.0,
+    "controls": {
+      "3": 0.0
+    },
+    "circulation_modes": 0,
+    "freeze_influences": false
+  },
+  "meshes": {
+    "carrier_intervals": 4,
+    "fin_intervals": [
+      4,
+      8
+    ],
+    "spacing": "cosine",
+    "expected": {
+      "4": {
+        "nodes": 10,
+        "elements": 8,
+        "circulation": 4,
+        "network_dimension": 130,
+        "dynamic_dimension": 202
+      },
+      "8": {
+        "nodes": 14,
+        "elements": 12,
+        "circulation": 8,
+        "network_dimension": 182,
+        "dynamic_dimension": 278
+      }
+    }
+  },
+  "manufacture": {
+    "per_mesh": true,
+    "quadrature": 32,
+    "hold_pose_degrees": 4.0,
+    "rule": "Q_eta=a dot (M_fin_about_origin-H cross F_fin); eta_rest=eta-Q_eta/k; carrier root force=-F_fin and moment=-M_fin_about_origin",
+    "before_any_production_evaluation": true,
+    "quadrature16": "Same pose, Q32 spring rest and balance; verify residual, do not retrim",
+    "mesh_convergence_claim": false
+  },
+  "inputs": [
+    {
+      "name": "rudder_incidence",
+      "native": "control.3",
+      "column_sign": 1.0,
+      "unit": "rad",
+      "meaning": "one file setting produces one radian section-incidence increment"
+    },
+    {
+      "name": "physical_carrier_yaw_couple",
+      "native": "target.moment.z",
+      "column_sign": -1.0,
+      "unit": "N m",
+      "meaning": "negative required net moment equals a positive external carrier-root couple; retain native sign and recover physical root/global outputs explicitly"
+    }
+  ],
+  "proposed_scope": {
+    "lag": [
+      false,
+      true
+    ],
+    "frequencies_Hz": [
+      0.7,
+      1.0,
+      1.3
+    ],
+    "reference_quadrature": [
+      16,
+      32
+    ],
+    "production_base_count": 2,
+    "production_pencils": 4,
+    "production_harmonic_calls": 12,
+    "simultaneous_RHS": 2,
+    "reference_harmonic_calls": 24,
+    "wall_cap_seconds": 300,
+    "execution_authorized": false
+  },
+  "limits": [
+    "Separate manufactured n4/n8 discrete fixtures, no mesh-convergence or response-fit claim.",
+    "Ground is a carrier/body gauge; dynamic frame is free with six net-load rows.",
+    "Finite mount offset is origin-to-hinge; the two joint nodes coincide.",
+    "No engines, gust, controller, gravity load or distributed beam elasticity.",
+    "Production native full-state dimension includes nuisance forces/reactions; reference14+n is not the production solver size."
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "native_tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout --kill-after=5s 180s .venv/bin/python -m pytest -q tests/test_sensors.py tests/test_sensor_availability.py tests/test_asw.py tests/test_asw_edit.py tests/test_bridge.py tests/test_custom_constraints.py tests/test_rom_outputs.py",
+    "session": 31093,
+    "terminal_chunk": "d881ee",
+    "exit_code": 0,
+    "passed": 182,
+    "elapsed_seconds": 97.85
+  },
+  "initial_test_run": {
+    "session": 67641,
+    "terminal_chunk": "8c8f6d",
+    "exit_code": 1,
+    "passed": 47,
+    "failed": 3,
+    "elapsed_seconds": 26.46,
+    "resolution": "Two failures exposed warnings appended to fatal parser diagnostics; warnings now appear only in inspection/results. Third failure was a stale command key in the new negative feedback fixture, corrected to exercise undefined-channel rejection. Initial failure log retained."
+  },
+  "frontend_tests": {
+    "passed": 70,
+    "new_tests": 9,
+    "elapsed_seconds": 1.166,
+    "exit_code": 0,
+    "terminal_chunk": "afbf04",
+    "command": "node --test tests/sensor-availability.test.mjs tests/numerical-policy.test.mjs tests/projects.test.mjs tests/solutions.test.mjs tests/frequency-comparison.test.mjs tests/frequency-overlays.test.mjs",
+    "evidence_source": "st2_readiness_check terminal report"
+  },
+  "catalog": {
+    "session": 58169,
+    "terminal_chunk": "65b6db",
+    "exit_code": 0,
+    "parsed": 212,
+    "rejected": 67,
+    "original_models": 279,
+    "solves": 0
+  },
+  "source_public_modules_identical": true,
+  "full_goal_complete": false,
+  "code_pins": [
+    {
+      "path": "openswing/bridge.py",
+      "bytes": 16573,
+      "sha256": "9f0c8907eff6c8a181e43a5727f9519a346b9a85c1e2012d38483bfa6eb7efcd"
+    },
+    {
+      "path": "openswing/geometry.py",
+      "bytes": 12985,
+      "sha256": "2d2469303a5ba93068e21c28f8fc69773f1aefbe9a1931cb1bafb89bccdfea57"
+    },
+    {
+      "path": "openswing/linear_dynamics.py",
+      "bytes": 84195,
+      "sha256": "040233e35d095f4e65e85d8163c864f72d193d0785d66b3d81557b56428b5d9e"
+    },
+    {
+      "path": "openswing/sensors.py",
+      "bytes": 17513,
+      "sha256": "cdbdfd4ca717ef03fbd4baf33c05704420fd567881fa10fc4ad868087b2beecd"
+    },
+    {
+      "path": "tests/test_sensors.py",
+      "bytes": 13655,
+      "sha256": "6bfd39a9507e94e51eabcfdc66ea3d919a1b91d7cd83c7e0d1d25f7b17d908d0"
+    },
+    {
+      "path": "tests/test_sensor_availability.py",
+      "bytes": 10127,
+      "sha256": "3bb1d75d00507c7de50b4e0b23383d12e64e713370421501b4058815e217e15b"
+    },
+    {
+      "path": "web/sensor-results.js",
+      "bytes": 9276,
+      "sha256": "1d3369925363282476d395b68c4784c00bbd925b5359bda4b8a9557a3168b883"
+    },
+    {
+      "path": "web/custom-constraints.js",
+      "bytes": 5411,
+      "sha256": "0f11cfb2646c0548f3cf49a317fba708181479dc2753bba3f01fa10d2c75ee96"
+    },
+    {
+      "path": "web/rom-results.js",
+      "bytes": 11752,
+      "sha256": "081dfe056b926377ab7954f2624852e1e6ef2c11eeefe2015bef25a81b5aef49"
+    },
+    {
+      "path": "tests/sensor-availability.test.mjs",
+      "bytes": 8650,
+      "sha256": "9322fe4c1392d6bb098a7e63d7ccdfcae4fb20926f4389d9967281054006af74"
+    }
+  ]
+}

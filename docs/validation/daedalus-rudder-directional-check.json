@@ -1,0 +1,337 @@
+{
+  "title": "Daedalus rudder-to-yaw: loaded-state directional derivative check",
+  "status": "PASS_SELECTED_DIRECTIONAL_CONSISTENCY_REFERENCE_AND_CONVERGENCE_UNRESOLVED",
+  "finding": "All12 comparisons pass at the saved16 loaded state; this supports six selected directions of the assembled residual derivative, not full-matrix correctness or matched ASWING validation.",
+  "setup": {
+    "speed_ft_s": 30,
+    "fixed_PG_Mach": 0.1,
+    "frame": "free",
+    "native_input": "control.3 (F3)",
+    "requested_mesh": 16,
+    "actual_nodes": 117,
+    "actual_elements": 112,
+    "full_descriptor_dimension": 2215,
+    "source_modules": 108,
+    "source": "Exact frozen mesh16 source, no production edits",
+    "selected_frequency_Hz": 8.90352386262554,
+    "selection": "Chosen after the completed sweep because it had the largest observed8-to16 complex yaw change; no preregistration or curve fit.",
+    "state": "Exact saved dynamic base-unknowns and original scales; no new trim or full linearization."
+  },
+  "directions": [
+    {
+      "id": "A_real_response",
+      "domain": "state",
+      "direction": "Re(x)/maxabs(Re(x))",
+      "prediction": "A @ direction"
+    },
+    {
+      "id": "A_imag_response",
+      "domain": "state",
+      "direction": "Im(x)/maxabs(Im(x))",
+      "prediction": "A @ direction"
+    },
+    {
+      "id": "M_real_response_rate",
+      "domain": "rate",
+      "direction": "Re(i*omega*x)/maxabs(Re(i*omega*x))",
+      "prediction": "-M @ direction"
+    },
+    {
+      "id": "M_imag_response_rate",
+      "domain": "rate",
+      "direction": "Im(i*omega*x)/maxabs(Im(i*omega*x))",
+      "prediction": "-M @ direction"
+    },
+    {
+      "id": "B_native_F3",
+      "domain": "control",
+      "direction": "native F3 increment; no additional radians conversion",
+      "prediction": "saved real B; imaginary B must be zero"
+    },
+    {
+      "id": "A_frame_yaw",
+      "domain": "state",
+      "direction": "unit coordinate2208, physical yaw rate=W*z[2208]",
+      "prediction": "saved A column2208; no matrix-vector product"
+    }
+  ],
+  "widths": {
+    "state_and_native_control": [
+      1e-05,
+      5e-06
+    ],
+    "rate": "W*[1e-5,5e-6]",
+    "W": 0.527658212781417
+  },
+  "acceptance": {
+    "formula": "abs(stencil-prediction) <= 2e-8 + 2e-8*abs(prediction), componentwise normalized residual rows",
+    "fourth_order_stencil": "[8*(R(+h)-R(-h))-(R(+2h)-R(-2h))]/(12*h)",
+    "both_widths_required": true,
+    "fresh_base_limit": 1e-08,
+    "rank_or_harmonic_gate_changes": false,
+    "product_envelope_not_added_to_gate": true
+  },
+  "result": {
+    "comparisons": {
+      "comparisons": 12,
+      "passes": 12,
+      "failures": 0
+    },
+    "fresh_base_residual": 1.2335210632838307e-13,
+    "max_abs_derivative_difference": 8.74069061531144e-10,
+    "max_gate_fraction": 0.043702936118303885,
+    "rows": [
+      {
+        "id": "A_real_response",
+        "width_index": 0,
+        "width": 1e-05,
+        "max_abs_difference": 2.2041017231333156e-10,
+        "max_scaled_difference": 0.011020422799033777,
+        "worst_block": "nodal_forces",
+        "independent_fsum_max_abs_difference": 2.2041017231333156e-10,
+        "independent_accumulation_difference": 8.673617379884035e-19
+      },
+      {
+        "id": "A_real_response",
+        "width_index": 1,
+        "width": 5e-06,
+        "max_abs_difference": 8.392793201987081e-10,
+        "max_scaled_difference": 0.04196364470125094,
+        "worst_block": "nodal_forces",
+        "independent_fsum_max_abs_difference": 8.392793201987081e-10,
+        "independent_accumulation_difference": 2.168404344971009e-19
+      },
+      {
+        "id": "A_imag_response",
+        "width_index": 0,
+        "width": 1e-05,
+        "max_abs_difference": 3.69302772282136e-10,
+        "max_scaled_difference": 0.01845463483143158,
+        "worst_block": "circulation",
+        "independent_fsum_max_abs_difference": 3.69302772282136e-10,
+        "independent_accumulation_difference": 8.673617379884035e-19
+      },
+      {
+        "id": "A_imag_response",
+        "width_index": 1,
+        "width": 5e-06,
+        "max_abs_difference": 8.74069061531144e-10,
+        "max_scaled_difference": 0.043702936118303885,
+        "worst_block": "nodal_forces",
+        "independent_fsum_max_abs_difference": 8.74069061531144e-10,
+        "independent_accumulation_difference": 3.469446951953614e-18
+      },
+      {
+        "id": "M_real_response_rate",
+        "width_index": 0,
+        "width": 5.27658212781417e-06,
+        "max_abs_difference": 2.2461091752359007e-12,
+        "max_scaled_difference": 0.00011230541422266538,
+        "worst_block": "nodal_forces",
+        "independent_fsum_max_abs_difference": 2.2461091752359007e-12,
+        "independent_accumulation_difference": 5.421010862427522e-20
+      },
+      {
+        "id": "M_real_response_rate",
+        "width_index": 1,
+        "width": 2.638291063907085e-06,
+        "max_abs_difference": 1.3754774393648643e-11,
+        "max_scaled_difference": 0.0006877384474599231,
+        "worst_block": "frame_position_kinematics",
+        "independent_fsum_max_abs_difference": 1.3754774393648643e-11,
+        "independent_accumulation_difference": 5.421010862427522e-20
+      },
+      {
+        "id": "M_imag_response_rate",
+        "width_index": 0,
+        "width": 5.27658212781417e-06,
+        "max_abs_difference": 6.0774767548451254e-12,
+        "max_scaled_difference": 0.0003038737953060268,
+        "worst_block": "frame_position_kinematics",
+        "independent_fsum_max_abs_difference": 6.0774767548451254e-12,
+        "independent_accumulation_difference": 1.3552527156068805e-20
+      },
+      {
+        "id": "M_imag_response_rate",
+        "width_index": 1,
+        "width": 2.638291063907085e-06,
+        "max_abs_difference": 1.0482717521754754e-11,
+        "max_scaled_difference": 0.0005241358028917348,
+        "worst_block": "frame_position_kinematics",
+        "independent_fsum_max_abs_difference": 1.0482717521754754e-11,
+        "independent_accumulation_difference": 6.776263578034403e-21
+      },
+      {
+        "id": "B_native_F3",
+        "width_index": 0,
+        "width": 1e-05,
+        "max_abs_difference": 0.0,
+        "max_scaled_difference": 0.0,
+        "worst_block": "compatibility",
+        "independent_fsum_max_abs_difference": 3.469446951953614e-18,
+        "independent_accumulation_difference": 3.469446951953614e-18
+      },
+      {
+        "id": "B_native_F3",
+        "width_index": 1,
+        "width": 5e-06,
+        "max_abs_difference": 6.664425955538178e-12,
+        "max_scaled_difference": 0.00032728759034597035,
+        "worst_block": "circulation",
+        "independent_fsum_max_abs_difference": 6.664425955538178e-12,
+        "independent_accumulation_difference": 3.469446951953614e-18
+      },
+      {
+        "id": "A_frame_yaw",
+        "width_index": 0,
+        "width": 1e-05,
+        "max_abs_difference": 0.0,
+        "max_scaled_difference": 0.0,
+        "worst_block": "compatibility",
+        "independent_fsum_max_abs_difference": 5.551115123125783e-17,
+        "independent_accumulation_difference": 5.551115123125783e-17
+      },
+      {
+        "id": "A_frame_yaw",
+        "width_index": 1,
+        "width": 5e-06,
+        "max_abs_difference": 7.154762893257782e-12,
+        "max_scaled_difference": 0.00033309030788373177,
+        "worst_block": "circulation",
+        "independent_fsum_max_abs_difference": 7.154762893257782e-12,
+        "independent_accumulation_difference": 5.551115123125783e-17
+      }
+    ]
+  },
+  "operations": {
+    "network_constructions": 1,
+    "dynamic_system_constructions": 1,
+    "physical_captures": 1,
+    "full_residual_calls_entered": 49,
+    "full_residual_calls_completed": 49,
+    "full_residual_calls_failed": 0,
+    "fresh_base_full_residuals": 1,
+    "perturbation_full_residuals": 48,
+    "signed_saved_matrix_vector_products": 4,
+    "absolute_saved_matrix_vector_products": 4,
+    "local_numpy_solve_calls": 961,
+    "equilibrium_calls": 0,
+    "full_linearizations": 0,
+    "harmonic_solves": 0,
+    "full_matrix_factorizations": 0,
+    "full_rank_refactorizations": 0,
+    "adaptive_extensions": 0,
+    "source_edits": 0
+  },
+  "timing": {
+    "child_seconds": 14.576695166993886,
+    "supervisor_seconds": 15.322564907983178,
+    "peak_rss_KiB": 117260,
+    "interpretation": "One descriptive native execution; no timing repeat or performance claim."
+  },
+  "independent_audit": {
+    "status": "PASS_INDEPENDENT_SAVED_STENCIL_AUDIT",
+    "counts": {
+      "passed": 648,
+      "total": 648
+    },
+    "report_pin": {
+      "bytes": 156704,
+      "sha256": "3079839003f9c3e55fa4ce2a5e14e5c86be078982e97d2b6149d6206099e2c3f"
+    },
+    "operations": {
+      "saved_stencils_recomputed": 12,
+      "independent_fsum_stencils": 12,
+      "raw_residual_vectors_read": 48,
+      "physical_calls": 0,
+      "matrix_products": 0,
+      "solves": 0,
+      "factorizations": 0,
+      "production_imports": 0
+    },
+    "max_independent_accumulation_difference": 5.551115123125783e-17,
+    "prediction_verification": "All comparison predictions equal unchanged captured direction products. Native B and primitive yaw A column independently extracted from original saved arrays. Four A/M products are source/pin/accounting bound and were intentionally not recomputed.",
+    "late_preparation": "Audit prepared after the terminal result/summary were read; scope frozen before reading raw stencil vectors."
+  },
+  "retained_history": {
+    "prelaunch_accounting": "Unexecuted frozen draft incorrectly allowed only the constructor3x3 solve. Corrected before physical launch to record original local/batched3x3 rotation solves; this is not a numerical failure.",
+    "review_checker": "An independent source-pin checker Path/string failure is retained; corrected without physical calls."
+  },
+  "primary_research": {
+    "status": "PRIMARY_DESIGN_SPEED_ESTABLISHED_EXACT_RUDDER_BODE_POINT_UNIDENTIFIED",
+    "conclusion": "The reviewed sources identify a Daedalus design cruise condition, but do not identify the speed or trim behind rudder-bode.pdf operating point1. The existing30ft/s fixture remains an independently selected comparison case.",
+    "report_pin": {
+      "bytes": 12644,
+      "sha256": "1434e96efb9b4fe0a93d6090646eb3b21367a0a9feaa48e09de7074f7f914464"
+    },
+    "closeout_pin": {
+      "bytes": 1348,
+      "sha256": "591345878a932c4eeb3fc8174fdc5dae8a9ce13aab9aae52c5059651e2d1b0d0"
+    },
+    "pdfs_redistributed": false
+  },
+  "limitations": [
+    "Checks only six prescribed directions at one saved loaded16 state and two fixed widths; not every matrix entry or all states.",
+    "The harmonic response selection follows the observed mesh discrepancy; no preregistration claim.",
+    "Small residual/operator agreement does not establish mesh/frequency convergence or unknown published operating-point equivalence.",
+    "Earlier prelaunch accounting draft is an unexecuted harness correction, not a numerical failure.",
+    "The fsum difference bound covers comparison arithmetic only, not the truncation or cancellation error of physical residual evaluations.",
+    "The full sweep remains spatially unconverged; this study changes no old mesh verdict.",
+    "No new frequency curve, reference-condition change, eigenanalysis or stability conclusion."
+  ],
+  "evidence_archive": "daedalus-rudder-directional-check-20261024-evidence.zip",
+  "prior_evidence": [
+    {
+      "id": "mesh",
+      "repository_path": "docs/validation/daedalus-rudder-mesh-20261024-evidence.zip",
+      "pin": {
+        "bytes": 8796780,
+        "sha256": "d575ef39f1678b489b6d695107fe23708bdbccfd0b9eaf43df940639994bbc32"
+      },
+      "scope": "Previously published exact evidence; not duplicated."
+    },
+    {
+      "id": "sweep",
+      "repository_path": "docs/validation/daedalus-rudder-sweep-20261024-evidence.zip",
+      "pin": {
+        "bytes": 11943751,
+        "sha256": "3320cb0e94ac7f2349a043125be2f8b87defd415f65e5287db9cbb91a2ab0e02"
+      },
+      "scope": "Previously published exact evidence; not duplicated."
+    }
+  ],
+  "evidence_pins": {
+    "plan.json": {
+      "bytes": 34522,
+      "sha256": "0067b617a2f9dd3e66dd32476bd6fce1306fd0ecf716c13672191c93b07000f5"
+    },
+    "report.json": {
+      "bytes": 264680,
+      "sha256": "b1bae98a20c0937bb0d57531897f51aea322c1ac3b11fcf2a8115f654a301c81"
+    },
+    "session-closeout.json": {
+      "bytes": 1245,
+      "sha256": "93d6fcca7d10e383ade72d1284363e768bd51048d25931d751221aadd1793bf9"
+    },
+    "terminal-summary.json": {
+      "bytes": 4717,
+      "sha256": "1a25861e56d9eea769bd9b73f58562a11f5f2e7163b54ebf5ae723437d494ac1"
+    },
+    "review/reference/prelaunch-review-final.json": {
+      "bytes": 24252,
+      "sha256": "d77e65f77f114111cb63b3f94c7d161270c2b4436dd194a35fd99971188ece55"
+    },
+    "review/reference/saved-audit/plan.json": {
+      "bytes": 46394,
+      "sha256": "4f08ca0e5389b0bfcbd2fbe2b473acad9742d847762e4994124c3755aae0b6a8"
+    },
+    "review/reference/saved-audit/report.json": {
+      "bytes": 156704,
+      "sha256": "3079839003f9c3e55fa4ce2a5e14e5c86be078982e97d2b6149d6206099e2c3f"
+    },
+    "review/reference/saved-audit/session-closeout.json": {
+      "bytes": 973,
+      "sha256": "dd693a5e5cb794ad480aff23b683ce5cbfbf8cb781287b460dcf33f196825cee"
+    }
+  }
+}

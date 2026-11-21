@@ -1,0 +1,40 @@
+! Original OpenSwing inverse time-target demonstrator, SI units.
+! A 1 kg rigid body with principal inertias (2,3,4) kg m^2.
+! E1 applies E1 newtons along +x at the mass center.
+! E2 applies E2 newton-metres about +z, with zero thrust.
+! Use zero gravity, free flight, speed 10, alpha 0, four panels.
+! Time actuator target: E1 Ax .2. Forcing: time +Ax / 0 0 / .12 .12.
+! Exact required E1 = .2+t. Origin velocity x = -10+.2*t+.5*t^2.
+Name
+Inverse actuator demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+0 0 0
+0 0 0
+0 0 0
+End
+Ground
+1 0 0
+End
+Weight
+1 0 0 0 0 9.80665 0 0 0 0 0 19.6133 29.41995 39.2266
+End
+Engine
+1 0 1 0 0 0 0 1 0 0 1 0 -1 0 0
+2 0 1 0 0 0 0 0 0 1 0 1 -1 0 0
+End
+Beam 1
+Rigid frame
+t y
+0 0
+2 2
+End

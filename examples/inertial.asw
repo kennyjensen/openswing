@@ -1,0 +1,35 @@
+! Original OpenSwing example for inertial loads and free-flight constraints.
+! Rigid wing with a 100 kg point object; tensor entries are multiplied by g.
+Name
+Inertial reference wing
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+12 1 12
+0 0 0
+0 0 0
+0 0 0
+End
+Ground
+1 0 0
+End
+Weight
+! beam t x y z Weight CDA Vol Hx Hy Hz Ixx Iyy Izz Ixy Ixz Iyz
+1 0 .1 0 0 980.665 0 0 0 0 0 4903.325 980.665 5393.6575 0 0 0
+End
+Beam 1
+Main wing
+t x y z chord Xax
+0 0 0 0 1 .25
+6 0 6 0 1 .25
+t Cdf Cm dCMdF1
+0 .008 -.03 -.012
+6 .008 -.03 -.012
+End

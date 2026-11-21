@@ -1,0 +1,254 @@
+{
+  "status": "PASS_PROGRESS_OBSERVABILITY_WITH_UNCHANGED_NUMERICAL_WORK",
+  "recorded_utc": "2026-10-24T22:11:30.537195+00:00",
+  "change": "Forward existing Newton and native final-Jacobian observations during saved-equilibrium correction; preserve worker phase boundaries and label the current assembly separately from overall completion.",
+  "native": {
+    "status": "PASS",
+    "counts": {
+      "native": {
+        "total": 22,
+        "passed": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "javascript": {
+        "total": 12,
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    "receipt_preparation": {
+      "initial_parse_failure": {
+        "chunk": "c193c1",
+        "exit_code": 1,
+        "error": "AttributeError: summary parser expected # prefix; actual node output uses \u2139 prefix. No report overwrite occurred."
+      },
+      "correction": "Accepted actual saved summary prefix; no test rerun."
+    }
+  },
+  "wasm": {
+    "status": "PASS_EQUILIBRIUM_PROGRESS_WASM",
+    "counts": {
+      "passed": 40,
+      "total": 40,
+      "cases_completed": 5
+    },
+    "operations": {
+      "network_constructions": 5,
+      "equilibrium_API_calls": 5,
+      "extra_residual_checks": 2
+    },
+    "pyodide": "314.0.7",
+    "elapsed_seconds": 13.591847484,
+    "network_fetch_attempts": 0,
+    "all_frozen_pins_match": true,
+    "scope": "Five small actual warm-equilibrium calls: callback off/on numerical and call-count identity, then RuntimeError callback cleanup at iteration, iteration tangent, final tangent. All use actual native-declined sparse builder with one trim variable.",
+    "identity": {
+      "state_bitwise_equal": true,
+      "native_residual_calls_off": 106,
+      "native_residual_calls_on": 106,
+      "rank_and_iteration_reports_equal": true,
+      "fresh_full_residual": 4.64810986588413e-11,
+      "full_Jacobian_SVD_rcond": 0.01541319974555051,
+      "newton_iterations": 3,
+      "tangent_builds": 1
+    },
+    "failure_cleanup": {
+      "exception": "RuntimeError subclass propagated by identity",
+      "phases": [
+        "equilibrium_iteration",
+        "equilibrium_iteration_tangent",
+        "equilibrium_final_tangent"
+      ],
+      "owners_restored": true,
+      "seed_unchanged": true
+    },
+    "limitations": [
+      "Actual local Pyodide/NumPy/SciPy, no fetched packages, no Daedalus physics or public copy.",
+      "WASM scope is five small actual API attempts; native22 plus JS12 are distinct prerequisite evidence, not rerun here.",
+      "RuntimeError callback cleanup is exercised at three phases; native ValueError/KeyboardInterrupt/adapter/custom-final coverage is not claimed as WASM coverage.",
+      "The pass-through attach observer records actual declined contexts and cleanup; no solver, tangent, residual, or acceptance arithmetic is replaced."
+    ]
+  },
+  "source_and_public_kernel_identical": true,
+  "process_closeouts": [
+    {
+      "status": "PASS",
+      "session_id": 67891,
+      "launch_chunk": "d9ca27",
+      "terminal_chunk": "6532e6",
+      "exit_code": 0,
+      "reaped": true,
+      "children": [
+        {
+          "name": "native",
+          "command": [
+            "/home/userland/aswing/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_equilibrium_progress.py",
+            "tests/test_seeded_corrector.py::test_slot_adapter_without_nfev_or_new_attribute_support_keeps_old_path",
+            "tests/test_seeded_corrector.py::test_custom_final_tangent_preserved_and_no_candidate_diagnostics",
+            "tests/test_seeded_corrector.py::test_converged_final_sparse_matrix_is_fresh_complete_at_returned_state",
+            "tests/test_seeded_corrector.py::test_final_stage_callback_failure_propagates_and_restores_owners",
+            "-o",
+            "pythonpath=/home/userland/aswing",
+            "--junitxml=/tmp/openswing-equilibrium-progress-20261024/native.xml"
+          ],
+          "cap_seconds": 240,
+          "pid": 5575,
+          "started": true,
+          "exit_code": 0,
+          "reaped": true,
+          "elapsed_seconds": 13.852177639986621
+        },
+        {
+          "name": "javascript",
+          "command": [
+            "node",
+            "--test",
+            "tests/solve-progress.test.mjs"
+          ],
+          "cap_seconds": 60,
+          "pid": 5860,
+          "started": true,
+          "exit_code": 0,
+          "reaped": true,
+          "elapsed_seconds": 0.7319153650023509
+        }
+      ],
+      "report_pin": {
+        "bytes": 21871,
+        "sha256": "74f59c83b971017103839cf95061357701728b420bd5c8bcb0723722d3622897"
+      },
+      "input_pins_pin": {
+        "bytes": 18490,
+        "sha256": "f87d325e53b079a00b876095ee4ff4e56364cedb655de5c6ff11d767c815193c"
+      },
+      "source_unchanged": true
+    },
+    {
+      "status": "PASS",
+      "session_id": 12836,
+      "launch_chunk": "40a87e",
+      "terminal_chunk": "ccc355",
+      "exit_code": 0,
+      "reaped": true,
+      "supervisor_pid": 7854,
+      "child_pid": 7889,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "cap_seconds": 240,
+      "timed_out": false,
+      "retries": 0,
+      "elapsed_monotonic_seconds": 14.007046443002764,
+      "report_pin": {
+        "bytes": 17965,
+        "sha256": "1743f2d637b5920bbf8e13c8f44a3e0aca4d3f0bde02dcfb998863b2e981f42b"
+      },
+      "runtime_report_pin": {
+        "bytes": 48122,
+        "sha256": "7c6ea067b846d86157089d2b95f0a588329e6bb4045897d63608101776e829d0"
+      },
+      "execution_pin": {
+        "bytes": 396,
+        "sha256": "0aaedcf40d41e945725bd9941f59faa6195aaf7d6f3a227470639abc69838a46"
+      },
+      "plan_pin": {
+        "bytes": 42252,
+        "sha256": "6c1502f9629e51f4d6255a37edb00e675a915713cced497987f4ea581dd11180"
+      },
+      "source_modules": 108,
+      "all_frozen_pins_match": true
+    }
+  ],
+  "limitations": [
+    "Focused small native/Pyodide checks; no new Daedalus browser physics run.",
+    "No solver equation, tolerance, acceptance, derivative-step or retry changes.",
+    "Local source/public kernel updated; hosted and packaged releases were not rebuilt."
+  ],
+  "evidence_pins": [
+    {
+      "path": "/tmp/openswing-equilibrium-progress-20261024/report.json",
+      "bytes": 21871,
+      "sha256": "74f59c83b971017103839cf95061357701728b420bd5c8bcb0723722d3622897"
+    },
+    {
+      "path": "/tmp/openswing-equilibrium-progress-20261024/session-closeout.json",
+      "bytes": 1694,
+      "sha256": "a0bfa1b8b45f5e4c3efde48f4884ed2e30e2d4bee51835a5386b7f500894d840"
+    },
+    {
+      "path": "/tmp/openswing-equilibrium-progress-wasm-20261024/plan.json",
+      "bytes": 42252,
+      "sha256": "6c1502f9629e51f4d6255a37edb00e675a915713cced497987f4ea581dd11180"
+    },
+    {
+      "path": "/tmp/openswing-equilibrium-progress-wasm-20261024/report.json",
+      "bytes": 17965,
+      "sha256": "1743f2d637b5920bbf8e13c8f44a3e0aca4d3f0bde02dcfb998863b2e981f42b"
+    },
+    {
+      "path": "/tmp/openswing-equilibrium-progress-wasm-20261024/session-closeout.json",
+      "bytes": 907,
+      "sha256": "8d29270b858b7a0b00ebb7c5f6e0aba0a2f3d0212dea3d54052a0924b94ac181"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/equilibrium_state.py",
+      "bytes": 18913,
+      "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+    },
+    {
+      "path": "/home/userland/aswing/public/kernel/equilibrium_state.py",
+      "bytes": 18913,
+      "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+    },
+    {
+      "path": "/home/userland/aswing/web/solve-progress.js",
+      "bytes": 7688,
+      "sha256": "16edcc6fda702d4e75b3770c1fe2c2c3b0d84d1aa0a3406da1a9e2610c4da6ef"
+    },
+    {
+      "path": "/home/userland/aswing/web/worker.js",
+      "bytes": 4071,
+      "sha256": "c1e761bcf4ec693a6264416128e3dffa081513e0c3ea90907a6faa424e9ff52e"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_equilibrium_progress.py",
+      "bytes": 5181,
+      "sha256": "3039810d5d2c498981c5a1a19584fa98db6fa23a9d8e73b20875938e56cc7776"
+    },
+    {
+      "path": "/home/userland/aswing/tests/solve-progress.test.mjs",
+      "bytes": 11419,
+      "sha256": "197eb98b2941a5ffa6a4bbc15e2691cf05c83c2f622d26269f18d4659048a314"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/test-equilibrium-progress-wasm.mjs",
+      "bytes": 10738,
+      "sha256": "2d1588f2f67efceb026c9586432f0715154e0dd5b3c604a30f1f56e00ddceefd"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/equilibrium-progress.md",
+      "bytes": 1886,
+      "sha256": "f8f0912af2e0d09a313ff868820a0538870a3226ba70e77fe58a8ec9f8eba506"
+    }
+  ],
+  "local_serving": {
+    "report": {
+      "path": "/tmp/openswing-daedalus-cruise16-publication-20261024/serving/r2/report.json",
+      "bytes": 3559,
+      "sha256": "809647bddc05681046c1bdb9d993d2dacdeba84f697b7a2245bc31235bdc7fa5"
+    },
+    "closeout": {
+      "path": "/tmp/openswing-daedalus-cruise16-publication-20261024/serving/r2/session-closeout.json",
+      "bytes": 1456,
+      "sha256": "76ec70545f683c9aa442aca8fee93e855053f2948ddea6fdee975877251922c8"
+    },
+    "scope": "Exact public-kernel bytes and worker/progress JavaScript imports; project import and case loading without an analysis request. No full aircraft browser solve."
+  }
+}

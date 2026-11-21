@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-06",
+  "status": "PROGRESS_VERIFIED",
+  "family": "FFWT-2",
+  "configuration": "FFWT10 V15 DF21",
+  "full_family_validated": false,
+  "goal_complete": false,
+  "reference_tolerance": 0.05,
+  "physical_equations_unchanged": true,
+  "numerical_gates_unchanged": true,
+  "output_accounting": {
+    "required": 4005,
+    "computed": 25,
+    "missing": 3980,
+    "passed": 10
+  },
+  "channels": {
+    "roll_acceleration_deg_s2": {
+      "required": 801,
+      "computed": 5,
+      "passed": 0,
+      "failed_median_percent": 123.16991516937732,
+      "failed_max_percent": 156.29511648152535
+    },
+    "roll_rate_deg_s": {
+      "required": 801,
+      "computed": 5,
+      "passed": 5,
+      "failed_median_percent": null,
+      "failed_max_percent": null
+    },
+    "bank_deg": {
+      "required": 801,
+      "computed": 5,
+      "passed": 5,
+      "failed_median_percent": null,
+      "failed_max_percent": null
+    },
+    "sensor2_bank_deg": {
+      "required": 801,
+      "computed": 5,
+      "passed": 0,
+      "failed_median_percent": 45.65358827237992,
+      "failed_max_percent": 50.71108509148087
+    },
+    "sensor3_bank_deg": {
+      "required": 801,
+      "computed": 5,
+      "passed": 0,
+      "failed_median_percent": 20.87379947168847,
+      "failed_max_percent": 21.11585034009309
+    }
+  },
+  "start_time": 1.1,
+  "end_time": 2.040000000000001,
+  "unique_snapshots": 95,
+  "accepted_steps": 94,
+  "rejected_steps": 0,
+  "maximum_residual": 9.35010167961393e-09,
+  "segment_seconds": 262.343450432003,
+  "performance": {
+    "before_seconds": 38.078142399,
+    "after_seconds": 33.135266874,
+    "before_evaluations": 936,
+    "after_evaluations": 715,
+    "avoided_residuals_per_full_matrix": 221
+  },
+  "parity": {
+    "status": "PASS",
+    "numeric_fields": 49272,
+    "maximum_fraction_of_gate": 1.1815956359264615e-07,
+    "failures": [],
+    "excluded_counters": [
+      "/jacobian_builds",
+      "/newton_iterations",
+      "/evaluations",
+      "/snapshots/0/evaluations",
+      "/snapshots/0/circulation_solver/evaluations",
+      "/snapshots/1/evaluations",
+      "/snapshots/1/circulation_solver/evaluations",
+      "/snapshots/2/evaluations",
+      "/snapshots/2/circulation_solver/evaluations"
+    ],
+    "absolute_relative_gate": 2e-08
+  },
+  "code_change": {
+    "status": "PASS",
+    "production_modules_changed": [
+      "time_integration.py"
+    ],
+    "physical_equations_ast_unchanged": true,
+    "newton_gates_and_iteration_logic_unchanged": true,
+    "change": "Replace the original dense assembly loop with full_tangent; helper supplies existing analytical load/reaction columns only.",
+    "before_sha256": "7d3f2e5ca4c1f4e4c6c6e3b6ee9d72829a3704738db0f20c4014586c8b058a1f",
+    "after_sha256": "d58ea4693d676109b6abb2ed3c54b5482d9ce9e1a871aa8473977a690d8db46c"
+  },
+  "tests": {
+    "python": 11,
+    "wasm_numerical": "PASS"
+  },
+  "wasm": {
+    "status": "PASS",
+    "scope": "Source BDF complete matrix and nonlinear Newton callback; no full FFWT or UI validation",
+    "matrix_size": 106,
+    "direct_columns": 30,
+    "residual_calls": 77,
+    "scaled_matrix_error": 5.000444502909205e-13,
+    "root": [
+      1.9999999999997933,
+      1.0000000000001035
+    ],
+    "root_residual": 7.229772336359019e-13,
+    "iterations": 7,
+    "builds": 2,
+    "source_path": "examples/source-airflow-check.asw",
+    "source_sha256": "02914105d360ef8bb9bb29da2416c31028b8f77a37f4e4bf9617a5bfb72f1e0f",
+    "seconds": 36.447022476
+  },
+  "native_output_consistency": {
+    "roll_acceleration_from_roll_rate": {
+      "compatible": 799,
+      "total": 799,
+      "maximum_absolute_difference": 0.1888,
+      "maximum_fraction_of_printed_roundoff_bound": 0.9437640589852536
+    },
+    "bank_derivative_from_roll_rate": {
+      "compatible": 799,
+      "total": 799,
+      "maximum_absolute_difference": 1.951,
+      "maximum_fraction_of_printed_roundoff_bound": 0.9752561859535116
+    }
+  },
+  "evidence": [
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/assessment-204.json",
+      "bytes": 2137237,
+      "sha256": "b9a13e4407e62e8ecf85fb2003dba4981314bbcb7f722a170e0f29c358e33dd1"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/advance-to-first-reference.json",
+      "bytes": 6033,
+      "sha256": "f9eabcf97cd987960deb16e3d07f270de205ff65b8f5146e3d7a201234969da4"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/code-change.json",
+      "bytes": 498,
+      "sha256": "2834f56b0aa1b1e52c6213f25ba444ff1ceb959a7f7f5171daeda55a3334d7ee"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/step-parity.json",
+      "bytes": 505,
+      "sha256": "dc081753fa9a95cbae4e5854a326bdf9de44fba4f4981d8f929889afad8d46f9"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/native-kinematics.json",
+      "bytes": 279672,
+      "sha256": "5c83e33b6ee0131f2e45f0623c77d11eafb5465453a801eb5a219d0465debdea"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/tangent-tests.log",
+      "bytes": 99,
+      "sha256": "56ef42f9bd635ffaaa03650ce2f9345e4c021dfff88334211f4d523c7f922960"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/assessment-tests.log",
+      "bytes": 98,
+      "sha256": "4d371c825e6ede0a69583761f486bccc163cd97d421233e54b5fcfca6691877c"
+    },
+    {
+      "path": "artifacts/isae/ffwt2-tangent-20261105/wasm-r2/report.json",
+      "bytes": 13413,
+      "sha256": "2826a0d7bcb5205711a75093b72a0614a00f8cf099f4cf4c961412f09a66245e"
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-2-D - Effect of FFWT on Rolling Performance/FFWT10/FFWT_REMOVED_V15_DF21.asw",
+      "bytes": 11266,
+      "sha256": "4463b15ee5184d64b1684eae31b152bc88a1b69e1cd99c045021a1fa1c330893"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-2-D - Effect of FFWT on Rolling Performance/FFWT10/FFWT_REMOVED_V15_ROLL_DF21.sh",
+      "bytes": 199,
+      "sha256": "367c6554c6c9b70643e860bf0c74913d3b68db0ec03baa6b94ff63d902b70dec"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-2-D - Effect of FFWT on Rolling Performance/FFWT10/FFWT_REMOVED_V15_DF21.txt",
+      "bytes": 68282,
+      "sha256": "db8dedc26c230550636a38fa4f656971f621c85498d8733789ab633aed44655d"
+    }
+  ],
+  "qualifications": [
+    "Original time history starts after two seconds of warm-up; shorter segments cannot match it.",
+    "Mixed frame with free roll and other accelerations prescribed zero represents the reported rolling rig.",
+    "Default alpha/beta/pose, cold zero-local-rate equilibrium, aerodynamic flags and node arrays are not authenticated historical startup.",
+    "No initial state is inferred from native outputs. All literal source sensors and hinge laws are preserved.",
+    "Full history, temporal/mesh refinement and all five native channels remain required.",
+    "This segment continues a frozen prefix; the ordinary checkpoint API checks its saved physical and discrete equations.",
+    "Snapshot accounting here covers the versioned continuation, not the separately retained warm-up prefix.",
+    "Original C constraint-editor preset is identified as freqCalc defaults in the public guide; its exact final assignments remain unrecovered.",
+    "Reference comparisons cover only five rows; the matching roll rates have different local slopes."
+  ],
+  "remaining": [
+    "Original constraint preset and startup",
+    "Zero-pass acceleration and sensor channels",
+    "Full 2\u201310 s history",
+    "Temporal and mesh refinement",
+    "Independent trajectory audit",
+    "Other models and shared family adapter",
+    "Full FFWT2 browser trajectory"
+  ]
+}

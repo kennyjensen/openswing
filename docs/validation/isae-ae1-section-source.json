@@ -1,0 +1,672 @@
+{
+  "schema": "openswing-isae-ae1-section-source-review-v1",
+  "status": "SOURCE_REVIEW_NO_BLOCKER_FOR_ISOLATED_DIAGNOSTIC",
+  "classification": "Prospective section-slope sensitivity only; not an experimental correction, fitted model, VLM reproduction, stability result or full validation.",
+  "scope": {
+    "new_aircraft_calls": 0,
+    "production_imports": 0,
+    "native_parses": 0,
+    "equilibrium_solves": 0,
+    "coefficient_fits": 0,
+    "repository_edits": 0,
+    "activity": "Read source and accepted saved text; stdlib hash/schema and scalar arithmetic only. Actual prospective runner needs its own freeze."
+  },
+  "prospective_protocol": {
+    "slope_old_per_rad": 6.1185,
+    "slope_new_per_rad": 6.283185307179586,
+    "slope_increase_relative_old_percent": 2.6915960967489827,
+    "baseline_shortfall_relative_2pi_percent": -2.6210480692238303,
+    "conditions": [
+      {
+        "alpha_deg": 5.0,
+        "speed_m_s": 30.0
+      },
+      {
+        "alpha_deg": 5.0,
+        "speed_m_s": 40.0
+      },
+      {
+        "alpha_deg": 7.0,
+        "speed_m_s": 30.0
+      }
+    ],
+    "half_intervals": [
+      30,
+      60
+    ],
+    "maximum_new_coupled_calls": 6,
+    "baseline_reuse": "Reuse the six completed original-slope comparison states and two zero-flow measurement baselines. Do not recompute or relabel them as changed-slope equilibria.",
+    "nonlinear_path": "Retain original cold-jig start and four nominal monotone load-continuation steps per condition; changing the initial branch path would confound this diagnostic.",
+    "change": "Only both endpoint values of the explicit full-wing dCLda distribution become2*pi; no geometry, material, mass, constraint, sampling or normalization change.",
+    "held": {
+      "CLmax": 1.1,
+      "CLmin": -1.1,
+      "alpha_zero_lift_deg": 0.0,
+      "Cm": 0.0,
+      "Cdf": 0.0,
+      "Cdp": 0.0,
+      "controls": {},
+      "powers": {},
+      "stall": true,
+      "stall_factor": 40.0,
+      "stall_width": 0.05,
+      "pg_mach": 0.0,
+      "density_kg_m3": 1.23,
+      "sound_speed_m_s": 340.21,
+      "gravity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ground_effect": 0,
+      "wall": "explicit mirrored full beam",
+      "aero_lag": true,
+      "wake_core_ratio": 0.25,
+      "freeze_influences": false
+    },
+    "gates": {
+      "fresh_normalized_residual_max": 1e-08,
+      "force_balance_scaled": 1e-07,
+      "moment_balance_scaled": 1e-07,
+      "mirror_position_divided_by_L": 1e-08,
+      "mirror_rotation_max": 1e-08,
+      "finite_values": true,
+      "experimental_acceptance_band": null
+    },
+    "outcome": "Retain all six results/failures and compare twist and both root-normal/wind-normal displacement conventions against unchanged baseline, primary VLM and experiment separately. No automatic fitting or scope extension."
+  },
+  "primary_justification": {
+    "author_source": "Riso and Cesnik, DOI10.2514/1.C036869, author preprint sectionIII.C pp12\u201313, Fig6 and Eqs8\u20139.",
+    "url": "https://www.researchgate.net/publication/366714346_Impact_of_Low-Order_Modeling_on_Aeroelastic_Predictions_for_Very_Flexible_Wings",
+    "confirmed": "The separate15-strip potential model uses a zero-thickness flat plate, aerodynamic center atc/4 and constant2*pi per-radian slope. Its3D tip weighting is fitted to primary VLM tip displacement.",
+    "distinction": "Supplied UVLM files represent the36-spanwise-by18-chordwise-panel lifting-surface branch. Changing one ASWING section parameter does not reproduce its aerodynamic discretization, load distribution or tailored strip weighting.",
+    "retain_stall": "Primary potential models omit stall/viscosity/thickness, but disabling our stall simultaneously would defeat the declared isolated slope test. Any no-stall experiment is a separate future study."
+  },
+  "parsed_distribution": {
+    "proof_level": "Source trace plus exact saved generated ASW tables; no current parser evaluation was executed.",
+    "literal": "Pazy_wing.asw lines45\u201350: dCLda multiplier6.1185 multiplies unit entries; all four original stations therefore give6.1185 despite doubled.52 material station.",
+    "derived": "isae_ae1.py lines137\u2013139 emits two full-domain endpoint rows with identical values. The changed case must update both endpoints.",
+    "parser": "asw.py lines271\u2013285 applies per-column multiplier/addition; lines332\u2013340 constructs Distribution. Distribution lines77\u201390 uses separate natural cubic segments; Beam.value lines150\u2013158 evaluates the declared field. A two-point identical-valued table is constant with zero first/second derivatives, so spline end conventions and side traces cannot change this slope.",
+    "no_units_conversion": "dCLda is per radian (ASWING user guide line1183), unlike alpha in degrees. Neither multiply2*pi by180/pi nor apply a second scale.",
+    "no_default_substitution": "A declared dCLda table overrides the2*pi default in asw.py line27. Changing DEFAULTS alone would not change these cases.",
+    "checks": "Assert parsed field values and derivatives at all actual aerodynamic receivers and endpoints, and exact equality of all other distributions/records/meshes before the prospective coupled runs."
+  },
+  "actual_section_law": {
+    "virtual_geometry": "Steady equations155\u2013157, pp32\u201333; frozen_influence.py lines14\u201336. r_cp=r_hv+[a0/(4*pi)]*c/|e cross s|*e. a0=2*pi makes h=.5; baseline h is below.5.",
+    "baseline_h": 0.48689475965388085,
+    "new_h": 0.5,
+    "force_location": "Quarter-chord bound force location and material quarter-chord moment arm do not depend on a0; do not move Xax or the structural reference line.",
+    "leakage": "Steady equations202\u2013204, pp40\u201341; aero.py lines461\u2013467. cl=2*Gamma/(c*Vperp), leakage=(Vperp/a0)*Ks*fstall(cl). Smooth leakage is not exactly zero below CLmax. Changing a0 necessarily changes this same law; no compensating Ks or CLmax adjustment.",
+    "saturation": "Post-limit lift-curve slope is approximately a0/(1+Ks); changing CLmax to preserve a nominal stall angle would add a second parameter change. The native law does not enforce a hard CL cap.",
+    "induced_pressure_drag": "aero.py lines552\u2013555 retains2*rho*(vperp/Vperp)*tangency^2*c*ds even with Cdf=Cdp=0. Altered loads/drag through the solved circulation are outcomes, not additional input changes.",
+    "controls": "aero.py lines321\u2013326 adds Fk*dCLdFk/a0 to incidence. Current controls are empty and derivatives undeclared(defaultzero), so this additional slope coupling is inactive.",
+    "interpretation": "It is not mathematically a post-processing scale on lift: changing a0 rebuilds tangency-point influence geometry, leakage and the coupled equilibrium."
+  },
+  "cm_convention": {
+    "native": "Steady equations72\u201373 pp16\u201317; aero.py lines571\u2013581: m_section=(.25-Xax)*c*c_hat cross f_lift +.5*rho*Vperp^2*c^2*Cm_corrected*ds*s_hat. Input Cm is about chord/4, positive along native span.",
+    "local_mach": "Cm_corrected=Cm/sqrt(1-Mperp^2), Mperp=Vperp/a_sound. This remains independent of selected PG Mach0 (user guide lines2431\u20132434). Thus PG0 does not force local Mperp0; existing Cm0 makes this correction identically zero.",
+    "reference_axis": "Xax=.441 and chord.1m remain unchanged; native lift-arm torque is already included. Do not add the lift-arm moment again when testing any future nonzero section Cm.",
+    "xfoil": "Official XFOIL primer Force calculation specifies default Cartesian moment reference(.25,0), with chord-normalization caveat. For standard unit-chord airfoil axes, positive nose-up and native+span mapping follow from the pressure-integral and established chord orientation. The archived header lacks geometry-normalization/reference-command history, so that mapping is conditional, not proved by the polar alone.",
+    "xfoil_url": "https://web.mit.edu/drela/Public/web/xfoil/xfoil_doc.txt",
+    "present_action": "Keep Cm0. A future Cm(alpha_local,Re) study requires its own documented axis/reference mapping and local-flow treatment."
+  },
+  "archived_polar": {
+    "pin": {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/xf-naca0018-il-200000-n5.txt",
+      "bytes": 10494,
+      "sha256": "b84ac37615fe0dd8eb101d1bd6bc4a198c57305cc4ad43172f4619ca4b99290b"
+    },
+    "solver": "XFOIL6.96",
+    "airfoil": "NACA0018",
+    "fixed_reynolds": 200000,
+    "fixed_mach": 0.0,
+    "ncrit": 5.0,
+    "forced_transition_xc": {
+      "top": 1.0,
+      "bottom": 1.0
+    },
+    "header_lines_1based": [
+      2,
+      11
+    ],
+    "numeric_lines_1based": [
+      13,
+      167
+    ],
+    "samples": 155,
+    "alpha_local_deg_range": [
+      -19.75,
+      19.25
+    ],
+    "nominal_spacing_deg": 0.25,
+    "observed_gaps": [
+      {
+        "left": -0.75,
+        "right": -0.25,
+        "width": 0.5
+      },
+      {
+        "left": 0.25,
+        "right": 0.75,
+        "width": 0.5
+      }
+    ],
+    "missing_requested_grid_values": [
+      -0.5,
+      0.5
+    ],
+    "missing_reason": "Not stated; do not infer failure or interpolate a new law as part of this test.",
+    "original_slope_provenance": "Static_Aeroelastic.m lines166\u2013173 reads alpha/CL and applies polyfit on inclusive[-7.5,+7.5]deg, then converts to per-radian slope. This documents existing input generation; no refit was performed by this review.",
+    "reference_rows": [
+      {
+        "line": 91,
+        "values": [
+          0.0,
+          0.0,
+          0.01179,
+          0.0043,
+          0.0,
+          0.6241,
+          0.6241
+        ]
+      },
+      {
+        "line": 110,
+        "values": [
+          5.0,
+          0.5254,
+          0.01438,
+          0.00674,
+          0.0103,
+          0.3288,
+          0.9077
+        ]
+      },
+      {
+        "line": 118,
+        "values": [
+          7.0,
+          0.7641,
+          0.01712,
+          0.00916,
+          0.0061,
+          0.2229,
+          0.9684
+        ]
+      },
+      {
+        "line": 123,
+        "values": [
+          8.25,
+          0.9239,
+          0.01942,
+          0.01127,
+          -0.0004,
+          0.1671,
+          0.9935
+        ]
+      },
+      {
+        "line": 124,
+        "values": [
+          8.5,
+          0.9564,
+          0.01992,
+          0.01175,
+          -0.002,
+          0.157,
+          0.9976
+        ]
+      },
+      {
+        "line": 125,
+        "values": [
+          8.75,
+          0.9784,
+          0.02037,
+          0.0122,
+          -0.0015,
+          0.149,
+          1.0
+        ]
+      }
+    ],
+    "limitations": [
+      "One numerical Re, not a Reynolds range or measured section data.",
+      "Root incidence5/7deg is not local incidence; induced flow and elastic rotation vary across the wing.",
+      "Actual local Re requires local relative speed, chord and viscosity; current rho1.23/PG0 does not prove Re200000.",
+      "The155 samples establish stored coverage, not accuracy or validity at every sampled angle.",
+      "xtrf1.0 is a trip setting; natural transition may occur earlier, as Top_Xtr/Bot_Xtr columns show.",
+      "No XFOIL Cm/drag/stall/transition law is activated in the isolated slope diagnostic."
+    ]
+  },
+  "source_preservation": {
+    "baseline_dependency_hashes_checked": 152,
+    "baseline_dependencies_unchanged": true,
+    "selected_saved_states": [
+      {
+        "specification": {
+          "refinement": 2,
+          "intervals_per_half": 30,
+          "alpha_deg": 0.0,
+          "speed_m_s": 0.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/000.json.gz",
+          "bytes": 13970,
+          "sha256": "09b68f841cc80129388f662c45d7bbe39c7714260b3a9d4dca511a37129f3e77"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse neutral measurement baseline"
+      },
+      {
+        "specification": {
+          "refinement": 2,
+          "intervals_per_half": 30,
+          "alpha_deg": 5,
+          "speed_m_s": 30.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/028.json.gz",
+          "bytes": 67265,
+          "sha256": "d91f882a554209e3509aa83e54b48edd4c2b5aa5db4973266da3a738cf862676"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      },
+      {
+        "specification": {
+          "refinement": 2,
+          "intervals_per_half": 30,
+          "alpha_deg": 5,
+          "speed_m_s": 40.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/038.json.gz",
+          "bytes": 66856,
+          "sha256": "146cbe5d822be47deb469a3d4214f1ecb811cd1eaf21ce99a91763f788686b45"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      },
+      {
+        "specification": {
+          "refinement": 2,
+          "intervals_per_half": 30,
+          "alpha_deg": 7,
+          "speed_m_s": 30.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/081.json.gz",
+          "bytes": 67379,
+          "sha256": "bffc96e2608f8cfb0f5728c2c9f4aca714c9265a4d089e3f4f44bf258cc30d10"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      },
+      {
+        "specification": {
+          "refinement": 4,
+          "intervals_per_half": 60,
+          "alpha_deg": 0.0,
+          "speed_m_s": 0.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/093.json.gz",
+          "bytes": 20554,
+          "sha256": "6e5627b7b4b2296cfd9c4cc9e6c6e31ebb0af22e52e10f0c3fae3ec681ebeede"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse neutral measurement baseline"
+      },
+      {
+        "specification": {
+          "refinement": 4,
+          "intervals_per_half": 60,
+          "alpha_deg": 5,
+          "speed_m_s": 30.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/121.json.gz",
+          "bytes": 125857,
+          "sha256": "fb0a3047b3368e29a5aaf42459cf92f00e0e71d0dd041f55c5bd0b4f6f3f18ea"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      },
+      {
+        "specification": {
+          "refinement": 4,
+          "intervals_per_half": 60,
+          "alpha_deg": 5,
+          "speed_m_s": 40.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/131.json.gz",
+          "bytes": 126530,
+          "sha256": "25dd7c51f13276d0f0f5ae67e2b810d515698078377dba374d51704aabb6cf19"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      },
+      {
+        "specification": {
+          "refinement": 4,
+          "intervals_per_half": 60,
+          "alpha_deg": 7,
+          "speed_m_s": 30.0
+        },
+        "raw_pin": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/174.json.gz",
+          "bytes": 126778,
+          "sha256": "6c761a34bfeb75dd4e9b371a622bdb4cb4451e42b1fb25b218c38866309807ce"
+        },
+        "baseline_source_sha256": "73cb2aca691fd6d3a3fa43d25742df4f4018d8927d2841d6531ad178358cd23b",
+        "section_table_header_line_1based": 126,
+        "section_table": [
+          [
+            -0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.549843728,
+            6.1185,
+            1.1,
+            -1.1,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "use": "reuse completed slope6.1185 comparison only"
+      }
+    ],
+    "direct_input_pins": [
+      {
+        "path": "/tmp/openswing-isae-ae1-section-20261025/write-source-review.py",
+        "bytes": 13876,
+        "sha256": "8c888113313a19e5ebcd24d943fb60c34bc298837f92cd1200224849dc9d4515"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/plan.json",
+        "bytes": 77901,
+        "sha256": "b10f17baee53ea8a0bdc7451d82d3cc35f6bfef596efd74f7273217932c538c0"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/manifest.json",
+        "bytes": 313915,
+        "sha256": "d4aaa605120d53d37e1db18c5205768e34979855c0e28f1b5443f2255bcd4efa"
+      },
+      {
+        "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.json",
+        "bytes": 64572,
+        "sha256": "92d3ebd24297d6f9d377bdaf70064d812e6a5ac95b22bc41d2c926fbb73ff38f"
+      },
+      {
+        "path": "/home/userland/aswing/scripts/isae_ae1.py",
+        "bytes": 13221,
+        "sha256": "586019076697f4840b8852c3653b4580453a0d18ffb1ed363590cc56d68c1f52"
+      },
+      {
+        "path": "/home/userland/aswing/scripts/compare-isae-ae1.py",
+        "bytes": 9395,
+        "sha256": "0c651b860c022511e873ad5e3056130949724fac0e8dbe2aa10ee8bd93eb42df"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/asw.py",
+        "bytes": 19292,
+        "sha256": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/aero.py",
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/frozen_influence.py",
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/asw_theory.txt",
+        "bytes": 202732,
+        "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+        "bytes": 145039,
+        "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+        "bytes": 2329,
+        "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Static_Aeroelastic.m",
+        "bytes": 5515,
+        "sha256": "33afb0ad521d6c026dda273f5069df9915daee7bb37781c6b24dd6c5ab7e3cc5"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/xf-naca0018-il-200000-n5.txt",
+        "bytes": 10494,
+        "sha256": "b84ac37615fe0dd8eb101d1bd6bc4a198c57305cc4ad43172f4619ca4b99290b"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/000.json.gz",
+        "bytes": 13970,
+        "sha256": "09b68f841cc80129388f662c45d7bbe39c7714260b3a9d4dca511a37129f3e77"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/028.json.gz",
+        "bytes": 67265,
+        "sha256": "d91f882a554209e3509aa83e54b48edd4c2b5aa5db4973266da3a738cf862676"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/038.json.gz",
+        "bytes": 66856,
+        "sha256": "146cbe5d822be47deb469a3d4214f1ecb811cd1eaf21ce99a91763f788686b45"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/081.json.gz",
+        "bytes": 67379,
+        "sha256": "bffc96e2608f8cfb0f5728c2c9f4aca714c9265a4d089e3f4f44bf258cc30d10"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/093.json.gz",
+        "bytes": 20554,
+        "sha256": "6e5627b7b4b2296cfd9c4cc9e6c6e31ebb0af22e52e10f0c3fae3ec681ebeede"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/121.json.gz",
+        "bytes": 125857,
+        "sha256": "fb0a3047b3368e29a5aaf42459cf92f00e0e71d0dd041f55c5bd0b4f6f3f18ea"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/131.json.gz",
+        "bytes": 126530,
+        "sha256": "25dd7c51f13276d0f0f5ae67e2b810d515698078377dba374d51704aabb6cf19"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/174.json.gz",
+        "bytes": 126778,
+        "sha256": "6c761a34bfeb75dd4e9b371a622bdb4cb4451e42b1fb25b218c38866309807ce"
+      }
+    ]
+  },
+  "preflight_blockers": [],
+  "required_caveats": [
+    "The static sweep does not calculate stability or demonstrate full validation.",
+    "Do not use observed agreement to retune material/aero parameters.",
+    "Reuse old zero-flow baselines as observables only; changed source identity must remain explicit.",
+    "Do not infer a measured section slope correction or replace the baseline publication."
+  ]
+}

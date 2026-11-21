@@ -1,0 +1,368 @@
+{
+  "status": "SOURCE_AUDIT_COMPLETE_EXECUTION_BLOCKED",
+  "source_revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+  "scope": "P-4/P-5 only; saved FIG decoding, source-document and current API reading. No production imports, component calls, solver calls, upstream scripts or repository edits.",
+  "counts": {
+    "P-4": {
+      "ASW": {
+        "series": 20,
+        "stored_scalar_slots": 2000,
+        "finite_scalars": 1990,
+        "unavailable_scalars": 10
+      },
+      "ASW-m": {
+        "series": 20,
+        "stored_scalar_slots": 2000,
+        "finite_scalars": 1990,
+        "unavailable_scalars": 10
+      },
+      "Exp": {
+        "series": 20,
+        "stored_scalar_slots": 2540,
+        "finite_scalars": 2172,
+        "unavailable_scalars": 368
+      },
+      "ASW_paired_receiver_rows": 1000
+    },
+    "P-5": {
+      "ASW": {
+        "series": 16,
+        "stored_scalar_slots": 1600,
+        "finite_scalars": 1592,
+        "unavailable_scalars": 8
+      },
+      "ASW-m": {
+        "series": 16,
+        "stored_scalar_slots": 1600,
+        "finite_scalars": 1592,
+        "unavailable_scalars": 8
+      },
+      "Exp": {
+        "series": 16,
+        "stored_scalar_slots": 2456,
+        "finite_scalars": 2095,
+        "unavailable_scalars": 361
+      },
+      "ASW_paired_receiver_rows": 800
+    },
+    "all": {
+      "ASW": {
+        "series": 36,
+        "stored_scalar_slots": 3600,
+        "finite_scalars": 3582,
+        "unavailable_scalars": 18
+      },
+      "ASW-m": {
+        "series": 36,
+        "stored_scalar_slots": 3600,
+        "finite_scalars": 3582,
+        "unavailable_scalars": 18
+      },
+      "Exp": {
+        "series": 36,
+        "stored_scalar_slots": 4996,
+        "finite_scalars": 4267,
+        "unavailable_scalars": 729
+      },
+      "ASW_paired_receiver_rows": 1800
+    }
+  },
+  "executable_complete_input_cases": 0,
+  "conditions": [
+    {
+      "case": "P4_A_GWS",
+      "provenance": "MATLAB reproduction of ASWING jet model; report lines1088\u20131092. Not a recovered original ASWING run.",
+      "nominal_propeller": "GWS 5X4.3",
+      "nominal_diameter_m": 0.127,
+      "nominal_radius_m": 0.0635,
+      "rpm": 5000,
+      "advance_velocity_m_s": 0,
+      "x_over_D": [
+        0.125,
+        0.5,
+        1,
+        2,
+        3
+      ],
+      "original_model_driver_available": false,
+      "geometry_rpm_sources": [
+        "report lines1100\u20131104",
+        "report lines1461\u20131465"
+      ],
+      "blocked_inputs": [
+        "independent shaft power or thrust/torque and delta-velocity input tuple",
+        "density",
+        "effective blade drag area CdA",
+        "exact historical MATLAB formulation/coefficients"
+      ],
+      "ASW_series": 10,
+      "ASW_stored_scalar_slots": 1000,
+      "ASW_available_scalar_targets": 995
+    },
+    {
+      "case": "P4_B_DA4002_filename",
+      "provenance": "Static MATLAB reproduction, with unresolved propeller identity.",
+      "filename_propeller": "DA4002",
+      "report_second_static_propeller": "APC Sport 4.2X2 at 9000 RPM",
+      "nominal_diameter_candidates_m": {
+        "APC_4_2in": 0.10668,
+        "DA4002_9in": 0.2286
+      },
+      "advance_velocity_m_s": 0,
+      "x_over_D": [
+        0.125,
+        0.5,
+        1,
+        2,
+        3
+      ],
+      "original_model_driver_available": false,
+      "geometry_rpm_sources": [
+        "report lines1125\u20131137",
+        "report lines1461\u20131477"
+      ],
+      "blocked_inputs": [
+        "resolve filename versus report APC identity before assigning diameter/RPM",
+        "independent power",
+        "density",
+        "CdA",
+        "exact historical MATLAB formulation/coefficients"
+      ],
+      "ASW_series": 10,
+      "ASW_stored_scalar_slots": 1000,
+      "ASW_available_scalar_targets": 995
+    },
+    {
+      "case": "P5_A_GWS",
+      "provenance": "Report attributes advance-flow predictions to an ASWING numerical-sensor bench; actual model, driver and sensor exports are absent.",
+      "nominal_propeller": "GWS 5X4.3",
+      "nominal_diameter_m": 0.127,
+      "nominal_radius_m": 0.0635,
+      "rpm": 5000,
+      "published_advance_ratio": 0.52,
+      "x_over_D": [
+        0.125,
+        0.5,
+        1,
+        2
+      ],
+      "original_model_driver_available": false,
+      "saved_tail_velocity_candidate_m_s": 5.486400000000001,
+      "candidate_V_over_nD": 0.5184,
+      "candidate_qualification": "Output-derived freestream candidate, not independently proven driving input; published ratio is rounded and its conversion convention must be bound explicitly.",
+      "geometry_rpm_sources": [
+        "report lines1157\u20131159",
+        "report lines1274\u20131280",
+        "report lines1461\u20131465"
+      ],
+      "blocked_inputs": [
+        "independent shaft power or thrust/torque and delta-velocity input tuple",
+        "density",
+        "CdA",
+        "exact advance speed independent of targets",
+        "signed spin and original sensor pose/recovery formula"
+      ],
+      "ASW_series": 8,
+      "ASW_stored_scalar_slots": 800,
+      "ASW_available_scalar_targets": 796
+    },
+    {
+      "case": "P5_B_DA4002",
+      "provenance": "Report attributes advance-flow predictions to ASWING; original model/driver/sensor exports are absent.",
+      "nominal_propeller": "DA4002 9in",
+      "nominal_diameter_m": 0.2286,
+      "nominal_radius_m": 0.1143,
+      "rpm": 5000,
+      "published_advance_ratio": 0.64,
+      "x_over_D": [
+        0.125,
+        0.5,
+        1,
+        2
+      ],
+      "original_model_driver_available": false,
+      "saved_tail_velocity_candidate_m_s": 12.192,
+      "candidate_V_over_nD": 0.64,
+      "candidate_qualification": "Output-derived freestream candidate (also consistent with the rounded report ratio under V/(nD)), not independently proven driving input.",
+      "geometry_rpm_sources": [
+        "report lines1165\u20131169",
+        "report lines1463\u20131465",
+        "report lines1485\u20131491"
+      ],
+      "blocked_inputs": [
+        "independent shaft power or thrust/torque and delta-velocity input tuple",
+        "density",
+        "CdA",
+        "exact advance speed and convention",
+        "signed spin and original sensor pose/recovery formula"
+      ],
+      "ASW_series": 8,
+      "ASW_stored_scalar_slots": 800,
+      "ASW_available_scalar_targets": 796
+    }
+  ],
+  "recovered_coordinates": {
+    "XData": "axial or swirl velocity in m/s, not the spatial coordinate",
+    "YData": "r/R",
+    "streamwise": "axes title X/D, positive downstream from propeller centre",
+    "radial_grid": "100 stored model rows, r/R from 0 to 1.5 in 99 intervals; original binary64 values retained",
+    "cartesian_conversion": "Once diameter, axis and signed spin are bound: downstream=(X/D)*D and radial_distance=(r/R)*R. A declared axisymmetric local frame can use receiver=(downstream,radial_distance,0); literal historical sensor azimuth/sign is not recovered.",
+    "swirl_axis": "All 18 ASW swirl series have an unavailable first value at r/R=0; keep unavailable, never replace by zero or a pass.",
+    "axial_total": "P5 stored axial tails are 5.486400000000001 or 12.192 m/s, consistent with total axial velocity. Current jet_velocity returns increments, so total-velocity reconstruction must explicitly add freestream and bind original sensor convention."
+  },
+  "attribution": {
+    "ASW": "First axis explicitly labelled ASW; other axes bound by identical color/LineStyle/order to that legend; report captions identify ASWING 5.96.",
+    "ASW_m": "Separate modified hub-core model, not an acceptance target for the unchanged ASWING component; source lines 1113\u20131119 describe modification but give no numeric hub size/mixing rule.",
+    "Exp": "Digitized Deters experimental evidence only, not archived-ASWING acceptance targets; all curves retained separately."
+  },
+  "source_cautions": [
+    "P4 report calls five locations but omits 2.0 from its bracketed list; FIG titles recover all five including2.0.",
+    "Report line1077 says radial extent1.5 diameters, whereas FIG y-axis says r/R. Use saved labelled coordinates; do not double the radius based on prose.",
+    "P4 B filename versus APC report contradiction remains unresolved; no relabelling or diameter/RPM guess.",
+    "HG properties/ApplicationData expose layout, labels and series, no physical parameter tuple. hgM/meta_data/__function_workspace__ contain opaque MCOS content not exhaustively decoded; absence of hidden parameters is not proved.",
+    "Binary64 figure samples are not original text tokens. No historical decimal precision or strict acceptance threshold has been reconstructed.",
+    "The current jet_profile code explicitly uses corrected angular-momentum integrals relative to printed Eq138. Without the missing MATLAB/source bench, operator equivalence cannot be asserted or manufactured by fitting."
+  ],
+  "current_api": {
+    "path": "/home/userland/aswing/openswing/propulsion.py",
+    "actuator_disk": "lines 34\u201368: power,density,velocity,radius,omega,drag_area -> thrust,torque,delta_velocity",
+    "jet_profile": "lines 109\u2013137: engine axial_velocity,delta_velocity,radius,thrust,torque + downstream,density -> radii and axial/swirl increments",
+    "jet_velocity": "lines 140\u2013167: points, engine position/axes/jet_enabled, wind direction and density -> vector increments",
+    "source_equations": "asw_theory.txt lines1151\u20131298, Eq 122\u2013139",
+    "executable_route": "Existing isolated component API supports unmodified axial/swirl field once inputs and signed projection are supplied; no aircraft equilibrium required.",
+    "legacy_distinction": "P4 targets are MATLAB model reproductions. P5 targets are report-attributed ASWING sensor-derived curves. Neither is currently an exact native table+driver pairing."
+  },
+  "next_adapter": {
+    "preferred": "P5_A_GWS unmodified ASW: 8 series / 800 slots / 796 finite; strongest recovered propeller+RPM+ratio identity and an attributed ASWING sensor bench.",
+    "required_recovery": [
+      "Obtain original sensor bench .asw/.sh or independent parameter record for power,density,CdA,actualV,spin and sensor orientation.",
+      "Bind total axial velocity and tangential sign/projection to original sensor channels; preserve axis NaNs.",
+      "Declare binary64 figure comparison policy separately from printed-table precision; do not widen tolerances to obtain agreement.",
+      "For P4 additionally recover MATLAB script/formulation; resolve second propeller identity. Keep ASW-m and experiments separate."
+    ],
+    "blocked_inventory_scope": "Can now enumerate all 36 unmodified ASW curves, 3,600 slots / 3,582 finite and 18 unavailable without promoting any to an executable pass.",
+    "prohibited_shortcuts": "Do not infer power,CdA,density from ASW velocity targets; that would make the comparison circular. Nominal diameter/RPM or experimental measured power alone do not prove the exact historical setup."
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-4 - Jet and Swirl velocity - Static Condition/P4_A_GWS_Axial_Velocity.fig",
+      "bytes": 92440,
+      "sha256": "4096a4602345d4605257b4a1571edc1088a89bdc694f3426daa0675320f0c694"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/4096a4602345d4605257b4a1571edc1088a89bdc694f3426daa0675320f0c694.json",
+      "bytes": 129675,
+      "sha256": "9aecb6c4472ba8010401003e16cd57fc11987814efb800125a2cdc69363fc170"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-4 - Jet and Swirl velocity - Static Condition/P4_A_GWS_Swirl_Velocity.fig",
+      "bytes": 91314,
+      "sha256": "2aa74cd95348d7d04e816869daafb4f7e75c1ab8d04adffaad7341e2fa481b73"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/2aa74cd95348d7d04e816869daafb4f7e75c1ab8d04adffaad7341e2fa481b73.json",
+      "bytes": 129780,
+      "sha256": "e6887373ec9af6e50327520b1c9fb1d342cb855cc5dc6ea8040f7dbf0ebc1297"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-4 - Jet and Swirl velocity - Static Condition/P4_B_DA4002_Axial_Velocity.fig",
+      "bytes": 89479,
+      "sha256": "505ec7d2cc25c628f7642063edcd138a61e1d4c650466a76e0a0e9b68ad2f70e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/505ec7d2cc25c628f7642063edcd138a61e1d4c650466a76e0a0e9b68ad2f70e.json",
+      "bytes": 122376,
+      "sha256": "1eecb50f9c6d07809c83352520ede9d2bafe073763627b861154af812f04ac9b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-4 - Jet and Swirl velocity - Static Condition/P4_B_DA4002_Swirl_Velocity.fig",
+      "bytes": 89262,
+      "sha256": "818f9e50b489b1026b0a560ebf912baadd4bc9a30f68efff74632f7db20ecbbb"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/818f9e50b489b1026b0a560ebf912baadd4bc9a30f68efff74632f7db20ecbbb.json",
+      "bytes": 125055,
+      "sha256": "985fbb3919e18536b8dc2d723425efdf9e9a07afe39a02a5e064f5f744f5ec47"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-5 - Jet and Swirl velocity - Advance Flow Conditio/P5_A_GWS_Axial_Velocity.fig",
+      "bytes": 75452,
+      "sha256": "c905ef8515eef8061569302d12d0281949c738292b4518369ec03f13f9190a60"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/c905ef8515eef8061569302d12d0281949c738292b4518369ec03f13f9190a60.json",
+      "bytes": 108275,
+      "sha256": "fcabff93a5ee2baaf7bdaa5b216d4f76983e86e05eabc7d8cdca6a24b21d7030"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-5 - Jet and Swirl velocity - Advance Flow Conditio/P5_A_GWS_Swirl_Velocity.fig",
+      "bytes": 74350,
+      "sha256": "623c605164f08267cfa72ac291534263f19f32c445c1b2b50de4f81f669d4bdf"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/623c605164f08267cfa72ac291534263f19f32c445c1b2b50de4f81f669d4bdf.json",
+      "bytes": 104159,
+      "sha256": "f1a54213834fc3a621548cbd0a68ff2a986450bc78d499778a2af4fa44f4f600"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-5 - Jet and Swirl velocity - Advance Flow Conditio/P5_B_DA4002_Axial_Velocity.fig",
+      "bytes": 79000,
+      "sha256": "d0ffb69acc0b2c1697419a016da0b66d14fd9de777f11a9ae8ad0e36d34d4023"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/d0ffb69acc0b2c1697419a016da0b66d14fd9de777f11a9ae8ad0e36d34d4023.json",
+      "bytes": 114436,
+      "sha256": "b0078c582096214e6a64d9221e6eed643cf3ae77b8e00278fbe95384d89cf3c4"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-5 - Jet and Swirl velocity - Advance Flow Conditio/P5_B_DA4002_Swirl_Velocity.fig",
+      "bytes": 78584,
+      "sha256": "09509e44c6c0d00dafac361e3962917173e6e5da6533b0b7a74d6f72baa09021"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/figure-series/09509e44c6c0d00dafac361e3962917173e6e5da6533b0b7a74d6f72baa09021.json",
+      "bytes": 111750,
+      "sha256": "bd3f723742e18d83a03df6f378f6415b9501736ea1ada755c3367cc9670d7125"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/manifest.json",
+      "bytes": 791256,
+      "sha256": "813347a3bd9fcbd029a1ec86e0c3141f82422af26f33ebde7c2f732a16bf27f6"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-suite-backlog.json",
+      "bytes": 1703362,
+      "sha256": "ccc5ad6e2aad73e8d845896390a7ed0af6470855dc3b1fab0215232a68b85719"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-figure-inventory.json",
+      "bytes": 56956,
+      "sha256": "619129c12a0074bf3fe2021f0105d2b70f8a84482b1aeeda10fec45bb22634ef"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/extract-isae-figures.py",
+      "bytes": 3531,
+      "sha256": "7c4eb1166ae632a3e03dc530e0d390f7ed159c61b0762d33bb94d84dce061f60"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/5 - Technical Reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.pdf",
+      "bytes": 2326290,
+      "sha256": "8f12fb098d29875dde4b28a5bdd943de42c6b6d500f13d2121af8a082e40d9ef"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "bytes": 59968,
+      "sha256": "f7d7986de363e5920a05ed009cf72aa62948f596e14d496a89f0de566b20f550"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/propulsion.py",
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    }
+  ]
+}

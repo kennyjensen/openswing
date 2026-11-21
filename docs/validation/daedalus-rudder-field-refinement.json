@@ -1,0 +1,440 @@
+{
+  "status": "DERIVATIVE_RECOVERY_AND_THREE_ANCHOR_SAVED32_RESUME_COMPLETE",
+  "publication_status": "PUBLISHED_IN_LOCAL_WORKSPACE",
+  "original_failure": {
+    "status": "RETAINED",
+    "report": "daedalus-rudder-refinement.json",
+    "exception": "GeometryDerivativeUnresolved: Moving-field derivative did not resolve under step refinement (scaled change 2.1e-06); inspect the geometry and difference step.",
+    "completed_harmonics": 0,
+    "no_completed_descriptor_matrices": true
+  },
+  "diagnostic": {
+    "column": {
+      "column": 746,
+      "node": 124,
+      "component": 2,
+      "component_name": "translation_z_over_L",
+      "beam_nodes": [
+        {
+          "beam": 4,
+          "local_node": 0,
+          "material_station": -6.5
+        }
+      ],
+      "loaded_position": [
+        -6.509502245548639,
+        -0.00020792088081201073,
+        -0.0344740701580766
+      ],
+      "h": 1e-05,
+      "scale": 1.0,
+      "speed": 29.999999999999996,
+      "source_tolerance": 2e-08,
+      "source_max_refinements": 4,
+      "direct_geometry_fallback": "Jet position derivative did not resolve under step refinement.",
+      "geometry_stencil_fallback": null,
+      "offending_receiver": {
+        "field": "hv",
+        "field_repr": "'hv'",
+        "array_index": [
+          116,
+          0
+        ],
+        "receiver_index": 116,
+        "baseline_body_position": [
+          20.08379809720331,
+          1.0116828253951522,
+          4.423265117738379
+        ],
+        "last_probe_body_position": [
+          20.08379809720331,
+          1.0116828253951522,
+          4.423265117738379
+        ]
+      }
+    },
+    "fresh_full_residual_max_abs": 2.97796555486591e-14,
+    "last_original_capped_estimate": 5.2012397635555906e-08,
+    "original_gate": 2e-08,
+    "physical_failure_retained": true,
+    "interpretation": "Late convergence supported by saved field trends; no unique attribution to an individual aerodynamic contribution."
+  },
+  "extension": {
+    "status": "COMPLETED_SINGLE_COLUMN_FIXED_WIDTH_DIAGNOSTIC",
+    "level4_all_fields_bitwise_equal": true,
+    "original_gate": {
+      "status": "UNRESOLVED",
+      "error": "Moving-field derivative did not resolve under step refinement (scaled change 2.1e-06); inspect the geometry and difference step.",
+      "cached_callbacks": 16
+    },
+    "level5_acceptance": {
+      "refinements": 5,
+      "indicator": 0.03234355408452815,
+      "error_estimate": 6.193780395316925e-10,
+      "observed_contraction": 83.97520466641363,
+      "method": "contracting fourth-order stencil"
+    },
+    "level6_successive_fourth": 1.1765164299438253e-08,
+    "level6_successive_Richardson": 1.1933868233133186e-08,
+    "fresh_full_residual_max_abs": 2.97796555486591e-14,
+    "full_geometry_operator_accepted": false,
+    "operations": {
+      "cached_refinement_callbacks": 36,
+      "network_constructions": 1,
+      "dynamic_system_constructions": 1,
+      "full_residual_entered": 5,
+      "full_residual_completed": 5,
+      "full_residual_failed": 0,
+      "field_evaluations_entered": 13,
+      "field_evaluations_completed": 13,
+      "refined_field_columns": 0,
+      "completed_refined_field_columns": 0,
+      "refinement_evaluate_calls": 0,
+      "local_numpy_solve_calls": 1,
+      "local_numpy_inv_calls": 202,
+      "local_numpy_eigvalsh_calls": 389,
+      "geometry_columns_calls": 0,
+      "trim_calls": 0,
+      "full_linearizations": 0,
+      "harmonic_solves": 0,
+      "full_system_factorizations": 0
+    },
+    "owner_cleanup": {
+      "tangent_restored": true,
+      "iteration_fields_released": true,
+      "load_owner_released": true
+    }
+  },
+  "production_change": {
+    "file": "openswing/geometry_tangent.py",
+    "default_max_refinements_before": 4,
+    "default_max_refinements_after": 6,
+    "tolerance": 2e-08,
+    "stencil_and_acceptance_formulas_unchanged": true,
+    "already_resolved_columns_unchanged": true,
+    "maximum_additional_field_evaluations_per_column": 8,
+    "source_pin": {
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    "public_kernel_synchronized": true,
+    "public_kernel_sync": {
+      "source": "openswing/geometry_tangent.py",
+      "target": "public/kernel/geometry_tangent.py",
+      "previous_sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6",
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+      "bytes": 38257
+    },
+    "runtime_binaries_changed": false,
+    "hosted_or_download_release_updated": false
+  },
+  "regressions": {
+    "native": {
+      "cases": 29,
+      "status": "PASS",
+      "scope": "Analytic field refinement and packed complete geometry columns against full physical residuals, including propulsion and gust cases.",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -B -m pytest -q tests/test_field_refinement.py tests/test_field_products.py",
+      "pytest_seconds": 91.49
+    },
+    "actual_wasm": {
+      "cases": 8,
+      "status": "PASS",
+      "pyodide": "314.0.7",
+      "scope": "Current ROOT108 modules mounted into actual Pyodide VFS; analytic field tests including cap4 rejection/cap6 recovery and nonsmooth failure.",
+      "runtime_seconds": 9.521863158
+    },
+    "counts_are_separate_scopes_not_additive": true
+  },
+  "full32_resume": {
+    "status": "PASS_SAVED32_TRIM_THREE_ANCHOR_RESUME",
+    "matrices_completed": true,
+    "completed_samples": 3,
+    "resolved": 3,
+    "fresh_full_residual_max_abs": 2.97796555486591e-14,
+    "linearization_seconds": 227.51550920997397,
+    "harmonic_seconds": 4.358199456997681,
+    "monotonic_seconds": 241.76645599098993,
+    "operations": {
+      "network_constructions": 1,
+      "dynamic_system_constructions": 1,
+      "full_residual_entered": 5506,
+      "full_residual_completed": 5506,
+      "full_residual_failed": 0,
+      "full_linearizations": 1,
+      "harmonic_solves": 3,
+      "input_partials_calls": 1,
+      "trim_calls": 0
+    },
+    "phase_residual_calls": {
+      "fresh_saved_base": {
+        "entered": 1,
+        "completed": 1,
+        "failed": 0
+      },
+      "production_sparse_linearization": {
+        "entered": 5498,
+        "completed": 5498,
+        "failed": 0
+      },
+      "base_report": {
+        "entered": 2,
+        "completed": 2,
+        "failed": 0
+      },
+      "single_F3_input_stencil": {
+        "entered": 5,
+        "completed": 5,
+        "failed": 0
+      }
+    },
+    "mesh_comparisons": [
+      {
+        "frequency_Hz": 0.1,
+        "available": true,
+        "coarse16": {
+          "real": 0.006216037225338517,
+          "imag": 0.002286351540854753
+        },
+        "fine32": {
+          "real": 0.0060834853887635505,
+          "imag": 0.0021697539354058365
+        },
+        "relative_complex_change": 0.027332471982766265,
+        "relative_magnitude_change": 0.025444147503739627,
+        "phase_change_deg": -0.564842649667933
+      },
+      {
+        "frequency_Hz": 1.0,
+        "available": true,
+        "coarse16": {
+          "real": 0.00033679692220692307,
+          "imag": -0.00033881136932959274
+        },
+        "fine32": {
+          "real": 0.00035160697009929096,
+          "imag": -0.0003381272208448643
+        },
+        "relative_complex_change": 0.03039272740469831,
+        "relative_magnitude_change": 0.02066286172642044,
+        "phase_change_deg": 1.2904487701891763
+      },
+      {
+        "frequency_Hz": 10.0,
+        "available": true,
+        "coarse16": {
+          "real": -0.0009301859334653228,
+          "imag": -0.005863918353454218
+        },
+        "fine32": {
+          "real": -0.0010069456624504846,
+          "imag": -0.006046041696534869
+        },
+        "relative_complex_change": 0.0322447658982477,
+        "relative_magnitude_change": 0.031338320812140226,
+        "phase_change_deg": -0.44195617141153176
+      }
+    ],
+    "limitations": [
+      "Three anchor frequencies only; no full32 sweep or convergence claim.",
+      "Saved raw32 trim reused exactly; no equilibrium solve repeated.",
+      "Original32 study and max4 failure remain retained. Sole source change raises bounded refinement cap to6 without changing accuracy or pole gates.",
+      "Matched30ft/s fixture is not an identified published reference operating point.",
+      "Primitive rawstate yaw is reported; no full physical output perturbation stencils were evaluated."
+    ],
+    "samples": [
+      {
+        "frequency_Hz": 0.1,
+        "omega_rad_s": 0.6283185307179586,
+        "available": true,
+        "real_rad_s_per_F3": 0.0060834853887635505,
+        "imag_rad_s_per_F3": 0.0021697539354058365,
+        "magnitude_deg_s_per_F3": 0.37006432785998294,
+        "phase_deg": 19.629434934513938,
+        "diagnostics": {
+          "reciprocal_condition": 2.9154156342394946e-09,
+          "backward_errors": [
+            3.5925989483263714e-18
+          ],
+          "scaled_residuals": [
+            3.4193377236315954e-17
+          ],
+          "factor_dimension": 3719,
+          "beam_equations_eliminated": 0
+        },
+        "elapsed_seconds": 1.1337081259989645
+      },
+      {
+        "frequency_Hz": 1.0,
+        "omega_rad_s": 6.283185307179586,
+        "available": true,
+        "real_rad_s_per_F3": 0.00035160697009929096,
+        "imag_rad_s_per_F3": -0.0003381272208448643,
+        "magnitude_deg_s_per_F3": 0.027949388593694797,
+        "phase_deg": -43.88038835183442,
+        "diagnostics": {
+          "reciprocal_condition": 6.221865108076213e-09,
+          "backward_errors": [
+            5.84661608418245e-19
+          ],
+          "scaled_residuals": [
+            1.9774862258045432e-17
+          ],
+          "factor_dimension": 3719,
+          "beam_equations_eliminated": 0
+        },
+        "elapsed_seconds": 1.2877520580077544
+      },
+      {
+        "frequency_Hz": 10.0,
+        "omega_rad_s": 62.83185307179586,
+        "available": true,
+        "real_rad_s_per_F3": -0.0010069456624504846,
+        "imag_rad_s_per_F3": -0.006046041696534869,
+        "magnitude_deg_s_per_F3": 0.35118414906139184,
+        "phase_deg": -99.45561001449542,
+        "diagnostics": {
+          "reciprocal_condition": 1.5624406143824588e-08,
+          "backward_errors": [
+            2.1130008972340079e-19
+          ],
+          "scaled_residuals": [
+            2.870144976964732e-16
+          ],
+          "factor_dimension": 3719,
+          "beam_equations_eliminated": 0
+        },
+        "elapsed_seconds": 1.8928843500034418
+      }
+    ],
+    "geometry_columns": 1182,
+    "circulation_fallback": "Engine jet derivative did not resolve under step refinement.",
+    "full_frequency_sweep_completed": false,
+    "source_inferred_sparse_LU_factorizations": 3,
+    "factorization_count_basis": "One splu per successful sparse harmonic_solve call with no optional structure; inferred from the source, not instrumented separately."
+  },
+  "validation": {
+    "continuum_convergence_established": false,
+    "matched_ASWING_operating_point_identified": false,
+    "experimental_validation_promotion": false
+  },
+  "limitations": [
+    "Single-column acceptance is not full-operator acceptance.",
+    "Smaller widths may become roundoff limited; existing unresolved/nonfinite/branch failures remain active.",
+    "Contraction and successive-step agreement are numerical checks, not rigorous continuum error bounds.",
+    "The original full32 attempt and diagnostic failures remain unchanged."
+  ],
+  "evidence_pins": {
+    "/tmp/openswing-daedalus-mesh32-20261024/failure-report.json": {
+      "bytes": 12582,
+      "sha256": "5e928e020c5de67afb419b79cf51632f2bfc19f3653fabce35030250500d292d"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/session-closeout.json": {
+      "bytes": 1381,
+      "sha256": "012c3f1a7ab6336137279c0f695a58585721b7b777b4baea2d41e8b0af07b237"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-diagnostic-20261024/terminal-summary.json": {
+      "bytes": 14321,
+      "sha256": "e03dbec5696cb73b64dbee18500965de9e459e0afae919cb409206241ff83b40"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-diagnostic-20261024/session-closeout.json": {
+      "bytes": 1294,
+      "sha256": "5af26aa8d96a2bb634965c3667e11afd024e45314ce6de0d2fea21a4349aa6c5"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-diagnostic-20261024/review/reference/result-interpretation.json": {
+      "bytes": 14796,
+      "sha256": "82d733f1298473dab2d864e8bf6ea58a9f1f3d140508fb64fcb833eb284bf8a6"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-extension-20261024/plan.json": {
+      "bytes": 37375,
+      "sha256": "980fc0c23fd45b6894dfdb4d7d453bbf67650bb3b9052911fc5a9f656dba92b8"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-extension-20261024/report.json": {
+      "bytes": 9244,
+      "sha256": "13d0dd9c69188848f9141b8cfa733f7f94e221ad88765a971ba26fa7a9b01db8"
+    },
+    "/tmp/openswing-daedalus-mesh32-field-extension-20261024/session-closeout.json": {
+      "bytes": 932,
+      "sha256": "5cf04c92bf03d6dd0e434837fbcfc6c07a644b7d0cd843b7c0391444457c3f8c"
+    },
+    "/tmp/openswing-field-refinement-native-20261024/report.json": {
+      "bytes": 917,
+      "sha256": "f8d9f934f6841cc18bc75a469046942f05ba18f6ca5d58a765d5523abd23e8fd"
+    },
+    "/tmp/openswing-field-refinement-wasm-20261024/report.json": {
+      "bytes": 17317,
+      "sha256": "2ecea85f6517e5b736978e491a474e9a585c0b815284a3febc4790835a8a3248"
+    },
+    "/tmp/openswing-field-refinement-wasm-20261024/session-closeout.json": {
+      "bytes": 762,
+      "sha256": "9cd343bfa411617d9b1e49a7fef1b7fc064951811d65746fb9f54abf553bf7be"
+    },
+    "/tmp/openswing-field-refinement-wasm-20261024/root-public-kernel-sync.json": {
+      "bytes": 284,
+      "sha256": "5d21cededf0a91e68324e975e1ad3ef4ce30eb3b717c8082e8867029f96e4dd8"
+    },
+    "/home/userland/aswing/openswing/geometry_tangent.py": {
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    "/home/userland/aswing/public/kernel/geometry_tangent.py": {
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    "/home/userland/aswing/tests/test_field_refinement.py": {
+      "bytes": 3265,
+      "sha256": "6a0700c8b4380777092a220767992d32ade8ba8b23361de50010bca67de7eaef"
+    },
+    "/home/userland/aswing/tests/test_field_products.py": {
+      "bytes": 3926,
+      "sha256": "273c5631990849c8f26e39f994ef25ea85de50e299d1fa8d389793c09446b97d"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/report.json": {
+      "bytes": 26989,
+      "sha256": "0eef2f4e16d25f7ed0ae7d68505e4f7df32ad9e3ef04ac40cdd4dc57ce5742cf"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/plan.json": {
+      "bytes": 29805,
+      "sha256": "212bed73ef173b6ecd670106cce65b5dcbfdc986f7c4163d10177beca0803895"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/run.py": {
+      "bytes": 14575,
+      "sha256": "4c4870ae77e75e7596450d468a011861608fb4cae2c83a9318279e7a047a8f80"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/session-closeout.json": {
+      "bytes": 2594,
+      "sha256": "fa1ed7646e13ff6eede1d7fc5b641ed2e9f5273c90ca28672125729dfdfb97ab"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/source-transition.json": {
+      "bytes": 520,
+      "sha256": "1609196a7072fec8b742ecc4f6eb1b58a179ab38412dc42f594d2cbd8fa5f46c"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/results/A.npz": {
+      "bytes": 7504197,
+      "sha256": "ca2e55fbf7a4c03395671ae79197de3b362b352d8324bc2d66b4292cc142684b"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/results/M.npz": {
+      "bytes": 199464,
+      "sha256": "e3ed3eee3a44deed0c1bd69f1492f6e83bbd5f663d72d6b03a6c48ed67145976"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/results/control-rhs.npz": {
+      "bytes": 59768,
+      "sha256": "5a6ea9c0e51821f313db33866dfc44278ea124235b8c00ea6b0f964c000695be"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/results/states.npz": {
+      "bytes": 179576,
+      "sha256": "b881cacb0a3397df6a08d94b24002e68da39e150c96ecf3ae6b5b6bfb67cf7a1"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/results/samples.json": {
+      "bytes": 1826,
+      "sha256": "84830fb614e8310bdc022ee3c172e2c9f34676d57bae255903588a8bb7f6d922"
+    }
+  },
+  "publication_operations": {
+    "physical_calls": 0,
+    "matrix_products": 0,
+    "linear_solves": 0,
+    "root_edits": 2,
+    "archive_created": false,
+    "catalog_edited": false
+  }
+}

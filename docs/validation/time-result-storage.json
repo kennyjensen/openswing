@@ -1,0 +1,293 @@
+{
+  "status": "PASS_LOSSLESS_TIME_RESULT_TRANSFER",
+  "recorded_utc": "2026-10-25T05:52:38.907888+00:00",
+  "goal_complete": false,
+  "physics_equations_changed": false,
+  "existing_python_physics_modules_unchanged": 107,
+  "native": {
+    "status": "PASS_EXACT_SAVED_DAEDALUS_ROUND_TRIP",
+    "source": "/tmp/openswing-daedalus-time-consistency-20261025/native-preparation/results/amplitude-0p1-dt-0p04/result.json",
+    "source_sha256": "aee7faffd9df2b6070827a7fd768f04f67f509ca481a2515cfa6e3496beac14a",
+    "snapshots": 26,
+    "accepted_steps": 25,
+    "baseline_bytes": 22713890,
+    "whitespace_only_compact_bytes": 21559536,
+    "pooled_compact_bytes": 15628686,
+    "pool_values": 68,
+    "references": 387,
+    "measurements": [
+      {
+        "baseline_encode_seconds": 0.4258815890061669,
+        "compact_pack_encode_seconds": 0.4713088549906388,
+        "roundtrip_check_seconds": 0.6504841159912758
+      },
+      {
+        "baseline_encode_seconds": 0.49806890697800554,
+        "compact_pack_encode_seconds": 0.465957527019782,
+        "roundtrip_check_seconds": 0.651994271989679
+      },
+      {
+        "baseline_encode_seconds": 0.435158098989632,
+        "compact_pack_encode_seconds": 0.463830365013564,
+        "roundtrip_check_seconds": 0.6424570840026718
+      }
+    ],
+    "physics_calls": 0,
+    "limitations": [
+      "Native saved-data packaging measurements, not browser solve timing.",
+      "Packing happens after integration; it does not reduce checkpoint allocations during the solve.",
+      "Default native result and downloaded JSON/checkpoint schemas are unchanged."
+    ],
+    "wire_reduction_percent": 31.19326544242311
+  },
+  "cross_language": {
+    "status": "PASS_EXACT_PYTHON_TO_JAVASCRIPT_DAEDALUS_ROUND_TRIP",
+    "snapshots": 26,
+    "shared_endpoint_pairs": 26,
+    "independently_owned_checkpoints": 26,
+    "all_result_values_exact": true,
+    "structured_clone_preserves_values_and_aliases": true,
+    "physics_calls": 0
+  },
+  "wasm": {
+    "status": "PASS_WEBASSEMBLY_SAVED_DAEDALUS_STORAGE",
+    "pyodide_version": "314.0.7",
+    "node_version": "v24.16.0",
+    "measurements": [
+      {
+        "trial": 0,
+        "kind": "baseline",
+        "python_encode_and_string_transfer_ms": 858.7710950000001,
+        "parse_and_hydrate_ms": 229.09367199999997,
+        "structured_clone_ms": 102.10627599999953,
+        "total_ms": 1189.9710429999996
+      },
+      {
+        "trial": 0,
+        "kind": "pooled",
+        "python_encode_and_string_transfer_ms": 941.8795840000002,
+        "parse_and_hydrate_ms": 51.75820399999975,
+        "structured_clone_ms": 135.4555730000002,
+        "total_ms": 1129.0933610000002
+      },
+      {
+        "trial": 1,
+        "kind": "pooled",
+        "python_encode_and_string_transfer_ms": 942.4941930000005,
+        "parse_and_hydrate_ms": 50.85468799999944,
+        "structured_clone_ms": 117.1376820000005,
+        "total_ms": 1110.4865630000004
+      },
+      {
+        "trial": 1,
+        "kind": "baseline",
+        "python_encode_and_string_transfer_ms": 863.4151569999995,
+        "parse_and_hydrate_ms": 182.63309900000058,
+        "structured_clone_ms": 103.19890699999996,
+        "total_ms": 1149.247163
+      },
+      {
+        "trial": 2,
+        "kind": "baseline",
+        "python_encode_and_string_transfer_ms": 858.5472149999987,
+        "parse_and_hydrate_ms": 70.7135670000007,
+        "structured_clone_ms": 153.83828200000062,
+        "total_ms": 1083.099064
+      },
+      {
+        "trial": 2,
+        "kind": "pooled",
+        "python_encode_and_string_transfer_ms": 942.8357560000004,
+        "parse_and_hydrate_ms": 50.48026100000061,
+        "structured_clone_ms": 67.47765599999912,
+        "total_ms": 1060.7936730000001
+      }
+    ],
+    "snapshots": 26,
+    "all_values_exact": true,
+    "physics_calls": 0,
+    "scope": "Node-hosted production WebAssembly runtime, saved C16 data. Includes Python encoding and string crossing, JS parse/hydration and structuredClone. Shared host, not complete browser solve/transfer/heap or stall-cause benchmark."
+  },
+  "node_tests": {
+    "status": "PASS",
+    "command": [
+      "node",
+      "--test",
+      "tests/time-result-storage.test.mjs",
+      "tests/saved-state-readers.test.mjs",
+      "tests/solutions.test.mjs",
+      "tests/solve-progress.test.mjs"
+    ],
+    "child_pid": 6589,
+    "exit_code": 0,
+    "reaped": true,
+    "timed_out": false,
+    "cap_seconds": 60,
+    "elapsed_seconds": 0.9587329180212691,
+    "counts": {
+      "tests": 37,
+      "pass": 37,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "input_pins": {
+      "/home/userland/aswing/tests/time-result-storage.test.mjs": {
+        "bytes": 11857,
+        "sha256": "76f69b6a4df669644bcab3940d712c00a52dc9a07f8aec068fecff4acf060574"
+      },
+      "/home/userland/aswing/tests/saved-state-readers.test.mjs": {
+        "bytes": 9425,
+        "sha256": "c1f94f54e01efca97966e9e74ac69fd9f6136e9e21fd710f6a0c3c27e65086ea"
+      },
+      "/home/userland/aswing/tests/solutions.test.mjs": {
+        "bytes": 5399,
+        "sha256": "3d132204a40b7be35c232f236f2c750ee8e6015438103feb273f5e0b11ab9bb9"
+      },
+      "/home/userland/aswing/tests/solve-progress.test.mjs": {
+        "bytes": 11419,
+        "sha256": "197eb98b2941a5ffa6a4bbc15e2691cf05c83c2f622d26269f18d4659048a314"
+      },
+      "/home/userland/aswing/web/time-result-storage.js": {
+        "bytes": 2016,
+        "sha256": "5e44e6fea320e0c319615bb40ffa08d0fa2e7bab2430268469e3bf9e4b4cbfd7"
+      },
+      "/home/userland/aswing/web/saved-state-data.js": {
+        "bytes": 4287,
+        "sha256": "8b6377c67fa5dadaa12e9ab36b27f5d4135e9f5b7817f8d3b395f1131eca4f59"
+      },
+      "/home/userland/aswing/web/time-checkpoint.js": {
+        "bytes": 6249,
+        "sha256": "4a15624104a950398c987b1195b9345c21489f4ee27250ea4e1674b792e71595"
+      },
+      "/home/userland/aswing/web/solution-data.js": {
+        "bytes": 8174,
+        "sha256": "b63574c96b6568b667fe65ba98cdfc3041a4b904d249c557bb0c1ccbdc1a4d2f"
+      },
+      "/home/userland/aswing/web/solve-progress.js": {
+        "bytes": 7942,
+        "sha256": "478bb86be2d99c897b666e3fe0557c9f63b3dba620bfd1480e2ac6d3f6f0ea6e"
+      }
+    },
+    "changed": [],
+    "physical_calls": 0,
+    "browser_launches": 0,
+    "stdout": {
+      "bytes": 3697,
+      "sha256": "48c5ad060c44b2b5888f2f2c2feca77de041825cc45b8c5bf47ce5de53bc6066"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reporting_note": "Parsed Node default spec-reporter summary (\u2139 prefix); original count-empty report retained. No test rerun."
+  },
+  "native_tests": {
+    "status": "PASS",
+    "command": ".venv/bin/python -m pytest -q tests/test_time_result_storage.py",
+    "tool_session": 60644,
+    "terminal_chunk": "6561dc",
+    "exit_code": 0,
+    "reaped": true,
+    "stdout": ".............. [100%]\n14 passed in 6.19s\n",
+    "checks": 14,
+    "physical_solves": 0,
+    "source_pins": {
+      "openswing/time_result_storage.py": {
+        "bytes": 5370,
+        "sha256": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c"
+      },
+      "openswing/bridge.py": {
+        "bytes": 12460,
+        "sha256": "aee0537bc901063cc5efdcf4c3eca80f5aeb01d6c9c00567697ed9cd2c42e5b1"
+      },
+      "tests/test_time_result_storage.py": {
+        "bytes": 4552,
+        "sha256": "cf0dc0776cf5b07f8f958cd1b34be5c17427acb970b760fe6fd89842f2cdfcb4"
+      }
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "tool_session": 96437,
+    "terminal_chunk": "6a658a",
+    "exit_code": 0,
+    "reaped": true,
+    "stats": {
+      "startTime": "2026-10-25T05:46:55.897Z",
+      "duration": 142925.41,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "Offline time integration",
+      "Selected-state branch and retained prefix",
+      "Standalone checkpoint save/import",
+      "BDF predecessor/controller history",
+      "Future forcing replacement",
+      "Time plots and mobile layout",
+      "Invalid source identity rejected without replacing result"
+    ],
+    "renderer_claim": "Functional browser UI check; no assertion about GPU/WebGL backend."
+  },
+  "build": {
+    "status": "PASS_BUILD_AND_LOCAL_PACKAGE",
+    "modules": 109,
+    "exact_native_public_dist_mirrors": true,
+    "package": "dist/openswing-local.zip",
+    "package_bytes": 201621140,
+    "worker": "assets/worker-67FBf-In.js",
+    "package_kernel_and_worker_verified": true,
+    "build_warning": "Existing main chunk above 500 kB; build successful."
+  },
+  "production_source_pins": {
+    "openswing/time_result_storage.py": {
+      "bytes": 5370,
+      "sha256": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c"
+    },
+    "openswing/bridge.py": {
+      "bytes": 12460,
+      "sha256": "aee0537bc901063cc5efdcf4c3eca80f5aeb01d6c9c00567697ed9cd2c42e5b1"
+    },
+    "web/time-result-storage.js": {
+      "bytes": 2016,
+      "sha256": "5e44e6fea320e0c319615bb40ffa08d0fa2e7bab2430268469e3bf9e4b4cbfd7"
+    },
+    "web/worker.js": {
+      "bytes": 4169,
+      "sha256": "15033dcc973c69a221dd0f40e83e7efb66d75e69e9f1fc929ec5b8d16ff77045"
+    },
+    "web/solve-progress.js": {
+      "bytes": 7942,
+      "sha256": "478bb86be2d99c897b666e3fe0557c9f63b3dba620bfd1480e2ac6d3f6f0ea6e"
+    },
+    "web/saved-state-data.js": {
+      "bytes": 4287,
+      "sha256": "8b6377c67fa5dadaa12e9ab36b27f5d4135e9f5b7817f8d3b395f1131eca4f59"
+    },
+    "tests/test_time_result_storage.py": {
+      "bytes": 4552,
+      "sha256": "cf0dc0776cf5b07f8f958cd1b34be5c17427acb970b760fe6fd89842f2cdfcb4"
+    },
+    "tests/time-result-storage.test.mjs": {
+      "bytes": 11857,
+      "sha256": "76f69b6a4df669644bcab3940d712c00a52dc9a07f8aec068fecff4acf060574"
+    },
+    "tests/browser/time-checkpoint.spec.js": {
+      "bytes": 5703,
+      "sha256": "2a1d5041a983aa0d0e222befabc1607fd05b6569d0e2db8b4efed52264d79216"
+    }
+  },
+  "limitations": [
+    "Compression occurs after integration and does not optimize native checkpoint creation or equation solves.",
+    "Full downloaded JSON and saved archives deliberately retain the existing expanded schema.",
+    "No assertion that browser stall causation has been identified."
+  ],
+  "next": [
+    "Accurate efficient transient integration; the existing temporal convergence failure remains unresolved.",
+    "Full-aircraft Daedalus Bode matching remains unresolved."
+  ]
+}

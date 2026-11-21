@@ -1,0 +1,242 @@
+{
+  "format": "openswing-isae-ae1-wall-root",
+  "version": 1,
+  "date": "2026-10-25",
+  "status": "PASS_SCOPED_STEADY_WALL_ROOT_IMPLEMENTATION",
+  "scope": "Production steady fully clamped ideal solid-wall root support; derived Pazy half-wing verification, not experimental validation.",
+  "source_transition": "isae-ae1-wall-root-source.json",
+  "native": {
+    "scope": "derived primary Pazy half-wing, 30 intervals, native half-wing collocation; not literal ISAE input",
+    "condition_kwargs": {
+      "speed": 30.0,
+      "alpha": 5.0,
+      "beta": 0.0,
+      "density": 1.23,
+      "mach": 0.0,
+      "rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "angular_acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "controls": {},
+      "powers": {},
+      "body_added_mass_factor": 1.0,
+      "position_earth": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attitude": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ground_effect": 1,
+      "ground_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "stall": true,
+      "stall_factor": 40.0,
+      "stall_width": 0.05,
+      "altitude_m": 0.0,
+      "gravity_magnitude": 0.0,
+      "load_factor": 1.0,
+      "gust": null,
+      "sensor_flow": "full",
+      "time": 0.0,
+      "circulation_modes": {},
+      "aero_lag": true,
+      "wake_core_ratio": 0.25,
+      "freeze_influences": false
+    },
+    "source_sha256": "8e6aa1c355d77d97083c79af78b3a34221d48471b8dc0f69672bc64f0113501c",
+    "observable": {
+      "leading_edge_position_m": [
+        -0.04391373883808788,
+        0.5469310592057645,
+        0.05302056810787289
+      ],
+      "trailing_edge_position_m": [
+        0.05608119307832418,
+        0.5470060585864636,
+        0.052016592946322
+      ],
+      "midchord_position_m": [
+        0.006083727120118152,
+        0.546968558896114,
+        0.052518580527097444
+      ],
+      "twist_xz_deg": 0.5752452207870346,
+      "vertical_displacement_percent": 9.548832823108626,
+      "twist_deg": 0.5752452207870346
+    },
+    "fresh_residual": 1.2151837617036721e-14,
+    "root_pose_error": 1.6842638285461518e-29,
+    "steps": 4,
+    "seconds": 3.5590997170002083,
+    "final_provenance_verified": true
+  },
+  "native_result": "pazy-half-30-final.json",
+  "tests": {
+    "status": "PASS",
+    "test_file": "tests/test_wall_root.py",
+    "test_pin": {
+      "bytes": 18283,
+      "sha256": "a633946c6b462d278c577e1f3f128ae730e9056f8877870b0863c3b1eadeb24d"
+    },
+    "unique_test_cases": 11,
+    "total_passed_test_executions": 13,
+    "attempt_receipts": [
+      "attempt1-receipt.json",
+      "attempt2-receipt.json",
+      "attempt3-receipt.json"
+    ],
+    "all_sessions_terminal_and_reaped": true,
+    "failed_tests": 0,
+    "source_lifecycle": "Attempt 1 all 112 source pins stable. Attempt 2 passed while root added a separate explicit unknown-motion-object rejection; pre/post recorded. Attempt 3 repeated rate scope plus new public saved reuse against all 112 stable pins. Final source and kernel copies retained. No production source edits by test owner.",
+    "numerical_gates": {
+      "rigid_field_load_rtol": 3e-10,
+      "rigid_field_load_atol": 3e-11,
+      "wall_normal_velocity_atol": 1e-13,
+      "full_J_direction_rtol": 2e-05,
+      "full_J_direction_atol": 2e-06,
+      "constrained_extension_response_rtol": 2e-10,
+      "constrained_extension_response_atol": 2e-11,
+      "coupled_state_field_rtol": 2e-07,
+      "coupled_state_field_atol": 2e-09,
+      "fresh_coupled_residual_max": 1e-10,
+      "saved_reuse_state_load_rtol": 2e-08,
+      "saved_reuse_state_load_atol": 2e-09
+    },
+    "interpretation": "Production solid-wall image/constraint/Newton regression only. Shared-discrete mirror equivalence uses a declared test-only mesh adapter, never a guard bypass. Native half-mesh and public saved-state reuse also exercised. No experimental agreement or unsteady-wall claim."
+  },
+  "existing_regressions": {
+    "passed": 23,
+    "seconds": 58.88,
+    "source_stage": "Initial candidate before added unsteady-rate and unknown-motion scope guards; not advertised as a final-source full rerun."
+  },
+  "browser": {
+    "status": "PASS_OFFLINE_CHROMIUM_WALL_ROOT",
+    "counts": {
+      "passed": 693,
+      "total": 693,
+      "completed_equilibria": 1,
+      "expected_rejections": 1
+    },
+    "runtime_ready_seconds": 29.072912158,
+    "total_seconds": 55.8005096,
+    "gates": {
+      "absolute": 2e-08,
+      "relative": 2e-08,
+      "full_residual": 1e-08,
+      "root_pose": 1e-10
+    },
+    "exclusions": [
+      "evaluations",
+      "circulation_solver.evaluations",
+      "gravity_source"
+    ],
+    "declared_equivalences": [
+      "Native zero body gravity and UI zero Earth gravity at identity attitude are equal physical loads.",
+      "Empty circulation_modes and an explicit zero per lifting beam both select pointwise circulation."
+    ],
+    "offline_requests": [],
+    "page_errors": [],
+    "network_failures": [],
+    "module_count": 111,
+    "cases": [
+      {
+        "id": "mounted-half",
+        "status": "PASS",
+        "seconds": 7.832579980000002,
+        "result_sha256": "13cc2b6a604b9a0eb49624181624c85a5981b7e92757c326d4a287fadc1dda0c",
+        "runtime": {
+          "pyodide": "314.0.7",
+          "python": "3.14.2",
+          "numpy": "2.4.6",
+          "scipy": "1.18.0"
+        },
+        "root_pose_error": 2.8000760761674622e-30,
+        "physical_comparison": {
+          "scalars": 4536,
+          "leaves": 4943,
+          "maximum_fraction": 2.329181088398578e-06,
+          "maximum_absolute": 1.4033219031261979e-13,
+          "worst": "trefftz.velocity_body[28][2]",
+          "difference": 1.4033219031261979e-13,
+          "limit": 6.024958343153336e-08
+        },
+        "worker_request_id": 7
+      },
+      {
+        "id": "physical-crossing",
+        "status": "PASS_REJECTED",
+        "position_earth": [
+          0,
+          -0.001,
+          0
+        ],
+        "seconds": 0.6871006519999937,
+        "visible_error": "Unable to continue\n\nopenswing.ground.GroundIntersectionError: Aircraft geometry touches or crosses the ground image plane; increase clearance or change its attitude.\n\n\u00d7",
+        "worker_request_id": 8
+      }
+    ],
+    "raw_report": "browser-attempt-2/report.json",
+    "retained_environment_failure": {
+      "attempt": 1,
+      "error": "Chromium could not load libnspr4.so; no browser/worker/physics launch.",
+      "preflight_checks_passed": 337,
+      "source_build_driver_changes": false,
+      "corrected_environment": "Prior AE1 LD_LIBRARY_PATH restored to available Mesa and Chromium host libraries."
+    },
+    "visual_acceptance": {
+      "geometry_rendering": false,
+      "observed": "3D viewport blank white in retained screenshots; scalar/circulation output and collision error visible.",
+      "cause": "Unresolved; separate from passing physical solver comparison.",
+      "review": "browser-visual-review.json",
+      "read_only_diagnosis": "browser-visual-diagnosis.json",
+      "evidence": "Same Chromium flags/environment and frontend asset hashes as prior successful AE1. Half-wing saved geometry finite/nonempty. No definitive cause; canvas/context/GPU diagnostics not recorded."
+    }
+  },
+  "literal_input": {
+    "status": "EXPECTED_LITERAL_INPUT_REJECTION",
+    "model": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+    "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8",
+    "error": "Attachment station is outside beam 1's parameter range.",
+    "aerodynamic_evaluations": 0,
+    "structural_solves": 0
+  },
+  "coverage": {
+    "partial": 18,
+    "pending": 23,
+    "fully_validated": 0,
+    "changed": false
+  },
+  "limitations": [
+    "Literal ISAE attachment outside beam domain remains rejected.",
+    "Native half and full Glauert receiver fractions differ; exact image/mirror comparisons use explicitly shared test discretization.",
+    "One derived native Pazy operating point; no new experimental sweep, mesh-convergence result or stability inference.",
+    "Unsteady elastic or circulation rates, gust, frame motion, powered configurations, free-surface roots and arbitrary contact remain unsupported and rejected.",
+    "Existing section/setup/measurement discrepancies remain.",
+    "Retained headless browser screenshots do not establish 3D geometry rendering; blank viewport remains to diagnose."
+  ],
+  "goal_complete": false,
+  "artifact_locator": {
+    "archive": "isae-ae1-wall-root-20261025-evidence.zip",
+    "native_and_browser_base": "stage/",
+    "test_attempt_receipts_base": "stage/tests/",
+    "absolute_path_map": "MANIFEST.json/original_to_member"
+  }
+}

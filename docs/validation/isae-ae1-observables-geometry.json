@@ -1,0 +1,210 @@
+{
+  "status": "SOURCE_REVIEW_AND_TWO_SAVED_ILLUSTRATIONS_COMPLETE",
+  "scope": "Prospective full saved-only protocol; no full-curve audit was executed.",
+  "activity": {
+    "physics_imports": 0,
+    "aerodynamic_calls": 0,
+    "residual_calls": 0,
+    "new_solves": 0,
+    "production_edits": 0,
+    "existing_aerodynamic_state_reads": 2,
+    "existing_baseline_state_reads": 1
+  },
+  "illustrations": [
+    {
+      "variant": "updated",
+      "alpha_deg": 5,
+      "speed_mps": 56,
+      "nominal_panels": 120,
+      "delta_position_earth_m": [
+        0.0024051930960642502,
+        -0.04485964852031188,
+        0.22137505293989274
+      ],
+      "root_normal_delta_m": 0.22137505293989274,
+      "wind_normal_delta_m": 0.22032302763776163,
+      "wind_minus_root_m": -0.00105202530213111,
+      "wind_minus_root_percent_span": -0.19127732766020178,
+      "root_normal_percent_span": 40.25000962543504,
+      "wind_normal_percent_span": 40.05873229777484,
+      "sensor3_absolute_elevation_deg": 2.0494907140418013,
+      "projected_chord_absolute_deg": 2.049633485170088,
+      "projected_minus_sensor_deg": 0.0001427711282868671,
+      "projected_baseline_subtracted_deg": 2.0496345738788975,
+      "wind_projected_baseline_subtracted_deg": 2.0496345738788966,
+      "sensor_midpoint_max_component_error_m": 8.673617379884035e-19,
+      "eq113_error_deg": 0.0
+    },
+    {
+      "variant": "frozen",
+      "alpha_deg": 5,
+      "speed_mps": 56,
+      "nominal_panels": 120,
+      "delta_position_earth_m": [
+        0.002930026093634162,
+        -0.057800778361087046,
+        0.2469058714674763
+      ],
+      "root_normal_delta_m": 0.2469058714674763,
+      "wind_normal_delta_m": 0.2457109514831612,
+      "wind_minus_root_m": -0.0011949199843151181,
+      "wind_minus_root_percent_span": -0.2172581789663851,
+      "root_normal_percent_span": 44.89197663045024,
+      "wind_normal_percent_span": 44.67471845148385,
+      "sensor3_absolute_elevation_deg": 2.2107112200830947,
+      "projected_chord_absolute_deg": 2.210954249396239,
+      "projected_minus_sensor_deg": 0.00024302931314412746,
+      "projected_baseline_subtracted_deg": 2.210955338105048,
+      "wind_projected_baseline_subtracted_deg": 2.210955338105049,
+      "sensor_midpoint_max_component_error_m": 4.336808689942018e-19,
+      "eq113_error_deg": 0.0
+    }
+  ],
+  "baseline_sensor3_elevation_deg": -1.0887088081324578e-06,
+  "baseline_projected_chord_angle_deg": -1.0887088092530635e-06,
+  "conclusions": [
+    "Literal sensor3, midchord, and the stored reference-axis tip are the same physical point.",
+    "Eq113 elevation and projected chord angle differ through the span component of the chord direction; the two illustrated differences are below 0.00025 degree.",
+    "A common span-axis incidence rotation cancels in baseline-subtracted projected twist on the same atan2 branch.",
+    "The illustrated wind-normal transformation changes displacement by about 1 mm, far below the retained high-speed experimental displacement gap.",
+    "This postprocessing cannot establish the unresolved experimental axis/baseline convention or create a different gravity equilibrium."
+  ],
+  "source_locators": [
+    {
+      "source": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "locator": "Section10.3 Eq95-98, lines1050-1102; section10.4 Eq111-115, lines1139-1157"
+    },
+    {
+      "source": "/home/userland/aswing/.reference/asw_theory.txt",
+      "locator": "Input definitions: Xax line2238 and Cea/Nea lines2193-2194"
+    },
+    {
+      "source": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/literal-minus-null-weights.asw",
+      "locator": "Sensor block lines17-23; Xax=.5 and zero jig x/z; Cea=-.005m is distinct from reference-axis position"
+    },
+    {
+      "source": "/tmp/openswing-isae-literal-curves-source-20261025/sources/isae/Static_Aeroelastic.m",
+      "locator": "Lines19-22 and96-99: column7 minus retained first row; absolute column8 Theta; theta2 is not plotted"
+    },
+    {
+      "source": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "locator": "AE1 section3.1, lines439-458: tip measurement and numerical midchord sensor"
+    },
+    {
+      "source": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.md",
+      "locator": "Previously reviewed primary measurement convention and unresolved vertical-axis qualification; not independently re-audited here"
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-loads.md",
+      "bytes": 5633,
+      "sha256": "9625b3a769d96b89a16d6346ab86d1fcd6f8c39af5dcf23c843b17bc5ed634b5"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.md",
+      "bytes": 5426,
+      "sha256": "f293d78641b2db04814c1815717508a5d54c36eee62d146b21bfa10e083089ee"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.json",
+      "bytes": 64572,
+      "sha256": "92d3ebd24297d6f9d377bdaf70064d812e6a5ac95b22bc41d2c926fbb73ff38f"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sensors.py",
+      "bytes": 10501,
+      "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/literal-minus-null-weights.asw",
+      "bytes": 2209,
+      "sha256": "5519a34e309291ef93bd95cbf8c73daba96c41da26e5a34cc8998d120e1c6fad"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/plan.json",
+      "bytes": 182772,
+      "sha256": "14756c94974b13e4d6cf833381e9addafe493f6c91f1153d99bccf721e330433"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-frozen-curves-run-20261025/plan.json",
+      "bytes": 571983,
+      "sha256": "4a7cc25058cab467d79317f59e1fe8dc1b2cca5e2b2b4f0f466e5f87e562397d"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-source-20261025/curve-manifest.json",
+      "bytes": 613631,
+      "sha256": "f0d552cbe7d003857cf7295cbdbff944b46f37fde8a85946d01023db08009111"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-source-20261025/sources/isae/Static_Aeroelastic.m",
+      "bytes": 5515,
+      "sha256": "33afb0ad521d6c026dda273f5069df9915daee7bb37781c6b24dd6c5ab7e3cc5"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-source-20261025/sources/isae/aswing_alpha_05.txt",
+      "bytes": 5854,
+      "sha256": "510bd898515d9031c479048a69c2ef32fad17a3b0806d523a9a8d2b1d6a7ddd3"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-source-20261025/sources/isae/aswing_alpha_07.txt",
+      "bytes": 4468,
+      "sha256": "0b9f669a9f7171421593d9ece4f0f6a48ac1ebc3e2e551d3185dbaf6ddb37534"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "bytes": 113163,
+      "sha256": "ee117e282812586936831dbc370678f7c59d77a1e57bb22cfd097b1da0527aa7"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/results/m120-baseline/result.json",
+      "bytes": 517558,
+      "sha256": "1a86b72136013abf323def3d18068975b078b8b813b4798493c2fce05d1b2f60"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/results/m120-baseline/inputs.json",
+      "bytes": 87441,
+      "sha256": "e475caaa6d59f7380a16bbf19e5b6d433b88a947ccc697833d78fefe1f6b0b73"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/results/m120-a5-u56/result.json",
+      "bytes": 735094,
+      "sha256": "d065f71a0ce88de54ec8970f2a0048a3c2f8120de4baaecbe3829c0f6f871b1e"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-curves-corrected-run-20261025/results/m120-a5-u56/inputs.json",
+      "bytes": 89817,
+      "sha256": "2373a4566521be4a1d958532023b1ce9a966091f843b0fdb3517b111c9fcf2a1"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-frozen-influences-20261025/results/m120-a5-u56/result.json",
+      "bytes": 724584,
+      "sha256": "8f094c4c775efd0a86887a4bb135193cdb58422b172fded869b4902b1d97c513"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-frozen-influences-20261025/results/m120-a5-u56/inputs.json",
+      "bytes": 59255,
+      "sha256": "1066ada1902b3d5cb0f36c8e1130362d9b6d2d427801a0c934d80fd95733900f"
+    },
+    {
+      "path": "/tmp/openswing-isae-pazy-observable-geometry-20261025/record.py",
+      "bytes": 6031,
+      "sha256": "0edf6041b25e2b863e94b1c606f158aaba8d1f9a98046766412fca992fe620d6"
+    }
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "schema": "openswing-isae-ae1-source-readiness-v1",
+  "status": "BOUNDED_SOURCE_REVIEW_COMPLETE_EXECUTION_REQUIRES_EXPLICIT_WALL_RECONSTRUCTION",
+  "date_utc": "2026-10-25T12:42:20.351083+00:00",
+  "scope": "AE-1-S steady coupled Pazy comparison preparation only. No aircraft imports, mesh construction, residuals, trim, linearization, solves, model writes, or production edits.",
+  "readiness_summary": "Known skin-on root angles and source speed coordinates make AE1 a useful next coupled comparison. Use an explicitly derived primary-property model and the published neglect of gravity. Exact root-plane image handling must be declared before launch; current GroundPlane rejects root contact. Preserve the literal simplified ISAE case and its sagging archived outputs as separate evidence.",
+  "source_roots": {
+    "isae_revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+    "isae_case": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection",
+    "primary_repository": "https://github.com/UM-A2SRL/AePW3-LDWG",
+    "primary_revision": "396710a19a80004c65c767e9955fe60d59565c39",
+    "primary_model": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam",
+    "primary_ae_case": "03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic",
+    "primary_ae_files_downloaded_here": "/tmp/openswing-isae-ae1-20261025/primary-source"
+  },
+  "measured_conditions": {
+    "skin": "skin1 only: Technion Pazy wing with polyester skin; skin0 files are numerical controls, not aeroelastic experiments.",
+    "root_alpha_deg": [
+      5,
+      7
+    ],
+    "span_nominal_m": 0.55,
+    "chord_m": 0.1,
+    "airfoil": "NACA0018",
+    "measurement_records": [
+      {
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+          "bytes": 2382,
+          "sha256": "16d2f45eec3bc7cf30a01eb91bc4190e4915f191673f6fa0a0bd3f966bda270b"
+        },
+        "primary_download": {
+          "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+          "bytes": 2382,
+          "sha256": "16d2f45eec3bc7cf30a01eb91bc4190e4915f191673f6fa0a0bd3f966bda270b"
+        },
+        "primary_url": "https://raw.githubusercontent.com/UM-A2SRL/AePW3-LDWG/396710a19a80004c65c767e9955fe60d59565c39/03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+        "byte_identical_to_primary": true,
+        "source_rows": 57,
+        "finite_rows": 54,
+        "finite_speeds_m_s": [
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0,
+          19.0,
+          20.0,
+          21.0,
+          22.0,
+          23.0,
+          24.0,
+          25.0,
+          26.0,
+          27.0,
+          28.0,
+          29.0,
+          30.0,
+          31.0,
+          32.0,
+          33.0,
+          34.0,
+          35.0,
+          36.0,
+          37.0,
+          38.0,
+          39.0,
+          40.0,
+          41.0,
+          42.0,
+          43.0,
+          44.0,
+          45.0,
+          46.0,
+          47.0,
+          48.0,
+          49.0,
+          50.0,
+          51.0,
+          52.0,
+          53.0,
+          54.0,
+          55.0,
+          56.0
+        ],
+        "missing_speeds_m_s": [
+          0.0,
+          1.0,
+          2.0
+        ],
+        "selected_values": [
+          [
+            20.0,
+            4.33154417812454
+          ],
+          [
+            30.0,
+            9.19298241657405
+          ],
+          [
+            40.0,
+            16.1490609271472
+          ],
+          [
+            50.0,
+            29.0284867629806
+          ]
+        ],
+        "units": [
+          "m/s",
+          "percent nominal0.55m semispan"
+        ]
+      },
+      {
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+          "bytes": 2397,
+          "sha256": "74c0de75b9de016eb31041e179bf2bfdc643c92c1944ffd98f56612b08c1a988"
+        },
+        "primary_download": {
+          "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+          "bytes": 2397,
+          "sha256": "74c0de75b9de016eb31041e179bf2bfdc643c92c1944ffd98f56612b08c1a988"
+        },
+        "primary_url": "https://raw.githubusercontent.com/UM-A2SRL/AePW3-LDWG/396710a19a80004c65c767e9955fe60d59565c39/03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+        "byte_identical_to_primary": true,
+        "source_rows": 57,
+        "finite_rows": 54,
+        "finite_speeds_m_s": [
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0,
+          19.0,
+          20.0,
+          21.0,
+          22.0,
+          23.0,
+          24.0,
+          25.0,
+          26.0,
+          27.0,
+          28.0,
+          29.0,
+          30.0,
+          31.0,
+          32.0,
+          33.0,
+          34.0,
+          35.0,
+          36.0,
+          37.0,
+          38.0,
+          39.0,
+          40.0,
+          41.0,
+          42.0,
+          43.0,
+          44.0,
+          45.0,
+          46.0,
+          47.0,
+          48.0,
+          49.0,
+          50.0,
+          51.0,
+          52.0,
+          53.0,
+          54.0,
+          55.0,
+          56.0
+        ],
+        "missing_speeds_m_s": [
+          0.0,
+          1.0,
+          2.0
+        ],
+        "selected_values": [
+          [
+            20.0,
+            0.137164016681217
+          ],
+          [
+            30.0,
+            0.686033383998833
+          ],
+          [
+            40.0,
+            1.17243194787045
+          ],
+          [
+            50.0,
+            1.72615499114236
+          ]
+        ],
+        "units": [
+          "m/s",
+          "degrees"
+        ]
+      },
+      {
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+          "bytes": 1786,
+          "sha256": "27abcf4f0e2b90559a8a48e8cfd257cada79fd07cd6ba7b178ec77e7641e609a"
+        },
+        "primary_download": {
+          "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+          "bytes": 1786,
+          "sha256": "27abcf4f0e2b90559a8a48e8cfd257cada79fd07cd6ba7b178ec77e7641e609a"
+        },
+        "primary_url": "https://raw.githubusercontent.com/UM-A2SRL/AePW3-LDWG/396710a19a80004c65c767e9955fe60d59565c39/03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+        "byte_identical_to_primary": true,
+        "source_rows": 43,
+        "finite_rows": 38,
+        "finite_speeds_m_s": [
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0,
+          19.0,
+          20.0,
+          21.0,
+          22.0,
+          23.0,
+          24.0,
+          25.0,
+          26.0,
+          27.0,
+          28.0,
+          29.0,
+          30.0,
+          31.0,
+          32.0,
+          33.0,
+          34.0,
+          35.0,
+          36.0,
+          37.0,
+          38.0,
+          39.0,
+          40.0,
+          41.0
+        ],
+        "missing_speeds_m_s": [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          42.0
+        ],
+        "selected_values": [
+          [
+            20.0,
+            6.80072080424215
+          ],
+          [
+            30.0,
+            14.4103003803251
+          ],
+          [
+            40.0,
+            25.9264463051128
+          ]
+        ],
+        "units": [
+          "m/s",
+          "percent nominal0.55m semispan"
+        ]
+      },
+      {
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+          "bytes": 1787,
+          "sha256": "76b048b4e9908429f9e643e104ce24996ce54b0e9a94693e695d3b8dcba20875"
+        },
+        "primary_download": {
+          "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+          "bytes": 1787,
+          "sha256": "76b048b4e9908429f9e643e104ce24996ce54b0e9a94693e695d3b8dcba20875"
+        },
+        "primary_url": "https://raw.githubusercontent.com/UM-A2SRL/AePW3-LDWG/396710a19a80004c65c767e9955fe60d59565c39/03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+        "byte_identical_to_primary": true,
+        "source_rows": 43,
+        "finite_rows": 38,
+        "finite_speeds_m_s": [
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0,
+          19.0,
+          20.0,
+          21.0,
+          22.0,
+          23.0,
+          24.0,
+          25.0,
+          26.0,
+          27.0,
+          28.0,
+          29.0,
+          30.0,
+          31.0,
+          32.0,
+          33.0,
+          34.0,
+          35.0,
+          36.0,
+          37.0,
+          38.0,
+          39.0,
+          40.0,
+          41.0
+        ],
+        "missing_speeds_m_s": [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          42.0
+        ],
+        "selected_values": [
+          [
+            20.0,
+            0.444528110451413
+          ],
+          [
+            30.0,
+            0.954718634469163
+          ],
+          [
+            40.0,
+            1.94251477551237
+          ]
+        ],
+        "units": [
+          "m/s",
+          "degrees"
+        ]
+      }
+    ],
+    "total_finite_observable_rows": 184,
+    "distinct_finite_speed_angle_coordinates": 92,
+    "important_count_limit": "These are published postprocessed sweep coordinates, not184 independent raw wind-tunnel tests. No inference of raw acquisition spacing or uncertainty from their1m/s spacing.",
+    "primary_context": {
+      "riso_paper_doi": "10.2514/1.C036869",
+      "author_preprint_url": "https://www.researchgate.net/publication/366714346_Impact_of_Low-Order_Modeling_on_Aeroelastic_Predictions_for_Very_Flexible_Wings",
+      "locator": "SectionIV.C Static Aeroelastic Response, author preprintp18; Figs11–15; Table10",
+      "short_quote": "upright configuration (no gravity effects)",
+      "meaning": "The paper explicitly neglects gravity effects for this static comparison. It identifies Technion Test2, skin-on, root angles5/7degrees, and a10g tip-rod mass. This wording is a modeling assumption, not proof that literal upright gravity cannot cause axial preload.",
+      "midchord": "5degree vertical displacement is directly measured;7degree is estimated from the mean of LE and TE observations. Twist is recovered from differential LE/TE positions.",
+      "scope_of_identified_data": "Source files exactly match the pinned primary repository, including missing values."
+    },
+    "experiment_context": {
+      "doi": "10.2514/1.J060621",
+      "author_uploaded_paper_url": "https://www.researchgate.net/publication/357596316_Experimental_Aeroelastic_Benchmark_of_a_Very_Flexible_Wing",
+      "locators": [
+        "SectionV and Fig18: Test2 direct tunnel-floor mount with20mm spacer",
+        "SectionV.B and Fig33/Table13: Test2 velocity sweeps",
+        "SectionIV.C: LE/TE displacement twist recovery"
+      ],
+      "facts": "Avin describes10g at the trailing edge for Test2, conflicting with Riso’s0.01m behindTE. Root angles are prescribed turntable angles; initial shape and measurement noise remain limitations. The high-speed7degree sweep develops oscillations around40–43m/s, so its last source points are not an unqualified steady-validation target.",
+      "mass_location_conflict_m_from_TE": [
+        0,
+        0.01
+      ],
+      "conflict_impact": "Retain both statements. Under the declared gravity-neglected static model with stationary mass, either point mass contributes no load, so this conflict does not change the first static solve. It remains unresolved for upright axial gravity, dynamics and flutter."
+    }
+  },
+  "observable_contract": {
+    "displacement": "Evaluate current LE and TE material points at the tip; use their midpoint (midchord), not the primary reference axis. Report vertical/normal displacement from the model zero-flow baseline, divided by nominal0.55m and multiplied by100. Keep x/y displacements as numerical diagnostics only.",
+    "primary_axis_and_offsets": {
+      "axis_fraction_from_LE": 0.441,
+      "LE_material_c_m": -0.0441,
+      "TE_material_c_m": 0.0559,
+      "midchord_material_c_m": 0.0059,
+      "reference_tip_span_m": 0.549843728,
+      "normalization_semispan_m": 0.55,
+      "do_not_stretch": "Do not silently stretch the primary structural nodes to nominal0.55m or replace their actual tip coordinates."
+    },
+    "twist": "Recover the projected chord angle using the differential LE/TE coordinates in the declared root-chord/normal plane, then subtract its own zero-flow projected angle. Do not substitute local ASW Theta without reporting the distinction. In the accepted horizontal primary convention, pazy_loaded.observables uses atan2(-Q[2,0],Q[0,0]); validate the transform/sign for any rotated fixture.",
+    "baseline": "Experimental zero-speed entries are NaN. Do not invent experimental zeros or remove a fitted offset. Retain any nonzero/negative low-speed measured twist. Model zero-flow baseline is declared separately; current source curves are incremental published quantities.",
+    "literal_archive_postprocessor": "Static_Aeroelastic.m subtracts the first ASW sensor z from subsequent z, but plots local Theta directly; it computes a differential-chord theta2 without plotting it. Thus archived Theta comparison is not evidence that the two twist definitions agree.",
+    "archived_index": "ASW output columns i/t are stack index/time labels, not explicitly velocity. The shell scripts supply the speed ordering;57 rows at5degrees and43 rows at7degrees include the initial row plus appended1–56/1–42m/s points."
+  },
+  "literal_attachment_and_setup": {
+    "source": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+    "domain": [
+      0.0001,
+      0.55
+    ],
+    "out_of_domain_weight_station": 0.558,
+    "weight_rows": 2,
+    "weight_magnitudes": 0,
+    "trailing_optional_properties": "Omitted weight fields are default zero. Both objects therefore have zero mass, inertia, momentum, CdA and volume.",
+    "minimal_derived_repair": "A separately named copy can remove only these two zero Weight rows, as already done by isae_st2.modal_model for related Pazy files. Keep original bytes/rejection; do not move an actual nonzero weight or silently clamp attachment stations.",
+    "not_primary_conversion": "The literal model has simplified constant material fields, Xax0.5 and distributed mass. Removing two empty objects does not convert it into the corrected primary model.",
+    "sag_evidence": {
+      "both_first_RZ_midchord_m": -0.0172946,
+      "first_local_Theta_deg": -1.08929e-06,
+      "meaning": "The original archived solution has a transverse sag baseline. Preserve it as original output; do not reinterpret it as the primary gravity-neglected model."
+    },
+    "image_command": "Both alpha scripts issue OPER G, flag1, normal0 1 0. aswing_doc.txt2634–2672 identifies G as ground image, not gravity. Alpha7.sh additionally enters A, but no explicit gravity value is serialized; do not infer exact atmosphere/override from that alone."
+  },
+  "authoritative_primary_conversion": {
+    "current_entrypoint": "scripts/pazy_primary_conm2.py:model(skin=1,orientation=\"horizontal\")",
+    "helpers": [
+      "scripts/pazy_primary.py:source/projection/mesh",
+      "scripts/pazy_loaded.py:observables",
+      "scripts/isae_st2.py:observables and minimal zero-object precedent"
+    ],
+    "use_instead_of": "Do not use pazy_primary.model alone: its historical tensor off-diagonal interpretation was superseded. pazy_primary_conm2 preserves the audited signed-CONM2 mapping.",
+    "retained_material": "Use all16 nodal masses/CG/tensors and15 complete primary material sections; preserve bending/twist couplings and massless interval interpretation. The source intrinsic extension–torsionK12 remains explicitly removed because documented ASW fields cannot represent it; skin1 energy-perturbation bound0.04910% is an existing mapping bound, not a coupled response tolerance.",
+    "calibration_mass": "Do not duplicate calibration masses already included in the primary inertias. The separately stated Test2 tip weight is additional; its position conflict is retained, and it is irrelevant to the first gravity-neglected stationary equilibrium.",
+    "aerodynamic_extension": "The primary generated structural model supplies chord0.1/Xax0.441 but no measured section polar. An explicit first AE reconstruction may add the unfitted archived NACA0018 dCLda6.1185,CLmax1.1,CLmin−1.1 and preserve declared aerodynamic defaults. Label this mixed-source reconstruction; it is not a verbatim UM/NAST input.",
+    "reynolds_density_limit": "Archived XFOIL file is Re200000,Ncrit5. Literal density is1.23kg/m3; generic primary generator uses1.225. Exact tunnel density is not established here. Freeze one sourced density explicitly (recommend1.23 for archived-aero provenance); do not tune it or silently inherit the other."
+  },
+  "plane_and_native_condition": {
+    "source_fields": "openswing/aero.py:118–151 FlightCondition; openswing/ground.py:27–48 GroundPlane",
+    "mapping": "R=body_to_earth(attitude); n_body=R.T*n_Earth; plane offset=position_earth dot n_Earth; signed distance=p_body dot n_body+offset. Plane contains Earth origin.",
+    "body_axis_equivalent_of_upright_test": "Retain primary horizontal computational geometry with span+body-y, chord+body-x, normal+body-z; prescribe airflow alpha5/7 in the x-z plane, rather than rotating material nodes. With gravity explicitly neglected, this is a rigid coordinate relabeling of the upright tunnel geometry.",
+    "desired_explicit_fields": {
+      "speed": "one declared source speed",
+      "alpha": "5 or7degrees",
+      "beta": 0,
+      "density": 1.23,
+      "mach": "explicitly choose/document inherited speed/sound-speed default or incompressible model; do not switch silently",
+      "rates": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "angular_acceleration": [
+        0,
+        0,
+        0
+      ],
+      "controls": {},
+      "powers": {},
+      "position_earth": [
+        0,
+        0,
+        0
+      ],
+      "attitude": [
+        0,
+        0,
+        0
+      ],
+      "ground_effect": 1,
+      "ground_normal": [
+        0,
+        1,
+        0
+      ],
+      "gravity_magnitude": 0,
+      "freeze_influences": false
+    },
+    "gravity_call": "Pass explicit gravity=[0,0,0] to StaticNetwork as well; keep model g positive for Weight-to-mass conversion. State clearly this neglects gravity rather than claiming physical upright gravity is zero.",
+    "exact_wall_blocker": "GroundPlane.clearance rejects minimum<=0 (ground.py88–90). Literal and primary root LE/TE lie exactly on y=0. Therefore current exact image-plane setup is source-predicted to reject. No constructor was called to manufacture a numerical failure.",
+    "resolution_options": [
+      "Source-review an explicit two-sided mirrored full-wing reconstruction with common root clamp and no GroundPlane, proving material/aero symmetry and reporting only one half. This is a derived ideal-wall representation, not an input repair.",
+      "Alternatively review a narrowly scoped root-supported wall-contact policy separately, preserving intersection safety elsewhere. This task does not authorize or implement such a production change."
+    ],
+    "forbidden_shortcut": "Do not silently shift the aircraft by an arbitrary positive epsilon or omit the image: either changes the intended physical setup."
+  },
+  "smallest_initial_comparison": {
+    "status": "PROPOSED_ONLY_NOT_EXECUTABLE_UNTIL_WALL_REPRESENTATION_FROZEN",
+    "skin": 1,
+    "mesh": "Subdivide each of the15 primary material intervals2 and4 times:30/60 intervals per physical half, retaining all material/nodal-mass stations. An explicit full mirror doubles the physical interval count.",
+    "conditions": [
+      {
+        "alpha_deg": 5,
+        "speed_m_s": 30
+      },
+      {
+        "alpha_deg": 5,
+        "speed_m_s": 40
+      },
+      {
+        "alpha_deg": 7,
+        "speed_m_s": 30
+      }
+    ],
+    "counts": "6 nonzero coupled equilibrium states plus one zero-flow baseline/check permesh:8 declared states. No modes, time response, Jacobian frequency response or fitting. Fixed monotone speed continuation within each angle; retain failures without inventing successful points.",
+    "reason": "Both measured angles, source-exact velocities, moderate coupled bending/twist; avoids the documented high-speed oscillatory regions initially. These points also have exact source UM/NAST-VLM controls.",
+    "predeclared_checks": "Fresh normalized residual<=1e-8, finite fields, equilibrium force/moment balance and branch status, identical source/settings permesh, exact baseline/map recovery, all measured absolute and relative errors (no denominator floor),30→60 changes. A provisional1%mesh criterion can be declared for displacement; also retain absolute twist differences near small twist. No physical pass threshold is inferred from unknown experimental uncertainty.",
+    "budget": "Propose single-thread120s capped child for the fixed batch, with per-state times/calls and terminal/reaping receipt; no automatic broadening or repeat. Final budget/gates require root freeze before execution.",
+    "next_executable_step": "Write a new source-only scripts/isae_ae1.py adapter using pazy_primary_conm2.model and pazy_primary.mesh, explicit section fields, reviewed wall/mirror construction and tip LE/TE recovery. Write a fixed8-state supervised runner using StaticNetwork, FlightCondition and equilibrate, with the4 pinned experimental files loaded without interpolation. No existing script currently executes this matched AE1 scope."
+  },
+  "specific_unresolved_definitions": [
+    "Exact experimental density versus the1.23/1.225 model conventions.",
+    "Primary tip-weight location atTE versus0.01m behindTE; immaterial only to the declared zero-gravity static scope.",
+    "Exact initial experimental shape/twist and measurement covariance are not supplied in the pinned sweep files; do not fit them.",
+    "Exact root-wall geometry includes a20mm spacer in Test2; the ideal root-plane image is the archived approximation, not all tunnel-wall geometry.",
+    "Finite-deflection skin constitutive behavior and intrinsicK12 projection remain model limitations; current corrected primary model was calibrated using structural data.",
+    "Experimental files are processed curves with missing entries, not complete raw acquisition records."
+  ],
+  "provenance_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/README.txt",
+      "bytes": 1628,
+      "sha256": "233361fa97c12d288f27ae289043db01ca1f3ea296bb7b1d33c64227fab2145a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+      "bytes": 2329,
+      "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Static_Aeroelastic.m",
+      "bytes": 5515,
+      "sha256": "33afb0ad521d6c026dda273f5069df9915daee7bb37781c6b24dd6c5ab7e3cc5"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha5.sh",
+      "bytes": 628,
+      "sha256": "e3f19c25f2b485105b87179fa4ba11ad12cfed18bdf1f2f59c8ec4fea4490206"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha7.sh",
+      "bytes": 516,
+      "sha256": "a29740d2f8e9ddeb058fd7e3e761383588d98ae58a41ce20727a9bea1d80de56"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/aswing_alpha_05.txt",
+      "bytes": 5854,
+      "sha256": "510bd898515d9031c479048a69c2ef32fad17a3b0806d523a9a8d2b1d6a7ddd3"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/aswing_alpha_07.txt",
+      "bytes": 4468,
+      "sha256": "0b9f669a9f7171421593d9ece4f0f6a48ac1ebc3e2e551d3185dbaf6ddb37534"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/xf-naca0018-il-200000-n5.txt",
+      "bytes": 10494,
+      "sha256": "b84ac37615fe0dd8eb101d1bd6bc4a198c57305cc4ad43172f4619ca4b99290b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+      "bytes": 2382,
+      "sha256": "16d2f45eec3bc7cf30a01eb91bc4190e4915f191673f6fa0a0bd3f966bda270b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+      "bytes": 2397,
+      "sha256": "74c0de75b9de016eb31041e179bf2bfdc643c92c1944ffd98f56612b08c1a988"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+      "bytes": 1786,
+      "sha256": "27abcf4f0e2b90559a8a48e8cfd257cada79fd07cd6ba7b178ec77e7641e609a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+      "bytes": 1787,
+      "sha256": "76b048b4e9908429f9e643e104ce24996ce54b0e9a94693e695d3b8dcba20875"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/02_Beam/static_aeroelastic_sweep_aoa5_skin1_disp_UVLM.txt",
+      "bytes": 1954,
+      "sha256": "2de6cbfd016c00bf58c84e19936110788c26b828d42a28c3ab4f2b92b67b0b27"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/02_Beam/static_aeroelastic_sweep_aoa5_skin1_rot_UVLM.txt",
+      "bytes": 966,
+      "sha256": "7dc94cdd8f78e09888e69c49ff5ff6a1a2aabac7ffa27a0919d8f8ed3f1c9c04"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/02_Beam/static_aeroelastic_sweep_aoa7_skin1_disp_UVLM.txt",
+      "bytes": 1954,
+      "sha256": "146962d2dd5b869893f7a381adc2dbfe5762f9690f5e2052a7e00db5b6161d23"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/02_Beam/static_aeroelastic_sweep_aoa7_skin1_rot_UVLM.txt",
+      "bytes": 966,
+      "sha256": "2c62a341808725d3e4e1d40f520c3980b29a9fc2cd825b4e47d4d20e60661de8"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_st2.py",
+      "bytes": 5792,
+      "sha256": "b1ce8a384737afc48782a8a5a84e7032f56b346ca7fe5ac5e99786333e72eb3d"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_primary.py",
+      "bytes": 5843,
+      "sha256": "ea94c702b5ae35e9c5152f8547540cba66cebdc51eeba2ef36db9aee1d09be74"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_primary_conm2.py",
+      "bytes": 1704,
+      "sha256": "3d723c86f201e062f8ef79580c534aa7648f54baffe9c97c18a527e108b22cf1"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_loaded.py",
+      "bytes": 2659,
+      "sha256": "d7ea2b5a2ad5c0fd09a7bf3886d3628baf8588966cff87e8b6b79452a5278845"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/verify-pazy-loaded.py",
+      "bytes": 7698,
+      "sha256": "281f05102d7d252a4fc3a599aaf751e28c7381f7fd0610aa573e6473788c4490"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-st2-comparison.md",
+      "bytes": 9835,
+      "sha256": "aed026a26cce54444d41479281e7afd0a181a818a8b875f69775a035dfc8ef2a"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/pazy-loaded-comparison.md",
+      "bytes": 9543,
+      "sha256": "b756efd5916cea9678dc37b0622f5ff7da8fa7542f417849bcba47f5e4b0f601"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/pazy-loaded-source-audit.json",
+      "bytes": 286716,
+      "sha256": "e18a4b02d9b7a7002b932e194187cd82ba0794d3d4ea4dbc7704eac2d450d3f8"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/pazy-primary-mapping.json",
+      "bytes": 259305,
+      "sha256": "7801cd7c8a2fac67c6525b0baf4c05bc34cdbbe95a4a6cf2b89364b28ceae2cf"
+    },
+    {
+      "path": "/home/userland/aswing/examples/pazy-primary-conm2-skin1-horizontal.asw",
+      "bytes": 10717,
+      "sha256": "e5a93c1b5dc528d7ae553d76c6acc779503fc88ed21d9cd096e75761aeb02008"
+    },
+    {
+      "path": "/home/userland/aswing/examples/pazy-primary-conm2-skin1-upright.asw",
+      "bytes": 10700,
+      "sha256": "b394ca256ddbbd8847d7742a41316b3062a239b085d8c42d104a62aaff408a43"
+    },
+    {
+      "path": "/home/userland/aswing/examples/pazy-primary-mesh-30.json",
+      "bytes": 893,
+      "sha256": "9bde15491e873c4cde2d73b12d133894092e1f50d0b70d9c2ca8541599160f72"
+    },
+    {
+      "path": "/home/userland/aswing/examples/pazy-primary-mesh-60.json",
+      "bytes": 1695,
+      "sha256": "f8452f6d6b74bc409c220f5cc3a2b4164793badea12a585e8be11bf58dad25f1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/ground.py",
+      "bytes": 4871,
+      "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 62375,
+      "sha256": "ce386c2c936d5187552e401c3748f1283f064249486d223ff8127b0e7157a800"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "bytes": 113163,
+      "sha256": "ee117e282812586936831dbc370678f7c59d77a1e57bb22cfd097b1da0527aa7"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/README.md",
+      "bytes": 7249,
+      "sha256": "99229856bed51f882cdc5298e492f420c97ec50c98e8814b6214dc27b681cb28"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/README.txt",
+      "bytes": 2366,
+      "sha256": "70e1590dbcf831379555fcbab961cd769b1ccdd6f6dd9ca12d2eb9f7a45cd254"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/01_Coordinates/coordinates.txt",
+      "bytes": 728,
+      "sha256": "87d69a85b1b29c1dd6cd1c89668cc8a06e4cf782e1bfb31f0af760528193f343"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/02_Inertia_Distributions/inertia_skin1.xlsx",
+      "bytes": 4306,
+      "sha256": "a352a4fcffa6fef207f88690129ac67544ccfb23b85efa70120bedf02b7d2f40"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/03_Stiffness_Distributions/stiffness_skin1.xlsx",
+      "bytes": 10242,
+      "sha256": "4df89eb134a34d68fee77f6a10fd87d5a6a345c9b8e525e3b29053f00af5e48c"
+    }
+  ],
+  "primary_downloads": [
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+      "bytes": 2382,
+      "sha256": "16d2f45eec3bc7cf30a01eb91bc4190e4915f191673f6fa0a0bd3f966bda270b"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+      "bytes": 2397,
+      "sha256": "74c0de75b9de016eb31041e179bf2bfdc643c92c1944ffd98f56612b08c1a988"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+      "bytes": 1786,
+      "sha256": "27abcf4f0e2b90559a8a48e8cfd257cada79fd07cd6ba7b178ec77e7641e609a"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+      "bytes": 1787,
+      "sha256": "76b048b4e9908429f9e643e104ce24996ce54b0e9a94693e695d3b8dcba20875"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/README.txt",
+      "bytes": 1628,
+      "sha256": "233361fa97c12d288f27ae289043db01ca1f3ea296bb7b1d33c64227fab2145a"
+    }
+  ],
+  "activity": {
+    "production_imports": 0,
+    "mesh_constructions": 0,
+    "residuals": 0,
+    "solves": 0,
+    "physics_tests": 0,
+    "production_or_input_edits": 0,
+    "research_downloads": 5,
+    "download_tool_chunk": "3e4e09",
+    "download_exit_code": 0,
+    "pending_processes": []
+  }
+}

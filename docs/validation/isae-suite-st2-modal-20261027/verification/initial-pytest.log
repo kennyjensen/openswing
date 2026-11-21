@@ -1,0 +1,119 @@
+........................................................................ [ 17%]
+........................................................................ [ 34%]
+..........................................F............................. [ 51%]
+........................................................................ [ 69%]
+........................................................................ [ 86%]
+.................................................FFF....                 [100%]
+=================================== FAILURES ===================================
+_________ test_st2_loader_binds_result_to_pinned_original_source_rows __________
+
+tmp_path = PosixPath('/tmp/pytest-of-userland/pytest-63/test_st2_loader_binds_result_t0')
+st2_records = [{'id': 'ST-2:modal:01_Modal_Undeformed:vacuum:m40', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal...ST-2:modal:02_Modal_Gravity:vacuum:m80', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal', ...}, ...]
+
+    def test_st2_loader_binds_result_to_pinned_original_source_rows(tmp_path, st2_records):
+        row = deepcopy(next(row for row in st2_records if row['target_kind'] == 'native_static'))
+        item = st2_packet([row])
+        report, catalog = item['report'], item['catalog']
+        paths = [*sorted((ROOT/'openswing').glob('*.py')), ROOT/'scripts/isae_suite_st2.py',
+                 ROOT/'scripts/isae_st2_archive.py', ROOT/'scripts/isae_suite_st2_modal.py']
+        report['code_sha256'] = {path.relative_to(ROOT).as_posix(): SUMMARY.pin(path)['sha256'] for path in paths}
+        plan = dict(catalog=catalog, jobs=[{key: value for key, value in row.items() if key != 'result'}],
+                    runtime=report['runtime'], code_sha256=report['code_sha256'])
+        for name, value in [('report', report), ('catalog', catalog), ('plan', plan)]:
+            (tmp_path/(name+'.json')).write_text(json.dumps(value))
+        merged = SUMMARY.load_runs([tmp_path], ROOT)
+        assert len(merged['jobs'][0]['_summary_reference_contract']) == 368
+        assert SUMMARY.scalar_counts(merged['jobs'][0])['unsupported_required'] == 368
+        # Alter plan and result consistently: only binding to the original catches
+        # the invented physical source line after token arithmetic still agrees.
+        for saved in (report['jobs'][0], plan['jobs'][0]):
+            saved['reference_rows'][0]['line_number'] = 99
+            for obs in saved['observations'][:2]: obs['source_line'] = 99
+        for check in report['jobs'][0]['result']['reference_checks'][:2]: check['source_line'] = 99
+        for name, value in [('report', report), ('plan', plan)]:
+            (tmp_path/(name+'.json')).write_text(json.dumps(value))
+>       with pytest.raises(ValueError, match='original sources'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'original sources'
+E         Actual message: 'ST2 observation target, precision, location or scalar count changed.'
+
+tests/test_isae_suite_summary.py:696: AssertionError
+_ test_consistent_plan_and_report_edits_do_not_override_original_context[source_line] _
+
+tmp_path = PosixPath('/tmp/pytest-of-userland/pytest-63/test_consistent_plan_and_repor0')
+planned = [{'id': 'ST-2:modal:01_Modal_Undeformed:vacuum:m40', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal...ST-2:modal:02_Modal_Gravity:vacuum:m80', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal', ...}, ...]
+fault = 'source_line'
+
+    @pytest.mark.parametrize('fault', ['source_line', 'request_gravity', 'historical_identity'])
+    def test_consistent_plan_and_report_edits_do_not_override_original_context(tmp_path, planned, fault):
+        rows = [dict(deepcopy(next(row for row in planned if row['execution_route'] == 'worker')), result=None)]
+        report, plan = write_packet(tmp_path, rows)
+        for packet in (report, plan):
+            row = packet['jobs'][0]
+            if fault == 'source_line': row['reference_rows'][0]['line_number'] = 99
+            elif fault == 'request_gravity': row['request']['gravity'] = [0., 0., 0.]
+            else: row['historical_settings_recovered'] = True
+        for name, value in [('report', report), ('plan', plan)]:
+            (tmp_path/(name+'.json')).write_text(json.dumps(value))
+>       with pytest.raises(ValueError, match='original sources'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'original sources'
+E         Actual message: 'ST2 observation target, precision, location or scalar count changed.'
+
+tests/test_isae_suite_st2_integration.py:262: AssertionError
+_ test_consistent_plan_and_report_edits_do_not_override_original_context[request_gravity] _
+
+tmp_path = PosixPath('/tmp/pytest-of-userland/pytest-63/test_consistent_plan_and_repor1')
+planned = [{'id': 'ST-2:modal:01_Modal_Undeformed:vacuum:m40', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal...ST-2:modal:02_Modal_Gravity:vacuum:m80', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal', ...}, ...]
+fault = 'request_gravity'
+
+    @pytest.mark.parametrize('fault', ['source_line', 'request_gravity', 'historical_identity'])
+    def test_consistent_plan_and_report_edits_do_not_override_original_context(tmp_path, planned, fault):
+        rows = [dict(deepcopy(next(row for row in planned if row['execution_route'] == 'worker')), result=None)]
+        report, plan = write_packet(tmp_path, rows)
+        for packet in (report, plan):
+            row = packet['jobs'][0]
+            if fault == 'source_line': row['reference_rows'][0]['line_number'] = 99
+            elif fault == 'request_gravity': row['request']['gravity'] = [0., 0., 0.]
+            else: row['historical_settings_recovered'] = True
+        for name, value in [('report', report), ('plan', plan)]:
+            (tmp_path/(name+'.json')).write_text(json.dumps(value))
+>       with pytest.raises(ValueError, match='original sources'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'original sources'
+E         Actual message: 'ST2 literal modal bridge request changed.'
+
+tests/test_isae_suite_st2_integration.py:262: AssertionError
+_ test_consistent_plan_and_report_edits_do_not_override_original_context[historical_identity] _
+
+tmp_path = PosixPath('/tmp/pytest-of-userland/pytest-63/test_consistent_plan_and_repor2')
+planned = [{'id': 'ST-2:modal:01_Modal_Undeformed:vacuum:m40', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal...ST-2:modal:02_Modal_Gravity:vacuum:m80', 'case_id': 'ST-2', 'adapter': 'st2', 'target_kind': 'native_modal', ...}, ...]
+fault = 'historical_identity'
+
+    @pytest.mark.parametrize('fault', ['source_line', 'request_gravity', 'historical_identity'])
+    def test_consistent_plan_and_report_edits_do_not_override_original_context(tmp_path, planned, fault):
+        rows = [dict(deepcopy(next(row for row in planned if row['execution_route'] == 'worker')), result=None)]
+        report, plan = write_packet(tmp_path, rows)
+        for packet in (report, plan):
+            row = packet['jobs'][0]
+            if fault == 'source_line': row['reference_rows'][0]['line_number'] = 99
+            elif fault == 'request_gravity': row['request']['gravity'] = [0., 0., 0.]
+            else: row['historical_settings_recovered'] = True
+        for name, value in [('report', report), ('plan', plan)]:
+            (tmp_path/(name+'.json')).write_text(json.dumps(value))
+>       with pytest.raises(ValueError, match='original sources'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'original sources'
+E         Actual message: 'ST2 prospective modal protocol, physical gate or claim changed.'
+
+tests/test_isae_suite_st2_integration.py:262: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_isae_suite_summary.py::test_st2_loader_binds_result_to_pinned_original_source_rows
+FAILED tests/test_isae_suite_st2_integration.py::test_consistent_plan_and_report_edits_do_not_override_original_context[source_line]
+FAILED tests/test_isae_suite_st2_integration.py::test_consistent_plan_and_report_edits_do_not_override_original_context[request_gravity]
+FAILED tests/test_isae_suite_st2_integration.py::test_consistent_plan_and_report_edits_do_not_override_original_context[historical_identity]
+4 failed, 412 passed in 112.14s (0:01:52)

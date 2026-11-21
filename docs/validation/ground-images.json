@@ -1,0 +1,2378 @@
+{
+  "description": "Internal height/mesh sensitivity and equilibrium checks, not comparison with ASWING or experiment.",
+  "units": "Original examples use m, s, N. Positions are in Earth axes; aircraft loads remain body-axis values.",
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "cases": [
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.4369725828197212,
+        "CD": 0.013366490532986358,
+        "CDi": 0.005365608933610848,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 5.961160949448431e-17,
+        "panels": 14,
+        "ground_plane": {
+          "flag": 0,
+          "kind": "off",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": null,
+          "oblique_compressible": false,
+          "limitations": []
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.47727548613008614,
+        "CD": 0.011154552359885935,
+        "CDi": 0.0034205667921081624,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 5.185445352909786e-17,
+        "panels": 14,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.45579318147617853,
+        "CD": 0.011990410765108329,
+        "CDi": 0.0040973682079761846,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 1.2607611081429798e-16,
+        "panels": 14,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 1.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          5
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.44311860141652043,
+        "CD": 0.012885960386626875,
+        "CDi": 0.004912001964663071,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 7.341759714280318e-17,
+        "panels": 14,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 5.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            5.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 4.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            5
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          20
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.4375057556608687,
+        "CD": 0.013323727757938653,
+        "CDi": 0.00532490493592248,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 4.493458963207228e-17,
+        "panels": 14,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 20.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            20.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 19.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            20
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": -1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 12,
+      "values": {
+        "CL": 0.40294483944157805,
+        "CD": 0.014773433379399245,
+        "CDi": 0.0065511908710330176,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 5.892429817519687e-17,
+        "panels": 14,
+        "ground_plane": {
+          "flag": -1,
+          "kind": "free_surface",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections.",
+            "Free-surface images impose the linearized constant-pressure condition; interface deformation and waves are not modeled."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.43745694108182515,
+        "CD": 0.013352241493044049,
+        "CDi": 0.00535137023775379,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 1.0509624318705871e-16,
+        "panels": 26,
+        "ground_plane": {
+          "flag": 0,
+          "kind": "off",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": null,
+          "oblique_compressible": false,
+          "limitations": []
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.47796966899395515,
+        "CD": 0.011125686980690202,
+        "CDi": 0.0033925018182945064,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 8.775513282429378e-17,
+        "panels": 26,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.4563809450407461,
+        "CD": 0.011968890562251684,
+        "CDi": 0.004076116385997595,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 9.297271636498119e-17,
+        "panels": 26,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 1.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          5
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.4436251102929997,
+        "CD": 0.01286979117174081,
+        "CDi": 0.0048958868901743,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 2.4730756021791184e-16,
+        "panels": 26,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 5.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            5.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 4.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            5
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          20
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.43799137885551037,
+        "CD": 0.013309329363635984,
+        "CDi": 0.005310519238741678,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 9.684578731002828e-17,
+        "panels": 26,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 20.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            20.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 19.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            20
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": -1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 24,
+      "values": {
+        "CL": 0.40329049259035793,
+        "CD": 0.014766656817815058,
+        "CDi": 0.006543923043726357,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 1.551791592740583e-16,
+        "panels": 26,
+        "ground_plane": {
+          "flag": -1,
+          "kind": "free_surface",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections.",
+            "Free-surface images impose the linearized constant-pressure condition; interface deformation and waves are not modeled."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.43757905495667176,
+        "CD": 0.013348041058220643,
+        "CDi": 0.005347172391761201,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 3.619652890746907e-16,
+        "panels": 50,
+        "ground_plane": {
+          "flag": 0,
+          "kind": "off",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": null,
+          "oblique_compressible": false,
+          "limitations": []
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.47814708449542087,
+        "CD": 0.011117471659246257,
+        "CDi": 0.003384482361504559,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 8.647475684377241e-16,
+        "panels": 50,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.45653455877557964,
+        "CD": 0.011962579086208132,
+        "CDi": 0.004069872510662914,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 1.1793390496486235e-15,
+        "panels": 50,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 1.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            2
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          5
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.4437540616981736,
+        "CD": 0.012865041538614251,
+        "CDi": 0.004891150930472829,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 5.425387199321669e-16,
+        "panels": 50,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 5.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            5.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 4.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            5
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          20
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.438113822502513,
+        "CD": 0.013305089249482144,
+        "CDi": 0.005306282305043187,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 3.22356994568032e-16,
+        "panels": 50,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 20.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            20.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 19.934633192939256,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            20
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/rectangular.asw",
+      "source_sha256": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+      "coupled": false,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          1
+        ],
+        "ground_effect": -1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 48,
+      "values": {
+        "CL": 0.40337777470936764,
+        "CD": 0.014764477888381007,
+        "CDi": 0.0065416263538282055,
+        "CDbody": 0.0,
+        "Cm": 0.0,
+        "residual": 8.501130978636959e-16,
+        "panels": 50,
+        "ground_plane": {
+          "flag": -1,
+          "kind": "free_surface",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 0.9346331929392564,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections.",
+            "Free-surface images impose the linearized constant-pressure condition; interface deformation and waves are not modeled."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "attitude": [
+            0,
+            5,
+            0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        }
+      }
+    },
+    {
+      "source": "examples/wing-body.asw",
+      "source_sha256": "8169368e2957850fa7eae55c277cd719e23ebc559c2ea4d41a8fa1eafb77f5ae",
+      "coupled": true,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 8,
+      "values": {
+        "CL": 0.4582229667908022,
+        "CD": 0.01579812755543921,
+        "CDi": 0.0037308414731482492,
+        "CDbody": 7.720012919784741e-05,
+        "Cm": 0.004106820300685139,
+        "residual": 7.10839611771613e-14,
+        "panels": 16,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 1.29643184780502,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        },
+        "max_displacement": 0.4318950033493881,
+        "gravity_body": [
+          0.8547058646163219,
+          0.0,
+          -9.769332736041417
+        ],
+        "force_balance": [
+          -2.0747847884194925e-11,
+          7.218583192231301e-13,
+          2.4920154828578234e-10
+        ],
+        "moment_balance": [
+          -7.184756267224738e-12,
+          1.3145040611561853e-10,
+          -1.2199434777702521e-13
+        ]
+      }
+    },
+    {
+      "source": "examples/wing-body.asw",
+      "source_sha256": "8169368e2957850fa7eae55c277cd719e23ebc559c2ea4d41a8fa1eafb77f5ae",
+      "coupled": true,
+      "condition": {
+        "speed": 30,
+        "alpha": 5,
+        "beta": 0,
+        "mach": 0,
+        "attitude": [
+          0,
+          5,
+          0
+        ],
+        "position_earth": [
+          0,
+          0,
+          2
+        ],
+        "ground_effect": 1,
+        "ground_normal": [
+          0,
+          0,
+          1
+        ]
+      },
+      "requested_panels_per_beam": 16,
+      "values": {
+        "CL": 0.4586290050502132,
+        "CD": 0.015422977995798929,
+        "CDi": 0.0033100044882983016,
+        "CDbody": 0.00014863089217267332,
+        "Cm": 0.004066748719154523,
+        "residual": 5.034132061246522e-14,
+        "panels": 32,
+        "ground_plane": {
+          "flag": 1,
+          "kind": "solid",
+          "normal_body": [
+            -0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ],
+          "normal_earth": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "offset": 2.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "minimum_clearance": 1.29643184780502,
+          "oblique_compressible": false,
+          "limitations": [
+            "Ground images act on steady vortices, sources and doublets; local section apparent-mass tensors do not include wall corrections."
+          ]
+        },
+        "earth_state": {
+          "position": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "attitude": [
+            0.0,
+            5.0,
+            0.0
+          ],
+          "body_to_earth": [
+            [
+              0.9961946980917455,
+              0.0,
+              0.08715574274765817
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          ],
+          "velocity_earth": [
+            -30.0,
+            0.0,
+            1.4214881695225203e-16
+          ],
+          "rates_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "flight_path": 2.7148424247139107e-16
+        },
+        "max_displacement": 0.4683128539587298,
+        "gravity_body": [
+          0.8547058646163219,
+          0.0,
+          -9.769332736041417
+        ],
+        "force_balance": [
+          -1.7053025658242404e-12,
+          5.823023872745446e-12,
+          2.546585164964199e-11
+        ],
+        "moment_balance": [
+          -5.069224057250396e-11,
+          -4.5501735712605296e-10,
+          -8.179743939642318e-14
+        ]
+      }
+    }
+  ]
+}

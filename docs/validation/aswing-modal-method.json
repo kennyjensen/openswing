@@ -1,0 +1,112 @@
+{
+  "status": "REFERENCE_READY_AND_SAVED_MATRIX_CHECKS_PASS",
+  "updated_utc": "2026-10-26T11:19:19.458516+00:00",
+  "goal_status": "active_incomplete",
+  "production_changed": false,
+  "baseline_modules_verified": 119,
+  "kernel_sha256": "10197034e6fe7e41901044cf86854949cdcbca9bafea7186f2a46c664d54f7b9",
+  "arpack": {
+    "upstream": "https://github.com/opencollab/arpack-ng",
+    "revision": "66faef9e09bb35f5acafe02960885050acc46fa0",
+    "files": 487,
+    "manifest": {
+      "path": "/home/userland/aswing/third_party/arpack-source.json",
+      "bytes": 70791,
+      "sha256": "1cffbd3aea99d9e09dd50f494eff15f2ba99579ee0f23bb063a06100ac265add"
+    },
+    "integrity_receipt": {
+      "path": "/tmp/openswing-arpack-primary-interface-20261026/integrity.json",
+      "bytes": 3664,
+      "sha256": "90506f89c3df765ed6788527947cffab866146de73dcfbdb31ddae9bf0cc0ff2"
+    },
+    "archive_sha256": "39b4a93f6dd7bcbdfba99f0f74a48d5a5e3e5cc9ed9787c9b076be971629fde2",
+    "built_or_linked": false
+  },
+  "documented_method": {
+    "operator": "solve(A-mu*M,M*x)",
+    "arpack_mode": 1,
+    "bmat": "I",
+    "which": "LM",
+    "physical_eigenvalue": "mu+1/nu",
+    "factor_reuse": true,
+    "global_finite_census_required": false
+  },
+  "saved_matrix_checks": [
+    {
+      "nominal_intervals": 16,
+      "status": "PASS",
+      "checks": 22,
+      "passed": 22,
+      "solve_and_check_seconds": 0.12940325499221217,
+      "timing_excludes": [
+        "imports",
+        "physical matrix assembly",
+        "browser startup"
+      ],
+      "spectrum_scope": "Local full-descriptor Arnoldi search; total finite dimension unclassified."
+    },
+    {
+      "nominal_intervals": 32,
+      "status": "PASS",
+      "checks": 22,
+      "passed": 22,
+      "solve_and_check_seconds": 0.6232854690024396,
+      "timing_excludes": [
+        "imports",
+        "physical matrix assembly",
+        "browser startup"
+      ],
+      "spectrum_scope": "Local full-descriptor Arnoldi search; total finite dimension unclassified."
+    }
+  ],
+  "left_iteration": {
+    "status": "PASS_ALL_12_PRESCRIBED_OUTCOMES",
+    "successful_left_vectors": 6,
+    "expected_explicit_failures": 5,
+    "independent_phase_oracles": 1,
+    "left_max_physical_backward": 7.992138750350809e-17,
+    "left_max_analytic_absolute_error": 6.206335383118183e-17,
+    "max_physical_mass_pairing_error": 1.1825864641471743e-16,
+    "factorization_attempts": 9,
+    "linear_solves": 7,
+    "successful_vector_iterations": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "repeated_semisimple_other_vector_pairing": 1.031327122294944,
+    "scientific_scope": "Standalone left-vector recovery at a supplied eigenvalue, following Eq150 and Eq152. No eigenvalue search, finite-spectrum census, production integration or aircraft calls.",
+    "limits": [
+      "Eq151 printed denominator has a complex-phase discrepancy; conjugation enforces Eq152 and is declared.",
+      "Deterministic initial vector replaces random seed; no alternate seed is tried.",
+      "Exactly singular LU and unresolved pairings fail without eigenvalue changes or fallback.",
+      "Repeated eigenspaces can yield individually paired vectors without cross-mode duality; generalized defective chains are not recovered.",
+      "No large saved aircraft pencil was run here."
+    ],
+    "physics_calls": 0,
+    "production_imports": 0,
+    "production_edits": 0
+  },
+  "custom_reduction_status": "Isolated experiments only. Superseded as production direction by primary-paper review; do not promote the staged candidates.",
+  "evidence_archive": {
+    "path": "/home/userland/aswing/docs/validation/aswing-modal-method-20261026-evidence.zip",
+    "bytes": 5730028,
+    "sha256": "e3fa1895a935e0c4cdb8c9f37b7c1929f1e9cb7a91b73f0ead2a211f06f3dec2"
+  },
+  "evidence_files": 218,
+  "next_steps": [
+    "Use the full coupled shifted Arnoldi operator prescribed by Eqs147\u2013149, reusing one factorization.",
+    "Integrate and validate Eq150\u2013152 left-vector recovery with explicit singular/repeated-pole handling; preserve existing saved-project semantics.",
+    "Rerun original ST4 16/32/64 requests with declared local coverage and unchanged reference/mesh criteria, then verify browser execution."
+  ],
+  "limitations": [
+    "No fresh physical solve or browser build/run.",
+    "No new archived-ASWING pass or mesh-convergence pass.",
+    "Existing direct path still has exact-integrator deflation, dense factorization/storage and generalized-Schur left recovery.",
+    "The isolated left-iteration helper is not integrated and does not establish repeated-root basis duality.",
+    "Historical ASWING ARPACK version/settings are not recovered."
+  ]
+}

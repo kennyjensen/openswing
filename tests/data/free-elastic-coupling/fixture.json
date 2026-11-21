@@ -1,0 +1,311 @@
+{
+  "schema": "openswing-free-elastic-fixture-v1",
+  "status": "SOURCE_ONLY_PROPOSED_NO_NUMERICAL_VALIDATION",
+  "units": {
+    "length": "m",
+    "time": "s",
+    "force": "N",
+    "mass": "kg"
+  },
+  "gravity_constant": 9.80665,
+  "gravity_override": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "speed": 10.0,
+  "density": 1.225,
+  "sound_speed": 340.294,
+  "mach": 0.0,
+  "carrier": {
+    "beam": 1,
+    "origin": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "jig_end": [
+      1.8,
+      0.4,
+      0.3
+    ],
+    "material_t": [
+      0.0,
+      1.0
+    ],
+    "mass": 4.0,
+    "cg": [
+      0.1,
+      -0.15,
+      0.05
+    ],
+    "inertia": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.2,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.5
+      ]
+    ],
+    "weight_attachment_t": 0.0
+  },
+  "branches": {
+    "wing": {
+      "beam": 2,
+      "physical_id": 2,
+      "root": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "span_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "chord_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "length": 2.4,
+      "native_domain": [
+        -1.2,
+        1.2
+      ],
+      "stiffness": {
+        "EA": 20000.0,
+        "GKc": 8000.0,
+        "GKn": 8000.0,
+        "EIcc": 120.0,
+        "GJ": 70.0,
+        "EInn": 350.0
+      },
+      "mass_per_length": 0.8,
+      "cg_material": [
+        0.06,
+        0.0,
+        0.025
+      ],
+      "inertia_per_length": [
+        0.002,
+        0.0035,
+        0.0015
+      ],
+      "tension": 20.0,
+      "chord": 0.55,
+      "Xax": 0.35,
+      "alpha_degrees": 2.0,
+      "CLa": 6.283185307179586,
+      "Cdf": 0.01,
+      "Cdp": 0.02,
+      "Cm": 0.02,
+      "control": 2,
+      "dCLdF": 6.283185307179586
+    },
+    "fin": {
+      "beam": 3,
+      "physical_id": 3,
+      "root": [
+        1.8,
+        0.4,
+        0.3
+      ],
+      "span_direction": [
+        0.0,
+        0.6,
+        0.8
+      ],
+      "chord_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "length": 1.6,
+      "native_domain": [
+        -0.8,
+        0.8
+      ],
+      "stiffness": {
+        "EA": 12000.0,
+        "GKc": 6000.0,
+        "GKn": 6000.0,
+        "EIcc": 60.0,
+        "GJ": 35.0,
+        "EInn": 150.0
+      },
+      "mass_per_length": 0.5,
+      "cg_material": [
+        0.04,
+        0.0,
+        -0.015
+      ],
+      "inertia_per_length": [
+        0.0012,
+        0.002,
+        0.0008
+      ],
+      "tension": 12.0,
+      "chord": 0.4,
+      "Xax": 0.35,
+      "alpha_degrees": 3.0,
+      "CLa": 6.283185307179586,
+      "Cdf": 0.01,
+      "Cdp": 0.02,
+      "Cm": 0.02,
+      "control": 3,
+      "dCLdF": 6.283185307179586
+    }
+  },
+  "condition": {
+    "alpha": 0.0,
+    "beta": 0.0,
+    "attitude": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rates": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "angular_acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "controls": {
+      "2": 0.0,
+      "3": 0.0
+    },
+    "aero_lag": true,
+    "freeze_influences": false,
+    "stall": false,
+    "ground_effect": 0,
+    "wake_core_ratio": 0.25
+  },
+  "mesh": {
+    "lifting_intervals": [
+      8,
+      16
+    ],
+    "carrier_nodes": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "node_order": "carrier beam1 increasing t, then wing beam2 increasing t, then fin beam3 increasing t; coincident joint nodes remain distinct",
+    "receiving_node_order": "wing root-to-tip then fin root-to-tip; excludes carrier nodes",
+    "nodes": "s_j=L*(1-cos(pi*j/n))/2, t_j=s_j-L/2; endpoints assigned exactly",
+    "receivers": "s_m=L*(1-cos(pi*(j+.5)/n))/2; fraction=(s_m-s_j)/(s_(j+1)-s_j)",
+    "expected": {
+      "8": {
+        "nodes": 23,
+        "elements": 20,
+        "circulation": 16,
+        "constraint_rows": 18,
+        "network_dimension": 298,
+        "dynamic_dimension": 448
+      },
+      "16": {
+        "nodes": 39,
+        "elements": 36,
+        "circulation": 32,
+        "constraint_rows": 18,
+        "network_dimension": 506,
+        "dynamic_dimension": 752
+      }
+    }
+  },
+  "base": {
+    "affine_extension": "r(s)=root+(1+tension/EA)*s*span_direction",
+    "material_rotation": "columns [chord_direction,span_direction,cross(chord_direction,span_direction)]; deformation Q=I",
+    "strain": 0.001,
+    "branch_internal_force": "tension*span_direction",
+    "branch_internal_moment": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "carrier_internal_force": [
+      0.0,
+      7.2,
+      9.6
+    ],
+    "carrier_internal_moment": "cross(carrier.jig_end-r_midpoint, carrier_internal_force)",
+    "carrier_balancer_force": [
+      0.0,
+      -27.2,
+      -9.6
+    ],
+    "carrier_balancer_moment": [
+      -1.68,
+      17.28,
+      -12.96
+    ],
+    "carrier_balancer_location": "beam1 t0 at body/moment origin",
+    "ground_reaction": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "gravity": "zero physical gravity; nonzero Constant g remains the mass-unit conversion",
+    "counterloads": "Independently calculate Q32 live steady aero at this shape, transfer by virtual-work transpose, then subtract once as constant body-frame force and intrinsic nodal couple; never derive these from native evaluations.",
+    "counterloads_policy": "Distinct balanced discrete aero models per mesh; not a common-counterload mesh convergence experiment."
+  },
+  "inputs": [
+    {
+      "name": "fin_incidence",
+      "native": "control.3",
+      "physical_unit": "radian",
+      "native_sign": 1
+    },
+    {
+      "name": "carrier_physical_Mz",
+      "native": "target.moment.z",
+      "physical_unit": "N m",
+      "native_sign": -1
+    }
+  ],
+  "optional_input": {
+    "name": "wing_incidence",
+    "native": "control.2",
+    "physical_unit": "radian",
+    "native_sign": 1
+  },
+  "proposed_frequencies_Hz": [
+    0.1,
+    1.0,
+    1.15737773741517
+  ],
+  "normalization": {
+    "motion_length": 2.4,
+    "wrench_moment_length": 2.4
+  },
+  "limitations": [
+    "This combined fixture is proposed and has not been evaluated.",
+    "Finite axial and shear compliance are active; the existing rigid-EA/GK boom-fin operator cannot be reused unchanged.",
+    "Straight tensile preload does not test finite-curvature preload or noncommuting loaded material interpolation.",
+    "This fixture does not establish the unknown historical Daedalus operating point or its Bode agreement."
+  ]
+}

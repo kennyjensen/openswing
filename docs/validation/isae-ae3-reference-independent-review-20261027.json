@@ -1,0 +1,138 @@
+{
+  "status": "PASS_INDEPENDENT_SOURCE_CATALOG_REVIEW",
+  "date": "2026-10-27",
+  "scope": "Independent standard-library reads/token reconstruction and manual source/code review. No production imports, extractor imports, upstream script execution, parser calls or numerical solves.",
+  "reviewed_files": [
+    {
+      "path": "scripts/extract-isae-ae3-reference.py",
+      "bytes": 37663,
+      "sha256": "9b0daa09e30faea89bed892cfd36ff541b44f19e29f7f7e57c98799aa2741ad5"
+    },
+    {
+      "path": "docs/validation/isae-ae3-reference.json",
+      "bytes": 2766842,
+      "sha256": "1a05d227901584bef399e6229281cc0846592e8c178fd663fbac0614ade99a3e"
+    },
+    {
+      "path": "docs/validation/isae-ae3-reference.md",
+      "bytes": 5694,
+      "sha256": "1b950e5cb112a3b0ea1002b82dced4b1431d3f3bc0f584b56cb461d4f772010c"
+    }
+  ],
+  "source_pins_verified": 49,
+  "original_family_files_verified": 44,
+  "checks": [
+    {
+      "name": "native_complete_output_and_context_coverage",
+      "passed": true,
+      "native_exports": 6,
+      "raw_rows": 636,
+      "output_fields": 576,
+      "context_fields": 102,
+      "named_aerodynamic_fields": 288,
+      "matrix_fields": 198,
+      "category_counts": {
+        "centroid": 54,
+        "mass_inertia": 198,
+        "normalized_rate": 36,
+        "base_coefficient": 36,
+        "stability_derivative": 216,
+        "control_derivative": 36
+      }
+    },
+    {
+      "name": "all_embedded_arrays_and_backup_annotations_preserved",
+      "passed": true,
+      "target_values": {
+        "original_aswing_locked": 43,
+        "modified_aswing_locked": 43,
+        "modified_aswing_roll": 27
+      },
+      "all_literal_array_values": {
+        "Post_analysis.m": 156,
+        "Post_analysis.asv": 163
+      },
+      "ASV_only_q_tokens": [
+        "10",
+        "15",
+        "20",
+        "25",
+        "30",
+        "35",
+        "40"
+      ],
+      "ASV_only_reversal": "61.468",
+      "ASV_only_error_annotation": "0.89408",
+      "unknown_span_assignment_preserved": true
+    },
+    {
+      "name": "ancillary_provenance_and_rows_preserved",
+      "passed": true,
+      "tables": {
+        "experimental_digitization_or_stiffness_input": 5,
+        "airfoil_coordinates": 1,
+        "xfoil_section_polar": 4
+      },
+      "decoded_non_ASWING_scalar_fields": 914
+    },
+    {
+      "name": "command_semantics_and_setup_boundaries",
+      "passed": true,
+      "native_driver": "six speeds, then all-point !!F1=1",
+      "temp_driver": "nine speeds, then only current-point !F1=1",
+      "native_title_differs_from_retained_model": true,
+      "conditional_identity_not_historical_parity": true,
+      "embedded_targets_remain_blocked": true
+    },
+    {
+      "name": "all_CSV_numeric_cell_precision_and_position_metadata",
+      "passed": true,
+      "numeric_cells": 316,
+      "empty_cells_and_header_rows_preserved": true
+    }
+  ],
+  "independent_scalar_token_precision_checks": 2239,
+  "signed_zero_field_checks": 108,
+  "resolved_during_owner_editing": [
+    "Initial44-file manifest count correction was already applied by owner before the review message arrived.",
+    "ASV-only reversal/error literals are explicitly classified annotations and do not become invented raw targets."
+  ],
+  "remaining_concrete_findings": [],
+  "limitations": [
+    "This is source-extraction coverage review, not derivative-operator correctness or numerical validation.",
+    "Native title/model identity, unseen startup/constraints and original mesh remain conditional.",
+    "Embedded and modified-code arrays remain blocked pending independently paired setup and units.",
+    "No inferred reversal speed, tolerance adjustment or alternate derivative sign convention is approved by this receipt.",
+    "F1=+1 is a literal file control unit. Degree calibration is supported by report/postprocessor, not encoded in the native format; no conversion was applied."
+  ],
+  "physics_calls": 0,
+  "production_imports": 0,
+  "parser_calls": 0,
+  "tests_run": 0,
+  "prior_reviewed_files_before_markdown_cleanup": [
+    {
+      "path": "scripts/extract-isae-ae3-reference.py",
+      "bytes": 37582,
+      "sha256": "ea3d1ba622b560a6f47f14db66a37547d26c3e251f7f55d25572703a5f2ae418"
+    },
+    {
+      "path": "docs/validation/isae-ae3-reference.json",
+      "bytes": 2766842,
+      "sha256": "4898a40821418662dd2d5b19563e47b15b7d7a62c098f2b4579c7bdc642ae761"
+    },
+    {
+      "path": "docs/validation/isae-ae3-reference.md",
+      "bytes": 5613,
+      "sha256": "4f1ad047672f83c3776646225c2a83ef65eb33dfaeacc8037c4c757555e5606a"
+    }
+  ],
+  "final_freeze_refresh": {
+    "passed": true,
+    "change": "Extractor markdown() spacing only; catalog extractor self-pin only; Markdown whitespace only. All three independently saved semantic fingerprints equal the reviewed pre-cleanup versions.",
+    "semantic_sha256": {
+      "extractor_nonmarkdown_ast": "49a7810811ab976c27b3debfae9812d1c1da5e15b56c3228d8152cad5b34fe87",
+      "catalog_without_extractor_pin": "6c6bb62e513d5fd08887cf8c47cbe74d82f994004b1c8be6eca6368579cd7a2f",
+      "md_without_whitespace": "ff6a4e61f558710430a870cb36f22de7e31ef102d258e49834c5fce0346b9c5c"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+The saved SA-3 arrays isolate the dominant drag discrepancy to the near-field induced velocity contribution. They do not establish an incorrect force formula. The literal model, operating conditions, circulation and all producer results remain unchanged. This analysis used saved-array arithmetic only: zero production imports, aerodynamic evaluations, or solver calls.
+
+The final decomposition passes 1,178 independent checks across all 66 saved states. Equation 67 Kutta–Joukowski forces, equation 70 profile-force direction, equation 72 quarter-chord moment arms, equation 155 force-point offsets and the separate Trefftz force sum are internally consistent with the saved outputs. The recovered section moment differs by at most 1.78e-15 N m. The recovered local frame uses the verified planar, zero-twist, Cm0, Xax0 source identities; it is not an independent model parser.
+
+At the exact last command, alpha=10.017391304347827 degrees, nominal 400 intervals:
+
+| Contribution to current CD minus archived CD | Value |
+| --- | ---: |
+| Total difference | +0.000758381993838 |
+| Near-field CDi minus Trefftz CDi | +0.000694683927538 |
+| Trefftz CDi minus archived CDi | +0.000000536086172 |
+| Profile CD minus archived (CD−CDi) | +0.000063161980129 |
+
+The last row's near-minus-far term can itself be split exactly using the saved far-wake velocity. Its near-velocity versus half-far-wake contribution is +0.000694551260022; using ds*s rather than endpoint displacement in that comparison contributes only +0.000000132667516. Holding saved velocity and circulation fixed and replacing the Kutta–Joukowski integration vector ds*s with endpoint displacement changes total CD by +0.000002652903438, slightly worsening the archive difference. It changes Cm by only +5.5491774e-8. This rules out that specific integration-vector discrepancy as the main explanation. It does not justify replacing equation 67 or total CD with a Trefftz expression.
+
+The inner 90% of semispan supplies +0.000638017493268 of the +0.000694683927538 near-minus-far drag term. The corresponding inner-wing contribution remains approximately 0.000638–0.000640 across nominal 100/200/400 meshes. The maximum local normal speed grows from 193.78 to 255.21 to 332.27 m/s under refinement, concentrated at the zero-chord tip. This deserves separate scrutiny, but it does not account for the persistent inner-span contribution by itself.
+
+Pressure drag and the smooth leakage/stall term were separated without assuming that the boolean stalled flag means exactly zero leakage. At nominal 400, leakage contributes only 2.24e-12 to CD; nominal 200 gives 8.53e-12. Nominal 100 has two flagged strips and a 4.18e-5 leakage contribution. Consequently stall explains part of the coarse-mesh profile change, but not the fine-mesh drag discrepancy. The first diagnostic incorrectly assumed pressure drag alone; its source and failing assertion report are preserved under preparation-history/pressure-only-assumption. Only the diagnostic was corrected, using the additional term already specified in equation 70.
+
+All 22 failed mesh gates in the producer comparison are Cm changes from 100 to 200 intervals, ranging from 2.803% to 3.176%. All seven output channels meet the predeclared 1% criterion from 200 to 400 intervals. At the last incidence, the Cm changes are +2.53429e-5 and +5.96293e-6 respectively. Their largest component is the freestream Kutta–Joukowski force acting through the curved local quarter-chord arm: +2.94765e-5 then +7.21814e-6, partly offset by induced and profile moments. The saved moment accounting is correct; resolving the different geometric/quadrature convention remains necessary for archived Cm reproduction.
+
+The next discriminating test should capture one already-solved nominal-400 last-incidence state with its saved Gamma, splitting the force-point induced velocity into bound-segment and trailing-leg contributions. Retain the own-bound exclusion mask, bound endpoints, actual force point and its interpolation fraction. Compare each contribution with the already-saved half-Trefftz wake velocity, including separate inner-span and tip totals. This requires no new circulation solution or parameter sweep. The documented velocity formula includes both bound and trailing vorticity, so neither contribution should be deleted merely because doing so improves agreement. The current force point follows equation 155; its relation to each piecewise-straight bound segment, and the treatment of neighboring curved segments, are the useful unresolved implementation details.
+
+Historical ASWING startup K/F and PG choices, exact NODE-I100 arrays, interpolation endpoints and internal force quadrature remain unproved. No source-supported physical defect or authorized replacement formula is established by this diagnostic. Experimental agreement is not an acceptance condition.

@@ -1,0 +1,4420 @@
+{
+  "status": "SOURCE_AUDIT_COMPLETE_EXECUTION_BLOCKED",
+  "case_id": "P-3",
+  "repository": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation",
+  "revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+  "scope": "Read-only original FIG decoding, exact stored-series verification, report and prior-audit review. No production/numerical package imports, no component or solver calls, no upstream code execution.",
+  "original_family_files": [
+    "2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+    "2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+    "2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig"
+  ],
+  "counts": {
+    "original_files": 3,
+    "original_models": 0,
+    "original_drivers": 0,
+    "retained_matlab_producers": 0,
+    "raw_solver_exports": 0,
+    "total_curves": 36,
+    "total_stored_finite_scalars": 252,
+    "by_provenance": {
+      "experiment": {
+        "curves": 12,
+        "stored_scalar_targets": 84,
+        "finite_scalar_targets": 84,
+        "unavailable_scalar_targets": 0
+      },
+      "Leng_BEMT": {
+        "curves": 12,
+        "stored_scalar_targets": 84,
+        "finite_scalar_targets": 84,
+        "unavailable_scalar_targets": 0
+      },
+      "ASWING_labelled": {
+        "curves": 12,
+        "stored_scalar_targets": 84,
+        "finite_scalar_targets": 84,
+        "unavailable_scalar_targets": 0
+      }
+    },
+    "distinct_ASWING_labelled_conditions": 28,
+    "ASWING_labelled_channel_count": 3,
+    "duplicate_curves_within_each_figure": 0,
+    "registered_jobs_added": 0,
+    "executable_complete_input_conditions": 0
+  },
+  "provenance_conclusion": {
+    "report_claim": "ASWING output data only for partially repeatable P3; original source modifications not distributed.",
+    "fig_evidence": "All three saved titles explicitly classify red ASWING, black experiments and blue Leng BEMT.",
+    "executable_evidence": "No model, driver, original modified executable/build, producer script or raw run transcript is retained in this family.",
+    "MATLAB_reproduction": "Not established for P3. Explicit MATLAB-reproduction wording belongs to P4 static. A MATLAB FIG container alone does not identify the prediction producer.",
+    "independent_review": "Second agent inspected report text and rendered pinned PDF Figure9/rigFigure5; independently confirmed color/marker mapping, absent denominators and literal radius text."
+  },
+  "documented_conditions": {
+    "alpha_deg": [
+      0,
+      15,
+      30,
+      45,
+      60,
+      75,
+      90
+    ],
+    "advance_labels": [
+      0.2,
+      0.45,
+      0.7,
+      1.0
+    ],
+    "advance_ratio_exact_velocity_denominator": null,
+    "transverse_velocity_relation": "v = V_infinity sin(alpha_p)",
+    "disk_velocity_relation": "V_d = V_infinity cos(alpha_p) + 0.5 delta_V_e",
+    "shaft_advance_relation": "mu = lambda cos(alpha_p)",
+    "printed_CdA_polynomial": "CDA(mu) = 0.0019 mu^2 - 0.0026 mu + 0.0006",
+    "printed_CdA_coefficients": [
+      0.0019,
+      -0.0026,
+      0.0006
+    ],
+    "polynomial_precision": "Printed report coefficients only; unrounded producer coefficients are not recovered. This is an experimentally calibrated input law, not an independent experiment validation.",
+    "airfoil": "NACA0012",
+    "blade_pitch": "Linear variation, tip pitch20 degrees; full radial geometry referred to Leng appendix but not retained here.",
+    "literal_radius_text": "R_e = 0.85 m",
+    "literal_radius_status": "Confirmed in PDF, not an OCR error; do not substitute a guessed corrected scale.",
+    "shaft_power_W": null,
+    "power_coefficient_rows": null,
+    "rpm": null,
+    "density_kg_m3": null,
+    "shaft_spin": null,
+    "target_channels": [
+      "C_N",
+      "C_n",
+      "C_T"
+    ],
+    "pitch_moment_in_scope": false,
+    "force_coefficient_denominator": null,
+    "yaw_moment_coefficient_denominator": null,
+    "normal_force_axis_sign": null,
+    "yaw_moment_axis_sign": null,
+    "moment_reference_point": null
+  },
+  "source_facts": [
+    "P3 folder contains exactly three pinned original FIG files and no retained model or driver.",
+    "Each FIG has12 seven-point curves:4 black experiments,4 blue Leng BEMT and4 red ASWING-labelled curves.",
+    "All arrays are finite. The yaw curve at lambda=.2/alpha0 contains stored negative zero, retained bitwise.",
+    "The84 red scalars form28 matched conditions with CN,Cn,CT; repeated coordinates acrosschannels are not additional conditions.",
+    "Readably decoded HG ApplicationData contains graphics layout/legend annotations, not an identified operating-input table.",
+    "Report says measured CT and CP as functions of alpha_p and lambda drive the EADT benchmark, but no original CP/power values are retained in this family.",
+    "The primary report explicitly excludes pitch moment because its P-factor model cannot predict that component."
+  ],
+  "inferences": [
+    "The same marker set and source labels bind the red/blue curves to the four advance-ratio labels; this is an evidence-backed graphics attribution, not a recovered run identifier.",
+    "These84 ASWING-labelled values can be preserved as blocked source targets, but their existence does not establish an executable original-input route.",
+    "The report supports ASWING-labelled output provenance; the actual modified build, invocation and figure-producing implementation remain unverified."
+  ],
+  "missing_essentials": [
+    "Independent row-wise CP or dimensional shaft power for all28 conditions; never infer these by fitting the red acceptance curves.",
+    "Exact advance-ratio definition, RPM/angular speed, freestream conversion and density.",
+    "Confirmed dimensional radius/scale, blade count, full blade geometry and P-factor radial coefficients C0,C1,C2,S0,S1, lift slope and local lift coefficient.",
+    "Exact CdA producer coefficients and units/normalization mapping; printed rounded polynomial alone is not a recovered implementation.",
+    "CN/CT force and Cn yaw-moment denominators, shaft/body axes, spin direction, signed outputs and moment origin.",
+    "Modified original input/driver/build or independent documented component-request tuple; native output precision or another explicitly justified non-fitted diagnostic rule."
+  ],
+  "next_action": "Recover the original P3 producer/input table or the cited Leng primary geometry/CP/normalization material with source pins. Only then define an explicit component request and compare all84 red targets. No ASWING-input assumptions or tolerance fitting are authorized by this audit.",
+  "source_pins": [
+    {
+      "path": ".reference/isae-validation/manifest.json",
+      "bytes": 791256,
+      "sha256": "813347a3bd9fcbd029a1ec86e0c3141f82422af26f33ebde7c2f732a16bf27f6",
+      "role": "upstream_manifest"
+    },
+    {
+      "path": "docs/validation/isae-figure-inventory.json",
+      "bytes": 56956,
+      "sha256": "619129c12a0074bf3fe2021f0105d2b70f8a84482b1aeeda10fec45bb22634ef",
+      "role": "existing_figure_inventory"
+    },
+    {
+      "path": "scripts/extract-isae-figures.py",
+      "bytes": 3531,
+      "sha256": "7c4eb1166ae632a3e03dc530e0d390f7ed159c61b0762d33bb94d84dce061f60",
+      "role": "existing_cached_extraction_interpreter_read_only"
+    },
+    {
+      "path": "docs/validation/isae-suite-expanded-20261026/p2-readiness.md",
+      "bytes": 2375,
+      "sha256": "d5232cde440405bb78167194c8cb92116c3a46f84d417df16f31116d38f2249d",
+      "role": "related_prior_audit_scope_context"
+    },
+    {
+      "path": "docs/validation/isae-suite-st5-ae2-20261027/p45-readiness/report.md",
+      "bytes": 3024,
+      "sha256": "308326cfca7d67ffbc3ec947cc86e6a7dbd8efa7c400dbf4c3eb06b05e7fd51e",
+      "role": "related_prior_audit_scope_context"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/5 - Technical Reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.pdf",
+      "bytes": 2326290,
+      "sha256": "8f12fb098d29875dde4b28a5bdd943de42c6b6d500f13d2121af8a082e40d9ef",
+      "role": "primary_ISAE_report"
+    },
+    {
+      "path": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "bytes": 59968,
+      "sha256": "f7d7986de363e5920a05ed009cf72aa62948f596e14d496a89f0de566b20f550",
+      "role": "derived_cached_primary_report_text"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+      "bytes": 26148,
+      "sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+      "role": "original_P3_figure"
+    },
+    {
+      "path": ".reference/isae-validation/figure-series/9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875.json",
+      "bytes": 8090,
+      "sha256": "68185c486c2c3833d71ef2741e761794850da2ca2a30a677e9a02d379144855c",
+      "role": "prior_stored_series_extraction"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+      "bytes": 26868,
+      "sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+      "role": "original_P3_figure"
+    },
+    {
+      "path": ".reference/isae-validation/figure-series/bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b.json",
+      "bytes": 8071,
+      "sha256": "6aa63cb8f3e094beb527c9b3af39ae0b400878dd4591a87f3973ad37a8cdd90d",
+      "role": "prior_stored_series_extraction"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+      "bytes": 26243,
+      "sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+      "role": "original_P3_figure"
+    },
+    {
+      "path": ".reference/isae-validation/figure-series/34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd.json",
+      "bytes": 8121,
+      "sha256": "7cf195c2c87609b61f4924f114b6c51155147ba27696506603bf7e4a078d3400",
+      "role": "prior_stored_series_extraction"
+    }
+  ],
+  "figures": [
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+      "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+      "original_bytes": 26148,
+      "cached_series_sha256": "68185c486c2c3833d71ef2741e761794850da2ca2a30a677e9a02d379144855c",
+      "x_axis": "\\alpha in deg",
+      "y_axis": "C_N",
+      "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+      "legend": [
+        "\\lambda_\\infty = 0.2",
+        "\\lambda_\\infty = 0.45",
+        "\\lambda_\\infty = 0.70",
+        "\\lambda_\\infty = 1.0"
+      ],
+      "curves": [
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[0]",
+          "channel": "C_N",
+          "classification": "experiment",
+          "advance_label": 0.2,
+          "original_display_name": "\\lambda_\\infty = 0.2",
+          "line_style": "none",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.0006098655854716029
+            ],
+            [
+              15.0,
+              0.005239962043151941
+            ],
+            [
+              30.0,
+              0.011089118717390808
+            ],
+            [
+              45.0,
+              0.01674481687737829
+            ],
+            [
+              60.0,
+              0.021431209602954734
+            ],
+            [
+              75.0,
+              0.02534175540837158
+            ],
+            [
+              90.0,
+              0.02731279573912014
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3fbec5f4da000p-11"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.5767f99b8cea0p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.6b5e451dc7a38p-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.1258da376a104p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.5f210216f037cp-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.9f3306acf0a20p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.bf7e2b1d8eefcp-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[1]",
+          "channel": "C_N",
+          "classification": "experiment",
+          "advance_label": 0.45,
+          "original_display_name": "\\lambda_\\infty = 0.45",
+          "line_style": "none",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.00041595976829708614
+            ],
+            [
+              15.0,
+              0.013189876895845512
+            ],
+            [
+              30.0,
+              0.027765018994399107
+            ],
+            [
+              45.0,
+              0.0417588909443523
+            ],
+            [
+              60.0,
+              0.05051708217913202
+            ],
+            [
+              75.0,
+              0.05442740433308728
+            ],
+            [
+              90.0,
+              0.05387811634349028
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.b42a599edfe00p-12"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.b034b4f3f5448p-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.c6e6ee2370da4p-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.5616bddd8b0c6p-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.9dd5fffb28af6p-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.bdde8a33bca66p-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.b95e99754abe2p-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[2]",
+          "channel": "C_N",
+          "classification": "experiment",
+          "advance_label": 0.7,
+          "original_display_name": "\\lambda_\\infty = 0.70",
+          "line_style": "none",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.00041551246537396835
+            ],
+            [
+              15.0,
+              0.01415962963317964
+            ],
+            [
+              30.0,
+              0.03222462913795139
+            ],
+            [
+              45.0,
+              0.052617616706125137
+            ],
+            [
+              60.0,
+              0.06525392428439518
+            ],
+            [
+              75.0,
+              0.07808436133130127
+            ],
+            [
+              90.0,
+              0.07210548680935627
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.b3b24732a2000p-12"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.cffb951957608p-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.07fbf208be4cap-5"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.af0b23de47d98p-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.0b47b2ebcb50bp-4"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.3fd56323f3a79p-4"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.2758153b55612p-4"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[3]",
+          "channel": "C_N",
+          "classification": "experiment",
+          "advance_label": 1.0,
+          "original_display_name": "\\lambda_\\infty = 1.0",
+          "line_style": "none",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.0004152888139123956
+            ],
+            [
+              15.0,
+              0.01648627578781227
+            ],
+            [
+              30.0,
+              0.03804202730464841
+            ],
+            [
+              45.0,
+              0.06522171847393021
+            ],
+            [
+              60.0,
+              0.08949237508267113
+            ],
+            [
+              75.0,
+              0.1069758807873809
+            ],
+            [
+              90.0,
+              0.09808864265927975
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.b3763dfc83000p-12"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.0e1c73d5dafa4p-6"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.37a3e9e4b441ap-5"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.0b25edbd59e78p-4"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.6e8f8e838b026p-4"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.b62c575714df4p-4"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.91c565854a4a0p-4"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[4]",
+          "channel": "C_N",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.0006096419340100301
+            ],
+            [
+              15.0,
+              0.004464562425915447
+            ],
+            [
+              30.0,
+              0.008762472562758195
+            ],
+            [
+              45.0,
+              0.013255183122621708
+            ],
+            [
+              60.0,
+              0.016195752539242825
+            ],
+            [
+              75.0,
+              0.018361145990089034
+            ],
+            [
+              90.0,
+              0.018974845600616005
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3fa0c159ca800p-11"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.2496ed9c39d20p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.1f20f28b69100p-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.b2588901cfb68p-7"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.0959e8df5ebb0p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.2cd43a62d9510p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.36e24553486bcp-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[5]",
+          "channel": "C_N",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.00041595976829708614
+            ],
+            [
+              15.0,
+              0.0112505950726388
+            ],
+            [
+              30.0,
+              0.022529785582148784
+            ],
+            [
+              45.0,
+              0.03225750590280105
+            ],
+            [
+              60.0,
+              0.03946422694872309
+            ],
+            [
+              75.0,
+              0.04453843130864858
+            ],
+            [
+              90.0,
+              0.04670293015364853
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.b42a599edfe00p-12"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.70a8d4f2e2038p-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.7120c510b7d9cp-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.0840e49ce5d8cp-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.434a7b8369fc0p-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.6cdbdc3c58606p-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.7e9724b464b3ap-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[6]",
+          "channel": "C_N",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.00022205395112256943
+            ],
+            [
+              15.0,
+              0.01629259362209931
+            ],
+            [
+              30.0,
+              0.032031170623700006
+            ],
+            [
+              45.0,
+              0.0485458181969219
+            ],
+            [
+              60.0,
+              0.06079386683791976
+            ],
+            [
+              75.0,
+              0.069745963889874
+            ],
+            [
+              90.0,
+              0.0730741212893826
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.d1ae4ea817800p-13"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.0af0173188258p-6"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.06663bc901204p-5"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.8daff5b06d4aap-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.f205fabbb8460p-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.1dadf19ef5c8ap-4"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.2b4fc511f309ep-4"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[7]",
+          "channel": "C_N",
+          "classification": "Leng_BEMT",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.00016598133468803677
+            ],
+            [
+              15.0,
+              0.021333473914252013
+            ],
+            [
+              30.0,
+              0.0428896727340113
+            ],
+            [
+              45.0,
+              0.06522127117100708
+            ],
+            [
+              60.0,
+              0.0863898820078789
+            ],
+            [
+              75.0,
+              0.10057676516916034
+            ],
+            [
+              90.0,
+              0.10565029857470115
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.5c168cef77000p-13"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.5d87133164de4p-6"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.5f5a29b751afap-5"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.0b2575aaeda99p-4"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.61da5b5eddc08p-4"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.9bf661d239686p-4"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.b0be5e130e3dcp-4"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[8]",
+          "channel": "C_N",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "square",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.0023137807643954563
+            ],
+            [
+              30.0,
+              0.004294778150734464
+            ],
+            [
+              45.0,
+              0.00571827318342099
+            ],
+            [
+              60.0,
+              0.006550130021114317
+            ],
+            [
+              75.0,
+              0.00682066859128935
+            ],
+            [
+              90.0,
+              0.0065897944476955616
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.2f45996d278ccp-9"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.19766bb3736aep-8"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.76c0b44ff8978p-8"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.ad44f239a8ebdp-8"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.beffd4895445dp-8"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.afde67a3e51e5p-8"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[9]",
+          "channel": "C_N",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "o",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.007136226917782797
+            ],
+            [
+              30.0,
+              0.01270892105308948
+            ],
+            [
+              45.0,
+              0.016100928874273966
+            ],
+            [
+              60.0,
+              0.017243261319223463
+            ],
+            [
+              75.0,
+              0.016986489829778982
+            ],
+            [
+              90.0,
+              0.016132171412693207
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.d3ae053a8cde8p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.a07228252df6bp-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.07cc30bcd08c6p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.1a837adc510b8p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.164e8092bc356p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.084f3b2862086p-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[10]",
+          "channel": "C_N",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "^",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.015396790014701671
+            ],
+            [
+              30.0,
+              0.026113672104822575
+            ],
+            [
+              45.0,
+              0.0311284748230838
+            ],
+            [
+              60.0,
+              0.03148380225677648
+            ],
+            [
+              75.0,
+              0.029217667729898766
+            ],
+            [
+              90.0,
+              0.026215333885801193
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.f885a2c9cb81cp-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.abd8adeacba91p-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.fe024955ba704p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.01ea51a17da1ep-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.deb3c7d7613c3p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.ad83146c5dfd9p-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "source_sha256": "9df5f02ade7cdfbc47b7d46bbbf699cbb689594a3ae8c40c3ca58ec0a2324875",
+          "location": "hgS_070000.children[0].children[11]",
+          "channel": "C_N",
+          "classification": "ASWING_labelled",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "diamond",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.03147168357695932
+            ],
+            [
+              30.0,
+              0.05162778462602501
+            ],
+            [
+              45.0,
+              0.057503575173164435
+            ],
+            [
+              60.0,
+              0.053663978317274263
+            ],
+            [
+              75.0,
+              0.045418673277789354
+            ],
+            [
+              90.0,
+              0.03653185288021541
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.01d0e776d1b85p-5"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.a6ef4fd11424fp-5"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.d711bcd8b2bd5p-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.b79d84fb11fd8p-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.7411dc8b62d4ep-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.2b44d92c3ff7dp-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        }
+      ],
+      "decoded_HG_series_match_cached_extraction_bitwise": true,
+      "opaque_metadata": {
+        "hgM": {
+          "GraphicsObjects": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 136
+          }
+        },
+        "meta_data": {
+          "matlab_release": {
+            "Release": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Stage": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Update": 1,
+            "Date": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            }
+          },
+          "uuid": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 96
+          }
+        },
+        "anonymous_MCOS_payload_bytes": 93176
+      },
+      "opaque_metadata_limit": "Graphics-object MCOS/opaque function payloads are not interpreted or executed; no claim of exhaustive workspace recovery."
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+      "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+      "original_bytes": 26868,
+      "cached_series_sha256": "6aa63cb8f3e094beb527c9b3af39ae0b400878dd4591a87f3973ad37a8cdd90d",
+      "x_axis": "\\alpha_p in deg",
+      "y_axis": "C_T",
+      "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+      "legend": [
+        "\\lambda_\\infty = 0.2",
+        "\\lambda_\\infty = 0.45",
+        "\\lambda_\\infty = 0.70",
+        "\\lambda_\\infty = 1.0"
+      ],
+      "curves": [
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[0]",
+          "channel": "C_T",
+          "classification": "experiment",
+          "advance_label": 0.2,
+          "original_display_name": "\\lambda_\\infty = 0.2",
+          "line_style": "none",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.17978298149847824
+            ],
+            [
+              15.0,
+              0.18087411236172157
+            ],
+            [
+              30.0,
+              0.18347664364040375
+            ],
+            [
+              45.0,
+              0.185576179894691
+            ],
+            [
+              60.0,
+              0.18968769624655807
+            ],
+            [
+              75.0,
+              0.19531121684942748
+            ],
+            [
+              90.0,
+              0.20093594512342391
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.70320f4f4e83bp-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.726e206a4b014p-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.77c29a401f7fdp-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.7c0f5d3c83b54p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.847afb9ea90f6p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.8fff53c74833ep-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.9b844e072aeb3p-3"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[1]",
+          "channel": "C_T",
+          "classification": "experiment",
+          "advance_label": 0.45,
+          "original_display_name": "\\lambda_\\infty = 0.45",
+          "line_style": "none",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.14453106130138632
+            ],
+            [
+              15.0,
+              0.14763598376889997
+            ],
+            [
+              30.0,
+              0.15779310178252248
+            ],
+            [
+              45.0,
+              0.17248200570020764
+            ],
+            [
+              60.0,
+              0.18867929085551416
+            ],
+            [
+              75.0,
+              0.21193118689918353
+            ],
+            [
+              90.0,
+              0.24525204096420455
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.27ffe6ac5d70ep-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.2e5bc650006f4p-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.4329079d85cd8p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.613e3eed0c097p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.826a49bd41578p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.b208fa65e02afp-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.f646b3b9bf82ap-3"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[2]",
+          "channel": "C_T",
+          "classification": "experiment",
+          "advance_label": 0.7,
+          "original_display_name": "\\lambda_\\infty = 0.70",
+          "line_style": "none",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.10776955219554601
+            ],
+            [
+              15.0,
+              0.1133918651272885
+            ],
+            [
+              30.0,
+              0.1285843679049321
+            ],
+            [
+              45.0,
+              0.15384764021061775
+            ],
+            [
+              60.0,
+              0.1881762958311192
+            ],
+            [
+              75.0,
+              0.23056374088208292
+            ],
+            [
+              90.0,
+              0.28201415390560836
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.b96c90e2f3724p-4"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.d073fd05aa960p-4"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.07573db76d998p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.3b1478ba2bc82p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.816292e3d10e5p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.d831cd75db102p-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.20c851802281ep-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[3]",
+          "channel": "C_T",
+          "classification": "experiment",
+          "advance_label": 1.0,
+          "original_display_name": "\\lambda_\\infty = 1.0",
+          "line_style": "none",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.039784309936718
+            ],
+            [
+              15.0,
+              0.05950799478286062
+            ],
+            [
+              30.0,
+              0.09131986377469686
+            ],
+            [
+              45.0,
+              0.12917129607265343
+            ],
+            [
+              60.0,
+              0.1821361286894352
+            ],
+            [
+              75.0,
+              0.2421489300033814
+            ],
+            [
+              90.0,
+              0.3006485193951982
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.45e9bec24ee70p-5"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.e77d4f6e2c710p-5"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.760bd14633314p-4"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.088af5e1b63b0p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.7503c961211e9p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.efebc73901e06p-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.33dd349992a28p-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[4]",
+          "channel": "C_T",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.18381237621370938
+            ],
+            [
+              15.0,
+              0.18540770977247467
+            ],
+            [
+              30.0,
+              0.18851263223998832
+            ],
+            [
+              45.0,
+              0.1936325539828993
+            ],
+            [
+              60.0,
+              0.2007668711656441
+            ],
+            [
+              75.0,
+              0.206390995604077
+            ],
+            [
+              90.0,
+              0.2140283078112168
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.78729f8380e18p-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.7bb7098f313b0p-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.8212e932d4396p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.8c8f3976614b6p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.9b2ba94e36a79p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.a6b0528277957p-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.b6547933bd3aep-3"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[5]",
+          "channel": "C_T",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.1455394666924302
+            ],
+            [
+              15.0,
+              0.14813958262885843
+            ],
+            [
+              30.0,
+              0.15577870634268867
+            ],
+            [
+              45.0,
+              0.17046640258924683
+            ],
+            [
+              60.0,
+              0.190190691270953
+            ],
+            [
+              75.0,
+              0.21746956668759954
+            ],
+            [
+              90.0,
+              0.25028802956378915
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.2a10988dc528bp-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.2f63ce351281dp-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.3f08e8093d835p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.5d1d7d41802c8p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.8582b27819588p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.bd60af2663644p-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.004b81563a1e2p-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[6]",
+          "channel": "C_T",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.11431633737500596
+            ],
+            [
+              15.0,
+              0.12144944688662379
+            ],
+            [
+              30.0,
+              0.13966354282401808
+            ],
+            [
+              45.0,
+              0.15636623834597355
+            ],
+            [
+              60.0,
+              0.18817750350224619
+            ],
+            [
+              75.0,
+              0.2330817351818752
+            ],
+            [
+              90.0,
+              0.28553994976088104
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.d43d5e26c954cp-4"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.f174f9a7ece7cp-4"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.1e07eb66fb319p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.403cf13f27ee5p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.816334fb14a11p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.dd59f4ef356cep-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.246495a7b2a78p-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[7]",
+          "channel": "C_T",
+          "classification": "Leng_BEMT",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.041796893869861296
+            ],
+            [
+              15.0,
+              0.05799659436742177
+            ],
+            [
+              30.0,
+              0.09131925993913337
+            ],
+            [
+              45.0,
+              0.14478467223805605
+            ],
+            [
+              60.0,
+              0.19321288826626723
+            ],
+            [
+              75.0,
+              0.2577592869909665
+            ],
+            [
+              90.0,
+              0.3358986280855996
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.56667087da9f0p-5"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.db1bac82cc6d0p-5"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.760b2f2eef9e8p-4"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.2884ddc1cbd65p-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.8bb332e227913p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.07f20cef77466p-2"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.57f5cf59987ddp-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[8]",
+          "channel": "C_T",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "square",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.18248766716581893
+            ],
+            [
+              15.0,
+              0.18414561525698078
+            ],
+            [
+              30.0,
+              0.1870517639256751
+            ],
+            [
+              45.0,
+              0.18706349682568513
+            ],
+            [
+              60.0,
+              0.183713335092716
+            ],
+            [
+              75.0,
+              0.1694773896244994
+            ],
+            [
+              90.0,
+              0.1313319059221095
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.75bc18133446ap-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.79215619d820bp-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.7f14fec5c2543p-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.7f1b2589223ccp-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.783eb2707f997p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.5b16f62eca15fp-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.0cf7be06dabebp-3"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[9]",
+          "channel": "C_T",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "o",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.13937594389672558
+            ],
+            [
+              15.0,
+              0.14267225422951407
+            ],
+            [
+              30.0,
+              0.15461516004148104
+            ],
+            [
+              45.0,
+              0.17187908376504696
+            ],
+            [
+              60.0,
+              0.1932540127770442
+            ],
+            [
+              75.0,
+              0.21557967095820177
+            ],
+            [
+              90.0,
+              0.2148992629674562
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.1d71228715a44p-3"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.243159cfb2ea2p-3"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.3ca6df7ec071dp-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.6002241d193bep-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.8bc8c28595dabp-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.b981d5a39555dp-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.b81d1ad309af0p-3"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[10]",
+          "channel": "C_T",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "^",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.10883736028044982
+            ],
+            [
+              15.0,
+              0.11426664180821333
+            ],
+            [
+              30.0,
+              0.12816224513083216
+            ],
+            [
+              45.0,
+              0.15384667678488514
+            ],
+            [
+              60.0,
+              0.1927525999698894
+            ],
+            [
+              75.0,
+              0.24534548474235993
+            ],
+            [
+              90.0,
+              0.2977370559357556
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.bdcc3e6fccce4p-4"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.d409421970bb8p-4"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.0679ed5b59d2fp-3"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.3b13f76b1d6afp-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.8ac1e008b7981p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.f677b1898482fp-3"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.30e1fb9834a06p-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "source_sha256": "bd7fd924ec4370e96158d45211970b22edf2ad036b194911320b5e3fa282865b",
+          "location": "hgS_070000.children[0].children[11]",
+          "channel": "C_T",
+          "classification": "ASWING_labelled",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "diamond",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.04623184590859043
+            ],
+            [
+              15.0,
+              0.05846846091581388
+            ],
+            [
+              30.0,
+              0.08690909556571462
+            ],
+            [
+              45.0,
+              0.126164970663491
+            ],
+            [
+              60.0,
+              0.1783614895256047
+            ],
+            [
+              75.0,
+              0.25477710583747853
+            ],
+            [
+              90.0,
+              0.35227433165649863
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x1.7abb3546c1642p-5"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.def93fef6353ap-5"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.63facab2dffb3p-4"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.0262c7b73435dp-3"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.6d48c9e306cc0p-3"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.04e44a255db27p-2"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.68ba9a36bd5b7p-2"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        }
+      ],
+      "decoded_HG_series_match_cached_extraction_bitwise": true,
+      "opaque_metadata": {
+        "hgM": {
+          "GraphicsObjects": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 136
+          }
+        },
+        "meta_data": {
+          "matlab_release": {
+            "Release": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Stage": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Update": 1,
+            "Date": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            }
+          },
+          "uuid": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 96
+          }
+        },
+        "anonymous_MCOS_payload_bytes": 96208
+      },
+      "opaque_metadata_limit": "Graphics-object MCOS/opaque function payloads are not interpreted or executed; no claim of exhaustive workspace recovery."
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+      "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+      "original_bytes": 26243,
+      "cached_series_sha256": "7cf195c2c87609b61f4924f114b6c51155147ba27696506603bf7e4a078d3400",
+      "x_axis": "\\alpha in deg",
+      "y_axis": "C_n",
+      "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+      "legend": [
+        "\\lambda_\\infty = 0.2",
+        "\\lambda_\\infty = 0.45",
+        "\\lambda_\\infty = 0.70",
+        "\\lambda_\\infty = 1.0"
+      ],
+      "curves": [
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[0]",
+          "channel": "C_n",
+          "classification": "experiment",
+          "advance_label": 0.2,
+          "original_display_name": "\\lambda_\\infty = 0.2",
+          "line_style": "none",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -7.604153203223055e-05
+            ],
+            [
+              15.0,
+              0.0017832780434564044
+            ],
+            [
+              30.0,
+              0.0038919765053925543
+            ],
+            [
+              45.0,
+              0.005751439690951123
+            ],
+            [
+              60.0,
+              0.007299197219709041
+            ],
+            [
+              75.0,
+              0.00797430815848807
+            ],
+            [
+              90.0,
+              0.00889886978874958
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3ef0f92a74240p-14"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.d379c3815a100p-10"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.fe210f9d6b944p-9"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.78ed2560a735cp-8"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.de5c355880166p-8"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.054d585fdd030p-7"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.2399215b65b96p-7"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[1]",
+          "channel": "C_n",
+          "classification": "experiment",
+          "advance_label": 0.45,
+          "original_display_name": "\\lambda_\\infty = 0.45",
+          "line_style": "none",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.00013836830238536744
+            ],
+            [
+              15.0,
+              0.003279192336966663
+            ],
+            [
+              30.0,
+              0.006883805092413075
+            ],
+            [
+              45.0,
+              0.010363548892048303
+            ],
+            [
+              60.0,
+              0.01371892637111714
+            ],
+            [
+              75.0,
+              0.015079703588815642
+            ],
+            [
+              90.0,
+              0.015443252480863954
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.222deaac6d420p-13"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.adcf6fb06ae80p-9"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.c32315be73aa6p-8"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.5397bfc7ea854p-7"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.c18ab20cd2b36p-7"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.ee21b8dfa8bd4p-7"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.fa0b642cb1fb2p-7"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[2]",
+          "channel": "C_n",
+          "classification": "experiment",
+          "advance_label": 0.7,
+          "original_display_name": "\\lambda_\\infty = 0.70",
+          "line_style": "none",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -7.618514210216802e-05
+            ],
+            [
+              15.0,
+              0.005398374334008298
+            ],
+            [
+              30.0,
+              0.010997371935720129
+            ],
+            [
+              45.0,
+              0.016346918845949472
+            ],
+            [
+              60.0,
+              0.01976455129033647
+            ],
+            [
+              75.0,
+              0.02299520342366406
+            ],
+            [
+              90.0,
+              0.023732712937831198
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3f8b2c66b9f80p-14"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.61c9b13754638p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.685ca467269f6p-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.0bd3f2755ba72p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.43d2895a60018p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.78c0dfaad928ep-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.84d6367a742e2p-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[3]",
+          "channel": "C_n",
+          "classification": "experiment",
+          "advance_label": 1.0,
+          "original_display_name": "\\lambda_\\infty = 1.0",
+          "line_style": "none",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -7.596972699726139e-05
+            ],
+            [
+              15.0,
+              0.0070187985581548935
+            ],
+            [
+              30.0,
+              0.01423836399408326
+            ],
+            [
+              45.0,
+              0.022392543765168808
+            ],
+            [
+              60.0,
+              0.0295496388206741
+            ],
+            [
+              75.0,
+              0.034338603822900056
+            ],
+            [
+              90.0,
+              0.03594854451194116
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3ea3df8c51380p-14"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.cbfbe643b56f4p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.d2900dda0036ep-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.6ee122c9524f1p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.e4242b15fa628p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.194d458d1be79p-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.267d8fe09013dp-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[4]",
+          "channel": "C_n",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "square",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -7.618514210216802e-05
+            ],
+            [
+              15.0,
+              0.0014715723866557482
+            ],
+            [
+              30.0,
+              0.0030817284908017713
+            ],
+            [
+              45.0,
+              0.004380466158287013
+            ],
+            [
+              60.0,
+              0.0055540476498212
+            ],
+            [
+              75.0,
+              0.006353883934341472
+            ],
+            [
+              90.0,
+              0.00665539327617652
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3f8b2c66b9f80p-14"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.81c38d18f7e28p-10"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.93eda62a91fccp-9"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.1f1406e41da76p-8"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.6bfd7504334bcp-8"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.a0687bb358fa2p-8"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.b42af876940aep-8"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[5]",
+          "channel": "C_n",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "o",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -7.604153203223055e-05
+            ],
+            [
+              15.0,
+              0.003590754383697381
+            ],
+            [
+              30.0,
+              0.007631654531615751
+            ],
+            [
+              45.0,
+              0.01111154194132092
+            ],
+            [
+              60.0,
+              0.013282495368575242
+            ],
+            [
+              75.0,
+              0.014269455574224859
+            ],
+            [
+              90.0,
+              0.014321514224577416
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.3ef0f92a74240p-14"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.d6a5b94ab9d00p-9"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.f425eaa0ae50ep-8"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.6c1a5e9f80644p-7"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.b33da59bd08e6p-7"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.d394de82f2576p-7"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.d549919ca420ep-7"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[6]",
+          "channel": "C_n",
+          "classification": "Leng_BEMT",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "^",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -1.3858371749031137e-05
+            ],
+            [
+              15.0,
+              0.0050866686772076414
+            ],
+            [
+              30.0,
+              0.009937745034681825
+            ],
+            [
+              45.0,
+              0.017094768285152148
+            ],
+            [
+              60.0,
+              0.021322720549164897
+            ],
+            [
+              75.0,
+              0.02349374578145419
+            ],
+            [
+              90.0,
+              0.023732784742866164
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.d10281c29cc00p-17"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.4d5c239d3bd82p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.45a3d8f5c0c08p-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.1814a7adea50cp-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.5d59f8dae8010p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.80ebe972ae390p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.84d6839412510p-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[7]",
+          "channel": "C_n",
+          "classification": "Leng_BEMT",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-.",
+          "marker": "diamond",
+          "color": [
+            0,
+            0,
+            1
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -1.3642956644124501e-05
+            ],
+            [
+              15.0,
+              0.008639150977266523
+            ],
+            [
+              30.0,
+              0.015921114988582993
+            ],
+            [
+              45.0,
+              0.021956328177731813
+            ],
+            [
+              60.0,
+              0.029986069823216
+            ],
+            [
+              75.0,
+              0.03496165611132652
+            ],
+            [
+              90.0,
+              0.03619806700845863
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x1.c9c81aef56c00p-17"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.1b167374cef7cp-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.04d9ff0c46c4cp-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.67bb83ddaba54p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.eb4ab14e7b750p-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.1e67e83396b31p-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.2888d93f5a151p-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[8]",
+          "channel": "C_n",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.2,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "square",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              -0.0
+            ],
+            [
+              15.0,
+              0.002898548010936888
+            ],
+            [
+              30.0,
+              0.005587903295125989
+            ],
+            [
+              45.0,
+              0.007872896046059893
+            ],
+            [
+              60.0,
+              0.009600489487629841
+            ],
+            [
+              75.0,
+              0.010659023890859102
+            ],
+            [
+              90.0,
+              0.010983090429630287
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "-0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.7beb21d3625b9p-9"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.6e3575e7e0fc5p-8"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.01faa385750fep-7"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.3a96be2ffec0fp-7"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.5d465f825ef22p-7"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.67e4d71a259b6p-7"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[9]",
+          "channel": "C_n",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.45,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "o",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.006710670452225447
+            ],
+            [
+              30.0,
+              0.012902366386532848
+            ],
+            [
+              45.0,
+              0.01811074688502924
+            ],
+            [
+              60.0,
+              0.021968799345985102
+            ],
+            [
+              75.0,
+              0.02428689398499719
+            ],
+            [
+              90.0,
+              0.024988572928603237
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.b7ca5e20650b9p-8"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.a6c8e4d5e8d79p-7"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.28b9fa64f30c4p-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.67efd2ae4c0edp-6"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.8dea9dd8c4505p-6"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.9969abe021c80p-6"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[10]",
+          "channel": "C_n",
+          "classification": "ASWING_labelled",
+          "advance_label": 0.7,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "^",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.010800407997173566
+            ],
+            [
+              30.0,
+              0.020675471746050483
+            ],
+            [
+              45.0,
+              0.028852755337299692
+            ],
+            [
+              60.0,
+              0.03480760310213188
+            ],
+            [
+              75.0,
+              0.03827470967965016
+            ],
+            [
+              90.0,
+              0.0391947929428049
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.61e86390cf019p-7"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.52bf36bea258bp-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.d8b93a24af2bfp-6"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.1d24d59f39ca8p-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.398be24ad0d4cp-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.4115703b9c5fdp-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        },
+        {
+          "figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "source_sha256": "34bc1ca52ba69f99b79eac93d95a7eadbd706add1ffb2c1907bf03fa576844cd",
+          "location": "hgS_070000.children[0].children[11]",
+          "channel": "C_n",
+          "classification": "ASWING_labelled",
+          "advance_label": 1.0,
+          "original_display_name": "",
+          "line_style": "-",
+          "marker": "diamond",
+          "color": [
+            1,
+            0,
+            0
+          ],
+          "classification_evidence": {
+            "title": "Black : Exp, {\\color{blue}Blue Leng BEMT}, {\\color{red}red ASWING}",
+            "title_location": "hgS_070000.children[0].children[14]",
+            "lambda_binding": "Marker identity matches the black labelled series and saved legend; independently confirmed on report Figure9."
+          },
+          "xy": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              15.0,
+              0.016122230122110535
+            ],
+            [
+              30.0,
+              0.030751051133267024
+            ],
+            [
+              45.0,
+              0.04256304835660593
+            ],
+            [
+              60.0,
+              0.050882409599967586
+            ],
+            [
+              75.0,
+              0.05544138748226667
+            ],
+            [
+              90.0,
+              0.05624929264336162
+            ]
+          ],
+          "xy_ieee754_hex": [
+            [
+              "0x0.0p+0",
+              "0x0.0p+0"
+            ],
+            [
+              "0x1.e000000000000p+3",
+              "0x1.082588c73c399p-6"
+            ],
+            [
+              "0x1.e000000000000p+4",
+              "0x1.f7d341bbd721cp-6"
+            ],
+            [
+              "0x1.6800000000000p+5",
+              "0x1.5cad2e96b5c5cp-5"
+            ],
+            [
+              "0x1.e000000000000p+5",
+              "0x1.a0d425a58d9dfp-5"
+            ],
+            [
+              "0x1.2c00000000000p+6",
+              "0x1.c62d0442992efp-5"
+            ],
+            [
+              "0x1.6800000000000p+6",
+              "0x1.cccb510a71a2cp-5"
+            ]
+          ],
+          "samples": 7,
+          "precision_scope": "Stored FIG binary doubles. No original ASWING print format or acceptance tolerance recovered.",
+          "tolerance": null
+        }
+      ],
+      "decoded_HG_series_match_cached_extraction_bitwise": true,
+      "opaque_metadata": {
+        "hgM": {
+          "GraphicsObjects": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 136
+          }
+        },
+        "meta_data": {
+          "matlab_release": {
+            "Release": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Stage": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            },
+            "Update": 1,
+            "Date": {
+              "opaque_class": 17,
+              "shape": [],
+              "remaining_bytes": 96
+            }
+          },
+          "uuid": {
+            "opaque_class": 17,
+            "shape": [],
+            "remaining_bytes": 96
+          }
+        },
+        "anonymous_MCOS_payload_bytes": 90288
+      },
+      "opaque_metadata_limit": "Graphics-object MCOS/opaque function payloads are not interpreted or executed; no claim of exhaustive workspace recovery."
+    }
+  ],
+  "ASWING_labelled_condition_rows": [
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 0,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": -0.0,
+          "ieee754_hex": "-0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.18248766716581893,
+          "ieee754_hex": "0x1.75bc18133446ap-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 15,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0023137807643954563,
+          "ieee754_hex": "0x1.2f45996d278ccp-9",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.002898548010936888,
+          "ieee754_hex": "0x1.7beb21d3625b9p-9",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.18414561525698078,
+          "ieee754_hex": "0x1.79215619d820bp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 30,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.004294778150734464,
+          "ieee754_hex": "0x1.19766bb3736aep-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.005587903295125989,
+          "ieee754_hex": "0x1.6e3575e7e0fc5p-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1870517639256751,
+          "ieee754_hex": "0x1.7f14fec5c2543p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 45,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.00571827318342099,
+          "ieee754_hex": "0x1.76c0b44ff8978p-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.007872896046059893,
+          "ieee754_hex": "0x1.01faa385750fep-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.18706349682568513,
+          "ieee754_hex": "0x1.7f1b2589223ccp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 60,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.006550130021114317,
+          "ieee754_hex": "0x1.ad44f239a8ebdp-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.009600489487629841,
+          "ieee754_hex": "0x1.3a96be2ffec0fp-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.183713335092716,
+          "ieee754_hex": "0x1.783eb2707f997p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 75,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.00682066859128935,
+          "ieee754_hex": "0x1.beffd4895445dp-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.010659023890859102,
+          "ieee754_hex": "0x1.5d465f825ef22p-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1694773896244994,
+          "ieee754_hex": "0x1.5b16f62eca15fp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.2,
+      "alpha_deg": 90,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0065897944476955616,
+          "ieee754_hex": "0x1.afde67a3e51e5p-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.010983090429630287,
+          "ieee754_hex": "0x1.67e4d71a259b6p-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1313319059221095,
+          "ieee754_hex": "0x1.0cf7be06dabebp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[8]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 0,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.13937594389672558,
+          "ieee754_hex": "0x1.1d71228715a44p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 15,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.007136226917782797,
+          "ieee754_hex": "0x1.d3ae053a8cde8p-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.006710670452225447,
+          "ieee754_hex": "0x1.b7ca5e20650b9p-8",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.14267225422951407,
+          "ieee754_hex": "0x1.243159cfb2ea2p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 30,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.01270892105308948,
+          "ieee754_hex": "0x1.a07228252df6bp-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.012902366386532848,
+          "ieee754_hex": "0x1.a6c8e4d5e8d79p-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.15461516004148104,
+          "ieee754_hex": "0x1.3ca6df7ec071dp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 45,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.016100928874273966,
+          "ieee754_hex": "0x1.07cc30bcd08c6p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.01811074688502924,
+          "ieee754_hex": "0x1.28b9fa64f30c4p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.17187908376504696,
+          "ieee754_hex": "0x1.6002241d193bep-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 60,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.017243261319223463,
+          "ieee754_hex": "0x1.1a837adc510b8p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.021968799345985102,
+          "ieee754_hex": "0x1.67efd2ae4c0edp-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1932540127770442,
+          "ieee754_hex": "0x1.8bc8c28595dabp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 75,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.016986489829778982,
+          "ieee754_hex": "0x1.164e8092bc356p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.02428689398499719,
+          "ieee754_hex": "0x1.8dea9dd8c4505p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.21557967095820177,
+          "ieee754_hex": "0x1.b981d5a39555dp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.45,
+      "alpha_deg": 90,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.016132171412693207,
+          "ieee754_hex": "0x1.084f3b2862086p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.024988572928603237,
+          "ieee754_hex": "0x1.9969abe021c80p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.2148992629674562,
+          "ieee754_hex": "0x1.b81d1ad309af0p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[9]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 0,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.10883736028044982,
+          "ieee754_hex": "0x1.bdcc3e6fccce4p-4",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 15,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.015396790014701671,
+          "ieee754_hex": "0x1.f885a2c9cb81cp-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.010800407997173566,
+          "ieee754_hex": "0x1.61e86390cf019p-7",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.11426664180821333,
+          "ieee754_hex": "0x1.d409421970bb8p-4",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 30,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.026113672104822575,
+          "ieee754_hex": "0x1.abd8adeacba91p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.020675471746050483,
+          "ieee754_hex": "0x1.52bf36bea258bp-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.12816224513083216,
+          "ieee754_hex": "0x1.0679ed5b59d2fp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 45,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0311284748230838,
+          "ieee754_hex": "0x1.fe024955ba704p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.028852755337299692,
+          "ieee754_hex": "0x1.d8b93a24af2bfp-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.15384667678488514,
+          "ieee754_hex": "0x1.3b13f76b1d6afp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 60,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.03148380225677648,
+          "ieee754_hex": "0x1.01ea51a17da1ep-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.03480760310213188,
+          "ieee754_hex": "0x1.1d24d59f39ca8p-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1927525999698894,
+          "ieee754_hex": "0x1.8ac1e008b7981p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 75,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.029217667729898766,
+          "ieee754_hex": "0x1.deb3c7d7613c3p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.03827470967965016,
+          "ieee754_hex": "0x1.398be24ad0d4cp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.24534548474235993,
+          "ieee754_hex": "0x1.f677b1898482fp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 0.7,
+      "alpha_deg": 90,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.026215333885801193,
+          "ieee754_hex": "0x1.ad83146c5dfd9p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.0391947929428049,
+          "ieee754_hex": "0x1.4115703b9c5fdp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.2977370559357556,
+          "ieee754_hex": "0x1.30e1fb9834a06p-2",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[10]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 0,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.0,
+          "ieee754_hex": "0x0.0p+0",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.04623184590859043,
+          "ieee754_hex": "0x1.7abb3546c1642p-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 0,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 15,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.03147168357695932,
+          "ieee754_hex": "0x1.01d0e776d1b85p-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.016122230122110535,
+          "ieee754_hex": "0x1.082588c73c399p-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.05846846091581388,
+          "ieee754_hex": "0x1.def93fef6353ap-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 1,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 30,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.05162778462602501,
+          "ieee754_hex": "0x1.a6ef4fd11424fp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.030751051133267024,
+          "ieee754_hex": "0x1.f7d341bbd721cp-6",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.08690909556571462,
+          "ieee754_hex": "0x1.63facab2dffb3p-4",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 2,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 45,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.057503575173164435,
+          "ieee754_hex": "0x1.d711bcd8b2bd5p-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.04256304835660593,
+          "ieee754_hex": "0x1.5cad2e96b5c5cp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.126164970663491,
+          "ieee754_hex": "0x1.0262c7b73435dp-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 3,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 60,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.053663978317274263,
+          "ieee754_hex": "0x1.b79d84fb11fd8p-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.050882409599967586,
+          "ieee754_hex": "0x1.a0d425a58d9dfp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.1783614895256047,
+          "ieee754_hex": "0x1.6d48c9e306cc0p-3",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 4,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 75,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.045418673277789354,
+          "ieee754_hex": "0x1.7411dc8b62d4ep-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.05544138748226667,
+          "ieee754_hex": "0x1.c62d0442992efp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.25477710583747853,
+          "ieee754_hex": "0x1.04e44a255db27p-2",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 5,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    },
+    {
+      "advance_label": 1.0,
+      "alpha_deg": 90,
+      "observations": [
+        {
+          "channel": "C_N",
+          "value": 0.03653185288021541,
+          "ieee754_hex": "0x1.2b44d92c3ff7dp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_N.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_n",
+          "value": 0.05624929264336162,
+          "ieee754_hex": "0x1.cccb510a71a2cp-5",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_n_Yaw.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        },
+        {
+          "channel": "C_T",
+          "value": 0.35227433165649863,
+          "ieee754_hex": "0x1.68ba9a36bd5b7p-2",
+          "source_figure": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition/P3_P_Factor_C_T.fig",
+          "curve_location": "hgS_070000.children[0].children[11]",
+          "sample_index_0based": 6,
+          "tolerance": null
+        }
+      ],
+      "execution_route": "blocked_unrecovered_input_and_normalization"
+    }
+  ],
+  "source_excerpts": [
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 193,
+      "line_end": 216,
+      "topic": "EADT input parameters",
+      "text": "Pv \u223c1\n2\u03c1\n\u0000V 2\ne + \u21262\neR2\ne\n\u00011/2 \u0000V 2\ne + 3\u21262\neR2\ne\n\u0001\n(CDA)e\n(1)\nwhere Ve is the upcoming freestream velocity or air-\nrelative speed at the engine shaft. \u2126e, Re and (CDA)e\nare respectively the engine rotation rate, radius and\ntotal effective blade area. Those last 3 parameters are\nuser-defined. Note that (CDA)e is reported by the\nauthor (Drela 2009) to vary only with the propeller\nblade number B as\n(CDA)e = BRec(0.8Re)cd(0.8Re)\n(2)\nThus a single set (c(0.8Re), cd(0.8Re)) can define\ndifferent propellers having 2, 3, 4 etc blades. This fea-"
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 290,
+      "line_end": 344,
+      "topic": "P-factor equations and omitted pitch moment",
+      "text": "P-factor model :\nThe EADT is extended with a P-factor model. The\nlatter is there only to provide perturbated flow conse-\nquences on the propeller forces and moments. Coupled\nwith a structural model, it can provide insight into\nwhirl flutter. This model considers 2 types of pertur-\nbations, a uniform transverse velocity v, and shaft\npitch rate \u03c9 depicted in figure 10. Their directions\nare not necessarily aligned with the engine frame axis.\nP-factors are computed from a simplification of the\nblade element theory. First of all, the local blade drag\nis neglected as well as the local blade aerodynamic\npitch moment. Then the flow is assumed to have no\nslipstream angle and finally the P-factor is computed\nagainst a small perturbation assumption (ie small an-\ngles). Overall, the P-factor model returns perturbated\nforces and moments proportional to the transfer ve-\nlocity and pitch rate perturbations. Please refer to\nsection 14 of Drela ( 2008) for more details about the\ntheoretical development. It is difficult to evaluate this\nmodel except in a whirl flutter analysis which needs\na structural model (treated in the aeroelastic part of\nthis sequel work). However, we thought that it could\nbe interesting to see how far can go the p-factor model\nin non-axial flow condtion. Especially on the normal\nforces and yawing moments prediction in high-pitch\nconfiguration (Vertical take-off and landing configura-\ntion, VTOL ). Thus only the forces and moments due\nto a uniform transverse velocity are briefly recalled.\nLet us consider that the propeller has a pitch angle \u03b1p\nwith the upcoming flow such as the transverse velocity\nseen by the propeller disk is v = V\u221esin\u03b1p. The forces\nand moments due to the latter are given as follows\nFv = 1\n4\u03c1R2 [(cl,\u03b1S0 \u2212clC0) Vd + 2clS1\u2126R] v\n(7)\nMv = \u22121\n4\u03c1R3 [(cl,\u03b1C1 \u2212clS1) Vd + 2clC2\u2126R] v (8)\nwhere Vd is the airspeed at the propeller shaft pro-\nvided by the EADT, Vd = V\u221ecos\u03b1p + 0.5\u2206Ve. Let\ncl\u03b1 be the propeller airfoil lift slope assumed constant\nand cl the local lift coefficient evaluated at 0.75Re.\nThe user defined coefficients C0, C1, S0 and S1 are\naproximated radial blade integrand proposed by Drela.\nFor their value please refers to section 14.7 of Drela\u2019s\nwork. Note that similar simplified models were pro-\nposed without omitting drag and pitch moment by\nRibner, (1945b and 1945a)and chapter 2 section 2.5 of\nPhillips (2004). When a propeller is under a non-axial\nflow it produces a normal force, yawing and pitching\nmoments. The first 2 can be captured by equations 7\nand 8 while the third is not. Thus in the evaluation\nsection, the pitch moment is not presented, however,\nit must be kept in mind that ASWING can not predict\nit."
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 755,
+      "line_end": 767,
+      "topic": "partial repeatability means output data only",
+      "text": "This section is dedicated to the presentation of the\nseven validation cases. They are summarized in the\ntable 1 with their purposes highlighted. If the reader\nwant to reproduce these case, a Git repository has\nbeen created that contain all the cases simulation\nfiles and experimental data. For some (specified in\ntable 1) only partial repeatability is possible. This is\nbecause we had to modify the source code of Aswing to\nperform them. The latter is not allowed to be diffused\npublicly (please refer to Aswing License). For these\ncases, the reader will find the only Aswing output data\nin the repository. This might be useful for comparison\nwith other aeroelasticity codes. The repository can"
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 797,
+      "line_end": 803,
+      "topic": "P3 partial data-only table",
+      "text": "P-3\n1 RC Propeller\n[16, 17]\nThrust and perturbation loads\nin non axial flow condition\nPartial\n(Data only)"
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 939,
+      "line_end": 973,
+      "topic": "P3 experiment geometry and output channels",
+      "text": "3.2\nCASE P-3 Thrust, normal force\nand yaw moment due to a axial\nflow\nTo evaluate the capacity of the ASWING P-factor\nmodel to predict normal forces and yaw moment due to\na non-axial flow, the data from Leng Yuchen were used.\nThe measurement was performed in 2019 in ISAE low\nReynolds number wind tunnel SaBRe. The turbulence\nwas reported to be lower than 0.1%. The propeller-\nmotion assembly was supported by a rotating strut\ninstalled from the test section ceiling. The strut could\nrotate giving the propeller a pitch angle from 0 to 90\u25e6\nas depicted in figure 5 (b). A 5 component balance\nwas used to measure the normal force, yaw, and pitch\nmoments. The test bench has been validated against\nsimilar data from the literature on a Graupner E-\nprop. The bench was reported as qualitative. The\nauthor provided in Leng et al. (2019 and 2020) the\nthrust, torque, normal force, yaw, and pitch moments\ncoefficient. The latter was given as a function of the\npropeller pitch angle \u03b1p and advance ratio \u03bb\u221e. Note\nthat the ASWING P-factor model can not predict\nthe pitch moment due to non-axial flow. Thus only\nthe normal force, yaw moment, and thrust coefficients\n(CN, Cn, CT ) predictions are presented. A NACA\npropeller was used with a linear blade pitch varying.\nThe geometry is provided in Appendix A of Leng\nYuchen\u2019s script. The blade tip pitch angle and airfoil\nare respectively 20\u25e6and NACA0012. The propeller\nsize (Re = 0.85m) was chosen as a tradeoff between\nminimal wall interactions and 3D printing quality.\nFigure 9 (a)-(c) presents the normal forces, yaw-\ning moments, and thrust coefficients ASWING pre-\n"
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 1025,
+      "line_end": 1061,
+      "topic": "P3 conditions and CdA calibration",
+      "text": "dictions. The latter are compared to Leng et al.\u2019s\nexperimental data and non-linear model. The coef-\nficients are given against the propeller pitch angle\n\u03b1p (cf figure 5-b) for different advance conditions\n(\u03bb \u2208[0.2, 0.45, 0.7, 1.0]).\nAs expected from the\nsmall angle assumption of the model, ASWING is not\nable to predict the yawing and normal force coeffi-\ncient accurately, on \u03bb = 0.2 seems to show interesting\nagreements at low pitch angle but is still far beyond\nLeng et al.\u2019s non-linear model accuracy. This is con-\nsistent with Leng Yuchen\u2019s chapter 2 observations on\nlower advance-ratio and pitch angle on a close linear\nmodel. Moreover, as the blade drag contributions are\nnot taken into account, the model loses the track after\na pitch angle superior to 45\u25e6when the drag contribu-\ntions become dominant. From this comparison and\nthe data of Leng Yuchen (chapter 3), a validity map\nin \u03b1p and \u03bb could be built and is depicted in figure\n10. The dark grey represents the set of parameters\nwhere the P-factor model is considered satisfying. De-\nspite those latter bad predictions, this model remains\ninteresting for whirl flutter analysis that is presented\nin the aeroelastic part of this sequel work. Here the\nobjective was to build and identify the boundaries of\nthe p-factor model for flight mechanics analysis.\nAs Leng et al. provided CT and CP measurements\nin the function of the pitch angle \u03b1p and advance\nratio \u03bb, the EADT could be benchmarked against\nLeng et al.\u2019s non-linear model in non-axial flow condi-\ntion. To do so a quadratic CDA in \u00b5 was used where\n\u00b5 is the shaft advance ratio defined as \u00b5 = \u03bbcos\u03b1p.\nThe polynomial coefficients are provided in figure 9-\n(c) legend. It turns out that the ASWING modified\nEADT model shows excellent agreements with experi-\nments until 60\u25e6no matter \u03bb. After that, Leng et al.\u2019s\nnon-linear model becomes better."
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 1088,
+      "line_end": 1097,
+      "topic": "MATLAB statement applies to P4, not P3",
+      "text": "of this paper. Axial and swirl velocity predictions are\npresented in static and advanced flow conditions. For\nthe static one, the engine jet model was reproduced in\nMATLAB while in advanced flow conditions, a numer-\nical bench was set up in ASWING. Axial velocities\nand angle of attack were provided by the numerical\nsensors at each streamwise and radial position. The\nswirl velocity was reconstructed using the local angle\nof attack or side slip angle measurements combined\nwith the axial velocities."
+    },
+    {
+      "source": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "line_start": 1139,
+      "line_end": 1148,
+      "topic": "Figure9 and printed CdA polynomial",
+      "text": "PDF PAGE 18\n18\n3\nExperimental validation\n(a) Normal force coefficient CN\n(b) Yaw moment coefficient Cn\n(c) Thrust coefficient CT\nwith CDA(\u00b5) = 0.0019\u00b52 \u22120.0026\u00b5 + 0.0006\nFigure 9: CASE P-3 Normal force, Yaw moment and thrust coefficient ASWING\u2019s predictions comparison\nwith experiments from Leng et al.."
+    }
+  ],
+  "verification": {
+    "all_original_hashes_match_upstream_manifest": true,
+    "all_extraction_hashes_match_inventory": true,
+    "all_numeric_pairs_match_cached_extraction_bitwise": true,
+    "all_three_color_legend_bindings_verified": true,
+    "source_pins_unchanged_at_report_write": true,
+    "production_imports": 0,
+    "numerical_package_imports": 0,
+    "physics_calls": 0,
+    "upstream_script_runs": 0
+  },
+  "decoder": {
+    "kind": "Bounded stdlib MAT-v5 HG decoder",
+    "source": "from pathlib import Path\nimport struct, zlib, math, json\n\nFORMATS={1:'b',2:'B',3:'h',4:'H',5:'i',6:'I',7:'f',9:'d',12:'q',13:'Q'}\ndef tag(data,pos=0):\n    first=struct.unpack_from('<I',data,pos)[0]\n    if first>>16:\n        kind=first&65535; size=first>>16\n        return kind,data[pos+4:pos+4+size],pos+8\n    kind,size=struct.unpack_from('<II',data,pos)\n    end=pos+8+size\n    return kind,data[pos+8:end],end if kind==15 else (end+7)//8*8\n\ndef numbers(kind,data):\n    fmt=FORMATS[kind]\n    return list(struct.unpack('<'+fmt*(len(data)//struct.calcsize(fmt)),data))\n\ndef matrix(data):\n    if not data:return '',None\n    kind,flags,pos=tag(data); cls=numbers(kind,flags)[0]&255\n    kind,dim,pos=tag(data,pos); shape=numbers(kind,dim); count=math.prod(shape)\n    kind,name,pos=tag(data,pos); name=name.decode('utf-8',errors='replace')\n    if cls==1:\n        result=[]\n        for _ in range(count):\n            kind,payload,pos=tag(data,pos); result.append(matrix(payload)[1] if kind==14 else {'unhandled':kind})\n        return name,result[0] if count==1 else result\n    if cls==2:\n        kind,length,pos=tag(data,pos); width=numbers(kind,length)[0]\n        kind,raw,pos=tag(data,pos); names=[raw[i:i+width].split(b'\\0',1)[0].decode() for i in range(0,len(raw),width)]\n        result=[]\n        for _ in range(count):\n            fields={}\n            for field in names:\n                kind,payload,pos=tag(data,pos); fields[field]=matrix(payload)[1] if kind==14 else {'unhandled':kind}\n            result.append(fields)\n        return name,result[0] if count==1 else result\n    if cls==4:\n        if pos>=len(data): return name,''\n        kind,payload,pos=tag(data,pos)\n        encoding={1:'latin1',2:'latin1',3:'utf-16-le',4:'utf-16-le',16:'utf-8',17:'utf-16-le',18:'utf-32-le'}.get(kind)\n        return name,payload.decode(encoding,errors='replace') if encoding else {'char_type':kind}\n    if cls in (6,7,8,9,10,11,12,13,14,15):\n        if not count:return name,[]\n        kind,payload,pos=tag(data,pos); result=numbers(kind,payload)\n        return name,result[0] if count==1 else result\n    return name,{'opaque_class':cls,'shape':shape,'remaining_bytes':len(data)-pos}\n\ndef load(path):\n    raw=Path(path).read_bytes(); assert raw[126:128]==b'IM'; result={}; pos=128\n    while pos<len(raw):\n        kind,payload,pos=tag(raw,pos)\n        if kind==15:\n            inner=zlib.decompress(payload); ikind,payload,_=tag(inner); assert ikind==14\n        else: assert kind==14,kind\n        name,value=matrix(payload); result[name]=value\n    return result\n\ndef walk(value,location='root'):\n    if isinstance(value,dict):\n        if 'type' in value:\n            props=value.get('properties',{})\n            keep={k:props[k] for k in ('DisplayName','String','XData','YData','LineStyle','Marker','Color','Tag','UserData','Title','XLabel','YLabel','ZLabel','XLim','YLim') if k in props}\n            print(json.dumps(dict(location=location,type=value['type'],properties=keep),allow_nan=False))\n        for k,v in value.items():\n            if k!='properties':walk(v,location+'.'+k)\n    elif isinstance(value,list):\n        for i,v in enumerate(value):walk(v,location+'['+str(i)+']')\n\nif __name__=='__main__':\n    base=Path('.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/P - isolated Propeller Cases/P-3 - P Factor Load - Non Axial Flow Condition')\n    for path in sorted(base.glob('*.fig')):\n        print(path.name)\n        decoded=load(path)\n        print(json.dumps({'top_keys':list(decoded)}))\n        for key,value in decoded.items():\n            if key.startswith('hgS_'):walk(value,key)\n",
+    "limitations": "Only saved HG arrays/properties inspected; opaque MCOS and function metadata not executed or exhaustively decoded. Existing independent SciPy extraction matches all252 pairs bitwise."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "status": "PASS_SOURCE_ONLY_PREPARATION",
+  "jobs": 91,
+  "required_scalars": 528,
+  "runnable_jobs": 22,
+  "unsupported_jobs": 69,
+  "unpaired_models": 3,
+  "physical_solves": 0,
+  "production_imports": 0,
+  "kernel_files_unchanged": 122,
+  "tests": {
+    "passed": 16,
+    "failed": 0,
+    "seconds": 5.93,
+    "owner_session": 75693,
+    "terminal_chunk": "ba9428",
+    "exit_code": 0,
+    "reaped": true,
+    "timeout_seconds": 120
+  },
+  "preparation_failures": [
+    {
+      "owner": 39133,
+      "terminal": "6903af",
+      "exit_code": 1,
+      "reaped": true,
+      "reason": "XFOIL shell files must not count as ASWING drivers; fixed classifier"
+    },
+    {
+      "owner": 11897,
+      "terminal": "932a46",
+      "exit_code": 1,
+      "reaped": true,
+      "reason": "NumPy bool in numerical report; fixed native scalar conversion"
+    }
+  ],
+  "files": [
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_sa6.py",
+      "bytes": 17738,
+      "sha256": "7fbfc422b14ea8106ef7555526d16d55515c16240469201711957246357c5fa4"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_isae_suite_sa6.py",
+      "bytes": 9052,
+      "sha256": "3e1654c2027b0053432ee202b87596b360104d11258919be785eb4cb1a096b10"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_polars.py",
+      "bytes": 19798,
+      "sha256": "cd045a2024d50c686cb6e617aedf572dedb3a03b4daa98dd86eef7a77c23f38b"
+    },
+    {
+      "path": "/tmp/openswing-isae-suite-sa6-preparation-20261026/plan.json",
+      "bytes": 689930,
+      "sha256": "e923eaebfa7a94068324a47a1c152b5220bf0c7cbd84c83efbabd68310480236"
+    },
+    {
+      "path": "/tmp/openswing-isae-suite-sa6-preparation-20261026/tests.log",
+      "bytes": 99,
+      "sha256": "9129144dc0c08e5ef648fdc59e919421a3be8bd7e0d4cfb91887821e012207ae"
+    }
+  ],
+  "module_registration": {
+    "adapter": "sa6",
+    "module": "isae_suite_sa6",
+    "helpers": [
+      "isae_suite_polars.py"
+    ]
+  },
+  "limitations": [
+    "Six static stability-axis coefficients only; all stability/control derivatives and real/apparent inertia tensors are outside this scope.",
+    "Original model bytes, including literal35c dCLdF1=-.071, are retained; no experimental reconstruction or fit.",
+    "Original NODE count is not recovered.64/128 are declared current cosine-mesh requests, enriched by current mandatory stations.",
+    "Current influences are a declared reconstruction choice; historical K/F startup state remains unresolved.",
+    "Mach0, speed20, alpha12, beta/rates0 and sea-level density1.2256 are supported by the archived fmat metadata.",
+    "Printed half-last-place checks do not establish complete historical settings, mesh convergence or entire-family reproduction."
+  ]
+}

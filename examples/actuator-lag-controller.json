@@ -1,0 +1,8 @@
+{
+  "parameters": {"kp": 200, "kd": 20, "tau": 0.05},
+  "outputs": [{"actuator": "E1", "expression": "state('lag')"}],
+  "states": [{
+    "name": "lag", "initial": 0, "scale": 10, "unit": "file engine setting",
+    "rate": "(command('E1')-parameter('kp')*error('RY[2]')-parameter('kd')*error('UY[2]')-state('lag'))/parameter('tau')"
+  }]
+}

@@ -1,0 +1,1357 @@
+{
+  "schema": "openswing-isae-ae1-saved-load-audit-v1",
+  "status": "PASS",
+  "activity": {
+    "new_aircraft_solves": 0,
+    "aerodynamic_evaluations": 0,
+    "residual_evaluations": 0,
+    "production_imports": 0,
+    "saved_states": 6
+  },
+  "checks": {
+    "total": 71043,
+    "passed": 71043,
+    "failures": [],
+    "max_absolute_error_by_group": {
+      "literal": 0.0,
+      "inactive": 0.0,
+      "geometry": 3.3306690738754696e-16,
+      "physical_chord": 1.1102230246251565e-16,
+      "strip_force": 1.7208456881689926e-14,
+      "strip_moment": 3.2959746043559335e-16,
+      "section_outputs": 5.684341886080802e-14,
+      "global_force": 5.684341886080802e-14,
+      "global_moment": 5.1209037010835345e-15,
+      "nodal_force_balance": 1.6200374375330284e-12,
+      "nodal_moment_balance": 3.091971123581061e-14,
+      "internal_cut_force": 3.4354741274000844e-11,
+      "internal_cut_moment": 4.0678571622265736e-12,
+      "constitutive_outputs": 7.105427357601002e-15,
+      "geometric_curvature": 2.464497247771369e-14,
+      "projected_twist": 8.007483565108942e-15,
+      "load_to_twist": 5.112577028398846e-13
+    }
+  },
+  "formulas": {
+    "primary_source": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+    "aerodynamic": "Steady equations 67,69,70,72-73,155-157,202-204; cached .reference/asw_theory.txt, printed pp16-17,31-32,40-41.",
+    "load_arm": "Physical quarter-chord arm = (0.25-Xax)*chord*c = -0.0191*c. The HV velocity location uses the projected wind direction and is not the physical force arm.",
+    "transfer": "F_a=(1-f)F, F_b=fF; M_a=W_a^T M, M_b=W_b^T M with W_b=R_a J(f*k) f J(k)^(-1) R_a^T and W_a=I-W_b.",
+    "constitutive": "Inverse symmetric 3x3 bending/torsion stiffness applied to M+hF; literal constant material sections, no spline approximation.",
+    "observation": "Exact saved arc integral d atan2(-c_z,c_x)/ds = g_s*kappa_s + g_n*kappa_n; 8-point scalar quadrature checked against endpoint angle."
+  },
+  "scope": [
+    "Independent stdlib reconstruction using saved local HV velocities and circulation; aerodynamic influence fields are not independently recomputed.",
+    "CP normal tangency is inferred from stored local residual plus documented leakage, not independently validated from a CP velocity field.",
+    "Load-to-twist decomposition holds the converged geometry and linear section compliance fixed. It is an algebraic attribution, not a counterfactual re-solve or sensitivity.",
+    "The ASWING reference axis is the physical elastic axis for this model because Cea=Nea=0. Nta and Cta affect the bending/axial translation and are retained.",
+    "Section Cm, Cdf and Cdp are literal zero; smooth below-limit stall leakage and its profile force remain included.",
+    "Source dynamic qualifications and unresolved processed-displacement axis are inherited; this audit does not establish experimental agreement or stability."
+  ],
+  "cases": [
+    {
+      "case": "alpha5.0-u30",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 5.0,
+        "speed_m_s": 30.0
+      },
+      "source_qualification": {
+        "alpha_deg": 5,
+        "speed_m_s": 30.0,
+        "tag": "below_reported_dynamic_indicator",
+        "qualifier": "Below authors reported48m/s peak; no pointwise stability proof or exact onset interval supplied.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.2, Figs36\u201337, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 9.19298241657405,
+        "measured_twist_deg": 0.686033383998833
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/121.json.gz",
+        "bytes": 125857,
+        "sha256": "fb0a3047b3368e29a5aaf42459cf92f00e0e71d0dd041f55c5bd0b4f6f3f18ea"
+      },
+      "tip_projected_twist_deg": 0.5786266758580121,
+      "half_force_N": [
+        -1.0002505066305543,
+        -1.2725339889918166,
+        13.618546724367578
+      ],
+      "half_moment_about_root_Nm": [
+        3.445796972476857,
+        0.24173771299735494,
+        0.263979263050405
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 0.2612930398299488,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 2.6229744033842827e-10,
+      "cl_range": [
+        0.04977529751261393,
+        0.4988046590975575
+      ],
+      "alpha_HV_deg_range": [
+        3.6931127596335265,
+        4.723516254301571
+      ],
+      "alpha_freestream_local_deg_range": [
+        5.010823660274243,
+        5.53942903461098
+      ],
+      "da_eff_deg_range": [
+        0.010788945168267287,
+        0.5257806253422259
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        6.396206231329415e-09,
+        5.904369008913325e-05
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 0.5806833712255337,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 0.5234130315176933,
+        "Mc": 0.057271730226814,
+        "Mn": -1.3905189735473357e-06
+      },
+      "projected_twist_from_kappa_s_deg": 0.5786630520722655,
+      "projected_twist_from_kappa_n_deg": -3.637621425366074e-05,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.044644976050673836,
+        "lift_quarter_chord_couple": 0.5339816998057619,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 1.558337732308111e-12
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 3.7005018015159736,
+          "quarter_torque_current_s_Nm": 0.07052148403546327,
+          "projected_twist_increment_deg": 0.26983963857084087
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 3.952790442157652,
+          "quarter_torque_current_s_Nm": 0.07560587051404788,
+          "projected_twist_increment_deg": 0.19077557898723152
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 3.4880635832082,
+          "quarter_torque_current_s_Nm": 0.06690281052363331,
+          "projected_twist_increment_deg": 0.09463717258841259
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 2.5125457914899765,
+          "quarter_torque_current_s_Nm": 0.04826287475680433,
+          "projected_twist_increment_deg": 0.023374285711527092
+        }
+      ]
+    },
+    {
+      "case": "alpha5.0-u40",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 5.0,
+        "speed_m_s": 40.0
+      },
+      "source_qualification": {
+        "alpha_deg": 5,
+        "speed_m_s": 40.0,
+        "tag": "below_reported_dynamic_indicator",
+        "qualifier": "Below authors reported48m/s peak; no pointwise stability proof or exact onset interval supplied.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.2, Figs36\u201337, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 16.1490609271472,
+        "measured_twist_deg": 1.17243194787045
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/131.json.gz",
+        "bytes": 126530,
+        "sha256": "25dd7c51f13276d0f0f5ae67e2b810d515698078377dba374d51704aabb6cf19"
+      },
+      "tip_projected_twist_deg": 1.0537646182006364,
+      "half_force_N": [
+        -1.8223695720566677,
+        -4.473681408923739,
+        25.122347851168012
+      ],
+      "half_moment_about_root_Nm": [
+        6.460891033316295,
+        0.4151461830179007,
+        0.5158993963498285
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 0.4880966128147623,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 1.0257150725448667e-09,
+      "cl_range": [
+        0.05316804790992067,
+        0.5197452820362695
+      ],
+      "alpha_HV_deg_range": [
+        4.108167930277462,
+        4.945387854035118
+      ],
+      "alpha_freestream_local_deg_range": [
+        5.018935981849048,
+        5.917775217101395
+      ],
+      "da_eff_deg_range": [
+        0.018875131765921732,
+        0.8720072654133109
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        9.312711490849797e-09,
+        0.00011988680245655895
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 1.067267747352496,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 0.9595247811956991,
+        "Mc": 0.10774576076702962,
+        "Mn": -2.7946102326748927e-06
+      },
+      "projected_twist_from_kappa_s_deg": 1.0539068104498157,
+      "projected_twist_from_kappa_n_deg": -0.00014219224917616722,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.062124845497924276,
+        "lift_quarter_chord_couple": 0.9916397726889131,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 1.3788501267909778e-11
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 6.791523361231323,
+          "quarter_torque_current_s_Nm": 0.12974283163140124,
+          "projected_twist_increment_deg": 0.4841444072755671
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 7.280319420119139,
+          "quarter_torque_current_s_Nm": 0.14091681082895627,
+          "projected_twist_increment_deg": 0.3508311611415905
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 6.4481889246311175,
+          "quarter_torque_current_s_Nm": 0.12598379695551387,
+          "projected_twist_increment_deg": 0.17537406460566182
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 4.6655480005967815,
+          "quarter_torque_current_s_Nm": 0.09145317339889093,
+          "projected_twist_increment_deg": 0.04341498517781684
+        }
+      ]
+    },
+    {
+      "case": "alpha5-u56",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 5,
+        "speed_m_s": 56.0
+      },
+      "source_qualification": {
+        "alpha_deg": 5,
+        "speed_m_s": 56.0,
+        "tag": "after_reported_peak_recovery_boundary_unresolved",
+        "qualifier": "Authors say48m/s peak disappears as speed increases; exact restabilization boundary is unspecified, so neither stable nor unstable is assigned here.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.2, Figs36\u201337, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 33.9464308069013,
+        "measured_twist_deg": 2.80861528493911
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/147.json.gz",
+        "bytes": 127895,
+        "sha256": "c8059606984ce122a1738ebda94b69e958693fd321ca350c57210a407a7a1e19"
+      },
+      "tip_projected_twist_deg": 1.9990483398567642,
+      "half_force_N": [
+        -3.5084125688912646,
+        -19.407958974049368,
+        49.59045428859555
+      ],
+      "half_moment_about_root_Nm": [
+        13.454492565721687,
+        0.6811345449876133,
+        1.1274355455263882
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 1.026146428638418,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 6.37729206685312e-09,
+      "cl_range": [
+        0.058025903603861624,
+        0.5510494477807294
+      ],
+      "alpha_HV_deg_range": [
+        4.681550536608127,
+        5.272062221328193
+      ],
+      "alpha_freestream_local_deg_range": [
+        5.032894484826353,
+        6.4354950970299125
+      ],
+      "da_eff_deg_range": [
+        0.03279912753428862,
+        1.2759224127279118
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        1.4697118189133107e-08,
+        0.0003153054250253362
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 2.121146839378113,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 1.8945754315534564,
+        "Mc": 0.2265778799910534,
+        "Mn": -6.472166396618236e-06
+      },
+      "projected_twist_from_kappa_s_deg": 1.9997641386801563,
+      "projected_twist_from_kappa_n_deg": -0.0007157988231668111,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.028744181050172027,
+        "lift_quarter_chord_couple": 1.9703041585879384,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 2.186200284363382e-10
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 13.928599841621894,
+          "quarter_torque_current_s_Nm": 0.2693268606939403,
+          "projected_twist_increment_deg": 0.8990182084001385
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 14.388384030834427,
+          "quarter_torque_current_s_Nm": 0.2955050958811658,
+          "projected_twist_increment_deg": 0.6784311078511832
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 12.419045471184702,
+          "quarter_torque_current_s_Nm": 0.2664156346787391,
+          "projected_twist_increment_deg": 0.33810507986726074
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 8.971496598098275,
+          "quarter_torque_current_s_Nm": 0.19489883738457286,
+          "projected_twist_increment_deg": 0.08349394373818182
+        }
+      ]
+    },
+    {
+      "case": "alpha7.0-u30",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 7.0,
+        "speed_m_s": 30.0
+      },
+      "source_qualification": {
+        "alpha_deg": 7,
+        "speed_m_s": 30.0,
+        "tag": "below_reported_dynamic_indicator",
+        "qualifier": "Below reported40m/s strain/spectral instability indicator; not independently certified stable.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.3, Figs38\u201340, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 14.4103003803251,
+        "measured_twist_deg": 0.954718634469163
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/174.json.gz",
+        "bytes": 126778,
+        "sha256": "6c761a34bfeb75dd4e9b371a622bdb4cb4451e42b1fb25b218c38866309807ce"
+      },
+      "tip_projected_twist_deg": 0.785830895565716,
+      "half_force_N": [
+        -1.9504689827228807,
+        -2.4642264101236995,
+        18.916901329882425
+      ],
+      "half_moment_about_root_Nm": [
+        4.79613635845234,
+        0.31159759192728287,
+        0.5128682883194056
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 0.36449926996110343,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 5.96448557327079e-07,
+      "cl_range": [
+        0.06939214179765565,
+        0.6939254189508358
+      ],
+      "alpha_HV_deg_range": [
+        5.340095265339566,
+        6.558739000737879
+      ],
+      "alpha_freestream_local_deg_range": [
+        7.01417311087684,
+        7.680326204831398
+      ],
+      "da_eff_deg_range": [
+        0.014085009208845548,
+        0.6462016105781464
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        1.02818749070366e-08,
+        0.0029335543663524593
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 0.7913410714748511,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 0.7116179242242306,
+        "Mc": 0.07972584898653509,
+        "Mn": -2.701735914604241e-06
+      },
+      "projected_twist_from_kappa_s_deg": 0.7859420299298511,
+      "projected_twist_from_kappa_n_deg": -0.00011113436413506127,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.04557356986912126,
+        "lift_quarter_chord_couple": 0.7402573213247146,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 4.371368863821289e-09
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 5.194799260065457,
+          "quarter_torque_current_s_Nm": 0.098791750832773,
+          "projected_twist_increment_deg": 0.36143499467303086
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 5.5061579313024716,
+          "quarter_torque_current_s_Nm": 0.10545657394421933,
+          "projected_twist_increment_deg": 0.261517278676292
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 4.834096191061449,
+          "quarter_torque_current_s_Nm": 0.09308364088906676,
+          "projected_twist_increment_deg": 0.13058968538426435
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 3.478546617727456,
+          "quarter_torque_current_s_Nm": 0.06716730429504435,
+          "projected_twist_increment_deg": 0.03228893683212876
+        }
+      ]
+    },
+    {
+      "case": "alpha7-u38",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 7,
+        "speed_m_s": 38.0
+      },
+      "source_qualification": {
+        "alpha_deg": 7,
+        "speed_m_s": 38.0,
+        "tag": "below_reported_dynamic_indicator",
+        "qualifier": "Below reported40m/s strain/spectral instability indicator; not independently certified stable.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.3, Figs38\u201340, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 22.7443380575249,
+        "measured_twist_deg": 2.0163068147426
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/182.json.gz",
+        "bytes": 125389,
+        "sha256": "ec667eb27220ecdee0f6765396b0aed0749e35b04841ce1cdbdbdd2332143ab0"
+      },
+      "tip_projected_twist_deg": 1.2444668196105535,
+      "half_force_N": [
+        -3.1471872503551537,
+        -6.717170227995672,
+        30.753390561121524
+      ],
+      "half_moment_about_root_Nm": [
+        7.919344109569785,
+        0.4529299086774662,
+        0.8662099466512161
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 0.6025023623943636,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 1.6202977429937488e-06,
+      "cl_range": [
+        0.07209538682914028,
+        0.7078628105337127
+      ],
+      "alpha_HV_deg_range": [
+        5.687389140934114,
+        6.710820224148982
+      ],
+      "alpha_freestream_local_deg_range": [
+        7.021201693657484,
+        7.960436331368243
+      ],
+      "da_eff_deg_range": [
+        0.021071095414613026,
+        0.87836624052419
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        1.3845640189913414e-08,
+        0.004923689864053657
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 1.2690051727270355,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 1.136984999212925,
+        "Mc": 0.13202483435562107,
+        "Mn": -4.660841510718606e-06
+      },
+      "projected_twist_from_kappa_s_deg": 1.244788550211901,
+      "projected_twist_from_kappa_n_deg": -0.0003217306013071875,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.03798453374523519,
+        "lift_quarter_chord_couple": 1.2064822628992717,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 2.296593730020118e-08
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 8.509303880836379,
+          "quarter_torque_current_s_Nm": 0.16235802103799024,
+          "projected_twist_increment_deg": 0.5613243961268926
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 8.947062175443758,
+          "quarter_torque_current_s_Nm": 0.1740982116875687,
+          "projected_twist_increment_deg": 0.41971190723760665
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 7.818200668988121,
+          "quarter_torque_current_s_Nm": 0.15430186143619196,
+          "projected_twist_increment_deg": 0.21115788275160124
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 5.633138404116158,
+          "quarter_torque_current_s_Nm": 0.11174426823261266,
+          "projected_twist_increment_deg": 0.052272633494453075
+        }
+      ]
+    },
+    {
+      "case": "alpha7-u41",
+      "specification": {
+        "refinement": 4,
+        "intervals_per_half": 60,
+        "alpha_deg": 7,
+        "speed_m_s": 41.0
+      },
+      "source_qualification": {
+        "alpha_deg": 7,
+        "speed_m_s": 41.0,
+        "tag": "at_or_above_reported_instability_indicator",
+        "qualifier": "40m/s is reported instability indication; these exported40/41m/s values must be distinguished from proven steady observations. Large visible oscillations at43m/s caused manual speed reduction.",
+        "formal_stability_classification": null,
+        "source_locator": "Avin sectionV.B.3, Figs38\u201340, printed pp21\u201322",
+        "measured_displacement_percent_semispan": 27.0692986083671,
+        "measured_twist_deg": 2.14868185570541
+      },
+      "raw": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/185.json.gz",
+        "bytes": 127547,
+        "sha256": "ba0ec1d682f6fbaac21121dd7fa016587876218693089c46aa3a65571adb16f3"
+      },
+      "tip_projected_twist_deg": 1.4298510497138277,
+      "half_force_N": [
+        -3.6506498894340886,
+        -9.239165112994968,
+        35.77592778018094
+      ],
+      "half_moment_about_root_Nm": [
+        9.287976162061357,
+        0.49985161225586744,
+        1.0220141819225337
+      ],
+      "direct_quarter_chord_torque_current_s_sum_Nm": 0.708038207284505,
+      "direct_section_pitch_torque_sum_Nm": 0.0,
+      "half_profile_force_magnitude_sum_N": 2.200007687057361e-06,
+      "cl_range": [
+        0.07292647629370588,
+        0.7120015997685673
+      ],
+      "alpha_HV_deg_range": [
+        5.815749975839108,
+        6.755944916557798
+      ],
+      "alpha_freestream_local_deg_range": [
+        7.023744748705146,
+        8.041711542036603
+      ],
+      "da_eff_deg_range": [
+        0.023600007808366495,
+        0.9379142834246645
+      ],
+      "inferred_CP_normal_velocity_m_s_range": [
+        1.5206254921906718e-08,
+        0.005777200006331623
+      ],
+      "stalled_strips": 0,
+      "integrated_kappa_s_deg": 1.4693039752397563,
+      "integrated_kappa_s_components_deg": {
+        "Ms": 1.3142430006830244,
+        "Mc": 0.15506652295100032,
+        "Mn": -5.548394268394336e-06
+      },
+      "projected_twist_from_kappa_s_deg": 1.4303023253166711,
+      "projected_twist_from_kappa_n_deg": -0.00045127560263610026,
+      "frozen_geometry_load_to_projected_twist_deg": {
+        "lift_force_arm": 0.02582795439254428,
+        "lift_quarter_chord_couple": 1.4040230571100258,
+        "section_pitch_couple": 0.0,
+        "profile_force_arm": 3.821090442398936e-08
+      },
+      "span_bands": [
+        {
+          "span_fraction": [
+            0.0,
+            0.25
+          ],
+          "strips": 14,
+          "lift_N": 9.972921484312137,
+          "quarter_torque_current_s_Nm": 0.19066573380656807,
+          "projected_twist_increment_deg": 0.6400310982978218
+        },
+        {
+          "span_fraction": [
+            0.25,
+            0.5
+          ],
+          "strips": 15,
+          "lift_N": 10.409839316253732,
+          "quarter_torque_current_s_Nm": 0.20452706137777105,
+          "projected_twist_increment_deg": 0.48496801019203983
+        },
+        {
+          "span_fraction": [
+            0.5,
+            0.75
+          ],
+          "strips": 14,
+          "lift_N": 9.051985154897888,
+          "quarter_torque_current_s_Nm": 0.18136654151123185,
+          "projected_twist_increment_deg": 0.2443658653544328
+        },
+        {
+          "span_fraction": [
+            0.75,
+            1.0
+          ],
+          "strips": 17,
+          "lift_N": 6.519415841142545,
+          "quarter_torque_current_s_Nm": 0.13147887058893395,
+          "projected_twist_increment_deg": 0.06048607586953325
+        }
+      ]
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-sweep.json",
+      "bytes": 875878,
+      "sha256": "99565d49d2ae99441bcbc476f147025f916d45038b7f14877b6d7e71784cdd18"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.json",
+      "bytes": 64572,
+      "sha256": "92d3ebd24297d6f9d377bdaf70064d812e6a5ac95b22bc41d2c926fbb73ff38f"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/analyze-isae-ae1-loads.py",
+      "bytes": 24241,
+      "sha256": "35845a03392c823605771be21b7520d53f0704d0e68981626777ba3fb85d969b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/__init__.py",
+      "bytes": 100,
+      "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/applied_load_outputs.py",
+      "bytes": 6251,
+      "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 19292,
+      "sha256": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw_edit.py",
+      "bytes": 10879,
+      "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/atmosphere.py",
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/beam_matching.py",
+      "bytes": 3051,
+      "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/body_shoulders.py",
+      "bytes": 3343,
+      "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/bridge.py",
+      "bytes": 12460,
+      "sha256": "aee0537bc901063cc5efdcf4c3eca80f5aeb01d6c9c00567697ed9cd2c42e5b1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_polish.py",
+      "bytes": 5095,
+      "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_solve.py",
+      "bytes": 7012,
+      "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_tangent.py",
+      "bytes": 16610,
+      "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_allocation.py",
+      "bytes": 8411,
+      "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_expressions.py",
+      "bytes": 5757,
+      "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_tables.py",
+      "bytes": 3801,
+      "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/custom_constraints.py",
+      "bytes": 9749,
+      "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/damping.py",
+      "bytes": 1635,
+      "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivative_cache.py",
+      "bytes": 5250,
+      "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivative_circulation.py",
+      "bytes": 5832,
+      "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivatives.py",
+      "bytes": 24933,
+      "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/descriptor_mass.py",
+      "bytes": 10869,
+      "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5455,
+      "sha256": "a791a07dfaa0972bf46de750196051fe889dbfc947c6bd3202010bf0402d0799"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/distribution_curve.py",
+      "bytes": 8796,
+      "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/dynamic_inertia.py",
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/equilibrium_state.py",
+      "bytes": 21192,
+      "sha256": "c622d4ba34ea399fd7c6fbc8390cca8aa7231befbc89788de0ca549ba975fd5d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/equilibrium_tangent.py",
+      "bytes": 4704,
+      "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/factored_influence.py",
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/feedback.py",
+      "bytes": 24602,
+      "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/field_products.py",
+      "bytes": 792,
+      "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/flow_survey.py",
+      "bytes": 9589,
+      "sha256": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/forcing.py",
+      "bytes": 21844,
+      "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frequency_response.py",
+      "bytes": 46509,
+      "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frequency_sweep.py",
+      "bytes": 4776,
+      "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 11907,
+      "sha256": "d85637b0f298aa9f9f3b951083265743178f88bc07b5e140f1b32e6c3a2d35bb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_field_partials.py",
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_partials.py",
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_stencil.py",
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_tangent.py",
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/ground.py",
+      "bytes": 4871,
+      "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust.py",
+      "bytes": 10381,
+      "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust_file.py",
+      "bytes": 4716,
+      "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust_tangent.py",
+      "bytes": 5382,
+      "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/harmonic_structure.py",
+      "bytes": 11685,
+      "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/hinge_history.py",
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/inertia.py",
+      "bytes": 11357,
+      "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/initial_diagnostics.py",
+      "bytes": 7346,
+      "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/initial_response.py",
+      "bytes": 12115,
+      "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/joints.py",
+      "bytes": 2686,
+      "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/kinematics.py",
+      "bytes": 2561,
+      "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/legacy_hinge_state.py",
+      "bytes": 6630,
+      "sha256": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/linear_dynamics.py",
+      "bytes": 73125,
+      "sha256": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_geometry_matrix.py",
+      "bytes": 8878,
+      "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_motion.py",
+      "bytes": 13165,
+      "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_rate_tangent.py",
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/mechanical_tangent.py",
+      "bytes": 6197,
+      "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 62375,
+      "sha256": "ce386c2c936d5187552e401c3748f1283f064249486d223ff8127b0e7157a800"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/newton_structure.py",
+      "bytes": 4108,
+      "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/nonlinear_initial.py",
+      "bytes": 23838,
+      "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/operating.py",
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/output_derivatives.py",
+      "bytes": 2159,
+      "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/output_fields.py",
+      "bytes": 11902,
+      "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_checkpoint.py",
+      "bytes": 9373,
+      "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_lift.py",
+      "bytes": 10301,
+      "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_radau.py",
+      "bytes": 3301,
+      "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/power_tangent.py",
+      "bytes": 5710,
+      "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/propulsion.py",
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/quiescent.py",
+      "bytes": 5490,
+      "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/radau_tangent.py",
+      "bytes": 4159,
+      "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/radau_time.py",
+      "bytes": 4074,
+      "sha256": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/recovery.py",
+      "bytes": 7213,
+      "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/reduced_model.py",
+      "bytes": 17492,
+      "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/reference_flow.py",
+      "bytes": 3892,
+      "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rigid_initial_rank.py",
+      "bytes": 7327,
+      "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_file.py",
+      "bytes": 21226,
+      "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_initial.py",
+      "bytes": 6195,
+      "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_outputs.py",
+      "bytes": 11136,
+      "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/root_diagnostics.py",
+      "bytes": 4331,
+      "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/seeded_corrector.py",
+      "bytes": 8299,
+      "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sensors.py",
+      "bytes": 10501,
+      "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sparse_rank.py",
+      "bytes": 9144,
+      "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/stability.py",
+      "bytes": 23781,
+      "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/steady_feedback.py",
+      "bytes": 8268,
+      "sha256": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structural_geometry.py",
+      "bytes": 5810,
+      "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structural_outputs.py",
+      "bytes": 7538,
+      "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structure.py",
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_radau.py",
+      "bytes": 6514,
+      "sha256": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_static.py",
+      "bytes": 39701,
+      "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_time.py",
+      "bytes": 9435,
+      "sha256": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/struts.py",
+      "bytes": 1477,
+      "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/support_outputs.py",
+      "bytes": 6436,
+      "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/tangent_influences.py",
+      "bytes": 15650,
+      "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_acceptance.py",
+      "bytes": 5788,
+      "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_acceptance_validation.py",
+      "bytes": 21576,
+      "sha256": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_accuracy.py",
+      "bytes": 17505,
+      "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_cold_initial.py",
+      "bytes": 10150,
+      "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_history.py",
+      "bytes": 12251,
+      "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_initialization.py",
+      "bytes": 9536,
+      "sha256": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_input_transition.py",
+      "bytes": 2954,
+      "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_integration.py",
+      "bytes": 46536,
+      "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_result_storage.py",
+      "bytes": 5370,
+      "sha256": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_saved_history.py",
+      "bytes": 12120,
+      "sha256": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_state.py",
+      "bytes": 19015,
+      "sha256": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_transition_initial.py",
+      "bytes": 6461,
+      "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/trefftz.py",
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/vector_ops.py",
+      "bytes": 1749,
+      "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/volume.py",
+      "bytes": 9165,
+      "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/volume_tangent.py",
+      "bytes": 12795,
+      "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/vortex_tangent.py",
+      "bytes": 26804,
+      "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/121.json.gz",
+      "bytes": 125857,
+      "sha256": "fb0a3047b3368e29a5aaf42459cf92f00e0e71d0dd041f55c5bd0b4f6f3f18ea"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/131.json.gz",
+      "bytes": 126530,
+      "sha256": "25dd7c51f13276d0f0f5ae67e2b810d515698078377dba374d51704aabb6cf19"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/147.json.gz",
+      "bytes": 127895,
+      "sha256": "c8059606984ce122a1738ebda94b69e958693fd321ca350c57210a407a7a1e19"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/174.json.gz",
+      "bytes": 126778,
+      "sha256": "6c761a34bfeb75dd4e9b371a622bdb4cb4451e42b1fb25b218c38866309807ce"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/182.json.gz",
+      "bytes": 125389,
+      "sha256": "ec667eb27220ecdee0f6765396b0aed0749e35b04841ce1cdbdbdd2332143ab0"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native/cases/185.json.gz",
+      "bytes": 127547,
+      "sha256": "ba0ec1d682f6fbaac21121dd7fa016587876218693089c46aa3a65571adb16f3"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/tmp/openswing-isae-ae1-loads-20261025/attempt-3/strips.csv",
+      "bytes": 346978,
+      "sha256": "5f36f97f247b1e7534067dcca4376104a55bc270eea691b6787c9cba9522c34e"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-loads-20261025/attempt-3/sections.csv",
+      "bytes": 174893,
+      "sha256": "335d0dea68981102d750ca1247aadfc352b7197dcaf462ebf1c4b5492b2050a5"
+    }
+  ]
+}

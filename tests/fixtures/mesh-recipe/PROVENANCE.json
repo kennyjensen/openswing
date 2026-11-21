@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-25T08:09:07.263308+00:00",
+  "purpose": "Native-to-WASM strict saved-mesh identity, full residual and accepted BDF2/Radau replay; no physics or aircraft-reference validation.",
+  "files": {
+    "curved-shell.asw": {
+      "bytes": 350,
+      "sha256": "664a6ef96380339d5d977499946bb407e448f07aae1b46ce6ee7a5236a8231dc"
+    },
+    "generate.py": {
+      "bytes": 3621,
+      "sha256": "6814d265d717ce288f2edca0cc6ccbb7f59b1d6c2f410255e4ed19c6c9949ff9"
+    },
+    "legacy.json": {
+      "bytes": 62069,
+      "sha256": "b97331dd77495e4b5cec9e5d09e6752235800ff87b4ad9261c6cff20a5c6d746"
+    },
+    "current.json": {
+      "bytes": 57228,
+      "sha256": "83edbb26a1d3bb3a038446e2e68e158a89e121f7ea158b96f03e4c98c288b979"
+    },
+    "README.md": {
+      "bytes": 1522,
+      "sha256": "d86cf5953579393ba75317fec2af8d645194541b766339712cb89851c3f1fe9d"
+    }
+  },
+  "historical_source": {
+    "frozen_kernel": "/tmp/openswing-daedalus-shell-mesh-20261025/source/openswing",
+    "original_asw": "/tmp/openswing-daedalus-low-frequency-20261025/shell-display-fix/asw-before.py",
+    "original_asw_pin": {
+      "bytes": 18778,
+      "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+    },
+    "isolated_generation_kernel": "/tmp/openswing-daedalus-low-frequency-20261025/compatibility/native-old-source/openswing",
+    "notes": "All frozen modules copied unchanged except asw.py restored from its separately frozen pre-shell-fix source. No packet metadata or numerical state was relabelled."
+  },
+  "current_source": "Repository openswing source; per-module hashes are retained in current.json.",
+  "generation": {
+    "single_blas_thread": true,
+    "orders": [
+      2,
+      5
+    ],
+    "duration": 0.02,
+    "dt": 0.01,
+    "tolerance": 1e-09,
+    "forcing": "time Ay\n0 .2\n.03 .2",
+    "node_counts": {
+      "legacy": 8,
+      "current": 7
+    },
+    "receipt": "/tmp/openswing-daedalus-low-frequency-20261025/compatibility/native-fixture-process.json"
+  }
+}

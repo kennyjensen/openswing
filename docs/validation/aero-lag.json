@@ -1,0 +1,2310 @@
+{
+  "scope": "Documented K/L option: rate-load removal, algebraic circulation, independent section frequency/time/pole limits, finite-wing ROM transfers and consistent units. Not ASWING executable or aircraft/experimental parity.",
+  "source_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "46151fec0d7817668150937f224c31fc3c6c6a92bc971526e9aba5b207e30380",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/flow_survey.py": "8919d1837d0740048b60f6d17774d6b10a0d6ea51965220d30534d3952a7e50f",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/geometry.py": "e571f9af7389246cbd9962c033021772e985443c17d30a10d68a6ae459acad29",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "2f508b48a0e9ce48df135c4a2f51811e7be7831382d7dda1dffea72be4dc3f2c",
+    "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+    "openswing/network.py": "afcae96b79fb55534a4cc270fc77cbd10b54bad2cc7f73836a4cf32277cadd97",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "8af21ab0b99e99e5fa3896ad6839bcf3dca9816a29532dd4dd678cfb8b5ac9c4",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/rom_file.py": "66fa25fe3a3cca04dd732b8795c2384ba7f634fea9cf71150ae04540de293ded",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_initialization.py": "ee7d602262e2ec42a5e1577c0d0b87273a6e4eae932d24427d427a2d7f8e736f",
+    "openswing/time_integration.py": "b328e55ead82d82286f73eefec97f7b55725a4450f1c02561c51a7a0341d1c93",
+    "openswing/time_state.py": "991fca35692626495c7c7974c3d385107907936328bef82f6c4e65ac3d087d7b",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+    "scripts/verify-aero-lag.py": "d94829bfc46476ce5de2097f7e0fc0ba553fa4a78e32d2b20eb1e8f78627182d",
+    "scripts/modal-benchmark.py": "f2d42dba7a0fbb7f6ba4cf1454d57059c3d6c5edb17fb932d36a4da406eb7085",
+    "tests/test_aero_lag.py": "570d1e9114771179e10c2c62786386327fdd944b5bd31483f7a5dd311db2b702"
+  },
+  "cases": [
+    {
+      "name": "frequency/lag=False/modes=0",
+      "specification": {
+        "kind": "frequency",
+        "lag": false,
+        "modes": 0,
+        "panels": 8
+      },
+      "result": {
+        "kind": "frequency",
+        "omega": [
+          0.0,
+          1.0,
+          3.0,
+          30.0,
+          100.0,
+          300.0
+        ],
+        "response": [
+          [
+            0.20943577238425415,
+            0.0
+          ],
+          [
+            0.20943577238425415,
+            0.0
+          ],
+          [
+            0.20943577238425415,
+            0.0
+          ],
+          [
+            0.2094357723842541,
+            0.0
+          ],
+          [
+            0.20943577238425407,
+            0.0
+          ],
+          [
+            0.20943577238425415,
+            0.0
+          ]
+        ],
+        "expected": [
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 1.7846943306902366e-05,
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "frequency/lag=False/modes=3",
+      "specification": {
+        "kind": "frequency",
+        "lag": false,
+        "modes": 3,
+        "panels": 8
+      },
+      "result": {
+        "kind": "frequency",
+        "omega": [
+          0.0,
+          1.0,
+          3.0,
+          30.0,
+          100.0,
+          300.0
+        ],
+        "response": [
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.20943668031305135,
+            0.0
+          ]
+        ],
+        "expected": [
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.20943951023931953,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 1.3511902625007821e-05,
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "frequency/lag=True/modes=0",
+      "specification": {
+        "kind": "frequency",
+        "lag": true,
+        "modes": 0,
+        "panels": 8
+      },
+      "result": {
+        "kind": "frequency",
+        "omega": [
+          0.0,
+          1.0,
+          3.0,
+          30.0,
+          100.0,
+          300.0
+        ],
+        "response": [
+          [
+            0.20943577238425415,
+            0.0
+          ],
+          [
+            0.20897244363790507,
+            -0.006950055210031692
+          ],
+          [
+            0.20540837146673963,
+            -0.02013736391441081
+          ],
+          [
+            0.12566355658695794,
+            -0.041886855387547384
+          ],
+          [
+            0.10702409999549313,
+            -0.015362025006117332
+          ],
+          [
+            0.10498090161701684,
+            -0.005222836744340674
+          ]
+        ],
+        "expected": [
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.2089761484910024,
+            -0.006950426224756178
+          ],
+          [
+            0.20541182735010183,
+            -0.020138414446088417
+          ],
+          [
+            0.1256637061435917,
+            -0.04188790204786391
+          ],
+          [
+            0.10702410180933443,
+            -0.015362311264497764
+          ],
+          [
+            0.10498090164115517,
+            -0.005222930429908217
+          ]
+        ],
+        "maximum_relative_error": 1.7846943306504796e-05,
+        "lag": {
+          "enabled": true,
+          "circulation": "differential",
+          "shed_downwash_coefficient": 0.6366197723675814,
+          "circulation_rate_lift": true,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "frequency/lag=True/modes=3",
+      "specification": {
+        "kind": "frequency",
+        "lag": true,
+        "modes": 3,
+        "panels": 8
+      },
+      "result": {
+        "kind": "frequency",
+        "omega": [
+          0.0,
+          1.0,
+          3.0,
+          30.0,
+          100.0,
+          300.0
+        ],
+        "response": [
+          [
+            0.2094366803130514,
+            0.0
+          ],
+          [
+            0.2089733435521672,
+            -0.006950145319901102
+          ],
+          [
+            0.20540921091801287,
+            -0.020137619064107867
+          ],
+          [
+            0.1256635929363886,
+            -0.04188710965417993
+          ],
+          [
+            0.10702410043779503,
+            -0.015362094550001272
+          ],
+          [
+            0.10498090162299414,
+            -0.005222859504480055
+          ]
+        ],
+        "expected": [
+          [
+            0.20943951023931953,
+            0.0
+          ],
+          [
+            0.2089761484910024,
+            -0.006950426224756178
+          ],
+          [
+            0.20541182735010183,
+            -0.020138414446088417
+          ],
+          [
+            0.1256637061435917,
+            -0.04188790204786391
+          ],
+          [
+            0.10702410180933443,
+            -0.015362311264497764
+          ],
+          [
+            0.10498090164115517,
+            -0.005222930429908217
+          ]
+        ],
+        "maximum_relative_error": 1.3511902624742775e-05,
+        "lag": {
+          "enabled": true,
+          "circulation": "differential",
+          "shed_downwash_coefficient": 0.6366197723675814,
+          "circulation_rate_lift": true,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/algebraic/[1.0, 1.0, 1.0]",
+      "specification": {
+        "kind": "time",
+        "lag": false,
+        "panels": 4,
+        "step": 0.02,
+        "units": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          4.1887309664953475e-06,
+          8.37746193299069e-06,
+          1.2566192899486038e-05,
+          1.6754923865981383e-05,
+          2.094365483247673e-05
+        ],
+        "expected": [
+          0.0,
+          4.188790204786391e-06,
+          8.377580409572783e-06,
+          1.2566370614359173e-05,
+          1.6755160819145566e-05,
+          2.0943951023931958e-05
+        ],
+        "maximum_error": 2.9619145522946275e-10,
+        "circulation_rate_force_z": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/algebraic/[0.3048, 0.1, 4.4482216152605]",
+      "specification": {
+        "kind": "time",
+        "lag": false,
+        "panels": 4,
+        "step": 0.02,
+        "units": [
+          0.3048,
+          0.1,
+          4.4482216152605
+        ]
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          4.188730966495286e-06,
+          8.377461932990573e-06,
+          1.2566192899485859e-05,
+          1.6754923865981143e-05,
+          2.094365483247643e-05
+        ],
+        "expected": [
+          0.0,
+          4.188790204786391e-06,
+          8.377580409572783e-06,
+          1.2566370614359173e-05,
+          1.6755160819145566e-05,
+          2.0943951023931958e-05
+        ],
+        "maximum_error": 2.9619145552761835e-10,
+        "circulation_rate_force_z": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/algebraic/[1000.0, 60.0, 1000.0]",
+      "specification": {
+        "kind": "time",
+        "lag": false,
+        "panels": 4,
+        "step": 0.02,
+        "units": [
+          1000.0,
+          60.0,
+          1000.0
+        ]
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          4.1887309664953424e-06,
+          8.377461932990685e-06,
+          1.2566192899486028e-05,
+          1.675492386598137e-05,
+          2.0943654832476718e-05
+        ],
+        "expected": [
+          0.0,
+          4.188790204786391e-06,
+          8.377580409572783e-06,
+          1.2566370614359173e-05,
+          1.6755160819145566e-05,
+          2.0943951023931958e-05
+        ],
+        "maximum_error": 2.9619145523962715e-10,
+        "circulation_rate_force_z": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/lagged/0.02",
+      "specification": {
+        "kind": "time",
+        "lag": true,
+        "panels": 4,
+        "step": 0.02
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.02,
+          0.04,
+          0.06,
+          0.08,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          2.5777086363936944e-06,
+          5.423924158795651e-06,
+          8.568479962446618e-06,
+          1.1969939115843823e-05,
+          1.5573973657802402e-05
+        ],
+        "expected": [
+          0.0,
+          2.379360040673844e-06,
+          5.227691410834549e-06,
+          8.42344528685645e-06,
+          1.1876576085495227e-05,
+          1.5520376397991575e-05
+        ],
+        "maximum_error": 1.983485957198506e-07,
+        "circulation_rate_force_z": [
+          0.0,
+          177.6202357264882,
+          325.63674994705895,
+          440.7603178031981,
+          527.5594902135924,
+          592.0240943185676
+        ],
+        "lag": {
+          "enabled": true,
+          "circulation": "differential",
+          "shed_downwash_coefficient": 0.6366197723675814,
+          "circulation_rate_lift": true,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/lagged/0.01",
+      "specification": {
+        "kind": "time",
+        "lag": true,
+        "panels": 4,
+        "step": 0.01
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.01,
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.060000000000000005,
+          0.07,
+          0.08,
+          0.09,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          1.1837863524440825e-06,
+          2.4503536901251036e-06,
+          3.817261486967581e-06,
+          5.280708811635446e-06,
+          6.830767434690168e-06,
+          8.456554949996328e-06,
+          1.0147889129704547e-05,
+          1.1895725589908936e-05,
+          1.3692186974744925e-05,
+          1.553046570522162e-05
+        ],
+        "expected": [
+          0.0,
+          1.1219533291338742e-06,
+          2.379360040673844e-06,
+          3.7533525588844947e-06,
+          5.227691410834549e-06,
+          6.7883991526391215e-06,
+          8.423445286856452e-06,
+          1.012247506837806e-05,
+          1.1876576085495227e-05,
+          1.3678077354361076e-05,
+          1.5520376397991575e-05
+        ],
+        "maximum_error": 7.099364945125975e-08,
+        "circulation_rate_force_z": [
+          0.0,
+          100.39418873612183,
+          191.66151570152766,
+          271.86599413784,
+          341.4266885782399,
+          401.4382172793062,
+          453.10039945393623,
+          497.5358574754486,
+          535.741762874024,
+          568.5866186989117,
+          596.8209817629535
+        ],
+        "lag": {
+          "enabled": true,
+          "circulation": "differential",
+          "shed_downwash_coefficient": 0.6366197723675814,
+          "circulation_rate_lift": true,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "time/lagged/0.005",
+      "specification": {
+        "kind": "time",
+        "lag": true,
+        "panels": 4,
+        "step": 0.005
+      },
+      "result": {
+        "kind": "time",
+        "time": [
+          0.0,
+          0.005,
+          0.01,
+          0.015,
+          0.02,
+          0.025,
+          0.030000000000000002,
+          0.035,
+          0.04,
+          0.045,
+          0.049999999999999996,
+          0.05499999999999999,
+          0.05999999999999999,
+          0.06499999999999999,
+          0.06999999999999999,
+          0.075,
+          0.08,
+          0.085,
+          0.09000000000000001,
+          0.09500000000000001,
+          0.1
+        ],
+        "CL": [
+          0.0,
+          5.601283700639996e-07,
+          1.1434501178201641e-06,
+          1.7562237539226028e-06,
+          2.399033616049142e-06,
+          3.0706348923578005e-06,
+          3.769261366563203e-06,
+          4.493065403941534e-06,
+          5.240261506454008e-06,
+          6.009168926841609e-06,
+          6.798220208700482e-06,
+          7.605958502739883e-06,
+          8.431031447724774e-06,
+          9.272184252230549e-06,
+          1.0128252852132128e-05,
+          1.0998157417973932e-05,
+          1.1880896282590182e-05,
+          1.277554029130257e-05,
+          1.3681227555311418e-05,
+          1.4597158582926417e-05,
+          1.552259176259578e-05
+        ],
+        "expected": [
+          0.0,
+          5.427519233649781e-07,
+          1.1219533291338742e-06,
+          1.7349705047830513e-06,
+          2.379360040673844e-06,
+          3.05285507942955e-06,
+          3.7533525588844942e-06,
+          4.4789013768131325e-06,
+          5.227691410834549e-06,
+          5.998043331700398e-06,
+          6.788399152639119e-06,
+          7.597313461571617e-06,
+          8.42344528685645e-06,
+          9.26555055078791e-06,
+          1.0122475068378058e-05,
+          1.0993148052022297e-05,
+          1.1876576085495227e-05,
+          1.2771837533364526e-05,
+          1.367807735436108e-05,
+          1.4594502289516928e-05,
+          1.5520376397991575e-05
+        ],
+        "maximum_error": 2.149678868628994e-08,
+        "circulation_rate_force_z": [
+          0.0,
+          53.69926330396161,
+          104.84138438989095,
+          152.73634294132154,
+          197.3197139071033,
+          238.72874167475896,
+          277.1581570976661,
+          312.8116676659331,
+          345.8861301063679,
+          376.5668520456392,
+          405.02665044033637,
+          431.4261474679031,
+          455.9144451717912,
+          478.62988821958345,
+          499.70081831115743,
+          519.2462900113902,
+          537.3767402489683,
+          554.194611224696,
+          569.7949288664945,
+          584.2658396263906,
+          597.6891084906548
+        ],
+        "lag": {
+          "enabled": true,
+          "circulation": "differential",
+          "shed_downwash_coefficient": 0.6366197723675814,
+          "circulation_rate_lift": true,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    },
+    {
+      "name": "modes/lag=False/span=40.0",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 4,
+        "span": 40.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-09,
+        "method": "dense"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -13.43599136726592,
+            16.098531511240523
+          ],
+          [
+            -13.435991367265919,
+            -16.098531511240527
+          ],
+          [
+            8.584594928327139,
+            35.684515909934596
+          ],
+          [
+            8.58459492832714,
+            -35.684515909934596
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.09872793772397037,
+        "finite_reference": [
+          [
+            -13.43599136729388,
+            16.098531511183385
+          ],
+          [
+            -13.43599136729388,
+            -16.098531511183385
+          ],
+          [
+            8.584594928355823,
+            35.68451590984938
+          ],
+          [
+            8.584594928355823,
+            -35.68451590984938
+          ]
+        ],
+        "finite_reference_relative_error": 3.0338656654674424e-12,
+        "returned_modes": 4,
+        "finite_dimension": 4,
+        "method": "dense",
+        "difference_step": 1e-06,
+        "rank_tolerance": 1e-09,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 1.1384868289079389e-15
+      }
+    },
+    {
+      "name": "modes/lag=False/span=400.0",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 4,
+        "span": 400.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-11,
+        "method": "dense"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.424476429889413,
+            14.588287825059197
+          ],
+          [
+            -14.424476429889415,
+            -14.588287825059195
+          ],
+          [
+            9.65340120784052,
+            35.10917199543066
+          ],
+          [
+            9.65340120784052,
+            -35.10917199543066
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.010522833795499963,
+        "finite_reference": [
+          [
+            -14.42447642985557,
+            14.588287825075293
+          ],
+          [
+            -14.42447642985557,
+            -14.588287825075293
+          ],
+          [
+            9.6534012079483,
+            35.10917199543035
+          ],
+          [
+            9.6534012079483,
+            -35.10917199543035
+          ]
+        ],
+        "finite_reference_relative_error": 2.959979341228635e-12,
+        "returned_modes": 4,
+        "finite_dimension": 4,
+        "method": "dense",
+        "difference_step": 1e-06,
+        "rank_tolerance": 1e-11,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 7.436535028838083e-18
+      }
+    },
+    {
+      "name": "modes/lag=False/span=4000.0",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-09,
+        "method": "full_shift_invert"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.522087305725465,
+            14.421041612675772
+          ],
+          [
+            -14.522087305725409,
+            -14.421041612675669
+          ],
+          [
+            9.759264339383439,
+            35.05148289698542
+          ],
+          [
+            9.759264339383623,
+            -35.05148289698543
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.0010584016119643755,
+        "finite_reference": [
+          [
+            -14.52208730572529,
+            14.421041612676117
+          ],
+          [
+            -14.52208730572529,
+            -14.421041612676117
+          ],
+          [
+            9.759264339383313,
+            35.05148289698588
+          ],
+          [
+            9.759264339383313,
+            -35.05148289698588
+          ]
+        ],
+        "finite_reference_relative_error": 2.2632325805218114e-14,
+        "returned_modes": 4,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 1.874307226808933e-18
+      }
+    },
+    {
+      "name": "modes/lag=True/span=40.0",
+      "specification": {
+        "kind": "modes",
+        "lag": true,
+        "panels": 4,
+        "span": 40.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-09,
+        "method": "dense"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -13.298182011150072,
+            32.04605481041218
+          ],
+          [
+            -13.298182011150073,
+            -32.04605481041218
+          ],
+          [
+            0.7729081765745688,
+            32.44995145290702
+          ],
+          [
+            0.7729081765745686,
+            -32.449951452907015
+          ],
+          [
+            -12.400993447735793,
+            0.0
+          ],
+          [
+            -27.288680397172456,
+            0.0
+          ],
+          [
+            -30.918415926937644,
+            0.0
+          ],
+          [
+            -31.424343024568337,
+            0.0
+          ]
+        ],
+        "expected": [
+          [
+            -14.287915925843405,
+            33.601607386173725
+          ],
+          [
+            -14.287915925843405,
+            -33.601607386173725
+          ],
+          [
+            1.5655325021920241,
+            31.603532204662475
+          ],
+          [
+            1.565532502192024,
+            -31.603532204662475
+          ],
+          [
+            -10.377743975207881,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 0.25697372098273347,
+        "finite_reference": [
+          [
+            -13.298182011266267,
+            32.0460548103747
+          ],
+          [
+            -13.298182011266267,
+            -32.0460548103747
+          ],
+          [
+            0.7729081766695302,
+            32.44995145284305
+          ],
+          [
+            0.7729081766695302,
+            -32.44995145284305
+          ],
+          [
+            -12.400993447692887,
+            0.0
+          ],
+          [
+            -27.28868039716566,
+            0.0
+          ],
+          [
+            -30.918415926937644,
+            0.0
+          ],
+          [
+            -31.42434302457327,
+            0.0
+          ]
+        ],
+        "finite_reference_relative_error": 3.5274555644141657e-12,
+        "returned_modes": 8,
+        "finite_dimension": 8,
+        "method": "dense",
+        "difference_step": 1e-06,
+        "rank_tolerance": 1e-09,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 2.038985496528942e-14
+      }
+    },
+    {
+      "name": "modes/lag=True/span=400.0",
+      "specification": {
+        "kind": "modes",
+        "lag": true,
+        "panels": 4,
+        "span": 400.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-11,
+        "method": "dense"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.209927560012616,
+            33.46179522691467
+          ],
+          [
+            -14.209927560012614,
+            -33.461795226914674
+          ],
+          [
+            1.4951004607700693,
+            31.678276252342425
+          ],
+          [
+            1.4951004607700693,
+            -31.678276252342428
+          ],
+          [
+            -10.568902221704912,
+            0.0
+          ],
+          [
+            -25.22067823865452,
+            0.0
+          ],
+          [
+            -25.508701941542526,
+            0.0
+          ],
+          [
+            -25.576349058040176,
+            0.0
+          ]
+        ],
+        "expected": [
+          [
+            -14.287915925843405,
+            33.601607386173725
+          ],
+          [
+            -14.287915925843405,
+            -33.601607386173725
+          ],
+          [
+            1.5655325021920241,
+            31.603532204662475
+          ],
+          [
+            1.565532502192024,
+            -31.603532204662475
+          ],
+          [
+            -10.377743975207881,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 0.02305396232160703,
+        "finite_reference": [
+          [
+            -14.209927560009135,
+            33.46179522689805
+          ],
+          [
+            -14.209927560009135,
+            -33.46179522689805
+          ],
+          [
+            1.4951004607804004,
+            31.67827625234842
+          ],
+          [
+            1.4951004607804004,
+            -31.678276252348418
+          ],
+          [
+            -10.568902221701936,
+            0.0
+          ],
+          [
+            -25.22067823865454,
+            0.0
+          ],
+          [
+            -25.50870194154335,
+            0.0
+          ],
+          [
+            -25.576349058040183,
+            0.0
+          ]
+        ],
+        "finite_reference_relative_error": 4.672650859389216e-13,
+        "returned_modes": 8,
+        "finite_dimension": 8,
+        "method": "dense",
+        "difference_step": 1e-06,
+        "rank_tolerance": 1e-11,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 6.874321517021732e-17
+      }
+    },
+    {
+      "name": "modes/lag=True/span=4000.0",
+      "specification": {
+        "kind": "modes",
+        "lag": true,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "rank_tolerance": 1e-09,
+        "method": "full_shift_invert"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.280307325554201,
+            33.58780000996071
+          ],
+          [
+            -14.280307325554308,
+            -33.587800009960596
+          ],
+          [
+            1.5585818588994957,
+            31.610914154025252
+          ],
+          [
+            1.5585818588996618,
+            -31.61091415402519
+          ],
+          [
+            -10.396730962815239,
+            2.814560096309804e-15
+          ],
+          [
+            -25.021984167976505,
+            -1.1258240385239215e-14
+          ],
+          [
+            -25.0500863226708,
+            2.5331040866788233e-14
+          ],
+          [
+            -25.056958369034902,
+            -3.0960161059407844e-14
+          ]
+        ],
+        "expected": [
+          [
+            -14.287915925843405,
+            33.601607386173725
+          ],
+          [
+            -14.287915925843405,
+            -33.601607386173725
+          ],
+          [
+            1.5655325021920241,
+            31.603532204662475
+          ],
+          [
+            1.565532502192024,
+            -31.603532204662475
+          ],
+          [
+            -10.377743975207881,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 0.0022783347613960815,
+        "finite_reference": [
+          [
+            -14.280307325553386,
+            33.58780000996118
+          ],
+          [
+            -14.280307325553382,
+            -33.58780000996118
+          ],
+          [
+            1.5585818588988807,
+            31.610914154025235
+          ],
+          [
+            1.5585818588988805,
+            -31.610914154025235
+          ],
+          [
+            -10.39673096281586,
+            0.0
+          ],
+          [
+            -25.021984167976512,
+            0.0
+          ],
+          [
+            -25.050086322670847,
+            0.0
+          ],
+          [
+            -25.0569583690349,
+            0.0
+          ]
+        ],
+        "finite_reference_relative_error": 5.980064952761559e-14,
+        "returned_modes": 8,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 1.0048738315759112e-16
+      }
+    },
+    {
+      "name": "modes/algebraic/panels=8",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 8,
+        "modes": 3,
+        "span": 400.0,
+        "speed": 50.0,
+        "method": "full_shift_invert"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.427840041305178,
+            14.582584713043632
+          ],
+          [
+            -14.427840041305084,
+            -14.582584713043756
+          ],
+          [
+            9.65704820101025,
+            35.10718735443467
+          ],
+          [
+            9.657048201010008,
+            -35.107187354434586
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.010199232241243895,
+        "finite_reference": [
+          [
+            -14.427840041307038,
+            14.582584713039186
+          ],
+          [
+            -14.427840041307038,
+            -14.582584713039186
+          ],
+          [
+            9.657048201012197,
+            35.107187354428646
+          ],
+          [
+            9.657048201012197,
+            -35.107187354428646
+          ]
+        ],
+        "finite_reference_relative_error": 2.4231201512979327e-13,
+        "returned_modes": 4,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 7.20620221629362e-18
+      }
+    },
+    {
+      "name": "modes/algebraic/panels=12",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 12,
+        "modes": 3,
+        "span": 400.0,
+        "speed": 50.0,
+        "method": "full_shift_invert"
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.427286208986413,
+            14.583524045372526
+          ],
+          [
+            -14.427286208986452,
+            -14.583524045372403
+          ],
+          [
+            9.656447703927318,
+            35.1075141494972
+          ],
+          [
+            9.656447703927512,
+            -35.107514149497284
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.010252526854394498,
+        "finite_reference": [
+          [
+            -14.427286208988397,
+            14.583524045368002
+          ],
+          [
+            -14.427286208988397,
+            -14.583524045368002
+          ],
+          [
+            9.656447703929256,
+            35.10751414949126
+          ],
+          [
+            9.656447703929256,
+            -35.10751414949126
+          ]
+        ],
+        "finite_reference_relative_error": 2.408276508042577e-13,
+        "returned_modes": 4,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 8.958012235619374e-18
+      }
+    },
+    {
+      "name": "modes/refinement/lag=False/step=1e-06/shift=[10.0, 40.0]",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "shift": [
+          10.0,
+          40.0
+        ]
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.522087305725462,
+            14.421041612675827
+          ],
+          [
+            -14.522087305725414,
+            -14.421041612675772
+          ],
+          [
+            9.759264339383485,
+            35.05148289698542
+          ],
+          [
+            9.759264339383519,
+            -35.051482896985355
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.0010584016119667937,
+        "finite_reference": [
+          [
+            -14.52208730572529,
+            14.421041612676117
+          ],
+          [
+            -14.52208730572529,
+            -14.421041612676117
+          ],
+          [
+            9.759264339383313,
+            35.05148289698588
+          ],
+          [
+            9.759264339383313,
+            -35.05148289698588
+          ]
+        ],
+        "finite_reference_relative_error": 1.7900922331576243e-14,
+        "returned_modes": 4,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          10.0,
+          40.0
+        ],
+        "maximum_backward_error": 9.06109365630171e-19
+      }
+    },
+    {
+      "name": "modes/refinement/lag=False/step=2e-06/shift=[-0.1, 20.0]",
+      "specification": {
+        "kind": "modes",
+        "lag": false,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "method": "full_shift_invert",
+        "difference_step": 2e-06,
+        "shift": [
+          -0.1,
+          20.0
+        ]
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.522087305725519,
+            14.421041612675698
+          ],
+          [
+            -14.52208730572551,
+            -14.421041612675658
+          ],
+          [
+            9.759264339383558,
+            35.0514828969852
+          ],
+          [
+            9.759264339383597,
+            -35.05148289698522
+          ]
+        ],
+        "expected": [
+          [
+            -14.532904905018617,
+            14.402281658307004
+          ],
+          [
+            -14.532904905018617,
+            -14.402281658307004
+          ],
+          [
+            9.77100014311386,
+            35.045077145639
+          ],
+          [
+            9.77100014311386,
+            -35.045077145639
+          ]
+        ],
+        "maximum_relative_error": 0.0010584016119599155,
+        "finite_reference": [
+          [
+            -14.52208730572529,
+            14.421041612676117
+          ],
+          [
+            -14.52208730572529,
+            -14.421041612676117
+          ],
+          [
+            9.759264339383313,
+            35.05148289698588
+          ],
+          [
+            9.759264339383313,
+            -35.05148289698588
+          ]
+        ],
+        "finite_reference_relative_error": 2.4845346871590823e-14,
+        "returned_modes": 4,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 2e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 3.3141607892016977e-18
+      }
+    },
+    {
+      "name": "modes/refinement/lag=True/step=1e-06/shift=[10.0, 40.0]",
+      "specification": {
+        "kind": "modes",
+        "lag": true,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "shift": [
+          10.0,
+          40.0
+        ]
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.280307325554915,
+            33.58780000996051
+          ],
+          [
+            -14.28030732555397,
+            -33.58780000996071
+          ],
+          [
+            1.5585818588995761,
+            31.61091415402539
+          ],
+          [
+            1.5585818588992328,
+            -31.610914154025178
+          ],
+          [
+            -10.396730962815612,
+            -5.854285000324392e-13
+          ],
+          [
+            -25.02198416797651,
+            1.6887360577858823e-14
+          ],
+          [
+            -25.050086322670854,
+            -2.251648077047843e-14
+          ],
+          [
+            -25.056958369034913,
+            -1.1258240385239215e-14
+          ]
+        ],
+        "expected": [
+          [
+            -14.287915925843405,
+            33.601607386173725
+          ],
+          [
+            -14.287915925843405,
+            -33.601607386173725
+          ],
+          [
+            1.5655325021920241,
+            31.603532204662475
+          ],
+          [
+            1.565532502192024,
+            -31.603532204662475
+          ],
+          [
+            -10.377743975207881,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 0.002278334761396508,
+        "finite_reference": [
+          [
+            -14.280307325553386,
+            33.58780000996118
+          ],
+          [
+            -14.280307325553382,
+            -33.58780000996118
+          ],
+          [
+            1.5585818588988807,
+            31.610914154025235
+          ],
+          [
+            1.5585818588988805,
+            -31.610914154025235
+          ],
+          [
+            -10.39673096281586,
+            0.0
+          ],
+          [
+            -25.021984167976512,
+            0.0
+          ],
+          [
+            -25.050086322670847,
+            0.0
+          ],
+          [
+            -25.0569583690349,
+            0.0
+          ]
+        ],
+        "finite_reference_relative_error": 6.117891381149452e-14,
+        "returned_modes": 8,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 1e-06,
+        "rank_tolerance": null,
+        "shift": [
+          10.0,
+          40.0
+        ],
+        "maximum_backward_error": 1.9377117233052504e-16
+      }
+    },
+    {
+      "name": "modes/refinement/lag=True/step=2e-06/shift=[-0.1, 20.0]",
+      "specification": {
+        "kind": "modes",
+        "lag": true,
+        "panels": 4,
+        "span": 4000.0,
+        "speed": 50.0,
+        "method": "full_shift_invert",
+        "difference_step": 2e-06,
+        "shift": [
+          -0.1,
+          20.0
+        ]
+      },
+      "result": {
+        "kind": "modes",
+        "poles": [
+          [
+            -14.280307325554418,
+            33.587800009960645
+          ],
+          [
+            -14.280307325554366,
+            -33.58780000996069
+          ],
+          [
+            1.5585818588996547,
+            31.610914154025146
+          ],
+          [
+            1.5585818588995404,
+            -31.610914154025156
+          ],
+          [
+            -10.396730962815164,
+            -2.251648077047843e-14
+          ],
+          [
+            -25.0219841679765,
+            1.6887360577858823e-14
+          ],
+          [
+            -25.05008632267085,
+            -2.814560096309804e-15
+          ],
+          [
+            -25.05695836903488,
+            8.443680288929412e-15
+          ]
+        ],
+        "expected": [
+          [
+            -14.287915925843405,
+            33.601607386173725
+          ],
+          [
+            -14.287915925843405,
+            -33.601607386173725
+          ],
+          [
+            1.5655325021920241,
+            31.603532204662475
+          ],
+          [
+            1.565532502192024,
+            -31.603532204662475
+          ],
+          [
+            -10.377743975207881,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "maximum_relative_error": 0.002278334761395229,
+        "finite_reference": [
+          [
+            -14.280307325553386,
+            33.58780000996118
+          ],
+          [
+            -14.280307325553382,
+            -33.58780000996118
+          ],
+          [
+            1.5585818588988807,
+            31.610914154025235
+          ],
+          [
+            1.5585818588988805,
+            -31.610914154025235
+          ],
+          [
+            -10.39673096281586,
+            0.0
+          ],
+          [
+            -25.021984167976512,
+            0.0
+          ],
+          [
+            -25.050086322670847,
+            0.0
+          ],
+          [
+            -25.0569583690349,
+            0.0
+          ]
+        ],
+        "finite_reference_relative_error": 6.701104733368771e-14,
+        "returned_modes": 8,
+        "finite_dimension": null,
+        "method": "full_shift_invert",
+        "difference_step": 2e-06,
+        "rank_tolerance": null,
+        "shift": [
+          -0.1,
+          20.0
+        ],
+        "maximum_backward_error": 8.855878289154582e-17
+      }
+    },
+    {
+      "name": "rom/algebraic/gust",
+      "specification": {
+        "kind": "rom",
+        "lag": false,
+        "panels": 4,
+        "span": 40.0,
+        "speed": 50.0
+      },
+      "result": {
+        "kind": "rom",
+        "omega": [
+          0.0,
+          1.0,
+          15.0,
+          25.0,
+          35.0,
+          50.0,
+          300.0
+        ],
+        "response": [
+          [
+            [
+              0.043553368855353235,
+              0.0
+            ],
+            [
+              -3.7295077642120295e-15,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.9981696936787461,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.043543691891287956,
+              -0.001746475444865817
+            ],
+            [
+              0.0017464754290485338,
+              0.043543692156811156
+            ],
+            [
+              -0.04354369215681331,
+              0.001746475429048506
+            ],
+            [
+              0.9936960639128551,
+              -0.048156935461537945
+            ]
+          ],
+          [
+            [
+              0.0330444768291963,
+              -0.028702740340068252
+            ],
+            [
+              0.4305411002283194,
+              0.495667157011943
+            ],
+            [
+              -7.435007355179142,
+              6.45811650342479
+            ],
+            [
+              0.011519354192170983,
+              -0.013266817245970342
+            ]
+          ],
+          [
+            [
+              0.0167164593214308,
+              -0.026298973020470434
+            ],
+            [
+              0.6574743075993424,
+              0.417911492534058
+            ],
+            [
+              -10.447787313351451,
+              16.436857689983558
+            ],
+            [
+              -0.4624194555492913,
+              1.6894429133843003
+            ]
+          ],
+          [
+            [
+              0.015638107364044834,
+              -0.003518722161565415
+            ],
+            [
+              0.12315523611162048,
+              0.5473337453662958
+            ],
+            [
+              -19.156681087820342,
+              4.310433263906722
+            ],
+            [
+              -2.1426944217243364,
+              2.678799837368057
+            ]
+          ],
+          [
+            [
+              -0.0019730134846111342,
+              0.003168744760860638
+            ],
+            [
+              -0.15843724050000332,
+              -0.09865070036378529
+            ],
+            [
+              4.932535018189261,
+              -7.921862025000163
+            ],
+            [
+              -1.6584941658442118,
+              0.10322421052831555
+            ]
+          ],
+          [
+            [
+              -0.00014777467037012664,
+              3.3889341274527735e-06
+            ],
+            [
+              -0.0010166739420364277,
+              -0.04433240362839959
+            ],
+            [
+              13.299721088519878,
+              -0.3050021826109281
+            ],
+            [
+              -0.029063482977660003,
+              -0.0009226710687130629
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            [
+              0.043553369121038576,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              0.9981696936843657,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.04354369215697178,
+              -0.0017464754290659361
+            ],
+            [
+              0.0017464754290659361,
+              0.04354369215697178
+            ],
+            [
+              -0.04354369215697178,
+              0.0017464754290659361
+            ],
+            [
+              0.9936960639184258,
+              -0.04815693546199521
+            ]
+          ],
+          [
+            [
+              0.03304447713413322,
+              -0.028702740015268062
+            ],
+            [
+              0.4305411002290209,
+              0.4956671570119983
+            ],
+            [
+              -7.435007355179975,
+              6.458116503435314
+            ],
+            [
+              0.011519354191404835,
+              -0.013266817245103474
+            ]
+          ],
+          [
+            [
+              0.016716459701471266,
+              -0.026298972303846955
+            ],
+            [
+              0.6574743075961739,
+              0.41791149253678167
+            ],
+            [
+              -10.447787313419541,
+              16.436857689904347
+            ],
+            [
+              -0.462419455557286,
+              1.6894429133878153
+            ]
+          ],
+          [
+            [
+              0.01563810701038655,
+              -0.003518721031512379
+            ],
+            [
+              0.12315523610293326,
+              0.5473337453635293
+            ],
+            [
+              -19.156681087723523,
+              4.310433263602664
+            ],
+            [
+              -2.142694421744834,
+              2.678799837338787
+            ]
+          ],
+          [
+            [
+              -0.001973014007291713,
+              0.0031687448099816167
+            ],
+            [
+              -0.15843724049908084,
+              -0.09865070036458566
+            ],
+            [
+              4.932535018229283,
+              -7.9218620249540415
+            ],
+            [
+              -1.658494165835685,
+              0.10322421052532066
+            ]
+          ],
+          [
+            [
+              -0.0001477746787613142,
+              3.38891314012135e-06
+            ],
+            [
+              -0.0010166739420364049,
+              -0.04433240362839426
+            ],
+            [
+              13.299721088518279,
+              -0.3050021826109215
+            ],
+            [
+              -0.029063482977656655,
+              -0.0009226710687140217
+            ]
+          ]
+        ],
+        "maximum_relative_error": 2.7052986519654207e-08,
+        "maximum_full_reduced_error": 4.637068818898341e-08,
+        "acceleration_feedthrough": 13.381919813126242,
+        "expected_feedthrough": 13.381919813126087,
+        "dimension": 4,
+        "lag": {
+          "enabled": false,
+          "circulation": "algebraic",
+          "shed_downwash_coefficient": 0.0,
+          "circulation_rate_lift": false,
+          "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+        }
+      }
+    }
+  ]
+}

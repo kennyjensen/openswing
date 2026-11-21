@@ -1,0 +1,412 @@
+{
+  "format": "openswing-isae-sa1-steady-aerodynamics-source-review",
+  "version": 1,
+  "created_at": "2026-10-27T05:48:43.939064+00:00",
+  "status": "NO_CONFIRMED_PROFILE_DRAG_OR_STALL_FORMULA_MISMATCH",
+  "scope": "Bounded read-only comparison of source equations with current profile-drag, stall and fast/current implementations. This is a source review, not numerical verification or ASWING equivalence.",
+  "source_inventory": {
+    "path": "docs/validation/isae-sa1-source-readiness-20261027/report.json",
+    "bytes": 279463,
+    "sha256": "037d26949419cc3a228a0ca199ef7134bec4571177c544348227aa025a9c9041"
+  },
+  "pins": [
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "openswing/geometry_field_partials.py",
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": ".reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": ".reference/asw_uns_theory.pdf",
+      "bytes": 357554,
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    }
+  ],
+  "findings": [
+    {
+      "id": "relative_flow_and_force_velocity",
+      "severity": "NO_CONFIRMED_MISMATCH",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            388,
+            400,
+            458,
+            467,
+            559,
+            560
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            746,
+            753,
+            770,
+            779
+          ],
+          "equations": [
+            64,
+            67,
+            69
+          ]
+        },
+        {
+          "path": ".reference/asw_uns_theory.txt",
+          "lines": [
+            369,
+            405
+          ],
+          "equations": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ]
+        }
+      ],
+      "finding": "The current path constructs separate control-point and bound-vortex influence operators. Lift and section normal speed use bound-vortex relative velocity, including freestream, rotational reference velocity, gust, local motion, volume flow and jets; own bound filament is excluded before summation. This agrees with steady Eq67 and the Vperp definition. The broad unsteady physical-quarter-chord position mapping needs separate geometry review, not a profile-drag substitution."
+    },
+    {
+      "id": "profile_drag_three_terms",
+      "severity": "NO_CONFIRMED_MISMATCH",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            553,
+            563
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            779,
+            798
+          ],
+          "equations": [
+            69,
+            70
+          ]
+        },
+        {
+          "path": ".reference/asw_uns_theory.txt",
+          "lines": [
+            405,
+            407
+          ]
+        }
+      ],
+      "finding": "Friction uses .5 rho |V_hv| V_hv c Cdf; pressure uses .5 rho |V_hv_perp| V_hv_perp c Cdp; separated-flow drag uses 2 rho V_hv_perp/|V_hv_perp| times the squared CP normal tangency times c. Each is integrated with current interval length. Equation70 marks only the normal-velocity square as CP-evaluated; replacing all V/Vperp by CP values is not supported by this source."
+    },
+    {
+      "id": "cl_and_stall_leakage_scaling",
+      "severity": "NO_CONFIRMED_MISMATCH",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            470,
+            476,
+            482,
+            495
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1626,
+            1634,
+            2048,
+            2070
+          ],
+          "equations": [
+            157,
+            202,
+            203,
+            204
+          ]
+        }
+      ],
+      "finding": "cl=2 Gamma/(chord Vperp) and leakage=(Vperp/dCLda) Ks fstall agree algebraically because 4 pi h=dCLda. The residual subtracts leakage from CP normal velocity. Its Jacobian differentiates both lift coefficient and bound normal speed."
+    },
+    {
+      "id": "stable_log_ratio",
+      "severity": "NO_CONFIRMED_MISMATCH",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            177,
+            195
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            2060,
+            2070
+          ],
+          "equations": [
+            204
+          ]
+        }
+      ],
+      "finding": "The sorted/log1p/expit/expm1 implementation is an algebraically stable evaluation of delta_cl[log(1+exp((cl-clmax)/delta_cl))-log(1+exp((clmin-cl)/delta_cl))]. The derivative is the sum of the two sigmoid terms. The threshold 32 switches evaluation formula, not the constitutive law. No output clipping or decreasing poststall circulation is introduced."
+    },
+    {
+      "id": "stall_default_provenance",
+      "severity": "SETUP_QUALIFICATION",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            135,
+            137,
+            221,
+            224,
+            324,
+            335
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            2083,
+            2101
+          ],
+          "equations": [
+            203,
+            204
+          ]
+        }
+      ],
+      "finding": "Ks=40 and delta_cl=.05 agree with approximate values recommended in the public theory. They are exposed parameters and do not modify the literal \u00b11.2 section limits. Neither the original SA1 model nor its script records these build constants, so exact ASWING 5.96 defaults remain unproved. Changing them to improve agreement would be a fit, not a confirmed source correction."
+    },
+    {
+      "id": "section_moment_and_zero_drag_couple",
+      "severity": "NO_CONFIRMED_MISMATCH",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            564,
+            591,
+            605,
+            609
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            799,
+            823
+          ],
+          "equations": [
+            72,
+            73,
+            74
+          ]
+        }
+      ],
+      "finding": "The section moment uses the physical quarter-chord arm along c_hat, cross circulatory lift, plus .5 rho Vperp\u00b2 c\u00b2 Cm s_hat; local normal Mach scales Cm independently of the PG matrix setting. There is no extra local profile-drag couple, consistent with Eq74. Global force transport remains about the literal reference point. SA1 literal section Cm is 0, but its lift-arm contribution and exported CM remain required."
+    },
+    {
+      "id": "unsteady_lag_separation",
+      "severity": "NO_CONFIRMED_MISMATCH_IN_STEADY_LIMIT",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            348,
+            355,
+            470,
+            476,
+            557,
+            563,
+            591,
+            605
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_uns_theory.txt",
+          "lines": [
+            486,
+            509
+          ],
+          "equations": [
+            48,
+            49
+          ]
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            878,
+            887
+          ],
+          "equations": [
+            84
+          ]
+        }
+      ],
+      "finding": "The CP normal velocity receives the documented 2/pi circulation-rate lag correction before separation drag. Rate lift uses the documented rho c Gamma_dot/Vperp cross V,s factor. Beam-axis velocity is separately used for apparent-mass terms. In steady SA1, rates, local motion and circulation-rate terms are zero; substituting an axis velocity into steady profile drag is not a supported correction."
+    },
+    {
+      "id": "fast_current_influence_contract",
+      "severity": "NO_CONFIRMED_MISMATCH_FOR_RIGID_STEADY_SA1",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            244,
+            255,
+            267,
+            285,
+            343,
+            345,
+            363,
+            371
+          ]
+        },
+        {
+          "path": "openswing/frozen_influence.py",
+          "lines": [
+            1,
+            6,
+            59,
+            95
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/aswing_doc.txt",
+          "lines": [
+            2237,
+            2255,
+            2293,
+            2311,
+            2413,
+            2434
+          ]
+        }
+      ],
+      "finding": "The fast branch caches undeformed geometry influence coefficients with zero wind angles; the current branch uses current wind direction and geometry. Current circulation, section properties, frames, kinematics, loads and independently chosen Mach remain active. This agrees with K/F for the rigid steady SA1 scope. Frozen cache keys include Mach/core/ground metadata. The script F toggle and unknown startup state remain a setup qualification, not a reason to choose the closer branch."
+    },
+    {
+      "id": "unsteady_force_point_mapping",
+      "severity": "OPEN_CROSS_DOCUMENT_MAPPING_NOT_CONFIRMED_SA1_DEFECT",
+      "code": [
+        {
+          "path": "openswing/frozen_influence.py",
+          "lines": [
+            13,
+            32
+          ]
+        },
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            388,
+            398,
+            463,
+            464,
+            587,
+            590
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1615,
+            1634
+          ],
+          "equations": [
+            155,
+            156,
+            157
+          ]
+        },
+        {
+          "path": ".reference/asw_uns_theory.txt",
+          "lines": [
+            369,
+            393
+          ],
+          "equations": [
+            29,
+            30,
+            31,
+            32
+          ]
+        }
+      ],
+      "finding": "Steady Eq155 places the virtual bound-vortex receiver using the wind-aligned quarter-chord construction; unsteady Eq29 names the physical quarter-chord arm along the section c-axis. Current steady geometry uses Eq155 while moment transfer uses the physical arm. A full moving-section interpretation requires the separate geometry/API audit. It is not evidence that the steady SA1 profile velocities should be replaced or fitted."
+    }
+  ],
+  "confirmed_implementation_defects": [],
+  "unresolved": [
+    "Exact original5.96 build defaults and startup state remain unknown.",
+    "A separate review owns PG, geometric midpoint/normal construction and general unsteady physical-point mapping.",
+    "Finite mesh, force quadrature, historical output exporter semantics and measured archival discrepancies are not resolved by this bounded formula review."
+  ],
+  "operations": {
+    "production_imports": 0,
+    "tests_run": 0,
+    "physical_solves": 0,
+    "residual_evaluations": 0,
+    "matrix_assemblies": 0,
+    "file_mutations_to_production": 0
+  },
+  "recommendation": "Do not change profile-drag sampling, stall coefficients, literal model data or comparison gates on this evidence. Continue isolating source-supported geometric/output/discretization differences; retain every original target."
+}

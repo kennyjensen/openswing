@@ -1,0 +1,10 @@
+{
+  "outputs": [{
+    "actuator": "E1",
+    "expression": "clip(command('E1')-200*error('RY[2]')-100*state('I'),-5,5)"
+  }],
+  "states": [{
+    "name": "I", "initial": 0, "scale": 0.1, "unit": "input L · input T",
+    "rate": "error('RY[2]')-.1*(actuator('E1')-(command('E1')-200*error('RY[2]')-100*state('I')))"
+  }]
+}

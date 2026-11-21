@@ -1,0 +1,11 @@
+# Steady aerodynamic source review: PG geometry and SA-1
+
+No confirmed defect was found in the reviewed PG transformation, lifting-line geometry, section normal, or Mach-zero horseshoe evaluation. This is a bounded documentation/code review, not a claim that the archived SA-1 comparison passes. [The receipt](report.json) includes exact primary excerpts, code lines and hashes, all six saved-state comparisons, and the complete independent oracle/test source.
+
+The source defines `xi=e/lambda`, so its scale cancels from `xi/|xi×s|`. Placing physical quarter-chord and control points using unit wind before applying PG is therefore correct even with sweep. Writing the source map as `P=D R`, the code uses `Q=RᵀD R`; rotational covariance of Biot–Savart proves `Pᵀ B(P geometry)=Q B(Q geometry)`. The final velocity map is the transpose, not its inverse. Physical section normals can be projected after this map without a further PG correction. These results follow from steady pp29–33, Eqs146–161.
+
+The independent scalar oracle replays the saved pre-stall and stalled SA-1 states at 200/400 intervals with pointwise or 40-mode circulation. It uses retained Gamma and no production imports or solves. Maximum discrepancies are 7.94e-13 m/s in velocity, 1.74e-14 in normalized local residual, 5.46e-12 N in integrated force, and 8.22e-15 across the reconstructed coefficients. Six independent checks pass, including direct integration of all three Biot–Savart lines, the two-dimensional lift-slope limit, symmetry and dimensional scaling.
+
+One boundary remains unresolved for general curved geometry: the code excludes the own straight bound segment even when the separately constructed interior force point is not collinear with it. The source calls that point the bound-segment midpoint but does not specify this non-collinear self-influence convention. It does not affect the straight SA-1 oracle and is not grounds for a speculative change.
+
+The bound-point Vperp in the stall law is supported by the surface-velocity definition in Eq67/69 carried into Eq202. Eq202 does not repeat the coordinate explicitly; no source basis was identified for substituting CP, beam-axis, or freestream speed. Historical executable settings and exact force quadrature remain separate qualifications. No production file was changed.

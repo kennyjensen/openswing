@@ -1,0 +1,77 @@
+! Original OpenSwing trim demonstrator, not a calibrated aircraft model.
+! Flap 1 elevator, flap 2 aileron, flap 3 rudder; settings in degrees.
+! Engine 1 is a proportional thrust control: one setting unit = 1 N.
+! The tail and fin roots attach to the wing center via rigid pylons.
+Name
+Elastic flight-trim demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+14.4 1.2 12
+0 0 0
+.25 0 -.1
+-.5 0 .15
+End
+Ground
+1 0 0
+End
+Joint
+1 2 0 0 0
+1 3 0 1 0
+End
+Weight
+1 0 .15 0 -.1 2451.6625 0 0 0 0 0 7845.32 11767.98 15690.64
+End
+Engine
+1 0 1 0 -1 0 -.1 -1 0 0 1 0 0 0
+End
+Beam 1
+Elastic main wing
+t x y z chord Xax
+0 0 0 0 1.2 .25
+6 0 6 0 1.2 .25
+t EIcc EInn GJ EA mg
+0 200000 2000000 80000 10000000 5
+6 200000 2000000 80000 10000000 5
+t Cdf Cm
+0 .008 -.03
+6 .008 -.03
+t dCLdF2 dCMdF2
+-6 -.04 .008
+-2 -.04 .008
+-2 0 0
+2 0 0
+2 .04 -.008
+6 .04 -.008
+End
+Beam 2
+Horizontal tail and elevator
+t x y z chord Xax
+0 4 0 .2 .8 .25
+2 4 2 .2 .8 .25
+t EIcc EInn GJ EA mg
+0 200000 1000000 80000 5000000 3
+2 200000 1000000 80000 5000000 3
+t Cdf dCLdF1 dCMdF1
+0 .008 .055 -.008
+2 .008 .055 -.008
+End
+Beam 3
+Vertical tail and rudder
+t x y z chord Xax
+1 3.6 0 .2 .8 .25
+3 3.6 0 2.2 .8 .25
+t EIcc EInn GJ EA mg
+1 200000 1000000 80000 5000000 3
+3 200000 1000000 80000 5000000 3
+t Cdf dCLdF3 dCMdF3
+1 .008 .045 -.008
+3 .008 .045 -.008
+End

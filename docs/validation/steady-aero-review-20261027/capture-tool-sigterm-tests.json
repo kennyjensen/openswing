@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-10-27T06:19:22.290855+00:00",
+  "scope": "Capture mechanics with authenticated original bytes and explicitly labelled fake executable processes; not ASWING validation.",
+  "change": "Temporary SIGTERM/SIGINT flag handlers span child creation, bounded polling, owned process-group cleanup and terminal receipt publication; original handlers restored. Cancellation never raises inside Popen before its handle is returned.",
+  "command": ".venv/bin/python -m pytest -q tests/test_capture_isae_sa1_reference.py",
+  "tests_passed": 25,
+  "tests_failed": 0,
+  "seconds": 32.33,
+  "exit_code": 0,
+  "session": 52750,
+  "terminal_chunk": "9245ff",
+  "direct_test_process_terminal": true,
+  "new_cases": [
+    "SIGTERM and SIGINT delivered only to actual wrapper subprocess, each during original-run and settings-probe: child ignoring SIGTERM is killed/reaped, receipt terminal, later stage absent (4 cases).",
+    "Signal delivered after child creation but before Popen returns: handle retained, child cleaned, previous handler restored (2 cases).",
+    "Previous SIGTERM/SIGINT handlers restored after successful capture and spawn error (2 cases)."
+  ],
+  "test_log": {
+    "path": "/tmp/openswing-sa1-reference-capture-20261027/sigterm-final-pytest.log",
+    "bytes": 100,
+    "sha256": "f0026500d414b6e288f615cff53a3500150b310e2222af375adddd456a006e9e"
+  },
+  "preserved_initial_revision_attempt": {
+    "path": "/tmp/openswing-sa1-reference-capture-20261027/sigterm-first-attempt-receipt.json",
+    "bytes": 1593,
+    "sha256": "419d2d1354e4b1711b60aef3e51cd8d1b93f6051f823c2502f5b303f4888a537"
+  },
+  "preserved_initial_revision_log": {
+    "path": "/tmp/openswing-sa1-reference-capture-20261027/sigterm-pytest.log",
+    "bytes": 1613,
+    "sha256": "f1149771fae4856100a050e2f0c94aa6955b118bb11d4a77e31bf270972e1dc0"
+  },
+  "initial_revision_failure_resolution": "The existing 0.3-second timeout test raced interpreter initialization. Its fake child now acknowledges the installed SIGTERM-ignore handler before the timeout begins; production logic was not changed after that attempt.",
+  "prior_17_test_receipt_preserved": {
+    "path": "/tmp/openswing-sa1-reference-capture-20261027/receipt.json",
+    "bytes": 1269,
+    "sha256": "e7bfd552a26678f6d776385c5d2bde8a857ec6f9a6ea8ef4689a49141242d24e"
+  },
+  "post_test_file_pins": [
+    {
+      "path": "/home/userland/aswing/scripts/capture-isae-sa1-reference.py",
+      "bytes": 17331,
+      "sha256": "436ec582327efd8f02be1287cc53b9b106e4392904fe92538a86cf3cac1b365f"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_capture_isae_sa1_reference.py",
+      "bytes": 17303,
+      "sha256": "e67b9317390568d9d4969ac58a8dd33baac243b83caa0a9c20393de62bb14ea2"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-sa1-reference-capture.md",
+      "bytes": 3467,
+      "sha256": "3cd534863148c048eaa1a2d15c5cb6eb818b301480a967c365304bf64564e10a"
+    }
+  ],
+  "real_ASWING_executions": 0,
+  "production_solvers_called": 0,
+  "old_prepared_kit_modified": false,
+  "frozen": true
+}

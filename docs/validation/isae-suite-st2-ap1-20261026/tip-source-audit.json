@@ -1,0 +1,531 @@
+{
+  "status": "COMPLETE_BOUNDED_SOURCE_AUDIT_NO_SUPPORTED_PRODUCTION_FIX",
+  "scope": "Read-only cached primary text/PDF and current code audit, plus related primary Drela JVL cross-check; no original ASWING executable/source available.",
+  "findings": [
+    {
+      "id": "force_velocity",
+      "status": "SUPPORTED_AND_MATCHES_CODE",
+      "finding": "Steady lift uses the total relative velocity at the bound-vortex force point, including induced flow; flow tangency is imposed at a separate downstream control point. Replacing force velocity with control-point velocity or freestream speed is unsupported.",
+      "primary": {
+        "path": ".reference/asw_theory.txt",
+        "lines": [
+          747,
+          780
+        ],
+        "printed_pages": [
+          15,
+          16
+        ],
+        "equations": [
+          64,
+          65,
+          67,
+          69
+        ]
+      },
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            379,
+            395
+          ]
+        },
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            453,
+            471
+          ]
+        },
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            548,
+            554
+          ]
+        }
+      ]
+    },
+    {
+      "id": "normal_mach",
+      "status": "SUPPORTED_AND_MATCHES_CODE",
+      "finding": "Cm uses local section-normal speed divided by atmospheric sound speed. The guide explicitly separates this correction from the selected global PG Mach. Current span projection and speed agree. No guard relaxation is supported.",
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            799,
+            819
+          ],
+          "printed_pages": [
+            16,
+            17
+          ],
+          "equations": [
+            72,
+            73
+          ]
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "lines": [
+            2413,
+            2434
+          ]
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            458,
+            462
+          ]
+        },
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            559,
+            575
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sample_locations",
+      "status": "SUPPORTED_AND_MATCHES_CODE",
+      "finding": "Each interval samples circulation at its Glauert-angle midpoint. Beam position is interpolated using the associated material coordinate. Wind-aligned force/control offsets match equations155-157; PG scaling in xi cancels between xi and |xi cross s|.",
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1570,
+            1593
+          ],
+          "printed_pages": [
+            31,
+            32
+          ],
+          "equations": [
+            150,
+            151,
+            152,
+            153,
+            154
+          ]
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1615,
+            1629
+          ],
+          "printed_pages": [
+            32
+          ],
+          "equations": [
+            155,
+            156,
+            157
+          ]
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/geometry.py",
+          "lines": [
+            96,
+            109
+          ]
+        },
+        {
+          "path": "openswing/frozen_influence.py",
+          "lines": [
+            14,
+            37
+          ]
+        },
+        {
+          "path": "openswing/circulation.py",
+          "lines": [
+            47,
+            63
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tip_circulation",
+      "status": "NO_MISSING_TIP_CLAMP_FOUND",
+      "finding": "Fourier representation has sine-series endpoint zeros but is sampled piecewise constantly on terminal horseshoes. Pointwise circulation is expressly a piecewise-constant alternative. The outer terminal ray represents the jump to exterior zero; forcing the terminal panel sample itself to zero is not prescribed.",
+      "primary": {
+        "path": ".reference/asw_theory.txt",
+        "lines": [
+          1570,
+          1581
+        ],
+        "printed_pages": [
+          31
+        ],
+        "equations": [
+          150,
+          151,
+          152,
+          153
+        ]
+      },
+      "code": [
+        {
+          "path": "openswing/circulation.py",
+          "lines": [
+            47,
+            63
+          ]
+        },
+        {
+          "path": "openswing/factored_influence.py",
+          "lines": [
+            119,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "id": "same_surface_cores",
+      "status": "SUPPORTED_AND_MATCHES_CODE",
+      "finding": "Same physical surface interactions have zero core. Other-surface core is max(chord/4,interval width), with user-adjustable chord ratio. Tip-specific same-surface smoothing is not a correction supported by these sources.",
+      "primary": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1671,
+            1682
+          ],
+          "printed_pages": [
+            33
+          ],
+          "equations": [
+            161
+          ]
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "lines": [
+            1036,
+            1044
+          ]
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "lines": [
+            2437,
+            2461
+          ]
+        }
+      ],
+      "code": {
+        "path": "openswing/aero.py",
+        "lines": [
+          353,
+          366
+        ]
+      }
+    },
+    {
+      "id": "bound_and_wake",
+      "status": "NO_SUPPORTED_WHOLE_BOUND_OR_PARTIAL_DELETION",
+      "finding": "ASWING equation160 includes the full bound and trailing horseshoe. No inspected source prescribes deleting all same-beam bound contributions, clipping neighboring bound segments, or removing a partial bound contribution to suppress tip speeds. Code excludes only the diagonal physical bound leg at force points; it keeps both own wake legs, all other bound legs and image bound legs.",
+      "primary": {
+        "path": ".reference/asw_theory.txt",
+        "lines": [
+          1458,
+          1465,
+          1658,
+          1676
+        ],
+        "printed_pages": [
+          29,
+          33
+        ],
+        "equations": [
+          160,
+          161
+        ]
+      },
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            103,
+            114
+          ]
+        },
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            379,
+            384
+          ]
+        },
+        {
+          "path": "openswing/factored_influence.py",
+          "lines": [
+            151,
+            195
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self_bound_uncertainty",
+      "status": "HISTORICAL_CONVENTION_NOT_PROVED",
+      "finding": "Zero self influence on an exactly straight bound filament is consistent with the principal-value interpretation. Current diagonal deletion also applies when the separately sampled equation155 receiver lies off its own straight endpoint-to-endpoint segment. The ASWING text does not explicitly settle that off-filament convention or the nodal extension of equation155. This is an uncertainty, not an established correction.",
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "lines": [
+            379,
+            384
+          ]
+        },
+        {
+          "path": "openswing/frozen_influence.py",
+          "lines": [
+            28,
+            36
+          ]
+        }
+      ]
+    },
+    {
+      "id": "same_date_receiver_ambiguity",
+      "status": "DOCUMENTED_AMBIGUITY_NOT_FIX",
+      "finding": "Unsteady equations29-31 use a physical chord-vector quarter-chord location, whereas steady equation155 gives a virtual wind-aligned point. They coincide at the corresponding zero-incidence limit, and can differ at finite incidence. The source does not uniquely establish which alternative the historical executable used for every steady/unsteady force evaluation.",
+      "primary": [
+        {
+          "path": ".reference/asw_uns_theory.txt",
+          "lines": [
+            369,
+            405
+          ],
+          "printed_pages": [
+            8
+          ],
+          "equations": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ]
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "lines": [
+            1615,
+            1624
+          ],
+          "printed_pages": [
+            32
+          ],
+          "equations": [
+            155,
+            156
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jvl_cross_check",
+      "status": "RELATED_DRELA_EVIDENCE_NOT_ASWING_PATCH",
+      "finding": "JVL2.20 pp20/36 excludes the own bound leg at a force receiver, includes it at a control receiver, and preserves other horseshoe influences. Its Appendix9.2 adds an explicit curvature term, absent from the inspected ASWING formulation. This corroborates only the singular-own-leg distinction; it cannot establish off-filament ASWING behavior or justify importing JVL curvature correction.",
+      "url": "https://web.mit.edu/drela/Public/web/jvl/jvl.pdf",
+      "printed_pages": [
+        20,
+        36,
+        37,
+        38
+      ],
+      "equations": [
+        110,
+        111,
+        112,
+        245,
+        253,
+        254,
+        255,
+        256
+      ]
+    },
+    {
+      "id": "swept_limit",
+      "status": "EXISTING_INDEPENDENT_EVIDENCE_RECONFIRMED_BY_ALGEBRA",
+      "finding": "For a straight swept bound line, all collinear bound segments have zero principal-value velocity. The trailing ray kernel contains an even sweep term sin(Lambda)/|y-eta| in addition to the odd1/(y-eta) term. Nonzero circulation gradient generates logarithmic local growth; smooth one-mode circulation already reproduces it. This rules out neighboring-bound deletion or reduced Fourier count as a general resolution.",
+      "derivation": "K(y,eta)=[1/(y-eta)+sin(Lambda)/abs(y-eta)]/(4*pi); w_sweep(y;eps)=-sin(Lambda)*Gamma_prime(y)*log(1/eps)/(2*pi)+O(1).",
+      "existing_evidence": [
+        {
+          "path": "docs/validation/swept-lifting-line-limit.md"
+        },
+        {
+          "path": "docs/NUMERICS.md",
+          "lines": [
+            4995,
+            5036
+          ]
+        }
+      ],
+      "limit": "No new aerodynamic fields, solves, or quadrature evaluations were performed in this audit. Prior SA14 saved decomposition is evidence of wake-dominated growth; SA11 source-component fields still require their own fixed-state examination."
+    }
+  ],
+  "baseline_tip_geometry": {
+    "formula": "d_tip=b*(1-cos(pi/(2*N)))~b*pi^2/(8*N^2)",
+    "interpretation": "Exact match to both rounded baseline SA11 maxima; fourfold shrinking distance is expected from documented theta-midpoint cosine sampling, not by itself evidence of a location bug.",
+    "rows": [
+      {
+        "panels": 64,
+        "semispan": 1.2426,
+        "predicted_tip_distance": 0.00037424788809659894,
+        "predicted_absolute_station": 1.2422257521119033,
+        "saved_rounded_absolute_station": 1.242226,
+        "matches_saved_six_decimals": true
+      },
+      {
+        "panels": 128,
+        "semispan": 1.2426,
+        "predicted_tip_distance": 9.356549467904059e-05,
+        "predicted_absolute_station": 1.242506434505321,
+        "saved_rounded_absolute_station": 1.242506,
+        "matches_saved_six_decimals": true
+      }
+    ]
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.pdf",
+      "bytes": 357554,
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62253,
+      "sha256": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 12809,
+      "sha256": "e67ae63d85b2071f2bd92f0a0e47f69e3c6e4843ccb0c38c02d3499a8ed56776"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/factored_influence.py",
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/swept-lifting-line-limit.md",
+      "bytes": 8762,
+      "sha256": "af8a05808409bb895a843054f240b27c2284c89c66b4380bf97e9e8f143d2dd2"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ffwt-influence-source-audit.json",
+      "bytes": 19950,
+      "sha256": "97e5250fe44b18d93d04eda8200207c08325773cdd5ea9d153d7ee17b59349c2"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-suite-expanded-20261026/sa11-saved-review.md",
+      "bytes": 6770,
+      "sha256": "0f2a7e50dd5adc3d1fc17e954e65657ea88358d3039f1a689cebb9e45868c925"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/asw_theory-p16.png",
+      "bytes": 168234,
+      "sha256": "846e537d01516af46b01e9f25ccd9e3104e2a750abac9b4c34383ed957b991cb"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/asw_theory-p17.png",
+      "bytes": 136632,
+      "sha256": "585a0d2e4ddd8e9ffa66592fa45f74f14d0b04621f8933ecde46beb2c496a58b"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/asw_theory-p32.png",
+      "bytes": 104907,
+      "sha256": "aca83223799461b03ee2b3430a72cd35779c972880fd08617f86ac85a0e6c62a"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/asw_theory-p33.png",
+      "bytes": 141081,
+      "sha256": "0bb715dc8a84d43b500028b9c2a070bc3defa8430fe888aba28cfe13a6303c5a"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/asw_uns_theory-p8.png",
+      "bytes": 123087,
+      "sha256": "4777135a3a1318c0e998a27ec49a87a25e5a6a5f38ad9ec8e8bb2d3bc417f286"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/primary-local-only/jvl-2.20.pdf",
+      "bytes": 637557,
+      "sha256": "28b602dbcb5716c542ace7c538ffd561602bd555b94d39a8580383ac250d6700"
+    }
+  ],
+  "operations": {
+    "production_imports": 0,
+    "physics_runs": 0,
+    "field_evaluations": 0,
+    "solves": 0,
+    "tests": 0,
+    "repository_edits": 0,
+    "git_commands": 0,
+    "stdlib_arithmetic": "Two baseline and two extension analytic midpoint samples only.",
+    "pdf_renders": 5
+  },
+  "visual_review": [
+    "steady printedp17 Eq73",
+    "steady printedp32 Fig16/Eqs154-157"
+  ],
+  "limitations": [
+    "No demonstrated discrepancy between inspected steady source rules and current force-point normal-Mach treatment.",
+    "Exact historical nodal bound geometry, off-filament singular convention, mesh and influence/stall settings remain unresolved.",
+    "Mathematical singularity is not proof that historical ASWING used this exact implementation at every field point.",
+    "Do not lower resolution, smooth cores, substitute control-point or freestream speed, clamp Mach, delete bound fields, or relax precision guards to manufacture reference matches."
+  ],
+  "redistribution": "Keep primary-local-only PDFs and rendered source pages local; report contains paraphrases, equations, locators and hashes."
+}

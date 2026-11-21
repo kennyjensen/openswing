@@ -1,0 +1,119 @@
+{
+  "baseline_source_sha256": "cf0c70fe57b7233fe3abd62bc105484c914c9aa39e6dde6616ac98a32a65fbfc",
+  "broader_optimization": "No broader optimization recommended for this patch. Changed-pair whole-array PG work is retained to protect the relative-coordinate precision fix. Extra cached pair arrays or a new byte-key policy require separate memory/precision evidence.",
+  "candidate_source_sha256": "00244bb92ffcb08198c960078e7a8b6883712fdcd4f4fe7eee5e106a9dbc21f8",
+  "candidate_tests_sha256": "62c56c7ec15d991fb20768e4acdbd0e879025a2adcfbfc39291dd7ed28e5cb83",
+  "executed_controls": {
+    "all_output_bytes_equal": true,
+    "comparisons": 330,
+    "exit_code": 0,
+    "independent_input_output_ownership_controls": 2,
+    "invalid_exception_control": {
+      "baseline": {
+        "message": "invalid value encountered in matmul",
+        "outcome": "FloatingPointError"
+      },
+      "candidate": {
+        "nonfinite": 24,
+        "outcome": "returned",
+        "same_bytes_as_primed": true
+      }
+    },
+    "numerical_solves": 0,
+    "reaped": true,
+    "report": "checks.json",
+    "session": 2121,
+    "sha256": "f1b54641627bdf6fa9ac587531024e0068c7d085e60837a14c997763ac122d35"
+  },
+  "findings": [
+    {
+      "classification": "approved",
+      "detail": "The global identity and row/column comparisons are identical to the released code. An unchanged hit now returns the already-owned original.copy() before allocating pair differences, PG products or reflected geometry. Initial misses, global-key mismatches and changed pairs still use the previous complete-array preparation and compute order. No tolerance, kernel, physical model, solver gate or changed-pair selection was altered.",
+      "id": "unchanged-return",
+      "lines": [
+        "candidate/openswing/tangent_influences.py:146-160"
+      ]
+    },
+    {
+      "classification": "preserved",
+      "detail": "Retaining complete (receiver,source,xyz) relative transforms on every changed-pair call is necessary for the existing direct-kernel byte-equality requirement: slicing before matmul can select another rounding path, especially for one-row or one-column shapes. Do not replace this with skinny changed-subset transforms under this patch. Tiny products below 64 remain direct; exactly 64 remains eligible for the cache.",
+      "id": "precision-and-skinny-arrays",
+      "lines": [
+        "candidate/openswing/tangent_influences.py:162-177",
+        "openswing/aero.py:89-114"
+      ]
+    },
+    {
+      "classification": "preserved-with-existing-scope",
+      "detail": "The key still includes pair shape, point/endpoint/core dtypes, direction and PG bytes, ground flag/reflection/normal/offset, and mask presence. Cores and masks remain broadcast before comparison, with any changed core/mask entry conservatively invalidating its source column. Physical bound exclusion remains separate from image bound influence. Inactive ground state is intentionally irrelevant. Active GroundPlane reflection, normal, offset and flag affect identity. This audit assumes the ordinary GroundPlane implementation, rather than a side-effecting subclass or monkeypatch.",
+      "id": "keys-cores-masks-images",
+      "lines": [
+        "candidate/openswing/tangent_influences.py:134-155",
+        "openswing/ground.py:27-56"
+      ]
+    },
+    {
+      "classification": "preserved",
+      "detail": "Inputs and initial output are copied into the existing 64 MiB budget. Every returned cache hit owns its output. Mutating returned arrays or later caller input arrays cannot mutate the anchor. Global mismatch retains the original anchor rather than changing cache policy. Network.jacobian scopes the cache with try/finally; this patch adds no persistent lifetime or new cache key namespace.",
+      "id": "ownership-budget-lifetime",
+      "lines": [
+        "candidate/openswing/tangent_influences.py:158-160,181-203",
+        "openswing/network.py:563-573"
+      ]
+    },
+    {
+      "classification": "inherited-limit-not-expanded",
+      "detail": "Coordinate/endpoint/core row comparisons use numeric !=, so +0 and -0 are equal. The global direction/PG key is byte-based and distinguishes signed zero. Mask dtype and memory layout are not keyed independently. Existing vortex behavior already reuses the baseline result in these equal-numeric-value cases; the candidate does not broaden that reuse. Bounded signed-zero, mask bool-to-uint8 and Fortran-layout controls match the released output bytes. This does not establish universal direct-kernel bitwise identity under every signed-zero/dtype/layout substitution.",
+      "id": "signedzero-maskdtype-layout",
+      "lines": [
+        "candidate/openswing/tangent_influences.py:142-155",
+        "openswing/tangent_influences.py:181-188"
+      ]
+    },
+    {
+      "classification": "explicit-boundary-accepted-for-minimal-patch",
+      "detail": "Vortex cache does not exclude nonfinite inputs. Source parser, condition/core and GroundPlane checks reject nonfinite public inputs; successful solves require finite states. There is no universal pre-vortex finite check on direct network trial coordinates. The retained control primes an infinite point under ignored errors and then repeats under invalid=raise: released code raises FloatingPointError from unused matmul, candidate returns the same cached array containing 24 nonfinite components. Output values remain nonfinite and no valid-result acceptance gate was relaxed. Skipping unused arithmetic can also suppress warning/exception side effects when overflow creates nonfinite intermediates. This is not a promise to preserve NumPy warning counts/error-policy behavior on invalid or overflowed arithmetic. Parent explicitly accepted this boundary for the minimal patch and requested no expansion.",
+      "id": "nonfinite-exception-boundary",
+      "lines": [
+        "openswing/asw.py:58-59",
+        "openswing/aero.py:202-218,350-351",
+        "openswing/ground.py:6-9",
+        "openswing/network.py:211-218,400-426,563-573",
+        "openswing/structured_static.py:700"
+      ]
+    }
+  ],
+  "optional_future_contract": "If preservation of invalid-input floating exception behavior becomes a requirement, record an eligibility flag while producing the initial entry and limit the preparation skip to eligible bases; do not scan all geometry on every hit. A finite-result/input-only flag is not by itself a universal overflow-warning proof: eligibility must reflect the actual transformed preparation intermediates or a declared finite-arithmetic contract. This is a separate change, not requested for the current candidate.",
+  "reproducibility_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 <python> check_cache.py --root <released-root> --candidate <candidate-root> --output checks.json",
+  "reviewed_patch_sha256": "1ec1ac2400e4b2d96f67eed9e0d43c4e3fd4969ce63a0a2ecc46d41d8d344d4d",
+  "scope": "Independent read-only source review plus bounded array-only controls; no production edits, no equilibrium/modal solves, no performance claim.",
+  "sessions": {
+    "live": [],
+    "owned": [
+      {
+        "exit_code": 0,
+        "reaped": true,
+        "session": 2121
+      }
+    ]
+  },
+  "source_pins": {
+    "/home/userland/aswing/openswing/aero.py": "3e5b3faaa2412a255250a9040474021b95efb968a02991747db2bbaf7512283c",
+    "/home/userland/aswing/openswing/asw.py": "12437883a9d6da3c0fc99eb420ec839303068c49f401283b27a9503dc20a70fb",
+    "/home/userland/aswing/openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "/home/userland/aswing/openswing/network.py": "5c5b6c518d21e786ec636412558b26ade3e9859e6783ff7cec8f65f1e2577e0d",
+    "/home/userland/aswing/openswing/structured_static.py": "be26035674747840a95b0c6fc3ab68478e19069ed4b489d95793103be1189dfe",
+    "/home/userland/aswing/openswing/tangent_influences.py": "cf0c70fe57b7233fe3abd62bc105484c914c9aa39e6dde6616ac98a32a65fbfc",
+    "/home/userland/aswing/tests/test_relative_pg.py": "7320bbf45d11e9a2ec901e2bfc81c95cab780c997ede2ac50c53c01e0dd5b61f",
+    "/home/userland/aswing/tests/test_tangent_influences.py": "f147973c8a7549dd4c847acfc3556b8ead548c0ac1a65566578bc0bb457a07f2",
+    "/tmp/openswing-isae-ffwt1-20261015/relative-pg-cache-performance/candidate/openswing/tangent_influences.py": "00244bb92ffcb08198c960078e7a8b6883712fdcd4f4fe7eee5e106a9dbc21f8",
+    "/tmp/openswing-isae-ffwt1-20261015/relative-pg-cache-performance/candidate/tests/test_tangent_influences.py": "62c56c7ec15d991fb20768e4acdbd0e879025a2adcfbfc39291dd7ed28e5cb83",
+    "/tmp/openswing-isae-ffwt1-20261015/relative-pg-cache-performance/review/check_cache.py": "9adf8c889e78d16ca84c8d44d90bd497ffe44973a37882cf3ac480476260688a"
+  },
+  "status": "APPROVE_MINIMAL_CACHE_PREPARATION_SKIP_WITH_EXPLICIT_BOUNDARY",
+  "test_assessment": {
+    "additional_tests_required_for_minimal_patch": false,
+    "assessment": "Added unchanged-hit tests directly forbid _relative_pg and verify independent returned storage for ground flags 0/+1/-1 and (184,184)/(1,72)/(72,1). Existing changed-pair and global-key tests must remain. This independent review additionally checks scalar core broadcast, mask dtype, offset-only image change, float32/float64, exact 64-pair and below-threshold shapes, and caller input mutation.",
+    "candidate_added_tests": 9
+  }
+}

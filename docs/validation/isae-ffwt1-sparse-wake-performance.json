@@ -1,0 +1,3846 @@
+{
+  "browser_diagnostic": {
+    "UI_download_completed": true,
+    "aircraft_and_loading_visible_in_saved_image": true,
+    "all_owned_work_terminal": true,
+    "cleanup_seconds": 5,
+    "comparison": {
+      "exact_fields": 1625,
+      "excluded_paths": [
+        "/software_provenance",
+        "/evaluations",
+        "/continuation_steps",
+        "/equilibrium_initialization"
+      ],
+      "failures": [
+        {
+          "browser": [
+            "1",
+            "2",
+            "3",
+            "5"
+          ],
+          "native": [],
+          "path": "/equilibrium_state/launch/condition/circulation_modes",
+          "reason": "Object keys"
+        },
+        {
+          "path": "/strips",
+          "reason": "Exact node/strip identity mismatch"
+        }
+      ],
+      "formula": "abs(browser-native)<=1e-8+1e-8*abs(native)",
+      "numeric_fields": 49485,
+      "passed": false,
+      "scope": "Complete raw worker result versus source-matched native cold result, including saved state and physical outputs. Only provenance and predeclared solver-work/history diagnostics are excluded. Airflow maximizers are validated against own strips before comparing scalar maxima; underlying strips remain fully compared. No new solve or correction.",
+      "status": "FAILURE_RETAINED",
+      "worst": {
+        "absolute_difference": 7.847567040641934e-11,
+        "browser": 1.4441616791316392e-09,
+        "error_over_bound": 0.007847567028692935,
+        "native": 1.5226373495380585e-09,
+        "path": "/moment_balance/0"
+      }
+    },
+    "context_to_offline_seconds": 31.983561378999998,
+    "directory": "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/browser-sparse06",
+    "execution": {
+      "cap_seconds": 600,
+      "cleanup_grace_seconds": 5,
+      "command": [
+        "node",
+        "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/browser-sparse06/run.mjs",
+        "--root",
+        "/home/userland/aswing",
+        "--work",
+        "/tmp/openswing-isae-ffwt1-20261015",
+        "--spec",
+        "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/browser-sparse06/spec-launch-01.json",
+        "--output",
+        "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/browser-sparse06/results-01",
+        "--mode",
+        "mounted",
+        "--variants",
+        "candidate",
+        "--origin",
+        "http://127.0.0.1:8000",
+        "--run",
+        "--mounted-authorized"
+      ],
+      "driver_pid": 435,
+      "driver_sha256": "ae5b914fd73e9a8df299bcbdde24b772673f13876c18f53e48ae8f355ba2ec49",
+      "elapsed_seconds": 164.8909027040063,
+      "exit_code": 1,
+      "log_sha256": "e1e529f374f0fb18dd0fc7f6fafc18eac44abd28b48be220012172d972a5e9c2",
+      "owned_group_already_absent": true,
+      "owned_node_pid": 479,
+      "production_server_started_or_stopped": false,
+      "reaped": true,
+      "retry_count": 0,
+      "spec_sha256": "9654017304dfed426a178f364dd5e7e8cc9897fea2e4ed6e33a133bab02191c8",
+      "status": "TERMINAL"
+    },
+    "existing_mesh_identity_passed_both_directions": true,
+    "exit_code": 1,
+    "hard_process_cap_seconds": 600,
+    "identity_qualification_pending": false,
+    "mode_maps_same_physical_meaning": true,
+    "numeric_fields_passed": 49485,
+    "observed_request_to_worker_terminal_seconds": 100.18920080499998,
+    "owner": "/root/st4_archive_provenance",
+    "production_app_unchanged": true,
+    "raw_comparison_passed": false,
+    "raw_failure_reclassified": false,
+    "reaped": true,
+    "reported_full_residual": 9.03558329330047e-14,
+    "retry_count": 0,
+    "saved_checks_passed": 30,
+    "session_id": 67170,
+    "skipped_live_checks": "Lines203-241 after exact comparator assertion were not reached: exported provenance/setup/counts, UI status-history write, active loading-tab click, WebGL health/Fit and computed screenshots, request-list/hash final assertions. Applicable pure-data checks were performed above using retained outputs, settings and request/response records; no browser reopen or extra solve.",
+    "status": "TERMINAL_STRICT_IDENTITY_FAILURES_RETAINED"
+  },
+  "coverage": {
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "fixture_comparison_passed": false,
+  "fixture_failures_retained": 10,
+  "goal_complete": false,
+  "native_checks": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=5s 240s .venv/bin/python -B -m pytest -q --maxfail=1 tests/test_sparse_ray_tangent.py tests/test_vortex_tangent.py tests/test_shared_vortex_sources.py tests/test_mounted_geometry_reuse.py tests/test_frequency_input_influences.py tests/test_direct_time_circulation.py tests/test_frame_influence_reuse.py",
+    "composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+    "exit_code": 0,
+    "log_sha256": "87876e30a1a264cfc72e04ddc0e600aac2e9488ab0cf3ee86bc949355a018724",
+    "module_count": 105,
+    "pytest_seconds": 103.74,
+    "reaped": true,
+    "session_id": 13066,
+    "source_unchanged": true,
+    "status": "PASS_INTEGRATED_SOURCE06_TARGETED_REGRESSIONS",
+    "tests_passed": 169,
+    "updated_utc": "2026-10-16T00:41:43.899143+00:00"
+  },
+  "original_ASWING_executable_available": false,
+  "production_build_changed": true,
+  "records": {
+    "browser-sparse06/final-artifact-pins.json": {
+      "bytes": 4187,
+      "record": {
+        "files": {
+          "PLAN.txt": {
+            "bytes": 1782,
+            "sha256": "2a5b3852acd471077f9271e2ec99ce72baf0c64ffc02cdc4ce385c9ec5f02f03"
+          },
+          "audit_saved.py": {
+            "bytes": 10277,
+            "sha256": "87ab4279c76a0e97d3e9978c4c2522eaa3afbc6e822fe12185052622ea914e95"
+          },
+          "compare_mounted.mjs": {
+            "bytes": 3630,
+            "sha256": "351f3a774d1be55e3d52bfbe410fb391d08760805a461364c538481a1c382912"
+          },
+          "driver-01.log": {
+            "bytes": 1165,
+            "sha256": "836de1fab50c11e23c1899d45f276593ca240dd3e48755f8060c8132e0315926"
+          },
+          "launch.py": {
+            "bytes": 3907,
+            "sha256": "ae5b914fd73e9a8df299bcbdde24b772673f13876c18f53e48ae8f355ba2ec49"
+          },
+          "manifest.json": {
+            "bytes": 1213,
+            "sha256": "63a357ed68cfb34cdc5b3fc6e76b48c978d4e25cde1b61ed991bdc2d5bf037a9"
+          },
+          "prelaunch-01.json": {
+            "bytes": 692,
+            "sha256": "799d4c58c5ae7caed745f2f1421d8516c28e8c84a0b366b175568499380ea7e0"
+          },
+          "preparation-input-pins.json": {
+            "bytes": 1713,
+            "sha256": "d3a7fb7bc79943c2842dd97bb7ddf81e18220f4791edc6a58c22d0886004ade5"
+          },
+          "preparation.json": {
+            "bytes": 3697,
+            "sha256": "616456e5aaf751f6526ee036f9285971226d6a7bcf3367210168d426a1fb4953"
+          },
+          "prepare-snapshot.py": {
+            "bytes": 10905,
+            "sha256": "56727bcf0812adf016bac2ea1262d900d9a0323e0a3ebe3eccd3724f90bf2857"
+          },
+          "results-01-execution.json": {
+            "bytes": 1165,
+            "sha256": "836de1fab50c11e23c1899d45f276593ca240dd3e48755f8060c8132e0315926"
+          },
+          "results-01.log": {
+            "bytes": 1906,
+            "sha256": "e1e529f374f0fb18dd0fc7f6fafc18eac44abd28b48be220012172d972a5e9c2"
+          },
+          "results-01/candidate/actual-request.json": {
+            "bytes": 11341,
+            "sha256": "51a594050c78ae7e446eee86dea3c92ff5a921983073d25cf5bdc5f005341472"
+          },
+          "results-01/candidate/before-solve.png": {
+            "bytes": 306436,
+            "sha256": "ea61e2956e8c4dda789f50bbbfdb9b29b31320ff55061ae5b7d8628c580eef4e"
+          },
+          "results-01/candidate/failure-ui.txt": {
+            "bytes": 5280,
+            "sha256": "aa2ccdc3a38cbf25ff4ff83d1b7057e714e468ab9e8c51b3e832ca14db0e1ccb"
+          },
+          "results-01/candidate/failure.png": {
+            "bytes": 328191,
+            "sha256": "0d959aefe2cfecb3569f90ad408510ed1f4b2a04ef873716255eadb1154b8823"
+          },
+          "results-01/candidate/native-comparison.json": {
+            "bytes": 1203,
+            "sha256": "c6ea575abac074d3e02d0b5df77240fc48b4fb1f743d3d7b4a46f9c2ca1835f9"
+          },
+          "results-01/candidate/output.json": {
+            "bytes": 1900218,
+            "sha256": "7b34d67f127c4241219ec7a4288bf9fab22a1db0e221a80530f6309ff9bd3d0e"
+          },
+          "results-01/candidate/progress.jsonl": {
+            "bytes": 1642,
+            "sha256": "734853b737dcda9b9f3cce949dd32e0512d7ff36fcc0d22ad424f4a59c55a23e"
+          },
+          "results-01/candidate/report.json": {
+            "bytes": 57038,
+            "sha256": "2e12a4534104e1630fad6431ab3dea412998d6644c846b7ef5a84c30899ddd37"
+          },
+          "results-01/candidate/ui-settings.json": {
+            "bytes": 4209,
+            "sha256": "3b19bd45781571e263496208a9d8ec0b2a0e97748e121d854f885e30d23aa946"
+          },
+          "results-01/candidate/worker-progress.jsonl": {
+            "bytes": 22196,
+            "sha256": "3dbcdb41a5755b5e20b0a96fb2eba6a3de58dc0a2bd6fd8cb030f9cbe94b6777"
+          },
+          "results-01/candidate/worker-terminal.json": {
+            "bytes": 2056701,
+            "sha256": "78eb823dec0b884b26a3be8c472bd7ea19653e5f8a5d2acfd10a278d580dbfab"
+          },
+          "results-01/report.json": {
+            "bytes": 9892086,
+            "sha256": "34f3c8a32b530c7350531dfe44f39e97014390db0b16f30fa2a5d6b0c7a77bf4"
+          },
+          "run.mjs": {
+            "bytes": 23878,
+            "sha256": "079048c9f51871c90ed80c1e0be0025f9d601e1c9d3445ade69ce6c1372021a8"
+          },
+          "spec-launch-01.json": {
+            "bytes": 32844,
+            "sha256": "9654017304dfed426a178f364dd5e7e8cc9897fea2e4ed6e33a133bab02191c8"
+          },
+          "spec-prepared.json": {
+            "bytes": 31938,
+            "sha256": "bedb9d951b9d23504d301fd331ca346ca599afa832c4a9d8f3c5c114a6727e5c"
+          },
+          "summary.json": {
+            "bytes": 7750,
+            "sha256": "925a65fbb671193cf1663a304cb8acb85d03c1b585b6890f61ff59ced23ed3b3"
+          }
+        },
+        "scientific_reruns": 0,
+        "status": "FROZEN_COMPLETED_SINGLE_BROWSER_ATTEMPT"
+      },
+      "sha256": "6a9d5304672c025d51aa1188d91d218d8064c19811032ffd53dfec40a104d024"
+    },
+    "browser-sparse06/identity-qualification.json": {
+      "bytes": 31128,
+      "record": {
+        "actual_imports": {
+          "circulation": "/home/userland/aswing/openswing/circulation.py",
+          "equilibrium_state": "/home/userland/aswing/openswing/equilibrium_state.py",
+          "source_bytes_match_frozen_native_and_browser_spec": true
+        },
+        "circulation_mode_semantics": {
+          "all_browser_entries_exact_integer_zero": true,
+          "all_other_launch_fields_equal": true,
+          "browser_literal": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "5": 0
+          },
+          "effective_nonzero_modes_browser": {},
+          "effective_nonzero_modes_native": {},
+          "native_literal": {},
+          "pointwise_unknowns": 217,
+          "saved_discretization_beam_records_equal": true,
+          "source_rule": "mode_settings validates nonnegative integer counts; CirculationBasis removes zero entries from modes, requested.get(beam,0) selects pointwise identity sample/test/encoder and one unknown per panel. Explicit zeros for these existing lifting beams are physically equivalent to omission. No Fourier mode is active.",
+          "valid_lifting_beams": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        "discrete_mesh_identity": {
+          "equilibrium_element_connectivity_exact": true,
+          "equilibrium_station_coordinates_and_node_ids_exact": true,
+          "lifting_strip_count": 217,
+          "note": "Strips have no separate explicit integer id; row order plus beam/local interval ordinal/lifting flag is the discrete address. Floating midpoint t is reported separately.",
+          "ordered_element_beam_t0_t1_exact": true,
+          "ordered_node_index_beam_t_exact": true,
+          "ordered_strip_addresses": [
+            [
+              0,
+              1,
+              0,
+              true
+            ],
+            [
+              1,
+              1,
+              1,
+              true
+            ],
+            [
+              2,
+              1,
+              2,
+              true
+            ],
+            [
+              3,
+              1,
+              3,
+              true
+            ],
+            [
+              4,
+              1,
+              4,
+              true
+            ],
+            [
+              5,
+              1,
+              5,
+              true
+            ],
+            [
+              6,
+              1,
+              6,
+              true
+            ],
+            [
+              7,
+              1,
+              7,
+              true
+            ],
+            [
+              8,
+              1,
+              8,
+              true
+            ],
+            [
+              9,
+              1,
+              9,
+              true
+            ],
+            [
+              10,
+              1,
+              10,
+              true
+            ],
+            [
+              11,
+              1,
+              11,
+              true
+            ],
+            [
+              12,
+              1,
+              12,
+              true
+            ],
+            [
+              13,
+              1,
+              13,
+              true
+            ],
+            [
+              14,
+              1,
+              14,
+              true
+            ],
+            [
+              15,
+              1,
+              15,
+              true
+            ],
+            [
+              16,
+              1,
+              16,
+              true
+            ],
+            [
+              17,
+              1,
+              17,
+              true
+            ],
+            [
+              18,
+              1,
+              18,
+              true
+            ],
+            [
+              19,
+              1,
+              19,
+              true
+            ],
+            [
+              20,
+              1,
+              20,
+              true
+            ],
+            [
+              21,
+              1,
+              21,
+              true
+            ],
+            [
+              22,
+              1,
+              22,
+              true
+            ],
+            [
+              23,
+              1,
+              23,
+              true
+            ],
+            [
+              24,
+              1,
+              24,
+              true
+            ],
+            [
+              25,
+              1,
+              25,
+              true
+            ],
+            [
+              26,
+              1,
+              26,
+              true
+            ],
+            [
+              27,
+              1,
+              27,
+              true
+            ],
+            [
+              28,
+              1,
+              28,
+              true
+            ],
+            [
+              29,
+              1,
+              29,
+              true
+            ],
+            [
+              30,
+              1,
+              30,
+              true
+            ],
+            [
+              31,
+              1,
+              31,
+              true
+            ],
+            [
+              32,
+              1,
+              32,
+              true
+            ],
+            [
+              33,
+              1,
+              33,
+              true
+            ],
+            [
+              34,
+              1,
+              34,
+              true
+            ],
+            [
+              35,
+              1,
+              35,
+              true
+            ],
+            [
+              36,
+              1,
+              36,
+              true
+            ],
+            [
+              37,
+              1,
+              37,
+              true
+            ],
+            [
+              38,
+              1,
+              38,
+              true
+            ],
+            [
+              39,
+              1,
+              39,
+              true
+            ],
+            [
+              40,
+              1,
+              40,
+              true
+            ],
+            [
+              41,
+              1,
+              41,
+              true
+            ],
+            [
+              42,
+              1,
+              42,
+              true
+            ],
+            [
+              43,
+              1,
+              43,
+              true
+            ],
+            [
+              44,
+              1,
+              44,
+              true
+            ],
+            [
+              45,
+              1,
+              45,
+              true
+            ],
+            [
+              46,
+              1,
+              46,
+              true
+            ],
+            [
+              47,
+              1,
+              47,
+              true
+            ],
+            [
+              48,
+              1,
+              48,
+              true
+            ],
+            [
+              49,
+              1,
+              49,
+              true
+            ],
+            [
+              50,
+              1,
+              50,
+              true
+            ],
+            [
+              51,
+              1,
+              51,
+              true
+            ],
+            [
+              52,
+              1,
+              52,
+              true
+            ],
+            [
+              53,
+              1,
+              53,
+              true
+            ],
+            [
+              54,
+              1,
+              54,
+              true
+            ],
+            [
+              55,
+              1,
+              55,
+              true
+            ],
+            [
+              56,
+              1,
+              56,
+              true
+            ],
+            [
+              57,
+              1,
+              57,
+              true
+            ],
+            [
+              58,
+              1,
+              58,
+              true
+            ],
+            [
+              59,
+              1,
+              59,
+              true
+            ],
+            [
+              60,
+              1,
+              60,
+              true
+            ],
+            [
+              61,
+              1,
+              61,
+              true
+            ],
+            [
+              62,
+              1,
+              62,
+              true
+            ],
+            [
+              63,
+              1,
+              63,
+              true
+            ],
+            [
+              64,
+              2,
+              0,
+              true
+            ],
+            [
+              65,
+              2,
+              1,
+              true
+            ],
+            [
+              66,
+              2,
+              2,
+              true
+            ],
+            [
+              67,
+              2,
+              3,
+              true
+            ],
+            [
+              68,
+              2,
+              4,
+              true
+            ],
+            [
+              69,
+              2,
+              5,
+              true
+            ],
+            [
+              70,
+              2,
+              6,
+              true
+            ],
+            [
+              71,
+              2,
+              7,
+              true
+            ],
+            [
+              72,
+              2,
+              8,
+              true
+            ],
+            [
+              73,
+              2,
+              9,
+              true
+            ],
+            [
+              74,
+              2,
+              10,
+              true
+            ],
+            [
+              75,
+              2,
+              11,
+              true
+            ],
+            [
+              76,
+              2,
+              12,
+              true
+            ],
+            [
+              77,
+              2,
+              13,
+              true
+            ],
+            [
+              78,
+              2,
+              14,
+              true
+            ],
+            [
+              79,
+              2,
+              15,
+              true
+            ],
+            [
+              80,
+              2,
+              16,
+              true
+            ],
+            [
+              81,
+              2,
+              17,
+              true
+            ],
+            [
+              82,
+              2,
+              18,
+              true
+            ],
+            [
+              83,
+              2,
+              19,
+              true
+            ],
+            [
+              84,
+              2,
+              20,
+              true
+            ],
+            [
+              85,
+              2,
+              21,
+              true
+            ],
+            [
+              86,
+              2,
+              22,
+              true
+            ],
+            [
+              87,
+              2,
+              23,
+              true
+            ],
+            [
+              88,
+              2,
+              24,
+              true
+            ],
+            [
+              89,
+              2,
+              25,
+              true
+            ],
+            [
+              90,
+              2,
+              26,
+              true
+            ],
+            [
+              91,
+              2,
+              27,
+              true
+            ],
+            [
+              92,
+              2,
+              28,
+              true
+            ],
+            [
+              93,
+              2,
+              29,
+              true
+            ],
+            [
+              94,
+              2,
+              30,
+              true
+            ],
+            [
+              95,
+              2,
+              31,
+              true
+            ],
+            [
+              96,
+              2,
+              32,
+              true
+            ],
+            [
+              97,
+              2,
+              33,
+              true
+            ],
+            [
+              98,
+              2,
+              34,
+              true
+            ],
+            [
+              99,
+              2,
+              35,
+              true
+            ],
+            [
+              100,
+              2,
+              36,
+              true
+            ],
+            [
+              101,
+              2,
+              37,
+              true
+            ],
+            [
+              102,
+              2,
+              38,
+              true
+            ],
+            [
+              103,
+              2,
+              39,
+              true
+            ],
+            [
+              104,
+              2,
+              40,
+              true
+            ],
+            [
+              105,
+              2,
+              41,
+              true
+            ],
+            [
+              106,
+              2,
+              42,
+              true
+            ],
+            [
+              107,
+              2,
+              43,
+              true
+            ],
+            [
+              108,
+              2,
+              44,
+              true
+            ],
+            [
+              109,
+              2,
+              45,
+              true
+            ],
+            [
+              110,
+              2,
+              46,
+              true
+            ],
+            [
+              111,
+              2,
+              47,
+              true
+            ],
+            [
+              112,
+              2,
+              48,
+              true
+            ],
+            [
+              113,
+              2,
+              49,
+              true
+            ],
+            [
+              114,
+              2,
+              50,
+              true
+            ],
+            [
+              115,
+              2,
+              51,
+              true
+            ],
+            [
+              116,
+              3,
+              0,
+              true
+            ],
+            [
+              117,
+              3,
+              1,
+              true
+            ],
+            [
+              118,
+              3,
+              2,
+              true
+            ],
+            [
+              119,
+              3,
+              3,
+              true
+            ],
+            [
+              120,
+              3,
+              4,
+              true
+            ],
+            [
+              121,
+              3,
+              5,
+              true
+            ],
+            [
+              122,
+              3,
+              6,
+              true
+            ],
+            [
+              123,
+              3,
+              7,
+              true
+            ],
+            [
+              124,
+              3,
+              8,
+              true
+            ],
+            [
+              125,
+              3,
+              9,
+              true
+            ],
+            [
+              126,
+              3,
+              10,
+              true
+            ],
+            [
+              127,
+              3,
+              11,
+              true
+            ],
+            [
+              128,
+              3,
+              12,
+              true
+            ],
+            [
+              129,
+              3,
+              13,
+              true
+            ],
+            [
+              130,
+              3,
+              14,
+              true
+            ],
+            [
+              131,
+              3,
+              15,
+              true
+            ],
+            [
+              132,
+              3,
+              16,
+              true
+            ],
+            [
+              133,
+              3,
+              17,
+              true
+            ],
+            [
+              134,
+              3,
+              18,
+              true
+            ],
+            [
+              135,
+              3,
+              19,
+              true
+            ],
+            [
+              136,
+              3,
+              20,
+              true
+            ],
+            [
+              137,
+              3,
+              21,
+              true
+            ],
+            [
+              138,
+              3,
+              22,
+              true
+            ],
+            [
+              139,
+              3,
+              23,
+              true
+            ],
+            [
+              140,
+              3,
+              24,
+              true
+            ],
+            [
+              141,
+              3,
+              25,
+              true
+            ],
+            [
+              142,
+              3,
+              26,
+              true
+            ],
+            [
+              143,
+              3,
+              27,
+              true
+            ],
+            [
+              144,
+              3,
+              28,
+              true
+            ],
+            [
+              145,
+              3,
+              29,
+              true
+            ],
+            [
+              146,
+              3,
+              30,
+              true
+            ],
+            [
+              147,
+              3,
+              31,
+              true
+            ],
+            [
+              148,
+              3,
+              32,
+              true
+            ],
+            [
+              149,
+              3,
+              33,
+              true
+            ],
+            [
+              150,
+              3,
+              34,
+              true
+            ],
+            [
+              151,
+              3,
+              35,
+              true
+            ],
+            [
+              152,
+              3,
+              36,
+              true
+            ],
+            [
+              153,
+              3,
+              37,
+              true
+            ],
+            [
+              154,
+              3,
+              38,
+              true
+            ],
+            [
+              155,
+              3,
+              39,
+              true
+            ],
+            [
+              156,
+              3,
+              40,
+              true
+            ],
+            [
+              157,
+              3,
+              41,
+              true
+            ],
+            [
+              158,
+              3,
+              42,
+              true
+            ],
+            [
+              159,
+              3,
+              43,
+              true
+            ],
+            [
+              160,
+              3,
+              44,
+              true
+            ],
+            [
+              161,
+              3,
+              45,
+              true
+            ],
+            [
+              162,
+              3,
+              46,
+              true
+            ],
+            [
+              163,
+              3,
+              47,
+              true
+            ],
+            [
+              164,
+              3,
+              48,
+              true
+            ],
+            [
+              165,
+              3,
+              49,
+              true
+            ],
+            [
+              166,
+              3,
+              50,
+              true
+            ],
+            [
+              167,
+              4,
+              0,
+              false
+            ],
+            [
+              168,
+              4,
+              1,
+              false
+            ],
+            [
+              169,
+              4,
+              2,
+              false
+            ],
+            [
+              170,
+              4,
+              3,
+              false
+            ],
+            [
+              171,
+              4,
+              4,
+              false
+            ],
+            [
+              172,
+              4,
+              5,
+              false
+            ],
+            [
+              173,
+              4,
+              6,
+              false
+            ],
+            [
+              174,
+              4,
+              7,
+              false
+            ],
+            [
+              175,
+              4,
+              8,
+              false
+            ],
+            [
+              176,
+              4,
+              9,
+              false
+            ],
+            [
+              177,
+              4,
+              10,
+              false
+            ],
+            [
+              178,
+              4,
+              11,
+              false
+            ],
+            [
+              179,
+              4,
+              12,
+              false
+            ],
+            [
+              180,
+              4,
+              13,
+              false
+            ],
+            [
+              181,
+              4,
+              14,
+              false
+            ],
+            [
+              182,
+              4,
+              15,
+              false
+            ],
+            [
+              183,
+              4,
+              16,
+              false
+            ],
+            [
+              184,
+              4,
+              17,
+              false
+            ],
+            [
+              185,
+              4,
+              18,
+              false
+            ],
+            [
+              186,
+              4,
+              19,
+              false
+            ],
+            [
+              187,
+              4,
+              20,
+              false
+            ],
+            [
+              188,
+              4,
+              21,
+              false
+            ],
+            [
+              189,
+              4,
+              22,
+              false
+            ],
+            [
+              190,
+              4,
+              23,
+              false
+            ],
+            [
+              191,
+              4,
+              24,
+              false
+            ],
+            [
+              192,
+              4,
+              25,
+              false
+            ],
+            [
+              193,
+              4,
+              26,
+              false
+            ],
+            [
+              194,
+              4,
+              27,
+              false
+            ],
+            [
+              195,
+              4,
+              28,
+              false
+            ],
+            [
+              196,
+              4,
+              29,
+              false
+            ],
+            [
+              197,
+              4,
+              30,
+              false
+            ],
+            [
+              198,
+              4,
+              31,
+              false
+            ],
+            [
+              199,
+              4,
+              32,
+              false
+            ],
+            [
+              200,
+              4,
+              33,
+              false
+            ],
+            [
+              201,
+              4,
+              34,
+              false
+            ],
+            [
+              202,
+              4,
+              35,
+              false
+            ],
+            [
+              203,
+              4,
+              36,
+              false
+            ],
+            [
+              204,
+              4,
+              37,
+              false
+            ],
+            [
+              205,
+              4,
+              38,
+              false
+            ],
+            [
+              206,
+              4,
+              39,
+              false
+            ],
+            [
+              207,
+              4,
+              40,
+              false
+            ],
+            [
+              208,
+              4,
+              41,
+              false
+            ],
+            [
+              209,
+              4,
+              42,
+              false
+            ],
+            [
+              210,
+              4,
+              43,
+              false
+            ],
+            [
+              211,
+              4,
+              44,
+              false
+            ],
+            [
+              212,
+              4,
+              45,
+              false
+            ],
+            [
+              213,
+              4,
+              46,
+              false
+            ],
+            [
+              214,
+              4,
+              47,
+              false
+            ],
+            [
+              215,
+              4,
+              48,
+              false
+            ],
+            [
+              216,
+              4,
+              49,
+              false
+            ],
+            [
+              217,
+              4,
+              50,
+              false
+            ],
+            [
+              218,
+              4,
+              51,
+              false
+            ],
+            [
+              219,
+              4,
+              52,
+              false
+            ],
+            [
+              220,
+              5,
+              0,
+              true
+            ],
+            [
+              221,
+              5,
+              1,
+              true
+            ],
+            [
+              222,
+              5,
+              2,
+              true
+            ],
+            [
+              223,
+              5,
+              3,
+              true
+            ],
+            [
+              224,
+              5,
+              4,
+              true
+            ],
+            [
+              225,
+              5,
+              5,
+              true
+            ],
+            [
+              226,
+              5,
+              6,
+              true
+            ],
+            [
+              227,
+              5,
+              7,
+              true
+            ],
+            [
+              228,
+              5,
+              8,
+              true
+            ],
+            [
+              229,
+              5,
+              9,
+              true
+            ],
+            [
+              230,
+              5,
+              10,
+              true
+            ],
+            [
+              231,
+              5,
+              11,
+              true
+            ],
+            [
+              232,
+              5,
+              12,
+              true
+            ],
+            [
+              233,
+              5,
+              13,
+              true
+            ],
+            [
+              234,
+              5,
+              14,
+              true
+            ],
+            [
+              235,
+              5,
+              15,
+              true
+            ],
+            [
+              236,
+              5,
+              16,
+              true
+            ],
+            [
+              237,
+              5,
+              17,
+              true
+            ],
+            [
+              238,
+              5,
+              18,
+              true
+            ],
+            [
+              239,
+              5,
+              19,
+              true
+            ],
+            [
+              240,
+              5,
+              20,
+              true
+            ],
+            [
+              241,
+              5,
+              21,
+              true
+            ],
+            [
+              242,
+              5,
+              22,
+              true
+            ],
+            [
+              243,
+              5,
+              23,
+              true
+            ],
+            [
+              244,
+              5,
+              24,
+              true
+            ],
+            [
+              245,
+              5,
+              25,
+              true
+            ],
+            [
+              246,
+              5,
+              26,
+              true
+            ],
+            [
+              247,
+              5,
+              27,
+              true
+            ],
+            [
+              248,
+              5,
+              28,
+              true
+            ],
+            [
+              249,
+              5,
+              29,
+              true
+            ],
+            [
+              250,
+              5,
+              30,
+              true
+            ],
+            [
+              251,
+              5,
+              31,
+              true
+            ],
+            [
+              252,
+              5,
+              32,
+              true
+            ],
+            [
+              253,
+              5,
+              33,
+              true
+            ],
+            [
+              254,
+              5,
+              34,
+              true
+            ],
+            [
+              255,
+              5,
+              35,
+              true
+            ],
+            [
+              256,
+              5,
+              36,
+              true
+            ],
+            [
+              257,
+              5,
+              37,
+              true
+            ],
+            [
+              258,
+              5,
+              38,
+              true
+            ],
+            [
+              259,
+              5,
+              39,
+              true
+            ],
+            [
+              260,
+              5,
+              40,
+              true
+            ],
+            [
+              261,
+              5,
+              41,
+              true
+            ],
+            [
+              262,
+              5,
+              42,
+              true
+            ],
+            [
+              263,
+              5,
+              43,
+              true
+            ],
+            [
+              264,
+              5,
+              44,
+              true
+            ],
+            [
+              265,
+              5,
+              45,
+              true
+            ],
+            [
+              266,
+              5,
+              46,
+              true
+            ],
+            [
+              267,
+              5,
+              47,
+              true
+            ],
+            [
+              268,
+              5,
+              48,
+              true
+            ],
+            [
+              269,
+              5,
+              49,
+              true
+            ]
+          ],
+          "per_beam": [
+            {
+              "beam": 1,
+              "boundary_t_and_required_labels_exact": true,
+              "difference_over_eps_times_beam_scale": 1.1434693706785966,
+              "max_strip_t_difference": 1.4210854715202004e-14,
+              "panels": 64,
+              "settings": {
+                "count": 48,
+                "spacing": "cosine"
+              },
+              "strip_t_scale_max_abs": 55.97001689867648
+            },
+            {
+              "beam": 2,
+              "boundary_t_and_required_labels_exact": true,
+              "difference_over_eps_times_beam_scale": 2.1344761586000462,
+              "max_strip_t_difference": 3.552713678800501e-15,
+              "panels": 52,
+              "settings": {
+                "count": 48,
+                "spacing": "cosine"
+              },
+              "strip_t_scale_max_abs": 7.495984406072743
+            },
+            {
+              "beam": 3,
+              "boundary_t_and_required_labels_exact": true,
+              "difference_over_eps_times_beam_scale": 1.600728492569581,
+              "max_strip_t_difference": 1.7763568394002505e-15,
+              "panels": 51,
+              "settings": {
+                "count": 48,
+                "spacing": "cosine"
+              },
+              "strip_t_scale_max_abs": 4.997724496774554
+            },
+            {
+              "beam": 4,
+              "boundary_t_and_required_labels_exact": true,
+              "difference_over_eps_times_beam_scale": 1.600567738658084,
+              "max_strip_t_difference": 7.105427357601002e-15,
+              "panels": 53,
+              "settings": {
+                "count": 48,
+                "spacing": "cosine"
+              },
+              "strip_t_scale_max_abs": 19.992905784061847
+            },
+            {
+              "beam": 5,
+              "boundary_t_and_required_labels_exact": true,
+              "difference_over_eps_times_beam_scale": 0.5128697994460338,
+              "max_strip_t_difference": 1.7763568394002505e-15,
+              "panels": 50,
+              "settings": {
+                "count": 48,
+                "spacing": "cosine"
+              },
+              "strip_t_scale_max_abs": 15.598500844933824
+            }
+          ],
+          "strip_address_definition": [
+            "global_output_row",
+            "beam",
+            "zero_based_interval_ordinal_within_beam",
+            "lifting"
+          ],
+          "strip_count": 270,
+          "structural_element_count": 270,
+          "structural_node_count": 275
+        },
+        "input_files": {
+          "influence-performance-17/browser-sparse06/compare_mounted.mjs": "351f3a774d1be55e3d52bfbe410fb391d08760805a461364c538481a1c382912",
+          "influence-performance-17/browser-sparse06/results-01/candidate/native-comparison.json": "c6ea575abac074d3e02d0b5df77240fc48b4fb1f743d3d7b4a46f9c2ca1835f9",
+          "influence-performance-17/browser-sparse06/results-01/candidate/worker-terminal.json": "78eb823dec0b884b26a3be8c472bd7ea19653e5f8a5d2acfd10a278d580dbfab",
+          "influence-performance-17/browser-sparse06/spec-launch-01.json": "9654017304dfed426a178f364dd5e7e8cc9897fea2e4ed6e33a133bab02191c8",
+          "influence-performance-17/sparse-ray-mounted/results/result.json": "62ddbeb35d95a5d56d1b63b63ea9a9300ad9b48c4729b8081310578d0561b7ed"
+        },
+        "midpoint_roundoff_diagnostic": {
+          "different_strip_t_count": 12,
+          "interpretation": "Identical boundary stations, interval topology and sampling settings; small midpoint differences are consistent with existing native/WASM material-midpoint floating arithmetic. Geometry.py computes tm via acos/cos angular midpoint then interpolation. Exact libm provenance is not independently re-executed here. Existing matching_identity applies to saved mesh identity, not strip midpoint equality; its true result does not turn the raw strip-exact comparator into a pass. No strip tolerance is added.",
+          "maximum_absolute_difference": 1.4210854715202004e-14,
+          "maximum_difference_in_point_ulps": 16.0,
+          "rows": [
+            {
+              "absolute_difference": 1.4210854715202004e-14,
+              "beam": 1,
+              "browser_minus_native": -1.4210854715202004e-14,
+              "browser_t": -5.333677842959688,
+              "difference_in_native_point_ulps": 16.0,
+              "interval_ordinal_within_beam": 30,
+              "lifting": true,
+              "native_t": -5.333677842959673,
+              "row": 30,
+              "ulp_at_native_t": 8.881784197001252e-16
+            },
+            {
+              "absolute_difference": 8.881784197001252e-16,
+              "beam": 2,
+              "browser_minus_native": -8.881784197001252e-16,
+              "browser_t": -5.797578400220528,
+              "difference_in_native_point_ulps": 1.0,
+              "interval_ordinal_within_beam": 10,
+              "lifting": true,
+              "native_t": -5.7975784002205275,
+              "row": 74,
+              "ulp_at_native_t": 8.881784197001252e-16
+            },
+            {
+              "absolute_difference": 1.7763568394002505e-15,
+              "beam": 2,
+              "browser_minus_native": -1.7763568394002505e-15,
+              "browser_t": -5.473980545233768,
+              "difference_in_native_point_ulps": 2.0,
+              "interval_ordinal_within_beam": 11,
+              "lifting": true,
+              "native_t": -5.473980545233767,
+              "row": 75,
+              "ulp_at_native_t": 8.881784197001252e-16
+            },
+            {
+              "absolute_difference": 3.552713678800501e-15,
+              "beam": 2,
+              "browser_minus_native": 3.552713678800501e-15,
+              "browser_t": 1.7030719727577992,
+              "difference_in_native_point_ulps": 16.0,
+              "interval_ordinal_within_beam": 30,
+              "lifting": true,
+              "native_t": 1.7030719727577956,
+              "row": 94,
+              "ulp_at_native_t": 2.220446049250313e-16
+            },
+            {
+              "absolute_difference": 4.440892098500626e-16,
+              "beam": 3,
+              "browser_minus_native": -4.440892098500626e-16,
+              "browser_t": -2.5352944267916326,
+              "difference_in_native_point_ulps": 1.0,
+              "interval_ordinal_within_beam": 10,
+              "lifting": true,
+              "native_t": -2.535294426791632,
+              "row": 126,
+              "ulp_at_native_t": 4.440892098500626e-16
+            },
+            {
+              "absolute_difference": 1.7763568394002505e-15,
+              "beam": 3,
+              "browser_minus_native": 1.7763568394002505e-15,
+              "browser_t": 1.7150741178960862,
+              "difference_in_native_point_ulps": 8.0,
+              "interval_ordinal_within_beam": 29,
+              "lifting": true,
+              "native_t": 1.7150741178960844,
+              "row": 145,
+              "ulp_at_native_t": 2.220446049250313e-16
+            },
+            {
+              "absolute_difference": 8.881784197001252e-16,
+              "beam": 3,
+              "browser_minus_native": 8.881784197001252e-16,
+              "browser_t": 1.9251886754693155,
+              "difference_in_native_point_ulps": 4.0,
+              "interval_ordinal_within_beam": 30,
+              "lifting": true,
+              "native_t": 1.9251886754693146,
+              "row": 146,
+              "ulp_at_native_t": 2.220446049250313e-16
+            },
+            {
+              "absolute_difference": 8.881784197001252e-16,
+              "beam": 3,
+              "browser_minus_native": 8.881784197001252e-16,
+              "browser_t": 4.035294426791632,
+              "difference_in_native_point_ulps": 1.0,
+              "interval_ordinal_within_beam": 40,
+              "lifting": true,
+              "native_t": 4.035294426791631,
+              "row": 156,
+              "ulp_at_native_t": 8.881784197001252e-16
+            },
+            {
+              "absolute_difference": 1.7763568394002505e-15,
+              "beam": 4,
+              "browser_minus_native": -1.7763568394002505e-15,
+              "browser_t": -3.492388507056267,
+              "difference_in_native_point_ulps": 4.0,
+              "interval_ordinal_within_beam": 10,
+              "lifting": false,
+              "native_t": -3.492388507056265,
+              "row": 177,
+              "ulp_at_native_t": 4.440892098500626e-16
+            },
+            {
+              "absolute_difference": 1.3322676295501878e-15,
+              "beam": 4,
+              "browser_minus_native": -1.3322676295501878e-15,
+              "browser_t": -2.920698963246323,
+              "difference_in_native_point_ulps": 3.0,
+              "interval_ordinal_within_beam": 11,
+              "lifting": false,
+              "native_t": -2.9206989632463216,
+              "row": 178,
+              "ulp_at_native_t": 4.440892098500626e-16
+            },
+            {
+              "absolute_difference": 7.105427357601002e-15,
+              "beam": 4,
+              "browser_minus_native": 7.105427357601002e-15,
+              "browser_t": 9.758760485205446,
+              "difference_in_native_point_ulps": 4.0,
+              "interval_ordinal_within_beam": 30,
+              "lifting": false,
+              "native_t": 9.758760485205439,
+              "row": 197,
+              "ulp_at_native_t": 1.7763568394002505e-15
+            },
+            {
+              "absolute_difference": 1.7763568394002505e-15,
+              "beam": 5,
+              "browser_minus_native": 1.7763568394002505e-15,
+              "browser_t": -15.35041870977929,
+              "difference_in_native_point_ulps": 1.0,
+              "interval_ordinal_within_beam": 6,
+              "lifting": true,
+              "native_t": -15.350418709779293,
+              "row": 226,
+              "ulp_at_native_t": 1.7763568394002505e-15
+            }
+          ]
+        },
+        "preserved_limits": [
+          "Original two exact-identity comparison failures remain FAILED.",
+          "The separately retained historical10shell-stress fixture failures are not reclassified.",
+          "This metadata qualification is not a new full physical residual replay or validation pass."
+        ],
+        "process_accounting": {
+          "initial_public_function_inspection_session": 73672,
+          "inspection_exit_code": 0,
+          "inspection_reaped": true,
+          "no_browser_or_solver_process_started": true
+        },
+        "public_matching_identity": {
+          "browser_to_native": true,
+          "exact_fields": {
+            "circulation_count": true,
+            "constraints": true,
+            "elements": true,
+            "model_sha256": true,
+            "nodes": false,
+            "stations": true
+          },
+          "existing_forward_node_bound": 9.947598300641403e-14,
+          "existing_forward_node_scale": 56.0,
+          "existing_rule": "Exact model hash, elements, constraint layout, circulation count and station node ids; nodes/station coordinates may differ by8*float64epsilon*array scale. No new tolerance introduced.",
+          "maximum_node_coordinate_difference": 2.220446049250313e-16,
+          "maximum_node_error_over_existing_bound": 0.002232142857142857,
+          "native_to_browser": true,
+          "node_coordinate_difference_count": 7,
+          "raw_identity_dictionaries_equal": false
+        },
+        "raw_comparator": {
+          "all_numeric_fields_within_original_bound": true,
+          "failures": [
+            {
+              "browser": [
+                "1",
+                "2",
+                "3",
+                "5"
+              ],
+              "native": [],
+              "path": "/equilibrium_state/launch/condition/circulation_modes",
+              "reason": "Object keys"
+            },
+            {
+              "path": "/strips",
+              "reason": "Exact node/strip identity mismatch"
+            }
+          ],
+          "numeric_fields": 49485,
+          "original_formula": "abs(browser-native)<=1e-8+1e-8*abs(native)",
+          "passed": false,
+          "status": "FAILURE_RETAINED",
+          "unchanged": true,
+          "worst_numeric_field": {
+            "absolute_difference": 7.847567040641934e-11,
+            "browser": 1.4441616791316392e-09,
+            "error_over_bound": 0.007847567028692935,
+            "native": 1.5226373495380585e-09,
+            "path": "/moment_balance/0"
+          }
+        },
+        "scope": "Saved-data/source qualification only. Existing public matching_identity and mode_settings called; no model construction, circulation solve, equilibrium solve, browser run, output normalization or comparator rewrite.",
+        "source_pins": {
+          "influence-performance-17/sparse-ray-mounted/source/openswing/aero.py": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b",
+          "influence-performance-17/sparse-ray-mounted/source/openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "influence-performance-17/sparse-ray-mounted/source/openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+          "influence-performance-17/sparse-ray-mounted/source/openswing/equilibrium_state.py": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab",
+          "influence-performance-17/sparse-ray-mounted/source/openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+        },
+        "status": "QUALIFIED_SAME_SETUP_AND_MESH_UNDER_EXISTING_SEMANTICS_RAW_GATE_STILL_FAILED"
+      },
+      "sha256": "00ab2656d61e24fd28d41149a06ba596c6383644b09ff73a25ca22f91262c0ac"
+    },
+    "browser-sparse06/summary.json": {
+      "bytes": 7750,
+      "record": {
+        "UI_export": {
+          "JSON_parse_and_finite_converged_residual_checks_completed": true,
+          "download_event_completed": true,
+          "download_path_read_completed": true,
+          "download_suggested_filename_and_browser_temp_path_retained": false,
+          "evidence": "Frozen run.mjs lines191-200 awaits page download event and button click, reads download.path(), writes output.json, parses/checks it, and saves comparison before line201 assertion. Retained stack identifies that later assertion. Saved output is identical to every raw worker result field, plus request/model metadata.",
+          "export_button_click_completed": true
+        },
+        "complete_numeric_comparison": {
+          "exact_fields_visited": 1625,
+          "excluded_paths": [
+            "/software_provenance",
+            "/evaluations",
+            "/continuation_steps",
+            "/equilibrium_initialization"
+          ],
+          "formula": "abs(browser-native)<=1e-8+1e-8*abs(native)",
+          "numeric_fields": 49485,
+          "passed": true,
+          "worst": {
+            "absolute_difference": 7.847567040641934e-11,
+            "browser": 1.4441616791316392e-09,
+            "error_over_bound": 0.007847567028692935,
+            "native": 1.5226373495380585e-09,
+            "path": "/moment_balance/0"
+          }
+        },
+        "evaluations": 538,
+        "exact_identity_failures": [
+          {
+            "browser": [
+              "1",
+              "2",
+              "3",
+              "5"
+            ],
+            "native": [],
+            "path": "/equilibrium_state/launch/condition/circulation_modes",
+            "reason": "Object keys"
+          },
+          {
+            "path": "/strips",
+            "reason": "Exact node/strip identity mismatch"
+          }
+        ],
+        "historical_fixture_failures": 10,
+        "independent_identity_qualification": "Owned separately by physical agent; not evaluated or rewritten by this saved-asset audit.",
+        "mode_maps": {
+          "browser": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "5": 0
+          },
+          "native": {}
+        },
+        "new_browser_launches": 0,
+        "new_scientific_calls": 0,
+        "observed_request_to_terminal_seconds": 100.18920080499998,
+        "prior_browser05_gate_held": true,
+        "raw_comparison_passed": false,
+        "raw_harness_status": "FAILURES_RETAINED",
+        "reclassified_raw_result": false,
+        "saved_data_check_count": 30,
+        "saved_data_checks": {
+          "UI_export_provenance_105": true,
+          "UI_export_request_equals_captured_worker_request": true,
+          "all_runtime_responses_pinned": true,
+          "browser_and_context_closed": true,
+          "declared_condition": true,
+          "declared_defaults": true,
+          "exact_105_kernel_request_list": true,
+          "exact_UI_bytes": true,
+          "exact_kernel_bytes": true,
+          "exact_manifest_bytes": true,
+          "historical_failures_preserved": true,
+          "mesh_counts": true,
+          "no_external_request": true,
+          "no_offline_requests": true,
+          "no_page_observer_errors": true,
+          "numeric_comparisons_within_unchanged_gate": true,
+          "one_kernel_manifest": true,
+          "one_solve": true,
+          "only_kernel_override": true,
+          "raw_failure_preserved": true,
+          "raw_result_unchanged_in_UI_export": true,
+          "request_model": true,
+          "request_setup": true,
+          "required_runtime_bytes": true,
+          "server_and_files_unchanged": true,
+          "source_gravity_standard_density": true,
+          "terminal_reaped_uncapped": true,
+          "worker_converged_full_residual": true,
+          "zero_controls_power_modes": true,
+          "zero_motion_pose": true
+        },
+        "session": {
+          "browser_closed": true,
+          "context_closed": true,
+          "driver_and_node_absent": true,
+          "driver_pid": 435,
+          "node_pid": 479,
+          "production_identity_preserved": true,
+          "production_pid": 14335,
+          "tool_exit_code": 1,
+          "tool_reaped": true,
+          "tool_session_id": 67170
+        },
+        "skipped_live_checks": "Lines203-241 after exact comparator assertion were not reached: exported provenance/setup/counts, UI status-history write, active loading-tab click, WebGL health/Fit and computed screenshots, request-list/hash final assertions. Applicable pure-data checks were performed above using retained outputs, settings and request/response records; no browser reopen or extra solve.",
+        "solve_requests": 1,
+        "solver_full_normalized_residual": 9.03558329330047e-14,
+        "solver_gate": 1e-08,
+        "source_semantics": {
+          "strip_t": "aero.py lines313,333,629,810 copy mesh.tm into strip.t; geometry.py lines86-89 computes tm through arccos/cos/interp. All twelve exact identity mismatches are floating t only; no beam/lifting mismatch. No recomputation or post-result coordinate tolerance introduced here.",
+          "zero_modes": "circulation.py lines30-35 and43-61: missing count defaults to0; zero entries are removed from self.modes; zero count chooses identity sample/test. web/main.js line494 emits each mode input explicitly. This explains equivalent selections without changing the raw object-key failure."
+        },
+        "status": "NUMERICAL_COMPLETION_AND_SAVED_CHECKS_WITH_RAW_EXACT_IDENTITY_FAILURES_RETAINED",
+        "strip_identity_differences": [
+          {
+            "browser": -5.333677842959688,
+            "difference": -1.4210854715202004e-14,
+            "field": "t",
+            "index": 30,
+            "native": -5.333677842959673
+          },
+          {
+            "browser": -5.797578400220528,
+            "difference": -8.881784197001252e-16,
+            "field": "t",
+            "index": 74,
+            "native": -5.7975784002205275
+          },
+          {
+            "browser": -5.473980545233768,
+            "difference": -1.7763568394002505e-15,
+            "field": "t",
+            "index": 75,
+            "native": -5.473980545233767
+          },
+          {
+            "browser": 1.7030719727577992,
+            "difference": 3.552713678800501e-15,
+            "field": "t",
+            "index": 94,
+            "native": 1.7030719727577956
+          },
+          {
+            "browser": -2.5352944267916326,
+            "difference": -4.440892098500626e-16,
+            "field": "t",
+            "index": 126,
+            "native": -2.535294426791632
+          },
+          {
+            "browser": 1.7150741178960862,
+            "difference": 1.7763568394002505e-15,
+            "field": "t",
+            "index": 145,
+            "native": 1.7150741178960844
+          },
+          {
+            "browser": 1.9251886754693155,
+            "difference": 8.881784197001252e-16,
+            "field": "t",
+            "index": 146,
+            "native": 1.9251886754693146
+          },
+          {
+            "browser": 4.035294426791632,
+            "difference": 8.881784197001252e-16,
+            "field": "t",
+            "index": 156,
+            "native": 4.035294426791631
+          },
+          {
+            "browser": -3.492388507056267,
+            "difference": -1.7763568394002505e-15,
+            "field": "t",
+            "index": 177,
+            "native": -3.492388507056265
+          },
+          {
+            "browser": -2.920698963246323,
+            "difference": -1.3322676295501878e-15,
+            "field": "t",
+            "index": 178,
+            "native": -2.9206989632463216
+          },
+          {
+            "browser": 9.758760485205446,
+            "difference": 7.105427357601002e-15,
+            "field": "t",
+            "index": 197,
+            "native": 9.758760485205439
+          },
+          {
+            "browser": -15.35041870977929,
+            "difference": 1.7763568394002505e-15,
+            "field": "t",
+            "index": 226,
+            "native": -15.350418709779293
+          }
+        ],
+        "strip_identity_max_abs_difference": 1.4210854715202004e-14,
+        "timing_scope": "Difference of saved SOLVE_REQUEST and WORKER_TERMINAL observer timestamps; excludes source/runtime preparation. Not the unretained internal solveStart timestamp, not an uncontended speed claim.",
+        "visual_inspection": {
+          "inspection": "Assistant directly inspected saved image. The filename reflects the harness comparison failure; the UI shows Analysis converged and the rendered bent aircraft.",
+          "path": "results-01/candidate/failure.png",
+          "sha256": "0d959aefe2cfecb3569f90ad408510ed1f4b2a04ef873716255eadb1154b8823",
+          "success_path_Fit_WebGL_health_and_computed_screenshots_reached": false,
+          "visible_aircraft": true,
+          "visible_deformed_main_wing_grid_and_tail": true,
+          "visible_loading_plot_and_mounted_coefficients": true
+        },
+        "worker_progress_messages": 115
+      },
+      "sha256": "925a65fbb671193cf1663a304cb8acb85d03c1b585b6890f61ff59ced23ed3b3"
+    },
+    "integrated-06/install.json": {
+      "bytes": 792,
+      "record": {
+        "built_app_changed": false,
+        "cold_comparison_summary": {
+          "bytes": 22198,
+          "sha256": "58e81a560af76443983031d3f76e92be3f3c53aa0495da0f320cc0592b0e30e5"
+        },
+        "composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+        "files": {
+          "openswing/vortex_tangent.py": {
+            "bytes": 26804,
+            "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+          },
+          "tests/test_sparse_ray_tangent.py": {
+            "bytes": 13881,
+            "sha256": "8580e59396834d7389006cf039db24cf93cd07f37c78cd508ca9afb12190112d"
+          }
+        },
+        "fixture_failures_retained": 10,
+        "module_count": 105,
+        "source_unchanged_except_vortex_tangent": true,
+        "status": "SOURCE06_INTEGRATED_TESTS_PENDING",
+        "updated_utc": "2026-10-16T00:38:56.878091+00:00"
+      },
+      "sha256": "1dba8130e1c4f1583e6381084b688a3bda875d3439acfdb5717454a9d114345d"
+    },
+    "integrated-06/plan.json": {
+      "bytes": 2307,
+      "record": {
+        "cap_seconds": 240,
+        "cleanup_seconds": 5,
+        "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=5s 240s .venv/bin/python -B -m pytest -q --maxfail=1 tests/test_sparse_ray_tangent.py tests/test_vortex_tangent.py tests/test_shared_vortex_sources.py tests/test_mounted_geometry_reuse.py tests/test_frequency_input_influences.py tests/test_direct_time_circulation.py tests/test_frame_influence_reuse.py",
+        "new_tests_source": "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-integration-review/test_sparse_ray_tangent.py",
+        "scope": "Integrate only vortex_tangent.py plus portable sparse-ray tests after declared cold equivalence to05 passes. Preserve original fixture failures. No browser build/publication.",
+        "source": "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-prototype/candidate",
+        "source_composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+        "status": "PREPARED_CONDITIONAL_ON_COLD_EQUIVALENCE",
+        "test_log": "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/integrated-06/pytest.log",
+        "test_sources": {
+          "tests/test_direct_time_circulation.py": {
+            "bytes": 5792,
+            "sha256": "04d194313b6ac84fc42e02dae715284ca0f3c907f41354438604480117598e47"
+          },
+          "tests/test_frame_influence_reuse.py": {
+            "bytes": 3713,
+            "sha256": "395b1d5f8f44b9449c648d0b91739b12d6fb75dae9ee2cf0839760cf40946f29"
+          },
+          "tests/test_frequency_input_influences.py": {
+            "bytes": 5590,
+            "sha256": "743d95154377aea4a83cead1a47b9276b22530cd4d4a2173624cb111acae3527"
+          },
+          "tests/test_mounted_geometry_reuse.py": {
+            "bytes": 9737,
+            "sha256": "821ea6029fa614e2dcc31041cbd3fb51b36f1e6e50fa281c238419b9dce1ef5f"
+          },
+          "tests/test_shared_vortex_sources.py": {
+            "bytes": 9441,
+            "sha256": "27e46e21f31da6640e04b10dfae4b131408c5ace58fbdd06ae7d5dd2befda06b"
+          },
+          "tests/test_sparse_ray_tangent.py": {
+            "bytes": 13881,
+            "sha256": "8580e59396834d7389006cf039db24cf93cd07f37c78cd508ca9afb12190112d"
+          },
+          "tests/test_vortex_tangent.py": {
+            "bytes": 15675,
+            "sha256": "9c1faa600d7f9842ad055295bcd647940eb390f12505965f810bfa08c90e7497"
+          }
+        },
+        "updated_utc": "2026-10-16T00:34:33.384333+00:00"
+      },
+      "sha256": "3f0594d4a633d4aa86da54e17c215d4adc0197b78a4d34830b0a4b43332bd35a"
+    },
+    "integrated-06/report.json": {
+      "bytes": 849,
+      "record": {
+        "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=5s 240s .venv/bin/python -B -m pytest -q --maxfail=1 tests/test_sparse_ray_tangent.py tests/test_vortex_tangent.py tests/test_shared_vortex_sources.py tests/test_mounted_geometry_reuse.py tests/test_frequency_input_influences.py tests/test_direct_time_circulation.py tests/test_frame_influence_reuse.py",
+        "composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+        "exit_code": 0,
+        "log_sha256": "87876e30a1a264cfc72e04ddc0e600aac2e9488ab0cf3ee86bc949355a018724",
+        "module_count": 105,
+        "pytest_seconds": 103.74,
+        "reaped": true,
+        "session_id": 13066,
+        "source_unchanged": true,
+        "status": "PASS_INTEGRATED_SOURCE06_TARGETED_REGRESSIONS",
+        "tests_passed": 169,
+        "updated_utc": "2026-10-16T00:41:43.899143+00:00"
+      },
+      "sha256": "7e1561ba47858f239eca0d35ae2d5d3defa78172b12b9ca301067c5718cdbe52"
+    },
+    "sparse-ray-integration-review/review.json": {
+      "bytes": 4675,
+      "record": {
+        "evidence_read": {
+          "cold_equivalence": "Current cold pair is owned by primary agent and pending at review; integration recommendation is conditional on its declared gate.",
+          "prototype_tests": "127 passed:46 new plus81 existing; no equilibrium runs; preserved original logs",
+          "restored_tangent": "Separate primary-agent recorded3517x3517 matrix comparison says exact data/indices equality; this review did not recompute it."
+        },
+        "findings": [],
+        "input_files": {
+          "influence-performance-17/mounted-05/summary.json": "c4e4594a080355279319554ff47b61ea2f38d6767aa003720d592b3abed645bf",
+          "influence-performance-17/packed-source-05/openswing/vortex_tangent.py": "7063bf1c1e63397694ee94a78f7de101f017b6faa180b82b050fb4f8d28fb714",
+          "influence-performance-17/sparse-ray-integration-review/copy-list.json": "1ecbe5930affe56c0aa3cbf798e2bf09293675c5b7f2be9ba1d53c3520459852",
+          "influence-performance-17/sparse-ray-integration-review/portability-proof.json": "3effc8313514f87cf101832fb26062904d573442c185f1b207c39dae44466a24",
+          "influence-performance-17/sparse-ray-integration-review/test_sparse_ray_tangent.py": "8580e59396834d7389006cf039db24cf93cd07f37c78cd508ca9afb12190112d",
+          "influence-performance-17/sparse-ray-prototype/candidate/openswing/vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "influence-performance-17/sparse-ray-prototype/changes.patch": "6282a079eb74aa77d8733dff926bed29e6810ada49e68d0db648a5e9568d1b10",
+          "influence-performance-17/sparse-ray-prototype/results-01/pytest.log": "ee22173e7e340a269c2af338a6147f88af354f25ecdde0b3eadb91a6711684c0",
+          "influence-performance-17/sparse-ray-prototype/summary.json": "72c398b201e48d6d97ab9e8b07e75eb58738e73e9acbe23463f569c8ecbd9c47",
+          "influence-performance-17/sparse-ray-tangent-benchmark/summary.json": "56938462e468641b6b1e01af42f41100536279c90fcace0cf99ab883ece83f5d"
+        },
+        "limits": [
+          "No new numerical work, timing or universal bitwise comparison performed.",
+          "All-active-group contractions can change summation layout; source proof is not a universal numerical-stability guarantee.",
+          "Direct complex geometry directions remain unsupported; recorded complex control is the linear extension of separate real and imaginary calls."
+        ],
+        "meaningful_missing_cases_prepared_not_run": [
+          "test_nonzero_core_directions_with_all_receivers_excluded_are_exactly_zero",
+          "test_fully_dense_simultaneous_motion_and_core_columns_match_original"
+        ],
+        "minimal_copy_list": "copy-list.json",
+        "portable_test_status": "SOURCE_ONLY. Original46 case bodies and dense oracle bodies proved AST-identical;2 additional cases prepared, total48 intended. Run after quiet cold window before treating the staged test artifact as executed.",
+        "preserved_failure": {
+          "failed_scalar_output_count": 10,
+          "full_output_comparison_passed": false,
+          "path": "influence-performance-17/mounted-05/summary.json",
+          "scope": "shell shear stress and absolute shear stress at elements183..187; original1e-8 absolute/relative bounds remain unchanged. A current sparse-vs05 equivalence pass would not erase this older fixture failure.",
+          "status": "COMPLETED_WITH_FAILURE_RETAINED"
+        },
+        "scope": "read-only source and recorded evidence review; no numerical runs or working-tree edits",
+        "source_delta": "Only _ray_change and the exact-zero bound-core contraction guard in source_columns; other104 modules equal frozen05.",
+        "status": "NO_MATERIAL_SOURCE_DEFECT_CONDITIONAL_INTEGRATION_READY",
+        "verified_semantics": [
+          "Pruning tests exact zero after the original Gamma weighting and compensated endpoint incidence, so no new near-zero threshold or loss of original nonzero stored weights.",
+          "Original endpoints still have independent Gamma*da and Gamma*db weights. Same base group does not impose shared motion.",
+          "dc remains receiver by source before incidence; core_active is applied before ray aggregation, and exact effective-core grouping is unchanged.",
+          "Finite-bound and wake derivative additions remain separate; no rejected graph compression or preaddition introduced.",
+          "Public source_columns shape, sorted source-index, finite, width1..32 and float conversion guards are unchanged. Empty source layout returns the same shape. Private ray inputs are still float in supported call paths.",
+          "Retained coefficient arrays are not mutated. Advanced-index active coefficient blocks are temporary copies. Retained nbytes unchanged does not certify peak working storage.",
+          "PV, zero-length, core-maximum, owner, image and original physical finite-stencil fallback checks are untouched."
+        ]
+      },
+      "sha256": "3505ab873a7226a803641fb676bf62aeb8964df6c5850524116ce3cca889d606"
+    },
+    "sparse-ray-mounted/closeout.json": {
+      "bytes": 2869,
+      "record": {
+        "additional_scientific_calls_from_comparator": 0,
+        "all_captured_arrays_exact": true,
+        "all_complete_results_exact": true,
+        "currently_owned_live_handles": [],
+        "fixture_failed_numeric_fields": 10,
+        "fixture_output_gate_passed": false,
+        "frozen_files": {
+          "compare_source05-02.py": {
+            "bytes": 5787,
+            "sha256": "bfdea504308a118320c4d6f67edc02b6846119eb48b62e3b7ad39c23750b348b"
+          },
+          "compare_source05.py": {
+            "bytes": 5228,
+            "sha256": "538f2c34d8518bd88c7d1a0bb85e1e8bb6843595a72a2ab419bf7df9788c9081"
+          },
+          "plan.json": {
+            "bytes": 16067,
+            "sha256": "b7ed3bfca719fb89fa45ee1398b24c863354d85606f1f9b59153af7a2f9da6a3"
+          },
+          "preexecution.json": {
+            "bytes": 883,
+            "sha256": "1c0ed3df4d710586d165a5e0801d09a8c23061d4ef1e13ccede6dfd6b0bd6650"
+          },
+          "results/execution.json": {
+            "bytes": 316,
+            "sha256": "f315e4ad294989524c0a584ef933fc1313918e00a697fbf4cbe5f060972b34b7"
+          },
+          "results/report.json": {
+            "bytes": 4032,
+            "sha256": "1829593de9e4c73f5aa50c5c0d94ad8d93edf1914099978c6989fe28f441bc83"
+          },
+          "root-coordination-failure.json": {
+            "bytes": 526,
+            "sha256": "955d6964ae8a621185d9dafc8c40a791339912d60a3c25e2af7e06e7122e40f9"
+          },
+          "summary.json": {
+            "bytes": 22198,
+            "sha256": "58e81a560af76443983031d3f76e92be3f3c53aa0495da0f320cc0592b0e30e5"
+          }
+        },
+        "interrupted_driver": {
+          "exit_code": null,
+          "observation": "Original tool response interrupted after spawning. Worker receipt proves its exit/reap; original shell/driver/worker PIDs are absent. Root adopts tracking; no driver-session reap claimed.",
+          "observed_pids_absent": {
+            "27730": true,
+            "27741": true,
+            "27781": true
+          },
+          "reaped": null,
+          "session_id": null,
+          "terminal": true
+        },
+        "limitations": [
+          "The original driver tool session was lost in interruption; its reap is not claimed. Worker receipt confirms exit/reap and shell/driver/worker PIDs are absent.",
+          "One observed cold attempt; source05 equivalence does not reclassify the historical fixture full-output failure. No browser, frequency, time-domain, or physical-validation acceptance is implied."
+        ],
+        "original_failures_preserved": true,
+        "saved_comparator": {
+          "exit_code": 0,
+          "reaped": true,
+          "session_id": 63963,
+          "terminal": true
+        },
+        "scientific_cold_attempts": 1,
+        "scientific_worker": {
+          "command": [
+            "/home/userland/aswing/.venv/bin/python",
+            "-I",
+            "-B",
+            "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-mounted/run.py",
+            "--worker"
+          ],
+          "exit_code": 1,
+          "pid": 27781,
+          "process_wall_seconds": 55.275256213994,
+          "reaped": true,
+          "status": "TERMINAL"
+        },
+        "source05_comparison_passed": true,
+        "status": "CLOSED_SOURCE05_EQUIVALENCE_PASS_FIXTURE_FAILURE_RETAINED"
+      },
+      "sha256": "e5a02dd6fa534ad68da26e3b644ca67b3e627abb8b81eebc7abcfd4f4922df12"
+    },
+    "sparse-ray-mounted/summary.json": {
+      "bytes": 22198,
+      "record": {
+        "cold_solve_attempts": 1,
+        "complete_geometry_tangents": 3,
+        "condition": {
+          "alpha": 5,
+          "mach": 0.1,
+          "speed": 30
+        },
+        "driver": {
+          "exit_code": null,
+          "observation": "Original tool response interrupted after spawning. Worker receipt proves its exit/reap; original shell/driver/worker PIDs are absent. Root adopts tracking; no driver-session reap claimed.",
+          "observed_pids_absent": {
+            "27730": true,
+            "27741": true,
+            "27781": true
+          },
+          "reaped": null,
+          "session_id": null,
+          "terminal": true
+        },
+        "exact_all_captured_arrays_equal": true,
+        "exact_complete_cold_result_equal": true,
+        "exact_complete_physical_replay_equal": true,
+        "exact_structured_iteration_history_equal": true,
+        "extra_scientific_calls_for_source05_comparison": 0,
+        "fixture_output_gate": {
+          "arrays": {
+            "Gamma": {
+              "maximum_absolute_difference": 6.430411758628907e-12,
+              "maximum_error_over_bound": 0.00018906804805462416,
+              "passed": true,
+              "shape": [
+                217
+              ]
+            },
+            "M": {
+              "maximum_absolute_difference": 5.761779942048406e-10,
+              "maximum_error_over_bound": 0.05313179612538772,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "N": {
+              "maximum_absolute_difference": 1.5612799247888276e-10,
+              "maximum_error_over_bound": 0.015336562832774776,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "Q": {
+              "maximum_absolute_difference": 1.8851586958135158e-13,
+              "maximum_error_over_bound": 1.2979500143767858e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3,
+                3
+              ]
+            },
+            "element_forces": {
+              "maximum_absolute_difference": 7.744915819785092e-13,
+              "maximum_error_over_bound": 2.775280178103635e-05,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "element_moments": {
+              "maximum_absolute_difference": 1.7186252421197423e-13,
+              "maximum_error_over_bound": 1.0619893772106428e-05,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "force": {
+              "maximum_absolute_difference": 1.5205614545266144e-12,
+              "maximum_error_over_bound": 5.9252248090921045e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "moment": {
+              "maximum_absolute_difference": 2.2120265688596596e-12,
+              "maximum_error_over_bound": 0.00022040908827759785,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "r": {
+              "maximum_absolute_difference": 4.60786964140425e-12,
+              "maximum_error_over_bound": 4.98744271974662e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "residual": {
+              "maximum_absolute_difference": 1.3313794623567072e-13,
+              "maximum_error_over_bound": 1.331379462356605e-05,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            },
+            "state": {
+              "maximum_absolute_difference": 2.1077584122508597e-13,
+              "maximum_error_over_bound": 1.4358425301782299e-05,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            }
+          },
+          "excluded_paths": [
+            "/evaluations"
+          ],
+          "failures": [
+            {
+              "candidate": -33.980934171736756,
+              "error_over_bound": 1.875891251083953,
+              "fixture": -33.980933515532485,
+              "path": "/elements/183/shell/shear_stress"
+            },
+            {
+              "candidate": 33.980934171736756,
+              "error_over_bound": 1.875891251083953,
+              "fixture": 33.980933515532485,
+              "path": "/elements/183/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.973564102569654,
+              "error_over_bound": 1.874950524712092,
+              "fixture": -33.97356344683264,
+              "path": "/elements/184/shell/shear_stress"
+            },
+            {
+              "candidate": 33.973564102569654,
+              "error_over_bound": 1.874950524712092,
+              "fixture": 33.97356344683264,
+              "path": "/elements/184/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.97339353432418,
+              "error_over_bound": 1.8731246067657108,
+              "fixture": -33.97339287922895,
+              "path": "/elements/185/shell/shear_stress"
+            },
+            {
+              "candidate": 33.97339353432418,
+              "error_over_bound": 1.8731246067657108,
+              "fixture": 33.97339287922895,
+              "path": "/elements/185/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.97329732762248,
+              "error_over_bound": 1.8715909506246158,
+              "fixture": -33.97329667306543,
+              "path": "/elements/186/shell/shear_stress"
+            },
+            {
+              "candidate": 33.97329732762248,
+              "error_over_bound": 1.8715909506246158,
+              "fixture": 33.97329667306543,
+              "path": "/elements/186/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.981177453982724,
+              "error_over_bound": 1.8706546726500675,
+              "fixture": -33.981176799605706,
+              "path": "/elements/187/shell/shear_stress"
+            },
+            {
+              "candidate": 33.981177453982724,
+              "error_over_bound": 1.8706546726500675,
+              "fixture": 33.981176799605706,
+              "path": "/elements/187/shell/shear_stress_abs"
+            }
+          ],
+          "numeric_fields": 43962,
+          "passed": false,
+          "scope": {
+            "absolute_tolerance": 1e-08,
+            "formula": "abs(candidate-fixture)<=1e-8+1e-8*abs(fixture)",
+            "nonnumeric": "exact; node/strip identities exact",
+            "relative_tolerance": 1e-08,
+            "scope": "Physical saved-state arrays and complete network_snapshot results from two fresh networks; solver evaluations excluded; actual airflow maximizers validated against their own strips before comparing maxima. Underlying strips remain fully compared.",
+            "source": "Copied existing mounted output comparison gate; no post-result adjustment."
+          },
+          "worst": {
+            "absolute_difference": 6.562042713653682e-07,
+            "candidate": -33.980934171736756,
+            "error_over_bound": 1.875891251083953,
+            "fixture": -33.980933515532485,
+            "path": "/elements/183/shell/shear_stress"
+          }
+        },
+        "fresh_replays": {
+          "candidate": {
+            "force_balance": [
+              -1.9184653865522705e-13,
+              -1.731503829205394e-11,
+              -1.396642801410053e-10
+            ],
+            "full_normalized_residual": 8.508473013902601e-14,
+            "moment_balance": [
+              1.5226373495380585e-09,
+              2.5977442419389263e-11,
+              2.2539115018815892e-10
+            ],
+            "nfev": 1,
+            "passed": true,
+            "residual_groups": {
+              "circulation": 6.244503845758253e-14,
+              "compatibility": 1.3873450999124515e-15,
+              "constraints": 5.0458133558971484e-18,
+              "force_balance_scaled": 8.508473013902601e-14,
+              "moment_balance_scaled": 1.2855831035927582e-16,
+              "operating": 0.0
+            }
+          },
+          "fixture": {
+            "force_balance": [
+              3.197442310920451e-13,
+              4.904923689430518e-12,
+              1.4495071809506044e-12
+            ],
+            "full_normalized_residual": 8.274755913001772e-14,
+            "moment_balance": [
+              2.0361268227020446e-11,
+              -3.524291969370097e-12,
+              8.017475572330568e-13
+            ],
+            "nfev": 1,
+            "passed": true,
+            "residual_groups": {
+              "circulation": 8.274755913001772e-14,
+              "compatibility": 1.249000902703301e-16,
+              "constraints": 2.6025477922664153e-17,
+              "force_balance_scaled": 1.5356756171433964e-15,
+              "moment_balance_scaled": 3.5910142558456935e-18,
+              "operating": 0.0
+            }
+          }
+        },
+        "fresh_supplied_state_residual_calls": 2,
+        "full_tangent_calls": 3,
+        "input_pins": {
+          "compare_source05-02.py": {
+            "bytes": 5787,
+            "sha256": "bfdea504308a118320c4d6f67edc02b6846119eb48b62e3b7ad39c23750b348b"
+          },
+          "plan.json": {
+            "bytes": 16067,
+            "sha256": "b7ed3bfca719fb89fa45ee1398b24c863354d85606f1f9b59153af7a2f9da6a3"
+          },
+          "preexecution.json": {
+            "bytes": 883,
+            "sha256": "1c0ed3df4d710586d165a5e0801d09a8c23061d4ef1e13ccede6dfd6b0bd6650"
+          },
+          "results/candidate-replay-arrays.npz": {
+            "bytes": 113332,
+            "sha256": "32aa788e272bba6a49de09abee73107fe2e5e0d9150aa5d25773186625886352"
+          },
+          "results/candidate-replay-result.json": {
+            "bytes": 1716093,
+            "sha256": "4eb815470041b67dc8f8d2a88212a7fd21f8b324a375e25a24da57f4db1d8aed"
+          },
+          "results/execution.json": {
+            "bytes": 316,
+            "sha256": "f315e4ad294989524c0a584ef933fc1313918e00a697fbf4cbe5f060972b34b7"
+          },
+          "results/report.json": {
+            "bytes": 4032,
+            "sha256": "1829593de9e4c73f5aa50c5c0d94ad8d93edf1914099978c6989fe28f441bc83"
+          },
+          "results/result.json": {
+            "bytes": 1888700,
+            "sha256": "62ddbeb35d95a5d56d1b63b63ea9a9300ad9b48c4729b8081310578d0561b7ed"
+          },
+          "results/returned-arrays.npz": {
+            "bytes": 45035,
+            "sha256": "6913c5317ed7a82a88625c149ae1c3fa0ed6fa2b382d1a3bae26abeba6cb53c6"
+          },
+          "run.py": {
+            "bytes": 18660,
+            "sha256": "0da96caef6d83d02e088a7941a2e183e18872ed30302b1e3deeb6416cacbb659"
+          }
+        },
+        "limitations": [
+          "This source05 comparison never reclassifies the original fixture output gate.",
+          "One cold attempt, no retry/tuning; no browser/time/frequency or physical-validation claim."
+        ],
+        "metadata_correction": {
+          "original_comparator_sha256": "538f2c34d8518bd88c7d1a0bb85e1e8bb6843595a72a2ab419bf7df9788c9081",
+          "root_coordination_failure": {
+            "reason": "Agent launch crossed root interruption. Root guard found existing results; driver stopped at mkdir(exist_ok=False) before spawning. Existing agent driver27741 supervises worker27781; shell27730. No scientific retry or duplicate.",
+            "root_driver_exit_code": 1,
+            "root_prelaunch_exit_code": 1,
+            "scientific_workers_started_by_root": 0,
+            "status": "HARNESS_ONLY_COORDINATION_FAILURE_RETAINED",
+            "tool_session_id": "Lost in interrupted agent call; exact PID supervision and execution.json remain available."
+          },
+          "scope": "Only unknown driver lifecycle metadata/CLI; unchanged scientific comparison code and bounds."
+        },
+        "observed_cold_seconds": 41.449650761001976,
+        "panels": 48,
+        "returned_equilibrium_residual": 8.508473013902601e-14,
+        "returned_solutions": 1,
+        "scientific_worker_error": "Unchanged fixture comparison bounds failed",
+        "scientific_worker_status": "FAILURE_RETAINED",
+        "source05_array_comparisons": {
+          "candidate-replay-arrays.npz": {
+            "Gamma": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                217
+              ]
+            },
+            "M": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "N": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "Q": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                275,
+                3,
+                3
+              ]
+            },
+            "element_forces": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "element_moments": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "force": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "moment": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "r": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "residual": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            },
+            "state": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            }
+          },
+          "returned-arrays.npz": {
+            "Gamma": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                217
+              ]
+            },
+            "residual": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            },
+            "state": {
+              "exact_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "maximum_error_over_bound": 0.0,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            }
+          }
+        },
+        "source05_comparison_contract": {
+          "absolute_tolerance": 1e-08,
+          "exact_equality": "Report raw complete cold result equality, fresh physical output equality and each captured state/load array equality in addition to bounds.",
+          "formula": "abs(candidate-source05)<=1e-8+1e-8*abs(source05)",
+          "references": {
+            "candidate-replay-arrays.npz": {
+              "bytes": 113332,
+              "sha256": "32aa788e272bba6a49de09abee73107fe2e5e0d9150aa5d25773186625886352"
+            },
+            "candidate-replay-result.json": {
+              "bytes": 1716093,
+              "sha256": "4eb815470041b67dc8f8d2a88212a7fd21f8b324a375e25a24da57f4db1d8aed"
+            },
+            "comparison.json": {
+              "bytes": 5096,
+              "sha256": "5143653d404a9136676026c45198c4ba79669c80773f4cd39a566cf683dea97b"
+            },
+            "replay-report.json": {
+              "bytes": 1297,
+              "sha256": "1d4621b70ae13b9e0fad03df4096bd63447768df402cc7486041474a761da0a6"
+            },
+            "report.json": {
+              "bytes": 4025,
+              "sha256": "3bec7e24f2b6457cbcdb5c0fab07d6f7f9559681174ec5282d93dc6c47289ceb"
+            },
+            "result.json": {
+              "bytes": 1888700,
+              "sha256": "62ddbeb35d95a5d56d1b63b63ea9a9300ad9b48c4729b8081310578d0561b7ed"
+            },
+            "returned-arrays.npz": {
+              "bytes": 45035,
+              "sha256": "6913c5317ed7a82a88625c149ae1c3fa0ed6fa2b382d1a3bae26abeba6cb53c6"
+            },
+            "structured-iterations.json": {
+              "bytes": 13690,
+              "sha256": "92c9ddf6cbf1ebccbc2f12c829b33974210d4bf5f03f025a145f0cad1a7ba0f1"
+            }
+          },
+          "relative_tolerance": 1e-08,
+          "scope": "Separate recorded physical-output/state comparison to completed source05 cold result; no extra aerodynamic/equilibrium solve. Original fixture gate remains independently failed if reproduced.",
+          "source05_status": "Cold/fresh physical gates and11array comparisons PASS;10derived shear-stress outputfields FAILED against historicalfixture; do not reclassify."
+        },
+        "source05_complete_physical_comparison": {
+          "excluded_paths": [
+            "/evaluations"
+          ],
+          "failures": [],
+          "numeric_fields": 43962,
+          "passed": true,
+          "worst": {
+            "error_over_bound": 0.0
+          }
+        },
+        "source05_fixture_output_gate_preserved": {
+          "arrays": {
+            "Gamma": {
+              "maximum_absolute_difference": 6.430411758628907e-12,
+              "maximum_error_over_bound": 0.00018906804805462416,
+              "passed": true,
+              "shape": [
+                217
+              ]
+            },
+            "M": {
+              "maximum_absolute_difference": 5.761779942048406e-10,
+              "maximum_error_over_bound": 0.05313179612538772,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "N": {
+              "maximum_absolute_difference": 1.5612799247888276e-10,
+              "maximum_error_over_bound": 0.015336562832774776,
+              "passed": true,
+              "shape": [
+                270,
+                3
+              ]
+            },
+            "Q": {
+              "maximum_absolute_difference": 1.8851586958135158e-13,
+              "maximum_error_over_bound": 1.2979500143767858e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3,
+                3
+              ]
+            },
+            "element_forces": {
+              "maximum_absolute_difference": 7.744915819785092e-13,
+              "maximum_error_over_bound": 2.775280178103635e-05,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "element_moments": {
+              "maximum_absolute_difference": 1.7186252421197423e-13,
+              "maximum_error_over_bound": 1.0619893772106428e-05,
+              "passed": true,
+              "shape": [
+                270,
+                2,
+                3
+              ]
+            },
+            "force": {
+              "maximum_absolute_difference": 1.5205614545266144e-12,
+              "maximum_error_over_bound": 5.9252248090921045e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "moment": {
+              "maximum_absolute_difference": 2.2120265688596596e-12,
+              "maximum_error_over_bound": 0.00022040908827759785,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "r": {
+              "maximum_absolute_difference": 4.60786964140425e-12,
+              "maximum_error_over_bound": 4.98744271974662e-05,
+              "passed": true,
+              "shape": [
+                275,
+                3
+              ]
+            },
+            "residual": {
+              "maximum_absolute_difference": 1.3313794623567072e-13,
+              "maximum_error_over_bound": 1.331379462356605e-05,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            },
+            "state": {
+              "maximum_absolute_difference": 2.1077584122508597e-13,
+              "maximum_error_over_bound": 1.4358425301782299e-05,
+              "passed": true,
+              "shape": [
+                3517
+              ]
+            }
+          },
+          "excluded_paths": [
+            "/evaluations"
+          ],
+          "failures": [
+            {
+              "candidate": -33.980934171736756,
+              "error_over_bound": 1.875891251083953,
+              "fixture": -33.980933515532485,
+              "path": "/elements/183/shell/shear_stress"
+            },
+            {
+              "candidate": 33.980934171736756,
+              "error_over_bound": 1.875891251083953,
+              "fixture": 33.980933515532485,
+              "path": "/elements/183/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.973564102569654,
+              "error_over_bound": 1.874950524712092,
+              "fixture": -33.97356344683264,
+              "path": "/elements/184/shell/shear_stress"
+            },
+            {
+              "candidate": 33.973564102569654,
+              "error_over_bound": 1.874950524712092,
+              "fixture": 33.97356344683264,
+              "path": "/elements/184/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.97339353432418,
+              "error_over_bound": 1.8731246067657108,
+              "fixture": -33.97339287922895,
+              "path": "/elements/185/shell/shear_stress"
+            },
+            {
+              "candidate": 33.97339353432418,
+              "error_over_bound": 1.8731246067657108,
+              "fixture": 33.97339287922895,
+              "path": "/elements/185/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.97329732762248,
+              "error_over_bound": 1.8715909506246158,
+              "fixture": -33.97329667306543,
+              "path": "/elements/186/shell/shear_stress"
+            },
+            {
+              "candidate": 33.97329732762248,
+              "error_over_bound": 1.8715909506246158,
+              "fixture": 33.97329667306543,
+              "path": "/elements/186/shell/shear_stress_abs"
+            },
+            {
+              "candidate": -33.981177453982724,
+              "error_over_bound": 1.8706546726500675,
+              "fixture": -33.981176799605706,
+              "path": "/elements/187/shell/shear_stress"
+            },
+            {
+              "candidate": 33.981177453982724,
+              "error_over_bound": 1.8706546726500675,
+              "fixture": 33.981176799605706,
+              "path": "/elements/187/shell/shear_stress_abs"
+            }
+          ],
+          "numeric_fields": 43962,
+          "passed": false,
+          "scope": {
+            "absolute_tolerance": 1e-08,
+            "formula": "abs(candidate-fixture)<=1e-8+1e-8*abs(fixture)",
+            "nonnumeric": "exact; node/strip identities exact",
+            "relative_tolerance": 1e-08,
+            "scope": "Physical saved-state arrays and complete network_snapshot results from two fresh networks; solver evaluations excluded; actual airflow maximizers validated against their own strips before comparing maxima. Underlying strips remain fully compared.",
+            "source": "Copied existing mounted output comparison gate; no post-result adjustment."
+          },
+          "worst": {
+            "absolute_difference": 6.562042713653682e-07,
+            "candidate": -33.980934171736756,
+            "error_over_bound": 1.875891251083953,
+            "fixture": -33.980933515532485,
+            "path": "/elements/183/shell/shear_stress"
+          }
+        },
+        "source_composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+        "status": "PASS_SOURCE05_EQUIVALENCE_WITH_ORIGINAL_FIXTURE_OUTCOME_RETAINED",
+        "timing_scope": "One observed cold completion; archive compression reported complete beforelaunch. No root concurrent workload guarantee beyond recorded messages; no timing-distribution claim. Excludes fixturepreflight/freshverification/serialization.",
+        "unsupported_geometry_fallbacks": 0,
+        "worker": {
+          "command": [
+            "/home/userland/aswing/.venv/bin/python",
+            "-I",
+            "-B",
+            "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-mounted/run.py",
+            "--worker"
+          ],
+          "exit_code": 1,
+          "pid": 27781,
+          "process_wall_seconds": 55.275256213994,
+          "reaped": true,
+          "status": "TERMINAL"
+        }
+      },
+      "sha256": "58e81a560af76443983031d3f76e92be3f3c53aa0495da0f320cc0592b0e30e5"
+    },
+    "sparse-ray-prototype/summary.json": {
+      "bytes": 3994,
+      "record": {
+        "candidate_vortex_sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+        "changed_modules": [
+          "vortex_tangent.py"
+        ],
+        "failures_retained": [
+          {
+            "path": "preparation-failure-01.json",
+            "scope": "python command unavailable before any file creation or numerical work; corrected interpreter was existing .venv/bin/python"
+          }
+        ],
+        "implementation": "Preserve original source-owned compensated endpoint grouping. Skip identically zero motion/core directions and contract only exactly nonzero accumulated wake groups. Keep finite-bound and wake sums separate; no threshold/physics/guard changes.",
+        "limits": [
+          "No full48Daedalus tangent, mounted equilibrium, browser or performance benchmark executed here.",
+          "Advanced-index coefficient selection still allocates temporary blocks; no zero-allocation or bitwise identity claim.",
+          "Full original-source endpoint grouping remains; this is only exact-zero contraction pruning.",
+          "No new graph compression or merged finite-bound/ray coefficients."
+        ],
+        "scope": "isolated prototype, not installed; source-level performance opportunity only, no measured speedup",
+        "source_baseline": "../packed-source-05",
+        "source_integrity": {
+          "actual_import_paths": "results-01/imports.json",
+          "actual_loaded_openswing_modules": 47,
+          "all_input_hashes_unchanged": true
+        },
+        "source_modules": 105,
+        "source_pins": {
+          "baseline-composition.json": "7aeecb4fcc999ed9f80c26703d36a5d856e7d943f148f39290d8ea6a9cdccbf9",
+          "candidate/openswing/vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "candidate/tests/test_sparse_ray_prototype.py": "60e8ca893e35b50a24f9122fe84a5abd98d5eaa66f9a11fe998f9ecc8928ab5e",
+          "changes.patch": "6282a079eb74aa77d8733dff926bed29e6810ada49e68d0db648a5e9568d1b10",
+          "closeout.json": "c35e695878eda539945060e22412eaf74f4cd30e8c709cea4010cc23a336d3fa",
+          "current-module-pins.json": "f9ab167931f20b29cbb777e92977385544b7642df07e50657b26a1c80d6a5635",
+          "plan.json": "caa292d2feb37dd1185cafe6729a1027958d584a5dab9fdd63d25734a5a5b955",
+          "preparation-failure-01.json": "37e7e6aaec79e9e7c787c3b0938e68ad40348a8f4f184d386caf696c402c5535",
+          "read-only-audit.txt": "02f21e70c9842499fb4105ac397fcf638fabfc3a7ebe395a80e5cd5a792c0e47",
+          "results-01/imports.json": "3a0b45d99dfa26d753ff221257cbb4536a5eea6c1642a901979a5fda314bac6c",
+          "results-01/pytest.log": "ee22173e7e340a269c2af338a6147f88af354f25ecdde0b3eadb91a6711684c0",
+          "results-01/report.json": "2141e6224ade5825c382e86d3e2856ed9e26a53a6320115686690a116f8f89d9",
+          "source-review.json": "2b9ee730933119dbec37cbbfe4e286c36c8c993af5e5d13369f3b09758f6dd36"
+        },
+        "status": "PASS_BOUNDED_SPARSE_RAY_DERIVATIVE_CONTROLS",
+        "tests": {
+          "cap_seconds": 120,
+          "comparison_gates": {
+            "branch_zero_and_tiny_controls": "explicit exact equalities",
+            "existing_controls": "all original thresholds unchanged",
+            "new_dense_original_atol": 5e-15,
+            "new_dense_original_rtol": 5e-15
+          },
+          "coverage": [
+            "real geometry columns1/7/16/32",
+            "complex linear extension by separate real/imaginary calls only; direct complex geometry API unchanged/unsupported",
+            "original dense AST method comparison on same coefficients",
+            "ground flags-1/0/+1, exact core grouping, independent endpoints and receiver-specific core masks",
+            "compensated branching cancellation before derivative multiplication",
+            "1e-150 directions retained; exact-zero source/group pruning",
+            "shape/finite guards, empty support, input ownership",
+            "packed/unpacked original shared stencil batches",
+            "existing physical vortex quadrature/stencil/PV and small complete geometry/local-matrix controls"
+          ],
+          "deselected_equilibrium_cases": 5,
+          "existing_unchanged_cases": 81,
+          "new_targeted_cases": 46,
+          "passed": 127,
+          "pytest_seconds": 34.07,
+          "worker_lifecycle_seconds": 40.38280104700243
+        }
+      },
+      "sha256": "72c398b201e48d6d97ab9e8b07e75eb58738e73e9acbe23463f569c8ecbd9c47"
+    },
+    "sparse-ray-tangent-benchmark/summary.json": {
+      "bytes": 10989,
+      "record": {
+        "baseline_over_candidate_observed_jacobian_seconds": 13.498818320775785,
+        "candidate_over_baseline_observed_jacobian_seconds": 0.07408055847828682,
+        "circulation_solves": 0,
+        "comparison": {
+          "comparator_correction": "Convert sparse advanced-index result via toarray before scalar bound arithmetic; equations/gates/matrices unchanged.",
+          "comparison": {
+            "absolute_tolerance": 2e-10,
+            "formula": "abs(candidate-reference)<=2e-10+2e-10*abs(reference)",
+            "relative_tolerance": 2e-10,
+            "scope": "Every full sparse matrix entry including implicit zeros. No dropping threshold; complete matrices retained."
+          },
+          "every_matrix_entry_count": 12369289,
+          "failed_entries": 0,
+          "identical_CSC_data": true,
+          "identical_CSC_indices": true,
+          "identical_initial_residual": true,
+          "identical_restored_state": true,
+          "matching_metadata": true,
+          "maximum_absolute_difference": 0.0,
+          "maximum_error_over_bound": 0.0,
+          "nonzero_difference_entries": 0,
+          "original_comparator_failure_sha256": "f44fd73d30f1b814bbfa73bff175aa71d27a2bb151b31af3ce6a4202f3f973f8",
+          "shape": [
+            3517,
+            3517
+          ],
+          "status": "PASS_COMPLETE_SPARSE_TANGENT_COMPARISON",
+          "worst": null
+        },
+        "condition": {
+          "alpha": 5,
+          "mach": 0.1,
+          "speed": 30
+        },
+        "equilibrium_solves": 0,
+        "input_pins": {
+          "compare_saved.py": {
+            "bytes": 5562,
+            "sha256": "2c46994d11128bc7664d5ad8391737c0e9b25fdc0b07adf65e8d5ac803f222d4"
+          },
+          "plan.json": {
+            "bytes": 23769,
+            "sha256": "fa552de379c01dd92852797a3b1254bd4386712a1e0b751e2e4370daf0c4d401"
+          },
+          "preexecution.json": {
+            "bytes": 910,
+            "sha256": "fe63f18e57f2016f6c99b0d2f8c636b0e3f43c85df1495aebe04c42ffcc606b9"
+          },
+          "results/baseline/after.npz": {
+            "bytes": 81940,
+            "sha256": "febb89e44b882011d5cc85e10568a4168d6fe0e5c86e0f0d56768300885a837b"
+          },
+          "results/baseline/before.npz": {
+            "bytes": 42873,
+            "sha256": "3616fb619cb2c4853f58f62b226542d941705a97e423af542c24d255758f6df9"
+          },
+          "results/baseline/matrix.npz": {
+            "bytes": 14119502,
+            "sha256": "628e14813d3051d6a3cb17c3437a9cd638a9cc7a91fd070ed95cc31edf398408"
+          },
+          "results/baseline/metadata.json": {
+            "bytes": 43727,
+            "sha256": "6f4cca6872a47777192e3f16fedbb84853819d21a1c4b3f17f7ac75aeac3a24a"
+          },
+          "results/baseline/report.json": {
+            "bytes": 3289,
+            "sha256": "5bc66c50af061a82de2674c22929da2e75c427ff24fbaccf6f4e1662accf459e"
+          },
+          "results/candidate/after.npz": {
+            "bytes": 81940,
+            "sha256": "febb89e44b882011d5cc85e10568a4168d6fe0e5c86e0f0d56768300885a837b"
+          },
+          "results/candidate/before.npz": {
+            "bytes": 42873,
+            "sha256": "3616fb619cb2c4853f58f62b226542d941705a97e423af542c24d255758f6df9"
+          },
+          "results/candidate/matrix.npz": {
+            "bytes": 14119502,
+            "sha256": "628e14813d3051d6a3cb17c3437a9cd638a9cc7a91fd070ed95cc31edf398408"
+          },
+          "results/candidate/metadata.json": {
+            "bytes": 43727,
+            "sha256": "6f4cca6872a47777192e3f16fedbb84853819d21a1c4b3f17f7ac75aeac3a24a"
+          },
+          "results/candidate/report.json": {
+            "bytes": 3292,
+            "sha256": "b3c80575d547ef3535fdfa1c1b94da49ecc56ea296a660c90a6a3d1692c13ab1"
+          },
+          "results/comparison-02.json": {
+            "bytes": 987,
+            "sha256": "f5d7cda3fd61cdebcb993cbc74a7847b173bcd92434c764b47340aa09f482a9a"
+          },
+          "results/comparison-failure.json": {
+            "bytes": 1101,
+            "sha256": "f44fd73d30f1b814bbfa73bff175aa71d27a2bb151b31af3ce6a4202f3f973f8"
+          },
+          "results/execution.json": {
+            "bytes": 952,
+            "sha256": "de50ad3f961b94369350ecd1cdf44cdad7447c74b4b6dbf77b138b486064f478"
+          },
+          "run.py": {
+            "bytes": 13256,
+            "sha256": "0a510aad98eb1c6b01ce563ea0c933929b610eee5ab1ab73456cc30c3b634889"
+          }
+        },
+        "jacobian_calls": 2,
+        "original_driver": {
+          "cause": "post-worker sparse-indexing comparator error",
+          "exit_code": 1,
+          "reaped": true,
+          "session_id": 58628,
+          "terminal": true
+        },
+        "panels": 48,
+        "preserved_limitations": [
+          "Mounted05 cold solve and arrays pass but10derived shell stressfields failed original fulloutput comparison; preserved separately.",
+          "No frequency/time/browser/equilibrium/circulation solves.",
+          "No experimental validation, originalASWING/defaultsetting, or coverage increment claim."
+        ],
+        "source_compositions": {
+          "baseline": "7aeecb4fcc999ed9f80c26703d36a5d856e7d943f148f39290d8ea6a9cdccbf9",
+          "candidate": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e"
+        },
+        "source_delta": "Candidate only vortex_tangent.py, skip exactly zero grouped wake directions. No equation/threshold/geometry/force-output change.",
+        "status": "PASS_SINGLE_RESTORED_TANGENT_PAIR_WITH_COMPARATOR_FAILURE_RETAINED",
+        "timing_scope": "Single sequential sample each, freshprocess, one thread. Root/physical numerical work terminal and archive compression explicitly held through both workers. Not a timing distribution or coupled-solve benchmark.",
+        "worker_attempts": 2,
+        "worker_lifecycle": [
+          {
+            "command": [
+              "/home/userland/aswing/.venv/bin/python",
+              "-I",
+              "-B",
+              "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-tangent-benchmark/run.py",
+              "--worker",
+              "baseline"
+            ],
+            "exit_code": 0,
+            "implementation": "baseline",
+            "pid": 12162,
+            "process_wall_seconds": 94.84996512399812,
+            "reaped": true,
+            "status": "TERMINAL"
+          },
+          {
+            "command": [
+              "/home/userland/aswing/.venv/bin/python",
+              "-I",
+              "-B",
+              "/tmp/openswing-isae-ffwt1-20261015/influence-performance-17/sparse-ray-tangent-benchmark/run.py",
+              "--worker",
+              "candidate"
+            ],
+            "exit_code": 0,
+            "implementation": "candidate",
+            "pid": 14452,
+            "process_wall_seconds": 19.745782359008444,
+            "reaped": true,
+            "status": "TERMINAL"
+          }
+        ],
+        "worker_retries": 0,
+        "workers": {
+          "baseline": {
+            "external_residual_calls": 3,
+            "forbidden_solve_calls": 0,
+            "geometry_derivative_diagnostics": {
+              "difference_order": 1,
+              "difference_step": 1e-06,
+              "direct_geometry_columns": 1650,
+              "direct_geometry_fallback": null,
+              "direct_volume_bytes": 32234569,
+              "direct_volume_fallbacks": {},
+              "direct_volume_queries": 9,
+              "direct_vortex_bytes": 69575137,
+              "direct_vortex_fallbacks": {},
+              "direct_vortex_queries": 9,
+              "field_batch_budget_fallbacks": 0,
+              "field_batch_queries": 0,
+              "field_batches": 0,
+              "field_evaluations": 2,
+              "field_products": "packed original geometry samples",
+              "field_refinement": {
+                "columns": 0,
+                "details": [],
+                "extra_evaluations": 0,
+                "tolerance": 2e-08
+              },
+              "geometry_columns": 1650,
+              "geometry_groups": 0,
+              "geometry_preparations": 2,
+              "geometry_stencil_bytes": 0,
+              "geometry_stencil_fallback": null,
+              "local_geometry_matrix": {
+                "analytic_seed_groups": 12,
+                "applications": 105,
+                "cached_bytes": 766744,
+                "columns": 1650,
+                "direction_evaluations": 2,
+                "method": "retained sparse local geometry Jacobian",
+                "nonzeros": 63001,
+                "rows": 17335
+              },
+              "local_geometry_matrix_fallback": null,
+              "local_groups": 18,
+              "method": "grouped local residual plus full moving induced-field chain rule",
+              "original_local_groups": 24,
+              "retained_strut_columns": 0,
+              "structural_fallback": null,
+              "structural_geometry": {
+                "cached_bytes": 240328,
+                "chart": "absolute",
+                "columns": 1650,
+                "method": "retained section C, exact nodal couples and ideal-constraint geometry",
+                "nonzeros": 19477
+              }
+            },
+            "jacobian_attempts": 1,
+            "jacobian_seconds": 78.3650679509883,
+            "nnz": 1796593,
+            "prescribed_aero_calls": 23,
+            "residual_after": 8.274755913001772e-14,
+            "residual_after_bitwise": true,
+            "residual_before": 8.274755913001772e-14,
+            "residual_fresh": 8.274755913001772e-14,
+            "residual_fresh_bitwise": true,
+            "shape": [
+              3517,
+              3517
+            ],
+            "status": "PASS_ONE_RESTORED_FULL_TANGENT_AND_RESIDUAL_INVARIANCE",
+            "stored_sparse_bytes": 21573188,
+            "worker_elapsed_seconds": 91.71961608600395
+          },
+          "candidate": {
+            "external_residual_calls": 3,
+            "forbidden_solve_calls": 0,
+            "geometry_derivative_diagnostics": {
+              "difference_order": 1,
+              "difference_step": 1e-06,
+              "direct_geometry_columns": 1650,
+              "direct_geometry_fallback": null,
+              "direct_volume_bytes": 32234569,
+              "direct_volume_fallbacks": {},
+              "direct_volume_queries": 9,
+              "direct_vortex_bytes": 69575137,
+              "direct_vortex_fallbacks": {},
+              "direct_vortex_queries": 9,
+              "field_batch_budget_fallbacks": 0,
+              "field_batch_queries": 0,
+              "field_batches": 0,
+              "field_evaluations": 2,
+              "field_products": "packed original geometry samples",
+              "field_refinement": {
+                "columns": 0,
+                "details": [],
+                "extra_evaluations": 0,
+                "tolerance": 2e-08
+              },
+              "geometry_columns": 1650,
+              "geometry_groups": 0,
+              "geometry_preparations": 2,
+              "geometry_stencil_bytes": 0,
+              "geometry_stencil_fallback": null,
+              "local_geometry_matrix": {
+                "analytic_seed_groups": 12,
+                "applications": 105,
+                "cached_bytes": 766744,
+                "columns": 1650,
+                "direction_evaluations": 2,
+                "method": "retained sparse local geometry Jacobian",
+                "nonzeros": 63001,
+                "rows": 17335
+              },
+              "local_geometry_matrix_fallback": null,
+              "local_groups": 18,
+              "method": "grouped local residual plus full moving induced-field chain rule",
+              "original_local_groups": 24,
+              "retained_strut_columns": 0,
+              "structural_fallback": null,
+              "structural_geometry": {
+                "cached_bytes": 240328,
+                "chart": "absolute",
+                "columns": 1650,
+                "method": "retained section C, exact nodal couples and ideal-constraint geometry",
+                "nonzeros": 19477
+              }
+            },
+            "jacobian_attempts": 1,
+            "jacobian_seconds": 5.805327998998109,
+            "nnz": 1796593,
+            "prescribed_aero_calls": 23,
+            "residual_after": 8.274755913001772e-14,
+            "residual_after_bitwise": true,
+            "residual_before": 8.274755913001772e-14,
+            "residual_fresh": 8.274755913001772e-14,
+            "residual_fresh_bitwise": true,
+            "shape": [
+              3517,
+              3517
+            ],
+            "status": "PASS_ONE_RESTORED_FULL_TANGENT_AND_RESIDUAL_INVARIANCE",
+            "stored_sparse_bytes": 21573188,
+            "worker_elapsed_seconds": 15.961675949001801
+          }
+        }
+      },
+      "sha256": "56938462e468641b6b1e01af42f41100536279c90fcace0cf99ab883ece83f5d"
+    }
+  },
+  "release_preparation": {
+    "artifact_pins": {
+      "byte-audit/report-01.json": {
+        "bytes": 32373,
+        "sha256": "01557ddab1fad6113046fb3e1faa7f37996c418b9559915ead453052b8ca0c7d"
+      },
+      "charset-diagnosis-01.json": {
+        "bytes": 56419,
+        "sha256": "eb179b2024cf6fc2b09f20b44fa4c53a1576fcd6564a54f29ca8f65c1a1d128a"
+      },
+      "local-promotion.json": {
+        "bytes": 54801,
+        "sha256": "6d0701e818956c3b720fd9d349f463da83b1536d4bc60c1bb3f622aa75674fa6"
+      },
+      "view-hosted-02-execution.json": {
+        "bytes": 1518,
+        "sha256": "c8ff3ec17abd8c2a3bcd3a5b79d63246c54a891a95df462b16ef9c0221b73a31"
+      },
+      "view-hosted-02/report.json": {
+        "bytes": 1669713,
+        "sha256": "8e872ea5fa42e239c679dc76809482bb735e9bdb8c48a7333bfa9a83b4bdabda"
+      }
+    },
+    "catalog_archives": 150,
+    "optional_raw_archives_in_download": false,
+    "publication_receipt": "Recorded separately after publishing; preserve existing owner-private audience.",
+    "root": "/tmp/openswing-isae-ffwt1-20261015/release-sparse06",
+    "saved_ui": {
+      "browser_closed": true,
+      "context_closed": true,
+      "delivery": "served",
+      "desktop": {
+        "error": 0,
+        "height": 700,
+        "lost": false,
+        "width": 907
+      },
+      "distribution_validation": null,
+      "elapsed_seconds": 44.872744096,
+      "exact_saved_export_roundtrips": 2,
+      "historical_fixture_failures_retained": 10,
+      "literal_manifest_sha256": "2a649d1c3b401734d526dc108119a16d9dd46f6c1eb1a802e39531d1cbdd37b2",
+      "mobile": {
+        "error": 0,
+        "height": 362,
+        "lost": false,
+        "width": 390
+      },
+      "offline": true,
+      "process_exit_code": 0,
+      "production_identity_preserved": true,
+      "production_pid": 14335,
+      "provenance_notice": "Saved calculation \u00b7 same numerical version for the latest calculation. Values are displayed without recomputation. New calculations use the currently loaded kernel.",
+      "raw_download_link_absent": true,
+      "raw_prior_browser_failure_retained": true,
+      "saved_status": "Saved solution opened",
+      "scientific_solves": 0,
+      "scope": "Supported project import/display/export only. This complements the earlier numerical browser solve; it does not repeat that solve, reclassify exact comparator failures or establish physical validation.",
+      "source_count": 105,
+      "status": "PASS_SAVED_RESULT_UI_COMPLETION_NO_SOLVES"
+    }
+  },
+  "served_module_count": 105,
+  "source_composition_sha256": "668cb393987a5b381f0a750d64ba25a9cc31c8273fe5a71673727c11c5fb198e",
+  "source_module_count": 105,
+  "status": "SOURCE06_LOCAL_RELEASE_VERIFIED_SCIENTIFIC_FAILURES_RETAINED",
+  "updated_utc": "2026-10-16T01:15:59.262493+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS_ACTUAL_UI_REQUEST_EQUIVALENCE",
+  "request_sha256": "13ba79ace7052dc54335ee8578b9ce1eaf72a0886c0c8813d153b5da1a94d7df",
+  "native_reference_sha256": "b77cf8310eb9cb02f7fbb0d3a93d2886da6e8ebcf7bb11c228390ffcd95bca1b",
+  "script_sha256": "b9044de218ca0c9fa8c12eaef38901da37d39bec46b31d51b08e056243c31c19",
+  "source_sha256": "f3a90168698e763045719c5954689c8f0445882dc925dda4e2a18812b5885133",
+  "raw_zero_mapping_differences": {
+    "controls": {
+      "actual": {
+        "1": 0
+      },
+      "native": {}
+    },
+    "powers": {
+      "actual": {},
+      "native": {}
+    },
+    "circulation_modes": {
+      "actual": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "native": {}
+    }
+  },
+  "normalized_mesh": {
+    "default": 40,
+    "beams": {
+      "1": {
+        "count": 100,
+        "spacing": "cosine"
+      },
+      "2": {
+        "count": 40,
+        "spacing": "cosine"
+      },
+      "3": {
+        "count": 40,
+        "spacing": "cosine"
+      }
+    }
+  },
+  "cold_start": true,
+  "solver_defaults": {
+    "tolerance": 1e-08,
+    "continuation_steps": 4,
+    "structured_acceptance": 1e-12
+  },
+  "default_source_evidence": [
+    "bridge.py dispatch mounted passes no tolerance/continuation overrides",
+    "network.py solve_static defaults tolerance=1e-8 and continuation_steps=4",
+    "structured_static.py unchanged gate is min(tolerance,1e-12)"
+  ],
+  "scope": "No equilibrium run. Only explicit zero dictionaries and omitted cosine spacing normalized for comparison."
+}

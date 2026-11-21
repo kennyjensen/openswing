@@ -1,0 +1,843 @@
+{
+  "status": "REVIEW_COMPLETE_NO_CONFIRMED_DEFECT_IN_AUDITED_PG_AND_SA1_KERNEL_SCOPE",
+  "scope": "Primary documentation/code inspection, algebraic equivalence proof for general PG/lifting geometry, saved-state Mach0 SA1 oracle replay. No production edits, numerical-package imports, matrix assemblies, or physical solves.",
+  "findings": [
+    {
+      "id": "PG_GEOMETRY",
+      "classification": "CONFIRMED_EQUIVALENT",
+      "severity": "none",
+      "claim": "Using physical unit wind for physical chordwise offsets is exactly equivalent to the published scaled xi vector, including sweep.",
+      "derivation": "lambda=sqrt(1-M_PG^2), e=V_infinity/U, xi=e/lambda. xi/|xi cross s|=e/|e cross s|. Hence rhv=ra+((c/4-x0)/|e cross s|)e and rcp=rhv+(h*c/|e cross s|)e, h=dCLda/(4*pi). Mach factors cancel before the physical coordinates are mapped to PG space.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1471,
+          "last_line": 1478,
+          "page": 29,
+          "equations": "146-148",
+          "excerpt": "                            · · ·⃗ξT  · · ·       1                                                 \n                   ¯¯P   =               =  λ cosα cosβ    − 1λ sinβ      1λ sinα cosβ        \n                             · · ·ˆηT  · · ·           cosα sinβ         cosβ        sinα sinβ\n                             · · ·ˆζ T  · · ·           −sinα                0               cosα        wind\nThe ⃗ξ  vector is aligned with the “wind direction”         \n                                                cosα cosβ                                 √\n                        λ⃗ξ  = ⃗V∞V∞    =       − sinβ                  ,   λ  =         1 −M 2PG                        (148)\n                                                sinα cosβ        wind"
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1615,
+          "last_line": 1629,
+          "page": 32,
+          "equations": "155-157",
+          "excerpt": "    The location  of  the bound vortex  segment  midpoint ⃗rh.v.,  where the lift force  is  deﬁned to  be\nlocated, is at the quarter-chord point along the ξ  axis,\n\n                                                   ⃗rh.v.  = ⃗ra  +  ¯c/4−¯xo     ⃗ξ                                                        (155)\n                                                                        |⃗ξ×ˆs|\n\nThe location of the control point⃗rc.p. is then directly “downstream” along the same ⃗ξ  direction,\n\n                                                   ⃗rc.p.  = ⃗rh.v.  + h ¯ca      ⃗ξ                                                        (156)\n                                                                          |⃗ξ×ˆs|\n\nwhere h is chosen so that the local incompressible 2-D section lift-curve slope is reproduced.\n                                                           h  =    1   dcℓ\n                                                                   4π  dα                                                                   (157)\nFor a thin airfoil, h = 1/2, which is also the value used by the standard vortex-lattice method."
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/frozen_influence.py",
+          "first_line": 14,
+          "last_line": 37,
+          "page": null,
+          "equations": null,
+          "excerpt": "def lifting_geometry(meshes, direction, *, _material=None):\n    \"\"\"Bound endpoints and force/control points, steady equations 155–157.\"\"\"\n    arrays = {key: [] for key in ('a', 'b', 'hv', 'cp', 'rm', 'chord', 'ds', 'physical')}\n    for mesh in meshes:\n        beam = mesh.beam\n        if not beam.lifting:\n            continue\n        value = beam.value if _material is None else lambda name, t, **kw: _material.value(beam, name, t, **kw)\n        t = mesh.tm\n        chord = value('chord', t)\n        def compute():\n            across = np.linalg.norm(np.cross(direction, mesh.frames[..., 1]), axis=-1)\n            if np.min(across) < 1e-6:\n                raise ValueError('Lifting-line geometry is singular for a beam aligned with the influence wind.')\n            hv = mesh.rm+((.25-value('Xax', t))*chord/across)[:, None]*direction\n            cp = hv+(value('dCLda', t)/(4*np.pi)*chord/across)[:, None]*direction\n            ends = []\n            for tn, rn, side, frame in ((mesh.t0, mesh.r0, 'right', mesh.frame0), (mesh.t1, mesh.r1, 'left', mesh.frame1)):\n                sn = (surface_frame(beam, tn, side) if frame is None else frame)[..., 1]\n                cross = np.linalg.norm(np.cross(direction, sn), axis=-1)\n                if np.min(cross) < 1e-6:\n                    raise ValueError('A beam endpoint aligns with the influence wind.')\n                ends.append(rn+((.25-value('Xax', tn, side=side))*value('chord', tn, side=side)/cross)[:, None]*direction)\n            return ends[0], ends[1], hv, cp"
+        }
+      ]
+    },
+    {
+      "id": "PG_VELOCITY",
+      "classification": "CONFIRMED_EQUIVALENT",
+      "severity": "none",
+      "claim": "The symmetric body-frame PG map and final multiplication match the documented wind-axis coordinate map and transpose velocity map.",
+      "derivation": "Let R have rows e, eta, zeta and D=diag(1/lambda,1,1). Source P=D R. Code Q=R^T D R=I+(1/lambda-1)e e^T. Biot-Savart is covariant under the proper rotation R, so P^T B(P geometry)=Q B(Q geometry). Q is symmetric; row-vector relative_coordinates@Q.T then velocity@Q implements this expression. Applying the inverse map would be incorrect.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1462,
+          "last_line": 1478,
+          "page": 29,
+          "equations": "146-148",
+          "excerpt": "The induced velocity has contributions from the bound and trailing vorticity on the lifting surface\nbeams,  and source and  doublet distributions along  the  beams with  signiﬁcant  volume.  Figure 15\nshows the quantities involved in the relevant summation integrals.  The integration is performed in\nthe wind-aligned and streamwise-stretched Prandtl-Glauertξηζ axes to account for compressibility.\n                                                                         \n                                                   ξ                  ¯¯P     x\n                                                 η     =                    y                                                (146)\n                                                   ζ                              z\n                                         or     ⃗rP    =     ¯¯P⃗r                                                                        (147)\n                            · · ·⃗ξT  · · ·       1                                                 \n                   ¯¯P   =               =  λ cosα cosβ    − 1λ sinβ      1λ sinα cosβ        \n                             · · ·ˆηT  · · ·           cosα sinβ         cosβ        sinα sinβ\n                             · · ·ˆζ T  · · ·           −sinα                0               cosα        wind\nThe ⃗ξ  vector is aligned with the “wind direction”         \n                                                cosα cosβ                                 √\n                        λ⃗ξ  = ⃗V∞V∞    =       − sinβ                  ,   λ  =         1 −M 2PG                        (148)\n                                                sinα cosβ        wind"
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1523,
+          "last_line": 1557,
+          "page": "30-31",
+          "equations": "149",
+          "excerpt": "whose  solution  for  unit Ak  and V∞   gives  the  respective  inﬂuence  functions ⃗vk  and ⃗wvol  in  terms\nof  appropriate integrals  over  the  singularities.  The integrals  eﬀectively  give  the  velocities ∂φ/∂ξ,\n∂φ/∂η, ∂φ/∂ζ  in  transformed  space.   The  velocities  in  physical  space  are  then  obtained  via  the\nchain rule, which amounts to multiplication by the transpose of the transformation matrix  ¯¯P  (not\n\n\n\n                                                             30\n\nPAGE 31\n                                                                     V    (r)ind\n\n\n\n\n                                                                             d\n                                                                                          ,\n\n                                                                                               Slender Body\n                                                                                            (source+doublet line)\n                                                                               (     )\n                                    d\n\n\n\n                                                                                      Bound, trailing vorticity\n                                                                                       (horseshoe vortex filament)\n\nFigure 15:  Induced velocity contributions from bound vortices and source and doublet distributions.\n\nits inverse).  \n                                                                                               \n                       ∂φ/∂x                ξx ηx ζx              ∂φ/∂ξ                               ∂φ/∂ξ\n                       ∂φ/∂y              ξy  ηy  ζy          ∂φ/∂η                 ¯¯PT      ∂φ/∂η\n                    ∂φ/∂z       =       ξz  ηz  ζz          ∂φ/∂ζ      =                    ∂φ/∂ζ                     (149)"
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1658,
+          "last_line": 1669,
+          "page": 33,
+          "equations": "160",
+          "excerpt": "    The  overall  inﬂuence  coeﬃcient  function  for  the k′th  circulation  mode  is  then  obtained  from\nthe Biot-Savart law applied to all the horseshoe vortices with strengths corresponding to unit Ak.\n                                                                     {   1                              }\n                             ¯¯PT     ∂φ/∂ξ                      ¯¯PT         I−1∑            ∫ d⃗ℓ ×⃗δ\n               ⃗vk  =                  ∂φ/∂η      (⃗r)  =                     4π       sin(kθa)         δ3               (160)\n                                          ∂φ/∂ζ       k                               i=1\n\nThe  vortex  element d⃗ℓ  belongs  to  the  horseshoe  vortex  spanning  the i...i+1  stations,  and ⃗δ  ex-\ntends  from  the  vortex  element  to  the  ﬁeld  point,  as  shown  in  Figure  15.  Both  are deﬁned  in  the\ntransformed Prandtl-Glauert space.\n\n                        d⃗ℓ  = d⃗rP   =   ¯¯Pd⃗r          ⃗δ  = ⃗rP −⃗rP (ℓ)  =   ¯¯P {⃗r −⃗r(ℓ)}"
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "first_line": 270,
+          "last_line": 277,
+          "page": null,
+          "equations": null,
+          "excerpt": "    mach = air[\"ambient_mach\"] if condition.mach is None else float(condition.mach)\n    if not np.isfinite(rho) or rho <= 0 or not np.isfinite(mach) or not 0 <= mach < 1:\n        raise AnalysisError(\"Density must be positive and Prandtl–Glauert Mach must be in [0, 1).\")\n    e, ey, ez = condition.vectors()\n    wind = np.array([1., 0., 0.]) if condition.freeze_influences else e\n    # Equivalent to P^T P in wind axes: an orthogonal rotation cancels from\n    # the isotropic Biot–Savart kernel. Velocities transform with P^T, not P^-1.\n    pg = np.eye(3) + (1 / np.sqrt(1 - mach ** 2) - 1) * np.outer(wind, wind)"
+        },
+        {
+          "path": "openswing/factored_influence.py",
+          "first_line": 151,
+          "last_line": 179,
+          "page": null,
+          "equations": null,
+          "excerpt": "            def compute(rows=slice(None), columns=slice(None)):\n                nonlocal relative, segment, image_relative, image_segment\n                if relative is None:\n                    relative = (points[:, None, :] - first[None, :, :]) @ pg.T\n                    segment = None if second is None else (second - first)[None, :, :] @ pg.T\n                    if images:\n                        image_relative = (points[:, None, :] - ground.reflect_points(first)[None, :, :]) @ pg.T\n                        image_segment = (None if second is None else\n                            (ground.reflect_points(second) - ground.reflect_points(first))[None, :, :] @ pg.T)\n                selected = radii[rows][:, columns]\n                displacement = relative[rows][:, columns]\n                if second is None:\n                    value = semi_infinite_vortex(displacement, 0., direction @ pg.T, selected)\n                else:\n                    value = finite_vortex(displacement, 0., segment[:, columns], selected)\n                    if mask is not None:\n                        value = np.where(mask[rows][:, columns, None], 0., value)\n                if images:\n                    if second is None:\n                        image = semi_infinite_vortex(image_relative[rows][:, columns], 0.,\n                                                     ground.reflect_vectors(direction) @ pg.T, selected)\n                    else:\n                        image = finite_vortex(image_relative[rows][:, columns], 0.,\n                                              image_segment[:, columns], selected)\n                    value -= ground.flag * image\n                # Cache the same source-contiguous allocation used by apply.\n                # Returning its physical tensor view lets pair reuse and the\n                # immutable operator share coefficients without a second copy.\n                packed = np.ascontiguousarray(np.moveaxis(value @ pg, 1, 2))"
+        }
+      ]
+    },
+    {
+      "id": "SECTION_NORMAL",
+      "classification": "CONFIRMED_EQUIVALENT",
+      "severity": "none",
+      "claim": "The control-point normal and control increments use the documented physical section frame; no additional PG normalization belongs on that normal.",
+      "derivation": "ncp=sin(alpha_A)c+cos(alpha_A)n, alpha_A=alpha_A0+sum(delta_F*dCLdF/dCLda). Physical ncp dot P^T vPG=(P ncp) dot vPG. Code projects after velocity returns to physical coordinates. Both are the same scalar tangency equation.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1644,
+          "last_line": 1657,
+          "page": 33,
+          "equations": "158-159",
+          "excerpt": "    The quasi-normal vector  ˆnc.p. at the control point is rotated away from the local normal vector\nˆn by the local 2-D section aerodynamic angle of attack αA relative to the local c axis.\n                                                                           \n                                                                      sinαA\n                                                                 T\n                                                   ˆnc.p.  =   ¯¯T     0                                                              (158)\n                                                                      cosαA\n\nThis local angle of attack  is deﬁned as a constant part, plus contributions from control-surface or\nﬂap deﬂections δF .\n                                   αA  = αAo  + dcℓ/dδF 1dcℓ/dα δF 1  + dcℓ/dδF 2dcℓ/dα δF 2...                                     (159)\n\nThe  control-surface  derivatives dcℓ/dδF  are  speciﬁed  properties  of  the  local  2-D  section,  as  are\ndcm/dδF  and dcℓ/dα."
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 2026,
+          "last_line": 2039,
+          "page": 40,
+          "equations": "200-201",
+          "excerpt": "5.6    Circulation  coeﬃcient  constraints\n\nThe circulation coeﬃcients Ak  for each surface require constraints which enforce ﬂow tangency on\nthat surface.  The ﬂow tangency requirement at a control point on each i...i+1 interval is\n                                                        ⃗V (⃗rc.p.) ·ˆnc.p.  =  0                                                            (200)\n\nwhich cannot be satisﬁed exactly if the number of circulation coeﬃcients Ak,k = 1...K, is less than\nthe  number  of  structural  intervals I −1.   A  weighted-residual  approach  is  taken  to  generate  the\ncorrect number of constraints.\n                            I−1∑ (⃗V (⃗rc.p.) ·ˆnc.p.)\n\n                            i=1                        a  sin(kθa)  ∆θ  =  0       ;   k = 1...K                           (201)\nIn  eﬀect,  a  discrete  Fourier  analysis  of  the  ﬂow  tangency  resi dual  is  performed  for  each  surface,\nwith the K  lowest residual wavenumbers being required to vanish."
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "first_line": 323,
+          "last_line": 341,
+          "page": null,
+          "equations": null,
+          "excerpt": "        chord = section_value(\"chord\", t)\n        slope = section_value(\"dCLda\", t)\n        clmin, clmax = section_value(\"CLmin\", t), section_value(\"CLmax\", t)\n        if np.any(chord <= 0) or np.any(slope <= 0) or np.any(clmin >= clmax):\n            raise AnalysisError(f\"Beam {beam.index}: chord and lift slope must be positive, and CLmin < CLmax.\")\n        c, s, n = mesh.frames[..., 0], mesh.frames[..., 1], mesh.frames[..., 2]\n        xax = section_value(\"Xax\", t)\n        alpha = np.deg2rad(section_value(\"alpha\", t))\n        cm, cdp = section_value(\"Cm\", t).copy(), section_value(\"Cdp\", t).copy()\n        for k, value in condition.controls.items():\n            alpha += value * section_value(f\"dCLdF{k}\", t) / slope\n            cm += value * section_value(f\"dCMdF{k}\", t)\n            cdp += value * section_value(f\"dCDdF{k}\", t)\n        cdf = section_value(\"Cdf\", t)\n        if np.any(cdf < 0) or np.any(cdp < 0):\n            raise AnalysisError(\"Control settings or interpolation produced a negative profile drag coefficient.\")\n        values = dict(normal=np.sin(alpha)[:, None] * c + np.cos(alpha)[:, None] * n,\n                      section_normal=n, jig_normal=(surface_frame(beam, t) if _tangent_influences is None else _tangent_influences.frame(beam, t))[..., 2],\n                      s=s, c=c, slope=slope, clmax=clmax, clmin=clmin,"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 388,
+          "last_line": 394,
+          "page": null,
+          "equations": null,
+          "excerpt": "    vcp = influences(p[\"cp\"], p[\"physical\"], reference=ig['cp'], cache_name='cp')\n    vhv = influences(p[\"hv\"], p[\"physical\"], reference=ig['hv'], cache_name='hv', exclude_bound=np.eye(len(p[\"t\"]), dtype=bool))\n    omega = np.asarray(condition.rates)\n    # Speed/angles apply at the explicitly specified velocity-reference point.\n    cp_free = condition.speed * e - cross3(omega, p[\"cp\"] - model.reference[3])\n    hv_free = condition.speed * e - cross3(omega, p[\"hv\"] - model.reference[3])\n    cp_free += gust_velocity(p['cp'])"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 429,
+          "last_line": 434,
+          "page": null,
+          "equations": null,
+          "excerpt": "    # An own solve repeatedly needs only the normal CP velocity. Keep that\n    # scalar operator factored too, including prescribed-Gamma replay, so both\n    # evaluate exactly the same residual. Only own solves need a dense matrix.\n    normal_influence = vcp.projected(p[\"normal\"])\n    aic = normal_influence.matrix() if circulation is None else None\n    rhs = -np.sum(cp_free * p[\"normal\"], axis=-1)"
+        }
+      ]
+    },
+    {
+      "id": "VORTEX_CORE",
+      "classification": "CONFIRMED_EQUIVALENT_IN_REVIEWED_SCOPE",
+      "severity": "none",
+      "claim": "The finite and semi-infinite kernels integrate the documented regularized Biot-Savart law; SA1 same-beam interactions use zero core.",
+      "derivation": "For a straight line parameter z, integrating (h^2+z^2+epsilon^2)^(-3/2) gives z/[(h^2+epsilon^2)*sqrt(h^2+z^2+epsilon^2)]. The finite endpoints and infinite-ray limits are the implemented expressions. Nonzero cores are selected for other physical beams as specified by Eq161, with epsilon=max(c/4,ds) at the documented default.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1658,
+          "last_line": 1682,
+          "page": 33,
+          "equations": "160-161",
+          "excerpt": "    The  overall  inﬂuence  coeﬃcient  function  for  the k′th  circulation  mode  is  then  obtained  from\nthe Biot-Savart law applied to all the horseshoe vortices with strengths corresponding to unit Ak.\n                                                                     {   1                              }\n                             ¯¯PT     ∂φ/∂ξ                      ¯¯PT         I−1∑            ∫ d⃗ℓ ×⃗δ\n               ⃗vk  =                  ∂φ/∂η      (⃗r)  =                     4π       sin(kθa)         δ3               (160)\n                                          ∂φ/∂ζ       k                               i=1\n\nThe  vortex  element d⃗ℓ  belongs  to  the  horseshoe  vortex  spanning  the i...i+1  stations,  and ⃗δ  ex-\ntends  from  the  vortex  element  to  the  ﬁeld  point,  as  shown  in  Figure  15.  Both  are deﬁned  in  the\ntransformed Prandtl-Glauert space.\n\n                        d⃗ℓ  = d⃗rP   =   ¯¯Pd⃗r          ⃗δ  = ⃗rP −⃗rP (ℓ)  =   ¯¯P {⃗r −⃗r(ℓ)}\n\n    For evaluating the righthand side integrals for surfaces which do not contain the control point\nin  question,  the  induced  velocity  expression  for ⃗vk  is  modiﬁed  by  incorporation  of  a  ﬁnite  vortex\ncore size ε.                                         {   1                  ∫   d⃗ℓ ×⃗δ        }\n                                                              I−1∑\n                                ⃗vk   =      ¯¯PT                sin(kθa)                                                  (161)\n                                                          4π  i=1                (δ2 +ε2)3/2\n\nChoosing ε = max (¯ca/4,  ∆s)  results  in  the singular  velocity  ﬁeld  of  the  trailing  vortex  ﬁlaments\nbeing  smeared  into  a  continuous  vortex  sheet  whose  thickness  is  some  reasonable  fraction  of  the\nchord.  This is essential to produce well-behaved lift forces on any surface immersed in the vortex\nwake of another upstream surface.  It also weakens the dependence of the local wake velocity  ﬁeld\non its geometry, justifying the lagging of the wake geometry in the Newton iteration cycle."
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "first_line": 40,
+          "last_line": 88,
+          "page": null,
+          "equations": null,
+          "excerpt": "def finite_vortex(points, a, b, core=0.):\n    \"\"\"Unit circulation on a→b; arrays broadcast, last axis is xyz.\"\"\"\n    d = np.asarray(b) - a\n    length = np.linalg.norm(d, axis=-1)\n    if np.any(length <= 0):\n        raise AnalysisError(\"Zero-length vortex segment.\")\n    u = d / length[..., None]\n    r = np.asarray(points) - a\n    z = dot3(r, u)\n    h = r - z[..., None] * u\n    den = dot3(h, h) + np.asarray(core) ** 2\n    safe = np.maximum(den, 1e-30)\n    first=np.sqrt(z*z+safe);second=np.sqrt((z-length)**2+safe)\n    fac=(z/first-(z-length)/second)/safe\n    # Outside the segment both endpoint cosines have the same sign and can\n    # round to the same number. Rationalize their difference before dividing\n    # by the squared radial distance; this is the identical Biot--Savart law.\n    outside=(z<0)|(z>length)\n    stable=np.divide(length*(2*z-length),\n        (z*second+(z-length)*first)*first*second,\n        out=np.zeros_like(safe),where=outside)\n    fac=np.where(outside,stable,fac)\n    # Principal-value self influence on the bound filament is zero.\n    return cross3(u, h) * (np.where(den > 1e-26, fac, 0.) / (4 * np.pi))[..., None]\n\n\ndef semi_infinite_vortex(points, origin, direction, core=0.):\n    u = normalize(direction)\n    r = np.asarray(points) - origin\n    z = dot3(r, u)\n    h = r-z[..., None]*u\n    den = dot3(h, h) + np.asarray(core) ** 2\n    safe = np.maximum(den, 1e-30)\n    distance=np.sqrt(z*z+safe)\n    fac=(1+z/distance)/safe\n    # Upstream, 1+z/R loses the entire small wake influence near the axis.\n    # (R+z)/safe = 1/(R-z), without changing the core or self-influence rule.\n    stable=np.divide(1.,distance*(distance-z),out=np.zeros_like(safe),where=z<0)\n    fac=np.where(z<0,stable,fac)\n    return cross3(u, r) * (np.where(den > 1e-26, fac, 0.) / (4 * np.pi))[..., None]\n\n\ndef horseshoe(points, a, b, direction, core=0., *, exclude_bound=None):\n    bound = finite_vortex(points, a, b, core)\n    if exclude_bound is not None:\n        bound = np.where(np.asarray(exclude_bound)[..., None], 0., bound)\n    return (bound\n            + semi_infinite_vortex(points, b, direction, core)\n            - semi_infinite_vortex(points, a, direction, core))"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 358,
+          "last_line": 371,
+          "page": null,
+          "equations": null,
+          "excerpt": "    with np.errstate(over='ignore'):\n        source_core = np.maximum(core_ratio * ig[\"chord\"], ig[\"ds\"])\n    if np.any(~np.isfinite(source_core)) or np.any(source_core > np.sqrt(np.finfo(float).max)):\n        raise AnalysisError('Wake core radius is too large for the vortex calculation in these input units.')\n\n    def original_influences(points, physical=None, *, reference=None, exclude_bound=None, cache_name=None):\n        if frozen:\n            return frozen.factored_vortex(points if reference is None else reference, physical, exclude_bound=exclude_bound)\n        target_cores = source_core[None,:] if physical is None else np.where(\n            np.asarray(physical)[:,None] == p[\"physical\"][None,:],0.,source_core[None,:])\n        if _tangent_influences is not None and cache_name is not None:\n            return _tangent_influences.factored_vortex(cache_name, points, p['a'], p['b'], e, pg, target_cores, ground, exclude_bound)\n        return FactoredInfluence(points, p['a'], p['b'], e, pg, target_cores,\n                                 ground, exclude_bound=exclude_bound)"
+        }
+      ]
+    },
+    {
+      "id": "MACH_ZERO_ORACLE",
+      "classification": "INDEPENDENT_SAVED_STATE_REPLAY_AGREES",
+      "severity": "none",
+      "claim": "All six retained SA1 cases reproduce through an independently derived scalar horseshoe oracle, without any production or numerical-package imports or circulation solve.",
+      "derivation": "In wind/span coordinates eta_a=y-a, eta_b=y-b and R_i=hypot(d,eta_i), the velocity in the wind-normal direction is w(d)=[(1+R_b/d)/eta_b-(1+R_a/d)/eta_a]/(4*pi). At the bound line its principal-value bound contribution vanishes and w(0)=[1/eta_b-1/eta_a]/(4*pi). The Trefftz value is 2w(0). V_hv=Ue+w(0)zeta, cl=2Gamma/[c*hypot(U,w(0))], and normal CP velocity is U sin(alpha)+w(d)cos(alpha). This reconstructs local residuals, profile and circulatory forces, moments, CL/CD/CDi/CLi/CDp/Cm/e from retained Gamma.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 747,
+          "last_line": 786,
+          "page": "15-16",
+          "equations": "64-70",
+          "excerpt": "    The local velocity relative to the beam section at location⃗r is\n                                     ⃗V (⃗r)    =  ⃗V∞    − ⃗Ω  ×⃗r  + ⃗Vind(⃗r)  + ⃗Vgust(⃗r)                                     (64)\n\n                                                     K∑\n                                   ⃗Vind(⃗r)    =        ⃗vk(⃗r)Ak  + ⃗wvol(⃗r)V∞                                                      (65)\n                                                    k=1\n\n                                                                  15\n\nPAGE 16\nwhere Ak  are  Fourier  mode  coeﬃcients  for  the  bound  circulation  and ⃗vk  are  their  aerodynamic\ninﬂuence  functions.   The  induced  velocity  due  to  beam  volumes  is  given  via  the ⃗wvol  inﬂuence\nfunction.  Their contributions to the overall induced velocity ⃗Vind will be treated in a later section.\nThe nonuniform gust perturbation velocity  ﬁeld ⃗Vgust, which is prescribed explicitly in subroutine\nVGUSTE, is included for completeness.  Unlike ⃗V∞  , the gust velocity can have a spatial variation and\nso  can  represent  tight  thermal  cores,  sharp  gusts,  etc.,  which  can  have  signiﬁcant  variations  over\nthe extent of a large aircraft.\n    For  calculating  the  various  aerodynamic  loads,  it  is  useful  to  deﬁne  unit  vectors  giving  the\ndirections  of  the  local c,s,n  unit  vectors  in  airplane  axes.    These  are  simply  the  rows  of  the\ntransformation tensor.                                                            \n                                                 −   ˆcT   −    =         ¯¯T                                                        (66)\n                                                   −   ˆsT   −\n                                                   −   ˆnT   −\nThe aerodynamic lift vector then follows from the vector form of the Kutta-Joukowsky theorem,\n                                               ⃗flift    = ρ Γ ⃗V  × ˆs                                        (surface beam)       (67)\n\nwhere ⃗V   is  evaluated  using  (64)  at  the  bound  vortex  location ⃗rh.v.,  deﬁned  later.   The  local  cir-\nculation  Γ  will  be  determined  via  a  lifting-line  formulation  which  employs  the  Prandtl-Glauert\ntransformation, so that this lift force accounts  for compressibility.  For a fuselage beam with local\nradiusR, the lift force is determined from slender-body theory using the beam-normal velocity ⃗V⊥ .\n\n                                              ⃗flift    = ρ⃗V⊥  (⃗V  ·ˆs) 2πRdRds                         (fuselage beam)      (68)\n\n                                               ⃗V⊥     =  ⃗V  −  (⃗V  ·ˆs) ˆs                                                                   (69)\n\nIn  this  case ⃗V  is  evaluated  at ⃗ra  at  the  center  of  the  cylindrical  beam.   The  proﬁle  drag  force  is\nresolved  into  a  friction-drag  contribution  acting  along  the  local  net  velocity,  and  a  pressure-drag\ncontribution acting perpendicular to the beam’s spanwise axis.\n      ⃗fdrag    =    1                                                                (⃗V  ·ˆn)2\n                     2ρ |⃗V |⃗V   ¯c cdf   +   12ρ |⃗V⊥ |⃗V⊥   ¯c cdp  +  2ρ ⃗V⊥|⃗V⊥ |          c.p. ¯c         (surface beam) (70)"
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1615,
+          "last_line": 1629,
+          "page": 32,
+          "equations": "155-157",
+          "excerpt": "    The location  of  the bound vortex  segment  midpoint ⃗rh.v.,  where the lift force  is  deﬁned to  be\nlocated, is at the quarter-chord point along the ξ  axis,\n\n                                                   ⃗rh.v.  = ⃗ra  +  ¯c/4−¯xo     ⃗ξ                                                        (155)\n                                                                        |⃗ξ×ˆs|\n\nThe location of the control point⃗rc.p. is then directly “downstream” along the same ⃗ξ  direction,\n\n                                                   ⃗rc.p.  = ⃗rh.v.  + h ¯ca      ⃗ξ                                                        (156)\n                                                                          |⃗ξ×ˆs|\n\nwhere h is chosen so that the local incompressible 2-D section lift-curve slope is reproduced.\n                                                           h  =    1   dcℓ\n                                                                   4π  dα                                                                   (157)\nFor a thin airfoil, h = 1/2, which is also the value used by the standard vortex-lattice method."
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 2041,
+          "last_line": 2055,
+          "page": 40,
+          "equations": "202-204",
+          "excerpt": "5.7    Separation  and  stall  modeling\n\nThe local ﬂow tangency  requirement (200)  must be modiﬁed if local stall occurs.  An appropriate\nmodiﬁcation  is  to  introduce  a  ﬂow  tangency  “leakage”  velocity ⃗Vc.p. ·ˆnc.p.  ⁄=  0  which  models  the\nsuction-side displacement eﬀect of the separating boundary  layer, as illustrated in Figure 18.\n     In  accordance  with  inﬁnite  swept-wing  theory,  the  leakage  velocity  is  made  a  function  of  the\nlocal section lift coeﬃcient\n                                                              cℓ  =   2Γ¯cV⊥                                                                      (202)\n\nbased on the section-normal relative speed ¯cV⊥ .  The modiﬁcation occurs only outside the speciﬁed\ncℓmin and cℓmax  limits.  A suitable form for the modiﬁed equation which replaces (200) is\n\n                                ⃗V (⃗rc.p.) ·ˆnc.p.    −  V⊥4πh Ksfstall(cℓ)   =   0                                                  (203)\n\n                                            fstall    =    ∆ cℓ  log 1 + exp[(cℓ −cℓmax)/∆ cℓ]1 + exp[(cℓmin −cℓ)/∆ cℓ]                               (204)"
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "first_line": 458,
+          "last_line": 476,
+          "page": null,
+          "equations": null,
+          "excerpt": "    def velocities(gamma):\n        nonlocal velocity_key, velocity_cache\n        key = gamma.tobytes()\n        if key == velocity_key:\n            return velocity_cache\n        v = hv_free + vhv.apply(gamma) + engine_flow(gamma)[2]\n        vperp = v - np.sum(v * p[\"s\"], axis=-1)[:, None] * p[\"s\"]\n        speed = np.linalg.norm(vperp, axis=-1)\n        velocity_key = key\n        velocity_cache = v, vperp, np.maximum(speed, condition.speed * 1e-12)\n        return velocity_cache\n\n    def local_residual(gamma):\n        _, _, speed = velocities(gamma)\n        cl = 2 * gamma / (p[\"chord\"] * speed)\n        fstall, _ = _stall_leakage(cl, p['clmin'], p['clmax'], condition.stall_width)\n        leakage = speed / p[\"slope\"] * condition.stall_factor * fstall if condition.stall else 0.\n        jet_normal = np.sum(engine_flow(gamma)[1]*p[\"normal\"], axis=-1)\n        return (normal_velocity(gamma) - rhs + jet_normal - leakage - 2/np.pi*lag_rate/speed) / condition.speed"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 553,
+          "last_line": 563,
+          "page": null,
+          "equations": null,
+          "excerpt": "    v, vp, vp_speed = velocities(gamma)\n    v_speed = np.linalg.norm(v, axis=-1)\n    cl = 2 * gamma / (p[\"chord\"] * vp_speed)\n    engines, cp_jet, _ = engine_flow(gamma)\n    tangency = np.sum((cp_free + vcp.apply(gamma) + cp_jet) * p[\"normal\"], axis=-1)\n    tangency -= 2/np.pi*lag_rate/vp_speed\n    flift = rho * gamma[:, None] * cross3(v, p[\"s\"]) * p[\"ds\"][:, None]\n    frate = rho * (p['chord']*lag_rate/vp_speed)[:,None] * cross3(v,p['s']) * p['ds'][:,None]\n    fprofile = (.5 * rho * v_speed[:, None] * v * (p[\"chord\"] * p[\"cdf\"])[:, None]\n                + .5 * rho * vp_speed[:, None] * vp * (p[\"chord\"] * p[\"cdp\"])[:, None]\n                + 2 * rho * vp / vp_speed[:, None] * (tangency ** 2 * p[\"chord\"])[:, None]) * p[\"ds\"][:, None]"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 587,
+          "last_line": 610,
+          "page": null,
+          "equations": null,
+          "excerpt": "    # Section moment convention is about chord/4 in the local c,n plane (eq 72).\n    quarter_arm = ((.25 - p['xax']) * p['chord'])[:,None] * p['c']\n    section_moment = cross3(quarter_arm, flift+frate)\n    section_moment += (.5 * rho * vp_speed ** 2 * p[\"chord\"] ** 2 * cm * p[\"ds\"])[:, None] * p[\"s\"]\n    # The apparent-mass rate term uses velocity at the beam axis (eq. 84),\n    # which is distinct from the bound-vortex force point.\n    axis_velocity = condition.speed*e-cross3(omega, p[\"rm\"]-model.reference[3])\n    axis_velocity += gust_velocity(p['rm'])\n    if surface_motion is not None:\n        axis_velocity -= surface_motion.velocity_at(p['rm'])\n    if (np.any(omega) or (surface_motion is not None and np.any(surface_motion.rates))\n            or getattr(_iteration_fields,'capture_rate_fields',False)):\n        axis_velocity += influences(p[\"rm\"], p[\"physical\"], reference=ig['rm'], cache_name='axis', exclude_bound=np.eye(len(p[\"t\"]), dtype=bool)).apply(gamma)\n        axis_velocity += condition.speed*volume_velocity(p[\"rm\"], ig['rm'], cache_name='axis')\n        axis_velocity += jet_velocity(p[\"rm\"], engines, e, rho, cache_name=\"axis\")\n    if incident is not None:axis_velocity = incident('axis', axis_velocity)\n    frames = np.stack([p[\"c\"], p[\"s\"], cross3(p[\"c\"], p[\"s\"])], axis=-1)\n    fapparent, mapparent = surface_apparent_loads(p[\"rm\"], frames, p[\"chord\"], p[\"xax\"], p[\"ds\"], rho,\n                                                axis_velocity, motion_state, model.reference[2],local_motion=surface_motion)\n    strip_force = flift+frate+fprofile+fapparent\n    section_moment += mapparent\n    moment = cross3(p[\"rm\"] - model.reference[1], strip_force) + section_moment\n    force = strip_force.sum(axis=0)\n    moment = moment.sum(axis=0)"
+        }
+      ]
+    },
+    {
+      "id": "CURVED_SELF_BOUND",
+      "classification": "UNRESOLVED_DOCUMENTATION_BOUNDARY",
+      "severity": "unresolved; not a confirmed defect",
+      "claim": "For a curved, swept or varying-offset panel whose computed force point is not on its straight bound segment, exclusion of the entire own bound segment needs an explicit regularization convention.",
+      "derivation": "The code independently places endpoint quarter-chord points and an interior theta-midpoint force point, then excludes the own physical bound segment before evaluation. Eq155 calls rhv the bound-segment midpoint but does not explicitly define a principal-value/self-exclusion rule when these constructions are non-collinear. This ambiguity is absent for SA1: its bound line and force points are collinear and the independent oracle agrees. No change to the exclusion is justified from this review alone.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1587,
+          "last_line": 1593,
+          "page": 32,
+          "equations": "154",
+          "excerpt": "    In this section, the subscript “a” denotes a midpoint average inθ rather than in physical space.\nThe θ-averaged position vectors are obtained via a weighted interpolation usingsa,\n\n                                             ⃗ra    = ⃗ri  +  (⃗ri+1  − ⃗ri)sa −si∆s                                                     (154)\n\nwhere⃗ri  is simply the beam node position xi,yi,zi.  Interpolating in θ gives more accurate results\nfor the predicted aerodynamic properties."
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1615,
+          "last_line": 1629,
+          "page": 32,
+          "equations": "155-157",
+          "excerpt": "    The location  of  the bound vortex  segment  midpoint ⃗rh.v.,  where the lift force  is  deﬁned to  be\nlocated, is at the quarter-chord point along the ξ  axis,\n\n                                                   ⃗rh.v.  = ⃗ra  +  ¯c/4−¯xo     ⃗ξ                                                        (155)\n                                                                        |⃗ξ×ˆs|\n\nThe location of the control point⃗rc.p. is then directly “downstream” along the same ⃗ξ  direction,\n\n                                                   ⃗rc.p.  = ⃗rh.v.  + h ¯ca      ⃗ξ                                                        (156)\n                                                                          |⃗ξ×ˆs|\n\nwhere h is chosen so that the local incompressible 2-D section lift-curve slope is reproduced.\n                                                           h  =    1   dcℓ\n                                                                   4π  dα                                                                   (157)\nFor a thin airfoil, h = 1/2, which is also the value used by the standard vortex-lattice method."
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 1658,
+          "last_line": 1682,
+          "page": 33,
+          "equations": "160-161",
+          "excerpt": "    The  overall  inﬂuence  coeﬃcient  function  for  the k′th  circulation  mode  is  then  obtained  from\nthe Biot-Savart law applied to all the horseshoe vortices with strengths corresponding to unit Ak.\n                                                                     {   1                              }\n                             ¯¯PT     ∂φ/∂ξ                      ¯¯PT         I−1∑            ∫ d⃗ℓ ×⃗δ\n               ⃗vk  =                  ∂φ/∂η      (⃗r)  =                     4π       sin(kθa)         δ3               (160)\n                                          ∂φ/∂ζ       k                               i=1\n\nThe  vortex  element d⃗ℓ  belongs  to  the  horseshoe  vortex  spanning  the i...i+1  stations,  and ⃗δ  ex-\ntends  from  the  vortex  element  to  the  ﬁeld  point,  as  shown  in  Figure  15.  Both  are deﬁned  in  the\ntransformed Prandtl-Glauert space.\n\n                        d⃗ℓ  = d⃗rP   =   ¯¯Pd⃗r          ⃗δ  = ⃗rP −⃗rP (ℓ)  =   ¯¯P {⃗r −⃗r(ℓ)}\n\n    For evaluating the righthand side integrals for surfaces which do not contain the control point\nin  question,  the  induced  velocity  expression  for ⃗vk  is  modiﬁed  by  incorporation  of  a  ﬁnite  vortex\ncore size ε.                                         {   1                  ∫   d⃗ℓ ×⃗δ        }\n                                                              I−1∑\n                                ⃗vk   =      ¯¯PT                sin(kθa)                                                  (161)\n                                                          4π  i=1                (δ2 +ε2)3/2\n\nChoosing ε = max (¯ca/4,  ∆s)  results  in  the singular  velocity  ﬁeld  of  the  trailing  vortex  ﬁlaments\nbeing  smeared  into  a  continuous  vortex  sheet  whose  thickness  is  some  reasonable  fraction  of  the\nchord.  This is essential to produce well-behaved lift forces on any surface immersed in the vortex\nwake of another upstream surface.  It also weakens the dependence of the local wake velocity  ﬁeld\non its geometry, justifying the lagging of the wake geometry in the Newton iteration cycle."
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/frozen_influence.py",
+          "first_line": 28,
+          "last_line": 37,
+          "page": null,
+          "equations": null,
+          "excerpt": "            hv = mesh.rm+((.25-value('Xax', t))*chord/across)[:, None]*direction\n            cp = hv+(value('dCLda', t)/(4*np.pi)*chord/across)[:, None]*direction\n            ends = []\n            for tn, rn, side, frame in ((mesh.t0, mesh.r0, 'right', mesh.frame0), (mesh.t1, mesh.r1, 'left', mesh.frame1)):\n                sn = (surface_frame(beam, tn, side) if frame is None else frame)[..., 1]\n                cross = np.linalg.norm(np.cross(direction, sn), axis=-1)\n                if np.min(cross) < 1e-6:\n                    raise ValueError('A beam endpoint aligns with the influence wind.')\n                ends.append(rn+((.25-value('Xax', tn, side=side))*value('chord', tn, side=side)/cross)[:, None]*direction)\n            return ends[0], ends[1], hv, cp"
+        },
+        {
+          "path": "openswing/aero.py",
+          "first_line": 384,
+          "last_line": 389,
+          "page": null,
+          "equations": null,
+          "excerpt": "    # The bound-segment midpoint may differ from the theta midpoint under curved\n    # geometry. Omit the panel's own physical bound segment BEFORE summation:\n    # subtracting two near-singular evaluations loses the finite wake velocity,\n    # especially when PG transforms round differently in broadcast operations.\n    vcp = influences(p[\"cp\"], p[\"physical\"], reference=ig['cp'], cache_name='cp')\n    vhv = influences(p[\"hv\"], p[\"physical\"], reference=ig['hv'], cache_name='hv', exclude_bound=np.eye(len(p[\"t\"]), dtype=bool))"
+        }
+      ]
+    },
+    {
+      "id": "VPERP_LOCATION",
+      "classification": "SUPPORTED_SYMBOL_CARRYFORWARD_WITH_NONREPEATED_COORDINATE",
+      "severity": "qualification",
+      "claim": "The bound-force-point Vperp used by the code is supported by Section3.1; Eq202 does not independently repeat its evaluation coordinate.",
+      "derivation": "Eq67 explicitly evaluates V at rhv. Eq69 defines Vperp from that surface velocity; the alternate beam-axis evaluation in the following paragraph is expressly for fuselages. Eq202 reuses Vperp without a new definition. Therefore no primary-source basis was found for replacing surface Vperp by CP speed, beam-axis speed or freestream speed. This is a symbol-consistency conclusion, not recovered v5.96 executable evidence.",
+      "source": [
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 770,
+          "last_line": 787,
+          "page": 16,
+          "equations": "67-71",
+          "excerpt": "The aerodynamic lift vector then follows from the vector form of the Kutta-Joukowsky theorem,\n                                               ⃗flift    = ρ Γ ⃗V  × ˆs                                        (surface beam)       (67)\n\nwhere ⃗V   is  evaluated  using  (64)  at  the  bound  vortex  location ⃗rh.v.,  deﬁned  later.   The  local  cir-\nculation  Γ  will  be  determined  via  a  lifting-line  formulation  which  employs  the  Prandtl-Glauert\ntransformation, so that this lift force accounts  for compressibility.  For a fuselage beam with local\nradiusR, the lift force is determined from slender-body theory using the beam-normal velocity ⃗V⊥ .\n\n                                              ⃗flift    = ρ⃗V⊥  (⃗V  ·ˆs) 2πRdRds                         (fuselage beam)      (68)\n\n                                               ⃗V⊥     =  ⃗V  −  (⃗V  ·ˆs) ˆs                                                                   (69)\n\nIn  this  case ⃗V  is  evaluated  at ⃗ra  at  the  center  of  the  cylindrical  beam.   The  proﬁle  drag  force  is\nresolved  into  a  friction-drag  contribution  acting  along  the  local  net  velocity,  and  a  pressure-drag\ncontribution acting perpendicular to the beam’s spanwise axis.\n      ⃗fdrag    =    1                                                                (⃗V  ·ˆn)2\n                     2ρ |⃗V |⃗V   ¯c cdf   +   12ρ |⃗V⊥ |⃗V⊥   ¯c cdp  +  2ρ ⃗V⊥|⃗V⊥ |          c.p. ¯c         (surface beam) (70)\n      ⃗fdrag    =    12ρ |⃗V |⃗V  2Rcdf  +  12ρ |⃗V⊥ |⃗V⊥  2Rcdp                                               (fuselage beam)  (71)"
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "first_line": 2041,
+          "last_line": 2055,
+          "page": 40,
+          "equations": "202-204",
+          "excerpt": "5.7    Separation  and  stall  modeling\n\nThe local ﬂow tangency  requirement (200)  must be modiﬁed if local stall occurs.  An appropriate\nmodiﬁcation  is  to  introduce  a  ﬂow  tangency  “leakage”  velocity ⃗Vc.p. ·ˆnc.p.  ⁄=  0  which  models  the\nsuction-side displacement eﬀect of the separating boundary  layer, as illustrated in Figure 18.\n     In  accordance  with  inﬁnite  swept-wing  theory,  the  leakage  velocity  is  made  a  function  of  the\nlocal section lift coeﬃcient\n                                                              cℓ  =   2Γ¯cV⊥                                                                      (202)\n\nbased on the section-normal relative speed ¯cV⊥ .  The modiﬁcation occurs only outside the speciﬁed\ncℓmin and cℓmax  limits.  A suitable form for the modiﬁed equation which replaces (200) is\n\n                                ⃗V (⃗rc.p.) ·ˆnc.p.    −  V⊥4πh Ksfstall(cℓ)   =   0                                                  (203)\n\n                                            fstall    =    ∆ cℓ  log 1 + exp[(cℓ −cℓmax)/∆ cℓ]1 + exp[(cℓmin −cℓ)/∆ cℓ]                               (204)"
+        }
+      ],
+      "code": [
+        {
+          "path": "openswing/aero.py",
+          "first_line": 458,
+          "last_line": 476,
+          "page": null,
+          "equations": null,
+          "excerpt": "    def velocities(gamma):\n        nonlocal velocity_key, velocity_cache\n        key = gamma.tobytes()\n        if key == velocity_key:\n            return velocity_cache\n        v = hv_free + vhv.apply(gamma) + engine_flow(gamma)[2]\n        vperp = v - np.sum(v * p[\"s\"], axis=-1)[:, None] * p[\"s\"]\n        speed = np.linalg.norm(vperp, axis=-1)\n        velocity_key = key\n        velocity_cache = v, vperp, np.maximum(speed, condition.speed * 1e-12)\n        return velocity_cache\n\n    def local_residual(gamma):\n        _, _, speed = velocities(gamma)\n        cl = 2 * gamma / (p[\"chord\"] * speed)\n        fstall, _ = _stall_leakage(cl, p['clmin'], p['clmax'], condition.stall_width)\n        leakage = speed / p[\"slope\"] * condition.stall_factor * fstall if condition.stall else 0.\n        jet_normal = np.sum(engine_flow(gamma)[1]*p[\"normal\"], axis=-1)\n        return (normal_velocity(gamma) - rhs + jet_normal - leakage - 2/np.pi*lag_rate/speed) / condition.speed"
+        }
+      ]
+    }
+  ],
+  "source_pins": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "openswing/factored_influence.py",
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "openswing/trefftz.py",
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    }
+  ],
+  "oracle": {
+    "scope": "SA1 saved circulation replay through independently derived scalar Biot-Savart. No solve, matrix assembly or production/numerical import.",
+    "formula": "w(d)=[(1+hypot(d,y-b)/d)/(y-b)-(1+hypot(d,y-a)/d)/(y-a)]/(4*pi); w(0)=[1/(y-b)-1/(y-a)]/(4*pi)",
+    "cases": [
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n200-k40.json",
+          "bytes": 388010,
+          "sha256": "950d15135ce80b554c8ea0e8db6236bf958637f7a433c3254b58ab53bf398d4d"
+        },
+        "panels": 200,
+        "modes": 40,
+        "alpha": 1.9971,
+        "values": {
+          "CL": {
+            "oracle": 0.14488103315586104,
+            "retained": 0.14488103315586112,
+            "absolute_difference": 8.326672684688674e-17
+          },
+          "CD": {
+            "oracle": 0.01239015192556802,
+            "retained": 0.012390151925568025,
+            "absolute_difference": 5.204170427930421e-18
+          },
+          "CDi": {
+            "oracle": 0.0011499843919216036,
+            "retained": 0.0011499843919216095,
+            "absolute_difference": 5.854691731421724e-18
+          },
+          "CDi_near": {
+            "oracle": 0.0011499843919216036,
+            "retained": 0.0011499843919216004,
+            "absolute_difference": 3.2526065174565133e-18
+          },
+          "CLi": {
+            "oracle": 0.1449752841522793,
+            "retained": 0.14497528415227937,
+            "absolute_difference": 5.551115123125783e-17
+          },
+          "CDp": {
+            "oracle": 0.011240167533646416,
+            "retained": 0.011240167533646412,
+            "absolute_difference": 3.469446951953614e-18
+          },
+          "Cm": {
+            "oracle": -0.03623182518355383,
+            "retained": -0.03623182518355381,
+            "absolute_difference": 1.3877787807814457e-17
+          },
+          "efficiency": {
+            "oracle": 0.986039032700829,
+            "retained": 0.9860390327008246,
+            "absolute_difference": 4.440892098500626e-15
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 9.547918011776346e-15,
+          "section_cl": 5.551115123125783e-17,
+          "strip_force": 1.7763568394002505e-15,
+          "strip_moment": 4.440892098500626e-16,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 3.9402487278590484e-16,
+          "projected_residual": 2.7374389749342926e-17,
+          "integrated_force": 6.821210263296962e-13,
+          "integrated_moment": 1.203598852528298e-13
+        }
+      },
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+          "bytes": 745943,
+          "sha256": "53eb985d0ea800863b0d5b80f8915de9303be8a8ab5bce3f34a022e92ae4f774"
+        },
+        "panels": 400,
+        "modes": 0,
+        "alpha": 1.9971,
+        "values": {
+          "CL": {
+            "oracle": 0.1448810324049512,
+            "retained": 0.1448810324049513,
+            "absolute_difference": 8.326672684688674e-17
+          },
+          "CD": {
+            "oracle": 0.012390150901839841,
+            "retained": 0.012390150901839841,
+            "absolute_difference": 0.0
+          },
+          "CDi": {
+            "oracle": 0.0011499833725331723,
+            "retained": 0.0011499833725331712,
+            "absolute_difference": 1.0842021724855044e-18
+          },
+          "CDi_near": {
+            "oracle": 0.0011499833725331723,
+            "retained": 0.001149983372533176,
+            "absolute_difference": 3.686287386450715e-18
+          },
+          "CLi": {
+            "oracle": 0.14497528298304313,
+            "retained": 0.14497528298304313,
+            "absolute_difference": 0.0
+          },
+          "CDp": {
+            "oracle": 0.011240167529306669,
+            "retained": 0.011240167529306672,
+            "absolute_difference": 3.469446951953614e-18
+          },
+          "Cm": {
+            "oracle": -0.03623182488254118,
+            "retained": -0.0362318248825412,
+            "absolute_difference": 2.0816681711721685e-17
+          },
+          "efficiency": {
+            "oracle": 0.9860398908578765,
+            "retained": 0.9860398908578774,
+            "absolute_difference": 8.881784197001252e-16
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 2.375877272697835e-14,
+          "section_cl": 2.7755575615628914e-17,
+          "strip_force": 1.7763568394002505e-15,
+          "strip_moment": 2.220446049250313e-16,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 9.085750013342436e-16,
+          "projected_residual": 9.085750013342436e-16,
+          "integrated_force": 9.094947017729282e-13,
+          "integrated_moment": 5.722997488237513e-13
+        }
+      },
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k40.json",
+          "bytes": 752040,
+          "sha256": "e10d5adc335b435316efc742ac74b33179d9745a5ab1e6ee22752dd56be4ad73"
+        },
+        "panels": 400,
+        "modes": 40,
+        "alpha": 1.9971,
+        "values": {
+          "CL": {
+            "oracle": 0.14488103357358326,
+            "retained": 0.14488103357358328,
+            "absolute_difference": 2.7755575615628914e-17
+          },
+          "CD": {
+            "oracle": 0.012390150919591529,
+            "retained": 0.012390150919591534,
+            "absolute_difference": 5.204170427930421e-18
+          },
+          "CDi": {
+            "oracle": 0.0011499833902805358,
+            "retained": 0.001149983390280526,
+            "absolute_difference": 9.75781955236954e-18
+          },
+          "CDi_near": {
+            "oracle": 0.0011499833902805358,
+            "retained": 0.001149983390280526,
+            "absolute_difference": 9.75781955236954e-18
+          },
+          "CLi": {
+            "oracle": 0.14497528415227956,
+            "retained": 0.14497528415227953,
+            "absolute_difference": 2.7755575615628914e-17
+          },
+          "CDp": {
+            "oracle": 0.011240167529310993,
+            "retained": 0.011240167529310986,
+            "absolute_difference": 6.938893903907228e-18
+          },
+          "Cm": {
+            "oracle": -0.03623182517482736,
+            "retained": -0.03623182517482732,
+            "absolute_difference": 4.163336342344337e-17
+          },
+          "efficiency": {
+            "oracle": 0.9860398915455755,
+            "retained": 0.9860398915455837,
+            "absolute_difference": 8.215650382226158e-15
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 5.595524044110789e-14,
+          "section_cl": 2.7755575615628914e-17,
+          "strip_force": 1.7763568394002505e-15,
+          "strip_moment": 4.440892098500626e-16,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 8.483123737206374e-16,
+          "projected_residual": 4.493074103985553e-17,
+          "integrated_force": 2.2737367544323206e-13,
+          "integrated_moment": 3.410605131648481e-13
+        }
+      },
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n200-k40.json",
+          "bytes": 394501,
+          "sha256": "9f8f7c7bd5664021b13364a54a5a930e9f0b409e089501ec2934b2c424d261fe"
+        },
+        "panels": 200,
+        "modes": 40,
+        "alpha": 18.091,
+        "values": {
+          "CL": {
+            "oracle": 1.050230824001119,
+            "retained": 1.0502308240011196,
+            "absolute_difference": 6.661338147750939e-16
+          },
+          "CD": {
+            "oracle": 0.0966804830486848,
+            "retained": 0.0966804830486849,
+            "absolute_difference": 9.71445146547012e-17
+          },
+          "CDi": {
+            "oracle": 0.06409193024789123,
+            "retained": 0.06409193024789124,
+            "absolute_difference": 1.3877787807814457e-17
+          },
+          "CDi_near": {
+            "oracle": 0.06409193024789123,
+            "retained": 0.06409193024789117,
+            "absolute_difference": 5.551115123125783e-17
+          },
+          "CLi": {
+            "oracle": 1.0518795646360801,
+            "retained": 1.0518795646360803,
+            "absolute_difference": 2.220446049250313e-16
+          },
+          "CDp": {
+            "oracle": 0.03258855280079352,
+            "retained": 0.032588552800793605,
+            "absolute_difference": 8.326672684688674e-17
+          },
+          "Cm": {
+            "oracle": -0.25494541920000047,
+            "retained": -0.2549454192000006,
+            "absolute_difference": 1.1102230246251565e-16
+          },
+          "efficiency": {
+            "oracle": 0.9313797690714872,
+            "retained": 0.9313797690714875,
+            "absolute_difference": 2.220446049250313e-16
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 1.758593271006248e-13,
+          "section_cl": 3.3306690738754696e-16,
+          "strip_force": 1.1368683772161603e-13,
+          "strip_moment": 7.105427357601002e-15,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 3.300537994359266e-15,
+          "projected_residual": 2.168799912571723e-16,
+          "integrated_force": 5.4569682106375694e-12,
+          "integrated_moment": 1.9694003372539015e-12
+        }
+      },
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k0.json",
+          "bytes": 755966,
+          "sha256": "cb6f4ff9b297dc63141867d545b839661b89ef162d3a9dffac944d4f289d70b8"
+        },
+        "panels": 400,
+        "modes": 0,
+        "alpha": 18.091,
+        "values": {
+          "CL": {
+            "oracle": 1.0502342042742197,
+            "retained": 1.05023420427422,
+            "absolute_difference": 4.440892098500626e-16
+          },
+          "CD": {
+            "oracle": 0.0966807531836646,
+            "retained": 0.09668075318366465,
+            "absolute_difference": 4.163336342344337e-17
+          },
+          "CDi": {
+            "oracle": 0.06409218206944471,
+            "retained": 0.06409218206944427,
+            "absolute_difference": 4.440892098500626e-16
+          },
+          "CDi_near": {
+            "oracle": 0.06409218206944471,
+            "retained": 0.06409218206944507,
+            "absolute_difference": 3.608224830031759e-16
+          },
+          "CLi": {
+            "oracle": 1.0518829305434148,
+            "retained": 1.0518829305434156,
+            "absolute_difference": 8.881784197001252e-16
+          },
+          "CDp": {
+            "oracle": 0.0325885711142199,
+            "retained": 0.03258857111421999,
+            "absolute_difference": 9.020562075079397e-17
+          },
+          "Cm": {
+            "oracle": -0.25494623862737903,
+            "retained": -0.25494623862737925,
+            "absolute_difference": 2.220446049250313e-16
+          },
+          "efficiency": {
+            "oracle": 0.9313820702580724,
+            "retained": 0.9313820702580803,
+            "absolute_difference": 7.882583474838611e-15
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 3.3928415632544784e-13,
+          "section_cl": 4.440892098500626e-16,
+          "strip_force": 1.1191048088221578e-13,
+          "strip_moment": 7.105427357601002e-15,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 1.7355636760775628e-14,
+          "projected_residual": 1.7355636760775628e-14,
+          "integrated_force": 3.637978807091713e-12,
+          "integrated_moment": 1.8189894035458565e-12
+        }
+      },
+      {
+        "source": {
+          "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k40.json",
+          "bytes": 756729,
+          "sha256": "e8f5c32b5438e8f236870a740c15447085fb732d3d067112f5a5b1568441ac9b"
+        },
+        "panels": 400,
+        "modes": 40,
+        "alpha": 18.091,
+        "values": {
+          "CL": {
+            "oracle": 1.050234203484131,
+            "retained": 1.0502342034841303,
+            "absolute_difference": 6.661338147750939e-16
+          },
+          "CD": {
+            "oracle": 0.09668075295437746,
+            "retained": 0.09668075295437721,
+            "absolute_difference": 2.498001805406602e-16
+          },
+          "CDi": {
+            "oracle": 0.06409218188196293,
+            "retained": 0.06409218188196279,
+            "absolute_difference": 1.3877787807814457e-16
+          },
+          "CDi_near": {
+            "oracle": 0.06409218188196293,
+            "retained": 0.06409218188196335,
+            "absolute_difference": 4.163336342344337e-16
+          },
+          "CLi": {
+            "oracle": 1.051882929752793,
+            "retained": 1.0518829297527919,
+            "absolute_difference": 1.1102230246251565e-15
+          },
+          "CDp": {
+            "oracle": 0.03258857107241453,
+            "retained": 0.0325885710724146,
+            "absolute_difference": 6.938893903907228e-17
+          },
+          "Cm": {
+            "oracle": -0.2549462384249403,
+            "retained": -0.25494623842494046,
+            "absolute_difference": 1.6653345369377348e-16
+          },
+          "efficiency": {
+            "oracle": 0.9313820715824407,
+            "retained": 0.9313820715824409,
+            "absolute_difference": 2.220446049250313e-16
+          }
+        },
+        "maximum_absolute_differences": {
+          "velocity": 7.94031507211912e-13,
+          "section_cl": 4.440892098500626e-16,
+          "strip_force": 9.947598300641403e-14,
+          "strip_moment": 7.105427357601002e-15,
+          "geometry": 2.220446049250313e-16,
+          "local_residual": 1.7207298140618082e-14,
+          "projected_residual": 3.327630772397486e-16,
+          "integrated_force": 5.4569682106375694e-12,
+          "integrated_moment": 3.89743879530835e-12
+        }
+      }
+    ],
+    "evidence_pins": [
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/aero.py",
+        "bytes": 62537,
+        "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/frozen_influence.py",
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/factored_influence.py",
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/circulation.py",
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      {
+        "path": "/home/userland/aswing/openswing/trefftz.py",
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/asw_theory.txt",
+        "bytes": 202732,
+        "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+        "bytes": 144192,
+        "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+      },
+      {
+        "path": "/tmp/sa1-scalar-horseshoe-oracle-20261027.py",
+        "bytes": 4926,
+        "sha256": "60aa53450fce103b8d3afc0cbf33ed4038f614fd32489f180a91478b7062083c"
+      },
+      {
+        "path": "/tmp/test-sa1-scalar-horseshoe-oracle-20261027.py",
+        "bytes": 2871,
+        "sha256": "f5875830a62bbb1d75016b3a6d417ea85d3781f01bd3b7cd8b081350aa102805"
+      }
+    ],
+    "oracle_unit_tests": {
+      "count": 6,
+      "status": "passed",
+      "seconds": 0.012,
+      "terminal_exit": 0,
+      "terminal_chunk": "0f4222",
+      "kinds": [
+        "direct numerical integral of three Biot-Savart lines",
+        "half-wake identity",
+        "internal-filament cancellation",
+        "span reflection",
+        "2D lift slope limit",
+        "consistent length scaling"
+      ]
+    },
+    "maxima": {
+      "velocity": 7.94031507211912e-13,
+      "section_cl": 4.440892098500626e-16,
+      "strip_force": 1.1368683772161603e-13,
+      "strip_moment": 7.105427357601002e-15,
+      "geometry": 2.220446049250313e-16,
+      "local_residual": 1.7355636760775628e-14,
+      "projected_residual": 1.7355636760775628e-14,
+      "integrated_force": 5.4569682106375694e-12,
+      "integrated_moment": 3.89743879530835e-12
+    },
+    "maximum_coefficient_difference": 8.215650382226158e-15,
+    "findings": [
+      "Mach0 finitehorseshoe/collocation/force-point replay agrees with retained states to roundoff for these six SA1 cases.",
+      "This audit uses retained Gamma and performs zero circulation solves; it verifies equation evaluation, not archival Gamma parity.",
+      "Vperp at the bound force point follows the steady Section3.1 definition carried into Eq202. Eq202 does not repeat its evaluation coordinate; no source-supported change to CP or beam axis was identified."
+    ]
+  },
+  "oracle_scripts": [
+    {
+      "path": "/tmp/sa1-scalar-horseshoe-oracle-20261027.py",
+      "bytes": 4926,
+      "sha256": "60aa53450fce103b8d3afc0cbf33ed4038f614fd32489f180a91478b7062083c",
+      "source_text": "\"\"\"Read saved SA1 states; independent scalar Biot-Savart, no solve/import.\"\"\"\nfrom pathlib import Path\nimport hashlib,json,math\n\nROOT=Path('/home/userland/aswing')\nFOLDER=ROOT/'artifacts/isae/sa1-basis-diagnostic-20261027'\ndef wpair(y,a,b,d):\n    u,v=y-a,y-b\n    if u==0 or v==0:raise ValueError('Receiver on a trailing filament')\n    if d==0:return (1/v-1/u)/(4*math.pi)\n    return ((1+math.hypot(d,v)/d)/v-(1+math.hypot(d,u)/d)/u)/(4*math.pi)\ndef leakage(cl):\n    def softplus(z):return max(z,0)+math.log1p(math.exp(-abs(z)))\n    return .05*(softplus((cl-1.2)/.05)-softplus((-1.2-cl)/.05))\ndef pin(path):\n    raw=path.read_bytes();return dict(path=str(path.relative_to(ROOT)),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())\nrows=[]\nfor path in sorted(FOLDER.glob('row*.json')):\n    packet=json.loads(path.read_text());j=packet['job'];r=packet['result'];condition=j['condition']\n    assert condition['mach']==condition['beta']==0 and condition['freeze_influences'] is False\n    assert condition['stall_factor']==40 and condition['stall_width']==.05\n    n=j['panels'];strips=r['strips'];nodes=[x['t'] for x in r['mesh_discretization']['beams'][0]['nodes']]\n    assert len(nodes)==n+1 and len(strips)==n and nodes[0]==-2.95 and nodes[-1]==2.95\n    U,rho,S,c,a0=47.9,1.2256,5.9,1.,6.2832\n    assert condition['speed']==U and condition['density']==rho\n    alpha=math.radians(condition['alpha']);sa,ca=math.sin(alpha),math.cos(alpha)\n    e=[ca,0.,sa];ell=[-sa,0.,ca];gamma=[x['circulation'] for x in strips]\n    force=[];moment=[];residual=[];wakes=[];profile=[];lift=[]\n    velocity_error=[];cl_error=[];strip_force_error=[];strip_moment_error=[];geometry_error=[]\n    for i,s in enumerate(strips):\n        y=s['t'];ds=nodes[i+1]-nodes[i]\n        wh=math.fsum(g*wpair(y,a,b,0.) for g,a,b in zip(gamma,nodes,nodes[1:]))\n        wc=math.fsum(g*wpair(y,a,b,c*a0/(4*math.pi)) for g,a,b in zip(gamma,nodes,nodes[1:]))\n        speed=math.hypot(U,wh);cl=2*gamma[i]/(c*speed);vn=U*sa+wc*ca\n        residual.append((vn-speed/a0*40*leakage(cl))/U)\n        velocity=[U*e[k]+wh*ell[k] for k in range(3)]\n        fl=[rho*gamma[i]*(U*ell[k]-wh*e[k])*ds for k in range(3)]\n        scale=rho*c*(.5*(.00352562+.00771413)*speed+2*vn*vn/speed)*ds\n        fp=[scale*v for v in velocity]\n        f=[a+b for a,b in zip(fl,fp)]\n        my=-.25*fl[2]\n        force.append(f);moment.append([y*f[2],my,-y*f[0]]);profile.append(fp);lift.append(fl);wakes.append(wh)\n        velocity_error.extend(abs(a-b) for a,b in zip(velocity,s['relative_velocity']))\n        cl_error.append(abs(cl-s['cl']))\n        strip_force_error.extend(abs(a-b) for a,b in zip(f,s['force']))\n        strip_moment_error.append(abs(my-s['moment'][1]))\n        geometry_error.extend(abs(a-b) for a,b in zip(s['velocity_position'],[.25*ca,y,.25*sa]))\n        geometry_error.append(abs(ds-s['length']))\n    def total(values):return [math.fsum(v[k] for v in values) for k in range(3)]\n    f,m,fp,fl=map(total,[force,moment,profile,lift]);qS=.5*rho*U*U*S\n    def dot(a,b):return math.fsum(x*y for x,y in zip(a,b))\n    cli=2*math.fsum(g*(b-a) for g,a,b in zip(gamma,nodes,nodes[1:]))/(U*S)\n    cdi=-2*math.fsum(g*w*(b-a) for g,w,a,b in zip(gamma,wakes,nodes,nodes[1:]))/(U*U*S)\n    predicted=dict(CL=dot(f,ell)/qS,CD=dot(f,e)/qS,CDi=cdi,CDi_near=cdi,CLi=cli,CDp=dot(fp,e)/qS,\n        Cm=m[1]/qS,efficiency=cli*cli/(math.pi*5.9*cdi))\n    predicted_residual=residual\n    modes=condition['circulation_modes'].get('1',0)\n    if modes:\n        theta=[x['theta'] for x in r['mesh_discretization']['beams'][0]['nodes']]\n        predicted_residual=[2/math.pi*math.fsum(v*math.sin(k*(a+b)/2)*(a-b) for v,a,b in zip(residual,theta,theta[1:])) for k in range(1,modes+1)]\n    rows.append(dict(source=pin(path),panels=n,modes=modes,alpha=condition['alpha'],\n        values={k:dict(oracle=v,retained=r[k],absolute_difference=abs(v-r[k])) for k,v in predicted.items()},\n        maximum_absolute_differences=dict(velocity=max(velocity_error),section_cl=max(cl_error),strip_force=max(strip_force_error),\n            strip_moment=max(strip_moment_error),geometry=max(geometry_error),\n            local_residual=max(abs(a-b) for a,b in zip(residual,r['circulation_local_residual'])),\n            projected_residual=max(abs(a-b) for a,b in zip(predicted_residual,r['circulation_residual'])),\n            integrated_force=max(abs(a-b) for a,b in zip(f,r['force'])),integrated_moment=max(abs(a-b) for a,b in zip(m,r['moment'])))))\nout=dict(scope='SA1 saved circulation replay through independently derived scalar Biot-Savart. No solve, matrix assembly or production/numerical import.',\n    formula='w(d)=[(1+hypot(d,y-b)/d)/(y-b)-(1+hypot(d,y-a)/d)/(y-a)]/(4*pi); w(0)=[1/(y-b)-1/(y-a)]/(4*pi)',\n    cases=rows)\nPath('/tmp/sa1-scalar-horseshoe-oracle-20261027.json').write_text(json.dumps(out,indent=2)+'\\n')\nfor row in rows:print(row['source']['path'].split('/')[-1],row['maximum_absolute_differences'])\n"
+    },
+    {
+      "path": "/tmp/test-sa1-scalar-horseshoe-oracle-20261027.py",
+      "bytes": 2871,
+      "sha256": "f5875830a62bbb1d75016b3a6d417ea85d3781f01bd3b7cd8b081350aa102805",
+      "source_text": "\"\"\"Independent integral and symmetry tests; no production/numerical imports.\"\"\"\nimport ast,math,unittest\nfrom pathlib import Path\ntree=ast.parse(Path('/tmp/sa1-scalar-horseshoe-oracle-20261027.py').read_text())\nscope={'math':math}\nexec(compile(ast.Module(body=[x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='wpair'],type_ignores=[]),'<oracle-wpair>','exec'),scope)\nwpair=scope['wpair']\n\ndef integrate(f,a,b,tol=2e-12):\n    def simpson(a,b,fa,fm,fb):return (b-a)*(fa+4*fm+fb)/6\n    fa,fm,fb=f(a),f((a+b)/2),f(b)\n    def recurse(a,b,fa,fm,fb,whole,tol,depth):\n        m=(a+b)/2;fl,fr=f((a+m)/2),f((m+b)/2)\n        left=simpson(a,m,fa,fl,fm);right=simpson(m,b,fm,fr,fb)\n        error=left+right-whole\n        if abs(error)<=15*tol:return left+right+error/15\n        if depth==0:raise AssertionError('Integral tolerance not reached')\n        return recurse(a,m,fa,fl,fm,left,tol/2,depth-1)+recurse(m,b,fm,fr,fb,right,tol/2,depth-1)\n    return recurse(a,b,fa,fm,fb,simpson(a,b,fa,fm,fb),tol,28)\n\ndef direct_biot_savart(y,a,b,d):\n    bound=0. if d==0 else integrate(lambda s:-d/(d*d+(y-s)**2)**1.5,a,b)\n    # Independent integration of each infinite filament with l=t/(1-t).\n    def ray(eta):\n        return integrate(lambda t:eta*(1-t)/((d*(1-t)-t)**2+eta*eta*(1-t)**2)**1.5,0.,1.)\n    return (bound+ray(y-b)-ray(y-a))/(4*math.pi)\n\nclass OracleTests(unittest.TestCase):\n    def test_closed_form_against_three_line_integrals(self):\n        for a,b,y,d in [(-1.3,.7,-.2,.500001),(-1.3,.7,.5,.500001),(-1.3,.7,1.2,.5),\n                        (-1.3,.7,-2.,-.5),(-1.3,.7,-.2,0.),(-1.3,.7,1.2,0.)]:\n            with self.subTest(a=a,b=b,y=y,d=d):\n                self.assertAlmostEqual(wpair(y,a,b,d),direct_biot_savart(y,a,b,d),delta=4e-12)\n    def test_boundline_is_half_infinite_wake(self):\n        y,a,b=.3,-1.,2.\n        infinite=(1/(y-b)-1/(y-a))/(2*math.pi)\n        self.assertEqual(2*wpair(y,a,b,0.),infinite)\n    def test_constant_circulation_internal_wakes_cancel(self):\n        nodes=[-2.,-1.8,-.9,.2,.7,1.5,2.]\n        for d in [0.,.500001,-.5]:\n            actual=math.fsum(wpair(.4,a,b,d) for a,b in zip(nodes,nodes[1:]))\n            self.assertAlmostEqual(actual,wpair(.4,nodes[0],nodes[-1],d),delta=2e-15)\n    def test_span_reflection(self):\n        for d in [0.,.5,-.5]:\n            self.assertAlmostEqual(wpair(.4,-1.2,.9,d),wpair(-.4,-.9,1.2,d),delta=2e-16)\n    def test_two_dimensional_lift_slope_limit(self):\n        a0=6.2832;c=1.;d=a0*c/(4*math.pi);h=1e8\n        slope=2/(-wpair(0.,-h,h,d)*c)\n        # Finite-span end-ray correction bounded analytically by 2d/h.\n        self.assertLess(abs(slope/a0-1),2*d/h)\n    def test_dimensional_scaling(self):\n        scale=17.3\n        self.assertAlmostEqual(scale*wpair(.4*scale,-1.2*scale,.9*scale,.5*scale),wpair(.4,-1.2,.9,.5),delta=3e-16)\n\nif __name__=='__main__':unittest.main(verbosity=2)\n"
+    }
+  ],
+  "limitations": [
+    "General compressible and curved-wing equivalence was audited algebraically, not by new physical runs.",
+    "The six-case oracle checks evaluation at retained Gamma, not the identity of historical ASWING Gamma or an archived-reference pass.",
+    "Profile-force interpretation and historical f_a averaging are being reviewed separately by other owners.",
+    "Historical v5.96 startup, source defaults and exact grid/basis remain qualified; no settings were selected by agreement."
+  ]
+}

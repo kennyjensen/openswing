@@ -1,0 +1,158 @@
+{
+  "status": "SAVED_ONLY_DIAGNOSTIC_COMPLETE",
+  "report_pin": {
+    "path": "/tmp/openswing-isae-literal-highspeed-shapes-20261025/report.json",
+    "bytes": 253216,
+    "sha256": "a81254f3b9bda535cc21305d564e5290a5de283711e0e9c2874ac93876ae2f6e"
+  },
+  "main_findings": [
+    {
+      "finding": "Displacement and elevation change from slight overprediction to underprediction together.",
+      "evidence": [
+        {
+          "alpha_deg": 5,
+          "source_delta_z_negative_error_first_speed": 38,
+          "elevation_negative_error_first_speed": 38,
+          "descriptive_thresholds_not_acceptance": [
+            {
+              "source_underprediction_percent": 1,
+              "first_speed": 42
+            },
+            {
+              "source_underprediction_percent": 5,
+              "first_speed": 51
+            },
+            {
+              "source_underprediction_percent": 10,
+              "first_speed": 56
+            }
+          ]
+        },
+        {
+          "alpha_deg": 7,
+          "source_delta_z_negative_error_first_speed": 36,
+          "elevation_negative_error_first_speed": 36,
+          "descriptive_thresholds_not_acceptance": [
+            {
+              "source_underprediction_percent": 1,
+              "first_speed": 39
+            },
+            {
+              "source_underprediction_percent": 5,
+              "first_speed": null
+            },
+            {
+              "source_underprediction_percent": 10,
+              "first_speed": null
+            }
+          ]
+        }
+      ],
+      "interpretation": "Coherent shape response change, not an isolated displacement-output offset."
+    },
+    {
+      "finding": "At5deg/U56, native baseline-subtracted z is10.1105% below archived output and sensor3 elevation is0.158039deg lower.",
+      "delta_z_error_m": -0.024899547060107274,
+      "relative_delta_z_error": -0.101104811702495,
+      "elevation_error_deg": -0.15803928595819894,
+      "source_locator": "aswing_alpha_05.txt fileline60/datarow57",
+      "native_source_midpoint_x_m": [
+        0.0024058218569821604,
+        0.0029217500000000007
+      ]
+    },
+    {
+      "finding": "At7deg/U42, native baseline-subtracted z is2.52707% below archive and elevation is0.0310943deg lower.",
+      "delta_z_error_m": -0.0041870382106698745,
+      "relative_delta_z_error": -0.0252706793427503,
+      "elevation_error_deg": -0.03109427074400961,
+      "source_locator": "aswing_alpha_07.txt fileline46/datarow43"
+    },
+    {
+      "finding": "Selected native strips are never flagged stalled.",
+      "selected_aero_cases": 9,
+      "total_strip_records": 1089,
+      "max_saved_cl": 0.7165903673353331,
+      "interpretation": "No native stall-switch onset is present in the selected cases. This does not establish historical ASWING or experimental stall state."
+    },
+    {
+      "finding": "Large geometric deformation coincides with the growing difference.",
+      "case": "m120-a5-u56",
+      "tip_spanwise_coordinate_m": 0.5048294918056422,
+      "jig_projected_span_m": 0.55,
+      "projected_shortening_percent": 8.212819671701428,
+      "tip_material_span_elevation_deg": 28.802034026334926,
+      "axis_polyline_length_m": 0.55000019725826,
+      "aero_force_N": [
+        -3.5402802133223075,
+        -19.71402531356931,
+        50.039714141073276
+      ],
+      "root_reaction_moment_x_Nm": -12.722427989558048,
+      "interpretation": "The8.21% projected span reduction is geometric bending; the saved axis polyline length stays within0.20micrometres of.55m. No historicalRY exists to compare that shortening directly."
+    },
+    {
+      "finding": "Known output and numerical differences are much smaller than the highspeed source mismatch.",
+      "native_baseline_z_m": -0.017294645425771193,
+      "archived_initial_z_m": -0.0172946,
+      "baseline_z_difference_m": -4.542577119320823e-08,
+      "native_angle_definition_difference_deg": -0.0001427711282868671,
+      "source_angle_definition_difference_deg": -0.000289803660117105,
+      "source_delta_z_print_bound_m": 5.5e-07,
+      "source_elevation_print_bound_deg": 5e-06,
+      "mesh60_to120_delta_z_change_m": 9.36243692770955e-05,
+      "limitation": "This excludes these particular reporting/mesh differences as dominant explanations; it does not establish continuum or historical discretization parity."
+    }
+  ],
+  "ranked_followups": [
+    {
+      "rank": 1,
+      "hypothesis": "Finite-deformation aerodynamic/structural coupling or historical implementation conventions differ.",
+      "support": "Mismatch grows with native bending and coherentX/Z/elevation change while native stall flags remainfalse; available archive cannot partition load versus stiffness causes.",
+      "next_action": "Use the saved actual loaded r/Q and strip/element arrays for a separately scoped independent finite-deformation load/resultant or prescribed-shape aerodynamic check. Prior straight or mirrored-component checks do not by themselves establish historical full-equilibrium parity.",
+      "limitation": "Historical distributed shapes, load distributions and source version are unavailable; this is a discriminating check, not a diagnosed defect."
+    },
+    {
+      "rank": 2,
+      "hypothesis": "Unserialized historical operating or aerodynamic settings differ.",
+      "support": "IAS/true-speed conversion, atmosphere, gravity orientation, PG settings and oldsolverversion remainconditional; the small low-speed difference makes a simple constant offset inadequate but does not exclude nonlinear amplification of input differences.",
+      "next_action": "Inspect only existing source/operator/default provenance for an explicit mismatch before proposing any changed condition.",
+      "limitation": "Do not fit density, incidence, stiffness or section coefficients to the highspeed curve."
+    },
+    {
+      "rank": 3,
+      "hypothesis": "A different equilibrium branch or static/dynamic regime affects historical comparison.",
+      "support": "Current independent cold states and archived continuation differ in loadingpath; highspeed experimental observations do not certify staticstability.",
+      "next_action": "Retain branchpath as unresolved; any stability or branch-following test requires separate authorization and inputs.",
+      "limitation": "These saved steady states do not identify instability or another equilibrium branch."
+    }
+  ],
+  "excluded_shortcuts": [
+    "Do not infer archivedRY or fullspan shape from missing columns.",
+    "Do not replace sensor elevation with projected chord angle.",
+    "Do not infer local strip incidence from structural-midpoint axes sampled at differentstations.",
+    "Do not use archived initial sag as the native baseline.",
+    "Do not call the archived numerical curve an experimental truth target."
+  ],
+  "operations": {
+    "saved_result_reads": 10,
+    "saved_verification_array_reads": 10,
+    "new_aircraft_imports": 0,
+    "new_residuals": 0,
+    "new_aerodynamic_evaluations": 0,
+    "new_solves": 0
+  },
+  "limitations": [
+    "Archived RY, full node shapes, aerodynamic loads, circulation and local incidence are absent; no archived span shortening or load difference can be recovered.",
+    "Source midpoint X is the arithmetic mean of saved LE/TE X, not an independently stored sensor3 RX.",
+    "Projected LE/TE chord angle remains distinct from the source sensor3 Earth elevation.",
+    "All current conditions remain the declared conditional density/gravity/IAS mapping; archived conditions are incomplete.",
+    "Native nonstalled flags describe the selected native model states only, not historical ASWING stall states.",
+    "Shape/load trends identify follow-up hypotheses, not a cause or stability result."
+  ],
+  "input_pin": {
+    "path": "/tmp/openswing-isae-literal-highspeed-shapes-20261025/plan.json",
+    "bytes": 14256,
+    "sha256": "2bc8bc9322affe8a5ea7f39cf5d74301793ac30ef726e5edeeb8546a02f3e70a"
+  }
+}

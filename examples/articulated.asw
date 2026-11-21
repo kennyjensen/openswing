@@ -1,0 +1,68 @@
+! Original OpenSwing example: elastic outer panels with sprung folding joints.
+! SI input units. Jangle slopes have opposite signs at the two beam-1 ends.
+Name
+Articulated research wing
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+12 1 12
+0 0 0
+End
+Ground
+1 0 0
+End
+Joint
+1 2 2 2 3
+1 3 -2 -2 3
+End
+Jangle
+1 1 0 0
+-8000 -45
+-4000 -15
+-4000 -15
+0 0
+4000 15
+4000 15
+8000 45
+End
+Jangle
+2 1 0 0
+-8000 45
+-4000 15
+-4000 15
+0 0
+4000 -15
+4000 -15
+8000 -45
+End
+Beam 1 1
+Rigid center section
+t x y z chord Xax Cdf mg
+-2 0 -2 0 1 .25 .008 15
+2 0 2 0 1 .25 .008 15
+End
+Beam 2 1
+Right folding panel
+t x y z chord Xax Cdf mg
+2 0 2 0 1 .25 .008 15
+6 0 6 0 1 .25 .008 15
+t EIcc EInn GJ EA
+2 120000 1000000 50000 10000000
+6 120000 1000000 50000 10000000
+End
+Beam 3 1
+Left folding panel
+t x y z chord Xax Cdf mg
+-6 0 -6 0 1 .25 .008 15
+-2 0 -2 0 1 .25 .008 15
+t EIcc EInn GJ EA
+-6 120000 1000000 50000 10000000
+-2 120000 1000000 50000 10000000
+End

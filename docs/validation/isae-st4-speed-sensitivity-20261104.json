@@ -1,0 +1,377 @@
+{
+  "status": "COMPLETE_FIRST_ORDER_DIAGNOSTIC",
+  "scope": "Local speed sensitivity and critical-speed-shift hypothesis; no replacement eigenvalues, fitted settings or changed validation scores.",
+  "native_ASWING_validation": false,
+  "goal_complete": false,
+  "critical_speeds": {
+    "n128": 139.44570942837473,
+    "n160": 139.44477947957301,
+    "a768_s512": 139.44323010136628
+  },
+  "rows": [
+    {
+      "kind": "production mesh",
+      "target": "n128",
+      "ordinal": 3,
+      "actual_pole_difference": [
+        -0.0005797658879456574,
+        5.38611150430846e-12
+      ],
+      "first_order_critical_shift_prediction": [
+        -0.0005789388084864269,
+        -7.962830415860746e-18
+      ],
+      "unexplained_difference": [
+        -8.270794592305473e-07,
+        5.386119467138876e-12
+      ],
+      "real_difference_fraction_explained": 0.9985734251075702
+    },
+    {
+      "kind": "production mesh",
+      "target": "n128",
+      "ordinal": 6,
+      "actual_pole_difference": [
+        0.0011841833144994318,
+        0.007996934916121745
+      ],
+      "first_order_critical_shift_prediction": [
+        -0.0001414558269901485,
+        0.00026066543557816694
+      ],
+      "unexplained_difference": [
+        0.0013256391414895802,
+        0.0077362694805435785
+      ],
+      "real_difference_fraction_explained": -0.11945433216135415
+    },
+    {
+      "kind": "implementation comparison",
+      "target": "a768_s512",
+      "ordinal": 3,
+      "actual_pole_difference": [
+        0.0009659986918962374,
+        6.6564208410751054e-12
+      ],
+      "first_order_critical_shift_prediction": [
+        0.000964564039707472,
+        1.3266790480860022e-17
+      ],
+      "unexplained_difference": [
+        1.4346521887653686e-06,
+        6.656407574284625e-12
+      ],
+      "real_difference_fraction_explained": 0.9985148507955542
+    },
+    {
+      "kind": "implementation comparison",
+      "target": "a768_s512",
+      "ordinal": 6,
+      "actual_pole_difference": [
+        -0.0020953730771919865,
+        -0.014569381158622718
+      ],
+      "first_order_critical_shift_prediction": [
+        0.00023567810953716326,
+        -0.00043429202165720627
+      ],
+      "unexplained_difference": [
+        -0.0023310511867291497,
+        -0.014135089136965512
+      ],
+      "real_difference_fraction_explained": -0.11247548806582741
+    }
+  ],
+  "physical_report": {
+    "status": "PASS_LOCAL_SPEED_DERIVATIVE_CHECK",
+    "native_ASWING_validation": false,
+    "goal_complete": false,
+    "speed": 139.5,
+    "base_residual": 4.588567179345512e-16,
+    "anchor_checks": [
+      {
+        "index": 4,
+        "A_relative_error": 3.083373855668312e-08,
+        "M_relative_error": 2.142222708302918e-13
+      },
+      {
+        "index": 1,
+        "A_relative_error": 1.2402324593257532e-12,
+        "M_relative_error": 1.3378240059689436e-15
+      }
+    ],
+    "slopes": [
+      {
+        "index": 4,
+        "eigenvalue": [
+          0.03439970639788215,
+          -6.656420821362343e-12
+        ],
+        "samples": [
+          {
+            "speed_step": 0.03,
+            "state_step": 1e-05,
+            "derivative": [
+              0.6225491203763566,
+              8.562663240258698e-15
+            ]
+          },
+          {
+            "speed_step": 0.01,
+            "state_step": 1e-05,
+            "derivative": [
+              0.6225491203649035,
+              8.562665812165709e-15
+            ]
+          },
+          {
+            "speed_step": 0.003,
+            "state_step": 1e-05,
+            "derivative": [
+              0.6225491203576727,
+              8.562673932456688e-15
+            ]
+          },
+          {
+            "speed_step": 0.003,
+            "state_step": 3e-06,
+            "derivative": [
+              0.622549120360815,
+              8.56265463346058e-15
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "eigenvalue": [
+          -1.3070942788150188,
+          182.87230209051478
+        ],
+        "samples": [
+          {
+            "speed_step": 0.03,
+            "state_step": 1e-05,
+            "derivative": [
+              0.15211141589296392,
+              -0.28030081566043713
+            ]
+          },
+          {
+            "speed_step": 0.01,
+            "state_step": 1e-05,
+            "derivative": [
+              0.1521114140156872,
+              -0.28030084263348043
+            ]
+          },
+          {
+            "speed_step": 0.003,
+            "state_step": 1e-05,
+            "derivative": [
+              0.15211141380128687,
+              -0.28030084569717023
+            ]
+          },
+          {
+            "speed_step": 0.003,
+            "state_step": 3e-06,
+            "derivative": [
+              0.15211141380012222,
+              -0.2803008457006231
+            ]
+          }
+        ]
+      }
+    ],
+    "probes": [
+      {
+        "speed": 139.47,
+        "speed_step": 0.03,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.018674467451253347,
+          6.6490579001153884e-12
+        ]
+      },
+      {
+        "speed": 139.47,
+        "speed_step": 0.03,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.004563470889029819,
+          0.008403882587568301
+        ]
+      },
+      {
+        "speed": 139.53,
+        "speed_step": 0.03,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.018678479771328048,
+          6.649571659909804e-12
+        ]
+      },
+      {
+        "speed": 139.53,
+        "speed_step": 0.03,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.004563214064548017,
+          -0.008414166352057927
+        ]
+      },
+      {
+        "speed": 139.49,
+        "speed_step": 0.01,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.006225267831974927,
+          6.649228684227444e-12
+        ]
+      },
+      {
+        "speed": 139.49,
+        "speed_step": 0.01,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.0015211281690263123,
+          0.002802437162933908
+        ]
+      },
+      {
+        "speed": 139.51,
+        "speed_step": 0.01,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.006225714575323143,
+          6.649399937543687e-12
+        ]
+      },
+      {
+        "speed": 139.51,
+        "speed_step": 0.01,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.0015211001112874318,
+          -0.0028035796897357005
+        ]
+      },
+      {
+        "speed": 139.497,
+        "speed_step": 0.003,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.0018676267815668497,
+          6.649288569513208e-12
+        ]
+      },
+      {
+        "speed": 139.497,
+        "speed_step": 0.003,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.0004563352591672865,
+          0.0008408511815604936
+        ]
+      },
+      {
+        "speed": 139.497,
+        "speed_step": 0.003,
+        "state_step": 3e-06,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.0018676272586206064,
+          6.649288569656105e-12
+        ]
+      },
+      {
+        "speed": 139.497,
+        "speed_step": 0.003,
+        "state_step": 3e-06,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          -0.00045633579223431346,
+          0.0008408510320469383
+        ]
+      },
+      {
+        "speed": 139.503,
+        "speed_step": 0.003,
+        "state_step": 1e-05,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.0018676679405791867,
+          6.649339945556803e-12
+        ]
+      },
+      {
+        "speed": 139.503,
+        "speed_step": 0.003,
+        "state_step": 1e-05,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.00045633322364043474,
+          -0.0008409538926225279
+        ]
+      },
+      {
+        "speed": 139.503,
+        "speed_step": 0.003,
+        "state_step": 3e-06,
+        "index": 4,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.0018676674635442836,
+          6.649339945583906e-12
+        ]
+      },
+      {
+        "speed": 139.503,
+        "speed_step": 0.003,
+        "state_step": 3e-06,
+        "index": 1,
+        "base_residual": 4.588567179345512e-16,
+        "projected_pole_defect": [
+          0.00045633269056641996,
+          -0.0008409540421568002
+        ]
+      }
+    ],
+    "residual_evaluations": 151,
+    "seconds": 58.4760254349967,
+    "peak_RSS_KiB": 155092
+  },
+  "evidence_sha256": {
+    "artifacts/isae/st4-speed-sensitivity-20261104/physical/report.json": "8fe566de55d3c81e3de3373351b3bb7ac215dc6b332074ba0f7c1a89adaa350e",
+    "artifacts/isae/st4-speed-sensitivity-20261104/physical/plan.json": "7b53e426f7a28a3c7b8aefc4d53809a66672ed8599e0feef67f23287a2847735",
+    "artifacts/isae/st4-critical-refinement-20261104/assessment.json": "f5fcb714b64a6fc0a43a24ca76a3af2634c165815078aef183aa17522f34682b",
+    "artifacts/isae/st4-static-divergence-20261104/n128/report.json": "617369451a98e5ab5e600a5b3bf214d8d2844340c93782aa284f39d59689a731",
+    "artifacts/isae/st4-static-divergence-20261104/n160/report.json": "90aff4f9fb519c86db1ffd28287d078d844d378c5a15b3db529bb725fedbd837",
+    "artifacts/isae/st4-static-divergence-20261104/a768_s512/report.json": "560cf659ed30b71b544adb862f6150ccd87a998bff14fe9362c76f9cb69a3611"
+  }
+}

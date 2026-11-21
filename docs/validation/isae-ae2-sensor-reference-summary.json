@@ -1,0 +1,160 @@
+{
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "checks": {
+    "passed": 130,
+    "total": 130
+  },
+  "maximum_baseline_induced_component_difference_mps": 9.284240043427872e-15,
+  "maximum_quadrature_field_component_difference_mps": 7.105427357601002e-15,
+  "archive": {
+    "V_mps": 10.0115,
+    "beta_deg": 6.27943
+  },
+  "fine_results": [
+    {
+      "case": "m160-frozen-fixed-zero",
+      "nominal_panels": 160,
+      "receiver": "jig",
+      "position": [
+        0.07,
+        0.0,
+        0.558
+      ],
+      "quadrature": 128,
+      "filaments": 161,
+      "components": {
+        "physical_bound": [
+          0.0,
+          0.17298639564832566,
+          0.0
+        ],
+        "physical_trailing": [
+          0.0,
+          -0.24981030079272415,
+          0.0
+        ],
+        "image_bound": [
+          -0.0,
+          0.0009960980721512775,
+          -0.0
+        ],
+        "image_trailing": [
+          0.0,
+          -0.022784768139182177,
+          0.0
+        ]
+      },
+      "induced_velocity": [
+        0.0,
+        -0.0986125752114294,
+        0.0
+      ],
+      "relative_velocity": [
+        9.961946980917455,
+        -0.970170002688011,
+        0.0
+      ],
+      "sensor_velocity": [
+        9.95160999742114,
+        -1.0708712099473843,
+        0.017629397592392647
+      ],
+      "speed_mps": 10.009076754862361,
+      "beta_deg": 6.1418316315396755,
+      "heading_deg": -0.5741716207643509,
+      "position_y_m": -0.025932299651560603,
+      "source_difference": {
+        "speed_mps": -0.0024232451376384745,
+        "beta_deg": -0.13759836846032414
+      }
+    },
+    {
+      "case": "m160-frozen-fixed-zero",
+      "nominal_panels": 160,
+      "receiver": "current",
+      "position": [
+        0.0683032647040891,
+        -0.025932299651560603,
+        0.5573106552086794
+      ],
+      "quadrature": 128,
+      "filaments": 161,
+      "components": {
+        "physical_bound": [
+          0.10994908950410541,
+          0.14120088387565924,
+          0.0
+        ],
+        "physical_trailing": [
+          0.0,
+          -0.1770788517829267,
+          -0.31053720934554274
+        ],
+        "image_bound": [
+          0.000738917568793974,
+          0.0009489465924232735,
+          -0.0
+        ],
+        "image_trailing": [
+          0.0,
+          -0.022644354730107175,
+          -0.0015841495500351632
+        ]
+      },
+      "induced_velocity": [
+        0.11068800707289939,
+        -0.057573376044951365,
+        -0.3121213588955779
+      ],
+      "relative_velocity": [
+        10.072634987990355,
+        -0.929130803521533,
+        -0.3121213588955779
+      ],
+      "sensor_velocity": [
+        10.061203960696092,
+        -1.0501042115017516,
+        -0.29687606888802676
+      ],
+      "speed_mps": 10.120211430302177,
+      "beta_deg": 5.955906441305911,
+      "heading_deg": -0.5741716207643509,
+      "position_y_m": -0.025932299651560603,
+      "source_difference": {
+        "speed_mps": 0.10871143030217745,
+        "beta_deg": -0.323523558694089
+      }
+    }
+  ],
+  "conclusions": [
+    "Independent regularized Biot-Savart quadrature reproduces the saved frozen jig-receiver induced field and sensor outputs.",
+    "Changing only the receiver to its saved current position worsens both beta and speed agreement with the archived ASWING row.",
+    "This excludes that simple receiver substitution under the retained source/core/Gamma assumptions; it does not establish the historical receiver or core algorithm.",
+    "The scalar sensor transformation matches the documented convention. The archived local-flow discrepancy remains unresolved.",
+    "No core change is tested or proposed. The literal jig sensor lies on its own tip trailing filament, so the zero-core substitution is singular."
+  ],
+  "scope": "Independent regularized Biot-Savart quadrature on saved Gamma/jig sources; receiver policy diagnostic, not a new equilibrium or proof of ASWING implementation.",
+  "counts": {
+    "complete_field_products": 8,
+    "expected": 8,
+    "equilibrium_solves": 0,
+    "circulation_solves": 0,
+    "residuals": 0,
+    "production_imports": 0
+  },
+  "report": {
+    "path": "/tmp/openswing-isae-ae2-sensor-reference-20261025/field-report.json",
+    "bytes": 36322,
+    "sha256": "a24cc2826e23820cb2b73ce11333aa665f76ac1206d64338207bb1cce655531e"
+  },
+  "csv": {
+    "path": "/tmp/openswing-isae-ae2-sensor-reference-20261025/field-comparison.csv",
+    "bytes": 2559,
+    "sha256": "22448b4afab34b4ec9ae986c6780e9173b8bcbcdf02bb81b84724dfc8c3b1b65"
+  },
+  "previous_source_review": {
+    "path": "/tmp/openswing-isae-ae2-sensor-reference-20261025/review.json",
+    "bytes": 9783,
+    "sha256": "60ff60d5c8acfdf9fe4b90642b3eef41d52ca139b640fe5514e9d17db270b497"
+  }
+}

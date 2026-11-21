@@ -1,0 +1,39 @@
+! Original OpenSwing harmonic verification example. SI input units.
+! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.
+! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.
+! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].
+Name
+Instrumented spring-mass demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+End
+Ground
+1 0 0
+End
+Weight
+1 2 0 2 0 19.6133
+End
+Engine
+1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0
+End
+Beam 1
+Axial spring
+t y EA tdeps
+0 0 1000 .02
+2 2 1000 .02
+End
+
+! Default body-aligned pylon-tip pitot, accelerometer and GPS.
+Sensor
+1 1 0 0 0 .2
+2 1 2 .3 2 .2
+End

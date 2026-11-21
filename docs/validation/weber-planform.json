@@ -1,0 +1,583 @@
+{
+  "description": "Reconstruct the published Weber/Brebner planform without an aerodynamic fit.\n\nARC R&M 2882, Part II, Table 1 (printed p.42 / PDF p.43) gives the tip\ncoordinates. Figure 1 (printed p.75 / PDF p.76) supplies their origin and\nthe three finite spans. No ASWING solver, spline or mesh code is used here.\n",
+  "source": {
+    "url": "https://naca.central.cranfield.ac.uk/bitstream/handle/1826.2/3441/arc-rm-2882.pdf",
+    "bytes": 4655058,
+    "sha256": "7c4ea8285ebd25e602a67b58e238819b3389c8305b7b92760525c1a745c456e4",
+    "alternative_url": "https://reports.aerade.cranfield.ac.uk/bitstream/handle/1826.2/3441/arc-rm-2882.pdf?isAllowed=y&sequence=1"
+  },
+  "locations": {
+    "tip_table": {
+      "printed": 42,
+      "pdf": 43
+    },
+    "coordinate_figure": {
+      "printed": 75,
+      "pdf": 76
+    },
+    "section_and_moment_notes": {
+      "printed": 43,
+      "pdf": 44
+    }
+  },
+  "source_sha256": {
+    "scripts/reconstruct-weber-planform.py": "967ce87385175175b6f488b6ab3717ac965e5a67cb0a8c5fe5293bb5197d53d4",
+    "docs/validation/sa2-sources.json": "4c1b2ec7e4d08fcf3003ceb79f6320eb6487a1d4a089875a05a8b43cc0c5fe5d"
+  },
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "tip_coordinates_local_xy_in": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.8
+    ],
+    [
+      2.0,
+      1.43
+    ],
+    [
+      3.0,
+      2.0
+    ],
+    [
+      4.0,
+      2.4
+    ],
+    [
+      5.0,
+      2.78
+    ],
+    [
+      6.0,
+      3.08
+    ],
+    [
+      7.0,
+      3.35
+    ],
+    [
+      8.0,
+      3.6
+    ],
+    [
+      9.0,
+      3.8
+    ],
+    [
+      10.0,
+      4.0
+    ],
+    [
+      11.0,
+      4.12
+    ],
+    [
+      12.0,
+      4.28
+    ],
+    [
+      13.0,
+      4.4
+    ],
+    [
+      14.0,
+      4.5
+    ],
+    [
+      15.0,
+      4.6
+    ],
+    [
+      16.0,
+      4.68
+    ],
+    [
+      17.0,
+      4.75
+    ],
+    [
+      18.0,
+      4.8
+    ],
+    [
+      19.0,
+      4.86
+    ],
+    [
+      20.0,
+      4.92
+    ],
+    [
+      21.0,
+      4.95
+    ],
+    [
+      22.0,
+      4.98
+    ],
+    [
+      23.0,
+      5.0
+    ],
+    [
+      24.0,
+      5.0
+    ],
+    [
+      25.0,
+      5.0
+    ]
+  ],
+  "interpretation": "x points aft, y points outboard, origin at the start of the curved leading edge; the straight trailing edge is x=y+20 in global coordinates. Final repeated y=5 entries are a constant-span edge, not extra span stations. Pressure-tube fairings are excluded.",
+  "cases": [
+    {
+      "span_in": 98,
+      "figure_aspect_ratio": 5,
+      "straight_le_end_and_tip_origin_in": [
+        44.0,
+        44.0
+      ],
+      "half_outline_xy_in": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          44.0,
+          44.0
+        ],
+        [
+          45.0,
+          44.8
+        ],
+        [
+          46.0,
+          45.43
+        ],
+        [
+          47.0,
+          46.0
+        ],
+        [
+          48.0,
+          46.4
+        ],
+        [
+          49.0,
+          46.78
+        ],
+        [
+          50.0,
+          47.08
+        ],
+        [
+          51.0,
+          47.35
+        ],
+        [
+          52.0,
+          47.6
+        ],
+        [
+          53.0,
+          47.8
+        ],
+        [
+          54.0,
+          48.0
+        ],
+        [
+          55.0,
+          48.12
+        ],
+        [
+          56.0,
+          48.28
+        ],
+        [
+          57.0,
+          48.4
+        ],
+        [
+          58.0,
+          48.5
+        ],
+        [
+          59.0,
+          48.6
+        ],
+        [
+          60.0,
+          48.68
+        ],
+        [
+          61.0,
+          48.75
+        ],
+        [
+          62.0,
+          48.8
+        ],
+        [
+          63.0,
+          48.86
+        ],
+        [
+          64.0,
+          48.92
+        ],
+        [
+          65.0,
+          48.95
+        ],
+        [
+          66.0,
+          48.98
+        ],
+        [
+          67.0,
+          49.0
+        ],
+        [
+          68.0,
+          49.0
+        ],
+        [
+          69.0,
+          49.0
+        ],
+        [
+          20.0,
+          0.0
+        ]
+      ],
+      "piecewise_linear": {
+        "area_in2": 1926.16,
+        "area_m2": 1.2426813856,
+        "area_exact_in2": "48154/25",
+        "aspect_ratio": 4.986086306433526,
+        "mean_streamwise_chord_in": 19.654693877551022,
+        "area_weighted_quarter_chord_x_in": 29.24599013927538,
+        "area_centroid_x_in": 34.19318229015243
+      },
+      "monotone_cubic": {
+        "area_in2": 1926.3075000000008,
+        "aspect_ratio": 4.985704514985274,
+        "area_weighted_quarter_chord_x_in": 29.24691063748065,
+        "quadrature_error_estimates": [
+          9.231920783392411e-13,
+          4.8952749147672574e-11
+        ]
+      },
+      "interpolation_area_change_in2": 0.1475000000007185,
+      "published_moment_reference_x_in": 29.3,
+      "quarter_chord_reference_difference_in": -0.05400986072461962,
+      "exact_polygon_area_and_centroid_agree": true
+    },
+    {
+      "span_in": 59,
+      "figure_aspect_ratio": 3.04,
+      "straight_le_end_and_tip_origin_in": [
+        24.5,
+        24.5
+      ],
+      "half_outline_xy_in": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          24.5,
+          24.5
+        ],
+        [
+          25.5,
+          25.3
+        ],
+        [
+          26.5,
+          25.93
+        ],
+        [
+          27.5,
+          26.5
+        ],
+        [
+          28.5,
+          26.9
+        ],
+        [
+          29.5,
+          27.28
+        ],
+        [
+          30.5,
+          27.58
+        ],
+        [
+          31.5,
+          27.85
+        ],
+        [
+          32.5,
+          28.1
+        ],
+        [
+          33.5,
+          28.3
+        ],
+        [
+          34.5,
+          28.5
+        ],
+        [
+          35.5,
+          28.62
+        ],
+        [
+          36.5,
+          28.78
+        ],
+        [
+          37.5,
+          28.9
+        ],
+        [
+          38.5,
+          29.0
+        ],
+        [
+          39.5,
+          29.1
+        ],
+        [
+          40.5,
+          29.18
+        ],
+        [
+          41.5,
+          29.25
+        ],
+        [
+          42.5,
+          29.3
+        ],
+        [
+          43.5,
+          29.36
+        ],
+        [
+          44.5,
+          29.42
+        ],
+        [
+          45.5,
+          29.45
+        ],
+        [
+          46.5,
+          29.48
+        ],
+        [
+          47.5,
+          29.5
+        ],
+        [
+          48.5,
+          29.5
+        ],
+        [
+          49.5,
+          29.5
+        ],
+        [
+          20.0,
+          0.0
+        ]
+      ],
+      "piecewise_linear": {
+        "area_in2": 1146.16,
+        "area_m2": 0.7394565856,
+        "area_exact_in2": "28654/25",
+        "aspect_ratio": 3.0370977873944303,
+        "mean_streamwise_chord_in": 19.426440677966102,
+        "area_weighted_quarter_chord_x_in": 19.61099354947535,
+        "area_centroid_x_in": 24.522248202694215
+      },
+      "monotone_cubic": {
+        "area_in2": 1146.3075000000008,
+        "aspect_ratio": 3.036706991797574,
+        "area_weighted_quarter_chord_x_in": 19.611271027022642,
+        "quadrature_error_estimates": [
+          9.231920783392411e-13,
+          3.095050362005736e-11
+        ]
+      },
+      "interpolation_area_change_in2": 0.1475000000007185,
+      "published_moment_reference_x_in": 19.7,
+      "quarter_chord_reference_difference_in": -0.08900645052465042,
+      "exact_polygon_area_and_centroid_agree": true
+    },
+    {
+      "span_in": 38,
+      "figure_aspect_ratio": 2,
+      "straight_le_end_and_tip_origin_in": [
+        14.0,
+        14.0
+      ],
+      "half_outline_xy_in": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          14.0,
+          14.0
+        ],
+        [
+          15.0,
+          14.8
+        ],
+        [
+          16.0,
+          15.43
+        ],
+        [
+          17.0,
+          16.0
+        ],
+        [
+          18.0,
+          16.4
+        ],
+        [
+          19.0,
+          16.78
+        ],
+        [
+          20.0,
+          17.08
+        ],
+        [
+          21.0,
+          17.35
+        ],
+        [
+          22.0,
+          17.6
+        ],
+        [
+          23.0,
+          17.8
+        ],
+        [
+          24.0,
+          18.0
+        ],
+        [
+          25.0,
+          18.12
+        ],
+        [
+          26.0,
+          18.28
+        ],
+        [
+          27.0,
+          18.4
+        ],
+        [
+          28.0,
+          18.5
+        ],
+        [
+          29.0,
+          18.6
+        ],
+        [
+          30.0,
+          18.68
+        ],
+        [
+          31.0,
+          18.75
+        ],
+        [
+          32.0,
+          18.8
+        ],
+        [
+          33.0,
+          18.86
+        ],
+        [
+          34.0,
+          18.92
+        ],
+        [
+          35.0,
+          18.95
+        ],
+        [
+          36.0,
+          18.98
+        ],
+        [
+          37.0,
+          19.0
+        ],
+        [
+          38.0,
+          19.0
+        ],
+        [
+          39.0,
+          19.0
+        ],
+        [
+          20.0,
+          0.0
+        ]
+      ],
+      "piecewise_linear": {
+        "area_in2": 726.16,
+        "area_m2": 0.4684893856,
+        "area_exact_in2": "18154/25",
+        "aspect_ratio": 1.988542469979068,
+        "mean_streamwise_chord_in": 19.109473684210528,
+        "area_weighted_quarter_chord_x_in": 14.525251138408432,
+        "area_centroid_x_in": 19.38517682053542
+      },
+      "monotone_cubic": {
+        "area_in2": 726.3074999999998,
+        "aspect_ratio": 1.9881386327416424,
+        "area_weighted_quarter_chord_x_in": 14.524589533783955,
+        "quadrature_error_estimates": [
+          9.231920783392411e-13,
+          2.1256986797495338e-11
+        ]
+      },
+      "interpolation_area_change_in2": 0.147499999999809,
+      "published_moment_reference_x_in": 14.6,
+      "quarter_chord_reference_difference_in": -0.07474886159156843,
+      "exact_polygon_area_and_centroid_agree": true
+    }
+  ],
+  "archived_SA2_reference_area_m2": 1.549,
+  "archived_reference_area_excess_fraction": 0.24649811122108423,
+  "scope": "Independent planform reconstruction and geometry integration only; no aerodynamic calculation, ASWING input conversion or experimental validation claim.",
+  "limitations": [
+    "Straight segments and monotone cubic interpolation are declared reconstructions of rounded table values, not exact recovery of the manufactured curve.",
+    "Printed aspect ratios and moment reference locations are retained independently, not used to tune the outline or normalize discrepancies away.",
+    "The model used RAE 101 sections along wind. The report records thickness/asymmetry differences and zero-incidence pressure subtraction; a thin ideal section is not an exact experimental reconstruction.",
+    "Pressure-tube fairings and their omission for the additional y/c=2.20 measurements need separate treatment.",
+    "Normal-section ASWING axis/chord conversion, tunnel correction and sectional aerodynamic parameters remain to be established before a matched solve."
+  ]
+}

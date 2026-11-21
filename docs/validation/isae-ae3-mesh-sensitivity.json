@@ -1,0 +1,2700 @@
+{
+  "status": "COMPLETED_DIAGNOSTICS_CONVERGENCE_AND_EXPERIMENTAL_GAPS_REMAIN",
+  "local_sensitivity": {
+    "status": "COMPLETED_LOCAL_SENSITIVITY",
+    "plan_pin": {
+      "bytes": 68903,
+      "sha256": "e84ceabc4c96160b927f0ca4fc3aed464bf0055d42207c02daa5df6c6d39043a"
+    },
+    "reducer_pin": {
+      "bytes": 5198,
+      "sha256": "8829404ae278975534ca0806eb54f52913b2830d2cb56ef32791124ae9a061cd"
+    },
+    "baseline": {
+      "id": "20O-05-n256",
+      "Cl_control": -0.00022114579792849553,
+      "Cl_p": -0.9454259905193448,
+      "actual_nodes": 259,
+      "actual_elements": 258
+    },
+    "cases": [
+      {
+        "id": "20O-05-A-outboard",
+        "label": "A-outboard",
+        "status": "pass",
+        "saved_case_status": "pass",
+        "lifecycle": {
+          "id": "20O-05-A-outboard",
+          "pid": 6111,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 70.47676218900597,
+          "wall_seconds": 70.47677278518677
+        },
+        "equilibrium_solves": 1,
+        "derivative_calls": 1,
+        "added_nodes": [
+          -0.48865765559529944,
+          0.4886576555953007
+        ],
+        "Cl_control": -0.00021396292462065537,
+        "Cl_p": -0.945407948253275,
+        "control_difference_from_baseline": 7.18287330784016e-06,
+        "control_difference_relative_to_abs_baseline": 0.032480261325890734,
+        "p_difference_from_baseline": 1.8042266069828727e-05,
+        "fresh_physical_residual": 0.0,
+        "fresh_full_linear_residual": 2.6623148130511254e-13,
+        "fresh_post_residual": 0.0,
+        "reciprocal_condition": 1.2281118460334408e-06,
+        "actual_nodes": 261,
+        "actual_elements": 260,
+        "system_size": 3392,
+        "derivative_seconds": 63.8523638509796,
+        "monotonic_seconds": 69.18640757902176
+      },
+      {
+        "id": "20O-05-B-inboard",
+        "label": "B-inboard",
+        "status": "pass",
+        "saved_case_status": "pass",
+        "lifecycle": {
+          "id": "20O-05-B-inboard",
+          "pid": 7105,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 94.9907074420189,
+          "wall_seconds": 117.79981184005737
+        },
+        "equilibrium_solves": 1,
+        "derivative_calls": 1,
+        "added_nodes": [
+          -0.48641108852478654,
+          0.48641108852478787
+        ],
+        "Cl_control": -0.0002307268690970514,
+        "Cl_p": -0.945396080285355,
+        "control_difference_from_baseline": -9.581071168555873e-06,
+        "control_difference_relative_to_abs_baseline": -0.04332468108507213,
+        "p_difference_from_baseline": 2.9910233989793866e-05,
+        "fresh_physical_residual": 0.0,
+        "fresh_full_linear_residual": 1.936228954946273e-13,
+        "fresh_post_residual": 0.0,
+        "reciprocal_condition": 1.2923445590853287e-06,
+        "actual_nodes": 261,
+        "actual_elements": 260,
+        "system_size": 3392,
+        "derivative_seconds": 84.86402334598824,
+        "monotonic_seconds": 92.16272215402569
+      }
+    ],
+    "accounting": {
+      "equilibrium_solves": 2,
+      "derivative_calls": 2,
+      "finite_control_solves": 0,
+      "baseline_reruns": 0,
+      "reducer_physical_calls": 0,
+      "reducer_linear_solves": 0
+    },
+    "experimental_validation": false,
+    "local_sensitivity_acceptance": null,
+    "original_mesh_failures_retained": [
+      "20O-04: 1.357885643% > 1%",
+      "20O-05: 4.588525238% > 1%"
+    ],
+    "qualifications": [
+      "Both local refinements preserve all 259 baseline nodes and add exactly two nodes.",
+      "Differences use the saved n256 baseline denominator for description only; no local 1% acceptance test is introduced.",
+      "Both aerodynamic and structural discretization change together; these tests do not isolate an operator.",
+      "No nonlinear finite-control check was run on A/B; preceding n256 finite checks do not transfer automatically.",
+      "One full API step 2.5e-6 covers state/input/output stencils, with default source step unchanged.",
+      "Recorded times are native shared-host observations, not browser benchmarks.",
+      "AE3 remains pending; experimental amplitude/incidence/sign, control provenance, fixture, driven-roll and reversal gaps remain."
+    ]
+  },
+  "matrix_localization": {
+    "status": "COMPLETED_SAVED_MATRIX_LOCALIZATION",
+    "created_utc": "2026-10-24T06:38:37.664822+00:00",
+    "operations": {
+      "physical_equilibrium_solves": 0,
+      "derivative_calls": 0,
+      "captured_circulation_block_solves": 4,
+      "captured_right_hand_sides": 8,
+      "full_J_solves": 0
+    },
+    "rows": [
+      {
+        "id": "20O-04-n128",
+        "point": "20O-04",
+        "panels": 128,
+        "operations": {
+          "captured_block_solves": 1,
+          "right_hand_sides": 2,
+          "physical_solves": 0
+        },
+        "system_size": 1702,
+        "circulation_size": 130,
+        "condition_speed": 48.38287110537072,
+        "density": 1.2256,
+        "dynamic_pressure_area": 265.38340246871235,
+        "gamma_scale": 7.257430665805607,
+        "structural_length_scale": 1.21953775259317,
+        "frame_check_max_difference": 1.1914080833008711e-14,
+        "full_linear_residual": [
+          1.0061396160665481e-16,
+          3.424901446905863e-14
+        ],
+        "captured_block_residual": [
+          1.1102230246251565e-16,
+          1.6653345369377348e-14
+        ],
+        "circulation_nonkinematic_nongamma_block_max": 0.0,
+        "elastic_circulation_equation_max": [
+          1.48318857196017e-16,
+          3.2862601528904634e-14
+        ],
+        "serialized_circulation_response_difference": 1.7763568394002505e-15,
+        "Cl_by_analytical_component": {
+          "moment_span": [
+            -0.0006451557726603058,
+            -0.8176214530614208
+          ],
+          "moment_quarter": [
+            8.784335691469109e-07,
+            0.0036311173007103283
+          ],
+          "moment_section_cm": [
+            5.870004820423663e-06,
+            -0.0
+          ],
+          "moment": [
+            -0.0006384073342707355,
+            -0.8139903357607109
+          ]
+        },
+        "captured_rigid_Cl": [
+          -0.0017854229459334668,
+          -0.4490273520957095
+        ],
+        "elastic_difference_Cl": [
+          0.0011470156116627312,
+          -0.3649629836650008
+        ],
+        "reconstructed_Cl": [
+          -0.0006384073342707355,
+          -0.8139903357607109
+        ],
+        "serialized_output_Cl": [
+          -0.0006384073342707355,
+          -0.8139903357626285
+        ],
+        "serialized_output_minus_reconstructed": [
+          0.0,
+          -1.9175772081325704e-12
+        ],
+        "support_Cl": [
+          -0.0006384072173528697,
+          -0.8139902935597133
+        ],
+        "reconstructed_minus_support": [
+          -1.1691786579691443e-10,
+          -4.2200997585339906e-08
+        ],
+        "body_force_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            2.543598554574861e-13,
+            1.547504286172896e-10
+          ]
+        ],
+        "body_force_output_minus_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1.439024274090331e-17,
+            4.056772590145036e-14
+          ]
+        ],
+        "body_moment_reconstructed": [
+          [
+            0.20656016867786922,
+            263.37100473470434
+          ],
+          [
+            -4.411720283797188e-16,
+            9.254654876646173e-15
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "body_moment_output_minus_reconstructed": [
+          [
+            0.0,
+            6.204459168657195e-10
+          ],
+          [
+            6.623033332642679e-18,
+            -4.088756176655086e-16
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_elastic_cancellation_ratio": [
+          4.593366022252826,
+          0.9999999999999993
+        ],
+        "displacement_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.0011164758760993001,
+            "t": 0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 1.0625100368730915,
+            "t": 0.6096
+          }
+        ],
+        "rotation_vector_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.00576668484484959,
+            "t": 0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 3.0457529665716665,
+            "t": 0.6096
+          }
+        ],
+        "twist_maximum_abs": [
+          0.003732690406270075,
+          0.9519829877893233
+        ],
+        "zones": [
+          {
+            "zone": "root",
+            "abs_semispan_bounds": [
+              0,
+              0.1
+            ],
+            "full_moment_Cl": [
+              3.942772373825194e-07,
+              -0.001131879150347193
+            ],
+            "full_moment_span_Cl": [
+              4.1876838206074326e-07,
+              -0.0012024065843167851
+            ],
+            "full_moment_quarter_Cl": [
+              -2.4491144678223907e-08,
+              7.052743396959219e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.7748237101795195e-07,
+              -0.000712411366737979
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -4.009722183132118e-07,
+              -0.0007568408741609275
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              2.3489847295259775e-08,
+              4.4429507422948444e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              7.717596084004713e-07,
+              -0.00041946778360921373
+            ],
+            "elastic_difference_moment_span_Cl": [
+              8.197406003739551e-07,
+              -0.0004455657101558576
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -4.7980991973483675e-08,
+              2.609792654664374e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "abs_semispan_bounds": [
+              0.1,
+              0.75
+            ],
+            "full_moment_Cl": [
+              0.00014281343024387188,
+              -0.4451116891404241
+            ],
+            "full_moment_span_Cl": [
+              0.0001437539090481576,
+              -0.4477574094573118
+            ],
+            "full_moment_quarter_Cl": [
+              -9.404788042856744e-07,
+              0.002645720316887653
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0003504810512433287,
+              -0.25127244768110374
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00035219915589000314,
+              -0.2527982237776712
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.7181046466744284e-06,
+              0.0015257760965674474
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0004932944814872005,
+              -0.19383924145932044
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0004959530649381606,
+              -0.1949591856796407
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -2.658583450960104e-06,
+              0.0011199442203202055
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "abs_semispan_bounds": [
+              0.75,
+              0.85
+            ],
+            "full_moment_Cl": [
+              -0.00021403037870873764,
+              -0.1640558553019454
+            ],
+            "full_moment_span_Cl": [
+              -0.00021632767389710255,
+              -0.16452134816983038
+            ],
+            "full_moment_quarter_Cl": [
+              5.880222904858823e-07,
+              0.00046549286788495056
+            ],
+            "full_moment_section_cm_Cl": [
+              1.7092728978790926e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.00048061770379369793,
+              -0.08782427054012308
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0004836688323114957,
+              -0.08807350076266982
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.3418556199186268e-06,
+              0.0002492302225467405
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.7092728978790926e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0002665873250849604,
+              -0.07623158476182236
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00026734115841439314,
+              -0.07644784740716058
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -7.538333294327446e-07,
+              0.00021626264533821009
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "abs_semispan_bounds": [
+              0.85,
+              0.95
+            ],
+            "full_moment_Cl": [
+              -0.0004291889656131145,
+              -0.15682192958663552
+            ],
+            "full_moment_span_Cl": [
+              -0.00043310056560175235,
+              -0.15718020742731137
+            ],
+            "full_moment_quarter_Cl": [
+              9.84037159583309e-07,
+              0.0003582778406758378
+            ],
+            "full_moment_section_cm_Cl": [
+              2.9275628290545467e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0007224921710778566,
+              -0.08392710724283652
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0007270725296062844,
+              -0.0841188236161949
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.6527956993732775e-06,
+              0.00019171637335839984
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              2.9275628290545467e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0002933032054647423,
+              -0.07289482234379897
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0002939719640045323,
+              -0.0730613838111164
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -6.687585397899682e-07,
+              0.00016656146731743802
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "abs_semispan_bounds": [
+              0.95,
+              1
+            ],
+            "full_moment_Cl": [
+              -0.00013839569743013763,
+              -0.04686898258135832
+            ],
+            "full_moment_span_Cl": [
+              -0.00013990021059166928,
+              -0.046960081422650596
+            ],
+            "full_moment_quarter_Cl": [
+              2.7134406804161736e-07,
+              9.109884129229455e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              1.233169093490022e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.00023145453744756507,
+              -0.02529111526490848
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00023313989512109003,
+              -0.02534027028754522
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.5218858003491095e-07,
+              4.91550226367359e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.233169093490022e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              9.305884001742743e-05,
+              -0.021577867316449825
+            ],
+            "elastic_difference_moment_span_Cl": [
+              9.323968452942074e-05,
+              -0.02161981113510539
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -1.8084451199329357e-07,
+              4.194381865555866e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          }
+        ],
+        "parameter_metadata": [
+          {
+            "name": "control.1",
+            "unit": "file flap setting",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 2.5e-06
+          },
+          {
+            "name": "p",
+            "unit": "p b/(2 V0)",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 8.518692520698711e-07
+          }
+        ],
+        "explicit_geometry_product_terms": "Zero only in this zero-load differential. Geometry coupling remains in full circulation response; rigid solve is algebraic frozen-geometry captured-operator diagnostic."
+      },
+      {
+        "id": "20O-04-n256",
+        "point": "20O-04",
+        "panels": 256,
+        "operations": {
+          "captured_block_solves": 1,
+          "right_hand_sides": 2,
+          "physical_solves": 0
+        },
+        "system_size": 3366,
+        "circulation_size": 258,
+        "condition_speed": 48.38287110537072,
+        "density": 1.2256,
+        "dynamic_pressure_area": 265.38340246871235,
+        "gamma_scale": 7.257430665805607,
+        "structural_length_scale": 1.21953775259317,
+        "frame_check_max_difference": 1.251776460264864e-14,
+        "full_linear_residual": [
+          1.1102230246251565e-15,
+          2.604583215770617e-13
+        ],
+        "captured_block_residual": [
+          1.960237527853792e-16,
+          1.8207657603852567e-14
+        ],
+        "circulation_nonkinematic_nongamma_block_max": 0.0,
+        "elastic_circulation_equation_max": [
+          1.2021633688519273e-15,
+          2.596811654598241e-13
+        ],
+        "serialized_circulation_response_difference": 1.7763568394002505e-15,
+        "Cl_by_analytical_component": {
+          "moment_span": [
+            -0.0006539797389538334,
+            -0.81771420212073
+          ],
+          "moment_quarter": [
+            9.135433330611918e-07,
+            0.003631057961104895
+          ],
+          "moment_section_cm": [
+            5.870686446371067e-06,
+            -0.0
+          ],
+          "moment": [
+            -0.0006471955091744008,
+            -0.8140831441596249
+          ]
+        },
+        "captured_rigid_Cl": [
+          -0.0017902538016946322,
+          -0.4490305871342806
+        ],
+        "elastic_difference_Cl": [
+          0.0011430582925202304,
+          -0.36505255702534456
+        ],
+        "reconstructed_Cl": [
+          -0.0006471955091744008,
+          -0.8140831441596249
+        ],
+        "serialized_output_Cl": [
+          -0.0006471955091744016,
+          -0.8140831441615445
+        ],
+        "serialized_output_minus_reconstructed": [
+          -7.589415207398531e-19,
+          -1.9195756095768957e-12
+        ],
+        "support_Cl": [
+          -0.0006471945180222826,
+          -0.8140827978785741
+        ],
+        "reconstructed_minus_support": [
+          -9.911521181701563e-10,
+          -3.4628105083367444e-07
+        ],
+        "body_force_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -8.780725645164759e-12,
+            -1.5132251760235221e-09
+          ]
+        ],
+        "body_force_output_minus_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            6.140276458291116e-19,
+            -1.8515514132256964e-13
+          ]
+        ],
+        "body_moment_reconstructed": [
+          [
+            0.20940363051332161,
+            263.40103339744877
+          ],
+          [
+            -9.54890734625874e-16,
+            -9.091312196064707e-14
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "body_moment_output_minus_reconstructed": [
+          [
+            2.220446049250313e-16,
+            6.210711944731884e-10
+          ],
+          [
+            -1.8886961986864078e-17,
+            9.90906325412575e-18
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_elastic_cancellation_ratio": [
+          4.532343090508712,
+          1.0000000000000004
+        ],
+        "displacement_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.0011281303590384014,
+            "t": -0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 1.0622392037025186,
+            "t": -0.6096
+          }
+        ],
+        "rotation_vector_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.005782794275088592,
+            "t": -0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 3.044439321325354,
+            "t": -0.6096
+          }
+        ],
+        "twist_maximum_abs": [
+          0.00372190559259614,
+          0.9520672051281076
+        ],
+        "zones": [
+          {
+            "zone": "root",
+            "abs_semispan_bounds": [
+              0,
+              0.1
+            ],
+            "full_moment_Cl": [
+              3.891381191618779e-07,
+              -0.0011356306817596634
+            ],
+            "full_moment_span_Cl": [
+              4.1316008689480965e-07,
+              -0.0012059530506969458
+            ],
+            "full_moment_quarter_Cl": [
+              -2.4021967732931737e-08,
+              7.032236893728218e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.8054049006623345e-07,
+              -0.0007148331132794897
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -4.0407494397968257e-07,
+              -0.0007591370484636105
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              2.3534453913448913e-08,
+              4.430393518412095e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              7.696786092281113e-07,
+              -0.0004207975684801738
+            ],
+            "elastic_difference_moment_span_Cl": [
+              8.172350308744923e-07,
+              -0.00044681600223333504
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -4.7556421646380667e-08,
+              2.601843375316122e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "abs_semispan_bounds": [
+              0.1,
+              0.75
+            ],
+            "full_moment_Cl": [
+              0.00013877731589930945,
+              -0.4450627910193959
+            ],
+            "full_moment_span_Cl": [
+              0.00013969611024014432,
+              -0.4477085049291305
+            ],
+            "full_moment_quarter_Cl": [
+              -9.187943408348955e-07,
+              0.0026457139097347732
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0003521984322600253,
+              -0.2512288454126837
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0003539255763176829,
+              -0.2527545346386856
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.7271440576577969e-06,
+              0.001525689226001999
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0004909757481593344,
+              -0.19383394560671213
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0004936216865578272,
+              -0.19495397029044492
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -2.6459383984926925e-06,
+              0.0011200246837327738
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "abs_semispan_bounds": [
+              0.75,
+              0.85
+            ],
+            "full_moment_Cl": [
+              -0.00021705522434547063,
+              -0.1641444262822048
+            ],
+            "full_moment_span_Cl": [
+              -0.00021936311567030329,
+              -0.1646100577708462
+            ],
+            "full_moment_quarter_Cl": [
+              5.973493746821839e-07,
+              0.00046563148864140543
+            ],
+            "full_moment_section_cm_Cl": [
+              1.7105419501504808e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.00048296064531600863,
+              -0.08785633412544823
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0004860203631476691,
+              -0.08810559312190752
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.3491758815101548e-06,
+              0.00024925899645929
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.7105419501504808e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0002659054209705379,
+              -0.07628809215675655
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00026665724747736586,
+              -0.07650446464893866
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -7.518265068279707e-07,
+              0.00021637249218211532
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "abs_semispan_bounds": [
+              0.85,
+              0.95
+            ],
+            "full_moment_Cl": [
+              -0.00043050169444388577,
+              -0.15683606112013476
+            ],
+            "full_moment_span_Cl": [
+              -0.00043441540107531305,
+              -0.15719427498209304
+            ],
+            "full_moment_quarter_Cl": [
+              9.86843952620874e-07,
+              0.00035821386195825073
+            ],
+            "full_moment_section_cm_Cl": [
+              2.926862678806327e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0007230318897489955,
+              -0.08392370978456516
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0007276124294246844,
+              -0.08411536696718408
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.6536769968828325e-06,
+              0.00019165718261895053
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              2.926862678806327e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.00029253019530510926,
+              -0.07291235133556964
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00029319702834937117,
+              -0.07307890801490897
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -6.668330442619586e-07,
+              0.00016655667933930006
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "abs_semispan_bounds": [
+              0.95,
+              1
+            ],
+            "full_moment_Cl": [
+              -0.000138805044403516,
+              -0.04690423505613019
+            ],
+            "full_moment_span_Cl": [
+              -0.00014031049253525625,
+              -0.04699541138796338
+            ],
+            "full_moment_quarter_Cl": [
+              2.721663143259613e-07,
+              9.117633183318042e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              1.2332818174142564e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0002316822938795367,
+              -0.025306864698304073
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00023336825091237878,
+              -0.025356055143657668
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.5267521542773036e-07,
+              4.9190445353596125e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.2332818174142564e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              9.28772494760207e-05,
+              -0.021597370357826117
+            ],
+            "elastic_difference_moment_span_Cl": [
+              9.305775837712244e-05,
+              -0.021639356244305706
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -1.805089011017692e-07,
+              4.198588647958434e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          }
+        ],
+        "parameter_metadata": [
+          {
+            "name": "control.1",
+            "unit": "file flap setting",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 2.5e-06
+          },
+          {
+            "name": "p",
+            "unit": "p b/(2 V0)",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 8.522773297341364e-07
+          }
+        ],
+        "explicit_geometry_product_terms": "Zero only in this zero-load differential. Geometry coupling remains in full circulation response; rigid solve is algebraic frozen-geometry captured-operator diagnostic."
+      },
+      {
+        "id": "20O-05-n128",
+        "point": "20O-05",
+        "panels": 128,
+        "operations": {
+          "captured_block_solves": 1,
+          "right_hand_sides": 2,
+          "physical_solves": 0
+        },
+        "system_size": 1702,
+        "circulation_size": 130,
+        "condition_speed": 52.32123117428077,
+        "density": 1.2256,
+        "dynamic_pressure_area": 310.3461733031819,
+        "gamma_scale": 7.848184676142115,
+        "structural_length_scale": 1.21953775259317,
+        "frame_check_max_difference": 1.1914080833008711e-14,
+        "full_linear_residual": [
+          8.326672684688674e-17,
+          5.484501741648273e-14
+        ],
+        "captured_block_residual": [
+          9.194034422677078e-17,
+          1.3766765505351941e-14
+        ],
+        "circulation_nonkinematic_nongamma_block_max": 0.0,
+        "elastic_circulation_equation_max": [
+          1.5785983631388945e-16,
+          5.88418203051333e-14
+        ],
+        "serialized_circulation_response_difference": 3.552713678800501e-15,
+        "Cl_by_analytical_component": {
+          "moment_span": [
+            -0.00021603737717917218,
+            -0.9494753306060787
+          ],
+          "moment_quarter": [
+            -8.413633316178682e-07,
+            0.0041950697047525
+          ],
+          "moment_section_cm": [
+            5.880273334011425e-06,
+            -0.0
+          ],
+          "moment": [
+            -0.00021099846717677874,
+            -0.9452802609013264
+          ]
+        },
+        "captured_rigid_Cl": [
+          -0.0017854126774198783,
+          -0.4490273520957095
+        ],
+        "elastic_difference_Cl": [
+          0.001574414210243098,
+          -0.4962529088056168
+        ],
+        "reconstructed_Cl": [
+          -0.00021099846717677874,
+          -0.9452802609013264
+        ],
+        "serialized_output_Cl": [
+          -0.00021099846717677857,
+          -0.945280260903555
+        ],
+        "serialized_output_minus_reconstructed": [
+          1.6263032587282567e-19,
+          -2.2285506773300767e-12
+        ],
+        "support_Cl": [
+          -0.00021099837685534828,
+          -0.9452802117200498
+        ],
+        "reconstructed_minus_support": [
+          -9.032143045636931e-11,
+          -4.918127660680227e-08
+        ],
+        "body_force_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1.5649934656297628e-12,
+            -1.785775376531018e-09
+          ]
+        ],
+        "body_force_output_minus_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -8.298017163016172e-17,
+            -1.4850554852817992e-13
+          ]
+        ],
+        "body_moment_reconstructed": [
+          [
+            0.07983634551711447,
+            357.6695249477715
+          ],
+          [
+            -6.122083092210961e-16,
+            -1.0299153565575259e-13
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "body_moment_output_minus_reconstructed": [
+          [
+            -5.551115123125783e-17,
+            8.432152753812261e-10
+          ],
+          [
+            -1.1584100341627293e-17,
+            -1.2266360218003649e-16
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_elastic_cancellation_ratio": [
+          15.923465855550724,
+          0.9999999999999998
+        ],
+        "displacement_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.0006110273442657765,
+            "t": -0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 1.4466615412239234,
+            "t": -0.6096
+          }
+        ],
+        "rotation_vector_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.005939277383772579,
+            "t": -0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 4.149387465863621,
+            "t": -0.6096
+          }
+        ],
+        "twist_maximum_abs": [
+          0.004997802539976414,
+          1.2960675933363766
+        ],
+        "zones": [
+          {
+            "zone": "root",
+            "abs_semispan_bounds": [
+              0,
+              0.1
+            ],
+            "full_moment_Cl": [
+              7.793998778642836e-07,
+              -0.0012815122008939023
+            ],
+            "full_moment_span_Cl": [
+              8.278450393634508e-07,
+              -0.001361349174805893
+            ],
+            "full_moment_quarter_Cl": [
+              -4.844516149916704e-08,
+              7.983697391199106e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.774823710179519e-07,
+              -0.000712411366737979
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -4.009722183132117e-07,
+              -0.0007568408741609276
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              2.3489847295259772e-08,
+              4.4429507422948444e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              1.1568822488822355e-06,
+              -0.000569100834155923
+            ],
+            "elastic_difference_moment_span_Cl": [
+              1.2288172576766622e-06,
+              -0.0006045083006449656
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -7.193500879442682e-08,
+              3.5407466489042613e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "abs_semispan_bounds": [
+              0.1,
+              0.75
+            ],
+            "full_moment_Cl": [
+              0.00034801037321920174,
+              -0.5146860602699203
+            ],
+            "full_moment_span_Cl": [
+              0.0003500986413415083,
+              -0.5177332418151903
+            ],
+            "full_moment_quarter_Cl": [
+              -2.0882681223065194e-06,
+              0.0030471815452701514
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0003504810512433284,
+              -0.2512724476811037
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00035219915589000276,
+              -0.25279822377767125
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.7181046466744276e-06,
+              0.0015257760965674471
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0006984914244625302,
+              -0.26341361258881657
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0007022977972315112,
+              -0.26493501803751923
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -3.8063727689809463e-06,
+              0.0015214054487027034
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "abs_semispan_bounds": [
+              0.75,
+              0.85
+            ],
+            "full_moment_Cl": [
+              -0.00011954368330613862,
+              -0.1915324182732063
+            ],
+            "full_moment_span_Cl": [
+              -0.00012157637785457534,
+              -0.1920758578126209
+            ],
+            "full_moment_quarter_Cl": [
+              3.204315862367107e-07,
+              0.0005434395394145718
+            ],
+            "full_moment_section_cm_Cl": [
+              1.7122629621999934e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0004806147137293768,
+              -0.08782427054012304
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0004836688323114954,
+              -0.08807350076266977
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.3418556199186264e-06,
+              0.0002492302225467404
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.7122629621999934e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.00036107103042323823,
+              -0.10370814773308325
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0003620924544569202,
+              -0.10400235704995112
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -1.0214240336819156e-06,
+              0.0002942093168678316
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "abs_semispan_bounds": [
+              0.85,
+              0.95
+            ],
+            "full_moment_Cl": [
+              -0.0003318079009459418,
+              -0.1831226163491643
+            ],
+            "full_moment_span_Cl": [
+              -0.00033550238215051783,
+              -0.18354098928279788
+            ],
+            "full_moment_quarter_Cl": [
+              7.617971329315549e-07,
+              0.00041837293363356605
+            ],
+            "full_moment_section_cm_Cl": [
+              2.9326840716444293e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0007224870498352662,
+              -0.08392710724283646
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0007270725296062838,
+              -0.08411882361619485
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.6527956993732758e-06,
+              0.00019171637335839976
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              2.9326840716444293e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.00039067914888932443,
+              -0.09919550910632782
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0003915701474557662,
+              -0.09942216566660299
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -8.90998566441721e-07,
+              0.00022665656027516623
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "abs_semispan_bounds": [
+              0.95,
+              1
+            ],
+            "full_moment_Cl": [
+              -0.0001084366560217643,
+              -0.054657653808141575
+            ],
+            "full_moment_span_Cl": [
+              -0.00010988510355495082,
+              -0.05476389252066379
+            ],
+            "full_moment_quarter_Cl": [
+              2.1312123301955306e-07,
+              0.00010623871252222087
+            ],
+            "full_moment_section_cm_Cl": [
+              1.235326300167e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0002314523802408879,
+              -0.02529111526490846
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00023313989512108982,
+              -0.025340270287545198
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.521885800349104e-07,
+              4.9155022636735855e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.235326300167e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0001230157242191236,
+              -0.029366538543233123
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00012325479156613897,
+              -0.029423622233118604
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -2.390673470153575e-07,
+              5.7083689885485004e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          }
+        ],
+        "parameter_metadata": [
+          {
+            "name": "control.1",
+            "output_step": 2.5e-06,
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "unit": "file flap setting"
+          },
+          {
+            "name": "p",
+            "output_step": 6.25254859340363e-07,
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "unit": "p b/(2 V0)"
+          }
+        ],
+        "explicit_geometry_product_terms": "Zero only in this zero-load differential. Geometry coupling remains in full circulation response; rigid solve is algebraic frozen-geometry captured-operator diagnostic."
+      },
+      {
+        "id": "20O-05-n256",
+        "point": "20O-05",
+        "panels": 256,
+        "operations": {
+          "captured_block_solves": 1,
+          "right_hand_sides": 2,
+          "physical_solves": 0
+        },
+        "system_size": 3366,
+        "circulation_size": 258,
+        "condition_speed": 52.32123117428077,
+        "density": 1.2256,
+        "dynamic_pressure_area": 310.3461733031819,
+        "gamma_scale": 7.848184676142115,
+        "structural_length_scale": 1.21953775259317,
+        "frame_check_max_difference": 1.251776460264864e-14,
+        "full_linear_residual": [
+          2.393918396847994e-16,
+          1.4732659536775827e-13
+        ],
+        "captured_block_residual": [
+          1.8388068845354155e-16,
+          1.9761969838327786e-14
+        ],
+        "circulation_nonkinematic_nongamma_block_max": 0.0,
+        "elastic_circulation_equation_max": [
+          2.8622937353617317e-16,
+          1.5343282200319663e-13
+        ],
+        "serialized_circulation_response_difference": 3.552713678800501e-15,
+        "Cl_by_analytical_component": {
+          "moment_span": [
+            -0.00022622654406181087,
+            -0.9496211413802447
+          ],
+          "moment_quarter": [
+            -8.002100190249198e-07,
+            0.004195150863129147
+          ],
+          "moment_section_cm": [
+            5.880956152340355e-06,
+            -0.0
+          ],
+          "moment": [
+            -0.00022114579792849561,
+            -0.9454259905171152
+          ]
+        },
+        "captured_rigid_Cl": [
+          -0.0017902435319886623,
+          -0.4490305871342803
+        ],
+        "elastic_difference_Cl": [
+          0.0015690977340601675,
+          -0.49639540338283483
+        ],
+        "reconstructed_Cl": [
+          -0.00022114579792849561,
+          -0.9454259905171152
+        ],
+        "serialized_output_Cl": [
+          -0.00022114579792849553,
+          -0.9454259905193448
+        ],
+        "serialized_output_minus_reconstructed": [
+          8.131516293641283e-20,
+          -2.229660900354702e-12
+        ],
+        "support_Cl": [
+          -0.00022114502558535782,
+          -0.9454255869869523
+        ],
+        "reconstructed_minus_support": [
+          -7.723431377955337e-10,
+          -4.035301628402266e-07
+        ],
+        "body_force_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.765285433401035e-12,
+            6.265897185440614e-09
+          ]
+        ],
+        "body_force_output_minus_reconstructed": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -6.740377391474313e-17,
+            -3.437440019326156e-13
+          ]
+        ],
+        "body_moment_reconstructed": [
+          [
+            0.08367583219590521,
+            357.72466525335693
+          ],
+          [
+            -2.609488281924213e-16,
+            3.6286530285525517e-13
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "body_moment_output_minus_reconstructed": [
+          [
+            -2.7755575615628914e-17,
+            8.436700227321126e-10
+          ],
+          [
+            3.185132154119644e-18,
+            1.358598557200421e-16
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_elastic_cancellation_ratio": [
+          15.190617671763428,
+          1.0
+        ],
+        "displacement_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.0006269905722403517,
+            "t": 0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 1.446357897685151,
+            "t": 0.6096
+          }
+        ],
+        "rotation_vector_response_peaks": [
+          {
+            "parameter": "control.1",
+            "maximum": 0.005949995524837612,
+            "t": 0.6096
+          },
+          {
+            "parameter": "p",
+            "maximum": 4.147785932949581,
+            "t": 0.6096
+          }
+        ],
+        "twist_maximum_abs": [
+          0.0049832891413368685,
+          1.2962384424903837
+        ],
+        "zones": [
+          {
+            "zone": "root",
+            "abs_semispan_bounds": [
+              0,
+              0.1
+            ],
+            "full_moment_Cl": [
+              7.738638728232749e-07,
+              -0.0012857596559013665
+            ],
+            "full_moment_span_Cl": [
+              8.216671751624182e-07,
+              -0.001365364547742643
+            ],
+            "full_moment_quarter_Cl": [
+              -4.7803302339143434e-08,
+              7.96048918412764e-05
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.8054049006623387e-07,
+              -0.0007148331132794901
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -4.0407494397968273e-07,
+              -0.0007591370484636108
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              2.3534453913448923e-08,
+              4.4303935184120985e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              1.1544043628895085e-06,
+              -0.0005709265426218765
+            ],
+            "elastic_difference_moment_span_Cl": [
+              1.225742119142101e-06,
+              -0.0006062274992790319
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -7.133775625259235e-08,
+              3.530095665715542e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "abs_semispan_bounds": [
+              0.1,
+              0.75
+            ],
+            "full_moment_Cl": [
+              0.000343180993275052,
+              -0.5146458381597987
+            ],
+            "full_moment_span_Cl": [
+              0.0003452431997735983,
+              -0.517693102725894
+            ],
+            "full_moment_quarter_Cl": [
+              -2.062206498546197e-06,
+              0.0030472645660954982
+            ],
+            "full_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0003521984322600255,
+              -0.2512288454126836
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0003539255763176833,
+              -0.25275453463868564
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.7271440576577975e-06,
+              0.0015256892260019999
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0006953794255350773,
+              -0.2634169927471148
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0006991687760912811,
+              -0.26493856808720834
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -3.7893505562039955e-06,
+              0.0015215753400934973
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "abs_semispan_bounds": [
+              0.75,
+              0.85
+            ],
+            "full_moment_Cl": [
+              -0.000122802943540889,
+              -0.1916458472956102
+            ],
+            "full_moment_span_Cl": [
+              -0.000124846944654552,
+              -0.19218947787600763
+            ],
+            "full_moment_quarter_Cl": [
+              3.304668792138034e-07,
+              0.0005436305803974293
+            ],
+            "full_moment_section_cm_Cl": [
+              1.7135342344491988e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.00048295765303171,
+              -0.08785633412544826
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0004860203631476693,
+              -0.08810559312190752
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.3491758815101548e-06,
+              0.0002492589964592901
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.7135342344491988e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0003601547094908209,
+              -0.1037895131701619
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.0003611734184931172,
+              -0.10408388475410005
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -1.0187090022963513e-06,
+              0.000294371583938139
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "abs_semispan_bounds": [
+              0.85,
+              0.95
+            ],
+            "full_moment_Cl": [
+              -0.0003333893466509228,
+              -0.1831473416038567
+            ],
+            "full_moment_span_Cl": [
+              -0.0003370866032120024,
+              -0.1835656585960649
+            ],
+            "full_moment_quarter_Cl": [
+              7.652738644699079e-07,
+              0.0004183169922081823
+            ],
+            "full_moment_section_cm_Cl": [
+              2.931982696609765e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0007230267697311917,
+              -0.08392370978456509
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.0007276124294246841,
+              -0.08411536696718408
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              1.6536769968828317e-06,
+              0.0001916571826189505
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              2.931982696609765e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.0003896374230802689,
+              -0.09922363181929171
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00039052582621268173,
+              -0.0994502916288809
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -8.88403132412924e-07,
+              0.00022665980958923169
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "abs_semispan_bounds": [
+              0.95,
+              1
+            ],
+            "full_moment_Cl": [
+              -0.00010890836488455884,
+              -0.05470120380194843
+            ],
+            "full_moment_span_Cl": [
+              -0.00011035786314401687,
+              -0.05480753763453518
+            ],
+            "full_moment_quarter_Cl": [
+              2.1405903817671074e-07,
+              0.00010633383258676199
+            ],
+            "full_moment_section_cm_Cl": [
+              1.2354392212813877e-06,
+              -0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -0.0002316801364756693,
+              -0.02530686469830406
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -0.00023336825091237838,
+              -0.025356055143657647
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.5267521542772994e-07,
+              4.9190445353596064e-05
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.2354392212813877e-06,
+              -0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              0.00012277177159111046,
+              -0.029394339103644373
+            ],
+            "elastic_difference_moment_span_Cl": [
+              0.00012301038776836145,
+              -0.029451482490877538
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              -2.386161772510192e-07,
+              5.714338723316596e-05
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              -0.0,
+              -0.0
+            ]
+          }
+        ],
+        "parameter_metadata": [
+          {
+            "name": "control.1",
+            "unit": "file flap setting",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 2.5e-06
+          },
+          {
+            "name": "p",
+            "unit": "p b/(2 V0)",
+            "scale": 1.0,
+            "step": 2.5e-06,
+            "output_step": 6.255258475402899e-07
+          }
+        ],
+        "explicit_geometry_product_terms": "Zero only in this zero-load differential. Geometry coupling remains in full circulation response; rigid solve is algebraic frozen-geometry captured-operator diagnostic."
+      }
+    ],
+    "comparisons": [
+      {
+        "point": "20O-04",
+        "delta_fine_minus_coarse": {
+          "captured_rigid_Cl": [
+            -4.830855761165428e-06,
+            -3.235038571136606e-06
+          ],
+          "elastic_difference_Cl": [
+            -3.9573191425008e-06,
+            -8.957336034376429e-05
+          ],
+          "reconstructed_Cl": [
+            -8.78817490366536e-06,
+            -9.280839891401271e-05
+          ],
+          "serialized_output_Cl": [
+            -8.78817490366612e-06,
+            -9.280839891601111e-05
+          ],
+          "serialized_output_minus_reconstructed": [
+            -7.589415207398531e-19,
+            -1.9984014443252818e-15
+          ],
+          "support_Cl": [
+            -8.787300669412987e-06,
+            -9.250431886076438e-05
+          ]
+        },
+        "component_changes": {
+          "moment_span": [
+            -8.82396629352765e-06,
+            -9.274905930922728e-05
+          ],
+          "moment_quarter": [
+            3.510976391428084e-08,
+            -5.933960543335476e-08
+          ],
+          "moment_section_cm": [
+            6.816259474042293e-10,
+            0.0
+          ],
+          "moment": [
+            -8.78817490366536e-06,
+            -9.280839891401271e-05
+          ]
+        },
+        "zones": [
+          {
+            "zone": "root",
+            "full_moment_Cl": [
+              -5.139118220641477e-09,
+              -3.751531412470423e-06
+            ],
+            "full_moment_span_Cl": [
+              -5.608295165933613e-09,
+              -3.546466380160724e-06
+            ],
+            "full_moment_quarter_Cl": [
+              4.691769452921695e-10,
+              -2.0506503231001083e-07
+            ],
+            "full_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.058119048281495e-09,
+              -2.4217465415107484e-06
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -3.1027256664707814e-09,
+              -2.2961743026830113e-06
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.46066181891376e-11,
+              -1.2557223882749317e-07
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -2.0809991723600348e-09,
+              -1.3297848709600542e-06
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -2.5055694994627788e-09,
+              -1.2502920774774416e-06
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              4.245703271030087e-10,
+              -7.949279348252105e-08
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "full_moment_Cl": [
+              -4.036114344562424e-06,
+              4.88981210282069e-05
+            ],
+            "full_moment_span_Cl": [
+              -4.0577988080132716e-06,
+              4.890452818129276e-05
+            ],
+            "full_moment_quarter_Cl": [
+              2.1684463450778874e-08,
+              -6.407152879864958e-09
+            ],
+            "full_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -1.7173810166966385e-06,
+              4.360226842003989e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -1.726420427679775e-06,
+              4.368913898561422e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              9.03941098336847e-09,
+              -8.687056544834197e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -2.3187333278660563e-06,
+              5.295852608305784e-06
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -2.331378380333415e-06,
+              5.215389195789566e-06
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              1.2645052467411463e-08,
+              8.046341256826017e-08
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "full_moment_Cl": [
+              -3.024845636732991e-06,
+              -8.85709802593837e-05
+            ],
+            "full_moment_span_Cl": [
+              -3.035441773200731e-06,
+              -8.870960101581282e-05
+            ],
+            "full_moment_quarter_Cl": [
+              9.327084196301528e-09,
+              1.3862075645486955e-07
+            ],
+            "full_moment_section_cm_Cl": [
+              1.2690522713881516e-09,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -2.3429415223107032e-06,
+              -3.20635853251483e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -2.3515308361734036e-06,
+              -3.209235923770648e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              7.320261591528035e-09,
+              2.877391254950401e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.2690522713881516e-09,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -6.819041144224777e-07,
+              -5.6507394934193766e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -6.839109370272733e-07,
+              -5.6617241778078586e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              2.0068226047738106e-09,
+              1.0984684390523002e-07
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "full_moment_Cl": [
+              -1.312728830771292e-06,
+              -1.4131533499245341e-05
+            ],
+            "full_moment_span_Cl": [
+              -1.3148354735607035e-06,
+              -1.4067554781671543e-05
+            ],
+            "full_moment_quarter_Cl": [
+              2.8067930375650345e-09,
+              -6.397871758707973e-08
+            ],
+            "full_moment_section_cm_Cl": [
+              -7.001502482197903e-10,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -5.397186711389055e-07,
+              3.397458271353626e-06
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -5.398998183999424e-07,
+              3.456649010816215e-06
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              8.812975095549952e-10,
+              -5.919073944930754e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -7.001502482197903e-10,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -7.73010159633037e-07,
+              -1.7528991770668356e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -7.749356551611407e-07,
+              -1.7524203792571025e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              1.925495528009616e-09,
+              -4.787978137961923e-09
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "full_moment_Cl": [
+              -4.0934697337837605e-07,
+              -3.52524747718741e-05
+            ],
+            "full_moment_span_Cl": [
+              -4.1028194358697133e-07,
+              -3.532996531278171e-05
+            ],
+            "full_moment_quarter_Cl": [
+              8.222462843439556e-10,
+              7.749054088587162e-08
+            ],
+            "full_moment_section_cm_Cl": [
+              1.1272392423438562e-10,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -2.277564319716355e-07,
+              -1.574943339559265e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -2.2835579128874977e-07,
+              -1.578485611244962e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.866353928194131e-10,
+              3.5422716860222456e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.1272392423438562e-10,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -1.81590541406727e-07,
+              -1.9503041376291858e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -1.8192615229830288e-07,
+              -1.9545109200314742e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              3.3561089152435726e-10,
+              4.206782402567627e-08
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "absolute_zonal_change_fractions": [
+          [
+            0.00058477650672358,
+            0.01968226688162151
+          ],
+          [
+            0.45926650172595895,
+            0.25654213233769224
+          ],
+          [
+            0.3441949744845505,
+            0.4646842795017551
+          ],
+          [
+            0.14937445432768143,
+            0.07414055306964974
+          ],
+          [
+            0.0465792929550855,
+            0.18495076820928139
+          ]
+        ],
+        "zone_order": [
+          "root",
+          "inner",
+          "control_break",
+          "outer",
+          "tip"
+        ],
+        "common_node_count": 131,
+        "common_node_max_abs_change": {
+          "node_displacement_response": [
+            1.1654482939667688e-05,
+            0.00027083317605991475
+          ],
+          "node_rotation_response": [
+            3.078552267460344e-05,
+            0.0014051702896020757
+          ],
+          "node_span_rotation_response": [
+            1.0784813733774167e-05,
+            0.00011372643797735726
+          ]
+        },
+        "qualification": "Spatial bookkeeping and captured-operator counterfactuals; not a causal proof or continuum error estimate."
+      },
+      {
+        "point": "20O-05",
+        "delta_fine_minus_coarse": {
+          "captured_rigid_Cl": [
+            -4.830854568783948e-06,
+            -3.235038570803539e-06
+          ],
+          "elastic_difference_Cl": [
+            -5.3164761829305445e-06,
+            -0.00014249457721804415
+          ],
+          "reconstructed_Cl": [
+            -1.0147330751716878e-05,
+            -0.00014572961578873667
+          ],
+          "serialized_output_Cl": [
+            -1.0147330751716959e-05,
+            -0.0001457296157898469
+          ],
+          "serialized_output_minus_reconstructed": [
+            -8.131516293641283e-20,
+            -1.1102230246251565e-15
+          ],
+          "support_Cl": [
+            -1.0146648730009538e-05,
+            -0.00014537526690250324
+          ]
+        },
+        "component_changes": {
+          "moment_span": [
+            -1.0189166882638696e-05,
+            -0.00014581077416597754
+          ],
+          "moment_quarter": [
+            4.115331259294833e-08,
+            8.115837664673248e-08
+          ],
+          "moment_section_cm": [
+            6.828183289299804e-10,
+            0.0
+          ],
+          "moment": [
+            -1.0147330751716878e-05,
+            -0.00014572961578873667
+          ]
+        },
+        "zones": [
+          {
+            "zone": "root",
+            "full_moment_Cl": [
+              -5.536005041008725e-09,
+              -4.24745500746419e-06
+            ],
+            "full_moment_span_Cl": [
+              -6.177864201032577e-09,
+              -4.015372936749849e-06
+            ],
+            "full_moment_quarter_Cl": [
+              6.418591600236066e-10,
+              -2.3208207071466567e-07
+            ],
+            "full_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -3.0581190482819714e-09,
+              -2.4217465415110736e-06
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -3.102725666471046e-09,
+              -2.296174302683228e-06
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.4606618189150836e-11,
+              -1.2557223882745928e-07
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -2.4778859927269656e-09,
+              -1.8257084659535497e-06
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -3.075138534561266e-09,
+              -1.719198634066296e-06
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              5.972525418344723e-10,
+              -1.0650983188719283e-07
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "inner",
+            "full_moment_Cl": [
+              -4.829379944149741e-06,
+              4.0222110121557186e-05
+            ],
+            "full_moment_span_Cl": [
+              -4.8554415679100105e-06,
+              4.013908929634269e-05
+            ],
+            "full_moment_quarter_Cl": [
+              2.606162376032247e-08,
+              8.302082534676972e-08
+            ],
+            "full_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -1.7173810166970721e-06,
+              4.36022684200954e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -1.726420427680534e-06,
+              4.368913898561422e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              9.039410983369952e-09,
+              -8.687056544725777e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -3.1119989274528857e-06,
+              -3.3801582982051492e-06
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -3.129021140230127e-06,
+              -3.550049689104995e-06
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              1.7022212776950824e-08,
+              1.6989139079381065e-07
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "control_break",
+            "full_moment_Cl": [
+              -3.2592602347503922e-06,
+              -0.00011342902240391028
+            ],
+            "full_moment_span_Cl": [
+              -3.2705667999766646e-06,
+              -0.00011362006338672126
+            ],
+            "full_moment_quarter_Cl": [
+              1.003529297709271e-08,
+              1.910409828574872e-07
+            ],
+            "full_moment_section_cm_Cl": [
+              1.2712722492054237e-09,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -2.342939302333192e-06,
+              -3.206358532521769e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -2.3515308361738915e-06,
+              -3.2092359237748114e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              7.320261591528459e-09,
+              2.877391254972085e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.2712722492054237e-09,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -9.163209324173087e-07,
+              -8.136543707865096e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -9.190359638030035e-07,
+              -8.152770414893151e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              2.7150313855643036e-09,
+              1.6226707030738688e-07
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "outer",
+            "full_moment_Cl": [
+              -1.581445704981017e-06,
+              -2.472525469240927e-05
+            ],
+            "full_moment_span_Cl": [
+              -1.5842210614845512e-06,
+              -2.466931326702837e-05
+            ],
+            "full_moment_quarter_Cl": [
+              3.476731538352994e-09,
+              -5.594142538371989e-08
+            ],
+            "full_moment_section_cm_Cl": [
+              -7.013750346642522e-10,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -5.397198959255622e-07,
+              3.397458271367504e-06
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -5.398998184002676e-07,
+              3.4566490107745818e-06
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              8.812975095558422e-10,
+              -5.919073944925333e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              -7.013750346642522e-10,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -1.041725809055509e-06,
+              -2.8122712963887797e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -1.0443212430844462e-06,
+              -2.8125962277913974e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              2.595434028797046e-09,
+              3.249314065452121e-09
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "zone": "tip",
+            "full_moment_Cl": [
+              -4.7170886279454256e-07,
+              -4.354999380685315e-05
+            ],
+            "full_moment_span_Cl": [
+              -4.727595890660489e-07,
+              -4.364511387138642e-05
+            ],
+            "full_moment_quarter_Cl": [
+              9.378051571576846e-10,
+              9.512006454111862e-08
+            ],
+            "full_moment_section_cm_Cl": [
+              1.1292111438775003e-10,
+              0.0
+            ],
+            "captured_rigid_moment_Cl": [
+              -2.277562347814167e-07,
+              -1.5749433395599588e-05
+            ],
+            "captured_rigid_moment_span_Cl": [
+              -2.2835579128856003e-07,
+              -1.578485611244962e-05
+            ],
+            "captured_rigid_moment_quarter_Cl": [
+              4.86635392819519e-10,
+              3.54227168602089e-08
+            ],
+            "captured_rigid_moment_section_cm_Cl": [
+              1.1292111438775003e-10,
+              0.0
+            ],
+            "elastic_difference_moment_Cl": [
+              -2.4395262801315295e-07,
+              -2.780056041125009e-05
+            ],
+            "elastic_difference_moment_span_Cl": [
+              -2.4440379777751595e-07,
+              -2.7860257758933332e-05
+            ],
+            "elastic_difference_moment_quarter_Cl": [
+              4.5116976433827153e-10,
+              5.969734768095715e-08
+            ],
+            "elastic_difference_moment_section_cm_Cl": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "absolute_zonal_change_fractions": [
+          [
+            0.0005455626880075981,
+            0.018779603697660227
+          ],
+          [
+            0.4759261388353502,
+            0.1778371487488583
+          ],
+          [
+            0.3211938503333991,
+            0.5015125727794817
+          ],
+          [
+            0.15584844366223816,
+            0.10931969464801324
+          ],
+          [
+            0.04648600448100502,
+            0.19255098012598656
+          ]
+        ],
+        "zone_order": [
+          "root",
+          "inner",
+          "control_break",
+          "outer",
+          "tip"
+        ],
+        "common_node_count": 131,
+        "common_node_max_abs_change": {
+          "node_displacement_response": [
+            1.596322797942204e-05,
+            0.00030364355729273207
+          ],
+          "node_rotation_response": [
+            4.281174663503572e-05,
+            0.0017321602403446157
+          ],
+          "node_span_rotation_response": [
+            1.4513398660219272e-05,
+            0.0002058423148985078
+          ]
+        },
+        "qualification": "Spatial bookkeeping and captured-operator counterfactuals; not a causal proof or continuum error estimate."
+      }
+    ],
+    "scope": "Saved zero-base response localization; no OpenSwing imports, physical equilibrium/derivative calls, ROOT edits or fitted acceptance.",
+    "limitations": [
+      "No new physical model/residual evaluation. Four captured circulation-block solves with two RHS each are distinct from equilibrium reruns.",
+      "Analytical load reconstruction uses the saved approximate full centered-J response. It is not an independent continuum reference and does not remove J/input-partial errors.",
+      "Serialized output minus reconstruction is explicitly retained. This separates an output-expression comparison, not a proof that all remaining error belongs to a specific stencil.",
+      "Captured rigid response holds geometry fixed in the saved operator; elastic difference includes the coupled response and is not a separately solved physical rigid-wing model.",
+      "Zero explicit geometry-product terms follow only from this unloaded base; geometry-induced circulation response is retained.",
+      "Conservative spatial partitions describe where signed contributions change, not where an error originates. p is descriptive; no new acceptance gate or experimental validation."
+    ],
+    "next_experiment": {
+      "proposal": "Reuse20O05n256 base and add only mirrored midpoint nodes to immediately outboard cells versus immediately inboard cells as two separate matched260-element meshes.",
+      "purpose": "Discriminate sensitivity to local boundary-cell side while all other nodes, model, conditions, APIstep and originalbaseline remain fixed.",
+      "limitations": "Two perturbations alone do not establish mesh convergence or causality; compare output remainders and full responses as well as Cl. No launch is part of this matrix review."
+    },
+    "plan_pin": {
+      "bytes": 10186,
+      "sha256": "ae4ddc521f6574c44cb552ad6f5d875982e9133343268d0d404af426e7585061"
+    },
+    "wall_monotonic_seconds": 0.9936851050006226
+  },
+  "source_review_pin": {
+    "bytes": 332707,
+    "sha256": "6a4f8bbe0dcfc2d8fe542e7e49884b0c852c20b3eca9b3f17ba7512bf28fe7ff"
+  },
+  "scope": "No production source/model/default-step change, no new experimental acceptance, no hosted deployment.",
+  "coverage": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0,
+    "AE3": "pending"
+  },
+  "next": "Construct and verify systematic refinement of the intervals beside control discontinuities; retain the original global mesh failures. Separately resolve finite-control experimental conventions, section-control provenance, mechanical fixture discrepancy, driven-roll and reversal."
+}

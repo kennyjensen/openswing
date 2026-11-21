@@ -1,0 +1,2410 @@
+{
+  "format": "openswing.isae.scn-retained-load-audit",
+  "version": 1,
+  "scope": "Saved text only; no solver, production import, model reconstruction, or fitted constant.",
+  "pins": [
+    {
+      "path": "docs/validation/sa1-scn-load-audit-20261027/analyze.py",
+      "bytes": 7661,
+      "sha256": "a6ad17cb1b44dc2b569057f5c4a02989ce7d98684d8f27c53a5716009bb44587"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/sa1-public-history-20261027/scn-study/SCN/post_analysis.m",
+      "bytes": 4921,
+      "sha256": "68c87a671cd8fa1b39b05ac92c63764dc7f29e7c8ff0f8233a8602f0db32fb2a"
+    }
+  ],
+  "primary_evidence": [
+    {
+      "path": ".reference/aswing_doc.txt",
+      "lines": [
+        2497,
+        2501
+      ],
+      "fact": "D increment zero prints actual structural nodes; otherwise displayed values are interpolated."
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "lines": [
+        2503,
+        2509
+      ],
+      "fact": "f_aero is an aerodynamic lift-force/span diagnostic, with a simple-wing reduction rho V Gamma plus the circulation-rate term."
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "lines": [
+        2546,
+        2599
+      ],
+      "fact": "State variables are nodal. Derived cl/f_aero are midpoint values shifted upward half an output line. The last zeros are dummy."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        593,
+        598
+      ],
+      "pages": [
+        12
+      ],
+      "fact": "The structural subscript a denotes an arithmetic endpoint average."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        642,
+        655
+      ],
+      "pages": [
+        13,
+        14
+      ],
+      "fact": "Equations 55/56 conserve integrated distributed and concentrated loads."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        1587,
+        1619
+      ],
+      "pages": [
+        32
+      ],
+      "fact": "The aerodynamic section locally defines a as a theta midpoint and locates bound-vortex lift there."
+    }
+  ],
+  "files": [
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N12.txt",
+        "bytes": 3295,
+        "sha256": "c9cc2ec8b540d9c7f8204d3da2a9b4ea288d0a46a65001ea70ed2f110a568fa9"
+      },
+      "rows": 14,
+      "first_cl": "0.6666",
+      "terminal_cl": "0.0000",
+      "columns": 10,
+      "Fn_scale": "10",
+      "Fn_balance": {
+        "root_lines": [
+          40,
+          41
+        ],
+        "root_jump": "88.6940",
+        "root_jump_print_interval": [
+          "88.69300",
+          "88.69500"
+        ],
+        "header_sum_Fz_token": "88.69",
+        "header_sum_Fz_print_interval": [
+          "88.685",
+          "88.695"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": {
+        "assumptions_not_established": "Treats printed delta-t as ds and printed f_aero as the complete applied normal load. Neither is established by this output alone.",
+        "sum": "88.99853288",
+        "sum_conservative_print_interval": [
+          "88.9536325500",
+          "89.0434333300"
+        ],
+        "sum_matches_root_jump_within_print_intervals": false,
+        "interval_count": 12,
+        "intervals_with_overlapping_print_bounds": 0,
+        "local_checks": [
+          {
+            "lines": [
+              34,
+              35
+            ],
+            "delta_t": "0.0464",
+            "left_f_aero_times_delta_t": "0.17887200",
+            "product_print_interval": [
+              "0.1784841850",
+              "0.1792598250"
+            ],
+            "Fn_decrement": "0.2000",
+            "Fn_decrement_print_interval": [
+              "0.19900",
+              "0.20100"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              35,
+              36
+            ],
+            "delta_t": "0.1491",
+            "left_f_aero_times_delta_t": "3.48461610",
+            "product_print_interval": [
+              "3.4822715500",
+              "3.4869606600"
+            ],
+            "Fn_decrement": "3.5110",
+            "Fn_decrement_print_interval": [
+              "3.51000",
+              "3.51200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              36,
+              37
+            ],
+            "delta_t": "0.2073",
+            "left_f_aero_times_delta_t": "7.93030296",
+            "product_print_interval": [
+              "7.9264670800",
+              "7.9341388500"
+            ],
+            "Fn_decrement": "7.9120",
+            "Fn_decrement_print_interval": [
+              "7.91100",
+              "7.91300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              37,
+              38
+            ],
+            "delta_t": "0.2218",
+            "left_f_aero_times_delta_t": "10.70158384",
+            "product_print_interval": [
+              "10.6967478750",
+              "10.7064198150"
+            ],
+            "Fn_decrement": "10.6530",
+            "Fn_decrement_print_interval": [
+              "10.65200",
+              "10.65400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              38,
+              39
+            ],
+            "delta_t": "0.2092",
+            "left_f_aero_times_delta_t": "11.27828580",
+            "product_print_interval": [
+              "11.2728841950",
+              "11.2836874150"
+            ],
+            "Fn_decrement": "11.2120",
+            "Fn_decrement_print_interval": [
+              "11.21100",
+              "11.21300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              39,
+              40
+            ],
+            "delta_t": "0.1939",
+            "left_f_aero_times_delta_t": "10.92560574",
+            "product_print_interval": [
+              "10.9199613900",
+              "10.9312501000"
+            ],
+            "Fn_decrement": "10.8590",
+            "Fn_decrement_print_interval": [
+              "10.85800",
+              "10.86000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              41,
+              42
+            ],
+            "delta_t": "0.1939",
+            "left_f_aero_times_delta_t": "10.92560574",
+            "product_print_interval": [
+              "10.9199613900",
+              "10.9312501000"
+            ],
+            "Fn_decrement": "10.8590",
+            "Fn_decrement_print_interval": [
+              "10.85800",
+              "10.86000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              42,
+              43
+            ],
+            "delta_t": "0.2092",
+            "left_f_aero_times_delta_t": "11.27828580",
+            "product_print_interval": [
+              "11.2728841950",
+              "11.2836874150"
+            ],
+            "Fn_decrement": "11.2120",
+            "Fn_decrement_print_interval": [
+              "11.21100",
+              "11.21300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              43,
+              44
+            ],
+            "delta_t": "0.2218",
+            "left_f_aero_times_delta_t": "10.70158384",
+            "product_print_interval": [
+              "10.6967478750",
+              "10.7064198150"
+            ],
+            "Fn_decrement": "10.6530",
+            "Fn_decrement_print_interval": [
+              "10.65200",
+              "10.65400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              44,
+              45
+            ],
+            "delta_t": "0.2073",
+            "left_f_aero_times_delta_t": "7.93030296",
+            "product_print_interval": [
+              "7.9264670800",
+              "7.9341388500"
+            ],
+            "Fn_decrement": "7.9120",
+            "Fn_decrement_print_interval": [
+              "7.91100",
+              "7.91300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              45,
+              46
+            ],
+            "delta_t": "0.1491",
+            "left_f_aero_times_delta_t": "3.48461610",
+            "product_print_interval": [
+              "3.4822715500",
+              "3.4869606600"
+            ],
+            "Fn_decrement": "3.5110",
+            "Fn_decrement_print_interval": [
+              "3.51000",
+              "3.51200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              46,
+              47
+            ],
+            "delta_t": "0.0464",
+            "left_f_aero_times_delta_t": "0.17887200",
+            "product_print_interval": [
+              "0.1784841850",
+              "0.1792598250"
+            ],
+            "Fn_decrement": "0.2000",
+            "Fn_decrement_print_interval": [
+              "0.19900",
+              "0.20100"
+            ],
+            "intervals_overlap": false
+          }
+        ]
+      }
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N6.txt",
+        "bytes": 2803,
+        "sha256": "190ccaac8fd5291cfd72b7312c68a4624133a8a4d15b07c96d9962a352ba110e"
+      },
+      "rows": 8,
+      "first_cl": "0.5935",
+      "terminal_cl": "0.0000",
+      "columns": 10,
+      "Fn_scale": "10",
+      "Fn_balance": {
+        "root_lines": [
+          37,
+          38
+        ],
+        "root_jump": "82.1470",
+        "root_jump_print_interval": [
+          "82.14600",
+          "82.14800"
+        ],
+        "header_sum_Fz_token": "82.15",
+        "header_sum_Fz_print_interval": [
+          "82.145",
+          "82.155"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": {
+        "assumptions_not_established": "Treats printed delta-t as ds and printed f_aero as the complete applied normal load. Neither is established by this output alone.",
+        "sum": "82.48841414",
+        "sum_conservative_print_interval": [
+          "82.4675789000",
+          "82.5092494400"
+        ],
+        "sum_matches_root_jump_within_print_intervals": false,
+        "interval_count": 6,
+        "intervals_with_overlapping_print_bounds": 0,
+        "local_checks": [
+          {
+            "lines": [
+              34,
+              35
+            ],
+            "delta_t": "0.1955",
+            "left_f_aero_times_delta_t": "1.53131240",
+            "product_print_interval": [
+              "1.5305193500",
+              "1.5321054600"
+            ],
+            "Fn_decrement": "1.5560",
+            "Fn_decrement_print_interval": [
+              "1.55500",
+              "1.55700"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              35,
+              36
+            ],
+            "delta_t": "0.4291",
+            "left_f_aero_times_delta_t": "17.88922191",
+            "product_print_interval": [
+              "17.8850314500",
+              "17.8934123800"
+            ],
+            "Fn_decrement": "17.8240",
+            "Fn_decrement_print_interval": [
+              "17.82300",
+              "17.82500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              36,
+              37
+            ],
+            "delta_t": "0.4031",
+            "left_f_aero_times_delta_t": "21.82367276",
+            "product_print_interval": [
+              "21.8182386500",
+              "21.8291068800"
+            ],
+            "Fn_decrement": "21.6930",
+            "Fn_decrement_print_interval": [
+              "21.69200",
+              "21.69400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              38,
+              39
+            ],
+            "delta_t": "0.4031",
+            "left_f_aero_times_delta_t": "21.82367276",
+            "product_print_interval": [
+              "21.8182386500",
+              "21.8291068800"
+            ],
+            "Fn_decrement": "21.6940",
+            "Fn_decrement_print_interval": [
+              "21.69300",
+              "21.69500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              39,
+              40
+            ],
+            "delta_t": "0.4291",
+            "left_f_aero_times_delta_t": "17.88922191",
+            "product_print_interval": [
+              "17.8850314500",
+              "17.8934123800"
+            ],
+            "Fn_decrement": "17.8240",
+            "Fn_decrement_print_interval": [
+              "17.82300",
+              "17.82500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              40,
+              41
+            ],
+            "delta_t": "0.1955",
+            "left_f_aero_times_delta_t": "1.53131240",
+            "product_print_interval": [
+              "1.5305193500",
+              "1.5321054600"
+            ],
+            "Fn_decrement": "1.5560",
+            "Fn_decrement_print_interval": [
+              "1.55500",
+              "1.55700"
+            ],
+            "intervals_overlap": false
+          }
+        ]
+      }
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N96.txt",
+        "bytes": 10183,
+        "sha256": "099487d7c871ddde6db4cccfc7184974ee13db8e9fc210bcc3ec928fc15baeac"
+      },
+      "rows": 98,
+      "first_cl": "0.8283",
+      "terminal_cl": "0.0000",
+      "columns": 10,
+      "Fn_scale": "10",
+      "Fn_balance": {
+        "root_lines": [
+          82,
+          83
+        ],
+        "root_jump": "90.8480",
+        "root_jump_print_interval": [
+          "90.84700",
+          "90.84900"
+        ],
+        "header_sum_Fz_token": "90.85",
+        "header_sum_Fz_print_interval": [
+          "90.845",
+          "90.855"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": {
+        "assumptions_not_established": "Treats printed delta-t as ds and printed f_aero as the complete applied normal load. Neither is established by this output alone.",
+        "sum": "91.13864723",
+        "sum_conservative_print_interval": [
+          "90.7706730800",
+          "91.5066223400"
+        ],
+        "sum_matches_root_jump_within_print_intervals": true,
+        "interval_count": 96,
+        "intervals_with_overlapping_print_bounds": 48,
+        "local_checks": [
+          {
+            "lines": [
+              34,
+              35
+            ],
+            "delta_t": "0.0001",
+            "left_f_aero_times_delta_t": "7.0E-7",
+            "product_print_interval": [
+              "0E-10",
+              "0.0000014100"
+            ],
+            "Fn_decrement": "0.0000",
+            "Fn_decrement_print_interval": [
+              "-0.00100",
+              "0.00100"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              35,
+              36
+            ],
+            "delta_t": "0.0006",
+            "left_f_aero_times_delta_t": "0.00123312",
+            "product_print_interval": [
+              "0.0010275750",
+              "0.0014386750"
+            ],
+            "Fn_decrement": "0.0010",
+            "Fn_decrement_print_interval": [
+              "0.00000",
+              "0.00200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              36,
+              37
+            ],
+            "delta_t": "0.0026",
+            "left_f_aero_times_delta_t": "0.00694278",
+            "product_print_interval": [
+              "0.0066756250",
+              "0.0072099450"
+            ],
+            "Fn_decrement": "0.0070",
+            "Fn_decrement_print_interval": [
+              "0.00600",
+              "0.00800"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              37,
+              38
+            ],
+            "delta_t": "0.0047",
+            "left_f_aero_times_delta_t": "0.01997218",
+            "product_print_interval": [
+              "0.0195470100",
+              "0.0203973600"
+            ],
+            "Fn_decrement": "0.0260",
+            "Fn_decrement_print_interval": [
+              "0.02500",
+              "0.02700"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              38,
+              39
+            ],
+            "delta_t": "0.0068",
+            "left_f_aero_times_delta_t": "0.04650044",
+            "product_print_interval": [
+              "0.0458162750",
+              "0.0471846150"
+            ],
+            "Fn_decrement": "0.0530",
+            "Fn_decrement_print_interval": [
+              "0.05200",
+              "0.05400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              39,
+              40
+            ],
+            "delta_t": "0.0088",
+            "left_f_aero_times_delta_t": "0.08249208",
+            "product_print_interval": [
+              "0.0815542350",
+              "0.0834299350"
+            ],
+            "Fn_decrement": "0.0890",
+            "Fn_decrement_print_interval": [
+              "0.08800",
+              "0.09000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              40,
+              41
+            ],
+            "delta_t": "0.0105",
+            "left_f_aero_times_delta_t": "0.12435570",
+            "product_print_interval": [
+              "0.1231708400",
+              "0.1255405700"
+            ],
+            "Fn_decrement": "0.1320",
+            "Fn_decrement_print_interval": [
+              "0.13100",
+              "0.13300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              41,
+              42
+            ],
+            "delta_t": "0.0123",
+            "left_f_aero_times_delta_t": "0.17544843",
+            "product_print_interval": [
+              "0.1740214100",
+              "0.1768754600"
+            ],
+            "Fn_decrement": "0.1810",
+            "Fn_decrement_print_interval": [
+              "0.18000",
+              "0.18200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              42,
+              43
+            ],
+            "delta_t": "0.0139",
+            "left_f_aero_times_delta_t": "0.23121399",
+            "product_print_interval": [
+              "0.2295498900",
+              "0.2328781000"
+            ],
+            "Fn_decrement": "0.2370",
+            "Fn_decrement_print_interval": [
+              "0.23600",
+              "0.23800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              43,
+              44
+            ],
+            "delta_t": "0.0154",
+            "left_f_aero_times_delta_t": "0.29182076",
+            "product_print_interval": [
+              "0.2899250550",
+              "0.2937164750"
+            ],
+            "Fn_decrement": "0.2970",
+            "Fn_decrement_print_interval": [
+              "0.29600",
+              "0.29800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              44,
+              45
+            ],
+            "delta_t": "0.0168",
+            "left_f_aero_times_delta_t": "0.35628264",
+            "product_print_interval": [
+              "0.3541610750",
+              "0.3584042150"
+            ],
+            "Fn_decrement": "0.3620",
+            "Fn_decrement_print_interval": [
+              "0.36100",
+              "0.36300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              45,
+              46
+            ],
+            "delta_t": "0.0182",
+            "left_f_aero_times_delta_t": "0.42596372",
+            "product_print_interval": [
+              "0.4236223550",
+              "0.4283050950"
+            ],
+            "Fn_decrement": "0.4300",
+            "Fn_decrement_print_interval": [
+              "0.42900",
+              "0.43100"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              46,
+              47
+            ],
+            "delta_t": "0.0195",
+            "left_f_aero_times_delta_t": "0.49799295",
+            "product_print_interval": [
+              "0.4954381700",
+              "0.5005477400"
+            ],
+            "Fn_decrement": "0.5010",
+            "Fn_decrement_print_interval": [
+              "0.50000",
+              "0.50200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              47,
+              48
+            ],
+            "delta_t": "0.0207",
+            "left_f_aero_times_delta_t": "0.57141729",
+            "product_print_interval": [
+              "0.5686557900",
+              "0.5741788000"
+            ],
+            "Fn_decrement": "0.5740",
+            "Fn_decrement_print_interval": [
+              "0.57300",
+              "0.57500"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              48,
+              49
+            ],
+            "delta_t": "0.0218",
+            "left_f_aero_times_delta_t": "0.64531488",
+            "product_print_interval": [
+              "0.6423536350",
+              "0.6482761350"
+            ],
+            "Fn_decrement": "0.6460",
+            "Fn_decrement_print_interval": [
+              "0.64500",
+              "0.64700"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              49,
+              50
+            ],
+            "delta_t": "0.0228",
+            "left_f_aero_times_delta_t": "0.71880192",
+            "product_print_interval": [
+              "0.7156481450",
+              "0.7219557050"
+            ],
+            "Fn_decrement": "0.7190",
+            "Fn_decrement_print_interval": [
+              "0.71800",
+              "0.72000"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              50,
+              51
+            ],
+            "delta_t": "0.0236",
+            "left_f_aero_times_delta_t": "0.78769720",
+            "product_print_interval": [
+              "0.7843583250",
+              "0.7910360850"
+            ],
+            "Fn_decrement": "0.7900",
+            "Fn_decrement_print_interval": [
+              "0.78900",
+              "0.79100"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              51,
+              52
+            ],
+            "delta_t": "0.0246",
+            "left_f_aero_times_delta_t": "0.86473182",
+            "product_print_interval": [
+              "0.8612154250",
+              "0.8682482250"
+            ],
+            "Fn_decrement": "0.8610",
+            "Fn_decrement_print_interval": [
+              "0.86000",
+              "0.86200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              52,
+              53
+            ],
+            "delta_t": "0.0252",
+            "left_f_aero_times_delta_t": "0.92859732",
+            "product_print_interval": [
+              "0.9249111550",
+              "0.9322834950"
+            ],
+            "Fn_decrement": "0.9290",
+            "Fn_decrement_print_interval": [
+              "0.92800",
+              "0.93000"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              53,
+              54
+            ],
+            "delta_t": "0.0258",
+            "left_f_aero_times_delta_t": "0.99248214",
+            "product_print_interval": [
+              "0.9886340250",
+              "0.9963302650"
+            ],
+            "Fn_decrement": "0.9920",
+            "Fn_decrement_print_interval": [
+              "0.99100",
+              "0.99300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              54,
+              55
+            ],
+            "delta_t": "0.0265",
+            "left_f_aero_times_delta_t": "1.06023850",
+            "product_print_interval": [
+              "1.0562362800",
+              "1.0642407300"
+            ],
+            "Fn_decrement": "1.0540",
+            "Fn_decrement_print_interval": [
+              "1.05300",
+              "1.05500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              55,
+              56
+            ],
+            "delta_t": "0.0268",
+            "left_f_aero_times_delta_t": "1.11142012",
+            "product_print_interval": [
+              "1.1072716950",
+              "1.1155685550"
+            ],
+            "Fn_decrement": "1.1110",
+            "Fn_decrement_print_interval": [
+              "1.11000",
+              "1.11200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              56,
+              57
+            ],
+            "delta_t": "0.0272",
+            "left_f_aero_times_delta_t": "1.16563968",
+            "product_print_interval": [
+              "1.1613528850",
+              "1.1699264850"
+            ],
+            "Fn_decrement": "1.1620",
+            "Fn_decrement_print_interval": [
+              "1.16100",
+              "1.16300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              57,
+              58
+            ],
+            "delta_t": "0.0276",
+            "left_f_aero_times_delta_t": "1.21881600",
+            "product_print_interval": [
+              "1.2143986250",
+              "1.2232333850"
+            ],
+            "Fn_decrement": "1.2100",
+            "Fn_decrement_print_interval": [
+              "1.20900",
+              "1.21100"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              58,
+              59
+            ],
+            "delta_t": "0.0277",
+            "left_f_aero_times_delta_t": "1.25726699",
+            "product_print_interval": [
+              "1.2527267400",
+              "1.2618072500"
+            ],
+            "Fn_decrement": "1.2530",
+            "Fn_decrement_print_interval": [
+              "1.25200",
+              "1.25400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              59,
+              60
+            ],
+            "delta_t": "0.0278",
+            "left_f_aero_times_delta_t": "1.29385926",
+            "product_print_interval": [
+              "1.2892037050",
+              "1.2985148250"
+            ],
+            "Fn_decrement": "1.2900",
+            "Fn_decrement_print_interval": [
+              "1.28900",
+              "1.29100"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              60,
+              61
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.32861474",
+            "product_print_interval": [
+              "1.3238512900",
+              "1.3333782000"
+            ],
+            "Fn_decrement": "1.3230",
+            "Fn_decrement_print_interval": [
+              "1.32200",
+              "1.32400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              61,
+              62
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.35669609",
+            "product_print_interval": [
+              "1.3518319900",
+              "1.3615602000"
+            ],
+            "Fn_decrement": "1.3510",
+            "Fn_decrement_print_interval": [
+              "1.35000",
+              "1.35200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              62,
+              63
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.38281607",
+            "product_print_interval": [
+              "1.3778583500",
+              "1.3877738000"
+            ],
+            "Fn_decrement": "1.3730",
+            "Fn_decrement_print_interval": [
+              "1.37200",
+              "1.37400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              63,
+              64
+            ],
+            "delta_t": "0.0277",
+            "left_f_aero_times_delta_t": "1.39694701",
+            "product_print_interval": [
+              "1.3919025000",
+              "1.4019915300"
+            ],
+            "Fn_decrement": "1.3910",
+            "Fn_decrement_print_interval": [
+              "1.39000",
+              "1.39200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              64,
+              65
+            ],
+            "delta_t": "0.0276",
+            "left_f_aero_times_delta_t": "1.41404460",
+            "product_print_interval": [
+              "1.4089198750",
+              "1.4191693350"
+            ],
+            "Fn_decrement": "1.4040",
+            "Fn_decrement_print_interval": [
+              "1.40300",
+              "1.40500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              65,
+              66
+            ],
+            "delta_t": "0.0273",
+            "left_f_aero_times_delta_t": "1.41884379",
+            "product_print_interval": [
+              "1.4136452000",
+              "1.4240423900"
+            ],
+            "Fn_decrement": "1.4150",
+            "Fn_decrement_print_interval": [
+              "1.41400",
+              "1.41600"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              66,
+              67
+            ],
+            "delta_t": "0.0272",
+            "left_f_aero_times_delta_t": "1.43208544",
+            "product_print_interval": [
+              "1.4268190650",
+              "1.4373518250"
+            ],
+            "Fn_decrement": "1.4210",
+            "Fn_decrement_print_interval": [
+              "1.42000",
+              "1.42200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              67,
+              68
+            ],
+            "delta_t": "0.0268",
+            "left_f_aero_times_delta_t": "1.42763332",
+            "product_print_interval": [
+              "1.4223049950",
+              "1.4329616550"
+            ],
+            "Fn_decrement": "1.4230",
+            "Fn_decrement_print_interval": [
+              "1.42200",
+              "1.42400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              68,
+              69
+            ],
+            "delta_t": "0.0266",
+            "left_f_aero_times_delta_t": "1.43198174",
+            "product_print_interval": [
+              "1.4265970250",
+              "1.4373664650"
+            ],
+            "Fn_decrement": "1.4240",
+            "Fn_decrement_print_interval": [
+              "1.42300",
+              "1.42500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              69,
+              70
+            ],
+            "delta_t": "0.0263",
+            "left_f_aero_times_delta_t": "1.42926824",
+            "product_print_interval": [
+              "1.4238324500",
+              "1.4347040400"
+            ],
+            "Fn_decrement": "1.4210",
+            "Fn_decrement_print_interval": [
+              "1.42000",
+              "1.42200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              70,
+              71
+            ],
+            "delta_t": "0.0260",
+            "left_f_aero_times_delta_t": "1.42493520",
+            "product_print_interval": [
+              "1.4194533850",
+              "1.4304170250"
+            ],
+            "Fn_decrement": "1.4170",
+            "Fn_decrement_print_interval": [
+              "1.41600",
+              "1.41800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              71,
+              72
+            ],
+            "delta_t": "0.0258",
+            "left_f_aero_times_delta_t": "1.42461150",
+            "product_print_interval": [
+              "1.4190884650",
+              "1.4301345450"
+            ],
+            "Fn_decrement": "1.4110",
+            "Fn_decrement_print_interval": [
+              "1.41000",
+              "1.41200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              72,
+              73
+            ],
+            "delta_t": "0.0254",
+            "left_f_aero_times_delta_t": "1.41183614",
+            "product_print_interval": [
+              "1.4062764650",
+              "1.4173958250"
+            ],
+            "Fn_decrement": "1.4040",
+            "Fn_decrement_print_interval": [
+              "1.40300",
+              "1.40500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              73,
+              74
+            ],
+            "delta_t": "0.0251",
+            "left_f_aero_times_delta_t": "1.40327072",
+            "product_print_interval": [
+              "1.3976787500",
+              "1.4088627000"
+            ],
+            "Fn_decrement": "1.3970",
+            "Fn_decrement_print_interval": [
+              "1.39600",
+              "1.39800"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              74,
+              75
+            ],
+            "delta_t": "0.0249",
+            "left_f_aero_times_delta_t": "1.39910112",
+            "product_print_interval": [
+              "1.3934810000",
+              "1.4047212500"
+            ],
+            "Fn_decrement": "1.3890",
+            "Fn_decrement_print_interval": [
+              "1.38800",
+              "1.39000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              75,
+              76
+            ],
+            "delta_t": "0.0246",
+            "left_f_aero_times_delta_t": "1.38820014",
+            "product_print_interval": [
+              "1.3825558250",
+              "1.3938444650"
+            ],
+            "Fn_decrement": "1.3820",
+            "Fn_decrement_print_interval": [
+              "1.38100",
+              "1.38300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              76,
+              77
+            ],
+            "delta_t": "0.0244",
+            "left_f_aero_times_delta_t": "1.38189888",
+            "product_print_interval": [
+              "1.3762341450",
+              "1.3875636250"
+            ],
+            "Fn_decrement": "1.3740",
+            "Fn_decrement_print_interval": [
+              "1.37300",
+              "1.37500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              77,
+              78
+            ],
+            "delta_t": "0.0242",
+            "left_f_aero_times_delta_t": "1.37463260",
+            "product_print_interval": [
+              "1.3689510950",
+              "1.3803141150"
+            ],
+            "Fn_decrement": "1.3680",
+            "Fn_decrement_print_interval": [
+              "1.36700",
+              "1.36900"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              78,
+              79
+            ],
+            "delta_t": "0.0241",
+            "left_f_aero_times_delta_t": "1.37215037",
+            "product_print_interval": [
+              "1.3664556000",
+              "1.3778451500"
+            ],
+            "Fn_decrement": "1.3620",
+            "Fn_decrement_print_interval": [
+              "1.36100",
+              "1.36300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              79,
+              80
+            ],
+            "delta_t": "0.0240",
+            "left_f_aero_times_delta_t": "1.36882560",
+            "product_print_interval": [
+              "1.3631209650",
+              "1.3745302450"
+            ],
+            "Fn_decrement": "1.3580",
+            "Fn_decrement_print_interval": [
+              "1.35700",
+              "1.35900"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              80,
+              81
+            ],
+            "delta_t": "0.0239",
+            "left_f_aero_times_delta_t": "1.36468283",
+            "product_print_interval": [
+              "1.3589716700",
+              "1.3703940000"
+            ],
+            "Fn_decrement": "1.3550",
+            "Fn_decrement_print_interval": [
+              "1.35400",
+              "1.35600"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              81,
+              82
+            ],
+            "delta_t": "0.0238",
+            "left_f_aero_times_delta_t": "1.35974636",
+            "product_print_interval": [
+              "1.3540319550",
+              "1.3654607750"
+            ],
+            "Fn_decrement": "1.3540",
+            "Fn_decrement_print_interval": [
+              "1.35300",
+              "1.35500"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              83,
+              84
+            ],
+            "delta_t": "0.0238",
+            "left_f_aero_times_delta_t": "1.35974636",
+            "product_print_interval": [
+              "1.3540319550",
+              "1.3654607750"
+            ],
+            "Fn_decrement": "1.3540",
+            "Fn_decrement_print_interval": [
+              "1.35300",
+              "1.35500"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              84,
+              85
+            ],
+            "delta_t": "0.0239",
+            "left_f_aero_times_delta_t": "1.36468283",
+            "product_print_interval": [
+              "1.3589716700",
+              "1.3703940000"
+            ],
+            "Fn_decrement": "1.3550",
+            "Fn_decrement_print_interval": [
+              "1.35400",
+              "1.35600"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              85,
+              86
+            ],
+            "delta_t": "0.0240",
+            "left_f_aero_times_delta_t": "1.36882560",
+            "product_print_interval": [
+              "1.3631209650",
+              "1.3745302450"
+            ],
+            "Fn_decrement": "1.3580",
+            "Fn_decrement_print_interval": [
+              "1.35700",
+              "1.35900"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              86,
+              87
+            ],
+            "delta_t": "0.0241",
+            "left_f_aero_times_delta_t": "1.37215037",
+            "product_print_interval": [
+              "1.3664556000",
+              "1.3778451500"
+            ],
+            "Fn_decrement": "1.3620",
+            "Fn_decrement_print_interval": [
+              "1.36100",
+              "1.36300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              87,
+              88
+            ],
+            "delta_t": "0.0242",
+            "left_f_aero_times_delta_t": "1.37463260",
+            "product_print_interval": [
+              "1.3689510950",
+              "1.3803141150"
+            ],
+            "Fn_decrement": "1.3680",
+            "Fn_decrement_print_interval": [
+              "1.36700",
+              "1.36900"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              88,
+              89
+            ],
+            "delta_t": "0.0244",
+            "left_f_aero_times_delta_t": "1.38189888",
+            "product_print_interval": [
+              "1.3762341450",
+              "1.3875636250"
+            ],
+            "Fn_decrement": "1.3740",
+            "Fn_decrement_print_interval": [
+              "1.37300",
+              "1.37500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              89,
+              90
+            ],
+            "delta_t": "0.0246",
+            "left_f_aero_times_delta_t": "1.38820014",
+            "product_print_interval": [
+              "1.3825558250",
+              "1.3938444650"
+            ],
+            "Fn_decrement": "1.3820",
+            "Fn_decrement_print_interval": [
+              "1.38100",
+              "1.38300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              90,
+              91
+            ],
+            "delta_t": "0.0249",
+            "left_f_aero_times_delta_t": "1.39910112",
+            "product_print_interval": [
+              "1.3934810000",
+              "1.4047212500"
+            ],
+            "Fn_decrement": "1.3890",
+            "Fn_decrement_print_interval": [
+              "1.38800",
+              "1.39000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              91,
+              92
+            ],
+            "delta_t": "0.0251",
+            "left_f_aero_times_delta_t": "1.40327072",
+            "product_print_interval": [
+              "1.3976787500",
+              "1.4088627000"
+            ],
+            "Fn_decrement": "1.3970",
+            "Fn_decrement_print_interval": [
+              "1.39600",
+              "1.39800"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              92,
+              93
+            ],
+            "delta_t": "0.0254",
+            "left_f_aero_times_delta_t": "1.41183614",
+            "product_print_interval": [
+              "1.4062764650",
+              "1.4173958250"
+            ],
+            "Fn_decrement": "1.4040",
+            "Fn_decrement_print_interval": [
+              "1.40300",
+              "1.40500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              93,
+              94
+            ],
+            "delta_t": "0.0258",
+            "left_f_aero_times_delta_t": "1.42461150",
+            "product_print_interval": [
+              "1.4190884650",
+              "1.4301345450"
+            ],
+            "Fn_decrement": "1.4110",
+            "Fn_decrement_print_interval": [
+              "1.41000",
+              "1.41200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              94,
+              95
+            ],
+            "delta_t": "0.0260",
+            "left_f_aero_times_delta_t": "1.42493520",
+            "product_print_interval": [
+              "1.4194533850",
+              "1.4304170250"
+            ],
+            "Fn_decrement": "1.4170",
+            "Fn_decrement_print_interval": [
+              "1.41600",
+              "1.41800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              95,
+              96
+            ],
+            "delta_t": "0.0263",
+            "left_f_aero_times_delta_t": "1.42926824",
+            "product_print_interval": [
+              "1.4238324500",
+              "1.4347040400"
+            ],
+            "Fn_decrement": "1.4210",
+            "Fn_decrement_print_interval": [
+              "1.42000",
+              "1.42200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              96,
+              97
+            ],
+            "delta_t": "0.0266",
+            "left_f_aero_times_delta_t": "1.43198174",
+            "product_print_interval": [
+              "1.4265970250",
+              "1.4373664650"
+            ],
+            "Fn_decrement": "1.4240",
+            "Fn_decrement_print_interval": [
+              "1.42300",
+              "1.42500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              97,
+              98
+            ],
+            "delta_t": "0.0268",
+            "left_f_aero_times_delta_t": "1.42763332",
+            "product_print_interval": [
+              "1.4223049950",
+              "1.4329616550"
+            ],
+            "Fn_decrement": "1.4230",
+            "Fn_decrement_print_interval": [
+              "1.42200",
+              "1.42400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              98,
+              99
+            ],
+            "delta_t": "0.0272",
+            "left_f_aero_times_delta_t": "1.43208544",
+            "product_print_interval": [
+              "1.4268190650",
+              "1.4373518250"
+            ],
+            "Fn_decrement": "1.4210",
+            "Fn_decrement_print_interval": [
+              "1.42000",
+              "1.42200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              99,
+              100
+            ],
+            "delta_t": "0.0273",
+            "left_f_aero_times_delta_t": "1.41884379",
+            "product_print_interval": [
+              "1.4136452000",
+              "1.4240423900"
+            ],
+            "Fn_decrement": "1.4150",
+            "Fn_decrement_print_interval": [
+              "1.41400",
+              "1.41600"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              100,
+              101
+            ],
+            "delta_t": "0.0276",
+            "left_f_aero_times_delta_t": "1.41404460",
+            "product_print_interval": [
+              "1.4089198750",
+              "1.4191693350"
+            ],
+            "Fn_decrement": "1.4040",
+            "Fn_decrement_print_interval": [
+              "1.40300",
+              "1.40500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              101,
+              102
+            ],
+            "delta_t": "0.0277",
+            "left_f_aero_times_delta_t": "1.39694701",
+            "product_print_interval": [
+              "1.3919025000",
+              "1.4019915300"
+            ],
+            "Fn_decrement": "1.3910",
+            "Fn_decrement_print_interval": [
+              "1.39000",
+              "1.39200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              102,
+              103
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.38281607",
+            "product_print_interval": [
+              "1.3778583500",
+              "1.3877738000"
+            ],
+            "Fn_decrement": "1.3730",
+            "Fn_decrement_print_interval": [
+              "1.37200",
+              "1.37400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              103,
+              104
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.35669609",
+            "product_print_interval": [
+              "1.3518319900",
+              "1.3615602000"
+            ],
+            "Fn_decrement": "1.3510",
+            "Fn_decrement_print_interval": [
+              "1.35000",
+              "1.35200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              104,
+              105
+            ],
+            "delta_t": "0.0279",
+            "left_f_aero_times_delta_t": "1.32861474",
+            "product_print_interval": [
+              "1.3238512900",
+              "1.3333782000"
+            ],
+            "Fn_decrement": "1.3230",
+            "Fn_decrement_print_interval": [
+              "1.32200",
+              "1.32400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              105,
+              106
+            ],
+            "delta_t": "0.0278",
+            "left_f_aero_times_delta_t": "1.29385926",
+            "product_print_interval": [
+              "1.2892037050",
+              "1.2985148250"
+            ],
+            "Fn_decrement": "1.2900",
+            "Fn_decrement_print_interval": [
+              "1.28900",
+              "1.29100"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              106,
+              107
+            ],
+            "delta_t": "0.0277",
+            "left_f_aero_times_delta_t": "1.25726699",
+            "product_print_interval": [
+              "1.2527267400",
+              "1.2618072500"
+            ],
+            "Fn_decrement": "1.2530",
+            "Fn_decrement_print_interval": [
+              "1.25200",
+              "1.25400"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              107,
+              108
+            ],
+            "delta_t": "0.0276",
+            "left_f_aero_times_delta_t": "1.21881600",
+            "product_print_interval": [
+              "1.2143986250",
+              "1.2232333850"
+            ],
+            "Fn_decrement": "1.2100",
+            "Fn_decrement_print_interval": [
+              "1.20900",
+              "1.21100"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              108,
+              109
+            ],
+            "delta_t": "0.0272",
+            "left_f_aero_times_delta_t": "1.16563968",
+            "product_print_interval": [
+              "1.1613528850",
+              "1.1699264850"
+            ],
+            "Fn_decrement": "1.1620",
+            "Fn_decrement_print_interval": [
+              "1.16100",
+              "1.16300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              109,
+              110
+            ],
+            "delta_t": "0.0268",
+            "left_f_aero_times_delta_t": "1.11142012",
+            "product_print_interval": [
+              "1.1072716950",
+              "1.1155685550"
+            ],
+            "Fn_decrement": "1.1110",
+            "Fn_decrement_print_interval": [
+              "1.11000",
+              "1.11200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              110,
+              111
+            ],
+            "delta_t": "0.0265",
+            "left_f_aero_times_delta_t": "1.06023850",
+            "product_print_interval": [
+              "1.0562362800",
+              "1.0642407300"
+            ],
+            "Fn_decrement": "1.0540",
+            "Fn_decrement_print_interval": [
+              "1.05300",
+              "1.05500"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              111,
+              112
+            ],
+            "delta_t": "0.0258",
+            "left_f_aero_times_delta_t": "0.99248472",
+            "product_print_interval": [
+              "0.9886365950",
+              "0.9963328550"
+            ],
+            "Fn_decrement": "0.9920",
+            "Fn_decrement_print_interval": [
+              "0.99100",
+              "0.99300"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              112,
+              113
+            ],
+            "delta_t": "0.0252",
+            "left_f_aero_times_delta_t": "0.92859732",
+            "product_print_interval": [
+              "0.9249111550",
+              "0.9322834950"
+            ],
+            "Fn_decrement": "0.9290",
+            "Fn_decrement_print_interval": [
+              "0.92800",
+              "0.93000"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              113,
+              114
+            ],
+            "delta_t": "0.0246",
+            "left_f_aero_times_delta_t": "0.86472936",
+            "product_print_interval": [
+              "0.8612129750",
+              "0.8682457550"
+            ],
+            "Fn_decrement": "0.8610",
+            "Fn_decrement_print_interval": [
+              "0.86000",
+              "0.86200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              114,
+              115
+            ],
+            "delta_t": "0.0236",
+            "left_f_aero_times_delta_t": "0.78769720",
+            "product_print_interval": [
+              "0.7843583250",
+              "0.7910360850"
+            ],
+            "Fn_decrement": "0.7900",
+            "Fn_decrement_print_interval": [
+              "0.78900",
+              "0.79100"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              115,
+              116
+            ],
+            "delta_t": "0.0228",
+            "left_f_aero_times_delta_t": "0.71880192",
+            "product_print_interval": [
+              "0.7156481450",
+              "0.7219557050"
+            ],
+            "Fn_decrement": "0.7190",
+            "Fn_decrement_print_interval": [
+              "0.71800",
+              "0.72000"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              116,
+              117
+            ],
+            "delta_t": "0.0218",
+            "left_f_aero_times_delta_t": "0.64531488",
+            "product_print_interval": [
+              "0.6423536350",
+              "0.6482761350"
+            ],
+            "Fn_decrement": "0.6460",
+            "Fn_decrement_print_interval": [
+              "0.64500",
+              "0.64700"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              117,
+              118
+            ],
+            "delta_t": "0.0207",
+            "left_f_aero_times_delta_t": "0.57141729",
+            "product_print_interval": [
+              "0.5686557900",
+              "0.5741788000"
+            ],
+            "Fn_decrement": "0.5740",
+            "Fn_decrement_print_interval": [
+              "0.57300",
+              "0.57500"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              118,
+              119
+            ],
+            "delta_t": "0.0195",
+            "left_f_aero_times_delta_t": "0.49799295",
+            "product_print_interval": [
+              "0.4954381700",
+              "0.5005477400"
+            ],
+            "Fn_decrement": "0.5010",
+            "Fn_decrement_print_interval": [
+              "0.50000",
+              "0.50200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              119,
+              120
+            ],
+            "delta_t": "0.0182",
+            "left_f_aero_times_delta_t": "0.42596372",
+            "product_print_interval": [
+              "0.4236223550",
+              "0.4283050950"
+            ],
+            "Fn_decrement": "0.4300",
+            "Fn_decrement_print_interval": [
+              "0.42900",
+              "0.43100"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              120,
+              121
+            ],
+            "delta_t": "0.0168",
+            "left_f_aero_times_delta_t": "0.35628432",
+            "product_print_interval": [
+              "0.3541627450",
+              "0.3584059050"
+            ],
+            "Fn_decrement": "0.3620",
+            "Fn_decrement_print_interval": [
+              "0.36100",
+              "0.36300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              121,
+              122
+            ],
+            "delta_t": "0.0154",
+            "left_f_aero_times_delta_t": "0.29182076",
+            "product_print_interval": [
+              "0.2899250550",
+              "0.2937164750"
+            ],
+            "Fn_decrement": "0.2970",
+            "Fn_decrement_print_interval": [
+              "0.29600",
+              "0.29800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              122,
+              123
+            ],
+            "delta_t": "0.0139",
+            "left_f_aero_times_delta_t": "0.23121260",
+            "product_print_interval": [
+              "0.2295485100",
+              "0.2328767000"
+            ],
+            "Fn_decrement": "0.2370",
+            "Fn_decrement_print_interval": [
+              "0.23600",
+              "0.23800"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              123,
+              124
+            ],
+            "delta_t": "0.0123",
+            "left_f_aero_times_delta_t": "0.17544843",
+            "product_print_interval": [
+              "0.1740214100",
+              "0.1768754600"
+            ],
+            "Fn_decrement": "0.1810",
+            "Fn_decrement_print_interval": [
+              "0.18000",
+              "0.18200"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              124,
+              125
+            ],
+            "delta_t": "0.0105",
+            "left_f_aero_times_delta_t": "0.12435465",
+            "product_print_interval": [
+              "0.1231698000",
+              "0.1255395100"
+            ],
+            "Fn_decrement": "0.1320",
+            "Fn_decrement_print_interval": [
+              "0.13100",
+              "0.13300"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              125,
+              126
+            ],
+            "delta_t": "0.0088",
+            "left_f_aero_times_delta_t": "0.08249120",
+            "product_print_interval": [
+              "0.0815533650",
+              "0.0834290450"
+            ],
+            "Fn_decrement": "0.0890",
+            "Fn_decrement_print_interval": [
+              "0.08800",
+              "0.09000"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              126,
+              127
+            ],
+            "delta_t": "0.0068",
+            "left_f_aero_times_delta_t": "0.04649976",
+            "product_print_interval": [
+              "0.0458156050",
+              "0.0471839250"
+            ],
+            "Fn_decrement": "0.0530",
+            "Fn_decrement_print_interval": [
+              "0.05200",
+              "0.05400"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              127,
+              128
+            ],
+            "delta_t": "0.0047",
+            "left_f_aero_times_delta_t": "0.01997171",
+            "product_print_interval": [
+              "0.0195465500",
+              "0.0203968800"
+            ],
+            "Fn_decrement": "0.0260",
+            "Fn_decrement_print_interval": [
+              "0.02500",
+              "0.02700"
+            ],
+            "intervals_overlap": false
+          },
+          {
+            "lines": [
+              128,
+              129
+            ],
+            "delta_t": "0.0026",
+            "left_f_aero_times_delta_t": "0.00694252",
+            "product_print_interval": [
+              "0.0066753750",
+              "0.0072096750"
+            ],
+            "Fn_decrement": "0.0070",
+            "Fn_decrement_print_interval": [
+              "0.00600",
+              "0.00800"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              129,
+              130
+            ],
+            "delta_t": "0.0006",
+            "left_f_aero_times_delta_t": "0.00123306",
+            "product_print_interval": [
+              "0.0010275250",
+              "0.0014386050"
+            ],
+            "Fn_decrement": "0.0010",
+            "Fn_decrement_print_interval": [
+              "0.00000",
+              "0.00200"
+            ],
+            "intervals_overlap": true
+          },
+          {
+            "lines": [
+              130,
+              131
+            ],
+            "delta_t": "0.0001",
+            "left_f_aero_times_delta_t": "7.0E-7",
+            "product_print_interval": [
+              "0E-10",
+              "0.0000014100"
+            ],
+            "Fn_decrement": "0.0000",
+            "Fn_decrement_print_interval": [
+              "-0.00100",
+              "0.00100"
+            ],
+            "intervals_overlap": true
+          }
+        ]
+      }
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/rect_A3_N12.txt",
+        "bytes": 3159,
+        "sha256": "907a654cdd8f422f9ca443ed71777dd5fb065d5da8982822cb381f25d5b2e597"
+      },
+      "rows": 14,
+      "first_cl": "0.0488",
+      "terminal_cl": "0.0000",
+      "columns": 9,
+      "Fn_scale": "1",
+      "Fn_balance": {
+        "root_lines": [
+          40,
+          41
+        ],
+        "root_jump": "9.6484",
+        "root_jump_print_interval": [
+          "9.64830",
+          "9.64850"
+        ],
+        "header_sum_Fz_token": "9.648",
+        "header_sum_Fz_print_interval": [
+          "9.6475",
+          "9.6485"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": null
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/rect_A3_N24.txt",
+        "bytes": 4047,
+        "sha256": "efbd1d3d18737486b0ff2f5a9761508032a241327fc63b138c40c068e8bdc43b"
+      },
+      "rows": 26,
+      "first_cl": "0.0247",
+      "terminal_cl": "0.0000",
+      "columns": 9,
+      "Fn_scale": "1",
+      "Fn_balance": {
+        "root_lines": [
+          46,
+          47
+        ],
+        "root_jump": "9.7010",
+        "root_jump_print_interval": [
+          "9.70090",
+          "9.70110"
+        ],
+        "header_sum_Fz_token": "9.701",
+        "header_sum_Fz_print_interval": [
+          "9.7005",
+          "9.7015"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": null
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/rect_A3_N48.txt",
+        "bytes": 5823,
+        "sha256": "ae52794b1dad282f4d834801e01f9ba27f5a02f3f6f226ee8078fc54bdd2137c"
+      },
+      "rows": 50,
+      "first_cl": "0.0125",
+      "terminal_cl": "0.0000",
+      "columns": 9,
+      "Fn_scale": "1",
+      "Fn_balance": {
+        "root_lines": [
+          58,
+          59
+        ],
+        "root_jump": "9.7271",
+        "root_jump_print_interval": [
+          "9.72700",
+          "9.72720"
+        ],
+        "header_sum_Fz_token": "9.727",
+        "header_sum_Fz_print_interval": [
+          "9.7265",
+          "9.7275"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": null
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/rect_A3_N6.txt",
+        "bytes": 591,
+        "sha256": "755b517b1a861e91f4ee21c8debda5fc590c8f638b7ff222fb7c99602459b286"
+      },
+      "rows": 8,
+      "first_cl": "0.0955",
+      "terminal_cl": "0.0000",
+      "columns": 9,
+      "Fn_scale": null,
+      "Fn_balance": null,
+      "f_aero_times_delta_t_diagnostic": null,
+      "qualification": "Headerless: no force exponent or total-force header inferred from another file."
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/rect_A3_N96.txt",
+        "bytes": 9375,
+        "sha256": "36f2e130be3f88c9328811e6635ef0dcd4ffa924094c8ee896e7454b57488b08"
+      },
+      "rows": 98,
+      "first_cl": "0.0063",
+      "terminal_cl": "0.0000",
+      "columns": 9,
+      "Fn_scale": "1",
+      "Fn_balance": {
+        "root_lines": [
+          82,
+          83
+        ],
+        "root_jump": "9.7400",
+        "root_jump_print_interval": [
+          "9.73990",
+          "9.74010"
+        ],
+        "header_sum_Fz_token": "9.740",
+        "header_sum_Fz_print_interval": [
+          "9.7395",
+          "9.7405"
+        ],
+        "intervals_overlap": true
+      },
+      "f_aero_times_delta_t_diagnostic": null
+    }
+  ],
+  "conclusions": [
+    "The manual establishes following-interval association independently of any model pairing. A nonzero first cl and dummy-zero final cl do not demonstrate an asymmetric tip boundary condition.",
+    "All seven headered outputs have central Fn jumps consistent with their reported sum Fz within original print rounding, using each file own force exponent.",
+    "The raw scalar f_aero times delta-t hypothesis fails local printed-interval checks, including coarse cases. It cannot be used to establish exact force integration or endpoint recovery.",
+    "Unknown complete geometry/local bases, span metric, velocity, profile force and display interpolation prevent a unique recovery of the internal transfer rule. The explicit midpoint printing convention is established; the structural transfer operator is not.",
+    "No claim is made that Rectangular.asw generated the rectangular tables, or that matching CASEI headers prove execution. No new SA1 acceptance targets are registered.",
+    "post_analysis.m plots derived values against node y without correcting the documented half-interval print shift, and estimates Gamma using fixed chord/speed; its plot is not an exact archived circulation field."
+  ]
+}

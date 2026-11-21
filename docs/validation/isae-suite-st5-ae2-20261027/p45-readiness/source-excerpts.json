@@ -1,0 +1,1928 @@
+[
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_2_Propellers_V2.txt",
+      "bytes": 59968,
+      "sha256": "f7d7986de363e5920a05ed009cf72aa62948f596e14d496a89f0de566b20f550"
+    },
+    "line_number_convention": "1-based LF-delimited lines",
+    "excerpts": [
+      {
+        "first_line": 206,
+        "last_line": 215,
+        "lines": [
+          {
+            "line_number": 206,
+            "text": "where Ve is the upcoming freestream velocity or air-"
+          },
+          {
+            "line_number": 207,
+            "text": "relative speed at the engine shaft. \u2126e, Re and (CDA)e"
+          },
+          {
+            "line_number": 208,
+            "text": "are respectively the engine rotation rate, radius and"
+          },
+          {
+            "line_number": 209,
+            "text": "total effective blade area. Those last 3 parameters are"
+          },
+          {
+            "line_number": 210,
+            "text": "user-defined. Note that (CDA)e is reported by the"
+          },
+          {
+            "line_number": 211,
+            "text": "author (Drela 2009) to vary only with the propeller"
+          },
+          {
+            "line_number": 212,
+            "text": "blade number B as"
+          },
+          {
+            "line_number": 213,
+            "text": "(CDA)e = BRec(0.8Re)cd(0.8Re)"
+          },
+          {
+            "line_number": 214,
+            "text": "(2)"
+          },
+          {
+            "line_number": 215,
+            "text": "Thus a single set (c(0.8Re), cd(0.8Re)) can define"
+          }
+        ]
+      },
+      {
+        "first_line": 253,
+        "last_line": 279,
+        "lines": [
+          {
+            "line_number": 253,
+            "text": "Pe = PT + Pv + Psw"
+          },
+          {
+            "line_number": 254,
+            "text": "="
+          },
+          {
+            "line_number": 255,
+            "text": "\u0014"
+          },
+          {
+            "line_number": 256,
+            "text": "Ve + (1 + 5\u03bb2)\u2206Ve"
+          },
+          {
+            "line_number": 257,
+            "text": "2"
+          },
+          {
+            "line_number": 258,
+            "text": "\u0015 \u0012"
+          },
+          {
+            "line_number": 259,
+            "text": "Ve + \u2206Ve"
+          },
+          {
+            "line_number": 260,
+            "text": "2"
+          },
+          {
+            "line_number": 261,
+            "text": "\u0013"
+          },
+          {
+            "line_number": 262,
+            "text": "\u2206Ve"
+          },
+          {
+            "line_number": 263,
+            "text": "+ Pv \u2212Pe"
+          },
+          {
+            "line_number": 264,
+            "text": "(4)"
+          },
+          {
+            "line_number": 265,
+            "text": "When the above equation is solved the thrust can be"
+          },
+          {
+            "line_number": 266,
+            "text": "computed as follows"
+          },
+          {
+            "line_number": 267,
+            "text": "Fe = \u03c1\u03c0R2"
+          },
+          {
+            "line_number": 268,
+            "text": "e"
+          },
+          {
+            "line_number": 269,
+            "text": "\u0012"
+          },
+          {
+            "line_number": 270,
+            "text": "Ve + 1"
+          },
+          {
+            "line_number": 271,
+            "text": "2\u2206Ve"
+          },
+          {
+            "line_number": 272,
+            "text": "\u0013"
+          },
+          {
+            "line_number": 273,
+            "text": "\u2206Ve = Fe(Pe, \u03c1, Ve)"
+          },
+          {
+            "line_number": 274,
+            "text": "(5)"
+          },
+          {
+            "line_number": 275,
+            "text": "Finally the propeller torque is obtained by a power"
+          },
+          {
+            "line_number": 276,
+            "text": "balance that is"
+          },
+          {
+            "line_number": 277,
+            "text": "Me = Me(Pe, \u2126e) = \u2212Pe"
+          },
+          {
+            "line_number": 278,
+            "text": "\u2126e"
+          },
+          {
+            "line_number": 279,
+            "text": "(6)"
+          }
+        ]
+      },
+      {
+        "first_line": 345,
+        "last_line": 393,
+        "lines": [
+          {
+            "line_number": 345,
+            "text": "Jet wake and swirl modeling:"
+          },
+          {
+            "line_number": 346,
+            "text": "The extended actuator disk theory and p-factor model"
+          },
+          {
+            "line_number": 347,
+            "text": "provide intels only on the propeller thrust and torque,"
+          },
+          {
+            "line_number": 348,
+            "text": "but nothing about its jet. This gap is completed using"
+          },
+          {
+            "line_number": 349,
+            "text": "jet and swirl models. Both are built to be consistent"
+          },
+          {
+            "line_number": 350,
+            "text": "with the propeller thrust and moments. Jet modelling"
+          },
+          {
+            "line_number": 351,
+            "text": "is still a modern topic, especially in hydrodynamic"
+          },
+          {
+            "line_number": 352,
+            "text": "applications such as ship propeller efflux impact on"
+          },
+          {
+            "line_number": 353,
+            "text": "scour. Wei et al. provide a historical review of \"low"
+          },
+          {
+            "line_number": 354,
+            "text": "fidelity\" jet modelling techniques. From his work,"
+          },
+          {
+            "line_number": 355,
+            "text": "it has been highlighted that the ASWING propeller"
+          },
+          {
+            "line_number": 356,
+            "text": "jet model mainly derives from the Albertson et al."
+          },
+          {
+            "line_number": 357,
+            "text": "early work despite more recent propositions (Hong"
+          },
+          {
+            "line_number": 358,
+            "text": "et al., Lam et al.). ASWING use also the Albertson"
+          },
+          {
+            "line_number": 359,
+            "text": "et al.\u2019s axial jet formulation to model the propeller"
+          },
+          {
+            "line_number": 360,
+            "text": "swirl. This seems to be a real novelty as swirl effects"
+          },
+          {
+            "line_number": 361,
+            "text": "are generally neglected as reported by Hong et al.."
+          },
+          {
+            "line_number": 362,
+            "text": "This simplification was made for hydrodynamic appli-"
+          },
+          {
+            "line_number": 363,
+            "text": "cations and is too conservative for aerodynamic ones,"
+          },
+          {
+            "line_number": 364,
+            "text": "as the jet can spread a lifting surface. Both jet and"
+          },
+          {
+            "line_number": 365,
+            "text": "swirl are thus necessary as they will significantly mod-"
+          },
+          {
+            "line_number": 366,
+            "text": "ify the lift distribution. That being said, the model"
+          },
+          {
+            "line_number": 367,
+            "text": "consists of dividing the flow into two distinct zones,"
+          },
+          {
+            "line_number": 368,
+            "text": ""
+          },
+          {
+            "line_number": 369,
+            "text": "PDF PAGE 8"
+          },
+          {
+            "line_number": 370,
+            "text": "8"
+          },
+          {
+            "line_number": 371,
+            "text": "2"
+          },
+          {
+            "line_number": 372,
+            "text": "Theoretical model"
+          },
+          {
+            "line_number": 373,
+            "text": "Figure 1: Extented actuator disk theory illustration"
+          },
+          {
+            "line_number": 374,
+            "text": "that are the Flow Establishment one (FEZ) and the"
+          },
+          {
+            "line_number": 375,
+            "text": "Established Flow Zone (EFZ) as depicted in figure 2."
+          },
+          {
+            "line_number": 376,
+            "text": "Their boundaries are efflux dependent. They spread"
+          },
+          {
+            "line_number": 377,
+            "text": "and contract linearly along the streamwise direction."
+          },
+          {
+            "line_number": 378,
+            "text": "Those zones are used to catch the viscous shear stress"
+          },
+          {
+            "line_number": 379,
+            "text": "between the high and low-speed layers. The jet and"
+          },
+          {
+            "line_number": 380,
+            "text": "swirl velocity are built as radial and streamwise co-"
+          },
+          {
+            "line_number": 381,
+            "text": "ordinates functions. Their parameters are computed"
+          },
+          {
+            "line_number": 382,
+            "text": "to be consistent with the mass flow and angular mo-"
+          },
+          {
+            "line_number": 383,
+            "text": "mentum conservation along the jet line. Finally, an"
+          },
+          {
+            "line_number": 384,
+            "text": "important feature of the ASWING model, is that the"
+          },
+          {
+            "line_number": 385,
+            "text": "jet is wind and not shaft-aligned. The jet is shed by"
+          },
+          {
+            "line_number": 386,
+            "text": "the upcoming flow. This latter property is mainly true"
+          },
+          {
+            "line_number": 387,
+            "text": "for high advance ratio flow. Note that the propeller"
+          },
+          {
+            "line_number": 388,
+            "text": "hub effects are not modelled. This is discussed against"
+          },
+          {
+            "line_number": 389,
+            "text": "a small change of the model in the evaluation section."
+          },
+          {
+            "line_number": 390,
+            "text": "Overall, only the propeller radius, rotation speed, and"
+          },
+          {
+            "line_number": 391,
+            "text": "(CDA)e are needed to model completely the jet and"
+          },
+          {
+            "line_number": 392,
+            "text": "swirl. For more details about the jet model please"
+          },
+          {
+            "line_number": 393,
+            "text": "refer to section 3.4.4 of Drela ( 2009)."
+          }
+        ]
+      },
+      {
+        "first_line": 804,
+        "last_line": 815,
+        "lines": [
+          {
+            "line_number": 804,
+            "text": "P-4"
+          },
+          {
+            "line_number": 805,
+            "text": "2 RC Propellers"
+          },
+          {
+            "line_number": 806,
+            "text": "[4]"
+          },
+          {
+            "line_number": 807,
+            "text": "Static jet and swirl velocity field"
+          },
+          {
+            "line_number": 808,
+            "text": "(Vxe, Vsw)"
+          },
+          {
+            "line_number": 809,
+            "text": "Partial"
+          },
+          {
+            "line_number": 810,
+            "text": "(Data only)"
+          },
+          {
+            "line_number": 811,
+            "text": "P-5"
+          },
+          {
+            "line_number": 812,
+            "text": "2 RC Propellers"
+          },
+          {
+            "line_number": 813,
+            "text": "[4]"
+          },
+          {
+            "line_number": 814,
+            "text": "Jet and swirl velocity field (Vxe, Vsw)"
+          },
+          {
+            "line_number": 815,
+            "text": "in advance flow condition"
+          }
+        ]
+      },
+      {
+        "first_line": 1063,
+        "last_line": 1137,
+        "lines": [
+          {
+            "line_number": 1063,
+            "text": "CASE P 4 and 5 Propeller slip-"
+          },
+          {
+            "line_number": 1064,
+            "text": "stream measurements"
+          },
+          {
+            "line_number": 1065,
+            "text": "The jet slipstream predictions are evaluated against"
+          },
+          {
+            "line_number": 1066,
+            "text": "Deters et al. and Deters (2014 chapter 8) experimen-"
+          },
+          {
+            "line_number": 1067,
+            "text": "tal work. The same bench (figure 5-a) as depicted"
+          },
+          {
+            "line_number": 1068,
+            "text": "in the thrust prediction section was used. A 7 hole"
+          },
+          {
+            "line_number": 1069,
+            "text": "probe has been used to measure the axial and swirl"
+          },
+          {
+            "line_number": 1070,
+            "text": "velocities. Its position could vary vertically and hor-"
+          },
+          {
+            "line_number": 1071,
+            "text": "izontally (cf figure 5-a). According to Deters et al.,"
+          },
+          {
+            "line_number": 1072,
+            "text": "measurements on the complete propeller disk were"
+          },
+          {
+            "line_number": 1073,
+            "text": "not necessary from the axisymmetry property of the"
+          },
+          {
+            "line_number": 1074,
+            "text": "flow. Each measurement slice was spaced by 45 cm."
+          },
+          {
+            "line_number": 1075,
+            "text": "The maximum streamwise and radial coordinates of"
+          },
+          {
+            "line_number": 1076,
+            "text": "the probe to the propeller centre were respectively"
+          },
+          {
+            "line_number": 1077,
+            "text": "3.0 and 1.5 propeller diameter. Each probe hole was"
+          },
+          {
+            "line_number": 1078,
+            "text": "connected to a series of MKS pressure transducers"
+          },
+          {
+            "line_number": 1079,
+            "text": "giving an accuracy of 0.06 m/s and 0.9\u25e6for axial ve-"
+          },
+          {
+            "line_number": 1080,
+            "text": "locity and angle of attack. The measurement errors"
+          },
+          {
+            "line_number": 1081,
+            "text": "were reported as small enough to be not plotted in"
+          },
+          {
+            "line_number": 1082,
+            "text": "the author\u2019s publication. The data have been digi-"
+          },
+          {
+            "line_number": 1083,
+            "text": "talized using webplotdigitalizer. Several propellers at"
+          },
+          {
+            "line_number": 1084,
+            "text": "different rotation rates and advance flow have been"
+          },
+          {
+            "line_number": 1085,
+            "text": "used to evaluate the jet model. In this paper, the"
+          },
+          {
+            "line_number": 1086,
+            "text": "GWS APC and DA4002 results are presented. Their"
+          },
+          {
+            "line_number": 1087,
+            "text": "geometries are depicted in figure 17 in the appendix"
+          },
+          {
+            "line_number": 1088,
+            "text": "of this paper. Axial and swirl velocity predictions are"
+          },
+          {
+            "line_number": 1089,
+            "text": "presented in static and advanced flow conditions. For"
+          },
+          {
+            "line_number": 1090,
+            "text": "the static one, the engine jet model was reproduced in"
+          },
+          {
+            "line_number": 1091,
+            "text": "MATLAB while in advanced flow conditions, a numer-"
+          },
+          {
+            "line_number": 1092,
+            "text": "ical bench was set up in ASWING. Axial velocities"
+          },
+          {
+            "line_number": 1093,
+            "text": "and angle of attack were provided by the numerical"
+          },
+          {
+            "line_number": 1094,
+            "text": "sensors at each streamwise and radial position. The"
+          },
+          {
+            "line_number": 1095,
+            "text": "swirl velocity was reconstructed using the local angle"
+          },
+          {
+            "line_number": 1096,
+            "text": "of attack or side slip angle measurements combined"
+          },
+          {
+            "line_number": 1097,
+            "text": "with the axial velocities."
+          },
+          {
+            "line_number": 1098,
+            "text": "That being said, the figures 11 (a) and (b) present"
+          },
+          {
+            "line_number": 1099,
+            "text": "the static axial and swirl velocity predictions against"
+          },
+          {
+            "line_number": 1100,
+            "text": "Deters et al. experimental data on the GWS propeller."
+          },
+          {
+            "line_number": 1101,
+            "text": "A single rotation rate (\u2126= 5000RPM) is presented."
+          },
+          {
+            "line_number": 1102,
+            "text": "Five normalized streamwise locations are presented"
+          },
+          {
+            "line_number": 1103,
+            "text": "( x"
+          },
+          {
+            "line_number": 1104,
+            "text": "D \u2208[0.125, 0.5, 1.0, 3.0]). For the axial velocity, a"
+          },
+          {
+            "line_number": 1105,
+            "text": "general trend can be observed, ASWING is weak near"
+          },
+          {
+            "line_number": 1106,
+            "text": "the propeller plane ( x"
+          },
+          {
+            "line_number": 1107,
+            "text": "D < 0.5) to show good agree-"
+          },
+          {
+            "line_number": 1108,
+            "text": "ments while satisfying one is witnessed after. Similar"
+          },
+          {
+            "line_number": 1109,
+            "text": "observations are done on the swirl predictions (figure"
+          },
+          {
+            "line_number": 1110,
+            "text": "11 -b). Those discrepancies are mainly due to the pro-"
+          },
+          {
+            "line_number": 1111,
+            "text": "peller hub which does not accelerate the fluid, thus a"
+          },
+          {
+            "line_number": 1112,
+            "text": "low-speed region is observed for small radial positions."
+          },
+          {
+            "line_number": 1113,
+            "text": "In consequence a modification has been proposed to"
+          },
+          {
+            "line_number": 1114,
+            "text": "take into account those effects. A low-speed region"
+          },
+          {
+            "line_number": 1115,
+            "text": "has been implemented as depicted in figure 2. Its"
+          },
+          {
+            "line_number": 1116,
+            "text": "diameter tends to reduce linearly with the streamwise"
+          },
+          {
+            "line_number": 1117,
+            "text": "distance until the mixing point. The velocity profile"
+          },
+          {
+            "line_number": 1118,
+            "text": "is constructed to be consistent with the other regions."
+          },
+          {
+            "line_number": 1119,
+            "text": "This modification is denoted as ASWING-m. From"
+          },
+          {
+            "line_number": 1120,
+            "text": "figure 11 (a), the modification improves a bit the axial"
+          },
+          {
+            "line_number": 1121,
+            "text": "and swirl velocities predictions at"
+          },
+          {
+            "line_number": 1122,
+            "text": "x"
+          },
+          {
+            "line_number": 1123,
+            "text": "D = 0.125. The"
+          },
+          {
+            "line_number": 1124,
+            "text": "benefit tends to lower for greater spanwise locations."
+          },
+          {
+            "line_number": 1125,
+            "text": "Another propeller (APC at 9000 RPM) was used to ro-"
+          },
+          {
+            "line_number": 1126,
+            "text": "bustify the analysis. Predictions results are presented"
+          },
+          {
+            "line_number": 1127,
+            "text": "in figures 18 (a) and (b). This case contradicts the"
+          },
+          {
+            "line_number": 1128,
+            "text": "previous observations, especially on the swirl predic-"
+          },
+          {
+            "line_number": 1129,
+            "text": "tions near the propeller blade. Indeed the ASWING"
+          },
+          {
+            "line_number": 1130,
+            "text": "unmodified version shows better agreements with ex-"
+          },
+          {
+            "line_number": 1131,
+            "text": "periments. For axial velocity, ASWING-m remains"
+          },
+          {
+            "line_number": 1132,
+            "text": "better. Also using 2 propellers as static validation"
+          },
+          {
+            "line_number": 1133,
+            "text": "case are of interest to highlight the difference in veloc-"
+          },
+          {
+            "line_number": 1134,
+            "text": "ity profile because of each propeller geometry. This"
+          },
+          {
+            "line_number": 1135,
+            "text": "change is not captured by ASWING nor its modified"
+          },
+          {
+            "line_number": 1136,
+            "text": "version. However, they both capture quite well the"
+          },
+          {
+            "line_number": 1137,
+            "text": "jet spreading and the ZEF and EFZ boundaries."
+          }
+        ]
+      },
+      {
+        "first_line": 1157,
+        "last_line": 1186,
+        "lines": [
+          {
+            "line_number": 1157,
+            "text": "Figure 12(a) and (b) presents predictions in ad-"
+          },
+          {
+            "line_number": 1158,
+            "text": "vance flow condition (\u03bb = 0.52) on the GWS propeller"
+          },
+          {
+            "line_number": 1159,
+            "text": "at a rotation speed of 5000 RPM. A large low-speed"
+          },
+          {
+            "line_number": 1160,
+            "text": "profile (r/R < 0.25 ) is not captured by both mod-"
+          },
+          {
+            "line_number": 1161,
+            "text": "els. Also a negative swirl velocity zone (cf 12-b) is"
+          },
+          {
+            "line_number": 1162,
+            "text": "observed for streamwise location (x/D = 0.125 and"
+          },
+          {
+            "line_number": 1163,
+            "text": "x/D = 0.5) and is not captured. For downstream loca-"
+          },
+          {
+            "line_number": 1164,
+            "text": "tions, ASWING-m shows better agreements. Again by"
+          },
+          {
+            "line_number": 1165,
+            "text": "studying another propeller (DA4002 at 5000RPM and"
+          },
+          {
+            "line_number": 1166,
+            "text": "\u03bb = 0.64), depicted in figure 19 in Appendix, contra-"
+          },
+          {
+            "line_number": 1167,
+            "text": "dicting results are observed. Indeed, ASWING shows"
+          },
+          {
+            "line_number": 1168,
+            "text": "better performances than ASWING-m no matter the"
+          },
+          {
+            "line_number": 1169,
+            "text": "streamwise location on the swirl velocity predictions."
+          },
+          {
+            "line_number": 1170,
+            "text": "For axial velocity, ASWING-m remains better. In"
+          },
+          {
+            "line_number": 1171,
+            "text": "light of the results, both ASWING jet models show"
+          },
+          {
+            "line_number": 1172,
+            "text": "reasonable agreements with experiments for axial and"
+          },
+          {
+            "line_number": 1173,
+            "text": "swirl velocities predictions for"
+          },
+          {
+            "line_number": 1174,
+            "text": "x"
+          },
+          {
+            "line_number": 1175,
+            "text": "D >= 0.5."
+          },
+          {
+            "line_number": 1176,
+            "text": "Lower"
+          },
+          {
+            "line_number": 1177,
+            "text": "performances are reported for swirl computations on"
+          },
+          {
+            "line_number": 1178,
+            "text": "both models. Better performances are witnessed on"
+          },
+          {
+            "line_number": 1179,
+            "text": "ASWING-m only for axial velocity predictions. Fi-"
+          },
+          {
+            "line_number": 1180,
+            "text": "nally, prediction errors must be commented on. A"
+          },
+          {
+            "line_number": 1181,
+            "text": "swirl velocity will induce a local change in the angle of"
+          },
+          {
+            "line_number": 1182,
+            "text": "attack. Local lift varies linearly (in unstalled region)"
+          },
+          {
+            "line_number": 1183,
+            "text": "with the angle of attack while it does quadratically"
+          },
+          {
+            "line_number": 1184,
+            "text": "with the axial velocity. As the swirl velocity induces"
+          },
+          {
+            "line_number": 1185,
+            "text": "a change in the local angle of attack, its prediction"
+          },
+          {
+            "line_number": 1186,
+            "text": "error is weightless in comparison to the axial velocity."
+          }
+        ]
+      },
+      {
+        "first_line": 1260,
+        "last_line": 1280,
+        "lines": [
+          {
+            "line_number": 1260,
+            "text": "Figure 11: CASE P-4 Static GWS (5000 RPM) axial and swirl velocities evaluated at different streamwise"
+          },
+          {
+            "line_number": 1261,
+            "text": "location"
+          },
+          {
+            "line_number": 1262,
+            "text": "x"
+          },
+          {
+            "line_number": 1263,
+            "text": "D and different radial position"
+          },
+          {
+            "line_number": 1264,
+            "text": "r"
+          },
+          {
+            "line_number": 1265,
+            "text": "R (y-axis). Comparison of ASWING 5.96 and ASWING-m"
+          },
+          {
+            "line_number": 1266,
+            "text": "predictions with experimental data from Deters et al. ( 2015)"
+          },
+          {
+            "line_number": 1267,
+            "text": ""
+          },
+          {
+            "line_number": 1268,
+            "text": "PDF PAGE 21"
+          },
+          {
+            "line_number": 1269,
+            "text": "3.4"
+          },
+          {
+            "line_number": 1270,
+            "text": "CASE AP-1 Propeller slipstream/lifting surface interaction"
+          },
+          {
+            "line_number": 1271,
+            "text": "21"
+          },
+          {
+            "line_number": 1272,
+            "text": "(a)Axial velocity"
+          },
+          {
+            "line_number": 1273,
+            "text": "(b) Swirl velocity"
+          },
+          {
+            "line_number": 1274,
+            "text": "Figure 12: CASE P-5 Advanced flow GWS (5000 RPM), \u03bb = 0.52, axial and swirl velocities evaluated at"
+          },
+          {
+            "line_number": 1275,
+            "text": "different streamwise location"
+          },
+          {
+            "line_number": 1276,
+            "text": "x"
+          },
+          {
+            "line_number": 1277,
+            "text": "D and different radial position"
+          },
+          {
+            "line_number": 1278,
+            "text": "r"
+          },
+          {
+            "line_number": 1279,
+            "text": "R (y-axis). Comparison of ASWING 5.96 and"
+          },
+          {
+            "line_number": 1280,
+            "text": "ASWING-m predictions with experimental data from Deters et al. ( 2015)"
+          }
+        ]
+      },
+      {
+        "first_line": 1461,
+        "last_line": 1477,
+        "lines": [
+          {
+            "line_number": 1461,
+            "text": "(a) GWS 5X4.3"
+          },
+          {
+            "line_number": 1462,
+            "text": "(b) APC Sport 4.2X2"
+          },
+          {
+            "line_number": 1463,
+            "text": "(c) DA4002 9 in"
+          },
+          {
+            "line_number": 1464,
+            "text": "(d) DA4022 9 in"
+          },
+          {
+            "line_number": 1465,
+            "text": "Figure 17: Propellers used for thrust, power, axial jet and swirl predictions (CASE A and C)"
+          },
+          {
+            "line_number": 1466,
+            "text": ""
+          },
+          {
+            "line_number": 1467,
+            "text": "PDF PAGE 27"
+          },
+          {
+            "line_number": 1468,
+            "text": "27"
+          },
+          {
+            "line_number": 1469,
+            "text": "(a)Axial velocity"
+          },
+          {
+            "line_number": 1470,
+            "text": "(b) Swirl velocity"
+          },
+          {
+            "line_number": 1471,
+            "text": "Figure 18: CASE - C Static APC (9000 RPM) axial and swirl velocities evaluated at different streamwise"
+          },
+          {
+            "line_number": 1472,
+            "text": "location"
+          },
+          {
+            "line_number": 1473,
+            "text": "x"
+          },
+          {
+            "line_number": 1474,
+            "text": "D and different radial position"
+          },
+          {
+            "line_number": 1475,
+            "text": "r"
+          },
+          {
+            "line_number": 1476,
+            "text": "R (y-axis). Comparison of ASWING 5.96 and ASWING-m"
+          },
+          {
+            "line_number": 1477,
+            "text": "predictions with experimental data from Deters"
+          }
+        ]
+      },
+      {
+        "first_line": 1485,
+        "last_line": 1491,
+        "lines": [
+          {
+            "line_number": 1485,
+            "text": "Figure 19: CASE - D Advanced flow DA4002 (5000RPM),\u03bb = 0.64, axial and swirl velocities evaluated at"
+          },
+          {
+            "line_number": 1486,
+            "text": "different streamwise location"
+          },
+          {
+            "line_number": 1487,
+            "text": "x"
+          },
+          {
+            "line_number": 1488,
+            "text": "D and different radial position"
+          },
+          {
+            "line_number": 1489,
+            "text": "r"
+          },
+          {
+            "line_number": 1490,
+            "text": "R (y-axis). Comparison of ASWING 5.96 and"
+          },
+          {
+            "line_number": 1491,
+            "text": "ASWING-m predictions with experimental data from Deters"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    "line_number_convention": "1-based LF-delimited lines",
+    "excerpts": [
+      {
+        "first_line": 1151,
+        "last_line": 1172,
+        "lines": [
+          {
+            "line_number": 1151,
+            "text": "3.4.4     Propulsive  jet"
+          },
+          {
+            "line_number": 1152,
+            "text": ""
+          },
+          {
+            "line_number": 1153,
+            "text": "Engine force will be accompanied by a propulsive jet with velocity increment \ufb01eld \u2206\u20d7Vjet.  The jet is"
+          },
+          {
+            "line_number": 1154,
+            "text": "assumed to lie along some unit direction vector  \u02c6\u03be, which is also the direction of the trailing vortex"
+          },
+          {
+            "line_number": 1155,
+            "text": "legs  in  the  vortex-lattice  system  (described  in  a  later  section).   The  spatial  variation  of  this  jet"
+          },
+          {
+            "line_number": 1156,
+            "text": "velocity \ufb01eld is constructed using a combination of actuator disk theory together with jet and wake"
+          },
+          {
+            "line_number": 1157,
+            "text": "mixing theory.  These will be applied in terms of the lateral distance rjet  from the thrust line and"
+          },
+          {
+            "line_number": 1158,
+            "text": "the distance xjet behind the engine, de\ufb01ned by the following vector operations."
+          },
+          {
+            "line_number": 1159,
+            "text": ""
+          },
+          {
+            "line_number": 1160,
+            "text": "                                                   xjet    =    \u02c6\u03be \u00b7(\u20d7r \u2212\u20d7rp)                                                                 (122)"
+          },
+          {
+            "line_number": 1161,
+            "text": "                                                   \u20d7rjet    =    (\u20d7r \u2212\u20d7rp)  \u2212  \u02c6\u03bexjet                                                      (123)"
+          },
+          {
+            "line_number": 1162,
+            "text": "                                                   rjet    =    |\u20d7rjet|                                                                           (124)"
+          },
+          {
+            "line_number": 1163,
+            "text": ""
+          },
+          {
+            "line_number": 1164,
+            "text": "As shown in Figure 10,  there will be an initial  induced velocity  increment \u2206Veng  a short distance"
+          },
+          {
+            "line_number": 1165,
+            "text": "behind the engine disk,  once ambient  pressure is  reached.  The self-induced velocity  increment at"
+          },
+          {
+            "line_number": 1166,
+            "text": "the disk itself will be only \u2206Veng/2, so that the jet will have a fast initial contraction  from engine"
+          },
+          {
+            "line_number": 1167,
+            "text": "disk radiusReng, to R\u2032eng  as given by the mass continuity requirement."
+          },
+          {
+            "line_number": 1168,
+            "text": "                                                             \u221a"
+          },
+          {
+            "line_number": 1169,
+            "text": "                                              Reng    =         Aeng"
+          },
+          {
+            "line_number": 1170,
+            "text": "                                                                  \u03c0                                                                              (125)\u221a"
+          },
+          {
+            "line_number": 1171,
+            "text": "                                              R\u2032eng    = Reng          Veng + \u2206Veng/2"
+          },
+          {
+            "line_number": 1172,
+            "text": "                                                                         Veng + \u2206Veng                                                   (126)"
+          }
+        ]
+      },
+      {
+        "first_line": 1190,
+        "last_line": 1248,
+        "lines": [
+          {
+            "line_number": 1190,
+            "text": "Jet  spreading  and  jet  velocity  pro\ufb01le"
+          },
+          {
+            "line_number": 1191,
+            "text": "As shown in Figure 10, the boundary of the jet will spread laterally  due to turbulent mixing at a"
+          },
+          {
+            "line_number": 1192,
+            "text": "half-angle of arctan(\u03b5).  Mixing-layer theory, as described by White [2], assumes the lateral growth"
+          },
+          {
+            "line_number": 1193,
+            "text": "rate scales with the lateral turbulent velocity \ufb02uctuations."
+          },
+          {
+            "line_number": 1194,
+            "text": "                                                    Db"
+          },
+          {
+            "line_number": 1195,
+            "text": "                                                    Dt    \u223c v\u2032"
+          },
+          {
+            "line_number": 1196,
+            "text": "                                                     db"
+          },
+          {
+            "line_number": 1197,
+            "text": "                                                     dx    = K\u03b5       \u2206VVconvective"
+          },
+          {
+            "line_number": 1198,
+            "text": "Applying this concept to the inner and outer shear layer boundaries gives"
+          },
+          {
+            "line_number": 1199,
+            "text": ""
+          },
+          {
+            "line_number": 1200,
+            "text": "                                                 \u03b5c    = K\u03b5         |\u2206Veng|Veng + 1.0 \u2206Veng                                                    (127)"
+          },
+          {
+            "line_number": 1201,
+            "text": ""
+          },
+          {
+            "line_number": 1202,
+            "text": "                                                 \u03b5b    = K\u03b5         |\u2206Veng|Veng + 0.5 \u2206Veng                                                    (128)"
+          },
+          {
+            "line_number": 1203,
+            "text": ""
+          },
+          {
+            "line_number": 1204,
+            "text": "                                                K\u03b5    =    0.11                                                                               (129)"
+          },
+          {
+            "line_number": 1205,
+            "text": "The  constants  1.0  and  0.5  for  the  e\ufb00ective  convective  speeds  in  the  denominators  are  calibrated"
+          },
+          {
+            "line_number": 1206,
+            "text": "to  give  a  nearly  constant  momentum  \ufb02ux  in  the  resulting  jet  pro\ufb01le,  as  will  be  seen  later.   The"
+          },
+          {
+            "line_number": 1207,
+            "text": "K\u03b5  =  0.11  value  approximately  matches  observed  experimental  shear  layer  spreading  rates.   For"
+          },
+          {
+            "line_number": 1208,
+            "text": "very light disk loadings, \u2206Veng \u226aVeng, and the spreading angle is close to zero.  For very large disk"
+          },
+          {
+            "line_number": 1209,
+            "text": "loadings,  \u2206Veng  \u226b Veng,  the  outer  spreading  angle  approaches  arctan(K\u03b5/0.5)  \u2243  12\u25e6.   The  inner"
+          },
+          {
+            "line_number": 1210,
+            "text": "spreading angle  de\ufb01nes  a  \u201cmixing  distance\u201d xmix  where  the  inner  mixing  layer  boundaries merge"
+          },
+          {
+            "line_number": 1211,
+            "text": "at  the  centerline,  and it  also  de\ufb01nes  the inner  and outer  mixing layer  boundaries cjet  and bjet,  as"
+          },
+          {
+            "line_number": 1212,
+            "text": "shown in Figure 10."
+          },
+          {
+            "line_number": 1213,
+            "text": "                                     xmix    = R\u2032eng/\u03b5c                                                                                    (130)"
+          },
+          {
+            "line_number": 1214,
+            "text": "                                       bjet    = R\u2032eng  + \u03b5bxjet                                                                         (131){ R\u2032eng  \u2212 \u03b5cxjet , xjet<xmix"
+          },
+          {
+            "line_number": 1215,
+            "text": ""
+          },
+          {
+            "line_number": 1216,
+            "text": "                                       cjet    =       0          , xjet>xmix                                         (132)"
+          },
+          {
+            "line_number": 1217,
+            "text": ""
+          },
+          {
+            "line_number": 1218,
+            "text": "The velocity pro\ufb01le over the mixing layer is closely approximated by Schlichting\u2019s asymptotic wake"
+          },
+          {
+            "line_number": 1219,
+            "text": "pro\ufb01le as given by White [2]."
+          },
+          {
+            "line_number": 1220,
+            "text": "                 \uf8f1\uf8f4\uf8f4\uf8f20                            , xjet< 0   or  rjet>bjet"
+          },
+          {
+            "line_number": 1221,
+            "text": "                              {"
+          },
+          {
+            "line_number": 1222,
+            "text": " \u2206Vjet    =      \uf8f4\uf8f4\uf8f3 \u2206V0 jet    1 \u2212 [(rjet \u2212cjet)/(bjet \u2212cjet)]3/2} 2 , xjet> 0   and  bjet>rjet>cjet                           (133)"
+          },
+          {
+            "line_number": 1223,
+            "text": "                     \u2206V0 jet                         , xjet> 0   and  cjet>rjet"
+          },
+          {
+            "line_number": 1224,
+            "text": ""
+          },
+          {
+            "line_number": 1225,
+            "text": "                                                                  24"
+          },
+          {
+            "line_number": 1226,
+            "text": ""
+          },
+          {
+            "line_number": 1227,
+            "text": "PAGE 25"
+          },
+          {
+            "line_number": 1228,
+            "text": "The jet centerline velocity  increment \u2206V0 jet  used in (133) is obtained by the physical requirement"
+          },
+          {
+            "line_number": 1229,
+            "text": "that the jet\u2019s momentum excess must always be equal to the engine thrust."
+          },
+          {
+            "line_number": 1230,
+            "text": "                                                  \u222b\u222b"
+          },
+          {
+            "line_number": 1231,
+            "text": "                                    Feng    =          \u03c1\u2206Vjet (Veng + \u2206Vjet) dA                                                (134)"
+          },
+          {
+            "line_number": 1232,
+            "text": "                                                      \u222b  b"
+          },
+          {
+            "line_number": 1233,
+            "text": "                                             =    2\u03c0"
+          },
+          {
+            "line_number": 1234,
+            "text": "                                                      (0 \u03c1\u2206Vjet (Veng + \u2206Vjet) rjetdrjet)"
+          },
+          {
+            "line_number": 1235,
+            "text": "                                             = \u03c0\u03c1       k1Veng \u2206V0 jet  + k2 \u2206V 20 jet"
+          },
+          {
+            "line_number": 1236,
+            "text": ""
+          },
+          {
+            "line_number": 1237,
+            "text": "                                       k1    = c2  +   910c(b \u2212c)  +   935(b \u2212c)2"
+          },
+          {
+            "line_number": 1238,
+            "text": ""
+          },
+          {
+            "line_number": 1239,
+            "text": "                                       k2    = c2  + 243385c(b \u2212c)  +  2431820 (b \u2212c)2"
+          },
+          {
+            "line_number": 1240,
+            "text": "                                                  \u221a"
+          },
+          {
+            "line_number": 1241,
+            "text": "                                 \u2206V0 jet    =        1 k21                         k1"
+          },
+          {
+            "line_number": 1242,
+            "text": "                                                     4 k22V 2eng  + Feng\u03c1\u03c0k2  \u2212  12k2Veng                                          (135)"
+          },
+          {
+            "line_number": 1243,
+            "text": ""
+          },
+          {
+            "line_number": 1244,
+            "text": "Figure  11  shows  the  predicted  jet  spreading  for  two  di\ufb00erent  disk  loadings,  characterized  by  the"
+          },
+          {
+            "line_number": 1245,
+            "text": "initial  jet  velocity  \u2206Veng  relative  to Veng.    Also  shown  are  the  predicted  velocity  pro\ufb01les,  and"
+          },
+          {
+            "line_number": 1246,
+            "text": "centerline  velocities  \u2206V0 jet.   The  latter  are  approximately  equal  to  \u2206Veng  until  the  inner  mixing"
+          },
+          {
+            "line_number": 1247,
+            "text": "layer edge reaches the centerline, after which \u2206V0 jet  gradually decreases.  The total jet momentum"
+          },
+          {
+            "line_number": 1248,
+            "text": "excess de\ufb01ned by (134) is exactly equal to Feng  for all xjet locations."
+          }
+        ]
+      },
+      {
+        "first_line": 1269,
+        "last_line": 1298,
+        "lines": [
+          {
+            "line_number": 1269,
+            "text": "Jet  swirl"
+          },
+          {
+            "line_number": 1270,
+            "text": "In general, there will also be a swirl velocity \u2206 Wjet in the prop jet (not shown in the \ufb01gures).  It is"
+          },
+          {
+            "line_number": 1271,
+            "text": "assumed that this has the same pro\ufb01le shape as the axial jet velocity."
+          },
+          {
+            "line_number": 1272,
+            "text": "                \uf8f1\uf8f4\uf8f4\uf8f20                             , xjet< 0   or  rjet>bjet"
+          },
+          {
+            "line_number": 1273,
+            "text": "                              {"
+          },
+          {
+            "line_number": 1274,
+            "text": "\u2206Wjet    =      \uf8f4\uf8f4\uf8f3 \u2206W0 jet     1 \u2212 [(rjet \u2212cjet)/(bjet \u2212cjet)]3/2} 2 , xjet> 0   and  bjet>rjet>cjet(136)"
+          },
+          {
+            "line_number": 1275,
+            "text": "                    \u2206W0 jet                         , xjet> 0   and  cjet>rjet"
+          },
+          {
+            "line_number": 1276,
+            "text": ""
+          },
+          {
+            "line_number": 1277,
+            "text": "                                                                25"
+          },
+          {
+            "line_number": 1278,
+            "text": ""
+          },
+          {
+            "line_number": 1279,
+            "text": "PAGE 26"
+          },
+          {
+            "line_number": 1280,
+            "text": "The jet centerline velocity increment \u2206W0 jet used in (136) is obtained by the physical requirement"
+          },
+          {
+            "line_number": 1281,
+            "text": "that the jet\u2019s angular momentum must always be equal and opposite to the propeller torque."
+          },
+          {
+            "line_number": 1282,
+            "text": "                                         \u222b\u222b"
+          },
+          {
+            "line_number": 1283,
+            "text": "                        \u2212Meng    =            \u03c1 (Veng + \u2206Vjet) \u2206WjetrdA                                                       (137)"
+          },
+          {
+            "line_number": 1284,
+            "text": "                                             \u222b  b"
+          },
+          {
+            "line_number": 1285,
+            "text": "                                    =    2\u03c0"
+          },
+          {
+            "line_number": 1286,
+            "text": "                                               0 \u03c1 (Veng + \u2206Vjet) \u2206Wjetr2jetdrjet"
+          },
+          {
+            "line_number": 1287,
+            "text": "                                    = \u03c0\u03c1 (k3Veng  + k4 \u2206V0 jet) \u2206 W0 jet"
+          },
+          {
+            "line_number": 1288,
+            "text": "                              k3    =    23c3  +   910c2(b \u2212c)  +   935c(b \u2212c)2  +  19(b \u2212c)3"
+          },
+          {
+            "line_number": 1289,
+            "text": ""
+          },
+          {
+            "line_number": 1290,
+            "text": "                              k4    =    23c3  + 243385c2(b \u2212c)  +  2431820c(b \u2212c)2  +   245(b \u2212c)3"
+          },
+          {
+            "line_number": 1291,
+            "text": "                       \u2206W0 jet    =    \u2212Meng                   1"
+          },
+          {
+            "line_number": 1292,
+            "text": "                                            \u03c0\u03c1      k3Veng +k4\u2206V0 jet                                                                 (138)"
+          },
+          {
+            "line_number": 1293,
+            "text": ""
+          },
+          {
+            "line_number": 1294,
+            "text": "Jet  velocity  vector"
+          },
+          {
+            "line_number": 1295,
+            "text": "The jet axial velocity is assumed to be oriented along the thrust axis direction  \u02c6xe, and the swirl is"
+          },
+          {
+            "line_number": 1296,
+            "text": "perpendicular to the radial vector."
+          },
+          {
+            "line_number": 1297,
+            "text": "                                                                      (\u20d7rjet        )"
+          },
+          {
+            "line_number": 1298,
+            "text": "                                      \u2206\u20d7Vjet    =    \u02c6xe \u2206Vjet  +       rjet  \u00d7 \u02c6xe    \u2206Wjet                                         (139)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/propulsion.py",
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    "line_number_convention": "1-based LF-delimited lines",
+    "excerpts": [
+      {
+        "first_line": 34,
+        "last_line": 68,
+        "lines": [
+          {
+            "line_number": 34,
+            "text": "def actuator_disk(power, density, velocity, radius, omega, drag_area):"
+          },
+          {
+            "line_number": 35,
+            "text": "    \"\"\"Forward-flow physical branch, including hover and windmilling."
+          },
+          {
+            "line_number": 36,
+            "text": ""
+          },
+          {
+            "line_number": 37,
+            "text": "The swirl-loss cubic's actual minimum replaces the ideal Betz clipping value"
+          },
+          {
+            "line_number": 38,
+            "text": "when swirl is finite. Selecting its monotone branch avoids spurious cubic roots."
+          },
+          {
+            "line_number": 39,
+            "text": "\"\"\""
+          },
+          {
+            "line_number": 40,
+            "text": "    if velocity < 0:"
+          },
+          {
+            "line_number": 41,
+            "text": "        raise ValueError(\"Actuator-disk reverse flow is outside the documented forward-flow model.\")"
+          },
+          {
+            "line_number": 42,
+            "text": "    radius = abs(radius)"
+          },
+          {
+            "line_number": 43,
+            "text": "    if radius <= 0 or omega == 0 or density <= 0 or drag_area < 0:"
+          },
+          {
+            "line_number": 44,
+            "text": "        raise ValueError(\"Invalid actuator-disk radius, rotation rate, density or blade drag area.\")"
+          },
+          {
+            "line_number": 45,
+            "text": "    area = np.pi*radius**2"
+          },
+          {
+            "line_number": 46,
+            "text": "    tip = abs(omega)*radius"
+          },
+          {
+            "line_number": 47,
+            "text": "    viscous = density/8*np.sqrt(velocity**2+tip**2)*(velocity**2+3*tip**2)*drag_area"
+          },
+          {
+            "line_number": 48,
+            "text": "    swirl = 1+5*(velocity/tip)**2"
+          },
+          {
+            "line_number": 49,
+            "text": "    def inviscid(dv):"
+          },
+          {
+            "line_number": 50,
+            "text": "        return density*area*(velocity+swirl*dv/2)*(velocity+dv/2)*dv"
+          },
+          {
+            "line_number": 51,
+            "text": "    # Stable root of d(Pi)/d(dv)=0 nearest dv=0. For swirl=1: -2V/3."
+          },
+          {
+            "line_number": 52,
+            "text": "    minimum_dv = -2*velocity/(1+swirl+np.sqrt((1+swirl)**2-3*swirl))"
+          },
+          {
+            "line_number": 53,
+            "text": "    minimum_power = inviscid(minimum_dv)"
+          },
+          {
+            "line_number": 54,
+            "text": "    requested = power-viscous"
+          },
+          {
+            "line_number": 55,
+            "text": "    used = max(requested, minimum_power)"
+          },
+          {
+            "line_number": 56,
+            "text": "    if used == minimum_power:"
+          },
+          {
+            "line_number": 57,
+            "text": "        dv = minimum_dv"
+          },
+          {
+            "line_number": 58,
+            "text": "    elif used == 0:"
+          },
+          {
+            "line_number": 59,
+            "text": "        dv = 0."
+          },
+          {
+            "line_number": 60,
+            "text": "    else:"
+          },
+          {
+            "line_number": 61,
+            "text": "        upper = max(velocity, (4*abs(used)/(density*area*swirl))**(1/3), 1.)"
+          },
+          {
+            "line_number": 62,
+            "text": "        while inviscid(upper) < used:"
+          },
+          {
+            "line_number": 63,
+            "text": "            upper *= 2"
+          },
+          {
+            "line_number": 64,
+            "text": "        dv = brentq(lambda d: inviscid(d)-used, minimum_dv, upper, xtol=1e-12, rtol=1e-14)"
+          },
+          {
+            "line_number": 65,
+            "text": "    thrust = density*area*(velocity+dv/2)*dv"
+          },
+          {
+            "line_number": 66,
+            "text": "    return dict(thrust=float(thrust), torque=float(-power/omega), delta_velocity=float(dv),"
+          },
+          {
+            "line_number": 67,
+            "text": "                viscous_power=float(viscous), inviscid_power=float(used), requested_power=float(power),"
+          },
+          {
+            "line_number": 68,
+            "text": "                power_clipped=bool(requested < minimum_power), minimum_power=float(minimum_power))"
+          }
+        ]
+      },
+      {
+        "first_line": 109,
+        "last_line": 167,
+        "lines": [
+          {
+            "line_number": 109,
+            "text": "def jet_profile(engine, downstream, density):"
+          },
+          {
+            "line_number": 110,
+            "text": "    \"\"\"Inner/outer radius and centerline axial/swirl velocities at a wake station.\"\"\""
+          },
+          {
+            "line_number": 111,
+            "text": "    v, dv, radius = engine[\"axial_velocity\"], engine[\"delta_velocity\"], engine[\"radius\"]"
+          },
+          {
+            "line_number": 112,
+            "text": "    x = np.maximum(np.asarray(downstream, dtype=float), 0.)"
+          },
+          {
+            "line_number": 113,
+            "text": "    if v+dv <= 0:"
+          },
+          {
+            "line_number": 114,
+            "text": "        if v == dv == 0 and engine[\"thrust\"] == engine[\"torque\"] == 0:"
+          },
+          {
+            "line_number": 115,
+            "text": "            return np.full_like(x, radius), np.full_like(x, radius), np.zeros_like(x), np.zeros_like(x)"
+          },
+          {
+            "line_number": 116,
+            "text": "        raise ValueError(\"Engine jet requires positive downstream convection velocity.\")"
+          },
+          {
+            "line_number": 117,
+            "text": "    contracted = radius*np.sqrt((v+dv/2)/(v+dv))"
+          },
+          {
+            "line_number": 118,
+            "text": "    inner = np.maximum(0., contracted-.11*abs(dv)/(v+dv)*x)"
+          },
+          {
+            "line_number": 119,
+            "text": "    outer = contracted+.11*abs(dv)/(v+dv/2)*x"
+          },
+          {
+            "line_number": 120,
+            "text": "    d = outer-inner"
+          },
+          {
+            "line_number": 121,
+            "text": "    k1 = inner**2+9/10*inner*d+9/35*d**2"
+          },
+          {
+            "line_number": 122,
+            "text": "    k2 = inner**2+243/385*inner*d+243/1820*d**2"
+          },
+          {
+            "line_number": 123,
+            "text": "    discriminant = (k1*v)**2+4*k2*engine[\"thrust\"]/(np.pi*density)"
+          },
+          {
+            "line_number": 124,
+            "text": "    if np.any(discriminant < -1e-12*np.maximum((k1*v)**2, 1.)):"
+          },
+          {
+            "line_number": 125,
+            "text": "        raise ValueError(\"Engine wake has no real momentum-conserving velocity profile.\")"
+          },
+          {
+            "line_number": 126,
+            "text": "    denominator = k1*v+np.sqrt(np.maximum(discriminant, 0.))"
+          },
+          {
+            "line_number": 127,
+            "text": "    center = np.divide(2*engine[\"thrust\"]/(np.pi*density), denominator,"
+          },
+          {
+            "line_number": 128,
+            "text": "                       out=np.zeros_like(x), where=denominator != 0)"
+          },
+          {
+            "line_number": 129,
+            "text": "    # Exact integrals 2\u222br\u00b2 q(r)dr and 2\u222br\u00b2 q(r)\u00b2dr. Printed eq. 138 omits"
+          },
+          {
+            "line_number": 130,
+            "text": "    # a factor two in the inner*d\u00b2 terms; verify these by independent quadrature."
+          },
+          {
+            "line_number": 131,
+            "text": "    k3 = 2/3*inner**3+9/10*inner**2*d+18/35*inner*d**2+1/9*d**3"
+          },
+          {
+            "line_number": 132,
+            "text": "    k4 = 2/3*inner**3+243/385*inner**2*d+243/910*inner*d**2+2/45*d**3"
+          },
+          {
+            "line_number": 133,
+            "text": "    transport = np.pi*density*(k3*v+k4*center)"
+          },
+          {
+            "line_number": 134,
+            "text": "    swirl = np.divide(-engine[\"torque\"], transport, out=np.zeros_like(x), where=transport != 0)"
+          },
+          {
+            "line_number": 135,
+            "text": "    if engine[\"torque\"] != 0 and np.any(transport == 0):"
+          },
+          {
+            "line_number": 136,
+            "text": "        raise ValueError(\"Engine jet cannot carry nonzero torque with zero convection.\")"
+          },
+          {
+            "line_number": 137,
+            "text": "    return inner, outer, center, swirl"
+          },
+          {
+            "line_number": 138,
+            "text": ""
+          },
+          {
+            "line_number": 139,
+            "text": ""
+          },
+          {
+            "line_number": 140,
+            "text": "def jet_velocity(points, engines, direction, density):"
+          },
+          {
+            "line_number": 141,
+            "text": "    points = np.asarray(points, dtype=float)"
+          },
+          {
+            "line_number": 142,
+            "text": "    velocity = np.zeros_like(points)"
+          },
+          {
+            "line_number": 143,
+            "text": "    for engine in engines:"
+          },
+          {
+            "line_number": 144,
+            "text": "        if not engine[\"jet_enabled\"]:"
+          },
+          {
+            "line_number": 145,
+            "text": "            continue"
+          },
+          {
+            "line_number": 146,
+            "text": "        # An unloaded disk has an identically zero wake. This exact branch"
+          },
+          {
+            "line_number": 147,
+            "text": "        # avoids rebuilding its zero profile for each geometry derivative;"
+          },
+          {
+            "line_number": 148,
+            "text": "        # arbitrarily small nonzero thrust/torque still follows the full model."
+          },
+          {
+            "line_number": 149,
+            "text": "        # Retain the original rejection of invalid reverse convection."
+          },
+          {
+            "line_number": 150,
+            "text": "        if (engine[\"thrust\"] == engine[\"torque\"] == engine[\"delta_velocity\"] == 0"
+          },
+          {
+            "line_number": 151,
+            "text": "                and engine[\"axial_velocity\"] >= 0):"
+          },
+          {
+            "line_number": 152,
+            "text": "            continue"
+          },
+          {
+            "line_number": 153,
+            "text": "        relative = points-engine[\"position\"]"
+          },
+          {
+            "line_number": 154,
+            "text": "        downstream = relative@direction"
+          },
+          {
+            "line_number": 155,
+            "text": "        radial = relative-downstream[..., None]*direction"
+          },
+          {
+            "line_number": 156,
+            "text": "        distance = np.linalg.norm(radial, axis=-1)"
+          },
+          {
+            "line_number": 157,
+            "text": "        inner, outer, axial, swirl = jet_profile(engine, downstream, density)"
+          },
+          {
+            "line_number": 158,
+            "text": "        width = outer-inner"
+          },
+          {
+            "line_number": 159,
+            "text": "        fraction = np.divide(distance-inner, width, out=np.zeros_like(distance), where=width > 0)"
+          },
+          {
+            "line_number": 160,
+            "text": "        shape = (1-np.clip(fraction, 0., 1.)**1.5)**2"
+          },
+          {
+            "line_number": 161,
+            "text": "        shape = np.where((downstream > 0) & (distance < outer), shape, 0.)"
+          },
+          {
+            "line_number": 162,
+            "text": "        radial_unit = np.divide(radial, distance[..., None], out=np.zeros_like(radial), where=distance[..., None] > 0)"
+          },
+          {
+            "line_number": 163,
+            "text": "        # The documented jet centerline follows the wind, but its velocity"
+          },
+          {
+            "line_number": 164,
+            "text": "        # increment follows the actual thrust axis. Engines do not see jets."
+          },
+          {
+            "line_number": 165,
+            "text": "        velocity += shape[..., None]*(axial[..., None]*engine[\"axes\"][:, 0]"
+          },
+          {
+            "line_number": 166,
+            "text": "                                      + swirl[..., None]*np.cross(radial_unit, engine[\"axes\"][:, 0]))"
+          },
+          {
+            "line_number": 167,
+            "text": "    return velocity"
+          }
+        ]
+      }
+    ]
+  }
+]

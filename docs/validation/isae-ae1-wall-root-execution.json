@@ -1,0 +1,114 @@
+{
+  "root_and_browser_executions": [
+    {
+      "purpose": "initial regression suite",
+      "session_id": 23395,
+      "launch_chunk": "0f6059",
+      "terminal_chunk": "db028e",
+      "exit_code": 0,
+      "reaped": true,
+      "passed": 23,
+      "seconds": 58.88,
+      "log": "/tmp/openswing-wall-root-20261025/initial-regressions.log"
+    },
+    {
+      "purpose": "initial Pazy half30 smoke before unsteady scope guard",
+      "session_id": 43155,
+      "launch_chunk": "765f06",
+      "terminal_chunk": "74cdff",
+      "exit_code": 0,
+      "reaped": true,
+      "seconds": 3.3042724250008177,
+      "log": "/tmp/openswing-wall-root-20261025/pazy-half-30.log",
+      "result": "/tmp/openswing-wall-root-20261025/pazy-half-30.json"
+    },
+    {
+      "purpose": "final Pazy half30 source-frozen native verification",
+      "session_id": 10584,
+      "launch_chunk": "83b1b1",
+      "terminal_chunk": "310b25",
+      "exit_code": 0,
+      "reaped": true,
+      "seconds": 3.5590997170002083,
+      "result": "/tmp/openswing-wall-root-20261025/pazy-half-30-final.json",
+      "log": "/tmp/openswing-wall-root-20261025/pazy-half-30-final.log"
+    },
+    {
+      "purpose": "build final frozen production kernel",
+      "session_id": 6679,
+      "launch_chunk": "6f3d63",
+      "terminal_chunk": "d97bbf",
+      "exit_code": 0,
+      "reaped": true,
+      "command": "node scripts/prepare.mjs && npx vite build",
+      "kernel_modules": 111
+    },
+    {
+      "purpose": "unchanged literal ISAE model rejection",
+      "session_id": null,
+      "terminal_chunk": "c57392",
+      "exit_code": 0,
+      "reaped": true,
+      "result": "/tmp/openswing-wall-root-20261025/literal-rejection.json",
+      "aerodynamic_evaluations": 0,
+      "structural_solves": 0
+    },
+    {
+      "purpose": "offline browser attempt1",
+      "owner": "/root/ae3_measurement_review/ae1_polar_scope",
+      "session_id": 86020,
+      "launch_chunk": "69dffb",
+      "terminal_chunk": "ff8cf2",
+      "exit_code": 1,
+      "reaped": true,
+      "timed_out": false,
+      "receipt": "/tmp/openswing-wall-root-20261025/browser-attempt-1-session.json"
+    },
+    {
+      "purpose": "offline browser attempt2",
+      "owner": "/root/ae3_measurement_review/ae1_polar_scope",
+      "session_id": 55608,
+      "launch_chunk": "db6e33",
+      "terminal_chunk": "d0ebf9",
+      "exit_code": 0,
+      "reaped": true,
+      "timed_out": false,
+      "receipt": "/tmp/openswing-wall-root-20261025/browser-attempt-2-session.json"
+    }
+  ],
+  "tests": {
+    "status": "PASS",
+    "test_file": "tests/test_wall_root.py",
+    "test_pin": {
+      "bytes": 18283,
+      "sha256": "a633946c6b462d278c577e1f3f128ae730e9056f8877870b0863c3b1eadeb24d"
+    },
+    "unique_test_cases": 11,
+    "total_passed_test_executions": 13,
+    "attempt_receipts": [
+      "attempt1-receipt.json",
+      "attempt2-receipt.json",
+      "attempt3-receipt.json"
+    ],
+    "all_sessions_terminal_and_reaped": true,
+    "failed_tests": 0,
+    "source_lifecycle": "Attempt 1 all 112 source pins stable. Attempt 2 passed while root added a separate explicit unknown-motion-object rejection; pre/post recorded. Attempt 3 repeated rate scope plus new public saved reuse against all 112 stable pins. Final source and kernel copies retained. No production source edits by test owner.",
+    "numerical_gates": {
+      "rigid_field_load_rtol": 3e-10,
+      "rigid_field_load_atol": 3e-11,
+      "wall_normal_velocity_atol": 1e-13,
+      "full_J_direction_rtol": 2e-05,
+      "full_J_direction_atol": 2e-06,
+      "constrained_extension_response_rtol": 2e-10,
+      "constrained_extension_response_atol": 2e-11,
+      "coupled_state_field_rtol": 2e-07,
+      "coupled_state_field_atol": 2e-09,
+      "fresh_coupled_residual_max": 1e-10,
+      "saved_reuse_state_load_rtol": 2e-08,
+      "saved_reuse_state_load_atol": 2e-09
+    },
+    "interpretation": "Production solid-wall image/constraint/Newton regression only. Shared-discrete mirror equivalence uses a declared test-only mesh adapter, never a guard bypass. Native half-mesh and public saved-state reuse also exercised. No experimental agreement or unsteady-wall claim."
+  },
+  "all_recorded_sessions_reaped": true,
+  "hosted_publish": false
+}

@@ -1,0 +1,1331 @@
+{
+  "title": "Sparse derivative RHS refinement and the AE-3 full-mesh study",
+  "status": "COMPLETED_R3_320_WITH_640_INPUT_LIMIT_FAILURE_RETAINED",
+  "evidence_archive": "derivative-sparse-refinement-20261024-evidence.zip",
+  "archive_status": "PACKAGED_CRC_AND_ALL_MEMBER_SHA_VERIFIED",
+  "method": {
+    "change": "Two fixed compensated original-J physical-RHS corrections using the existing certified sparse LU.",
+    "purpose": "Intentional accuracy improvement, with old-output parity reported separately.",
+    "preserved": [
+      "Complete physical J and checked centered probes",
+      "Analytic Gamma columns and original parameter partials",
+      "Default full API step1e-5 and original branch checks",
+      "Original full residual1e-8 and column-scaled rank1e-10 gates",
+      "Original dense fallback when the optional arithmetic or certificate is unavailable"
+    ],
+    "numerical_limit": "Guarded FMA/fsum accumulation is not a universal correctly rounded residual certificate. The independent113-bit accumulated direction is a diagnostic reference, not a physical or continuum oracle.",
+    "source_modules": 109,
+    "candidate_source_pins": {
+      "__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "derivatives.py": {
+        "bytes": 30120,
+        "sha256": "2eefd06036c246d7ffbdcb6f3ae80593c5cf31488a6469a6854c0306812f6ab5"
+      },
+      "recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "equilibrium_state.py": {
+        "bytes": 17862,
+        "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+      },
+      "time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "sparse_rank.py": {
+        "bytes": 10463,
+        "sha256": "79f5e1b173cc66c96748f7bdb3e4c1180c788b60bcfff06525f0849ba4410bce"
+      },
+      "structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "derivative_cache.py": {
+        "bytes": 5264,
+        "sha256": "5da03da08413deed3f20129065ebf887b6bad1616d0e5a889e8a134c77a2856e"
+      },
+      "derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "derivative_refinement.py": {
+        "bytes": 5615,
+        "sha256": "21af9041cfd72084ef9ff19c085870ad740371978e052eac3863ef13bb89ca17"
+      }
+    }
+  },
+  "small_evidence": {
+    "native_targeted": {
+      "status": "PASS",
+      "counts": {
+        "passed": 31,
+        "total": 31,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "scope": "Small independent RHS arithmetic and guarded full derivative API controls; no AE3 or large physics",
+      "planned_small_API_calls": 9,
+      "planned_small_feedback_equilibria": 1,
+      "limits": [
+        "31 targeted tests only; no large AE3 evaluation or general output accuracy claim.",
+        "The two frozen/current64-unknown pairs keep the original2e-8 absolute+relative physical comparison.",
+        "One small feedback equilibrium tests exclusion, separate from the zero-equilibrium paired cases."
+      ]
+    },
+    "native_existing_regression": {
+      "status": "PASS_R3_EXISTING_DERIVATIVE_REGRESSIONS",
+      "counts": {
+        "tests": 48,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 48
+      },
+      "selected_tests": [
+        "test_derivatives.py",
+        "test_derivative_sections.py",
+        "test_feedback_derivatives.py",
+        "test_derivative_cache.py"
+      ]
+    },
+    "portable_tests": {
+      "status": "PASS_PORTABLE_R3_REGRESSIONS",
+      "counts": {
+        "tests": 50,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 50
+      },
+      "selected_tests": [
+        "test_rhs_refinement.py",
+        "test_derivative_factor.py"
+      ],
+      "scope": "Actual FMA runtime; missing-FMA full-API fallback is simulated once by removing math.fma. This is not an end-to-end Python3.12 execution or a mesh-convergence claim."
+    },
+    "overlap_note": "These suites overlap; their counts are not summed as unique tests. Portable50 includes31 prior new tests, one added missing-FMA full-API case and18 prior factor tests.",
+    "actual_Pyodide": {
+      "status": "PASS",
+      "counts": {
+        "helper_passes": 22,
+        "helper_total": 22,
+        "physical_passes": 4,
+        "physical_total": 4
+      },
+      "saved_review_counts": {
+        "passed": 173,
+        "total": 173
+      },
+      "physical_matrix_comparisons": [
+        {
+          "id": "sparse-current",
+          "numeric_values": 334,
+          "maximum_absolute_difference": 1.7071995409178658e-11,
+          "maximum_tolerance_ratio": 0.0008535997704443602,
+          "status": "PASS"
+        },
+        {
+          "id": "sparse-frozen",
+          "numeric_values": 334,
+          "maximum_absolute_difference": 1.7071995409178658e-11,
+          "maximum_tolerance_ratio": 0.0008535997704443602,
+          "status": "PASS"
+        },
+        {
+          "id": "fallback-current",
+          "numeric_values": 334,
+          "maximum_absolute_difference": 0.0,
+          "maximum_tolerance_ratio": 0.0,
+          "status": "PASS"
+        },
+        {
+          "id": "fallback-frozen",
+          "numeric_values": 334,
+          "maximum_absolute_difference": 0.0,
+          "maximum_tolerance_ratio": 0.0,
+          "status": "PASS"
+        }
+      ],
+      "run_accounting": {
+        "new_helper_test_cases": 22,
+        "new_candidate_derivative_calls": 4,
+        "new_baseline_derivative_calls": 0,
+        "equilibrium_calls": 0,
+        "physical_residual_calls": 560
+      },
+      "limitations": [
+        "No large AE3 physics, no640 comparison, no relaxation of old physical output gate.",
+        "The old150 helper tests remain prior evidence on unchanged sparse_rank.py; they are not rerun here.",
+        "The new pure helper subset tests guarded numerical behavior, not a universal correctly-rounded residual certificate."
+      ]
+    },
+    "actual_browser": {
+      "status": "PASS",
+      "tests": 1,
+      "mounted_cases": 2,
+      "influences": [
+        "current",
+        "frozen"
+      ],
+      "source_modules": 109,
+      "zero_external_network_after_initialization": true,
+      "explicit_two_corrections": true,
+      "scope": "Small offline worker/UI checks, JSON export, truthful rank lower-bound display and section plots. No cold-start, large-aircraft or performance validation.",
+      "execution": {
+        "status": "PASS",
+        "plan_pin": {
+          "bytes": 39656,
+          "sha256": "7172d2bfa24793d8a9c8c31acad44c0e67469f637cb547826a0785d3abbf6cad"
+        },
+        "server": {
+          "pid": 28060,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        },
+        "browser": {
+          "pid": 28066,
+          "exit_code": 0,
+          "reaped": true,
+          "terminated_by_supervisor": false
+        },
+        "elapsed_monotonic_seconds": 63.25747434500954,
+        "all_frozen_pins_match": true
+      }
+    }
+  },
+  "matched_320": {
+    "id": "20O-05-320-r3-matched",
+    "status": "PASS_EXECUTION",
+    "check_counts": {
+      "passed": 39,
+      "total": 39
+    },
+    "operations": {
+      "model_parses": 1,
+      "network_constructions": 1,
+      "zero_state_constructions": 1,
+      "external_base_residual_calls": 1,
+      "external_post_residual_calls": 1,
+      "equilibrium_captures": 1,
+      "base_output_snapshots": 1,
+      "derivative_API_calls": 1,
+      "equilibrium_calls": 0,
+      "finite_control_calls": 0,
+      "harness_matrix_products": 0,
+      "harness_factorizations": 0,
+      "harness_linear_solves": 0
+    },
+    "actual_nodes": 321,
+    "actual_elements": 320,
+    "system_size": 4172,
+    "Cl_control": -0.00023513016902356907,
+    "Cl_p": -0.9452429049491603,
+    "fresh_base_residual": 0.0,
+    "fresh_post_residual": 0.0,
+    "maximum_linear_residual": 2.384759056894836e-13,
+    "linear_solver": "certified_sparse",
+    "reciprocal_condition": null,
+    "reciprocal_condition_lower_bound": 1.4013595677306558e-09,
+    "physical_rhs_refinement": {
+      "initial_linear_residuals": [
+        1.4779844015322396e-15,
+        2.096878226609533e-12
+      ],
+      "method": "original-J FMA/fsum residual, two fixed same-LU corrections",
+      "requested_corrections": 2,
+      "attempted_corrections": 2,
+      "completed_corrections": 2,
+      "enabled": true,
+      "steps": [
+        {
+          "iteration": 1,
+          "compensated_residual_maximum": [
+            1.5576292894080147e-15,
+            2.0813151039305606e-12
+          ],
+          "correction_maximum": [
+            2.673779747279393e-13,
+            3.727152585147791e-10
+          ]
+        },
+        {
+          "iteration": 2,
+          "compensated_residual_maximum": [
+            1.5679902214024507e-16,
+            2.0486964910394871e-13
+          ],
+          "correction_maximum": [
+            4.3239494927466067e-19,
+            2.219738866439022e-16
+          ]
+        }
+      ],
+      "final_linear_residuals": [
+        2.1337098754514727e-16,
+        2.384759056894836e-13
+      ]
+    },
+    "derivative_residual_evaluations": 8355,
+    "derivative_seconds": 110.8100328189903,
+    "phase_seconds": {
+      "centered_J_and_storage": 105.53170213699923,
+      "rank_scaling_and_optional_sparse_factor": 2.6834199499862734,
+      "centered_input_columns": 0.11181473900796846,
+      "physical_RHS_solve_and_full_residual": 0.9043803660024423
+    },
+    "output_phase_seconds": 0.9772930220060516,
+    "memory": {
+      "ru_maxrss_KiB": 192212,
+      "ru_maxrss_bytes": 196825088,
+      "advisory_bytes": 3221225472,
+      "advisory_only": true
+    },
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+    "source_pins_unchanged": true,
+    "supervisor": {
+      "status": "ALL_TERMINAL",
+      "pid": 1183,
+      "children": [
+        {
+          "id": "20O-05-320-r3-matched",
+          "status": "PASS_EXECUTION",
+          "pid": 1198,
+          "spawned": true,
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 119.14992394499131
+        }
+      ],
+      "monotonic_seconds": 119.15727665301529
+    },
+    "matrix_storage": {
+      "file": "jacobian-csc.npz",
+      "encoding": "explicit_csc_npz_v1",
+      "shape": [
+        4172,
+        4172
+      ],
+      "dtype": "float64",
+      "nnz": 123455,
+      "input_storage": "sparse",
+      "array_payload_bytes": 1498152,
+      "pin": {
+        "bytes": 873074,
+        "sha256": "6215860b3d02016c03930023a35950ff5ee02c1fc54190b9cacf344e8ec7cad3"
+      }
+    },
+    "audit": {
+      "status": "PASS_R3_320_ACCURACY_WITH_OLD_PARITY_FAILURES_RETAINED",
+      "counts": {
+        "passed": 246,
+        "total": 247
+      },
+      "accuracy_counts": {
+        "passed": 246,
+        "total": 246
+      },
+      "operations": {
+        "signed_products": 1,
+        "absolute_products": 1,
+        "factorizations": 0,
+        "solves": 0,
+        "physics_calls": 0,
+        "baseline_full_matrix_reads": 1,
+        "full_dense_candidate_reconstructions": 0
+      },
+      "rank": {
+        "linear_solver": "certified_sparse",
+        "exact_reciprocal_condition": null,
+        "certified_lower_bound": 1.4013595677306558e-09
+      },
+      "linear_residuals": {
+        "recomputed": [
+          2.1337098754514727e-16,
+          2.384759056894836e-13
+        ],
+        "stored": [
+          2.1337098754514727e-16,
+          2.384759056894836e-13
+        ],
+        "source": [
+          2.1337098754514727e-16,
+          2.384759056894836e-13
+        ],
+        "source_result": [
+          2.1337098754514727e-16,
+          2.384759056894836e-13
+        ],
+        "gamma": 1.8529622281028198e-12,
+        "repeated_product_bound": "2gamma/(1-gamma)*(abs(J)@abs(dx)+abs(Rp)) plus explicit subnormal allowance"
+      },
+      "historical_output_parity": {
+        "status": "FAIL_RETAINED",
+        "numeric_values": 81703,
+        "mismatches": [
+          "derivatives.matrices.distributed_aero_wrench[2][1]",
+          "derivatives.matrices.fluid_wrench[2][1]",
+          "derivatives.matrices.net_wrench[2][1]"
+        ],
+        "maximum_tolerance_fraction": 1.0966956048435308,
+        "absolute_tolerance": 2e-08,
+        "relative_tolerance": 2e-08,
+        "old_report_unchanged": true
+      },
+      "independent_state_comparison": {
+        "reference": "reference/quad-candidate-2.npz",
+        "reference_selection": "fixed candidate-2, not selected by output agreement",
+        "numeric_values": 8344,
+        "mismatched_values": 0,
+        "absolute_tolerance": 1e-13,
+        "relative_tolerance": 1e-12,
+        "maximum_absolute_difference": 1.564308461185349e-32,
+        "maximum_tolerance_fraction": 1.564308461185349e-19,
+        "status": "PASS"
+      },
+      "independent_p_wrench_comparison": {
+        "numeric_values": 18,
+        "rows": [
+          {
+            "wrench": "distributed_aero_wrench",
+            "actual": [
+              0.0,
+              0.0,
+              5.8927535236660565e-12,
+              357.655390424691,
+              9.049301182319455e-17,
+              0.0
+            ],
+            "reference": [
+              0.0,
+              0.0,
+              5.8927535236660565e-12,
+              357.655390424691,
+              9.049301182319455e-17,
+              0.0
+            ],
+            "signed_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allowance": [
+              2e-08,
+              2e-08,
+              2.0000000000117857e-08,
+              7.17310780849382e-06,
+              2.0000000000000004e-08,
+              2e-08
+            ],
+            "tolerance_fraction": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "status": "PASS"
+          },
+          {
+            "wrench": "fluid_wrench",
+            "actual": [
+              0.0,
+              0.0,
+              5.892753523688924e-12,
+              357.6553904252095,
+              9.049301012953855e-17,
+              0.0
+            ],
+            "reference": [
+              0.0,
+              0.0,
+              5.892753523688924e-12,
+              357.6553904252095,
+              9.049301012953855e-17,
+              0.0
+            ],
+            "signed_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allowance": [
+              2e-08,
+              2e-08,
+              2.0000000000117857e-08,
+              7.173107808504189e-06,
+              2.0000000000000004e-08,
+              2e-08
+            ],
+            "tolerance_fraction": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "status": "PASS"
+          },
+          {
+            "wrench": "net_wrench",
+            "actual": [
+              0.0,
+              0.0,
+              5.696991276935318e-12,
+              357.6553904252093,
+              2.4209365571964293e-16,
+              0.0
+            ],
+            "reference": [
+              0.0,
+              0.0,
+              5.696991276935318e-12,
+              357.6553904252093,
+              2.4209365571964293e-16,
+              0.0
+            ],
+            "signed_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allowance": [
+              2e-08,
+              2e-08,
+              2.000000000011394e-08,
+              7.173107808504186e-06,
+              2.0000000000000004e-08,
+              2e-08
+            ],
+            "tolerance_fraction": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "status": "PASS"
+          }
+        ],
+        "actual_output_step": 2.502657432931876e-06,
+        "reference_output_step": 2.502657432931876e-06,
+        "absolute_tolerance": 2e-08,
+        "relative_tolerance": 2e-08,
+        "status": "PASS"
+      },
+      "native_Cl_parity": {
+        "original": -0.00023513016903714936,
+        "candidate": -0.00023513016902356907,
+        "signed_difference": 1.3580282731684434e-14,
+        "absolute_difference": 1.3580282731684434e-14,
+        "original_limit": 3.3513016903714935e-09,
+        "pass_": true
+      },
+      "normalization_roundoff": {
+        "maximum_absolute_difference": 9.094947017729282e-13,
+        "maximum_relative_difference": 1.5050337902588547e-15,
+        "differing_scales": 1034,
+        "interpretation": "Sparse/dense positive reduction order differs; no bitwise scale gate or fitted physics tolerance."
+      },
+      "investigation_readiness": {
+        "eligible_for_640": true,
+        "original_output_parity_pass": false,
+        "original_parity_verdict_preserved": true,
+        "only_isolated_numerical_investigation": true,
+        "root_readiness_still_required": true,
+        "production_promotion": false,
+        "experimental_acceptance": false
+      },
+      "old_output_failure_details": [
+        {
+          "path": "derivatives.matrices.distributed_aero_wrench[2][1]",
+          "expected": 2.1938740588438803e-08,
+          "actual": 5.8927535236660565e-12,
+          "signed_difference": -2.1932847834915138e-08,
+          "absolute_difference": 2.1932847834915138e-08,
+          "limit": 2.0000000438774813e-08,
+          "tolerance_fraction": 1.0966423676868045,
+          "status": "FAIL_RETAINED"
+        },
+        {
+          "path": "derivatives.matrices.fluid_wrench[2][1]",
+          "expected": 2.193874058849843e-08,
+          "actual": 5.892753523688924e-12,
+          "signed_difference": -2.193284783497474e-08,
+          "absolute_difference": 2.193284783497474e-08,
+          "limit": 2.0000000438774813e-08,
+          "tolerance_fraction": 1.0966423676897845,
+          "status": "FAIL_RETAINED"
+        },
+        {
+          "path": "derivatives.matrices.net_wrench[2][1]",
+          "expected": 2.193960956936902e-08,
+          "actual": 5.696991276935318e-12,
+          "signed_difference": -2.1933912578092083e-08,
+          "absolute_difference": 2.1933912578092083e-08,
+          "limit": 2.000000043879219e-08,
+          "tolerance_fraction": 1.0966956048435308,
+          "status": "FAIL_RETAINED"
+        }
+      ],
+      "exact_operator_checks": [
+        {
+          "check": "Every full physical J entry exactly equals original320",
+          "pass_": true,
+          "mismatched_entries": 0,
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "check": "Every parameter partial exactly equals original320",
+          "pass_": true
+        },
+        {
+          "check": "Captured analytic Gamma exactly equals original320",
+          "pass_": true
+        },
+        {
+          "check": "Every checked centered Gamma probe column exactly equals original320",
+          "pass_": true
+        }
+      ]
+    }
+  },
+  "full_640": {
+    "status": "FAIL_RETAINED_EXPLICIT_NODE_LIMIT_BEFORE_PHYSICS",
+    "supervisor": {
+      "status": "ALL_TERMINAL",
+      "pid": 4261,
+      "children": [
+        {
+          "id": "20O-05-640-r3-all-saved-samples",
+          "status": "FAIL_RETAINED",
+          "pid": 4292,
+          "spawned": true,
+          "reaped": true,
+          "exit_code": 1,
+          "monotonic_seconds": 8.398557194013847
+        }
+      ],
+      "monotonic_seconds": 8.410543157020584
+    },
+    "runner": {
+      "id": "20O-05-640-r3-all-saved-samples",
+      "status": "FAIL_RETAINED",
+      "phase": "network",
+      "operations": {
+        "model_parses": 1,
+        "network_constructions": 1,
+        "zero_state_constructions": 0,
+        "external_base_residual_calls": 0,
+        "external_post_residual_calls": 0,
+        "equilibrium_captures": 0,
+        "base_output_snapshots": 0,
+        "derivative_API_calls": 0,
+        "equilibrium_calls": 0,
+        "finite_control_calls": 0,
+        "harness_matrix_products": 0,
+        "harness_factorizations": 0,
+        "harness_linear_solves": 0
+      },
+      "check_counts": {
+        "passed": 2,
+        "total": 2
+      },
+      "error_type": "ValueError",
+      "error": "Beam 1: use 5 to 513 finite, strictly increasing node stations including both endpoints.",
+      "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-full-mesh-20261024/physical-r3/run_case.py\", line 124, in <module>\n    network = StaticNetwork(model, panels, condition, None, ())\n  File \"/tmp/openswing-ae3-full-mesh-20261024/physical-r3/source/openswing/network.py\", line 51, in __init__\n    self.panels = panels = normalize_discretization(panels, model)\n                           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-ae3-full-mesh-20261024/physical-r3/source/openswing/discretization.py\", line 44, in normalize\n    raise ValueError(f'Beam {key}: use 5 to 513 finite, strictly increasing node stations including both endpoints.')\nValueError: Beam 1: use 5 to 513 finite, strictly increasing node stations including both endpoints.\n",
+      "memory": {
+        "ru_maxrss_KiB": 90504,
+        "ru_maxrss_bytes": 92676096,
+        "advisory_bytes": 3221225472,
+        "advisory_only": true
+      },
+      "source_pins_unchanged": true
+    },
+    "attempted_nodes": 641,
+    "attempted_intervals": 640,
+    "source_explicit_node_limit": 513,
+    "constructor_attempts": 1,
+    "completed_network_constructions": 0,
+    "derivative_calls": 0,
+    "residual_calls": 0,
+    "nonlinear_or_equilibrium_solves": 0,
+    "native_Cl": null,
+    "mesh_comparison": null,
+    "interpretation": "The input-list cap rejected the prepared mesh before a network was returned. This is not a640 physical equation or convergence failure; no640 coefficient or numerical mesh verdict exists.",
+    "audit": {
+      "status": "FAIL_RETAINED",
+      "counts": {
+        "passed": 169,
+        "total": 170
+      },
+      "accuracy_counts": {
+        "passed": 169,
+        "total": 170
+      },
+      "operations": {
+        "signed_products": 0,
+        "absolute_products": 0,
+        "factorizations": 0,
+        "solves": 0,
+        "physics_calls": 0,
+        "baseline_full_matrix_reads": 0,
+        "full_dense_candidate_reconstructions": 0
+      },
+      "error_type": "AssertionError",
+      "error": "Selected child terminal pass and reaped"
+    }
+  },
+  "gates": {
+    "physical_residual": 1e-08,
+    "full_linear_residual": 1e-08,
+    "rank": 1e-10,
+    "old_output_absolute": 2e-08,
+    "old_output_relative": 2e-08,
+    "independent_state_absolute": 1e-13,
+    "independent_state_relative": 1e-12,
+    "independent_p_wrench_absolute": 2e-08,
+    "independent_p_wrench_relative": 2e-08,
+    "native_control": "abs(D320-oldD320)<=1e-9+1e-5*abs(oldD320)",
+    "full_mesh": "abs(D640-D320_R3)/max(abs(D640),1e-30)<=0.01"
+  },
+  "retained_old_mesh_failures": [
+    {
+      "observation_id": "20O-04",
+      "coarse_id": "20O-04-coarse",
+      "fine_id": "20O-04-fine",
+      "status": "FAIL",
+      "coarse_derivative": -0.0006642245865368195,
+      "fine_derivative": -0.0006507075477168842,
+      "relative_change": 0.020772832384320903,
+      "limit": 0.01,
+      "coarse_p": -0.8137789551087253,
+      "fine_p": -0.8140240903722965
+    },
+    {
+      "observation_id": "20O-05",
+      "coarse_id": "20O-05-coarse",
+      "fine_id": "20O-05-fine-reused",
+      "status": "FAIL",
+      "coarse_derivative": -0.0002414142308418781,
+      "fine_derivative": -0.00022531851051219313,
+      "relative_change": 0.07143541066864076,
+      "limit": 0.01,
+      "coarse_p": -0.944983949616963,
+      "fine_p": -0.9453432604343455
+    },
+    {
+      "id": "patch-coarse",
+      "axis": "shared_intervals",
+      "coarse_id": "20O-05-coarse",
+      "fine_id": "20O-05-coarse-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 160,
+      "fine_intervals": 194,
+      "coarse_derivative": -0.0002414142308418781,
+      "fine_derivative": -0.00025008921826107083,
+      "signed_change": -8.674987419192735e-06,
+      "absolute_change": 8.674987419192735e-06,
+      "relative_change": 0.034687570617845755,
+      "limit": 0.01
+    },
+    {
+      "id": "patch-fine",
+      "axis": "shared_intervals",
+      "coarse_id": "20O-05-fine-reused",
+      "fine_id": "20O-05-fine-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 286,
+      "fine_intervals": 320,
+      "coarse_derivative": -0.00022531851051219313,
+      "fine_derivative": -0.00023513016903714936,
+      "signed_change": -9.811658524956223e-06,
+      "absolute_change": 9.811658524956223e-06,
+      "relative_change": 0.041728624468457855,
+      "limit": 0.01
+    },
+    {
+      "id": "outside-refined-patch",
+      "axis": "outside_shared_intervals",
+      "coarse_id": "20O-05-coarse-split-shared",
+      "fine_id": "20O-05-fine-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 194,
+      "fine_intervals": 320,
+      "coarse_derivative": -0.00025008921826107083,
+      "fine_derivative": -0.00023513016903714936,
+      "signed_change": 1.4959049223921478e-05,
+      "absolute_change": 1.4959049223921478e-05,
+      "relative_change": 0.06362028864768104,
+      "limit": 0.01
+    }
+  ],
+  "coverage": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0,
+    "AE3": "pending",
+    "full_suite_validated": false
+  },
+  "source_continuity": {
+    "ROOT_modules": 108,
+    "public_kernel_modules": 108,
+    "exact_prior_baseline": true,
+    "candidate_installed": false,
+    "hosted_release_deployed": false,
+    "note": "This report records the isolated candidate. Any later source promotion requires a separate receipt."
+  },
+  "limitations": [
+    "All three old p-Fz parity failures remain failures; no tolerance is relaxed or old result relabeled.",
+    "Agreement with the fixed refined direction/output replay supports this implementation on the selected case, not absolute experimental accuracy.",
+    "One320 derivative call completed. The640 constructor attempt failed before any residual/derivative call; no new equilibrium or finite-control calls occur in this large stage.",
+    "The historical nonlinear-control checks apply to320;640 requires its own checks before extending that conclusion.",
+    "One full-mesh pair does not establish continuum order/error or isolate aerodynamic versus structural discretization.",
+    "All five previous1% mesh failures remain, and20O-04 plus experimental fixture/control/observable matching remain open.",
+    "No original ASWING executable is available for executable parity.",
+    "Single phase clocks with concurrent processes are descriptive, not a speedup benchmark.",
+    "A separately proposed R4 explicit-node-limit correction is outside this completed R3 evidence; no R4 test or numerical outcome is claimed."
+  ],
+  "publication_operations": {
+    "physics_calls": 0,
+    "matrix_products": 0,
+    "linear_solves": 0,
+    "factorizations": 0
+  },
+  "evidence_pins": {
+    "physical-r3/plan.json": {
+      "bytes": 53690,
+      "sha256": "a19d492fe13d19418c9dbfd46cb5a908a6a6fa63d112e8acbe5f16c5f4e8ac3a"
+    },
+    "ROOT/docs/validation/isae-coverage.json": {
+      "bytes": 61504,
+      "sha256": "c33dd3b7e163f60a34cc4e1c5bb8ee60a379163d6f30c48fa5918457c86c54cb"
+    },
+    "refinement-tests/summary.json": {
+      "bytes": 16766,
+      "sha256": "19866cc39f1f94585d38be202495ff7b6f337fba07e24d0a270fc6b49a92d139"
+    },
+    "regression-r3/summary.json": {
+      "bytes": 18267,
+      "sha256": "f4f0c50bf31cc8eeb18f3beca621748352bbbf7efe2b92ed675a7a43a4126926"
+    },
+    "portable-r3/summary.json": {
+      "bytes": 19036,
+      "sha256": "4d612157cfe2564d84949a4c8ba1155a134f863a6fa8197e953c555cec17ab9e"
+    },
+    "wasm-r3/summary.json": {
+      "bytes": 44678,
+      "sha256": "ae6b036f7460129b710289c0f3f953949e646bb2f40998e03712d587a8f62273"
+    },
+    "wasm-r3/runtime-report.json": {
+      "bytes": 56124,
+      "sha256": "d41c8817bba6f81a4af156371718361efdf99769714b51f636bbb6488694ad0f"
+    },
+    "browser-r3/playwright-report.json": {
+      "bytes": 2916,
+      "sha256": "676e4ac04df676ee47209c00248eec46178d1a024c551d84f544d95c24032a94"
+    },
+    "browser-r3/execution.json": {
+      "bytes": 460,
+      "sha256": "a79f3b27aa000ff26cf82d69121630690b272913a1b01f632df19a116f90a372"
+    },
+    "refinement-tests/session-closeout.json": {
+      "bytes": 863,
+      "sha256": "d2e3683f439525a532d8215c2a382bc89b7523e749bf2d7f7853c6229f4888b8"
+    },
+    "regression-r3/session-closeout.json": {
+      "bytes": 1378,
+      "sha256": "0d97650a7d14d6120a2627d17090636d3cf7f1dca82a44786881e5f0025140b3"
+    },
+    "portable-r3/session-closeout.json": {
+      "bytes": 1140,
+      "sha256": "4a3a084f256fb4243fbeae0be2f1de4b884dd4bdf59cf0077dd996e4b20727d4"
+    },
+    "portable-r3/finalization-closeout.json": {
+      "bytes": 523,
+      "sha256": "a2f3328a89af62fc0366c11273886c4aee793b70cd05cabb836155a60ba31fbd"
+    },
+    "wasm-r3/session-closeout.json": {
+      "bytes": 1382,
+      "sha256": "708896b3deaecdab4d18b0210a9e7d7cd096e63a0e4a4ccc6872a3c7532e88a2"
+    },
+    "browser-r3/session-closeout.json": {
+      "bytes": 4414,
+      "sha256": "2e8384f34cda9f22388020a2624fff386530f9cc7e9230f64ba5ab8db9b48bd6"
+    },
+    "physical-r3/preparation-session-closeout.json": {
+      "bytes": 1136,
+      "sha256": "ee9ebf9b30025919bef3930e25a5c7d83b7fadd689a416b32ba57032e72fe67c"
+    },
+    "physical-r3/execution-20O-05-320-r3-matched.json": {
+      "bytes": 325,
+      "sha256": "e1b5829eec7b6b0cd1b352a10cbf20022d74b2be41b4051e3d6b95641bfeebe0"
+    },
+    "physical-r3/results/20O-05-320-r3-matched/status.json": {
+      "bytes": 27220,
+      "sha256": "1803cd23bab8066d3a95f0e699d9aa348e2e24e74a041e5c2a183f463c9d1d9b"
+    },
+    "physical-r3/audit-results/20O-05-320-r3-matched/report.json": {
+      "bytes": 44006,
+      "sha256": "8529bba6d0cdfc2a9915fc33e89f4ba48bb0adb35be39c3a63f779881463c9d8"
+    },
+    "physical-r3/results/20O-05-320-r3-matched/audit-files.json": {
+      "bytes": 3066,
+      "sha256": "94d41c91c72d915c53258f803bd8f34cb79a194a5546033b147665dd6e2a957b"
+    },
+    "physical-r3/session-closeout-320.json": {
+      "bytes": 570,
+      "sha256": "f6fef3b93a5199eb75411c848b73836e16ba37f7d6aa7f0ed217918717348423"
+    },
+    "physical-r3/execution-20O-05-640-r3-all-saved-samples.json": {
+      "bytes": 332,
+      "sha256": "600d74fe3a7cf227cc49d8fdb04a152e639838f39509982fa553b3d9ac6a88b3"
+    },
+    "physical-r3/results/20O-05-640-r3-all-saved-samples/status.json": {
+      "bytes": 21108,
+      "sha256": "7c3ad6817a12b8fa0cc437994e1bda0c99a0dc3047214228110c5a4bcfb31803"
+    },
+    "physical-r3/audit-results/20O-05-640-r3-all-saved-samples/report.json": {
+      "bytes": 23131,
+      "sha256": "7ec461d58b5430a7abc0ba715b5d3f01d95f6b3a0b686522f70ca3b8dd03595b"
+    },
+    "physical-r3/session-closeout-640.json": {
+      "bytes": 711,
+      "sha256": "b66619b5727d5be35ca222aac8c08a473de7278681af40a38f2a0f9f1e5b42d0"
+    }
+  },
+  "archive_receipt": {
+    "status": "PASS_ARCHIVE_VERIFIED",
+    "archive": "docs/validation/derivative-sparse-refinement-20261024-evidence.zip",
+    "bytes": 13039217,
+    "sha256": "8bad905b02a8bf3cabee76e268b98a69f1228357d928f7ec332a260ce73e4e0e",
+    "members": 916,
+    "prior_catalog_entries": 177,
+    "catalog_entries": 178,
+    "all_members_sha_verified": true,
+    "crc_verified": true,
+    "prior_entries_unchanged": true,
+    "excluded_live_work": [
+      "candidate-r4",
+      "node-tests-r4",
+      "physical-r4",
+      "publication-r3",
+      "publication-r4"
+    ]
+  }
+}

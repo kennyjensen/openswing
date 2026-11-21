@@ -1,0 +1,113 @@
+{
+  "status": "PASS_TERMINAL_REAPED",
+  "command": "timeout --signal=TERM --kill-after=5s 90s env -u OPENSWING_KERNEL OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/userland/aswing/.venv/bin/python /tmp/openswing-isae-p1-aswing-current-20261025/replay.py > /tmp/openswing-isae-p1-aswing-current-20261025/worker.log 2>&1",
+  "preparation": {
+    "command": "python3 /tmp/openswing-isae-p1-aswing-current-20261025/prepare.py",
+    "session_id": 62477,
+    "launch_chunk": "7db2e3",
+    "terminal_chunk": "b13a58",
+    "exit_code": 0,
+    "reaped": true,
+    "physics_calls": 0
+  },
+  "owner": {
+    "session_id": 19226,
+    "launch_chunk": "3898d0",
+    "terminal_chunk": "d418cb",
+    "exit_code": 0,
+    "reaped": true,
+    "attempts": 1,
+    "retries": 0,
+    "timeout_seconds": 90,
+    "kill_grace_seconds": 5
+  },
+  "counts": {
+    "expected_outputs": 110,
+    "completed_outputs": 110,
+    "passed_outputs": 110,
+    "evaluate_calls": 110,
+    "engine_load_calls": 110,
+    "aircraft_solves": 0,
+    "full_residual_calls": 0,
+    "density_sweep": 0,
+    "diameter_sensitivity": 0,
+    "browser_runs": 0
+  },
+  "source_unchanged_before": true,
+  "source_unchanged_after": true,
+  "input_pins_before": 124,
+  "input_pins_after": 124,
+  "maximum_absolute_CT_error": 2.220446049250313e-16,
+  "existing_absolute_CT_gate": 2e-12,
+  "runtime": {
+    "executable": "/home/userland/aswing/.venv/bin/python",
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "evaluate_module_file": "/home/userland/aswing/scripts/verify-isae-p1.py",
+    "evaluate_code_file": "/home/userland/aswing/scripts/verify-isae-p1.py",
+    "propulsion_file": "/home/userland/aswing/openswing/propulsion.py",
+    "numpy_file": "/home/userland/aswing/.venv/lib/python3.14/site-packages/numpy/__init__.py",
+    "scipy_file": "/home/userland/aswing/.venv/lib/python3.14/site-packages/scipy/__init__.py",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "evaluation_seconds": 0.017702681994705927
+  },
+  "total_process_seconds": 2.801131616004568,
+  "plan": {
+    "path": "/tmp/openswing-isae-p1-aswing-current-20261025/plan.json",
+    "bytes": 119514,
+    "sha256": "293064a3d4748ecdab484f16cc10ae225dd7ec2fb6164063e767a736ccecb6a2"
+  },
+  "source": [
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/prepare.py",
+      "bytes": 3868,
+      "sha256": "aac6157a7a71261544af02b6d2744a0d188d3fb9a09a2582a27ad6c9a75a427e"
+    },
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/replay.py",
+      "bytes": 5409,
+      "sha256": "f79384f6cdfcdd88b4ceddca05ec05785f1bf4969d2c3a1d13541ac680a9fb53"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/report.json",
+      "bytes": 156829,
+      "sha256": "e20a132d598d658762069a9044ddc2bf83c46cd990aad5d4f9498d41a644ee17"
+    },
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/outputs.jsonl",
+      "bytes": 85654,
+      "sha256": "019a4591114436b8c2bc383976e47d86006da35c273759fb556da158b7103d8d"
+    },
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/outputs.csv",
+      "bytes": 27556,
+      "sha256": "c9cfe2c8f60e2773bada8e1755f88572421b951625787658a8dc61947193b5ae"
+    },
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/worker.log",
+      "bytes": 567,
+      "sha256": "a025f185cdc565e85729d055efe3d6ec29f4055d724c31d6049855d9b40d776b"
+    },
+    {
+      "path": "/tmp/openswing-isae-p1-aswing-current-20261025/isae-p1-aswing-current.md",
+      "bytes": 2241,
+      "sha256": "79079ce3a463ed24c428e38ebd2e02a2a77596070d9f9b1d43923dc3b0f6c326"
+    }
+  ],
+  "owned_live_sessions": [],
+  "publication_mapping": {
+    "report.json": "docs/validation/isae-p1-aswing-current.json",
+    "outputs.csv": "docs/validation/isae-p1-aswing-current.csv",
+    "execution.json": "docs/validation/isae-p1-aswing-current-execution.json",
+    "isae-p1-aswing-current.md": "docs/validation/isae-p1-aswing-current.md"
+  },
+  "repository_mutations": 0,
+  "historical_report_writes": 0
+}

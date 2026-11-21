@@ -1,0 +1,619 @@
+{
+  "status": "SAVED_LINEAR_NUMERICS_AND_AUDIT_PASS_TEMPORAL_RESOLUTION_UNESTABLISHED",
+  "scope": "Complete savedC16 descriptor Radau IIA versus retained BDF time convergence; no new nonlinear aircraft run or physical model change.",
+  "conclusion": "Radau improves finest endpoint-grid refinement but roll still differs3.57627%, above the fixed0.5% limit. No resolved nonlinear grid or full-aircraft Drela Bode match is claimed.",
+  "dimension": 2215,
+  "duration_s": 1.0,
+  "step_counts": [
+    25,
+    50,
+    100,
+    200,
+    400,
+    800,
+    1600
+  ],
+  "dt_s": [
+    0.04,
+    0.02,
+    0.01,
+    0.005,
+    0.0025,
+    0.00125,
+    0.000625
+  ],
+  "input": "Positive unit nativeF3 step immediately after pre-input t=0 snapshot, held beyond1s.",
+  "method": "Three-stage Radau IIA, exact3x3 stage transform, one real plus one complex full-descriptor factor per grid. No M inverse or aircraft modal reduction.",
+  "physical_outputs": [
+    "yaw_rate_rad_s",
+    "roll_rate_rad_s",
+    "sideslip_rad",
+    "bank_rad",
+    "complete_scaled_nodal_motion"
+  ],
+  "groups_and_units": "All outputs per unit nativeF3; node translations/L and spatial rotations radians. Same exact physical map as retainedBDF.",
+  "temporal_criterion": {
+    "relative_limit": 0.005,
+    "normalization": "Each group own reference infinity norm, no floor; zero norm makes agreement unavailable/fail.",
+    "finest_adjacent": "800 and1600 endpoints sampled at every800-step timestamp.",
+    "finest_triplet": "400/800/1600 on common400-step timestamps; require middle/fine<=0.5% and strictly decreasing absolute discrepancy.",
+    "passed_groups": 4,
+    "total_groups": 5,
+    "unmet_group": "roll_rate_rad_s",
+    "accuracy_established": false
+  },
+  "finest_adjacent_percent": {
+    "yaw_rate_rad_s": 0.3647256609241363,
+    "roll_rate_rad_s": 3.5762695202546815,
+    "sideslip_rad": 0.32198862201550216,
+    "bank_rad": 0.0028064848148068155,
+    "complete_scaled_nodal_motion": 0.022626452448735426
+  },
+  "finest_triplet_percent": {
+    "yaw_rate_rad_s": 0.36586912467463206,
+    "roll_rate_rad_s": 3.580171238583692,
+    "sideslip_rad": 0.32198862201550216,
+    "bank_rad": 0.0028064848148068155,
+    "complete_scaled_nodal_motion": 0.02090142031066926
+  },
+  "finest_triplet_strict_decrease": {
+    "yaw_rate_rad_s": true,
+    "roll_rate_rad_s": true,
+    "sideslip_rad": true,
+    "bank_rad": true,
+    "complete_scaled_nodal_motion": true
+  },
+  "numerical_checks": {
+    "fresh_completion": {
+      "passed": 19,
+      "total": 19
+    },
+    "independent_saved_audit": {
+      "passed": 280,
+      "total": 280
+    },
+    "minimum_original_stage_reciprocal_condition": 1.740818111850853e-10,
+    "maximum_original_stage_scaled_residual": 1.2782097750981816e-16,
+    "maximum_original_stage_backward_error": 5.564743823996888e-18,
+    "maximum_reconstructed_output_difference": 4.336808689942018e-19
+  },
+  "cases": [
+    {
+      "steps": 25,
+      "dt": 0.04,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        1.9147577653707301e-07,
+        1.722125532641367e-07,
+        6.687221973732539e-08
+      ],
+      "maximum_scaled_residual": 5.741438314984715e-17,
+      "maximum_backward_error": 8.030338785963214e-19,
+      "maximum_shifted_scaled_residual": 1.0368269947252714e-16,
+      "maximum_shifted_backward_error": 6.956104308724277e-19,
+      "output_peak_norms": [
+        0.00299877387056252,
+        0.0013289934159889294,
+        0.0035880827396692345,
+        0.001071504884632667
+      ],
+      "motion_peak_norm": 0.004426026924504093
+    },
+    {
+      "steps": 50,
+      "dt": 0.02,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        4.6861443128577954e-07,
+        3.752825725441071e-07,
+        1.0369212724492377e-07
+      ],
+      "maximum_scaled_residual": 7.379689849658366e-17,
+      "maximum_backward_error": 1.3645318334857702e-18,
+      "maximum_shifted_scaled_residual": 5.880173917921147e-17,
+      "maximum_shifted_backward_error": 3.474828787965161e-18,
+      "output_peak_norms": [
+        0.003772714074506164,
+        0.0013803064185109947,
+        0.0035895305617908544,
+        0.0010709532567397674
+      ],
+      "motion_peak_norm": 0.004426138514349626
+    },
+    {
+      "steps": 100,
+      "dt": 0.01,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        1.9819250938254268e-07,
+        1.7214112838049175e-07,
+        4.568427694238427e-08
+      ],
+      "maximum_scaled_residual": 1.2782097750981816e-16,
+      "maximum_backward_error": 2.2762854575249907e-18,
+      "maximum_shifted_scaled_residual": 7.976212064172347e-17,
+      "maximum_shifted_backward_error": 4.4013060139111445e-18,
+      "output_peak_norms": [
+        0.004622812485013507,
+        0.0013973641010267864,
+        0.0035895522890473488,
+        0.0010709404437541186
+      ],
+      "motion_peak_norm": 0.004427621227315751
+    },
+    {
+      "steps": 200,
+      "dt": 0.005,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        7.067871392041481e-08,
+        5.987436628675301e-08,
+        1.1237716718493401e-08
+      ],
+      "maximum_scaled_residual": 6.453461968813749e-17,
+      "maximum_backward_error": 2.7405527269425324e-18,
+      "maximum_shifted_scaled_residual": 6.451977014178094e-17,
+      "maximum_shifted_backward_error": 3.6260494704638586e-18,
+      "output_peak_norms": [
+        0.004605353974493978,
+        0.0014077958784775252,
+        0.003591286460554607,
+        0.0010709539957145739
+      ],
+      "motion_peak_norm": 0.004429305497517969
+    },
+    {
+      "steps": 400,
+      "dt": 0.0025,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        1.684152191024379e-08,
+        9.667313131500735e-09,
+        2.1026047668816864e-09
+      ],
+      "maximum_scaled_residual": 1.3008440836355926e-17,
+      "maximum_backward_error": 5.5647438239969956e-18,
+      "maximum_shifted_scaled_residual": 1.8438496737887537e-17,
+      "maximum_shifted_backward_error": 1.4185969065473855e-17,
+      "output_peak_norms": [
+        0.004613206284695755,
+        0.0014099134543523397,
+        0.0035913527566171304,
+        0.0010709551958397571
+      ],
+      "motion_peak_norm": 0.004429328828908265
+    },
+    {
+      "steps": 800,
+      "dt": 0.00125,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        4.397056809714695e-09,
+        2.3862858639404686e-09,
+        6.53572895243748e-10
+      ],
+      "maximum_scaled_residual": 2.91030991555921e-17,
+      "maximum_backward_error": 4.848153874869797e-18,
+      "maximum_shifted_scaled_residual": 1.4510101615138735e-17,
+      "maximum_shifted_backward_error": 1.1290256872734381e-17,
+      "output_peak_norms": [
+        0.004623653020615656,
+        0.0014099826383657385,
+        0.0035912085656600403,
+        0.0010709554095541412
+      ],
+      "motion_peak_norm": 0.004429287613779404
+    },
+    {
+      "steps": 1600,
+      "dt": 0.000625,
+      "input_amplitude": 1.0,
+      "duration": 1.0,
+      "reciprocal_conditions": [
+        1.0489364618389468e-09,
+        7.254439255153151e-10,
+        1.740818111850853e-10
+      ],
+      "maximum_scaled_residual": 1.1649455881825206e-17,
+      "maximum_backward_error": 3.8933630944034574e-19,
+      "maximum_shifted_scaled_residual": 7.708791353580804e-18,
+      "maximum_shifted_backward_error": 9.740403266848017e-19,
+      "output_peak_norms": [
+        0.004629812225263255,
+        0.001424411493698616,
+        0.003591024065915187,
+        0.0010709517571110042
+      ],
+      "motion_peak_norm": 0.004429369078613882
+    }
+  ],
+  "fresh_completion_operations": {
+    "aircraft_imports": 0,
+    "physical_evaluations": 0,
+    "equilibria": 0,
+    "aircraft_matrix_assemblies": 0,
+    "stage_3x3_inverses": 2,
+    "stage_3x3_eigendecompositions": 1,
+    "shifted_factorizations": 2,
+    "shifted_condition_estimates": 2,
+    "coupled_condition_estimates": 1,
+    "condition_callbacks": 14,
+    "condition_factor_solve_calls": 18,
+    "step_factor_solve_calls": 3200,
+    "shifted_residual_products": 3200,
+    "history_A_products": 1600,
+    "original_stage_A_products": 1600,
+    "original_stage_M_products": 1600,
+    "output_map_products": 1
+  },
+  "saved_audit_operations": {
+    "aircraft_imports": 0,
+    "physical_evaluations": 0,
+    "integration_steps": 0,
+    "linear_solves": 0,
+    "factorizations": 0,
+    "inverses": 0,
+    "eigendecompositions": 0,
+    "audited_saved_steps": 3175,
+    "audited_original_stages": 9525,
+    "stage_M_products_three_rhs": 3175,
+    "stage_A_products_three_rhs": 3175,
+    "history_A_products_one_rhs": 3175,
+    "saved_operator_block_combinations": 63
+  },
+  "accepted_trajectory_counts": {
+    "steps": 3175,
+    "step_factor_solves": 6350,
+    "shifted_factors": 14,
+    "coupled_condition_estimates": 7
+  },
+  "actual_execution_qualification": "Interrupted first attempt also built two final-grid factors and three condition estimates. Its final-grid step count is unknown. Those factors/work were discarded; fresh completion lifecycle is separate. Actual total work exceeds accepted-trajectory counts by this explicitly unquantified unfinished step work.",
+  "lifecycle": {
+    "first_attempt": "Externally interrupted; old six complete grids retained. Final-grid executed steps unknown. No exit status or reaping claimed.",
+    "fresh_completion": {
+      "status": "TERMINAL_PASS_EXECUTION_REAPED_TEMPORAL_CRITERION_UNMET",
+      "owner": "/root/ae3_measurement_review",
+      "owned_tool_session": 25390,
+      "launch_chunk": "d1fd7a",
+      "terminal_chunk": "45fde0",
+      "tool_exit_code": 0,
+      "supervisor_pid": 21489,
+      "child_pid": 21490,
+      "child_exit_code": 0,
+      "exit_code": 0,
+      "reaped": true,
+      "timed_out": false,
+      "cap_seconds": 180,
+      "elapsed_seconds": 29.01636822599994,
+      "retries_in_this_completion": 0,
+      "prior_interrupted_attempt_preserved": "/tmp/openswing-daedalus-radau-20261025/linear-reference",
+      "new_grids": [
+        1600
+      ],
+      "source_pins_unchanged": 47,
+      "report_pin": {
+        "bytes": 20466,
+        "sha256": "c146aa8170d7fe8af94e3da80c857fa98468507313f8e7773ccbcb6bc8eb4303"
+      },
+      "summary_pin": {
+        "bytes": 3316,
+        "sha256": "6baf7eb4d49e5c2a8fcef1f5148ba99e118afbf1bf48b313fafb0d2185c46c3e"
+      },
+      "plan_pin": {
+        "bytes": 16736,
+        "sha256": "116d3b5f48f393250cc38b4401ddf1d4a5e6a046852cf2302d5867a9444255e3"
+      },
+      "process_closeout_pin": {
+        "bytes": 257,
+        "sha256": "2e3e37aa96294500ed80da6e566cb9ec17260c7d223719ffad54c9be907caa59"
+      },
+      "trajectory_pin": {
+        "bytes": 122636424,
+        "sha256": "7308e74126422b74e5685fa3e130f270a7d41e272ada50e61ae91bba33b0f81d"
+      },
+      "closed_utc": "2026-10-25T06:15:13.077986+00:00"
+    },
+    "independent_audit": {
+      "status": "TERMINAL_PASS_SAVED_AUDIT_REAPED_TEMPORAL_CRITERION_UNMET",
+      "owner": "/root/ae3_reference_review/radau_saved_audit",
+      "owned_tool_session": 14602,
+      "launch_chunk": "401809",
+      "terminal_chunk": "09190f",
+      "tool_exit_code": 0,
+      "supervisor_pid": 23334,
+      "child_pid": 23338,
+      "exit_code": 0,
+      "reaped": true,
+      "timed_out": false,
+      "retries": 0,
+      "elapsed_seconds": 9.382814616000019,
+      "unchanged_frozen_pins": 68,
+      "plan_pin": {
+        "bytes": 20273,
+        "sha256": "697d9cac80ee8e074a0998e32cc2ea5ae0b61ec11ec07dda131725401aef6697"
+      },
+      "report_pin": {
+        "bytes": 22674,
+        "sha256": "eedddbc0c691be164f8116bb129a2abc16696d957d373d99875298d8a6f6d6d0"
+      },
+      "summary_pin": {
+        "bytes": 1851,
+        "sha256": "2eb812107de3be07f92d62a7f620bfb911cd23c0e1dd3f509482a5dfb4753806"
+      },
+      "process_closeout_pin": {
+        "bytes": 342,
+        "sha256": "dff53e50a119b24e8a6805c720aae1823db523585408164d94a73599f24e2244"
+      },
+      "source_review_pin": {
+        "bytes": 1486,
+        "sha256": "4d2ffef9aa4e2fe860f62fe1c981eaae6b62b8f2cca60f82a9bc9175ed00750b"
+      },
+      "closed_utc": "2026-10-25T06:20:20.389623+00:00",
+      "scope": "One frozen saved-array audit; no physics/integration/solves/factors/inverses/eigendecompositions."
+    }
+  },
+  "evidence": {
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/plan.json": {
+      "bytes": 11311,
+      "sha256": "776a6b8d528edb2a9a7ea053570a349e823c90aaa01662ee06875e964121c48c"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/external-interruption.json": {
+      "bytes": 760,
+      "sha256": "bd24c75993f1e90494211e1b3592847cc4e979b04151e851e0a853d22c9e7abf"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/interruption-review.json": {
+      "bytes": 6412,
+      "sha256": "26aa76591ead67ef6e52eadcb17ac4174945d5780f41e9520bfad74da6ad2d7b"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/plan.json": {
+      "bytes": 16736,
+      "sha256": "116d3b5f48f393250cc38b4401ddf1d4a5e6a046852cf2302d5867a9444255e3"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/report.json": {
+      "bytes": 20466,
+      "sha256": "c146aa8170d7fe8af94e3da80c857fa98468507313f8e7773ccbcb6bc8eb4303"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/temporal-comparison.json": {
+      "bytes": 79145,
+      "sha256": "d6116dc2a9e0ab293344c6de65388e24d979b2b10e99e76bf82f2f3890fa2426"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/summary.json": {
+      "bytes": 3316,
+      "sha256": "6baf7eb4d49e5c2a8fcef1f5148ba99e118afbf1bf48b313fafb0d2185c46c3e"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/session-closeout.json": {
+      "bytes": 1305,
+      "sha256": "30450d1c751923dda0ef71e82477c4a1b9700cf2cd88eeb5e1d2f58ac87e6a09"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/plan.json": {
+      "bytes": 20273,
+      "sha256": "697d9cac80ee8e074a0998e32cc2ea5ae0b61ec11ec07dda131725401aef6697"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/report.json": {
+      "bytes": 22674,
+      "sha256": "eedddbc0c691be164f8116bb129a2abc16696d957d373d99875298d8a6f6d6d0"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/summary.json": {
+      "bytes": 1851,
+      "sha256": "2eb812107de3be07f92d62a7f620bfb911cd23c0e1dd3f509482a5dfb4753806"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/session-closeout.json": {
+      "bytes": 1237,
+      "sha256": "3dbd4cd75361ad7ff3b8b617fff11896c1c4bd78621edad0df766be73b9a1253"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-audit-source-review.json": {
+      "bytes": 1486,
+      "sha256": "4d2ffef9aa4e2fe860f62fe1c981eaae6b62b8f2cca60f82a9bc9175ed00750b"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot.py": {
+      "bytes": 5558,
+      "sha256": "e07ba3e9d75e203880af0b8e3ad927ab57a67b9595686de851cdd9931e5546fb"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot-report.json": {
+      "bytes": 2894,
+      "sha256": "f474885946cdc810d62792b6254ab35beed592d11da8fc8c47807def0c348bbf"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/report-draft.txt": {
+      "bytes": 4230,
+      "sha256": "09d982ca4ef9b951898888d83b096d2a6ed7f5b78eab41aed008f72e59ea364f"
+    }
+  },
+  "figure_and_csv_pins": {
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/convergence.csv": {
+      "bytes": 6184,
+      "sha256": "9ab515a146e8ead7fc5b4d7bbaa32246e84d1834061c8cb7a435014477d1ef70"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/daedalus-linear-radau-comparison.png": {
+      "bytes": 508618,
+      "sha256": "ee857cf0436325e2db30f7ab7b9c38190a78f18143245deb24880ca7c942b520"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/daedalus-linear-radau-comparison.svg": {
+      "bytes": 285782,
+      "sha256": "392f1a62c629d4e39c2b51065d95d4659549bc5d19ffa670ca6f87d1bd2da77e"
+    },
+    "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/trajectories.csv": {
+      "bytes": 385998,
+      "sha256": "dc2f5ecbd92950128f6fdb28dba0590f2ec8143247a3f877e73b874c63a6ac24"
+    }
+  },
+  "artifact_manifest": "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/evidence-manifest.json",
+  "limitations": [
+    "Shared saved aircraft model, not an independent physical validation or a correction to the unresolved Drela Bode mismatch.",
+    "Formal Radau fifth order for regular ODEs is not asserted for these constrained descriptor variables or the input discontinuity.",
+    "Constant-factor speed is a saved linear study property; nonlinear TimeSystem may rebuild stage tangents and cannot inherit this runtime.",
+    "Endpoint temporal checks can miss between-endpoint features. Retained stages permit a later saved-only dense-output accuracy check before choosing a nonlinear grid.",
+    "First presentation retained; regenerated only to label temporal quantities differences rather than errors.",
+    "Structured nonlinear Radau implementation and physical one-step validations are separate root-owned evidence; this report contains only saved-linear work.",
+    "Prior BDF scientific runs are reused; no BDF rerun. No new frequency response or near1Hz mismatch correction."
+  ],
+  "publication": {
+    "files": {
+      "daedalus-linear-radau.md": {
+        "bytes": 4497,
+        "sha256": "db91ba20f06ceb8d2512e0015e75616f50715bcae1cf27a7cdc83da14ba052c5"
+      },
+      "daedalus-linear-radau.png": {
+        "bytes": 508618,
+        "sha256": "ee857cf0436325e2db30f7ab7b9c38190a78f18143245deb24880ca7c942b520"
+      },
+      "daedalus-linear-radau.svg": {
+        "bytes": 285782,
+        "sha256": "392f1a62c629d4e39c2b51065d95d4659549bc5d19ffa670ca6f87d1bd2da77e"
+      },
+      "daedalus-linear-radau-trajectories.csv": {
+        "bytes": 385998,
+        "sha256": "dc2f5ecbd92950128f6fdb28dba0590f2ec8143247a3f877e73b874c63a6ac24"
+      },
+      "daedalus-linear-radau-convergence.csv": {
+        "bytes": 6184,
+        "sha256": "9ab515a146e8ead7fc5b4d7bbaa32246e84d1834061c8cb7a435014477d1ef70"
+      },
+      "daedalus-linear-radau-20261025-evidence.zip": {
+        "bytes": 312236738,
+        "sha256": "38e7a1bcae0f26839aa40519892ea6aeb8fdd78ca60ffdc3025ddbdb4f4ad1ad"
+      }
+    },
+    "evidence_archive": "daedalus-linear-radau-20261025-evidence.zip",
+    "archive_members": 124,
+    "all_member_hashes_verified": true,
+    "crc_verified": true,
+    "archive_member_manifest_pin": {
+      "bytes": 43744,
+      "sha256": "bef0c54c19751a76f950fa73330327dd154661a801b35f40f1db19b6de03c698"
+    },
+    "source_to_archive": {
+      "/tmp/openswing-daedalus-cruise16-20261024/results/A.npz": "dependencies/tmp/openswing-daedalus-cruise16-20261024/results/A.npz",
+      "/tmp/openswing-daedalus-cruise16-20261024/results/M.npz": "dependencies/tmp/openswing-daedalus-cruise16-20261024/results/M.npz",
+      "/tmp/openswing-daedalus-cruise16-20261024/results/base.json": "dependencies/tmp/openswing-daedalus-cruise16-20261024/results/base.json",
+      "/tmp/openswing-daedalus-cruise16-20261024/results/control-rhs.npz": "dependencies/tmp/openswing-daedalus-cruise16-20261024/results/control-rhs.npz",
+      "/tmp/openswing-daedalus-cruise16-20261024/results/state-layout.json": "dependencies/tmp/openswing-daedalus-cruise16-20261024/results/state-layout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/child.log": "linear-reference/child.log",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/child.log": "linear-reference/completion-1600/child.log",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/completion.patch": "linear-reference/completion-1600/completion.patch",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/exclusive": "linear-reference/completion-1600/exclusive",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/launch.json": "linear-reference/completion-1600/launch.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/plan.json": "linear-reference/completion-1600/plan.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/preparation.json": "linear-reference/completion-1600/preparation.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/prepare.py": "linear-reference/completion-1600/prepare.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/process-closeout.json": "linear-reference/completion-1600/process-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/checks.json": "linear-reference/completion-1600/results/checks.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/conditions.json": "linear-reference/completion-1600/results/conditions.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/factor-1600.npz": "linear-reference/completion-1600/results/factor-1600.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/output-map.npy": "linear-reference/completion-1600/results/output-map.npy",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/partial.json": "linear-reference/completion-1600/results/partial.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/report.json": "linear-reference/completion-1600/results/report.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/stage-algebra.npz": "linear-reference/completion-1600/results/stage-algebra.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/steps-1600.npz": "linear-reference/completion-1600/results/steps-1600.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/results/temporal-comparison.json": "linear-reference/completion-1600/results/temporal-comparison.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/run.py": "linear-reference/completion-1600/run.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/session-closeout.json": "linear-reference/completion-1600/session-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/summary.json": "linear-reference/completion-1600/summary.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/completion-1600/supervise.py": "linear-reference/completion-1600/supervise.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/context/radau_time.py": "linear-reference/context/radau_time.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/exclusive": "linear-reference/exclusive",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/external-interruption.json": "linear-reference/external-interruption.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/formulas.txt": "linear-reference/formulas.txt",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/interruption-review.json": "linear-reference/interruption-review.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/launch.json": "linear-reference/launch.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/plan.json": "linear-reference/plan.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/preparation.json": "linear-reference/preparation.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/prepare.py": "linear-reference/prepare.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/convergence.csv": "linear-reference/presentation/figures/convergence.csv",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/daedalus-linear-radau-comparison.png": "linear-reference/presentation/figures/daedalus-linear-radau-comparison.png",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/daedalus-linear-radau-comparison.svg": "linear-reference/presentation/figures/daedalus-linear-radau-comparison.svg",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/figures/trajectories.csv": "linear-reference/presentation/figures/trajectories.csv",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/figures/convergence.csv": "linear-reference/presentation/first-presentation/figures/convergence.csv",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/figures/daedalus-linear-radau-comparison.png": "linear-reference/presentation/first-presentation/figures/daedalus-linear-radau-comparison.png",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/figures/daedalus-linear-radau-comparison.svg": "linear-reference/presentation/first-presentation/figures/daedalus-linear-radau-comparison.svg",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/figures/trajectories.csv": "linear-reference/presentation/first-presentation/figures/trajectories.csv",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/plot-process-closeout.json": "linear-reference/presentation/first-presentation/plot-process-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/plot-report.json": "linear-reference/presentation/first-presentation/plot-report.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/plot-session-closeout.json": "linear-reference/presentation/first-presentation/plot-session-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/plot.log": "linear-reference/presentation/first-presentation/plot.log",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/plot.py": "linear-reference/presentation/first-presentation/plot.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/report-draft.txt": "linear-reference/presentation/first-presentation/report-draft.txt",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/first-presentation/superseded.json": "linear-reference/presentation/first-presentation/superseded.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot-process-closeout.json": "linear-reference/presentation/plot-process-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot-report.json": "linear-reference/presentation/plot-report.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot-session-closeout.json": "linear-reference/presentation/plot-session-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot.log": "linear-reference/presentation/plot.log",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/plot.py": "linear-reference/presentation/plot.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/report-draft.txt": "linear-reference/presentation/report-draft.txt",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/report.json": "linear-reference/presentation/report.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/checks.json": "linear-reference/results/checks.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/conditions.json": "linear-reference/results/conditions.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-100.npz": "linear-reference/results/factor-100.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-1600.npz": "linear-reference/results/factor-1600.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-200.npz": "linear-reference/results/factor-200.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-25.npz": "linear-reference/results/factor-25.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-400.npz": "linear-reference/results/factor-400.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-50.npz": "linear-reference/results/factor-50.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/factor-800.npz": "linear-reference/results/factor-800.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/output-map.npy": "linear-reference/results/output-map.npy",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/partial.json": "linear-reference/results/partial.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/stage-algebra.npz": "linear-reference/results/stage-algebra.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-100.npz": "linear-reference/results/steps-100.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-200.npz": "linear-reference/results/steps-200.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-25.npz": "linear-reference/results/steps-25.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-400.npz": "linear-reference/results/steps-400.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-50.npz": "linear-reference/results/steps-50.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/results/steps-800.npz": "linear-reference/results/steps-800.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/run.py": "linear-reference/run.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-audit-source-review.json": "linear-reference/saved-audit-source-review.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/audit.py": "linear-reference/saved-review/audit.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/child.log": "linear-reference/saved-review/child.log",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/exclusive": "linear-reference/saved-review/exclusive",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/formulas.txt": "linear-reference/saved-review/formulas.txt",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/launch.json": "linear-reference/saved-review/launch.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/plan.json": "linear-reference/saved-review/plan.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/preparation.json": "linear-reference/saved-review/preparation.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/prepare.py": "linear-reference/saved-review/prepare.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/process-closeout.json": "linear-reference/saved-review/process-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-100.npz": "linear-reference/saved-review/results/audit-steps-100.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-1600.npz": "linear-reference/saved-review/results/audit-steps-1600.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-200.npz": "linear-reference/saved-review/results/audit-steps-200.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-25.npz": "linear-reference/saved-review/results/audit-steps-25.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-400.npz": "linear-reference/saved-review/results/audit-steps-400.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-50.npz": "linear-reference/saved-review/results/audit-steps-50.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/audit-steps-800.npz": "linear-reference/saved-review/results/audit-steps-800.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/checks.json": "linear-reference/saved-review/results/checks.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/report.json": "linear-reference/saved-review/results/report.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/results/temporal-comparison.json": "linear-reference/saved-review/results/temporal-comparison.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/session-closeout.json": "linear-reference/saved-review/session-closeout.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/summary.json": "linear-reference/saved-review/summary.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/saved-review/supervise.py": "linear-reference/saved-review/supervise.py",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/supervise.py": "linear-reference/supervise.py",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-plan.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-plan.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-reference.py": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-reference.py",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-plan.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-plan.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/report.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/report.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-1600.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-1600.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-200.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-200.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-400.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-400.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-800.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/steps-800.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/summary.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/summary.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/temporal-comparison.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/temporal-comparison.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/session-closeout.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/session-closeout.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/report.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/report.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/summary.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/summary.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/output-map.npy": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/output-map.npy",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/report.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/report.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/session-closeout.json": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/session-closeout.json",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-100.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-100.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-25.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-25.npz",
+      "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-50.npz": "dependencies/tmp/openswing-daedalus-time-consistency-20261025/linear-results/steps-50.npz",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/evidence-manifest.json": "linear-reference/presentation/evidence-manifest.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/handoff.json": "linear-reference/presentation/handoff.json",
+      "/tmp/openswing-daedalus-radau-20261025/linear-reference/presentation/publish.py": "linear-reference/presentation/publish.py"
+    },
+    "dependency_policy": "Only actual pinned BDF/operator inputs included; no prior evidence ZIP archives duplicated.",
+    "status_and_archive_index": "Owned separately by root; not edited by this publisher.",
+    "typography_amendment": "Whitespace-only cleanup of published Markdown; numerical values/claims unchanged. Initial published Markdown/JSON/receipt retained in staging."
+  }
+}

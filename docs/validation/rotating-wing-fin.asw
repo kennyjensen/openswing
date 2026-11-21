@@ -1,0 +1,34 @@
+! Original idealized orthogonal-surface regression; not a Daedalus reconstruction.
+Name
+Loaded wing fin prescribed oblique rotation
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+5.5 1 4
+0 0 0
+End
+Beam 1 1
+Wing
+t x y z chord Xax alpha
+-2 0 -2 0 1 .35 2
+2 0 2 0 1 .35 2
+t Cdf Cdp Cm dCLda CLmax CLmin
+-2 .01 .02 .02 6.283185307179586 100 -100
+2 .01 .02 .02 6.283185307179586 100 -100
+End
+Beam 2 2
+Fin
+t x y z chord Xax alpha
+.4 2 0 .4 .75 .35 2
+2.4 2 0 2.4 .75 .35 2
+t Cdf Cdp Cm dCLda CLmax CLmin dCLdF3 dCMdF3
+.4 .01 .02 .02 6.283185307179586 100 -100 -.1 0
+2.4 .01 .02 .02 6.283185307179586 100 -100 -.1 0
+End

@@ -1,0 +1,35 @@
+! Original small regression fixture; zero-incidence x=0 needs no equilibrium solve.
+Name
+Analytic circulation derivative regression wing
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+12 1 12
+0 0 0
+End
+Ground
+1 0 0
+End
+Beam 1
+Cantilever
+t x y z chord Xax
+0 0 0 0 1 .25
+6 0 6 0 1 .25
+t Cdf dCLda CLmax CLmin
+0 0 6.283185307179586 1.2 -1.2
+6 0 6.283185307179586 1.2 -1.2
+t EA EIcc EInn GJ
+0 10000000 1000000 1000000 100000
+6 10000000 1000000 1000000 100000
+t dCLdF1 dCMdF1
+0 .05 -.012
+6 .05 -.012
+End
+

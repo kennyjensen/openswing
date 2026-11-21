@@ -1,0 +1,95 @@
+{
+  "format": "openswing-renderer-fix",
+  "version": 1,
+  "recorded_unix": 1791641333.651426,
+  "integration": {
+    "integrated_unix": 1791641224.5645757,
+    "before_sha256": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+    "after_sha256": "c3cd526d20be4e9c6ffe3bbaf9afc3af86079177c2e6f8d07865d769790c78a3",
+    "candidate": "/tmp/openswing-viewer-no-msaa-20261010/viewer-production-candidate.js",
+    "root_review": "Reviewed full implementation, caller invalidations, interaction gates and three representative captures. Candidate is uninstrumented. Supersedes continuous multisampled renderer. Numerical source unchanged. Full application replay pending."
+  },
+  "continuous_no_msaa": {
+    "status": "passed",
+    "first_frame": 28,
+    "last_frame": 877,
+    "maximum_gpu_rss_kib": 203780,
+    "resource_samples": 16,
+    "actual_context_antialias": false,
+    "limits": {
+      "gpu_rss_kib": 1048576,
+      "minimum_host_available_kib": 2097152,
+      "wall_seconds": 100
+    },
+    "scope": "Original continuous renderer with only antialias disabled; fixture without WASM. Direct foreground execution ended with exit 0; no separate wrapper exit file was created."
+  },
+  "interaction_no_msaa": {
+    "status": "passed",
+    "single_attempt": true,
+    "completed_checks": [
+      "initial-idle",
+      "top-fit",
+      "front-fit",
+      "orbit-damping-and-idle",
+      "wheel-zoom",
+      "geometry-playback-and-pause",
+      "ground-update-and-grid-toggle",
+      "mobile-resize",
+      "loss-update-fit-toggle-and-restoration",
+      "empty-geometry-and-repopulation",
+      "final-idle"
+    ],
+    "check_count": 11,
+    "screenshot_count": 12,
+    "all_twelve_captures_visually_inspected": true,
+    "elapsed_seconds": 29.753,
+    "max_GPU_RSS_KiB": 195388,
+    "minimum_host_available_KiB": 3147100,
+    "resource_samples": 52,
+    "limits": {
+      "wall_seconds": 100,
+      "gpu_rss_kib": 1048576,
+      "minimum_host_available_kib": 2097152
+    },
+    "page_errors": [],
+    "deadline_reached": false,
+    "pure_candidate_sha256": "c3cd526d20be4e9c6ffe3bbaf9afc3af86079177c2e6f8d07865d769790c78a3",
+    "instrumented_candidate_sha256": "f09a202f0bae89706eedc38ea7de3a4b37711358745ee9bea1c5404aae131c49",
+    "runner_sha256": "0b4f9eea2842559f1951da8369f7e5468a745e92802980a62299a40833a61deb",
+    "preparation_sha256": "4afef79551d1dfca8eea9d88bc06c01de794dbd8a506259af2a82fce4ed2a3bf",
+    "terminal": {
+      "command": [
+        "node",
+        "/tmp/openswing-viewer-no-msaa-20261010/run-interactions.mjs"
+      ],
+      "wrapper_pid": 28866,
+      "started": 1791640993.4705052,
+      "pid": 28868,
+      "exit_code": 0,
+      "ended": 1791641024.5073352
+    },
+    "scope": "Bounded synthetic viewer fixture on the prescribed Chromium/Mesa/Vulkan stack; no WASM, actual aircraft numerical workflow, long-duration playback, or general hardware lifecycle claim.",
+    "visual_notes": "Initial ribbon, changed ground/grid, and evolved geometry render. Top/front/orbit views are edge-on for this thin vertical fixture; restored/repopulated front views show its curved edge. Empty view is intentionally blank. No-MSAA jagged diagonal edges are visible.",
+    "context_attributes": "Runner was kept byte-identical and does not record getContextAttributes(); this run verifies requested antialias=false source plus healthy contexts, not an independent attribute readback.",
+    "main_viewer_unchanged_at_postrun_audit": true
+  },
+  "application_workflow": {
+    "status": "passed",
+    "record": "durrant-unloaded-browser-repaired.json",
+    "max_selected_root_component_error_per_s": 1.9326762412674725e-12,
+    "scope": "Two selected unloaded low modes, original physics/export/offline/desktop/mobile gates. The fixture archive retains its earlier pending-app snapshot."
+  },
+  "numerical_changes": false,
+  "visual_tradeoff": "Multisample antialiasing is disabled; diagonal edges are less smooth. Existing pixel-ratio cap remains two.",
+  "limits": "Bounded tests on one Chromium/Mesa/Vulkan stack; no claim about long-duration playback, arbitrary hardware, or the cause of prior process disappearance. Synthetic restoration differs from uncontrolled context loss.",
+  "history": {
+    "records": "renderer-diagnostics-records.zip",
+    "sha256": "5185be4c288fedfde7ee3b9253fe95bcb68c92b64087fe010424e37b9f8be5f2"
+  },
+  "archive": {
+    "path": "renderer-fix-records.zip",
+    "sha256": "103d6c1110e073a0f3e790e4bf06817fb8c6f6230f7df7305a6e5299228a9cf4",
+    "bytes": 1045125,
+    "members": 63
+  }
+}

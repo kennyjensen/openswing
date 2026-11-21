@@ -1,0 +1,149 @@
+{
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/test_isae_suite_st1_integration.py tests/test_isae_suite_st1.py tests/test_isae_suite_runner.py tests/test_isae_suite_summary.py tests/test_isae_suite_ae3_integration.py tests/test_isae_suite_catalog.py",
+  "session_id": 81629,
+  "initial_stdout_capture": ".\n.........................\n............\n.................................. [ 18%]\n..............",
+  "capture_note": "Progress from the initial tool responses is retained as separate chunks; this is a captured terminal receipt, not an independent live tee log.",
+  "subsequent_chunks": [
+    {
+      "chunk_id": "89c647",
+      "wall_time_seconds": 5.002381879,
+      "session_id": 81629,
+      "original_token_count": 46,
+      "output": ".......................................................... [ 37%]\n........................................................................ [ 55%]\n..................................."
+    },
+    {
+      "chunk_id": "f6fc9e",
+      "wall_time_seconds": 5.00208878,
+      "session_id": 81629,
+      "original_token_count": 20,
+      "output": "..................................... [ 74%]\n................................."
+    },
+    {
+      "chunk_id": "39f969",
+      "wall_time_seconds": 5.001310681,
+      "session_id": 81629,
+      "original_token_count": 1,
+      "output": "..."
+    },
+    {
+      "chunk_id": "b17177",
+      "wall_time_seconds": 5.001555707,
+      "session_id": 81629,
+      "original_token_count": 7,
+      "output": "............................"
+    },
+    {
+      "chunk_id": "886041",
+      "wall_time_seconds": 5.001816905,
+      "session_id": 81629,
+      "original_token_count": 6,
+      "output": "........ [ 93%]\n......"
+    },
+    {
+      "chunk_id": "2f43ab",
+      "wall_time_seconds": 5.000916723,
+      "session_id": 81629,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "138000",
+      "wall_time_seconds": 1.126161485,
+      "exit_code": 0,
+      "original_token_count": 27,
+      "output": ".....................                                              [100%]\n387 passed in 247.12s (0:04:07)\n"
+    }
+  ],
+  "format": "openswing-st1-adapter-integration-test-receipts",
+  "version": 1,
+  "status": "PASS",
+  "tests": {
+    "passed": 387,
+    "failed": 0,
+    "elapsed_seconds": 247.12,
+    "exit_code": 0
+  },
+  "scope": "Source-only adapter, integration, runner, summary and catalog tests. Synthetic numerical records exercise validators; no original ST1 solve is performed by these tests.",
+  "initial_run": {
+    "session_id": 24707,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/test_isae_suite_st1_integration.py tests/test_isae_suite_st1.py",
+    "exit_code": 1,
+    "passed": 56,
+    "failed": 4,
+    "elapsed_seconds": 112.94,
+    "terminal_summary": "4 failed, 56 passed in 112.94s (0:01:52)",
+    "failed_cases": [
+      "test_exact_decimal_endpoints_agree_across_adapter_runner_and_summary[1--1]",
+      "test_exact_decimal_endpoints_agree_across_adapter_runner_and_summary[1-1]",
+      "test_exact_decimal_endpoints_agree_across_adapter_runner_and_summary[1.000001--1]",
+      "test_exact_decimal_endpoints_agree_across_adapter_runner_and_summary[1.000001-1]"
+    ],
+    "diagnosis": "Standalone test loading omitted the scripts directory from sys.path. The adapter's own result validation and runner decimal boolean consistency passed, but the runner's adapter import failed.",
+    "diagnostic_terminal": "'st1_result_contract_error': \"ModuleNotFoundError: No module named 'isae_suite_st1'\"",
+    "correction": "Add the scripts directory to the new integration test's import path, matching normal `python scripts/run-isae-suite.py` invocation. No production or adapter change."
+  },
+  "expected_frozen_files": {
+    "scripts/run-isae-suite.py": "553721556dfd5c70ad17a8769fd2d85b90099a24c508aea0e57708f8b3c93f10",
+    "scripts/summarize-isae-suite.py": "b0a9557ea88c941d0e1303bf44e9d038e9c1210f723ff6698dbeaec29a65d616",
+    "scripts/isae_suite_st1.py": "f14167fb81b32e697e84371ddad9ff99cc35ac6306d75a6fa59a24cbc44015e2",
+    "tests/test_isae_suite_st1.py": "38bd66a80c2f6e99ab15621345d17a7165499a735f415165477e80d49a052e2d",
+    "tests/test_isae_suite_st1_integration.py": "66f87a493ad63e4c371c60b423dcf6a1cf393d705871f58a386dc31eb12a0487"
+  },
+  "verified_frozen_files": [
+    {
+      "path": "scripts/run-isae-suite.py",
+      "bytes": 34851,
+      "sha256": "553721556dfd5c70ad17a8769fd2d85b90099a24c508aea0e57708f8b3c93f10"
+    },
+    {
+      "path": "scripts/summarize-isae-suite.py",
+      "bytes": 91044,
+      "sha256": "b0a9557ea88c941d0e1303bf44e9d038e9c1210f723ff6698dbeaec29a65d616"
+    },
+    {
+      "path": "scripts/isae_suite_st1.py",
+      "bytes": 37055,
+      "sha256": "f14167fb81b32e697e84371ddad9ff99cc35ac6306d75a6fa59a24cbc44015e2"
+    },
+    {
+      "path": "tests/test_isae_suite_st1.py",
+      "bytes": 10938,
+      "sha256": "38bd66a80c2f6e99ab15621345d17a7165499a735f415165477e80d49a052e2d"
+    },
+    {
+      "path": "tests/test_isae_suite_st1_integration.py",
+      "bytes": 11374,
+      "sha256": "66f87a493ad63e4c371c60b423dcf6a1cf393d705871f58a386dc31eb12a0487"
+    }
+  ],
+  "kernel_freeze": {
+    "source": {
+      "path": "/tmp/openswing-st1-sensors-20261027/frozen-kernel.json",
+      "bytes": 11605,
+      "sha256": "fdd8fc6b0f0d9294459b68f0230e4dda4ab1ce0d6f076527b9915e4be08cf55e"
+    },
+    "module_count": 123,
+    "unchanged_after_tests": true
+  },
+  "preflight": {
+    "source": {
+      "path": "/tmp/openswing-st1-sensors-20261027/st1-adapter-preflight.json",
+      "bytes": 123638,
+      "sha256": "7f2b16247cf28a71d2532ca0caaa68db828c05bda709b120a300824853b961a3"
+    },
+    "copy": {
+      "path": "docs/validation/isae-suite-st1-20261027/adapter-preflight.json",
+      "bytes": 123638,
+      "sha256": "7f2b16247cf28a71d2532ca0caaa68db828c05bda709b120a300824853b961a3"
+    },
+    "checks_passed": 39,
+    "checks_total": 39,
+    "solves": 0,
+    "residuals": 0
+  },
+  "terminal_log": {
+    "path": "docs/validation/isae-suite-st1-20261027/adapter-integration-tests.log",
+    "bytes": 1404,
+    "sha256": "bd109809c284be2481388fbc1d0f0ba0b26ed36f61a34650045ecb0b6105b93c"
+  }
+}

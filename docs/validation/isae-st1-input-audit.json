@@ -1,0 +1,345 @@
+{
+  "status": "PARSE_ONLY_AUDIT_LITERAL_REJECTIONS_CONFIRMED",
+  "case": "ST-1",
+  "upstream_repository": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation",
+  "upstream_revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+  "fully_validated": false,
+  "coverage_change": false,
+  "production_changes": false,
+  "hosted_deployment": false,
+  "parse_calls": 10,
+  "physical_calls": 0,
+  "limitations": [
+    "No repaired-input parse or physical comparison was made.",
+    "No original ASWING executable was available; its actual producing version, startup/settings and tolerance of these exact bytes remain unverified.",
+    "Parser CubicSpline interpolation internals were outside the OpenSwing call-profile scope."
+  ],
+  "source_modules": 106,
+  "all_errors_match_inventory": true,
+  "authoritative_report": {
+    "archive_member": "study/corrected-report.json",
+    "bytes": 24708,
+    "sha256": "e85bbe4165aa864c1e804e82026438a2a271623a32e70013689871b2c4a1831d"
+  },
+  "raw_report": {
+    "archive_member": "study/report.json",
+    "bytes": 24300,
+    "sha256": "4359f67c53f9be55c62b091af2b8853f7cbfecf01fb6474fce2cdd1d35776fa6",
+    "note": "Retained unchanged. The corrected report replaces its overbroad matrix-or-linear-solve field with physical matrix assembly accounting."
+  },
+  "plan": {
+    "archive_member": "study/plan.json",
+    "bytes": 33946,
+    "sha256": "a6ffedc3a323ddbc02c324c7ac03eebc0be4e3485694fa1b8af855b088f9a8ea"
+  },
+  "primary_document": {
+    "url": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+    "local_path": ".reference/aswing_doc.txt",
+    "audited_stage_path": "evidence/aswing_doc.txt",
+    "bytes": 145039,
+    "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a",
+    "anchors": [
+      {
+        "lines": [
+          154,
+          172
+        ],
+        "claim": "Global blocks terminate with End."
+      },
+      {
+        "lines": [
+          536,
+          552
+        ],
+        "claim": "Sensor cross-product frame and documented omitted-vector defaults."
+      }
+    ],
+    "archive_policy": "Full publication excluded under THIRD_PARTY.md; URL, checksum, exact line anchors and a short excerpt are retained."
+  },
+  "literal_parse_errors": {
+    "AswError: Line 60: engine is missing End.": 9,
+    "ValueError: Sensor Vspec and Aspec must not be parallel.": 1
+  },
+  "literal_parallel_sensor_frames": 10,
+  "observed_parallel_sensor_frame_rejections": 1,
+  "masked_static_findings": {
+    "masked_parallel_sensor_frames": 9,
+    "surplus_multiplier_rows": 4,
+    "method": "Lexical inspection of unchanged inputs and current source; no repaired-input parse."
+  },
+  "models": [
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Mesh_convergence_analysis/[0_90]_3s.asw",
+      "sha256": "3a3f37d68ffa4a90847e3e4194374b9688506c045b798e0f62560f4818159da6",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.220 0.0 -0.220 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 15,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": true
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Modal_analysis/[0_90]_3s.asw",
+      "sha256": "de242d2e0d4559536dcc457298d9e74031874cc38e1fe817feff2640b86c6d1a",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.280 0.0 -0.280 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 15,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": true
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Modal_analysis/[0_90]_s.asw",
+      "sha256": "044829fc873a2a168a03de235a2845f6b4b32a41db0a7d68523a5a733762b6b7",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.280 0.0 -0.280 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 15,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": true
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Modal_analysis/[20_m70_20]_2a.asw",
+      "sha256": "0c46b16ac16b8dedbca1467bebc308d6d9a23a8c52c2b87e3555aab980e3568a",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.280 0.0 -0.280 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 15,
+        "multiplier_line": 38,
+        "multiplier_values": 15,
+        "more_multiplier_values_than_header_columns": false
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Modal_analysis/[45_0]_3s.asw",
+      "sha256": "be2fa0bf195c6c94c029e6c7928e6f047ef69ed4138521c1ee9566dec3e47409",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.280 0.0 -0.280 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 16,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": false
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Modal_analysis/[45_0]_s.asw",
+      "sha256": "851d511767e2f0f2853a4069c9fdb5947b30218cf5aa1256ab1d0b1dc81ca06d",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.280 0.0 -0.280 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 16,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": false
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Static_deflection/[0_90]_3s.asw",
+      "sha256": "147c84631a0c0f07f598b5379ee2f6aa280ad463a131e1ad13b1013d38a637a8",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.220 0.0 -0.220 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 15,
+        "multiplier_line": 38,
+        "multiplier_values": 16,
+        "more_multiplier_values_than_header_columns": true
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Static_deflection/[20_m70_20]_2a.asw",
+      "sha256": "d3adf4ed137ffdd9fda27a00bb8238b1b1c67c0dd5aafbe625a2f3a88cd7fcce",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.220 0.0 -0.220 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 13,
+        "multiplier_line": 38,
+        "multiplier_values": 13,
+        "more_multiplier_values_than_header_columns": false
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Static_deflection/[45_0]_3a.asw",
+      "sha256": "dcfef35494730fa3976950f634a448592b2eeb0aff6e5e70894801c13964aade",
+      "error": "ValueError: Sensor Vspec and Aspec must not be parallel.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.220 0.0 -0.220 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 13,
+        "multiplier_line": 38,
+        "multiplier_values": 13,
+        "more_multiplier_values_than_header_columns": false
+      }
+    },
+    {
+      "upstream_path": "3 - Structure/CASE - ST1 High aspect ratio/Static_deflection/[45_0]_3s.asw",
+      "sha256": "12f0211e51e382e86f8df9ef68ea467ef0eb62b393ea7b688598cf955c8ce839",
+      "error": "AswError: Line 60: engine is missing End.",
+      "same_error_as_inventory": true,
+      "literal_sensor_line": {
+        "line": 57,
+        "text": "   1  1  -0.220 0.0 -0.220 0.0 1.0   1.0   1.0    1.0   1.0   1.0"
+      },
+      "literal_sensor_Vspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "literal_sensor_Aspec": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "beam_first_distribution_static_counts": {
+        "header_line": 37,
+        "header_columns_including_t": 14,
+        "multiplier_line": 38,
+        "multiplier_values": 14,
+        "more_multiplier_values_than_header_columns": false
+      }
+    }
+  ],
+  "conclusion": "No missing parser feature was established. Documented block termination and sensor-frame definitions support current rejection; historical executable tolerance is unverified.",
+  "next_step": "Resolve nine unterminated Engine blocks, ten undefined sensor frames and four surplus multiplier rows using explicitly reviewed derived inputs; preserve literal rejection. Recover the producing ASWING version/settings and verify beam, load, fixture and measurement definitions before physical comparison.",
+  "evidence_archive": "isae-st1-input-audit-20261024-evidence.zip"
+}

@@ -1,0 +1,32 @@
+! Original analytical derivative fixture: end thrust 3 P and torque 2 P.
+! EA=1000, GJ=500; closed shell A*t=.004. At every material section:
+! d(axial strain)/dP=.003, d(twist rate)/dP=.004, d(shear stress)/dP=250.
+Name
+Axial and torsional response
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+End
+Ground
+1 0 0
+End
+Engine
+1 0 1 2 0 2 0 0 1 0 3 2 -1 0 0
+End
+Beam 1
+Axial torsion spring
+t y EA GJ
+0 0 1000 500
+2 2 1000 500
+t Cshell Nshell Atshell
+0 .1 .2 .004
+2 .1 .2 .004
+End

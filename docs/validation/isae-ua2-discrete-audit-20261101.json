@@ -1,0 +1,544 @@
+{
+  "date": "2026-11-01",
+  "discrete_identity_checks_passed": 4,
+  "audited_unique_snapshots": 4004,
+  "maximum_normalized_identity_error": 7.657618446131932e-10,
+  "maximum_normalized_circulation_equation_residual": 9.915628507895039e-11,
+  "source_sha256": {
+    "scripts/summarize-isae-ua2-discrete.py": "a501961955f1a63dd4c82ab43926a4d62c7cd045bb7dea66333c79bef898c610",
+    "scripts/extract-isae-ua2-periodic-state.py": "4bca14937779dc10d824ee231b99000fe64606e4ab8cc06ceb01141cf625f5e9",
+    "artifacts/isae/ua2-discrete-audit-20261101/analysis-n20-t80.json": "e3709a55a7cd1a77c60c466031e0421f43eb6bf665ab3006dbddee3d19faccfe",
+    "artifacts/isae/ua2-discrete-audit-20261101/state-n20-t80.json": "619d5ea7a3b87a8c30dffd9922ee4d939013cd24e7af59a0543599b0fdac47b1",
+    "artifacts/isae/ua2-discrete-audit-20261101/analysis-n20-t160.json": "04019793bbabf710cefa7d74d17fe38543de4f248e525d6b1294d51cf2ae28e8",
+    "artifacts/isae/ua2-discrete-audit-20261101/state-n20-t160.json": "eda327e1a05b4ebfaca7d4a2b3e8be438a6aa35ea21a9fe787989bfc58621ea8",
+    "artifacts/isae/ua2-discrete-audit-20261101/analysis-n40-t80.json": "f499ad2543794d0ba1ea9ff0bbcb29b29d3a23d3c45b8959c595df6ef7f67606",
+    "artifacts/isae/ua2-discrete-audit-20261101/state-n40-t80.json": "12cd50b00ae4cf6c1cfc8075d2585f194a057e23f75fa0a0fe363b0c21eda965",
+    "artifacts/isae/ua2-discrete-audit-20261101/analysis-n40-t160.json": "14ca367d21299d9eca68f5ccfdbbc6687979314bc11de9c10a8107b253a96a8c",
+    "artifacts/isae/ua2-discrete-audit-20261101/state-n40-t160.json": "ffdeda91b7068438c6f7d6b16021ab699a564e8e05835c77e49c012940ab124c"
+  },
+  "cases": [
+    {
+      "panels": 20,
+      "nominal_steps": 80,
+      "analysis": "artifacts/isae/ua2-discrete-audit-20261101/analysis-n20-t80.json",
+      "discrete_identity_passed": true,
+      "identity_error_fractions": {
+        "CL": 1.3904878047686414e-10,
+        "circulation": 5.260126627666667e-11,
+        "circulation_rate": 6.586508623390328e-10,
+        "velocity": 3.038505120026744e-15,
+        "position": 8.171241461241152e-14,
+        "load_replay": 1.9287961423581482e-14,
+        "stored_rate": 5.028792152462303e-16
+      },
+      "maximum_normalized_circulation_equation_residual": 9.81142942693556e-11,
+      "full_history_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.2955547303287296,
+          "component_error_percent": {
+            "motion": 0.2702193751758966,
+            "circulation_integration": 0.03799982439982849,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.5242391828712064,
+          "component_error_percent": {
+            "motion": 0.3871100652156441,
+            "circulation_integration": 0.18789025125931522,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 1.734723475976807e-18,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.277521643849485,
+          "component_error_percent": {
+            "motion": 0.2762913424641423,
+            "circulation_integration": 0.17244416023150527,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.32924844366841327,
+          "component_error_percent": {
+            "motion": 0.30102263311593325,
+            "circulation_integration": 0.03235709748489874,
+            "startup_transient": 1.0348082960169699e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.7441588583199188,
+          "component_error_percent": {
+            "motion": 0.5494933430042368,
+            "circulation_integration": 0.20547691416021954,
+            "startup_transient": 8.821017047679582e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.24204101041016357,
+          "component_error_percent": {
+            "motion": 0.2592883143555532,
+            "circulation_integration": 0.1487846601309398,
+            "startup_transient": 2.7557360847523015e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_mean_lift": {
+        "discrete_motion": 0.002157779361147723,
+        "ideal_motion": 9.389875255756744e-08,
+        "continuous_cold": 9.430530352521997e-08,
+        "periodic": 5.654756863515301e-14
+      },
+      "final_cycle_mean_lift_error_parts": {
+        "motion": 0.0021576854623951655,
+        "circulation_integration": -4.0655096765252386e-10,
+        "startup_transient": 9.430524697765133e-08
+      },
+      "final_cycle_mean_lift_error_parts_percent_of_peak": {
+        "motion": 0.1121834693494206,
+        "circulation_integration": -2.1137602682828542e-08,
+        "startup_transient": 4.903165900771743e-06
+      },
+      "motion": {
+        "maximum_velocity_error": 0.013743357671272882,
+        "maximum_position_error": 0.010573466985245417,
+        "final_cycle_mean_velocity_error": -0.0040025936912883395,
+        "final_cycle_position_change": -0.0013236335721954762,
+        "cycle_end_position_errors": [
+          -0.0013080319798819129,
+          -0.002631665552076279,
+          -0.003955299124270034,
+          -0.005278932696464317,
+          -0.006602566268658822,
+          -0.007926199840854159,
+          -0.00924983341304994,
+          -0.010573466985245417
+        ]
+      },
+      "independent_solver": {
+        "discrete_motion": {
+          "maximum_equation_residual": 9.384493182551523e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 1921
+        },
+        "ideal_motion": {
+          "maximum_equation_residual": 9.560352509652148e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 1921
+        }
+      },
+      "seconds": 0.3243302089977078,
+      "production_changed": false,
+      "native_ASWING_comparison": false,
+      "note": "The ideal-motion run is a diagnostic input substitution only. No state correction, input replacement or fitted term is adopted in production."
+    },
+    {
+      "panels": 20,
+      "nominal_steps": 160,
+      "analysis": "artifacts/isae/ua2-discrete-audit-20261101/analysis-n20-t160.json",
+      "discrete_identity_passed": true,
+      "identity_error_fractions": {
+        "CL": 1.4744862062481036e-10,
+        "circulation": 6.719905912637913e-11,
+        "circulation_rate": 7.117594112941015e-10,
+        "velocity": 1.9165955372476387e-15,
+        "position": 2.853273173286652e-14,
+        "load_replay": 3.773079263525186e-14,
+        "stored_rate": 6.689227441867652e-16
+      },
+      "maximum_normalized_circulation_equation_residual": 9.908424499959056e-11,
+      "full_history_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.061028555109807585,
+          "component_error_percent": {
+            "motion": 0.05461717120367076,
+            "circulation_integration": 0.009983915594503588,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.10515512780494377,
+          "component_error_percent": {
+            "motion": 0.0707835765127745,
+            "circulation_integration": 0.04905191400726981,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.06540376514421013,
+          "component_error_percent": {
+            "motion": 0.06482008128267562,
+            "circulation_integration": 0.06540917910138101,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.06798904886382655,
+          "component_error_percent": {
+            "motion": 0.060844254051344256,
+            "circulation_integration": 0.00816445411683676,
+            "startup_transient": 1.0348082960169699e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.14778895583917073,
+          "component_error_percent": {
+            "motion": 0.09923790773685379,
+            "circulation_integration": 0.051508959877999895,
+            "startup_transient": 8.821017047679582e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.059157976032183875,
+          "component_error_percent": {
+            "motion": 0.06257349547527462,
+            "circulation_integration": 0.03733263219452264,
+            "startup_transient": 2.7557360847523015e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_mean_lift": {
+        "discrete_motion": 0.0002786349305878961,
+        "ideal_motion": 9.419531598071191e-08,
+        "continuous_cold": 9.430170931613298e-08,
+        "periodic": 7.436313542744006e-14
+      },
+      "final_cycle_mean_lift_error_parts": {
+        "motion": 0.00027854073527191543,
+        "circulation_integration": -1.0639333542107396e-10,
+        "startup_transient": 9.430163495299755e-08
+      },
+      "final_cycle_mean_lift_error_parts_percent_of_peak": {
+        "motion": 0.014482030204372394,
+        "circulation_integration": -5.531655883681695e-09,
+        "startup_transient": 4.90297810256663e-06
+      },
+      "motion": {
+        "maximum_velocity_error": 0.0029565927617554166,
+        "maximum_position_error": 0.0013653781749513871,
+        "final_cycle_mean_velocity_error": -0.0005165242599193456,
+        "final_cycle_position_change": -0.00017081145477498838,
+        "cycle_end_position_errors": [
+          -0.00016969799152630194,
+          -0.00034050944630001356,
+          -0.0005113209010732811,
+          -0.0006821323558477976,
+          -0.0008529438106237852,
+          -0.0010237552654001336,
+          -0.0011945667201763988,
+          -0.0013653781749513871
+        ]
+      },
+      "independent_solver": {
+        "discrete_motion": {
+          "maximum_equation_residual": 9.887202168101794e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 3359
+        },
+        "ideal_motion": {
+          "maximum_equation_residual": 9.9298347322474e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 3359
+        }
+      },
+      "seconds": 0.5941535940000904,
+      "production_changed": false,
+      "native_ASWING_comparison": false,
+      "note": "The ideal-motion run is a diagnostic input substitution only. No state correction, input replacement or fitted term is adopted in production."
+    },
+    {
+      "panels": 40,
+      "nominal_steps": 80,
+      "analysis": "artifacts/isae/ua2-discrete-audit-20261101/analysis-n40-t80.json",
+      "discrete_identity_passed": true,
+      "identity_error_fractions": {
+        "CL": 1.405126628701608e-10,
+        "circulation": 5.119049748078152e-11,
+        "circulation_rate": 7.1822647454769e-10,
+        "velocity": 2.6177890264845795e-15,
+        "position": 5.573319583618286e-14,
+        "load_replay": 2.574084384407992e-13,
+        "stored_rate": 6.704650634153476e-16
+      },
+      "maximum_normalized_circulation_equation_residual": 9.709148162226081e-11,
+      "full_history_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.2955517737609999,
+          "component_error_percent": {
+            "motion": 0.27023381190450046,
+            "circulation_integration": 0.03796730196213667,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.5242437014517007,
+          "component_error_percent": {
+            "motion": 0.387146231190785,
+            "circulation_integration": 0.18795576787346827,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 1.734723475976807e-18,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.27755489200756656,
+          "component_error_percent": {
+            "motion": 0.276310435250425,
+            "circulation_integration": 0.17046011505648542,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.3292180762764673,
+          "component_error_percent": {
+            "motion": 0.3010139915589462,
+            "circulation_integration": 0.03233072908230203,
+            "startup_transient": 1.02147109184556e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.7443018394865022,
+          "component_error_percent": {
+            "motion": 0.5496456469082112,
+            "circulation_integration": 0.20571148796932925,
+            "startup_transient": 8.738826609401759e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.24205382812056175,
+          "component_error_percent": {
+            "motion": 0.25904735314321936,
+            "circulation_integration": 0.14642887114420128,
+            "startup_transient": 2.7325694083873306e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_mean_lift": {
+        "discrete_motion": 0.0021577516847097267,
+        "ideal_motion": 9.26845415154584e-08,
+        "continuous_cold": 9.308656832746921e-08,
+        "periodic": 7.441592034915553e-14
+      },
+      "final_cycle_mean_lift_error_parts": {
+        "motion": 0.002157659000168211,
+        "circulation_integration": -4.0202681201081585e-10,
+        "startup_transient": 9.308649391154886e-08
+      },
+      "final_cycle_mean_lift_error_parts_percent_of_peak": {
+        "motion": 0.1121399907975524,
+        "circulation_integration": -2.089453569620942e-08,
+        "startup_transient": 4.8379834671760934e-06
+      },
+      "motion": {
+        "maximum_velocity_error": 0.013743357671272882,
+        "maximum_position_error": 0.010573466985245417,
+        "final_cycle_mean_velocity_error": -0.0040025936912883395,
+        "final_cycle_position_change": -0.0013236335721954762,
+        "cycle_end_position_errors": [
+          -0.0013080319798819129,
+          -0.002631665552076279,
+          -0.003955299124270034,
+          -0.005278932696464317,
+          -0.006602566268658822,
+          -0.007926199840854159,
+          -0.00924983341304994,
+          -0.010573466985245417
+        ]
+      },
+      "independent_solver": {
+        "discrete_motion": {
+          "maximum_equation_residual": 9.851675031313789e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 1962
+        },
+        "ideal_motion": {
+          "maximum_equation_residual": 9.99733629214461e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 1963
+        }
+      },
+      "seconds": 0.39636294299998553,
+      "production_changed": false,
+      "native_ASWING_comparison": false,
+      "note": "The ideal-motion run is a diagnostic input substitution only. No state correction, input replacement or fitted term is adopted in production."
+    },
+    {
+      "panels": 40,
+      "nominal_steps": 160,
+      "analysis": "artifacts/isae/ua2-discrete-audit-20261101/analysis-n40-t160.json",
+      "discrete_identity_passed": true,
+      "identity_error_fractions": {
+        "CL": 1.4393915417148021e-10,
+        "circulation": 4.302091433059593e-11,
+        "circulation_rate": 7.657618446131932e-10,
+        "velocity": 3.92668353972687e-15,
+        "position": 8.903988657493755e-14,
+        "load_replay": 9.54401285173854e-14,
+        "stored_rate": 6.688869527444861e-16
+      },
+      "maximum_normalized_circulation_equation_residual": 9.915628507895039e-11,
+      "full_history_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.061032046197591526,
+          "component_error_percent": {
+            "motion": 0.05462483712200111,
+            "circulation_integration": 0.009975769954428535,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.10522834582071175,
+          "component_error_percent": {
+            "motion": 0.07078142596858272,
+            "circulation_integration": 0.04909045037312573,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 1.3552527156068805e-20,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.06541071035425479,
+          "component_error_percent": {
+            "motion": 0.06482291131620238,
+            "circulation_integration": 0.05198123412208688,
+            "startup_transient": 0.0
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_error_decomposition": {
+        "CL": {
+          "total_error_percent": 0.06798666489184521,
+          "component_error_percent": {
+            "motion": 0.06084720983201704,
+            "circulation_integration": 0.008157815349601383,
+            "startup_transient": 1.02147109184556e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation": {
+          "total_error_percent": 0.14780683283177,
+          "component_error_percent": {
+            "motion": 0.09925714259764898,
+            "circulation_integration": 0.05153143849672014,
+            "startup_transient": 8.738826609401759e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        },
+        "circulation_rate": {
+          "total_error_percent": 0.059161055250408275,
+          "component_error_percent": {
+            "motion": 0.06253108010326149,
+            "circulation_integration": 0.03668507808831411,
+            "startup_transient": 2.7325694083873306e-05
+          },
+          "reconstruction_absolute_error": 0.0,
+          "normalization": "Each strip uses its own target peak; scalar lift uses its target peak."
+        }
+      },
+      "final_cycle_mean_lift": {
+        "discrete_motion": 0.00027863028987552,
+        "ideal_motion": 9.297780562985745e-08,
+        "continuous_cold": 9.308300051018737e-08,
+        "periodic": 7.17612650005206e-14
+      },
+      "final_cycle_mean_lift_error_parts": {
+        "motion": 0.00027853731206989015,
+        "circulation_integration": -1.0519488032992052e-10,
+        "startup_transient": 9.308292874892237e-08
+      },
+      "final_cycle_mean_lift_error_parts_percent_of_peak": {
+        "motion": 0.014476417084375876,
+        "circulation_integration": -5.467292519914988e-09,
+        "startup_transient": 4.837798175012645e-06
+      },
+      "motion": {
+        "maximum_velocity_error": 0.0029565927617554166,
+        "maximum_position_error": 0.0013653781749513871,
+        "final_cycle_mean_velocity_error": -0.0005165242599193456,
+        "final_cycle_position_change": -0.00017081145477498838,
+        "cycle_end_position_errors": [
+          -0.00016969799152630194,
+          -0.00034050944630001356,
+          -0.0005113209010732811,
+          -0.0006821323558477976,
+          -0.0008529438106237852,
+          -0.0010237552654001336,
+          -0.0011945667201763988,
+          -0.0013653781749513871
+        ]
+      },
+      "independent_solver": {
+        "discrete_motion": {
+          "maximum_equation_residual": 8.981260180007666e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 3619
+        },
+        "ideal_motion": {
+          "maximum_equation_residual": 9.102052445086883e-12,
+          "maximum_newton_iterations": 3,
+          "total_newton_updates": 3619
+        }
+      },
+      "seconds": 0.8469092189989169,
+      "production_changed": false,
+      "native_ASWING_comparison": false,
+      "note": "The ideal-motion run is a diagnostic input substitution only. No state correction, input replacement or fitted term is adopted in production."
+    }
+  ],
+  "production_changed": false,
+  "ISAE_acceptance_counts_changed": false,
+  "native_ASWING_comparison": false,
+  "native_comparison_slots_blocked": 222,
+  "limitations": [
+    "Zero-incidence rigid AR10 wing, A/c=.5, k=.95, Mach=0, stall off.",
+    "Three-trajectory decomposition is path dependent; maximum component norms do not sum.",
+    "Circulation values, position and higher harmonics have no additional acceptance gate.",
+    "Ideal-motion substitution is a diagnostic, not a production change.",
+    "Broader periodic cases, native provenance and browser/WASM validation remain."
+  ]
+}

@@ -1,0 +1,1465 @@
+{
+  "schema": "openswing-elastic-fin-feedback-status-v1",
+  "recorded_utc": "2026-10-25T02:13:43.333151+00:00",
+  "status": "PASS_BOUNDED_COMPONENT_COMPARISON",
+  "scope": "Clamped loaded continuous elastic boom and fin with live aerodynamic feedback at 1 Hz, compared with full native equations on two meshes.",
+  "full_daedalus_validated": false,
+  "production_changed": false,
+  "inputs": [
+    "native control.3 F3 unit",
+    "physical upper fin tip Mz unit"
+  ],
+  "frequency_Hz": 1.0,
+  "source_directory": "/tmp/openswing-elastic-fin-20261025",
+  "limitations": [
+    "Each mesh uses independently manufactured fixed aerodynamic base counterloads. This is not a common-load aircraft mesh-convergence study.",
+    "Boom aerodynamic radius is removed; boom structural properties and inertia remain. Gravity, propulsion and aircraft free-frame coupling are excluded from this component.",
+    "The 1% criterion is a scaled complex relative infinity norm per output group and input, not a pointwise relative error bound.",
+    "The coarse comparison and corrected base-geometry discrepancies are descriptive only.",
+    "Raw evidence and new reference/adapter sources remain in the local staging directory; durable regression and portable evidence packaging are pending."
+  ],
+  "native_cases": [
+    {
+      "status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+      "frequency_Hz": 1.0,
+      "nodes": 36,
+      "elements": 34,
+      "Gamma": 19,
+      "dynamic_size": 667,
+      "fresh_residual_max": 7.475919411396238e-12,
+      "operations": {
+        "network_constructions": 1,
+        "network_residual_calls": 845,
+        "base_corrections": 1,
+        "linearizations": 1,
+        "input_partials": 1,
+        "harmonic_calls": 1,
+        "output_snapshots": 9
+      },
+      "counts": {
+        "passed": 186,
+        "total": 186
+      },
+      "elapsed_seconds": 16.773677278019022,
+      "actual_network_nfev": 845
+    },
+    {
+      "status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+      "frequency_Hz": 1.0,
+      "nodes": 70,
+      "elements": 68,
+      "Gamma": 38,
+      "dynamic_size": 1298,
+      "fresh_residual_max": 6.129476910485224e-13,
+      "operations": {
+        "network_constructions": 1,
+        "network_residual_calls": 1483,
+        "base_corrections": 1,
+        "linearizations": 1,
+        "input_partials": 1,
+        "harmonic_calls": 1,
+        "output_snapshots": 9
+      },
+      "counts": {
+        "passed": 186,
+        "total": 186
+      },
+      "elapsed_seconds": 27.7251020000258,
+      "actual_network_nfev": 1483
+    }
+  ],
+  "reference_cases": [
+    {
+      "status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+      "operations": {
+        "aero_evaluations": 1200,
+        "reused_aero_evaluations": 3,
+        "field_integrations": 1092,
+        "field_sets": 364,
+        "steady_solves": 0,
+        "coupled_solves": 3,
+        "production_calls": 0,
+        "rod_integrations": 0
+      },
+      "completed": [
+        {
+          "variant": 0,
+          "quadrature": 32,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.003048630126229191,
+            "component_backward": 5.100337233093351e-14,
+            "absolute_residual": 5.354316813958479e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 120
+        },
+        {
+          "variant": 1,
+          "quadrature": 32,
+          "epsilon": 1e-24,
+          "diagnostics": {
+            "reciprocal_condition": 0.0030486301262291904,
+            "component_backward": 4.3974956100997153e-14,
+            "absolute_residual": 5.95063135145759e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 122
+        },
+        {
+          "variant": 2,
+          "quadrature": 16,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0030486301262291956,
+            "component_backward": 5.030252104703759e-14,
+            "absolute_residual": 6.704169021107504e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 122
+        }
+      ],
+      "passed": 300,
+      "total": 300,
+      "elapsed_seconds": 32.78437851398485
+    },
+    {
+      "status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+      "operations": {
+        "aero_evaluations": 2343,
+        "reused_aero_evaluations": 0,
+        "field_integrations": 2124,
+        "field_sets": 708,
+        "steady_solves": 1,
+        "coupled_solves": 3,
+        "production_calls": 0,
+        "rod_integrations": 0
+      },
+      "completed": [
+        {
+          "variant": 0,
+          "quadrature": 32,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774483,
+            "component_backward": 2.603318783028297e-13,
+            "absolute_residual": 3.324083269623866e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        },
+        {
+          "variant": 1,
+          "quadrature": 32,
+          "epsilon": 1e-24,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774592,
+            "component_backward": 1.3478823957849245e-13,
+            "absolute_residual": 2.402945234638975e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        },
+        {
+          "variant": 2,
+          "quadrature": 16,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774295,
+            "component_backward": 3.138850481260651e-13,
+            "absolute_residual": 4.049211789376673e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        }
+      ],
+      "passed": 300,
+      "total": 300,
+      "elapsed_seconds": 251.95375415100716
+    }
+  ],
+  "comparison": {
+    "status": "PASS_FINE_SAVED_COMPARISON",
+    "cases": [
+      {
+        "subdivisions": 1,
+        "groups": [
+          {
+            "name": "all_node_motion",
+            "shape": [
+              36,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.005192955683801937,
+                "complex_error_infinity": 5.6819386316800136e-05,
+                "relative_infinity_error": 0.010941627423094194,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.11116753724162776,
+                "complex_error_infinity": 0.00017862384813565208,
+                "relative_infinity_error": 0.0016067986443506878,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "circulation",
+            "shape": [
+              19,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.7812190884307321,
+                "complex_error_infinity": 0.008476041647694076,
+                "relative_infinity_error": 0.01084976259952923,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 3.2752067131898857,
+                "complex_error_infinity": 0.012590602750338747,
+                "relative_infinity_error": 0.0038442162137839954,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "clamp_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5366317730513062,
+                "complex_error_infinity": 0.0042765020521569564,
+                "relative_infinity_error": 0.007969155512057407,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.8133510196361011,
+                "complex_error_infinity": 0.005164044953653217,
+                "relative_infinity_error": 0.0063490975347441575,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "fin_joint_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5181925406186357,
+                "complex_error_infinity": 0.0040733252982193035,
+                "relative_infinity_error": 0.007860640551398965,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7881583002880557,
+                "complex_error_infinity": 0.004944772840529288,
+                "relative_infinity_error": 0.00627383209530633,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_total",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.47700332149929536,
+                "complex_error_infinity": 0.004107389176693948,
+                "relative_infinity_error": 0.008610818817327701,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7265706675583359,
+                "complex_error_infinity": 0.004829368306823832,
+                "relative_infinity_error": 0.006646797789199335,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_total",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.06279654445757656,
+                "complex_error_infinity": 0.0005147599002457209,
+                "relative_infinity_error": 0.008197264749073528,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.13425743925761013,
+                "complex_error_infinity": 0.000811622166715358,
+                "relative_infinity_error": 0.006045267742356055,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_rate",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.20903231538950998,
+                "complex_error_infinity": 0.002390255913713085,
+                "relative_infinity_error": 0.011434863117978155,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.33712124091818996,
+                "complex_error_infinity": 0.0028887895358770616,
+                "relative_infinity_error": 0.008568992947490044,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_rate",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.030427565151278178,
+                "complex_error_infinity": 0.000328137881463098,
+                "relative_infinity_error": 0.010784230674773982,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.06770900753484656,
+                "complex_error_infinity": 0.0004979952126708858,
+                "relative_infinity_error": 0.007354932981621267,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_apparent",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.16685001308050346,
+                "complex_error_infinity": 0.0014537778061581201,
+                "relative_infinity_error": 0.008713081763180246,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.21196060020519045,
+                "complex_error_infinity": 0.0018516709351831502,
+                "relative_infinity_error": 0.008735920418184431,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_apparent",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.022071756868704502,
+                "complex_error_infinity": 0.0002038922593956377,
+                "relative_infinity_error": 0.009237699590862026,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.0415035545420631,
+                "complex_error_infinity": 0.0003265685770442701,
+                "relative_infinity_error": 0.007868448393096037,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_remainder",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.26322904141151265,
+                "complex_error_infinity": 0.0030467403254092885,
+                "relative_infinity_error": 0.01157448398957713,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.49285981933906237,
+                "complex_error_infinity": 0.0034534115835261853,
+                "relative_infinity_error": 0.007006884002346344,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_remainder",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.032078558132111724,
+                "complex_error_infinity": 0.0003461491890230369,
+                "relative_infinity_error": 0.010790671687844032,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.10342404293119607,
+                "complex_error_infinity": 0.0005248160072114438,
+                "relative_infinity_error": 0.005074410092057445,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "HV_relative_velocity",
+            "shape": [
+              19,
+              3,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.28451963648412576,
+                "complex_error_infinity": 0.0016819530144712308,
+                "relative_infinity_error": 0.005911553365017293,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 1.1422149824796344,
+                "complex_error_infinity": 0.0035617608950187863,
+                "relative_infinity_error": 0.003118292921781292,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          }
+        ],
+        "base_geometry": {
+          "position": {
+            "error_infinity": 0.00020486284702490032,
+            "reference_deflection_infinity": 0.015261662057058922,
+            "relative_to_reference_deflection": 0.013423364130261673,
+            "criterion": null,
+            "descriptive_only": true
+          },
+          "rotation": {
+            "error_infinity": 0.0004324118509258107,
+            "reference_deflection_infinity": 0.0316510270138444,
+            "relative_to_reference_deflection": 0.013661858452070779,
+            "criterion": null,
+            "descriptive_only": true
+          }
+        },
+        "stencil_recovery": {
+          "packet_count": 9,
+          "stencils": [
+            {
+              "column": 0,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original forced-output state norm and native input scale",
+              "state_infinity_norm": 0.026738286363970992,
+              "rate_infinity_norm": 0.16800160802126282
+            },
+            {
+              "column": 1,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original unforced-output state/rate norm",
+              "state_infinity_norm": 0.5732050055592908,
+              "rate_infinity_norm": 3.6015532689319287
+            }
+          ],
+          "identities": [
+            {
+              "packet": "output-c0-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            }
+          ],
+          "rate_intrinsic_moment_zero_verified": true
+        },
+        "native_technical_status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+        "native_harmonic_diagnostics": {
+          "reciprocal_condition": 2.356737897350884e-05,
+          "backward_errors": [
+            7.981710500361728e-18,
+            1.6504028122726601e-18
+          ],
+          "scaled_residuals": [
+            1.0941518145422496e-17,
+            1.850258975163656e-17
+          ],
+          "factor_dimension": 667,
+          "beam_equations_eliminated": 0
+        },
+        "reference_status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+        "comparison_acceptance_enforced": false
+      },
+      {
+        "subdivisions": 2,
+        "groups": [
+          {
+            "name": "all_node_motion",
+            "shape": [
+              70,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.005179690011194399,
+                "complex_error_infinity": 1.5916409026955367e-05,
+                "relative_infinity_error": 0.003072849725091011,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.11125799515284916,
+                "complex_error_infinity": 4.3042709053067094e-05,
+                "relative_infinity_error": 0.0003868729523117317,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "circulation",
+            "shape": [
+              38,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.7840586956121789,
+                "complex_error_infinity": 0.0026363086904619202,
+                "relative_infinity_error": 0.0033623869044696175,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 3.2221585703161186,
+                "complex_error_infinity": 0.003743070809621653,
+                "relative_infinity_error": 0.0011616656126437715,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "clamp_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5370460938543432,
+                "complex_error_infinity": 0.0013243154110778085,
+                "relative_infinity_error": 0.002465925041132479,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.8065769829947597,
+                "complex_error_infinity": 0.0015868119007725404,
+                "relative_infinity_error": 0.0019673409162766177,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "fin_joint_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5185918433716559,
+                "complex_error_infinity": 0.0012686949796197424,
+                "relative_infinity_error": 0.0024464229351762383,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7816167803190204,
+                "complex_error_infinity": 0.0015242783653616806,
+                "relative_infinity_error": 0.0019501607485186534,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_total",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.4774229764049128,
+                "complex_error_infinity": 0.0012813181807950832,
+                "relative_infinity_error": 0.0026838217767474375,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7208411861121985,
+                "complex_error_infinity": 0.0015015810874130181,
+                "relative_infinity_error": 0.0020830955782530688,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_total",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.03242058332748641,
+                "complex_error_infinity": 8.194135737487361e-05,
+                "relative_infinity_error": 0.002527448582499844,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.06840109331349097,
+                "complex_error_infinity": 0.00012190071801882522,
+                "relative_infinity_error": 0.001782145754017975,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_rate",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.20928589251907287,
+                "complex_error_infinity": 0.0007447474200395528,
+                "relative_infinity_error": 0.0035585170652230255,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.3352697080812859,
+                "complex_error_infinity": 0.0008976976834615627,
+                "relative_infinity_error": 0.002677538894280054,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_rate",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.015726742949382963,
+                "complex_error_infinity": 5.2619300197281976e-05,
+                "relative_infinity_error": 0.003345848556604436,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.03404633743042878,
+                "complex_error_infinity": 7.571444323126079e-05,
+                "relative_infinity_error": 0.0022238645606440857,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_apparent",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.1671457308637156,
+                "complex_error_infinity": 0.00045367974318117054,
+                "relative_infinity_error": 0.0027142765826970723,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.21084574012365795,
+                "complex_error_infinity": 0.0005667929946959497,
+                "relative_infinity_error": 0.0026881880296160308,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_apparent",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.011605982247444436,
+                "complex_error_infinity": 3.322187483285108e-05,
+                "relative_infinity_error": 0.0028624785153506783,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.02139755955331297,
+                "complex_error_infinity": 5.0342460985396245e-05,
+                "relative_infinity_error": 0.002352719751052253,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_remainder",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.2633014990009325,
+                "complex_error_infinity": 0.0009482262729179717,
+                "relative_infinity_error": 0.003601294624283979,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.48838634852858176,
+                "complex_error_infinity": 0.0010858763859958956,
+                "relative_infinity_error": 0.002223396270734105,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_remainder",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.016210093336163287,
+                "complex_error_infinity": 5.426823304891235e-05,
+                "relative_infinity_error": 0.0033478050942399398,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.052439016927704044,
+                "complex_error_infinity": 7.801449160798865e-05,
+                "relative_infinity_error": 0.0014877184237748905,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "HV_relative_velocity",
+            "shape": [
+              38,
+              3,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.28706600900122997,
+                "complex_error_infinity": 0.0005093748936457212,
+                "relative_infinity_error": 0.0017744173035949328,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 1.131004652947388,
+                "complex_error_infinity": 0.0010215251345642004,
+                "relative_infinity_error": 0.0009032015314014094,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          }
+        ],
+        "base_geometry": {
+          "position": {
+            "error_infinity": 6.215811114240744e-05,
+            "reference_deflection_infinity": 0.015261662057058922,
+            "relative_to_reference_deflection": 0.004072827121319835,
+            "criterion": null,
+            "descriptive_only": true
+          },
+          "rotation": {
+            "error_infinity": 0.0001386279753923264,
+            "reference_deflection_infinity": 0.0316510270138444,
+            "relative_to_reference_deflection": 0.0043798886946603485,
+            "criterion": null,
+            "descriptive_only": true
+          }
+        },
+        "stencil_recovery": {
+          "packet_count": 9,
+          "stencils": [
+            {
+              "column": 0,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original forced-output state norm and native input scale",
+              "state_infinity_norm": 0.026782538118935335,
+              "rate_infinity_norm": 0.1682796499978717
+            },
+            {
+              "column": 1,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original unforced-output state/rate norm",
+              "state_infinity_norm": 0.5741603615228738,
+              "rate_infinity_norm": 3.60755594748544
+            }
+          ],
+          "identities": [
+            {
+              "packet": "output-c0-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            }
+          ],
+          "rate_intrinsic_moment_zero_verified": true
+        },
+        "native_technical_status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+        "native_harmonic_diagnostics": {
+          "reciprocal_condition": 1.2301780310485529e-05,
+          "backward_errors": [
+            1.6109616878905206e-17,
+            2.663900517727723e-18
+          ],
+          "scaled_residuals": [
+            2.203128890659391e-17,
+            2.652634200378554e-17
+          ],
+          "factor_dimension": 1298,
+          "beam_equations_eliminated": 0
+        },
+        "reference_status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+        "comparison_acceptance_enforced": true
+      }
+    ],
+    "plan_pin": {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/plan.json",
+      "bytes": 4157,
+      "sha256": "6eac132c31b2428ed9839a608fb482fb43cc11862a39228a8dcd4bfa21e227eb"
+    },
+    "driver_pin": {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/compare_saved.py",
+      "bytes": 20572,
+      "sha256": "344520c2186b9d41a4f0a5f828dfe22f9e6cb64b4d6876e5b119facaae2830ae"
+    },
+    "error_trends": [
+      {
+        "group": "all_node_motion",
+        "input": "control.3",
+        "coarse_relative_error": 0.010941627423094194,
+        "fine_relative_error": 0.003072849725091011,
+        "fine_over_coarse": 0.280840281456233,
+        "coarse_absolute_scaled_error": 5.6819386316800136e-05,
+        "fine_absolute_scaled_error": 1.5916409026955367e-05
+      },
+      {
+        "group": "all_node_motion",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0016067986443506878,
+        "fine_relative_error": 0.0003868729523117317,
+        "fine_over_coarse": 0.2407725160037512,
+        "coarse_absolute_scaled_error": 0.00017862384813565208,
+        "fine_absolute_scaled_error": 4.3042709053067094e-05
+      },
+      {
+        "group": "circulation",
+        "input": "control.3",
+        "coarse_relative_error": 0.01084976259952923,
+        "fine_relative_error": 0.0033623869044696175,
+        "fine_over_coarse": 0.30990419132447294,
+        "coarse_absolute_scaled_error": 0.008476041647694076,
+        "fine_absolute_scaled_error": 0.0026363086904619202
+      },
+      {
+        "group": "circulation",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0038442162137839954,
+        "fine_relative_error": 0.0011616656126437715,
+        "fine_over_coarse": 0.3021852955300617,
+        "coarse_absolute_scaled_error": 0.012590602750338747,
+        "fine_absolute_scaled_error": 0.003743070809621653
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "control.3",
+        "coarse_relative_error": 0.007969155512057407,
+        "fine_relative_error": 0.002465925041132479,
+        "fine_over_coarse": 0.3094336705315276,
+        "coarse_absolute_scaled_error": 0.0042765020521569564,
+        "fine_absolute_scaled_error": 0.0013243154110778085
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0063490975347441575,
+        "fine_relative_error": 0.0019673409162766177,
+        "fine_over_coarse": 0.3098615048061147,
+        "coarse_absolute_scaled_error": 0.005164044953653217,
+        "fine_absolute_scaled_error": 0.0015868119007725404
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "control.3",
+        "coarse_relative_error": 0.007860640551398965,
+        "fine_relative_error": 0.0024464229351762383,
+        "fine_over_coarse": 0.31122437404173714,
+        "coarse_absolute_scaled_error": 0.0040733252982193035,
+        "fine_absolute_scaled_error": 0.0012686949796197424
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.00627383209530633,
+        "fine_relative_error": 0.0019501607485186534,
+        "fine_over_coarse": 0.3108404431125334,
+        "coarse_absolute_scaled_error": 0.004944772840529288,
+        "fine_absolute_scaled_error": 0.0015242783653616806
+      },
+      {
+        "group": "net_aero_total",
+        "input": "control.3",
+        "coarse_relative_error": 0.008610818817327701,
+        "fine_relative_error": 0.0026838217767474375,
+        "fine_over_coarse": 0.31168020529554474,
+        "coarse_absolute_scaled_error": 0.004107389176693948,
+        "fine_absolute_scaled_error": 0.0012813181807950832
+      },
+      {
+        "group": "net_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.006646797789199335,
+        "fine_relative_error": 0.0020830955782530688,
+        "fine_over_coarse": 0.3133983678032119,
+        "coarse_absolute_scaled_error": 0.004829368306823832,
+        "fine_absolute_scaled_error": 0.0015015810874130181
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "control.3",
+        "coarse_relative_error": 0.008197264749073528,
+        "fine_relative_error": 0.002527448582499844,
+        "fine_over_coarse": 0.308328285088694,
+        "coarse_absolute_scaled_error": 0.0005147599002457209,
+        "fine_absolute_scaled_error": 8.194135737487361e-05
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.006045267742356055,
+        "fine_relative_error": 0.001782145754017975,
+        "fine_over_coarse": 0.29480013623406687,
+        "coarse_absolute_scaled_error": 0.000811622166715358,
+        "fine_absolute_scaled_error": 0.00012190071801882522
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "control.3",
+        "coarse_relative_error": 0.011434863117978155,
+        "fine_relative_error": 0.0035585170652230255,
+        "fine_over_coarse": 0.3111989210984295,
+        "coarse_absolute_scaled_error": 0.002390255913713085,
+        "fine_absolute_scaled_error": 0.0007447474200395528
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.008568992947490044,
+        "fine_relative_error": 0.002677538894280054,
+        "fine_over_coarse": 0.3124683274554842,
+        "coarse_absolute_scaled_error": 0.0028887895358770616,
+        "fine_absolute_scaled_error": 0.0008976976834615627
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "control.3",
+        "coarse_relative_error": 0.010784230674773982,
+        "fine_relative_error": 0.003345848556604436,
+        "fine_over_coarse": 0.3102538008975368,
+        "coarse_absolute_scaled_error": 0.000328137881463098,
+        "fine_absolute_scaled_error": 5.2619300197281976e-05
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007354932981621267,
+        "fine_relative_error": 0.0022238645606440857,
+        "fine_over_coarse": 0.3023636743123489,
+        "coarse_absolute_scaled_error": 0.0004979952126708858,
+        "fine_absolute_scaled_error": 7.571444323126079e-05
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "control.3",
+        "coarse_relative_error": 0.008713081763180246,
+        "fine_relative_error": 0.0027142765826970723,
+        "fine_over_coarse": 0.3115174006706865,
+        "coarse_absolute_scaled_error": 0.0014537778061581201,
+        "fine_absolute_scaled_error": 0.00045367974318117054
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.008735920418184431,
+        "fine_relative_error": 0.0026881880296160308,
+        "fine_over_coarse": 0.3077166344167214,
+        "coarse_absolute_scaled_error": 0.0018516709351831502,
+        "fine_absolute_scaled_error": 0.0005667929946959497
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "control.3",
+        "coarse_relative_error": 0.009237699590862026,
+        "fine_relative_error": 0.0028624785153506783,
+        "fine_over_coarse": 0.3098691927784981,
+        "coarse_absolute_scaled_error": 0.0002038922593956377,
+        "fine_absolute_scaled_error": 3.322187483285108e-05
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007868448393096037,
+        "fine_relative_error": 0.002352719751052253,
+        "fine_over_coarse": 0.29900682237638937,
+        "coarse_absolute_scaled_error": 0.0003265685770442701,
+        "fine_absolute_scaled_error": 5.0342460985396245e-05
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "control.3",
+        "coarse_relative_error": 0.01157448398957713,
+        "fine_relative_error": 0.003601294624283979,
+        "fine_over_coarse": 0.3111408359566577,
+        "coarse_absolute_scaled_error": 0.0030467403254092885,
+        "fine_absolute_scaled_error": 0.0009482262729179717
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007006884002346344,
+        "fine_relative_error": 0.002223396270734105,
+        "fine_over_coarse": 0.31731598096808405,
+        "coarse_absolute_scaled_error": 0.0034534115835261853,
+        "fine_absolute_scaled_error": 0.0010858763859958956
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "control.3",
+        "coarse_relative_error": 0.010790671687844032,
+        "fine_relative_error": 0.0033478050942399398,
+        "fine_over_coarse": 0.31024992614790864,
+        "coarse_absolute_scaled_error": 0.0003461491890230369,
+        "fine_absolute_scaled_error": 5.426823304891235e-05
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.005074410092057445,
+        "fine_relative_error": 0.0014877184237748905,
+        "fine_over_coarse": 0.29318056617132565,
+        "coarse_absolute_scaled_error": 0.0005248160072114438,
+        "fine_absolute_scaled_error": 7.801449160798865e-05
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "control.3",
+        "coarse_relative_error": 0.005911553365017293,
+        "fine_relative_error": 0.0017744173035949328,
+        "fine_over_coarse": 0.3001609211709691,
+        "coarse_absolute_scaled_error": 0.0016819530144712308,
+        "fine_absolute_scaled_error": 0.0005093748936457212
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.003118292921781292,
+        "fine_relative_error": 0.0009032015314014094,
+        "fine_over_coarse": 0.2896461474457842,
+        "coarse_absolute_scaled_error": 0.0035617608950187863,
+        "fine_absolute_scaled_error": 0.0010215251345642004
+      }
+    ],
+    "passed": 26,
+    "total": 26,
+    "limitation": "Separate per-mesh manufactured counterloads; no common-physical-mesh convergence or full-Daedalus/reference validation claim.",
+    "seconds": 1.6316406010009814,
+    "operations": {
+      "new_physics": 0,
+      "new_stencils": 0,
+      "integrations": 0,
+      "factorizations": 0,
+      "solves": 0,
+      "system_matrix_products": 0,
+      "small_coordinate_products": "Three saved3x3 relative material-frame products pernode for descriptive base logs only"
+    },
+    "inputs_unchanged": true
+  },
+  "evidence_pins": [
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/source-freeze.json",
+      "bytes": 15047,
+      "sha256": "7136a85f44ca083be606b1f93a7d4c2afc00e8d43780c3a60bbbd0ba814aee32"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/coupling.py",
+      "bytes": 6454,
+      "sha256": "45fbde915ed61c6be2c26eea8970e53c2d334b798752eb401c3c5dc54bc574be"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference_response.py",
+      "bytes": 8626,
+      "sha256": "4568f1ed5dccac6e4c00d3871ae797e16f416e816428c29484ad066cb27bc490"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/run_reference_r2.py",
+      "bytes": 12340,
+      "sha256": "e75768a87bca4b7a98bfdb331bbe00dd40cc63fb72d31462e22f7cdfe4d383a8"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/mechanics-validation/report.json",
+      "bytes": 53792,
+      "sha256": "90d4f08e0652ad5aa1d6401391590c9d19efe3c99e232848df6f33aeb536afe9"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference-r2-subdivisions-1/report.json",
+      "bytes": 52917,
+      "sha256": "7c34e10b30ffe3cd16a2a14ba69ee3ffc48f935211aee887521d5f7604eccc16"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference-r2-subdivisions-2/report.json",
+      "bytes": 52956,
+      "sha256": "bfae3fad4780d508772e55ffa16ef9abb5b536668d0e96c597c911e473ac957e"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference-audit-sub1/report.json",
+      "bytes": 448128,
+      "sha256": "d92328a2c911eca12cb2a63da673178717488e80f180bbf8cc81b120148b1bf8"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/native-subdivisions-1/results/report.json",
+      "bytes": 10730,
+      "sha256": "b37602dba3c99690048b30b29814f0e0287d60376150ef009fdef78b2d944084"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/native-subdivisions-2/results/report.json",
+      "bytes": 10731,
+      "sha256": "2ef1264a539e3027b4ca7412d39f4f50109261bc05f9afdba281a52fc493ce8f"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/plan.json",
+      "bytes": 4157,
+      "sha256": "6eac132c31b2428ed9839a608fb482fb43cc11862a39228a8dcd4bfa21e227eb"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/compare_saved.py",
+      "bytes": 20572,
+      "sha256": "344520c2186b9d41a4f0a5f828dfe22f9e6cb64b4d6876e5b119facaae2830ae"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/results/report.json",
+      "bytes": 61312,
+      "sha256": "6b95da50e3d8faa88b645dec198354290511aacbac010e8bc82ffb34af5205c7"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/results/components.csv",
+      "bytes": 1347572,
+      "sha256": "7567da9a3726666805a56ac2463c909a4584c771b1be1d3a35d7b09dd27e5243"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/native-subdivisions-1/session-closeout.json",
+      "bytes": 1592,
+      "sha256": "78caf9ec1076cb4654fa17d84779d50fab03cb3174f09be6d5898ad49ddb2d55"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/native-subdivisions-2/session-closeout.json",
+      "bytes": 1593,
+      "sha256": "3cac7fe679af7e077fbc1381ba9fd53ced14ec0487661c1950c0fc681591dd20"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/session-closeout.json",
+      "bytes": 1184,
+      "sha256": "1c7561b6b4d0574f2e3b801d7bf0f5890e799db86bf92ffafc2ce836d41c2573"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference-r2-subdivisions-1/session-closeout.json",
+      "bytes": 309,
+      "sha256": "07ef6ee61ef81f99ab73461f6c532ce95e383df97fb2ceb6e3061c3aa2e74a8a"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/reference-r2-subdivisions-2/session-closeout.json",
+      "bytes": 309,
+      "sha256": "5691c5c60dbc99c92f1f224f7c32fb893275e0f49c536ec323298043c8caa7c1"
+    }
+  ]
+}

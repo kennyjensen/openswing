@@ -1,0 +1,38 @@
+! Original OpenSwing transient-response demonstrator; illustrative section data.
+! Cshell/Nshell are measured from the tension axis. Atshell = enclosed area x thickness.
+Name
+Elastic transient demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+16 1 16
+0 0 0
+End
+Ground
+1 0 0
+End
+Beam 1
+Main wing
+t x y z chord Xax
+0 0 0 0 1.2 .35
+8 .8 8 .3 .8 .35
+t EIcc EInn GJ EA mg
+0 40000 800000 12000 10000000 15
+8 10000 200000 3000 4000000 5
+t Cdf alpha Cm twist
+0 .008 2 -.035 0
+8 .008 2 -.035 -2
+t Cshell Nshell Atshell
+0 .2 .06 .0002
+8 .1 .04 .00006
+t dCLdF1 dCMdF1 tdeps tdgam
+0 .08 -.012 .02 .02
+8 .08 -.012 .02 .02
+End

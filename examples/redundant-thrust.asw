@@ -1,0 +1,32 @@
+! Original weighted-control trim reference. Three proportional force actuators.
+! Force x = 2*E1 + E2 + E3; moment z = 2*E1 - E2.
+! For Fx=20 and weights (1,4,2), minimum 1/2 sum(w*E^2) gives
+! (E1,E2,E3) = (40,5,10)/4.75. Use speed=10, alpha=0, gravity=0.
+Name
+Redundant thrust allocation
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+End
+Ground
+1 0 0
+End
+Engine
+1 0 1 0 0 -1 0 1 0 0 2 0 -1 0 0
+2 0 1 0 0 1 0 1 0 0 1 0 -1 0 0
+3 0 1 0 0 0 0 1 0 0 1 0 -1 0 0
+End
+Beam 1
+Rigid reference axis
+t y
+0 0
+2 2
+End

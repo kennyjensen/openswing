@@ -1,0 +1,58 @@
+{
+  "status": "PASS_READ_ONLY_SOURCE_REVIEW",
+  "remaining_blockers": [],
+  "scope": "Source-only implementation review. No production imports, tests, residuals, geometry calls or solves.",
+  "reviewed_adapter": {
+    "path": "/home/userland/aswing/scripts/isae_suite_sa12.py",
+    "bytes": 16748,
+    "sha256": "65aa5968022c891f715ece1b4d4e10cb2cd6b08cab2269c4b6cecaeb348670f9"
+  },
+  "snapshot": {
+    "path": "/tmp/openswing-isae-sa12-ground-adapter-audit-20261026/adapter-reviewed-final.py",
+    "bytes": 16748,
+    "sha256": "65aa5968022c891f715ece1b4d4e10cb2cd6b08cab2269c4b6cecaeb348670f9"
+  },
+  "previous_review": {
+    "path": "/tmp/openswing-isae-sa12-ground-adapter-audit-20261026/adapter-initial-review.json",
+    "bytes": 2479,
+    "sha256": "ac4412649687b46d4acc8d76dbf645f7319c87d2d99b79f556d4847a21f39c7f"
+  },
+  "source_audit": {
+    "path": "/tmp/openswing-isae-sa12-ground-adapter-audit-20261026/summary.json",
+    "bytes": 19718,
+    "sha256": "7581828781d248578575f03afb0bb8be35a53c01967a4320cebc9ee203340ffc"
+  },
+  "changes": {
+    "path": "/tmp/openswing-isae-sa12-ground-adapter-audit-20261026/adapter-final.diff",
+    "bytes": 2436,
+    "sha256": "1bdcb73287a86e1248c8a901d2d28c84ff86a2aacd8186044c7f5a406674ff74"
+  },
+  "resolved_findings": [
+    {
+      "id": "SAVED_OPERANDS",
+      "resolution": "verification_payload preserves physical strip/body/engine/point operands, original force/moment and six coefficients, all drag components, atmosphere/reference flow/PG Mach/influence fields, local and global circulation residuals, circulation discretization and wake-core metadata. Array/list conversion retains JSON-compatible operands."
+    },
+    {
+      "id": "CLEARANCE_INDEPENDENCE",
+      "resolution": "Checks reported minimum against min(h+.25*.254*sin(alpha),h-.75*.254*sin(alpha)) using literal flat geometry and declared pitch=alpha, unchanged2e-10 gate."
+    }
+  ],
+  "retained_constraints": [
+    "1020row/gridjobs,4080requiredrawcoefficientchecks; all510originalrows retained.",
+    "Printed-token half-unit reference criteria and numerical residual/wrench gates unchanged.",
+    "Unknown historical pose/settings remain explicit; no family reproduction or experimental claim.",
+    "Kernel/source freezing and numerical execution are owned by root; this review is not a numerical result."
+  ],
+  "helper_pins": [
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_polars.py",
+      "bytes": 19798,
+      "sha256": "cd045a2024d50c686cb6e617aedf572dedb3a03b4daa98dd86eef7a77c23f38b"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_extra_polars.py",
+      "bytes": 16314,
+      "sha256": "64e84a868dee2253b023d163aa908d188ffeb584d0a8b3ebd8cdd3c68bb12133"
+    }
+  ]
+}

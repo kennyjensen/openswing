@@ -1,0 +1,166 @@
+{
+  "status": "PASS_READ_ONLY_SCOPED_SOURCE_RANK_REVIEW",
+  "blocking_findings": [],
+  "conclusion": "The statics-first tree proof matches the actual source residual and conservative constraint assembly within the implemented eligibility scope. No numerical acceptance or historical ASWING rank-algorithm claim.",
+  "review": {
+    "path": "/tmp/openswing-isae-ffwt-source-rank-review-20261026/review.md",
+    "bytes": 6000,
+    "sha256": "6312e94ac4b38f557eb448a4c24952565ee54f752b542556199fa9ae2a873f53"
+  },
+  "proposal": {
+    "path": "/tmp/openswing-isae-ffwt-rank-next-step-20261026/report.md",
+    "bytes": 6186,
+    "sha256": "9dd24bc32dbe1a54d10cbb4fb17c431747d23676a223c5202c55055eafa55ad5"
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/openswing/rigid_initial_rank.py",
+      "bytes": 11620,
+      "sha256": "6ab9533ea1707ef2a429d00964aa7610ba30892fb58a9ce923d3a5d0f061c8f2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_discrete.py",
+      "bytes": 26203,
+      "sha256": "331f97546287ca0780514cb2bdc4b8de6df13c3120c3508e5f2e0057d53b6162"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6003,
+      "sha256": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_static.py",
+      "bytes": 48860,
+      "sha256": "3b89103692ad7ac2d2020311559d56db77bd3a11935303668a269f25130e4164"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 65147,
+      "sha256": "49011507a7d84ca0af2cb57068a8828e618226ca2ec1e80c53db42a1671bdb21"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/joints.py",
+      "bytes": 3046,
+      "sha256": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/hinge_history.py",
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    }
+  ],
+  "locators": {
+    "rigid_initial_rank.py": [
+      {
+        "line": 26,
+        "text": "def _source_rigid_scope(net):"
+      },
+      {
+        "line": 93,
+        "text": "def rigid_tree_initial_certificate(net,x,factor):"
+      },
+      {
+        "line": 97,
+        "text": "source = isinstance(net, SourceDiscreteNetwork)"
+      },
+      {
+        "line": 138,
+        "text": "rigid=_Forest(net.nn);degree=np.zeros(net.nn,dtype=int)"
+      },
+      {
+        "line": 160,
+        "text": "for c in hinges:"
+      },
+      {
+        "line": 201,
+        "text": "ground_counts={i:0 for i in components}"
+      }
+    ],
+    "source_discrete.py": [
+      {
+        "line": 101,
+        "text": "def angle_matrix(angles):"
+      },
+      {
+        "line": 113,
+        "text": "def angles_from_frame(frame):"
+      },
+      {
+        "line": 127,
+        "text": "def _increments(a, b):"
+      },
+      {
+        "line": 197,
+        "text": "self.source_compliance = np.array(compliance)"
+      },
+      {
+        "line": 213,
+        "text": "def constitutive_response(self, force, moment):"
+      },
+      {
+        "line": 254,
+        "text": "def residual(self, x, factor=1., detail=False, **kwargs):"
+      },
+      {
+        "line": 323,
+        "text": "def constitutive_response(self, force, moment):"
+      }
+    ],
+    "structured_static.py": [
+      {
+        "line": 482,
+        "text": "def check_initial_rank(net, x, progress=None, *, retain_matrix=False):"
+      },
+      {
+        "line": 504,
+        "text": "if not np.any(matrix.force_circulation) and circulation_ok and physical['certified']:"
+      }
+    ],
+    "network.py": [
+      {
+        "line": 221,
+        "text": "def unpack(self, x):"
+      },
+      {
+        "line": 501,
+        "text": "np.add.at(m, self.a, M+cross3(dr, N)/2+cross3(oa, N))"
+      },
+      {
+        "line": 526,
+        "text": "structural = M[e]+sign*cross3(dr[e], N[e])/2+cross3(offset, N[e])"
+      },
+      {
+        "line": 541,
+        "text": "m[i] += T+cross3(d, F); m[j] -= T"
+      }
+    ],
+    "joints.py": [
+      {
+        "line": 18,
+        "text": "self.axis = axis/norm"
+      },
+      {
+        "line": 33,
+        "text": "def angle(self, moment, factor=1.):"
+      }
+    ]
+  },
+  "essential_limits": [
+    "Exactly zero load factor, mechanical state and preload.",
+    "Exact admitted static source classes/policies with analytic_mechanics=False.",
+    "Actual source compliances zero; finite section transforms; equal proper endpoint frames and smooth uncut Euler chart.",
+    "Acyclic rigid/hinge forests, exactly one full Ground per connected tree; existing isolated coincident parent hinge restrictions.",
+    "No struts, operating unknowns, dynamics or moving-frame state.",
+    "Final force/circulation block exactly zero and unchanged circulation rank gate.",
+    "Rank only; no conditioning, energy-Hessian, cold-equilibrium, loaded-stability, convergence or ASWING parity claim."
+  ],
+  "operations": {
+    "production_imports": 0,
+    "meshes": 0,
+    "residuals": 0,
+    "jacobians": 0,
+    "solves": 0,
+    "tests": 0,
+    "production_edits": 0
+  }
+}

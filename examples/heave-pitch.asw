@@ -1,0 +1,41 @@
+! Original OpenSwing heave/pitch verification example.
+Name
+Heave and pitch research wing
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+40 1 40
+End
+Ground
+1 0 0
+End
+Joint
+1 2 1 0 3
+End
+Jangle
+1 0 1 0
+-115453.53001942491 -57.29577951308232
+115453.53001942491 57.29577951308232
+End
+Weight
+2 0 0.1 0 1 7548.082401099955 0 0 0 0 0 377.40412005499775 377.40412005499775 377.40412005499775
+End
+Beam 1
+Massless heave spring
+t x y z EA
+0 0 0 0 307876.08005179977
+1 0 0 1 307876.08005179977
+End
+Beam 2
+Rigid symmetric wing
+t x y z chord Xax Cdf dCLda CLmax CLmin
+0 0 0 1 1 0.4 0 6.283185307179586 100 -100
+20.0 0 20.0 1 1 0.4 0 6.283185307179586 100 -100
+End

@@ -1,0 +1,574 @@
+{
+  "description": "Current packaged WASM nonlinear initial-state completion, independent mechanics references, temporal refinement and checkpoint checks.",
+  "study_sha256": "047c2d1963da83955fca3a7bf520523250239b10e92f5ddc71bfba771f35bb2c",
+  "runtime_sha256": {
+    "pyodide.asm.wasm": "cc36e3cab04fdfc9a63ff13eb52eae2b911bf46c025cc7b281f394bd3de1d5e6",
+    "pyodide-lock.json": "5dc2fc119108bc148c7457dc86e7675b5c87e1cafd420b9c34c1eaef7b36c010"
+  },
+  "source_sha256": {
+    "scripts/verify-nonlinear-initial.py": "82e4faee6b927f6bea478b9f93ee368b9c1d27fd5d5eac00cdd249ad2a3b3938",
+    "examples/instrumented-oscillator.asw": "181241561bc21c0dcb17347f9ad7c32c28801c6ded89449c81abe2a21bb64f40",
+    "examples/initial-nonlinear-spring.json": "b7990a97609885b009736e0f5a09b818b36a9214af40e4687119a6f5a3788491",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "68fbeb21692cef53a0ec80a4158b6613fd082fd830008309365474ece56cf602",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "df3752077c5e985fed121d404f0f66286b5d0ce15e2a609f9041ba172237e8ed",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "f452a904624406db4cef0d166a07e7bebdc7258888ebb4d27b07a4ed04973ad5",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/control_expressions.py": "77a76be47b2867ca2f27e3029502c199547f6167e600fcbcbb801dd31f8b99d8",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/equilibrium_state.py": "a84d8546693d1d28486182a9478e34332c424e3e655d5002f81f606327b31076",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/frequency_response.py": "cfa9210fda63d1b48a449fb3e010d6eab10a7a34ad4f2dc707fe9265c3b566dc",
+    "openswing/geometry.py": "dd64dcff2f3ab8c8b2e07c52195f99590b5c008f58098f69643be5be3679754d",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "960c8ad6d2dfc43d4b1ad772fa3f9ed0849b8f3bd553b734aa3fc0b99b862b4b",
+    "openswing/local_motion.py": "ba9a4fe285500c3140e07b4fca920ced1d12437c912bc1784b182c56daae974f",
+    "openswing/network.py": "976501881fe062c29dd4b155b97639a5c1072eaa304aeaf083f9c126feb6c710",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/operating.py": "3c654034219ce3c0b6c614b30cd2add518b5914b5e2f491f85af66feb49a51d7",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "8af21ab0b99e99e5fa3896ad6839bcf3dca9816a29532dd4dd678cfb8b5ac9c4",
+    "openswing/rom_file.py": "66fa25fe3a3cca04dd732b8795c2384ba7f634fea9cf71150ae04540de293ded",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "243b16cf448618c9334d072924f17d0a3780d992cba1b59202fbbd7a65ded820",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_initialization.py": "ee7d602262e2ec42a5e1577c0d0b87273a6e4eae932d24427d427a2d7f8e736f",
+    "openswing/time_integration.py": "fd94008ab4ca613c3dcdb31ced6a1f0ab7137e3c4c600869feb3d76fed905db9",
+    "openswing/time_state.py": "1d6abe914a5f96aa19c8c75eed8730ece639604146425edb4f3a80f9499ebeff",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031",
+    "scripts/test-nonlinear-initial-wasm.mjs": "a46ad43b48e8ffc1cd062104fdbcab6e4af11d1c291a02800e3eadf44d79ef55"
+  },
+  "cases": [
+    {
+      "name": "spring",
+      "physical_values_compared": 96,
+      "maximum_scaled_native_physical_difference": 4.340972026284362e-14,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 9.549188876696668e-9,
+            "unbalanced_derivative_residual": 1.1599976669804697e-8,
+            "original_residual": 1.323639610615958e-13,
+            "one_sided_derivative_defect": 7.855557074683561e-10,
+            "iterations": 1,
+            "jacobian_builds": 2,
+            "rank": 262,
+            "unknowns": 309,
+            "required_nullspace_defect": 1.4223812949635122e-11,
+            "singular_value_gap": 2487538318508.086,
+            "smallest_resolved_singular_value": 0.0027839757549601935,
+            "largest_discarded_singular_value": 1.1191689929946073e-15,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 9.54335595297029e-9,
+            "unbalanced_derivative_residual": 1.1592890999020018e-8,
+            "original_residual": 1.323639610615958e-13,
+            "one_sided_derivative_defect": 3.5687498334557343e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 262,
+            "unknowns": 309,
+            "required_nullspace_defect": 7.991609534411812e-12,
+            "singular_value_gap": 2327339904839.9185,
+            "smallest_resolved_singular_value": 0.0027839757547928725,
+            "largest_discarded_singular_value": 1.196205053246987e-15,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 13048,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 2.3034342699242986e-13,
+      "maximum_history_errors": [
+        [
+          1.7569792677002427e-7,
+          0.0000015918025986216833,
+          0.000057220550964132144,
+          0.00001683437072408367
+        ],
+        [
+          5.477005633747201e-9,
+          5.27624219870404e-8,
+          0.0000017978735442625293,
+          5.235745774712086e-7
+        ]
+      ],
+      "refined_error_norm_ratio": 0.03139608984414279,
+      "maximum_scaled_restart_physical_difference": 7.380753341834634e-9,
+      "physical_reference_values_checked": 80
+    },
+    {
+      "name": "spring-milliseconds",
+      "physical_values_compared": 96,
+      "maximum_scaled_native_physical_difference": 8.660567039507678e-15,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 9.552307233184288e-9,
+            "unbalanced_derivative_residual": 1.1603764727635072e-8,
+            "original_residual": 1.3364003781153232e-13,
+            "one_sided_derivative_defect": 5.982514680906847e-10,
+            "iterations": 1,
+            "jacobian_builds": 2,
+            "rank": 262,
+            "unknowns": 309,
+            "required_nullspace_defect": 1.2913827411555736e-11,
+            "singular_value_gap": 2677195721070.527,
+            "smallest_resolved_singular_value": 0.002783975755081378,
+            "largest_discarded_singular_value": 1.0398850308815498e-15,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 9.541546478741585e-9,
+            "unbalanced_derivative_residual": 1.1590692911628901e-8,
+            "original_residual": 1.3364003781153232e-13,
+            "one_sided_derivative_defect": 3.6145250804572013e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 262,
+            "unknowns": 309,
+            "required_nullspace_defect": 2.1425115811958187e-11,
+            "singular_value_gap": 2428497188210.6636,
+            "smallest_resolved_singular_value": 0.00278397575467397,
+            "largest_discarded_singular_value": 1.1463780020784072e-15,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 13048,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 2.3327773816430797e-13,
+      "maximum_history_errors": [
+        [
+          1.7569792677002427e-7,
+          0.0000015918025990657725,
+          0.000057220550985448426,
+          0.000016834370724971848
+        ],
+        [
+          5.4770058557918055e-9,
+          5.276242331930803e-8,
+          0.0000017978735549206704,
+          5.235745774712086e-7
+        ]
+      ],
+      "refined_error_norm_ratio": 0.03139609000532179,
+      "maximum_scaled_restart_physical_difference": 7.380711597448908e-9,
+      "physical_reference_values_checked": 80
+    },
+    {
+      "name": "spring-mesh-8",
+      "physical_values_compared": 96,
+      "maximum_scaled_native_physical_difference": 2.1574877690377167e-14,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 8.810198037601812e-9,
+            "unbalanced_derivative_residual": 1.0544759413638131e-8,
+            "original_residual": 1.9245557528587854e-13,
+            "one_sided_derivative_defect": 8.187028218395655e-10,
+            "iterations": 1,
+            "jacobian_builds": 2,
+            "rank": 442,
+            "unknowns": 525,
+            "required_nullspace_defect": 1.5574882476349364e-11,
+            "singular_value_gap": 879166144972.776,
+            "smallest_resolved_singular_value": 0.001636443089751631,
+            "largest_discarded_singular_value": 1.8613581734341062e-15,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 8.81660239577756e-9,
+            "unbalanced_derivative_residual": 1.055242467481084e-8,
+            "original_residual": 1.9245557528587854e-13,
+            "one_sided_derivative_defect": 2.337748274593865e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 442,
+            "unknowns": 525,
+            "required_nullspace_defect": 2.671264927247666e-11,
+            "singular_value_gap": 969573174465.3079,
+            "smallest_resolved_singular_value": 0.0016364430898082286,
+            "largest_discarded_singular_value": 1.6877974070504585e-15,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 22120,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 2.6555516105496693e-13,
+      "maximum_history_errors": [
+        [
+          1.7569792677002427e-7,
+          0.0000015918025995098617,
+          0.00005722055094992129,
+          0.00001683437072408367
+        ],
+        [
+          5.477005633747201e-9,
+          5.27624219870404e-8,
+          0.000001797873558473384,
+          5.23574578359387e-7
+        ]
+      ],
+      "refined_error_norm_ratio": 0.03139609008404013,
+      "maximum_scaled_restart_physical_difference": 7.380750788321677e-9,
+      "physical_reference_values_checked": 80
+    },
+    {
+      "name": "controller-states",
+      "physical_values_compared": 168,
+      "maximum_scaled_native_physical_difference": 9.470219945141425e-14,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 2.564569011997749e-12,
+            "unbalanced_derivative_residual": 8.475989474692644e-11,
+            "original_residual": 4.547473508864641e-15,
+            "one_sided_derivative_defect": 8.995551325449768e-10,
+            "iterations": 2,
+            "jacobian_builds": 2,
+            "rank": 268,
+            "unknowns": 315,
+            "required_nullspace_defect": 3.338466773007852e-11,
+            "singular_value_gap": 378332660064.16,
+            "smallest_resolved_singular_value": 0.0004856031205542449,
+            "largest_discarded_singular_value": 1.2835347613708353e-15,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 7.085585938897572e-12,
+            "unbalanced_derivative_residual": 2.647639739858655e-10,
+            "original_residual": 4.547473508864641e-15,
+            "one_sided_derivative_defect": 2.237800294648182e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 268,
+            "unknowns": 315,
+            "required_nullspace_defect": 4.363982077226752e-11,
+            "singular_value_gap": 418457071144.98206,
+            "smallest_resolved_singular_value": 0.0004856031235333277,
+            "largest_discarded_singular_value": 1.1604610293825855e-15,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 13314,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 4.7743978292180645e-15,
+      "maximum_history_errors": [
+        [
+          3.844688354279202e-7,
+          0.000003942430308878642,
+          0.00014236234691722416,
+          0.00010621247178121962,
+          1.3102909606280133e-8,
+          0.00010669465626023111,
+          0.0011651694214833697
+        ],
+        [
+          1.2143957388299764e-8,
+          1.2703493634802498e-7,
+          0.000004554075065499319,
+          0.0000033943632260502454,
+          4.2206042480397166e-10,
+          0.0000034114533953299997,
+          0.00003941710360777506
+        ]
+      ],
+      "refined_error_norm_ratio": 0.03377421338211989,
+      "maximum_scaled_restart_physical_difference": 2.6287443264095435e-14,
+      "physical_reference_values_checked": 140
+    },
+    {
+      "name": "pendulum",
+      "physical_values_compared": 504,
+      "maximum_scaled_native_physical_difference": 1.1341809852872894e-10,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 1.1761505586429001e-9,
+            "unbalanced_derivative_residual": 2.742761208265474e-9,
+            "original_residual": 1.0203033284415937e-13,
+            "one_sided_derivative_defect": 3.245056188006947e-9,
+            "iterations": 2,
+            "jacobian_builds": 2,
+            "rank": 243,
+            "unknowns": 297,
+            "required_nullspace_defect": 4.060630566184035e-8,
+            "singular_value_gap": 76378237.86192015,
+            "smallest_resolved_singular_value": 0.004004865831103889,
+            "largest_discarded_singular_value": 5.243464556414691e-11,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 1.1765169445137463e-9,
+            "unbalanced_derivative_residual": 2.7456153894313748e-9,
+            "original_residual": 1.0203033284415937e-13,
+            "one_sided_derivative_defect": 9.622157172234982e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 243,
+            "unknowns": 297,
+            "required_nullspace_defect": 2.190710965393636e-7,
+            "singular_value_gap": 14980470.769523984,
+            "smallest_resolved_singular_value": 0.004004865831104883,
+            "largest_discarded_singular_value": 2.6733911722269197e-10,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 12558,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 2.747872783365859e-12,
+      "maximum_history_errors": [
+        [
+          1.1872881847052197e-39,
+          6.13922246373022e-11,
+          1.704051344475488e-10,
+          1.2388913978451e-38,
+          0.000010163130052420755,
+          0.000003846312480515479,
+          1.3172174024485705e-23,
+          0.003132322735042159,
+          0.0016370720170479913,
+          0.000003890026324171458,
+          2.24620717975403e-37,
+          1.2119640706665096e-37,
+          0.001733790683656089,
+          7.180810851633133e-23,
+          1.4368568899019308e-23,
+          1.7350975899223037e-22,
+          0.00626464547007366,
+          0.00327414403409243,
+          0,
+          2.7047758910224495e-50,
+          5.068994230061015e-50
+        ],
+        [
+          3.535961841874967e-39,
+          1.971089957919503e-12,
+          5.423772542201277e-12,
+          2.4435402038277965e-37,
+          0.0000012804085016693278,
+          4.851133932337603e-7,
+          1.3172174024485705e-23,
+          0.0007779493267117132,
+          0.0004038941132513685,
+          5.00342194120762e-7,
+          3.177993019214826e-36,
+          1.3705531671511273e-36,
+          0.00044819558350894795,
+          7.180810851633133e-23,
+          1.4368568899019308e-23,
+          1.7350975899223037e-22,
+          0.001555898653410992,
+          0.0008077882265036251,
+          0,
+          9.79491162718913e-47,
+          1.7913600772647645e-46
+        ]
+      ],
+      "refined_error_norm_ratio": 0.2485014209530553,
+      "maximum_scaled_restart_physical_difference": 2.1343197785849755e-10,
+      "physical_reference_values_checked": 420
+    },
+    {
+      "name": "free-body-pitch-pole",
+      "physical_values_compared": 240,
+      "maximum_scaled_native_physical_difference": 3.885780586188048e-16,
+      "initial_consistency": {
+        "method": "nonlinear derivative array through second time derivative",
+        "difference_step": 0.01,
+        "difference_order": 6,
+        "jacobian_step": 0.0001,
+        "newton_column_scale_bounds": [
+          0.0001,
+          10000
+        ],
+        "rank_tolerance": 1e-7,
+        "tolerance": 1e-8,
+        "refinements": [
+          {
+            "scaled_time_spacing": 0.01,
+            "derivative_residual": 3.3868322325011518e-12,
+            "unbalanced_derivative_residual": 6.612167105757638e-12,
+            "original_residual": 7.851576003028314e-16,
+            "one_sided_derivative_defect": 3.3525337700697906e-10,
+            "iterations": 2,
+            "jacobian_builds": 2,
+            "rank": 264,
+            "unknowns": 324,
+            "required_nullspace_defect": 5.324883154314726e-9,
+            "singular_value_gap": 46003547198.97131,
+            "smallest_resolved_singular_value": 0.11610467260430182,
+            "largest_discarded_singular_value": 2.523820002447508e-12,
+            "refinement_change": null
+          },
+          {
+            "scaled_time_spacing": 0.005,
+            "derivative_residual": 5.604234689664979e-12,
+            "unbalanced_derivative_residual": 1.513046049692257e-11,
+            "original_residual": 7.851576003028314e-16,
+            "one_sided_derivative_defect": 1.6808024441450984e-9,
+            "iterations": 0,
+            "jacobian_builds": 1,
+            "rank": 264,
+            "unknowns": 324,
+            "required_nullspace_defect": 4.7102791113228556e-8,
+            "singular_value_gap": 85713811609.07143,
+            "smallest_resolved_singular_value": 0.11610467261797004,
+            "largest_discarded_singular_value": 1.3545620062669368e-12,
+            "refinement_change": 0
+          }
+        ],
+        "residual_evaluations": 13692,
+        "prescribed_coordinate_error": 0,
+        "interpretation": "Every prescribed dynamic coordinate is held fixed in scaled coordinates. The original residual uses the time tolerance; differentiated residuals use tangent row scaling. Algebraic state and physical dynamic rates pass local uniqueness, one-sided and spacing-refinement checks. Auxiliary higher derivatives need not be unique. Finite differences give local numerical evidence, not a proof for arbitrary higher-index or nonsmooth systems."
+      },
+      "maximum_scaled_initial_reference_error": 4.440892098500626e-16,
+      "maximum_history_errors": [
+        [
+          1.4191181563205646e-10,
+          9.617190377397833e-11,
+          1.1059275717428818e-10,
+          1.6895789628490476e-10,
+          4.726341540362e-11,
+          6.563588561547817e-11,
+          5.721878526543378e-11,
+          4.277625476056812e-11,
+          1.947321193185303e-10,
+          2.4892614636229382e-9,
+          4.495291694439629e-9,
+          9.542244328031302e-9,
+          5.703117839095384e-10,
+          3.908048495926408e-9,
+          6.455283141360013e-9,
+          9.7488683792335e-12,
+          1.9168222564758253e-11,
+          7.483680342090793e-12,
+          1.722379047974488e-18,
+          3.623094525150015e-18,
+          8.96176879105348e-19,
+          9.968303960050662e-12,
+          7.085221298552824e-12,
+          6.525557871839283e-12
+        ],
+        [
+          4.670430708841877e-12,
+          3.079037025344178e-12,
+          3.5869085479589558e-12,
+          5.2844811859742435e-12,
+          1.535771509963979e-12,
+          2.1561086249732853e-12,
+          1.864730592160413e-12,
+          1.184760622940928e-12,
+          6.276756892020785e-12,
+          8.15640888163216e-11,
+          1.425428663992534e-10,
+          3.0292257591213456e-10,
+          1.977451535850605e-11,
+          1.2545642302796978e-10,
+          2.0098150921299407e-10,
+          3.3295588508508445e-13,
+          5.946354519892338e-13,
+          2.545741395465484e-13,
+          1.722379047974488e-18,
+          3.623094525150015e-18,
+          8.96176879105348e-19,
+          9.838796444228137e-13,
+          2.3908652835302746e-13,
+          7.570610804918942e-13
+        ]
+      ],
+      "refined_error_norm_ratio": 0.03167111483396432,
+      "maximum_scaled_restart_physical_difference": 5.695444116327053e-14,
+      "physical_reference_values_checked": 192
+    }
+  ]
+}

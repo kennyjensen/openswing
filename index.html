@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="OpenSwing — an independent, open source aeroelastic aircraft analysis workbench based on the published ASWING formulation." />
+    <meta name="theme-color" content="#101719" />
+    <link rel="canonical" href="https://openswing.vibefoil.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenSwing" />
+    <meta property="og:title" content="OpenSwing · Aeroelastic workbench" />
+    <meta property="og:description" content="A coupled aerodynamic and structural solver inspired by ASWING." />
+    <meta property="og:url" content="https://openswing.vibefoil.com/" />
+    <meta property="og:image" content="https://openswing.vibefoil.com/openswing-icon-512.png" />
+    <meta property="og:image:alt" content="OpenSwing Daedalus airplane" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      html { background: #101719; color: #dce8e7; }
+      #startup { max-width: 560px; margin: 15vh auto; padding: 24px; font: 16px/1.6 system-ui, sans-serif; }
+      #startup h1 { margin: 0 0 12px; font-size: 24px; }
+      #startup p { color: #afc4c1; white-space: pre-wrap; overflow-wrap: anywhere; }
+      #startup button { padding: 10px 16px; border: 1px solid #35484a; border-radius: 5px; background: #1e2b2e; color: #dce8e7; font: inherit; cursor: pointer; }
+    </style>
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <title>OpenSwing · Aeroelastic workbench</title>
+  </head>
+  <body>
+    <div id="app">
+      <section id="startup" role="status" aria-live="polite">
+        <h1 id="startup-title">Starting OpenSwing…</h1>
+        <p id="startup-detail">Loading the workbench. Numerical libraries will load next.</p>
+        <button id="startup-retry" type="button" hidden>Reload page</button>
+        <noscript><p>JavaScript is disabled. Enable it in your browser to run OpenSwing.</p></noscript>
+      </section>
+    </div>
+    <script type="module">
+      const startup = document.getElementById('startup');
+      const title = document.getElementById('startup-title');
+      const detail = document.getElementById('startup-detail');
+      const retry = document.getElementById('startup-retry');
+      retry.addEventListener('click', () => location.reload());
+      const slowLoad = setTimeout(() => {
+        detail.textContent = 'Still loading the workbench. The first development launch may take longer while dependencies are prepared. If this continues, reload the page and check the server terminal.';
+        retry.hidden = false;
+      }, 15000);
+      import('/web/main.js').catch(error => {
+        // Keep initialization failures visible even if main.js has already replaced the loading screen.
+        document.getElementById('app').replaceChildren(startup);
+        title.textContent = 'OpenSwing could not start';
+        detail.textContent = `${error.message || error}\n\nReload the page. If the error persists, share this message and check the server terminal.`;
+        retry.hidden = false;
+        console.error('OpenSwing startup failed:', error);
+      }).finally(() => clearTimeout(slowLoad));
+    </script>
+  </body>
+</html>

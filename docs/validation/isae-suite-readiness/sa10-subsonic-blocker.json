@@ -1,0 +1,112 @@
+{
+  "id": "SA-10:TS_80_60_40:row026:n128",
+  "case_id": "SA-10",
+  "adapter": "extra_polars",
+  "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.asw",
+  "table_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.txt",
+  "driver_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.sh",
+  "row_index": 26,
+  "expected_outputs": 7,
+  "settings": {
+    "panels": 128,
+    "mesh_level": 1,
+    "base_panels": 64,
+    "mesh_source": "declared fallback64; historical mesh not recovered",
+    "alpha": 25.0,
+    "alpha_token": "25.0000",
+    "speed": 55.0,
+    "density": 1.2256,
+    "density_token": "1.2256",
+    "density_assumption": "model Constant rhoSL; sea level assumed",
+    "mach": 0.0,
+    "freeze_influences": false,
+    "beta": 0.0,
+    "beam_interpolation": "natural-v1",
+    "circulation_method": "auto",
+    "stall": true,
+    "stall_factor": 40.0,
+    "stall_width": 0.05,
+    "wake_core_ratio": 0.25,
+    "aero_lag": true,
+    "body_added_mass_factor": 1.0
+  },
+  "sources": [
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.asw",
+      "bytes": 6580,
+      "sha256": "e85856f2632181214678fcc8395e6d2476f2a03fa950b12d59ffc05e21c6461b"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.txt",
+      "bytes": 31282,
+      "sha256": "18c22c96c1450f168c118a9dc6742df0919e685c621902ef2bf4c74c0437d23d"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 10 - Winglet and Tip Sails - Lift and Drag/Aswing_Simulations/TS_80_60_40.sh",
+      "bytes": 341,
+      "sha256": "547e769d9c60933f950283dcf4ef67cc171e51ccf30741838fe3e5d548766d09"
+    },
+    {
+      "path": "scripts/isae_suite_extra_polars.py",
+      "bytes": 16338,
+      "sha256": "1248437469bd5137b262991ea208b57801b04039156584c318f9dc7b31fe66b2"
+    },
+    {
+      "path": "scripts/isae_suite_polars.py",
+      "bytes": 19798,
+      "sha256": "cd045a2024d50c686cb6e617aedf572dedb3a03b4daa98dd86eef7a77c23f38b"
+    }
+  ],
+  "qualifications": [
+    "The unchanged original model/table/driver are pinned; the shell driver is never executed.",
+    "Incidence is the archived table token at its exact printed center; driver incidence tokens are retained separately.",
+    "Density is the original model Constant rhoSL with an explicit sea-level reconstruction assumption, not a recovered historical atmosphere.",
+    "Mach=0 and current influence geometry are fixed reconstruction choices. Historical startup/settings, including the state before driver F toggles, remain unresolved.",
+    "Nominal NODE/I counts do not establish identical historical physical node placement; current mesh rules and default natural-v1 interpolation apply.",
+    "A seven-column precision match alone does not certify historical setup, continuum convergence, or an entire case family.",
+    "This adapter compares only required_outputs; unused generic helper fields have no invented reference targets.",
+    "All archived rows, including repeated alpha12, retain distinct row IDs.",
+    "No whole-family or experimental agreement is established by these selected scopes."
+  ],
+  "status": "error",
+  "reference_match": false,
+  "reference_checks": [],
+  "numerical_checks": [],
+  "physical_calls": 1,
+  "reference_scope": "Only required_outputs at original archived rows; historical settings unresolved.",
+  "numerical_pass": false,
+  "error_type": "AnalysisError",
+  "error": "Local section-normal Mach reaches unity; the subsonic model is invalid. Maximum M_perp=1.086709 at beam 2, t=0.5590013, body force point [0.0124591, 0.5590013, 0.005817302] (input L). Normal relative speed=369.7092; sound speed=340.21 (input L/T).",
+  "sources_unchanged": true,
+  "seconds": 35.47554778799531,
+  "nonfinite_fields": [],
+  "unsupported_outputs": [],
+  "required_outputs": [
+    "lift",
+    "drag",
+    "CL",
+    "CD",
+    "CDi",
+    "Cm",
+    "efficiency"
+  ],
+  "complete_family_reproduction": false,
+  "excluded_generic_reference_fields": [],
+  "output_accounting": {
+    "required": 7,
+    "reported": 0,
+    "finite": 0,
+    "unavailable": 0,
+    "numerically_valid": 0,
+    "passed": 0,
+    "missing": 7
+  },
+  "job_id": "SA-10:TS_80_60_40:row026:n128",
+  "supervisor_seconds": 36.74665166900377,
+  "process_exit_code": 0,
+  "process_reaped": true,
+  "execution_completed": true,
+  "execution_kind": "subprocess",
+  "subprocess_started": true,
+  "artifact_root": "/tmp/openswing-isae-suite-extra-final-20261026/jobs/d78b57e70cf30a384426/artifacts"
+}

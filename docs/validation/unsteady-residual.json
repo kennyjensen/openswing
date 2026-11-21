@@ -1,0 +1,197 @@
+{
+  "description": "Verification of an instantaneous unsteady residual, not a time integrator or general eigenmode/flutter implementation.",
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "scripts/verify-unsteady.py": "81fae6ab76d61ebc817d77ed937cc6b943612cffcfc12b634e74b6ed6b0bdd43",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "3f3359b226d400dac7366d8077e1c5b7b6dd831af06474d2de238a6a46be9d77",
+    "openswing/asw.py": "34d8976e9a6884e2c02b89d8336f0ee6844255d1559250e0af2bfb7092127a0a",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "ea1a1c10e011882ee6263ead269e3e1cee9b0235b92f54b5de52c96a968ae666",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "9c1823306fe644437f166ab00ba783268b4772dd891d98239ce0f978d78c7595",
+    "openswing/dynamic_inertia.py": "b1cddb73927953de87701f81bb4d126b475c9aef870b2cece8fee461b6fc934b",
+    "openswing/geometry.py": "49cc7e4183555b127c420b965cb9e59113e315c9493bf595da9aac46b6a555da",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/local_motion.py": "9bebb2afe18389d5fd05adbc6b7fe18606541593a12a446014316ee96ca67b98",
+    "openswing/network.py": "f956d44a9947cdbc834d50400270c9f01a1dda1789c79ffe9249a92abc2c8fe8",
+    "openswing/operating.py": "4f3d4029228abcbc1074a1ec5a30ccde7bb89985ff1a1c3f91b0931e981ce761",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031"
+  },
+  "beam_modes": [
+    {
+      "panels": 4,
+      "damping_time": 0.0,
+      "root": [
+        -5.854179043895783e-17,
+        6.271931838145997
+      ],
+      "analytic_root": [
+        0.0,
+        6.215495597779739
+      ],
+      "relative_root_error": 0.009079926045868002,
+      "eigenpair_residual": 8.693629105089316e-18
+    },
+    {
+      "panels": 8,
+      "damping_time": 0.0,
+      "root": [
+        1.2046845936749857e-15,
+        6.23238497138199
+      ],
+      "analytic_root": [
+        0.0,
+        6.215495597779739
+      ],
+      "relative_root_error": 0.0027173011928901566,
+      "eigenpair_residual": 8.562313711816585e-18
+    },
+    {
+      "panels": 16,
+      "damping_time": 0.0,
+      "root": [
+        -3.50596634081519e-15,
+        6.219900693370152
+      ],
+      "analytic_root": [
+        0.0,
+        6.215495597779739
+      ],
+      "relative_root_error": 0.0007087279720681797,
+      "eigenpair_residual": 1.1281513389321006e-17
+    },
+    {
+      "panels": 4,
+      "damping_time": 0.02,
+      "root": [
+        -0.3933712898234959,
+        6.259583693081517
+      ],
+      "analytic_root": [
+        -0.3863238552601932,
+        6.203478008736408
+      ],
+      "relative_root_error": 0.009097676173529294,
+      "eigenpair_residual": 2.582976392350809e-17
+    },
+    {
+      "panels": 8,
+      "damping_time": 0.02,
+      "root": [
+        -0.3884262243150664,
+        6.220269085801063
+      ],
+      "analytic_root": [
+        -0.3863238552601932,
+        6.203478008736408
+      ],
+      "relative_root_error": 0.0027225795871279623,
+      "eigenpair_residual": 3.066933063359611e-17
+    },
+    {
+      "panels": 16,
+      "damping_time": 0.02,
+      "root": [
+        -0.3868716463539116,
+        6.207857518068039
+      ],
+      "analytic_root": [
+        -0.3863238552601932,
+        6.203478008736408
+      ],
+      "relative_root_error": 0.0007101019199481305,
+      "eigenpair_residual": 3.245861639050584e-17
+    }
+  ],
+  "circulation_lag": [
+    {
+      "reduced_frequency": 0.001,
+      "lift_transfer": [
+        0.9999920006079823,
+        -0.0019998880024719424
+      ],
+      "analytic_transfer": [
+        0.9999920001279979,
+        -0.001999968000511992
+      ],
+      "absolute_error": 7.999947997816105e-08
+    },
+    {
+      "reduced_frequency": 0.01,
+      "lift_transfer": [
+        0.9992013258272814,
+        -0.019967253666035946
+      ],
+      "analytic_transfer": [
+        0.9992012779552715,
+        -0.019968051118210862
+      ],
+      "absolute_error": 7.988877897496188e-07
+    },
+    {
+      "reduced_frequency": 0.1,
+      "lift_transfer": [
+        0.9310382401877901,
+        -0.17240784771333753
+      ],
+      "analytic_transfer": [
+        0.9310344827586207,
+        -0.17241379310344826
+      ],
+      "absolute_error": 7.0332025089813165e-06
+    },
+    {
+      "reduced_frequency": 1.0,
+      "lift_transfer": [
+        0.5294222840126186,
+        -0.11764678195012969
+      ],
+      "analytic_transfer": [
+        0.5294117647058824,
+        -0.11764705882352941
+      ],
+      "absolute_error": 1.0522949828372933e-05
+    },
+    {
+      "reduced_frequency": 10.0,
+      "lift_transfer": [
+        0.5003223113228339,
+        -0.01249219206264406
+      ],
+      "analytic_transfer": [
+        0.5003123048094941,
+        -0.01249219237976265
+      ],
+      "absolute_error": 1.000651334484688e-05
+    },
+    {
+      "reduced_frequency": 100.0,
+      "lift_transfer": [
+        0.5000131253179682,
+        -0.0012499921867362956
+      ],
+      "analytic_transfer": [
+        0.5000031249804688,
+        -0.001249992187548828
+      ],
+      "absolute_error": 1.0000337499316315e-05
+    }
+  ],
+  "limitations": [
+    "Linear straight uniform clamped beam only; no general aeroelastic mode validation.",
+    "Empirical lag is the published rational approximation, not exact Theodorsen response.",
+    "No ASWING executable or experimental comparison."
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "description": "Packaged WASM closed-loop equilibrium derivatives: all twelve independent and refinement cases, with full physical derivative-matrix comparisons.",
+  "comparison_scaling": "Dimensional wrench rows use max(base q*S*[1,1,1,b,c,b]/input scale, abs(native derivative)); other matrices use max(1, abs(native derivative)) in their reported file units. The original per-entry comparison and absolute wrench differences are retained. Symmetric wing roll/yaw coefficient derivatives are checked independently against zero.",
+  "study_sha256": "ba76a30c937e1a348e2bb2789a7bc20b9e36403ac37a2bc80c004b7b94ccb84c",
+  "source_sha256": {
+    "scripts/verify-feedback-derivatives.py": "ccbf6413a78dc0cd4029b000807b9c5ed3242741854c47285337805610744a2d",
+    "examples/instrumented-oscillator.asw": "181241561bc21c0dcb17347f9ad7c32c28801c6ded89449c81abe2a21bb64f40",
+    "examples/actuator-lag-controller.json": "a09b10af385feae94a61b92bccfa87de81e6cd37f35b7b7570ce14c00f77c52b",
+    "examples/flexible.asw": "1ba30cea974091854f4c60ecc0d0d2cf24da1127001d7ad1bf1a72acf85f4472",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "54aaade252008f4d196b0a194ec85676ab4906c4a223186a1503fa01f74d3ac7",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "df3752077c5e985fed121d404f0f66286b5d0ce15e2a609f9041ba172237e8ed",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "07fb8d75a8d68be9e3f606dfa5336c9010db6bfa6d7b340e12cd6619bbf59855",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/control_expressions.py": "77a76be47b2867ca2f27e3029502c199547f6167e600fcbcbb801dd31f8b99d8",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/equilibrium_state.py": "a84d8546693d1d28486182a9478e34332c424e3e655d5002f81f606327b31076",
+    "openswing/feedback.py": "0fd0f17c9bd447e932bc8bdb81206208c0bde9454a219539ce64308e2fc83ccf",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/frequency_response.py": "5488198be635b700931fc1ae8218fd7c4472bd46b764c9fd6b447ae075c0660b",
+    "openswing/geometry.py": "cf43672340d40daca00435540e207f50dc2161f9bf1d99c02f9d5476fcf2a08a",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "de5c47ea41a188efe469bd891a42812fd3cacc984abb87c1891c195c71021e8f",
+    "openswing/local_motion.py": "ba9a4fe285500c3140e07b4fca920ced1d12437c912bc1784b182c56daae974f",
+    "openswing/network.py": "42f599cf3adb2d1488f2a2d98f423c7b3a5b6ef7c3f0b0a4a9eef0480fdd9c76",
+    "openswing/operating.py": "3c654034219ce3c0b6c614b30cd2add518b5914b5e2f491f85af66feb49a51d7",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "3b43519b8133bc3499bfc7e3304ba774610743228341aa5da1e7888903fb2671",
+    "openswing/rom_file.py": "66fa25fe3a3cca04dd732b8795c2384ba7f634fea9cf71150ae04540de293ded",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "243b16cf448618c9334d072924f17d0a3780d992cba1b59202fbbd7a65ded820",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_initialization.py": "3d24a6cb90efc11e0a966c2fc5b58557418f56d6b7ccc30773e36ce68c6fb615",
+    "openswing/time_integration.py": "02a32e862f1348842b72ed9816c027ddf8239da887846338979e9bdb8873f750",
+    "openswing/time_state.py": "1a5f1d8c0b85f5c6fbe6e8db619c9e17b0afc73eb4858066f3ad0e5c37074b42",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031",
+    "scripts/test-feedback-derivatives-wasm.mjs": "9dbe1cccff046d0d8353335531ac441a8fb2a7553f288699e2d3e339e440fe0a"
+  },
+  "cases": [
+    {
+      "name": "proportional-4",
+      "system_size": 61,
+      "base_residual": 3.6995712615843866e-13,
+      "maximum_scaled_native_derivative_difference": 2.1620675628048527e-16,
+      "maximum_entry_scaled_native_derivative_difference": 2.1620675628048527e-16,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 2.842170943040401e-14,
+          "maximum_reference_scaled": 1.9895196601152538e-16
+        },
+        "net_wrench": {
+          "maximum_absolute": 2.842170943040401e-14,
+          "maximum_reference_scaled": 1.9895196601152538e-16
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 6.547509201482171e-12,
+        "linear_residual": 1.3600232051569072e-16
+      }
+    },
+    {
+      "name": "proportional-8",
+      "system_size": 109,
+      "base_residual": 3.697251122039047e-13,
+      "maximum_scaled_native_derivative_difference": 0,
+      "maximum_entry_scaled_native_derivative_difference": 0,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "net_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 6.573770860995864e-12,
+        "linear_residual": 1.3600232051569072e-16
+      }
+    },
+    {
+      "name": "proportional-step",
+      "system_size": 61,
+      "base_residual": 3.6995712615843866e-13,
+      "maximum_scaled_native_derivative_difference": 9.259787598220458e-18,
+      "maximum_entry_scaled_native_derivative_difference": 9.259787598220458e-18,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "net_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 1.2559620010677008e-11,
+        "linear_residual": 1.3600232051770394e-16
+      }
+    },
+    {
+      "name": "integral",
+      "system_size": 62,
+      "base_residual": 1.5559073304126396e-12,
+      "maximum_scaled_native_derivative_difference": 3.800208856506923e-17,
+      "maximum_entry_scaled_native_derivative_difference": 3.800208856506923e-17,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "net_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 2.4191393332984035e-10,
+        "linear_residual": 5.440092820627629e-16
+      }
+    },
+    {
+      "name": "lag",
+      "system_size": 62,
+      "base_residual": 2.368594209656294e-12,
+      "maximum_scaled_native_derivative_difference": 1.2931877790764336e-14,
+      "maximum_entry_scaled_native_derivative_difference": 1.2931877790764336e-14,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 1.8474111129762605e-12,
+          "maximum_reference_scaled": 1.2931877790764336e-14
+        },
+        "net_wrench": {
+          "maximum_absolute": 1.8474111129762605e-12,
+          "maximum_reference_scaled": 1.2931877790764336e-14
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 3.9650822308258217e-7,
+        "linear_residual": 8.673617379884035e-19
+      }
+    },
+    {
+      "name": "nonlinear",
+      "system_size": 61,
+      "base_residual": 9.214100684254603e-12,
+      "maximum_scaled_native_derivative_difference": 2.833103892776879e-16,
+      "maximum_entry_scaled_native_derivative_difference": 2.833103892776879e-16,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 5.684341886080802e-14,
+          "maximum_reference_scaled": 2.833103892776879e-16
+        },
+        "net_wrench": {
+          "maximum_absolute": 5.684341886080802e-14,
+          "maximum_reference_scaled": 2.833103892776879e-16
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 7.1430958299497026e-9,
+        "linear_residual": 1.6233503957581733e-16
+      }
+    },
+    {
+      "name": "schedule",
+      "system_size": 61,
+      "base_residual": 9.10962915078963e-13,
+      "maximum_scaled_native_derivative_difference": 1.2274734960547807e-20,
+      "maximum_entry_scaled_native_derivative_difference": 1.2274734960547807e-20,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "net_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 7.560532200301395e-11,
+        "linear_residual": 1.734723475976807e-18
+      }
+    },
+    {
+      "name": "acceleration",
+      "system_size": 67,
+      "base_residual": 0,
+      "maximum_scaled_native_derivative_difference": 1.2643176328310404e-16,
+      "maximum_entry_scaled_native_derivative_difference": 1.2643176328310404e-16,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        },
+        "net_wrench": {
+          "maximum_absolute": 0,
+          "maximum_reference_scaled": 0
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": null,
+      "checks": {
+        "maximum_scaled_independent_difference": 2.330691195595591e-12,
+        "linear_residual": 1.734723475976807e-18
+      }
+    },
+    {
+      "name": "wing-4-3-1e-05",
+      "system_size": 64,
+      "base_residual": 1.6770936653309754e-9,
+      "maximum_scaled_native_derivative_difference": 3.067137207334472e-9,
+      "maximum_entry_scaled_native_derivative_difference": 0.0000016447284368767906,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0.0000016447284368767906,
+          "maximum_reference_scaled": 1.546759696892735e-11
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0.0000016447284368767906,
+          "maximum_reference_scaled": 1.546759696892735e-11
+        },
+        "net_wrench": {
+          "maximum_absolute": 9.770663981446281e-7,
+          "maximum_reference_scaled": 2.054441728859932e-11
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": 2.3539435102632994e-11,
+      "checks": {
+        "maximum_scaled_independent_difference": 1.606736965698019e-11,
+        "linear_residual": 2.921269634621611e-16
+      }
+    },
+    {
+      "name": "wing-8-3-1e-05",
+      "system_size": 112,
+      "base_residual": 1.8312355451466367e-10,
+      "maximum_scaled_native_derivative_difference": 8.526512829121202e-9,
+      "maximum_entry_scaled_native_derivative_difference": 0.000003049261384209694,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0.0000018238570191897452,
+          "maximum_reference_scaled": 5.166778625392778e-11
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0.0000018238570191897452,
+          "maximum_reference_scaled": 5.166778625392778e-11
+        },
+        "net_wrench": {
+          "maximum_absolute": 0.000003049261384209694,
+          "maximum_reference_scaled": 4.7715532364040504e-11
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": 2.104518697117864e-11,
+      "checks": {
+        "maximum_scaled_independent_difference": 1.606736965698019e-11,
+        "linear_residual": 2.1481273431830758e-16
+      }
+    },
+    {
+      "name": "wing-8-7-1e-05",
+      "system_size": 116,
+      "base_residual": 9.1764134485528e-10,
+      "maximum_scaled_native_derivative_difference": 4.263256414560601e-9,
+      "maximum_entry_scaled_native_derivative_difference": 5.618131789331612e-7,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0.0000010422008926980197,
+          "maximum_reference_scaled": 4.198973098449026e-11
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0.0000010422008926980197,
+          "maximum_reference_scaled": 4.198973098449026e-11
+        },
+        "net_wrench": {
+          "maximum_absolute": 0.0000010422008926980197,
+          "maximum_reference_scaled": 3.674097796836129e-11
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": 8.161763766633253e-12,
+      "checks": {
+        "maximum_scaled_independent_difference": 1.606736965698019e-11,
+        "linear_residual": 3.662053771049196e-16
+      }
+    },
+    {
+      "name": "wing-8-7-3e-06",
+      "system_size": 116,
+      "base_residual": 9.1764134485528e-10,
+      "maximum_scaled_native_derivative_difference": 7.751117427571343e-9,
+      "maximum_entry_scaled_native_derivative_difference": 0.0000041525321924440735,
+      "wrench_differences": {
+        "distributed_aero_wrench": {
+          "maximum_absolute": 0.0000041525321924440735,
+          "maximum_reference_scaled": 6.998312927004247e-11
+        },
+        "fluid_wrench": {
+          "maximum_absolute": 0.0000041525321924440735,
+          "maximum_reference_scaled": 6.998312927004247e-11
+        },
+        "net_wrench": {
+          "maximum_absolute": 0.0000013027551976295137,
+          "maximum_reference_scaled": 5.2487383593762935e-11
+        }
+      },
+      "maximum_symmetric_roll_yaw_coefficient_derivative": 5.629074368202751e-11,
+      "checks": {
+        "maximum_scaled_independent_difference": 7.008770986102847e-11,
+        "linear_residual": 2.4624366732272837e-16
+      }
+    }
+  ]
+}

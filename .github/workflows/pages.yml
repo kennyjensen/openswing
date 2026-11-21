@@ -1,0 +1,63 @@
+name: Deploy OpenSwing to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+env:
+  OPENBLAS_NUM_THREADS: "1"
+  OMP_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/configure-pages@v5
+      # The existing prebuild command uses this interpreter for the progress
+      # charts. Building the web app requires no native scientific packages.
+      - name: Prepare Python
+        run: python -m venv .venv
+      - name: Install dependencies
+        run: npm ci
+      - name: Build static application
+        run: npm run build
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4

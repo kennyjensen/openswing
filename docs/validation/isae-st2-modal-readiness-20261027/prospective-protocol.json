@@ -1,0 +1,128 @@
+{
+  "format": "openswing-isae-st2-prospective-modal-protocol",
+  "version": 1,
+  "created_at": "2026-10-27T05:14:08.169990+00:00",
+  "scope": "Eight conditional, unchanged-input modal comparisons. No full family validation or recovered historical setup claim.",
+  "source_readiness": {
+    "path": "/home/userland/aswing/docs/validation/isae-st2-modal-readiness-20261027/report.json",
+    "bytes": 56271,
+    "sha256": "c14e0cb1c3b4dcea029fedaf7f96343e302984c4f336f1c0624d26387731dee3"
+  },
+  "construction_preflight": {
+    "path": "/home/userland/aswing/docs/validation/isae-st2-modal-readiness-20261027/preflight.json",
+    "bytes": 95225,
+    "sha256": "49fdadec7620368838a3185a780421a2e99e29f8a48a3ad39c46dbb3537ba6ed"
+  },
+  "primary_guide": {
+    "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+    "bytes": 145039,
+    "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+  },
+  "model_folders": [
+    "01_Modal_Undeformed",
+    "02_Modal_Gravity"
+  ],
+  "nominal_intervals": [
+    40,
+    80
+  ],
+  "spacing": "cosine",
+  "actual_intervals": [
+    41,
+    81
+  ],
+  "nodes": [
+    42,
+    82
+  ],
+  "media": [
+    {
+      "name": "vacuum",
+      "structural_operator": "drela-fixed-vacuum-v1",
+      "quiescent_density": null
+    },
+    {
+      "name": "still_air",
+      "structural_operator": "drela-fixed-still-air-v1",
+      "quiescent_density": 1.23
+    }
+  ],
+  "beam_interpolation": "drela-segspl-v1",
+  "condition": null,
+  "gravity_body": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "frame": "fixed",
+  "position": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "attitude": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "loaded_base": true,
+  "method": "full_shift_invert",
+  "count": 20,
+  "shift": [
+    -0.01,
+    0.0
+  ],
+  "step": 1e-05,
+  "rank_tolerance": 1e-09,
+  "base_tolerance": 1e-09,
+  "continuation_steps": 4,
+  "matrices": true,
+  "required_reference_complex_roots_per_job": 7,
+  "required_components_per_job": 14,
+  "modal_comparison_slots": 112,
+  "selection": "First seven positive-imaginary roots, ascending imaginary part, within the retained local set; preserve original reference row order. Require at least seven positives and conjugate witnesses. Retain every returned root and vector. No globally-lowest or proven branch-identity claim.",
+  "source_basis": "ASWING guide default shift -0.01,0; recommendation of 20\u201330 modes near origin for an initial structural survey. The count-based margin is fixed before execution, never adjusted to archived closeness.",
+  "numerical_gates": {
+    "base_residual": 1e-09,
+    "pencil_backward": 1e-08,
+    "mass_pairing": 1e-08,
+    "root_absolute": 2e-08,
+    "root_relative": 2e-08,
+    "neutral_relative": 1e-08,
+    "mesh_relative": 0.001,
+    "balance": 1e-07,
+    "clamp": 1e-10,
+    "restored_parity": 2e-10
+  },
+  "printed_comparison": "Decimal(str(predicted)) against the exact original decimal token and half-last-place interval, including all tiny real components.",
+  "execution": {
+    "workers": 1,
+    "timeout_seconds": 180,
+    "kill_grace_seconds": 5,
+    "cold_modal_calls_per_job": 1,
+    "fresh_restored_residuals_per_job": 1,
+    "retries": 0,
+    "adaptive_shift_count_or_medium": false
+  },
+  "saved_evidence": [
+    "original request and source/code pins",
+    "full production result with A/M and all roots/vectors",
+    "loaded equilibrium state",
+    "fresh restored raw residual vector and physical fields",
+    "operations and terminal process outcomes"
+  ],
+  "qualifications": [
+    "Forty nominal cosine intervals are not a recovered forty-node ASWING mesh.",
+    "Neither medium is selected as historically correct or preferred by closeness.",
+    "Gravity acts on both original orientations; the upright model may bend through eccentric CG.",
+    "The preflight used syntactic default request templates (16,dense); this prospective protocol fixes20/full_shift_invert before any modal solve.",
+    "All static targets, workbook cells and six literal model inventories remain required and visible.",
+    "No model-property fit, input repair, root zero-snapping, target-nearest mode assignment or reference-tolerance relaxation."
+  ],
+  "operations_before_protocol": {
+    "modal_solves": 0,
+    "matrix_assemblies": 0,
+    "eigensolves": 0,
+    "residual_evaluations": 0
+  }
+}

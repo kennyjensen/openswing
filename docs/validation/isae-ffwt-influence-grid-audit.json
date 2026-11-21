@@ -1,0 +1,660 @@
+{
+  "status": "COMPLETE_SOURCE_AND_SAVED_GRID_AUDIT",
+  "exact_historical_grid_recovered": false,
+  "archive_node_requests": {
+    "1": 100,
+    "2": 40,
+    "3": 40
+  },
+  "archive_actual_nodes_unknown": true,
+  "node_commands": [
+    {
+      "line": 3,
+      "text": "nodes"
+    },
+    {
+      "line": 4,
+      "text": "B 1"
+    },
+    {
+      "line": 5,
+      "text": "I 100"
+    },
+    {
+      "line": 6,
+      "text": "B 2"
+    },
+    {
+      "line": 7,
+      "text": "I 40"
+    },
+    {
+      "line": 8,
+      "text": "B 3"
+    },
+    {
+      "line": 9,
+      "text": "I 40"
+    }
+  ],
+  "archive_positive_rows": 8,
+  "selected_reference": {
+    "row": 4,
+    "file_line": 7,
+    "raw_tokens": [
+      "4",
+      "4.000",
+      "8.23892",
+      "0.505454E-01",
+      "6.17936",
+      "4.59708"
+    ],
+    "alpha_deg": 5.0,
+    "commanded_IAS_mps": 20.941885325558797,
+    "command_line": 20
+  },
+  "missing_file_types": {
+    ".set": [],
+    ".pnt": [],
+    ".state": [],
+    ".bin": [],
+    ".con": [],
+    ".mat": []
+  },
+  "folder_file_count": 110,
+  "facts": [
+    {
+      "id": "original-commands",
+      "proof": "literal original script",
+      "locator": "Flare_10_A5.sh lines 2-9",
+      "finding": "The driver names ASWING_R_5_92 and requests NODE/I 100,40,40 on beams 1,2,3; no spacing/Fourier-mode/nodal-coordinate settings are given in that menu block."
+    },
+    {
+      "id": "node-count-semantics",
+      "proof": "official version note",
+      "locator": "version_notes.txt lines 592-601; v5.67",
+      "finding": "I is a requested node count. The allocator may increase an insufficient count to a breakpoint-based minimum. The note supplies neither the complete allocation algorithm nor a default spacing parameter."
+    },
+    {
+      "id": "absent-grid-files",
+      "proof": "bounded exact FFWT-1 folder inventory",
+      "locator": "inventory.json",
+      "finding": "No .set, .pnt, .state, .bin, .con or .mat file is retained in the selected FFWT-1 folder/subfolders. The source and operating-point tables do not list computational nodes."
+    },
+    {
+      "id": "autoload-unknown",
+      "proof": "official guide plus missing archive files",
+      "locator": "aswing_doc.txt lines 1558-1587",
+      "finding": "Starting ASWING with the model basename can automatically read same-prefix .set/.pnt/.con. Their absence from this archive does not prove they were absent in the author working directory."
+    },
+    {
+      "id": "center-break",
+      "proof": "literal model plus documented KBREAK behavior",
+      "locator": "FFWT_Flare10.asw lines 132-137; aswing_doc.txt lines 1338-1378",
+      "finding": "The center-beam dCLdF1/dCMdF1 group has a doubled zero station. Those fields are documented break-enabling variables, normally creating a zero-length computational interval consuming a node. OpenSwing retains one unique t=0 vertex with sided properties. Historical exact allocator/compiled KBREAK settings remain unavailable."
+    },
+    {
+      "id": "no-false-singleton",
+      "proof": "literal scaled input plus saved current nodes",
+      "locator": "FFWT_Flare10.asw lines 165-168,216-219; current preflight required nodes",
+      "finding": "The zero-rigid singleton t=.182 is retained as declaration metadata, not inserted outside either tip domain. It does not cause the hinge cells."
+    },
+    {
+      "id": "cosine-end-clustering",
+      "proof": "independent elementary formula against all saved node coordinates",
+      "locator": "meshes in this report; geometry.py lines 78-108",
+      "finding": "All current node arrays reconstruct from whole-beam cosine spacing plus required stations. Small hinge-adjacent cells are the unmodified first/last cosine cells. Interior mandatory station insertions do not create them."
+    },
+    {
+      "id": "theta-is-not-allocator",
+      "proof": "primary theory and rendered manual",
+      "locator": "asw_theory.txt Eqs63,150-153, printed pp15,31; Extended User Manual section1.3.5 p21",
+      "finding": "The Glauert coordinate and theta-midpoint circulation sampling do not prescribe a unique structural node distribution. The generic manual figure is not an FFWT export and does not recover a default allocator. Its graphic says100 nodes while caption says180, so neither is used as default evidence."
+    },
+    {
+      "id": "comparison-settings",
+      "proof": "literal driver/output and frozen contract",
+      "locator": "Flare_10_A5.sh lines13-36; FFWT_Flare10_A5.txt line7",
+      "finding": "Row4 maps to alpha5 and commanded IAS20.941885325558797. K/I30 selects a Newton iteration limit, not a NODE count. No explicit K/F or NODE/F command identifies frozen influences or Fourier selection. Current pointwise circulation, updated influences, zero PG Mach, sea-level density/IAS=TAS and independent cold start remain declared choices, not recovered historical settings."
+    }
+  ],
+  "meshes": [
+    {
+      "case": "coarse",
+      "nodes": 185,
+      "elements": 182,
+      "beams": [
+        {
+          "beam": 1,
+          "requested_intervals": 99,
+          "base_node_count": 100,
+          "actual_nodes": 103,
+          "actual_intervals": 102,
+          "added_nodes": 3,
+          "inserted_station_values": [
+            -0.1588,
+            0.0,
+            0.1588
+          ],
+          "required_nodes": [
+            {
+              "t": -0.364,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "joint 2"
+              ]
+            },
+            {
+              "t": -0.1588,
+              "s": 0.20520000000000002,
+              "fraction": 0.2818681318681318,
+              "theta": 2.0222385602937285,
+              "required": [
+                "weight 2"
+              ]
+            },
+            {
+              "t": 0.0,
+              "s": 0.36400000000000005,
+              "fraction": 0.49999999999999994,
+              "theta": 1.5707963267948966,
+              "required": [
+                "property break / mirror plane",
+                "ground 1",
+                "sensor 1"
+              ]
+            },
+            {
+              "t": 0.1588,
+              "s": 0.5228,
+              "fraction": 0.718131868131868,
+              "theta": 1.1193540932960642,
+              "required": [
+                "weight 1"
+              ]
+            },
+            {
+              "t": 0.364,
+              "s": 0.7280000000000002,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "joint 1"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 2.220446049250313e-16,
+          "minimum_interval_m": 0.00018325857252055044,
+          "hinge_cells": [
+            {
+              "hinge_t": -0.364,
+              "t0": -0.364,
+              "t1": -0.3638167414274794,
+              "width_m": 0.00018325857252060596,
+              "formula_width_m": 0.00018325857252062994,
+              "independent_formula_error_m": 2.3987973066241786e-17,
+              "theta_midpoint_receiver_distance_from_hinge_m": 4.581752670947514e-05,
+              "width_to_chord_ratio": 0.0023494688784693072,
+              "nonendpoint_required_nearest_distance_m": 0.2052
+            },
+            {
+              "hinge_t": 0.364,
+              "t0": 0.36381674142747944,
+              "t1": 0.364,
+              "width_m": 0.00018325857252055044,
+              "formula_width_m": 0.00018325857252062994,
+              "independent_formula_error_m": 7.949912429749961e-17,
+              "theta_midpoint_receiver_distance_from_hinge_m": 4.581752670947514e-05,
+              "width_to_chord_ratio": 0.0023494688784685956,
+              "nonendpoint_required_nearest_distance_m": 0.2052
+            }
+          ],
+          "zero_length_intervals": 0
+        },
+        {
+          "beam": 2,
+          "requested_intervals": 39,
+          "base_node_count": 40,
+          "actual_nodes": 41,
+          "actual_intervals": 40,
+          "added_nodes": 1,
+          "inserted_station_values": [
+            0.4406
+          ],
+          "required_nodes": [
+            {
+              "t": 0.364,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "joint 1"
+              ]
+            },
+            {
+              "t": 0.4406,
+              "s": 0.07660000000000002,
+              "fraction": 0.5632352941176471,
+              "theta": 1.4439861430430854,
+              "required": [
+                "weight 3"
+              ]
+            },
+            {
+              "t": 0.5,
+              "s": 0.13600000000000004,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "sensor 3"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 5.551115123125783e-17,
+          "minimum_interval_m": 0.00022050304687371014,
+          "hinge_cells": [
+            {
+              "hinge_t": 0.364,
+              "t0": 0.364,
+              "t1": 0.3642205030468737,
+              "width_m": 0.00022050304687371014,
+              "formula_width_m": 0.00022050304687371727,
+              "independent_formula_error_m": 7.128629284092192e-18,
+              "theta_midpoint_receiver_distance_from_hinge_m": 5.51481243332681e-05,
+              "width_to_chord_ratio": 0.0028269621394065403,
+              "nonendpoint_required_nearest_distance_m": 0.0766
+            }
+          ],
+          "zero_length_intervals": 0
+        },
+        {
+          "beam": 3,
+          "requested_intervals": 39,
+          "base_node_count": 40,
+          "actual_nodes": 41,
+          "actual_intervals": 40,
+          "added_nodes": 1,
+          "inserted_station_values": [
+            -0.4406
+          ],
+          "required_nodes": [
+            {
+              "t": -0.5,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "sensor 2"
+              ]
+            },
+            {
+              "t": -0.4406,
+              "s": 0.059400000000000015,
+              "fraction": 0.43676470588235294,
+              "theta": 1.697606510546707,
+              "required": [
+                "weight 4"
+              ]
+            },
+            {
+              "t": -0.364,
+              "s": 0.13600000000000004,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "joint 2"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 5.551115123125783e-17,
+          "minimum_interval_m": 0.00022050304687371014,
+          "hinge_cells": [
+            {
+              "hinge_t": -0.364,
+              "t0": -0.3642205030468737,
+              "t1": -0.364,
+              "width_m": 0.00022050304687371014,
+              "formula_width_m": 0.00022050304687371727,
+              "independent_formula_error_m": 7.128629284092192e-18,
+              "theta_midpoint_receiver_distance_from_hinge_m": 5.51481243332681e-05,
+              "width_to_chord_ratio": 0.0028269621394065403,
+              "nonendpoint_required_nearest_distance_m": 0.0766
+            }
+          ],
+          "zero_length_intervals": 0
+        }
+      ]
+    },
+    {
+      "case": "fine",
+      "nodes": 361,
+      "elements": 358,
+      "beams": [
+        {
+          "beam": 1,
+          "requested_intervals": 198,
+          "base_node_count": 199,
+          "actual_nodes": 201,
+          "actual_intervals": 200,
+          "added_nodes": 2,
+          "inserted_station_values": [
+            -0.1588,
+            0.1588
+          ],
+          "required_nodes": [
+            {
+              "t": -0.364,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "joint 2"
+              ]
+            },
+            {
+              "t": -0.1588,
+              "s": 0.20520000000000002,
+              "fraction": 0.2818681318681318,
+              "theta": 2.0222385602937285,
+              "required": [
+                "weight 2"
+              ]
+            },
+            {
+              "t": 0.0,
+              "s": 0.36400000000000005,
+              "fraction": 0.49999999999999994,
+              "theta": 1.5707963267948966,
+              "required": [
+                "property break / mirror plane",
+                "ground 1",
+                "sensor 1"
+              ]
+            },
+            {
+              "t": 0.1588,
+              "s": 0.5228,
+              "fraction": 0.718131868131868,
+              "theta": 1.1193540932960642,
+              "required": [
+                "weight 1"
+              ]
+            },
+            {
+              "t": 0.364,
+              "s": 0.7280000000000002,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "joint 1"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 2.7755575615628914e-16,
+          "minimum_interval_m": 4.581752670940187e-05,
+          "hinge_cells": [
+            {
+              "hinge_t": -0.364,
+              "t0": -0.364,
+              "t1": -0.36395418247329053,
+              "width_m": 4.581752670945738e-05,
+              "formula_width_m": 4.581752670947514e-05,
+              "independent_formula_error_m": 1.776058683802817e-17,
+              "theta_midpoint_receiver_distance_from_hinge_m": 1.1454561906757198e-05,
+              "width_to_chord_ratio": 0.0005874041885827869,
+              "nonendpoint_required_nearest_distance_m": 0.2052
+            },
+            {
+              "hinge_t": 0.364,
+              "t0": 0.3639541824732906,
+              "t1": 0.364,
+              "width_m": 4.581752670940187e-05,
+              "formula_width_m": 4.581752670947514e-05,
+              "independent_formula_error_m": 7.3271738069286e-17,
+              "theta_midpoint_receiver_distance_from_hinge_m": 1.1454561906757198e-05,
+              "width_to_chord_ratio": 0.0005874041885820752,
+              "nonendpoint_required_nearest_distance_m": 0.2052
+            }
+          ],
+          "zero_length_intervals": 0
+        },
+        {
+          "beam": 2,
+          "requested_intervals": 78,
+          "base_node_count": 79,
+          "actual_nodes": 80,
+          "actual_intervals": 79,
+          "added_nodes": 1,
+          "inserted_station_values": [
+            0.4406
+          ],
+          "required_nodes": [
+            {
+              "t": 0.364,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "joint 1"
+              ]
+            },
+            {
+              "t": 0.4406,
+              "s": 0.07660000000000002,
+              "fraction": 0.5632352941176471,
+              "theta": 1.4439861430430854,
+              "required": [
+                "weight 3"
+              ]
+            },
+            {
+              "t": 0.5,
+              "s": 0.13600000000000004,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "sensor 3"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 5.551115123125783e-17,
+          "minimum_interval_m": 5.5148124333270765e-05,
+          "hinge_cells": [
+            {
+              "hinge_t": 0.364,
+              "t0": 0.364,
+              "t1": 0.36405514812433326,
+              "width_m": 5.5148124333270765e-05,
+              "formula_width_m": 5.51481243332681e-05,
+              "independent_formula_error_m": 2.6630715861675203e-18,
+              "theta_midpoint_receiver_distance_from_hinge_m": 1.3788429030191286e-05,
+              "width_to_chord_ratio": 0.0007070272350419329,
+              "nonendpoint_required_nearest_distance_m": 0.0766
+            }
+          ],
+          "zero_length_intervals": 0
+        },
+        {
+          "beam": 3,
+          "requested_intervals": 78,
+          "base_node_count": 79,
+          "actual_nodes": 80,
+          "actual_intervals": 79,
+          "added_nodes": 1,
+          "inserted_station_values": [
+            -0.4406
+          ],
+          "required_nodes": [
+            {
+              "t": -0.5,
+              "s": 0.0,
+              "fraction": 0.0,
+              "theta": 3.141592653589793,
+              "required": [
+                "endpoint",
+                "sensor 2"
+              ]
+            },
+            {
+              "t": -0.4406,
+              "s": 0.059400000000000015,
+              "fraction": 0.43676470588235294,
+              "theta": 1.697606510546707,
+              "required": [
+                "weight 4"
+              ]
+            },
+            {
+              "t": -0.364,
+              "s": 0.13600000000000004,
+              "fraction": 1.0,
+              "theta": 0.0,
+              "required": [
+                "endpoint",
+                "joint 2"
+              ]
+            }
+          ],
+          "formula_reconstruction_max_error_m": 5.551115123125783e-17,
+          "minimum_interval_m": 5.5148124333270765e-05,
+          "hinge_cells": [
+            {
+              "hinge_t": -0.364,
+              "t0": -0.36405514812433326,
+              "t1": -0.364,
+              "width_m": 5.5148124333270765e-05,
+              "formula_width_m": 5.51481243332681e-05,
+              "independent_formula_error_m": 2.6630715861675203e-18,
+              "theta_midpoint_receiver_distance_from_hinge_m": 1.3788429030191286e-05,
+              "width_to_chord_ratio": 0.0007070272350419329,
+              "nonendpoint_required_nearest_distance_m": 0.0766
+            }
+          ],
+          "zero_length_intervals": 0
+        }
+      ]
+    }
+  ],
+  "actionable_next_step": {
+    "recoverable_now": "Preserve exact 100/40/40 requested counts and mandatory locations as provenance. Do not label current 103/41/41 coarse arrays as the ASWING grid.",
+    "exact_reconstruction_requires": "Retained FFWT NODE coordinates/export or the matching ASWING5.92 node allocator plus its saved/default settings and zero-length breakpoint allocation. None was found in this bounded archive/document review.",
+    "permitted_diagnostic": "A separately declared a-priori node-distribution/count sensitivity could isolate current cosine clustering, but is not an ASWING reconstruction and must preserve all attachments, model bytes, outputs and gates. This audit does not select or fit a replacement grid.",
+    "ruled_out": "Removing interior zero Weight anchors, suppressing t=0, or adding the outside-domain rigid singleton does not legitimately reconstruct the original grid or explain the current hinge-adjacent cosine widths."
+  },
+  "limits": [
+    "No proof that grid placement alone explains the archived response discrepancy.",
+    "No historical Fourier count, distribution default, startup settings or runtime defaults inferred from closer agreement.",
+    "No production imports, parser evaluation, mesh generation, aerodynamic evaluation, residual or equilibrium solve."
+  ],
+  "source_urls": [
+    "https://web.mit.edu/drela/Public/web/aswing/",
+    "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+    "https://web.mit.edu/drela/Public/web/aswing/version_notes.txt",
+    "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+    "https://web.mit.edu/drela/Public/web/aswing/ASWING_Extended_User_Manual.pdf"
+  ],
+  "inputs": [
+    {
+      "path": "/tmp/openswing-ffwt-grid-audit-20261026/analyze.py",
+      "bytes": 11905,
+      "sha256": "1272a4c3f00747e6c3cc7750ae0336d1e6188a58977c43dca53ee9e5672b1e1e"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ffwt-reference-contract.json",
+      "bytes": 36276,
+      "sha256": "e0b6b12692d46fc71e2cf1b268a5680ce62bfd26fbeaaaf52ce3529efab226e4"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-1-S - Lateral and Longitudinal Behavior of 3 FFWT/FFWT_Flare10.asw",
+      "bytes": 11315,
+      "sha256": "f73fe93bebb9419f0d38d94dc9a365baac7e3437e2996473c72c3c1f459fbf13"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-1-S - Lateral and Longitudinal Behavior of 3 FFWT/Flare_10_A5.sh",
+      "bytes": 424,
+      "sha256": "334f78856f5ca1db87697d7e53da89fd248ea4c56d97c36fae5b086d9a032740"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-1-S - Lateral and Longitudinal Behavior of 3 FFWT/Aswing_simulation/FFWT_Flare10_A5.txt",
+      "bytes": 751,
+      "sha256": "f04816b2648f90a5c0c772cb12081b3fa1cbf8c5bc35cc48a7b2a75d54dfdc48"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/FFWT - Flared Folding Wingtips Cases/FFWT-1-S - Lateral and Longitudinal Behavior of 3 FFWT/Analysis.m",
+      "bytes": 11925,
+      "sha256": "6f6048ab4112ce5e178621f2e49f4f456bb8f4b5f12eade141d9ab342d3224a5"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ffwt-startup.md",
+      "bytes": 6300,
+      "sha256": "ce926f7dd88e00a93dd0d55ec431eb4b1d731100cfa40c34c636fda2e01279bc"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.pdf",
+      "bytes": 3126157,
+      "sha256": "4f3af9fc10383f4f84888214e295d0bfaf0ef6190a37a5701f58d2d075f360d0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "bytes": 222073,
+      "sha256": "f735309dff805b659d94a2da1c9052e3fe6888071843a23dbfcbd9f40f48f88e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 12711,
+      "sha256": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5516,
+      "sha256": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 22860,
+      "sha256": "8dfd00a3fe7def618e6527d59d62d0aa3178c9a9b83c15a41624afc61c8ad781"
+    },
+    {
+      "path": "/tmp/openswing-ffwt-startup-native-20261026/plan.json",
+      "bytes": 76130,
+      "sha256": "fccc53ba90ddaf8ffe755c2742e496d08179c80db2d344c2ae70b7a91bd095d4"
+    },
+    {
+      "path": "/tmp/openswing-ffwt-startup-native-20261026/cases/coarse/preflight.json",
+      "bytes": 76715,
+      "sha256": "6a5c7db1bddacb7aaa7aff872d8a860ed60fdd668c1fc6148b771f60d83f9fe4"
+    },
+    {
+      "path": "/tmp/openswing-ffwt-startup-native-20261026/cases/fine/preflight.json",
+      "bytes": 146852,
+      "sha256": "7773bee307230a686bb6fe5e1afe13f98cd651be5dbdbc051600ed55af5ff2ce"
+    }
+  ]
+}

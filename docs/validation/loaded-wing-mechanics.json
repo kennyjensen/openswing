@@ -1,0 +1,659 @@
+{
+  "status": "PASS",
+  "date": "2026-10-11",
+  "numerical_kernel_changed": false,
+  "ui_changed": false,
+  "scope": "Six independent tip-wrench responses and projected real inertia at saved loaded Durrant wing configurations, under equivalent nodal dead loads. No aerodynamic feedback or full modal operator is validated.",
+  "cases": 6,
+  "panels": [
+    8,
+    16,
+    32
+  ],
+  "actual_elements": [
+    10,
+    18,
+    34
+  ],
+  "method": {
+    "constitutive": "Independent complementary-energy compliance with coupled bending, actual elastic-axis offsets and exactly rigid extension/shear.",
+    "loads": "Equivalent spatial nodal wrenches are reconstructed from the saved internal equilibrium resultants and held fixed. They are not independently recomputed aerodynamic loads. Root nodal loading does no work under the fixed clamp.",
+    "continuum": "Separate nonlinear spatial rod integration between point-load jumps; exact tangent ODE integrated for six root-wrench fundamental solutions.",
+    "production": "Central differences of the actual mixed residual in a spatial rotation chart, retaining all internal loads and constraint reactions.",
+    "inertia": "Independent differentiated section/CG kinematics and kinetic-energy quadrature, compared with actual inertial load transfer on the same saved geometry.",
+    "motion_fields": "Six static tip responses and four real/imaginary components of two explicitly selected sampled modes; ten normalized motion fields per case."
+  },
+  "audit": {
+    "status": "PASS",
+    "cases": [
+      {
+        "status": "PASS",
+        "wing": "25",
+        "panels": 8,
+        "mixed_compatibility": 4.371503159461554e-15,
+        "maximum_backward_error": 2.1187428429790282e-16,
+        "tip_compliance_relative": 0.0001526937147047926,
+        "tip_compliance_column_relative": 0.011983155959410605,
+        "profile_relative": 0.0001526937147047926,
+        "profile_column_relative": 0.011983155959410605,
+        "native_tangent_step_relative": 5.4340219168850765e-12,
+        "native_profile_step_relative": 1.3665496664937426e-11,
+        "continuum_step_relative": 6.713236486335305e-16,
+        "continuum_profile_step_relative": 6.713236486335305e-16,
+        "projected_mass_relative": 3.4444683202497825e-12,
+        "mass_step_relative": 3.766738397212088e-12,
+        "mass_quadrature_relative": 1.1923391036070378e-12,
+        "position_relative_to_span": 0.00014143914341615237,
+        "rotation_absolute": 2.993400314770347e-05
+      },
+      {
+        "status": "PASS",
+        "wing": "75",
+        "panels": 8,
+        "mixed_compatibility": 2.7382274850848013e-15,
+        "maximum_backward_error": 5.992569529570879e-17,
+        "tip_compliance_relative": 0.0005713995075991513,
+        "tip_compliance_column_relative": 0.006398156618303274,
+        "profile_relative": 0.0005713995075991513,
+        "profile_column_relative": 0.006285519852973751,
+        "native_tangent_step_relative": 4.404769470086314e-12,
+        "native_profile_step_relative": 7.110381863849772e-12,
+        "continuum_step_relative": 1.781845513087808e-14,
+        "continuum_profile_step_relative": 1.808951249475853e-14,
+        "projected_mass_relative": 4.935506366420604e-12,
+        "mass_step_relative": 5.205710954756998e-12,
+        "mass_quadrature_relative": 5.882296790494543e-12,
+        "position_relative_to_span": 0.0005640478551523899,
+        "rotation_absolute": 5.518823620532527e-05
+      },
+      {
+        "status": "PASS",
+        "wing": "25",
+        "panels": 16,
+        "mixed_compatibility": 2.8102520310824275e-16,
+        "maximum_backward_error": 2.8464640346333436e-16,
+        "tip_compliance_relative": 3.8727505727811e-05,
+        "tip_compliance_column_relative": 0.0029524074011834777,
+        "profile_relative": 3.8727505727811e-05,
+        "profile_column_relative": 0.0029524074011834777,
+        "native_tangent_step_relative": 3.902366503176186e-12,
+        "native_profile_step_relative": 1.1416166946046523e-11,
+        "continuum_step_relative": 2.237116760447419e-16,
+        "continuum_profile_step_relative": 3.355675140671128e-16,
+        "projected_mass_relative": 8.30691360814114e-13,
+        "mass_step_relative": 9.18867206080858e-13,
+        "mass_quadrature_relative": 9.567703364786605e-13,
+        "position_relative_to_span": 3.585840205537755e-05,
+        "rotation_absolute": 7.766084335294351e-06
+      },
+      {
+        "status": "PASS",
+        "wing": "75",
+        "panels": 16,
+        "mixed_compatibility": 9.819141203107426e-16,
+        "maximum_backward_error": 2.0075617513188882e-16,
+        "tip_compliance_relative": 0.00014194661112875294,
+        "tip_compliance_column_relative": 0.0015233551732054549,
+        "profile_relative": 0.00014194661112875294,
+        "profile_column_relative": 0.0015233551732054549,
+        "native_tangent_step_relative": 2.730804117196466e-12,
+        "native_profile_step_relative": 1.0432061757187627e-11,
+        "continuum_step_relative": 9.10766504388744e-16,
+        "continuum_profile_step_relative": 9.10766504388744e-16,
+        "projected_mass_relative": 5.349737367140827e-12,
+        "mass_step_relative": 5.17146432713177e-12,
+        "mass_quadrature_relative": 7.1114398978114225e-12,
+        "position_relative_to_span": 0.00013969601285397423,
+        "rotation_absolute": 1.3746012646796535e-05
+      },
+      {
+        "status": "PASS",
+        "wing": "25",
+        "panels": 32,
+        "mixed_compatibility": 2.1510571102112408e-16,
+        "maximum_backward_error": 3.3264082433858053e-16,
+        "tip_compliance_relative": 9.69268781161318e-06,
+        "tip_compliance_column_relative": 0.0007568599317133245,
+        "profile_relative": 9.69268781161318e-06,
+        "profile_column_relative": 0.0007568599317133245,
+        "native_tangent_step_relative": 2.241141695149954e-12,
+        "native_profile_step_relative": 3.1370522645485546e-11,
+        "continuum_step_relative": 4.473738823881689e-16,
+        "continuum_profile_step_relative": 5.592173529852112e-16,
+        "projected_mass_relative": 1.1133238639980608e-12,
+        "mass_step_relative": 1.323375425555124e-12,
+        "mass_quadrature_relative": 4.299115249047896e-13,
+        "position_relative_to_span": 8.978805028113847e-06,
+        "rotation_absolute": 1.958685685601705e-06
+      },
+      {
+        "status": "PASS",
+        "wing": "75",
+        "panels": 32,
+        "mixed_compatibility": 4.562106514766064e-16,
+        "maximum_backward_error": 1.961223884968814e-16,
+        "tip_compliance_relative": 3.641513597044621e-05,
+        "tip_compliance_column_relative": 0.0003901524487168895,
+        "profile_relative": 3.641513597044621e-05,
+        "profile_column_relative": 0.0003901524487168895,
+        "native_tangent_step_relative": 4.537357941700744e-12,
+        "native_profile_step_relative": 8.017300474761436e-12,
+        "continuum_step_relative": 2.275668593219773e-16,
+        "continuum_profile_step_relative": 3.413502889829659e-16,
+        "projected_mass_relative": 4.110115883925764e-12,
+        "mass_step_relative": 3.8024868201726645e-12,
+        "mass_quadrature_relative": 3.664200525818559e-12,
+        "position_relative_to_span": 3.580343144273018e-05,
+        "rotation_absolute": 3.611016293281084e-06
+      }
+    ],
+    "refinement": [
+      {
+        "wing": "25",
+        "successive_error_ratios": [
+          0.24637978602497407,
+          0.2563534867884208
+        ]
+      },
+      {
+        "wing": "75",
+        "successive_error_ratios": [
+          0.2380928233059467,
+          0.2561139093360138
+        ]
+      }
+    ],
+    "scope": "Frozen nodal dead-load structural response and projected real inertia; not a full flutter operator or experimental check."
+  },
+  "self_checks": [
+    {
+      "axial_preload": 0.0,
+      "column_relative_error": 1.0823901354284254e-15,
+      "exact_compliance": [
+        [
+          0.00822547182222222,
+          0.0,
+          0.0,
+          0.0,
+          0.017184133333333334,
+          0.0
+        ],
+        [
+          0.0,
+          0.017626011047619045,
+          0.0,
+          -0.03682314285714285,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.03682314285714285,
+          0.0,
+          0.10257142857142856,
+          0.0,
+          0.0
+        ],
+        [
+          0.017184133333333334,
+          0.0,
+          0.0,
+          0.0,
+          0.04786666666666666,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0257142857142858
+        ]
+      ]
+    },
+    {
+      "axial_preload": -2.0,
+      "column_relative_error": 1.9457977559064097e-15,
+      "exact_compliance": [
+        [
+          0.008458100373070543,
+          0.0,
+          0.0,
+          0.0,
+          0.017690442321121158,
+          0.0
+        ],
+        [
+          0.0,
+          0.018730325271900827,
+          0.0,
+          -0.03922701252547378,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.03922701252547378,
+          0.0,
+          0.10792295007768594,
+          0.0,
+          0.0
+        ],
+        [
+          0.017690442321121158,
+          0.0,
+          0.0,
+          0.0,
+          0.04899441338307607,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0257142857142858
+        ]
+      ]
+    },
+    {
+      "axial_preload": 3.0,
+      "column_relative_error": 3.807737009701611e-15,
+      "exact_compliance": [
+        [
+          0.00789982702053956,
+          0.0,
+          0.0,
+          0.0,
+          0.01647560888549175,
+          0.0
+        ],
+        [
+          0.0,
+          0.016196158057835735,
+          0.0,
+          -0.03371281600993322,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.03371281600993322,
+          0.0,
+          0.09563021797521325,
+          0.0,
+          0.0
+        ],
+        [
+          0.01647560888549175,
+          0.0,
+          0.0,
+          0.0,
+          0.04628670126255875,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0257142857142858
+        ]
+      ]
+    }
+  ],
+  "negative_checks": {
+    "status": "PASS",
+    "checks": [
+      {
+        "mutation": "changed offset compliance",
+        "status": "REJECTED",
+        "message": "\nArrays are not equal\n\nMismatched elements: 1 / 36 (2.78%)\nMismatch at index:\n [0, 4]: 0.1 (ACTUAL), -0.0014082523588227012 (DESIRED)\nMax absolute difference among violations: 0.10140825\nMax relative difference among violations: 72.01\n ACTUAL: array([[ 1.408252e-06,  0.000000e+00,  0.000000e+00,  0."
+      },
+      {
+        "mutation": "changed solved tip response",
+        "status": "REJECTED",
+        "message": "\nNot equal to tolerance rtol=1e-10, atol=1e-12\n\nMismatched elements: 1 / 1260 (0.0794%)\nMismatch at index:\n [34, 0, 0]: 0.0007071158388857956 (ACTUAL), 0.1 (DESIRED)\nMax absolute difference among violations: 0.09929288\nMax relative difference among violations: 0.99292884\n ACTUAL: array([[[ 0.000000e"
+      },
+      {
+        "mutation": "changed real-mass quadratic form",
+        "status": "REJECTED",
+        "message": "('projected_mass_relative', 2.592164435596315, 1.1133238639980608e-12)"
+      },
+      {
+        "mutation": "false zero compliance discrepancy",
+        "status": "REJECTED",
+        "message": "('tip_compliance_column_relative', 0.0007568599317133245, 0.0)"
+      },
+      {
+        "mutation": "unrelated mode-motion field",
+        "status": "REJECTED",
+        "message": "\nNot equal to tolerance rtol=1e-12, atol=1e-13\n\nMismatched elements: 1 / 2100 (0.0476%)\nMismatch at index:\n [2, 0, 9]: 0.1 (ACTUAL), -0.00018195014662943687 (DESIRED)\nMax absolute difference among violations: 0.10018195\nMax relative difference among violations: 550.60109597\n ACTUAL: array([[[ 0.0000"
+      }
+    ]
+  },
+  "finest_maximum_tip_column_relative": 0.0007568599317133245,
+  "maximum_projected_mass_relative": 5.349737367140827e-12,
+  "source_modules": {
+    "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "aero.py": "69e44f2990019aa5127ff88b778a89af2d3ffaf69484f483fb946f905cfcaf9c",
+    "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+    "network.py": "922dcdfefa4d5fee3e8424c171d3b9b662b101cbb224342d280baea76ff9aef2",
+    "inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+    "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "volume.py": "58f65af4e150e51952ee174ac412c5f5196eb2e011015af150da249ba54b67cb",
+    "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "local_motion.py": "31d953d3297e76be1c0249d1f3a623472ce707e04d4d17a6ff0523378db571e8",
+    "dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+    "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "time_integration.py": "6e0f59ee2e381215ca50c440456ebca5d5c55b3d94ab2029e265ad947b9ed5b7",
+    "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "time_state.py": "9243568e61da0fe08740306ba3d53d326a83a6d0c32edbc85051a60b4b878e50",
+    "time_initialization.py": "7ef976697c4236d5e8faefc8ae91cf419dae2dca0193cd099bc2559efd24b33e",
+    "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "radau_time.py": "0828f58db9cb85e6eefa4186b487278830daeb34e952f8d12063fc26c888142f",
+    "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "frozen_influence.py": "9a29a014dc5c2e47c49bdad619ce332a6b21a2d197914a5b7ad37a2da9eb97a4",
+    "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "time_accuracy.py": "0ff52c61b79cbf31213d838fab28bfa196e94dc51089315ec03a42333af034e4",
+    "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+    "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "time_acceptance_validation.py": "cca510137c77856cb692bbb8ffbe42eeab0bdda754976b18a6fcf4ea18926f5c",
+    "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "time_saved_history.py": "f50bc65561a94ec30c6b015faea35f8344326fcae95498b0c3b7c4b756cd00ba",
+    "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "tangent_influences.py": "959537fd6b341eebd2c9d1b8d7d6f18588fceac76afacd0798aa3fb49709b0ad",
+    "structured_static.py": "2590fc13765c7f0ee80d0e50535d036c2f84fefdfec4d3978ddab1ce522626e1"
+  },
+  "figure_sha256": {
+    "loaded-wing-mechanics.svg": "a2263cf88b96145cc9a95ca6367fabced78799a77dd9901a6e0edf151264aa77",
+    "loaded-wing-mechanics.png": "1e034d592dcf9ddef2550895e0d2b3e12bda3a05954d3a9ccd7543fa5417e1e7",
+    "loaded-wing-mechanics.pdf": "2bd4a0d10f4184c7f05c332b13c58081b70d65ce5fbb37ea778e826a67989088"
+  },
+  "sources": [
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c",
+      "sections": "Constitutive equations (18\u201320), spatial equilibrium (46\u201348)."
+    },
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44",
+      "sections": "Elastic motion and distributed real inertia; original discretization parity is not assumed."
+    }
+  ],
+  "retained_history": [
+    "pilot-01 used a higher-frequency sampled mode whose output key incorrectly called it critical. The complete study explicitly includes the low-frequency branch and preserves that pilot.",
+    "Before the full six-case study, the finest-mesh comparison was strengthened to require the same 0.5% bound separately for each input column. This prevents dominant torsion from hiding bending errors.",
+    "run-01 completed all six cases; run-02 preserves the complete differentiation/tolerance/quadrature arrays for independent audit. Physics, parameters and acceptance bounds did not change."
+  ],
+  "limits": [
+    "Frozen nodal loads vary with the source mesh; this is not a continuum limit of the full aerodynamic problem.",
+    "Six tip-input responses and ten inertia projections do not prove the complete distributed operator or its spectrum.",
+    "Dead spatial couples are nonconservative; raw stiffness asymmetry is not by itself an error.",
+    "No aerodynamic tangent, apparent mass, full flutter boundary, source-setup or experimental agreement is established.",
+    "The 22.58 versus 24.58 m/s reconstructed/published crossing discrepancy remains unresolved."
+  ],
+  "evidence": {
+    "path": "loaded-wing-mechanics-evidence.zip",
+    "bytes": 2607200,
+    "sha256": "781b9cd9d578924c874d752ba1c80a423158f3521f0731ee8b329876bbaf2a59"
+  },
+  "portable_replay": {
+    "status": "PASS",
+    "retained_files_verified": 142,
+    "cases": 6,
+    "production_modules_imported": false,
+    "result": {
+      "status": "PASS",
+      "cases": [
+        {
+          "status": "PASS",
+          "wing": "25",
+          "panels": 8,
+          "mixed_compatibility": 4.371503159461554e-15,
+          "maximum_backward_error": 1.7617114199158428e-16,
+          "tip_compliance_relative": 0.0001526937147047926,
+          "tip_compliance_column_relative": 0.011983155959410605,
+          "profile_relative": 0.0001526937147047926,
+          "profile_column_relative": 0.011983155959410605,
+          "native_tangent_step_relative": 5.4340219168850765e-12,
+          "native_profile_step_relative": 1.3665496664937426e-11,
+          "continuum_step_relative": 6.713236486335305e-16,
+          "continuum_profile_step_relative": 6.713236486335305e-16,
+          "projected_mass_relative": 3.4444683202497825e-12,
+          "mass_step_relative": 3.766738397212088e-12,
+          "mass_quadrature_relative": 1.1923391036070378e-12,
+          "position_relative_to_span": 0.00014143914341615237,
+          "rotation_absolute": 2.993400314770347e-05
+        },
+        {
+          "status": "PASS",
+          "wing": "75",
+          "panels": 8,
+          "mixed_compatibility": 2.7382274850848013e-15,
+          "maximum_backward_error": 6.133670668519377e-17,
+          "tip_compliance_relative": 0.0005713995075991513,
+          "tip_compliance_column_relative": 0.006398156618303274,
+          "profile_relative": 0.0005713995075991513,
+          "profile_column_relative": 0.006285519852973751,
+          "native_tangent_step_relative": 4.404769470086314e-12,
+          "native_profile_step_relative": 7.110381863849772e-12,
+          "continuum_step_relative": 1.781845513087808e-14,
+          "continuum_profile_step_relative": 1.808951249475853e-14,
+          "projected_mass_relative": 4.935506366420604e-12,
+          "mass_step_relative": 5.205710954756998e-12,
+          "mass_quadrature_relative": 5.882296790494543e-12,
+          "position_relative_to_span": 0.0005640478551523899,
+          "rotation_absolute": 5.518823620532527e-05
+        },
+        {
+          "status": "PASS",
+          "wing": "25",
+          "panels": 16,
+          "mixed_compatibility": 2.8102520310824275e-16,
+          "maximum_backward_error": 2.8464640346333436e-16,
+          "tip_compliance_relative": 3.8727505727811e-05,
+          "tip_compliance_column_relative": 0.0029524074011834777,
+          "profile_relative": 3.8727505727811e-05,
+          "profile_column_relative": 0.0029524074011834777,
+          "native_tangent_step_relative": 3.902366503176186e-12,
+          "native_profile_step_relative": 1.1416166946046523e-11,
+          "continuum_step_relative": 2.237116760447419e-16,
+          "continuum_profile_step_relative": 3.355675140671128e-16,
+          "projected_mass_relative": 8.30691360814114e-13,
+          "mass_step_relative": 9.18867206080858e-13,
+          "mass_quadrature_relative": 9.567703364786605e-13,
+          "position_relative_to_span": 3.585840205537755e-05,
+          "rotation_absolute": 7.766084335294351e-06
+        },
+        {
+          "status": "PASS",
+          "wing": "75",
+          "panels": 16,
+          "mixed_compatibility": 9.819141203107426e-16,
+          "maximum_backward_error": 1.6136251057706643e-16,
+          "tip_compliance_relative": 0.00014194661112875294,
+          "tip_compliance_column_relative": 0.0015233551732054549,
+          "profile_relative": 0.00014194661112875294,
+          "profile_column_relative": 0.0015233551732054549,
+          "native_tangent_step_relative": 2.730804117196466e-12,
+          "native_profile_step_relative": 1.0432061757187627e-11,
+          "continuum_step_relative": 9.10766504388744e-16,
+          "continuum_profile_step_relative": 9.10766504388744e-16,
+          "projected_mass_relative": 5.349737367140827e-12,
+          "mass_step_relative": 5.17146432713177e-12,
+          "mass_quadrature_relative": 7.1114398978114225e-12,
+          "position_relative_to_span": 0.00013969601285397423,
+          "rotation_absolute": 1.3746012646796535e-05
+        },
+        {
+          "status": "PASS",
+          "wing": "25",
+          "panels": 32,
+          "mixed_compatibility": 2.1510571102112408e-16,
+          "maximum_backward_error": 2.4393660451495896e-16,
+          "tip_compliance_relative": 9.69268781161318e-06,
+          "tip_compliance_column_relative": 0.0007568599317133245,
+          "profile_relative": 9.69268781161318e-06,
+          "profile_column_relative": 0.0007568599317133245,
+          "native_tangent_step_relative": 2.241141695149954e-12,
+          "native_profile_step_relative": 3.1370522645485546e-11,
+          "continuum_step_relative": 4.473738823881689e-16,
+          "continuum_profile_step_relative": 5.592173529852112e-16,
+          "projected_mass_relative": 1.1133238639980608e-12,
+          "mass_step_relative": 1.323375425555124e-12,
+          "mass_quadrature_relative": 4.299115249047896e-13,
+          "position_relative_to_span": 8.978805028113847e-06,
+          "rotation_absolute": 1.958685685601705e-06
+        },
+        {
+          "status": "PASS",
+          "wing": "75",
+          "panels": 32,
+          "mixed_compatibility": 4.562106514766064e-16,
+          "maximum_backward_error": 1.9709089411908825e-16,
+          "tip_compliance_relative": 3.641513597044621e-05,
+          "tip_compliance_column_relative": 0.0003901524487168895,
+          "profile_relative": 3.641513597044621e-05,
+          "profile_column_relative": 0.0003901524487168895,
+          "native_tangent_step_relative": 4.537357941700744e-12,
+          "native_profile_step_relative": 8.017300474761436e-12,
+          "continuum_step_relative": 2.275668593219773e-16,
+          "continuum_profile_step_relative": 3.413502889829659e-16,
+          "projected_mass_relative": 4.110115883925764e-12,
+          "mass_step_relative": 3.8024868201726645e-12,
+          "mass_quadrature_relative": 3.664200525818559e-12,
+          "position_relative_to_span": 3.580343144273018e-05,
+          "rotation_absolute": 3.611016293281084e-06
+        }
+      ],
+      "refinement": [
+        {
+          "wing": "25",
+          "successive_error_ratios": [
+            0.24637978602497407,
+            0.2563534867884208
+          ]
+        },
+        {
+          "wing": "75",
+          "successive_error_ratios": [
+            0.2380928233059467,
+            0.2561139093360138
+          ]
+        }
+      ],
+      "scope": "Frozen nodal dead-load structural response and projected real inertia; not a full flutter operator or experimental check."
+    },
+    "result_sha256": "12417302ec0c974812bc5c59cd9f19c89c1685db9f5d8ba18121c2a35306ca67",
+    "strict_diagnostic": {
+      "status": "FAIL_STRICT_DIAGNOSTIC",
+      "physics_gates": "PASS",
+      "differences": [
+        {
+          "path": "/cases/0/maximum_backward_error",
+          "replayed": 1.7617114199158428e-16,
+          "retained": 2.1187428429790282e-16,
+          "absolute_difference": 3.5703142306318545e-17
+        },
+        {
+          "path": "/cases/1/maximum_backward_error",
+          "replayed": 6.133670668519377e-17,
+          "retained": 5.992569529570879e-17,
+          "absolute_difference": 1.4110113894849777e-18
+        },
+        {
+          "path": "/cases/3/maximum_backward_error",
+          "replayed": 1.6136251057706643e-16,
+          "retained": 2.0075617513188882e-16,
+          "absolute_difference": 3.939366455482239e-17
+        },
+        {
+          "path": "/cases/4/maximum_backward_error",
+          "replayed": 2.4393660451495896e-16,
+          "retained": 3.3264082433858053e-16,
+          "absolute_difference": 8.870421982362157e-17
+        },
+        {
+          "path": "/cases/5/maximum_backward_error",
+          "replayed": 1.9709089411908825e-16,
+          "retained": 1.961223884968814e-16,
+          "absolute_difference": 9.685056222068573e-19
+        }
+      ]
+    },
+    "note": "All original physical gates pass. A separate strict report comparison differs only in near-machine-precision linear-solve backward errors, by at most 8.88e-17. No acceptance bound changed."
+  }
+}

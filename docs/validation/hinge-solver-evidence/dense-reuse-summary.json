@@ -1,0 +1,111 @@
+{
+  "status": "PASS_ISOLATED_DENSE_LU_REUSE_CONTROLS",
+  "candidate": "candidate",
+  "composition_sha256": "c2440bfb7f06048d69736defabf474c22549be756e259694073324bd2e340a6e",
+  "source_audit_sha256": "4a7bea3312528f44b30549bffcca58456cf3322348a87d8659964bb16a535a21",
+  "changed_files": {
+    "structured_static.py": "be26035674747840a95b0c6fc3ab68478e19069ed4b489d95793103be1189dfe"
+  },
+  "patch_sha256": "82afba9fe16b3d7116dd918da24844fb6d9c12b4bc3a7f18b3b73518d4705e94",
+  "module_count": 102,
+  "tests": {
+    "native_pytest": 49,
+    "regression_log_sha256": "d62d9032c9553d9327a7528274ff33a81997156dc0ba785f7b062e3f4b9951fd",
+    "real_hinge_controls": [
+      "accepted/rejected continuation stages",
+      "distinct Jacobians",
+      "failed singular first factor",
+      "input immutability"
+    ],
+    "native_scipy": "1.18.1",
+    "browser_scipy": "1.18.0",
+    "warning_threshold_observed": "dtype epsilon",
+    "browser_warning_threshold_observed": "dtype epsilon"
+  },
+  "retained_matrix_replay": {
+    "matrix_size": 2428,
+    "right_hand_sides": 13,
+    "reconstructed_rhs_max_error": 0.0,
+    "max_solution_difference": 0.0,
+    "matching_line_search_decisions": 12,
+    "old_factorizations": 13,
+    "new_factorizations": 1,
+    "old_seconds": 8.937468755961163,
+    "cached_seconds": 0.6504972679977072,
+    "speed_ratio": 13.739440879546729,
+    "condition_estimates": [
+      4.9304918311223955e-18,
+      4.921088283906713e-18
+    ],
+    "ill_conditioning_warnings_retained": true,
+    "numpy_comparison": [
+      {
+        "matrix": "matrix-0044-full.npz",
+        "max_abs_difference": 1.1524852253086415e-12,
+        "relative_l2_difference": 2.9187314338164506e-10,
+        "numpy_max_defect": 8.892710922020833e-16,
+        "candidate_max_defect": 2.3123470064450365e-16
+      },
+      {
+        "matrix": "matrix-0046-full.npz",
+        "max_abs_difference": 7.009557864701144e-13,
+        "relative_l2_difference": 1.5801922188335008e-10,
+        "numpy_max_defect": 2.226767456135672e-15,
+        "candidate_max_defect": 2.1270377969259506e-15
+      }
+    ]
+  },
+  "lifetime": "Local to one full-Jacobian method attempt; discarded before new method/Jacobian/iteration/load stage. No cross-iteration dense reuse.",
+  "scope_limits": [
+    "Measured speed ratio is direct linear replay under concurrent machine load; no end-to-end performance or equilibrium completion claim.",
+    "Does not fix the optional bipartite matching stall; sibling candidate owns that separate change.",
+    "Does not fix the newly identified cold-WASM constraint deepcopy defect; root owns that separate change.",
+    "General real dense LU diagnostics are retained. Current full Jacobians are float64; no broad complex/batched solver API claim.",
+    "No equations, rank functions, continuation limits, or nonlinear acceptance tolerances changed.",
+    "No production integration, FFWT experimental validation, or coverage promotion."
+  ],
+  "final_sessions": [
+    {
+      "id": 9042,
+      "exit": 0,
+      "reaped": true
+    },
+    {
+      "id": 60664,
+      "exit": 0,
+      "reaped": true
+    },
+    {
+      "id": 60095,
+      "exit": 0,
+      "reaped": true
+    },
+    {
+      "id": 11083,
+      "exit": 0,
+      "reaped": true
+    },
+    {
+      "id": 62974,
+      "exit": 0,
+      "reaped": true
+    }
+  ],
+  "browser_process": {
+    "pid": 13707,
+    "port": 40327,
+    "server_closed": true,
+    "browser_closed": true
+  },
+  "production_changed": false,
+  "evidence_sha256": {
+    "regressions.json": "902ffa09a6395e933491ad444e3a2cc8e8943a63985b7ec47a1ac80314de5cce",
+    "replay.json": "47c73ff3249c32d1fea5c0f27c4338d96cb9cb2b09e97192c34651ba17ed2a44",
+    "replay-vectors.npz": "544cc7e92454fab55d6cc469c94470c5c720a7847bb2de524480b52444f70ab8",
+    "numpy-comparison.json": "383adf329aa642ca4f846e0afad78d04c4e24156f6cf8a2b0b72c09bb87475bd",
+    "native-warning.json": "d1f117e3c8ccf15209703cc1d94d895ea464959ab48fb937822e09409be437d7",
+    "browser-warning.json": "c18eebfd4d1c6143aa60c01ef7a9d43710e60237b694fd5ac8900e746499a166",
+    "library-source-audit.json": "45105b96795fd700ea35b21d9132f463c1e7bd73590bd9f8d4c03823184c5309",
+    "input-pins.json": "a9b11be1a117d00aa13ccc7a0baf46301d042e5af6be17337c671c5ff1bdd27f"
+  }
+}

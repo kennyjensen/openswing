@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-27T05:48:23.882070+00:00",
+  "status": "bounded_primary_source_and_retained_result_audit",
+  "operations": {
+    "production_imports": 0,
+    "solves": 0,
+    "residual_evaluations": 0,
+    "matrices": 0,
+    "new_aerodynamic_evaluations": 0,
+    "saved_field_scalar_quadrature_only": true
+  },
+  "scope": "SA1 attached-flow retained row001 (alpha1.9971), existing N200/K40 and N400/K0,K40; no fit, selected mesh, changed acceptance gate or replacement result.",
+  "conclusion": {
+    "structural_endpoint_average_is_explicit": true,
+    "aerodynamic_vortex_sampling_at_Glauert_midpoint_is_explicit": true,
+    "current_Gamma_midpoint_Delta_s_load_rule_uniquely_proved_by_text": false,
+    "general_nodal_Gamma_trapezoid_uniquely_proved_by_text": false,
+    "load_transfer_discretization_fully_specified_by_inspected_text": false,
+    "production_change_justified_by_this_audit": false,
+    "reason": "The structural definition of a and its restricted section4.2 redefinition create a real specification gap for the aerodynamic-to-structural sample transfer. Eq67 points to the interval force-point geometry while Eq56 uses an endpoint average of distributed load. The inspected equations do not give the missing nodal aerodynamic force reconstruction or one-sided value convention for piecewise-constant Gamma. Internal force conservation alone cannot resolve this gap."
+  },
+  "source_references": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        570,
+        576
+      ],
+      "equations": [
+        46,
+        47
+      ],
+      "claim": "Continuous force and moment balance define distributed f and m separately from concentrated loads."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        593,
+        600
+      ],
+      "equations": [
+        49,
+        50
+      ],
+      "claim": "Section 2.1 defines subscript a as the simple average between i and i+1 stations."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        642,
+        657
+      ],
+      "equations": [
+        55,
+        56
+      ],
+      "claim": "Structural balance uses f_a*Delta_s and m_a*Delta_s. These equations are conservative for the discrete loads supplied. Conservation does not identify how the aerodynamic force density was sampled or recovered."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        735,
+        746
+      ],
+      "equations": [
+        62,
+        63
+      ],
+      "claim": "Pointwise circulation is per structural interval; the alternative is a continuous sine representation."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        770,
+        775
+      ],
+      "equation": 67,
+      "claim": "Kutta-Joukowsky distributed lift is rho*Gamma*(V cross s_hat), with velocity evaluated at the bound-vortex location rh.v. defined later."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        1570,
+        1592
+      ],
+      "equations": [
+        150,
+        151,
+        152,
+        153,
+        154
+      ],
+      "claim": "Vortex segment strength samples the Fourier mode at the Glauert midpoint, or is piecewise constant for the pointwise representation. The a redefinition is explicitly restricted to this section."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        1615,
+        1620
+      ],
+      "equation": 155,
+      "claim": "The bound-vortex midpoint rh.v., where lift force is defined to be located, uses the Glauert-midpoint ra and quarter-chord offset."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        1867,
+        1886
+      ],
+      "equations": [
+        179,
+        180
+      ],
+      "claim": "Section 5.1 obtains total force by summing the structural equations and implementing the equivalent ground reaction. It does not restate a unique aerodynamic-to-structural recovery."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "lines": [
+        1910,
+        1918
+      ],
+      "equation": 185,
+      "claim": "Total reported lift includes both circulatory lift and profile drag projected normal to freestream; therefore rho*V*integral(Gamma) need not equal the total CL."
+    },
+    {
+      "path": ".reference/asw_uns_theory.txt",
+      "lines": [
+        2024,
+        2055
+      ],
+      "equations": [
+        263,
+        264,
+        265,
+        266,
+        267
+      ],
+      "claim": "Unsteady extension derives total moment with the arithmetic spatial midpoint r_a=(r_i+r_(i+1))/2; force/couple transfer must preserve the resulting global wrench. This algebra still does not specify aerodynamic f_i recovery."
+    },
+    {
+      "path": "openswing/aero.py",
+      "lines": [
+        559,
+        608
+      ],
+      "claim": "Current implementation forms integrated interval circulation forces from sampled Gamma, local velocity and interval length, plus drag/apparent contributions."
+    },
+    {
+      "path": "openswing/source_coupled.py",
+      "lines": [
+        39,
+        52
+      ],
+      "claim": "Current source coupled transfer offsets the interval couple from aerodynamic mesh.rm to the structural spatial midpoint before symmetric endpoint transfer."
+    }
+  ],
+  "pins": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": ".reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": ".reference/asw_uns_theory.pdf",
+      "bytes": 357554,
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    {
+      "path": ".reference/manifest.json",
+      "bytes": 1812,
+      "sha256": "6b1b0f6714da4b7f4b26913ae0d66c7c525bfe90e74e78c74b1420f95876a4db"
+    },
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "openswing/source_discrete.py",
+      "bytes": 26573,
+      "sha256": "71d1dc861f945801576b9e9e1daf81ac09305b3fdd92bce5bac70f712d8af9d0"
+    },
+    {
+      "path": "openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "artifacts/isae/sa1-basis-diagnostic-20261027/protocol.json",
+      "bytes": 27159,
+      "sha256": "f42d80f4d87e57465cd5c1ec1cbf407f673f64d527863dbaa55f75973f13a704"
+    },
+    {
+      "path": "artifacts/isae/sa1-basis-diagnostic-20261027/summary.json",
+      "bytes": 2369,
+      "sha256": "21c836541b74fc54d7d25a878d821456530532551aa07c2d6396b60b2dd156ef"
+    }
+  ],
+  "retained_results": [
+    {
+      "artifact": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n200-k40.json",
+        "bytes": 388010,
+        "sha256": "950d15135ce80b554c8ea0e8db6236bf958637f7a433c3254b58ab53bf398d4d"
+      },
+      "id": "row001-n200-k40",
+      "panels": 200,
+      "circulation_unknowns": 40,
+      "alpha_deg": 1.9971,
+      "gamma_midpoint_integral": 20.48573252713783,
+      "CL_gamma_midpoint": 0.1449752841522793,
+      "CL_kutta_joukowsky_saved_velocity": 0.1449752841522793,
+      "CL_total_saved": 0.14488103315586112,
+      "CL_total_archive": 0.144797,
+      "CL_total_archive_tolerance": 5e-07,
+      "CL_total_discrepancy": 8.403315586111293e-05,
+      "CL_other_force_contribution": -9.425099641818813e-05,
+      "CLi_saved": 0.14497528415227937,
+      "maximum_saved_velocity_component_parallel_to_wind_minus_freestream": 7.105427357601002e-15,
+      "force_sum_maximum_absolute_difference": 4.547473508864641e-13,
+      "Fourier_midpoint_decode_maximum_absolute_difference": 2.6645352591003757e-15,
+      "theta_step_maximum_deviation_from_pi_over_N": 4.975186929101483e-15,
+      "gamma_endpoint_trapezoid_integral": 20.485100698898492,
+      "CL_gamma_endpoint_trapezoid": 0.14497081277306884,
+      "CL_gamma_endpoint_trapezoid_minus_midpoint": -4.471379210474469e-06,
+      "CL_gamma_continuous_sine_integral": 0.14497677463040415,
+      "relative_endpoint_trapezoid_change": -3.084235521000345e-05,
+      "predicted_relative_change_cos_pi_over_2N": -3.0842355210336514e-05,
+      "independent_uniform_theta_closed_form_midpoint_integral": 20.485732527137834,
+      "closed_form_midpoint_absolute_difference": 3.552713678800501e-15,
+      "trapezoid_identity_absolute_difference": 7.105427357601002e-15,
+      "total_CL_if_only_circulatory_lift_transfer_changed": 0.14487656177665065,
+      "remaining_total_CL_discrepancy_if_only_circulatory_lift_transfer_changed": 7.956177665063846e-05,
+      "qualification": "Diagnostic quadrature of the existing retained Fourier function only. No nodal induced-velocity evaluation, new circulation solve or drag/moment re-evaluation; not an alternative prediction or recovered historical transfer."
+    },
+    {
+      "artifact": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+        "bytes": 745943,
+        "sha256": "53eb985d0ea800863b0d5b80f8915de9303be8a8ab5bce3f34a022e92ae4f774"
+      },
+      "id": "row001-n400-k0",
+      "panels": 400,
+      "circulation_unknowns": 400,
+      "alpha_deg": 1.9971,
+      "gamma_midpoint_integral": 20.485732361918913,
+      "CL_gamma_midpoint": 0.14497528298304313,
+      "CL_kutta_joukowsky_saved_velocity": 0.14497528298304313,
+      "CL_total_saved": 0.1448810324049513,
+      "CL_total_archive": 0.144797,
+      "CL_total_archive_tolerance": 5e-07,
+      "CL_total_discrepancy": 8.403240495127862e-05,
+      "CL_other_force_contribution": -9.425057809184234e-05,
+      "CLi_saved": 0.14497528298304313,
+      "maximum_saved_velocity_component_parallel_to_wind_minus_freestream": 7.105427357601002e-15,
+      "force_sum_maximum_absolute_difference": 9.094947017729282e-13
+    },
+    {
+      "artifact": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k40.json",
+        "bytes": 752040,
+        "sha256": "e10d5adc335b435316efc742ac74b33179d9745a5ab1e6ee22752dd56be4ad73"
+      },
+      "id": "row001-n400-k40",
+      "panels": 400,
+      "circulation_unknowns": 40,
+      "alpha_deg": 1.9971,
+      "gamma_midpoint_integral": 20.485732527137866,
+      "CL_gamma_midpoint": 0.14497528415227956,
+      "CL_kutta_joukowsky_saved_velocity": 0.14497528415227953,
+      "CL_total_saved": 0.14488103357358328,
+      "CL_total_archive": 0.144797,
+      "CL_total_archive_tolerance": 5e-07,
+      "CL_total_discrepancy": 8.403357358327534e-05,
+      "CL_other_force_contribution": -9.425057869624776e-05,
+      "CLi_saved": 0.14497528415227953,
+      "maximum_saved_velocity_component_parallel_to_wind_minus_freestream": 7.105427357601002e-15,
+      "force_sum_maximum_absolute_difference": 4.973799150320701e-14,
+      "Fourier_midpoint_decode_maximum_absolute_difference": 6.217248937900877e-15,
+      "theta_step_maximum_deviation_from_pi_over_N": 8.392592176775793e-15,
+      "gamma_endpoint_trapezoid_integral": 20.485574569469065,
+      "CL_gamma_endpoint_trapezoid": 0.14497416630316737,
+      "CL_gamma_endpoint_trapezoid_minus_midpoint": -1.1178491121921486e-06,
+      "CL_gamma_continuous_sine_integral": 0.14497565676979965,
+      "relative_endpoint_trapezoid_change": -7.71061852888888e-06,
+      "predicted_relative_change_cos_pi_over_2N": -7.710618529443991e-06,
+      "independent_uniform_theta_closed_form_midpoint_integral": 20.485732527137877,
+      "closed_form_midpoint_absolute_difference": 1.0658141036401503e-14,
+      "trapezoid_identity_absolute_difference": 1.0658141036401503e-14,
+      "total_CL_if_only_circulatory_lift_transfer_changed": 0.1448799157244711,
+      "remaining_total_CL_discrepancy_if_only_circulatory_lift_transfer_changed": 8.29157244710832e-05,
+      "qualification": "Diagnostic quadrature of the existing retained Fourier function only. No nodal induced-velocity evaluation, new circulation solve or drag/moment re-evaluation; not an alternative prediction or recovered historical transfer."
+    }
+  ],
+  "independent_identities": {
+    "harmonic_endpoint_mean": "[sin(k theta_i)+sin(k theta_(i+1))]/2 = sin(k theta_mid)*cos(k Delta_theta/2). Holds separately on every interval, including nonuniform theta.",
+    "uniform_full_span_sine_integrals": "For theta_j=j*pi/N, s=R*cos(theta), Gamma=sum_(k=1)^K A_k sin(k theta), K<N: midpoint sum M=sum Gamma(theta_mid)*Delta_s = R*N*sin(pi/(2N))*A_1; endpoint trapezoid T=cos(pi/(2N))*M; continuous integral C=pi*R*A_1/2. These follow from discrete sine orthogonality, independent of a circulation solver or archived targets.",
+    "constant_freestream_circulatory_lift": "For the straight unswept saved SA1 field, the velocity component parallel to freestream equals V at every retained sample to7.11e-15. Thus CL_circulatory=rho*V*sum(Gamma_i*Delta_s_i)/qS, independently of induced velocity normal to wind. The saved profile-force projection supplies the difference from total CL.",
+    "mean_product_is_not_product_means": "mean(Gamma*V) - mean(Gamma)*mean(V) = (Gamma_R-Gamma_L)*(V_R-V_L)/4, componentwise. Therefore replacing sampled Gamma alone is not a general implementation of endpoint-averaged f= rho*Gamma*(V cross s_hat).",
+    "conservative_interval_wrench": "Given integrated interval force P at aerodynamic position r_theta and intrinsic couple C, structural midpoint r_bar=(r_L+r_R)/2 requires midpoint couple C_bar=C+(r_theta-r_bar) cross P. Symmetric endpoint forces P/2 and couples C_bar/2 then give sum F=P and sum(r cross F+couple)=r_theta cross P+C for any reference origin. This identity tests transfer conservation, not the choice of P.",
+    "scalar_identity_checks": [
+      {
+        "theta_left": 0.11,
+        "theta_right": 0.73,
+        "k": 1,
+        "absolute_error": 5.551115123125783e-17
+      },
+      {
+        "theta_left": 0.73,
+        "theta_right": 1.81,
+        "k": 3,
+        "absolute_error": 1.0755285551056204e-16
+      },
+      {
+        "theta_left": 1.81,
+        "theta_right": 2.97,
+        "k": 7,
+        "absolute_error": 3.3306690738754696e-16
+      }
+    ],
+    "mean_product_identity_component_errors": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "meaningful_test_proposals": [
+    {
+      "name": "Harmonic quadrature oracle",
+      "construction": "Prescribe Gamma=A1*sin(theta)+A3*sin(3theta) on a fixed cosine mesh with constant freestream, unit density, zero profile drag and zero section moment. Compare the integrated force against the independently derived M/T/C formula corresponding to an explicitly declared transfer policy. Use two resolutions, not archived target matching.",
+      "discriminates": "Detects an unannounced change between interval sampled loads, endpoint averages, or exact sine integration; does not assume a shared production summation is correct."
+    },
+    {
+      "name": "Endpoint product averaging",
+      "construction": "Use unequal endpoint Gamma and unequal nonparallel endpoint velocity/frame fields. Check the average of the complete endpoint Kutta-Joukowsky vectors, not Gamma average times midpoint velocity.",
+      "discriminates": "A source-endpoint-average implementation must retain covariance/product terms; matching uniform velocity alone is insufficient."
+    },
+    {
+      "name": "Noncentral force-point wrench transfer",
+      "construction": "Prescribe arbitrary noncollinear r_L,r_R,P,C and a nonmidpoint r_theta. Independently compare force and global moment before/after transfer about two arbitrary origins.",
+      "discriminates": "Detects loss or double counting of the aerodynamic-to-structural spatial lever arm. Does not establish original force quadrature."
+    },
+    {
+      "name": "Piecewise circulation trace policy",
+      "construction": "Two adjacent intervals with deliberately different constant circulations. Require an explicit recovery/one-sided rule at the common node before claiming nodal trapezoidal loading.",
+      "discriminates": "Eq153 alone gives interval constants and does not select unique nodal Gamma at a jump."
+    }
+  ],
+  "actionable_findings": [
+    "The saved same-basis endpoint-trapezoid diagnostic lowers circulatory CL by about4.47e-6 (N200) or1.12e-6 (N400), far smaller than the roughly8.40e-5 total-CL discrepancy. This rejects only that narrow fixed-Gamma transfer change as a complete explanation.",
+    "Do not silently replace current loading with nodal Gamma trapezoids: a full source-consistent alternative needs a documented nodal velocity/frame and circulation trace rule plus a conservative moment transfer.",
+    "Seek an explicit primary discretization statement or v5.96 implementation showing the aerodynamic f_a construction. Until then report the load-transfer assumption; do not describe either rule as proven historical behavior."
+  ]
+}

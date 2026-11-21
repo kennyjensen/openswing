@@ -1,0 +1,118 @@
+{
+  "status": "SOURCE_ONLY_DECOMPOSITION_DESIGN",
+  "scope": "Bounded SA6 35%-chord isolated-right-aileron diagnostics. No production edits, imports, residual calls, solves, or numerical aerodynamic evaluations in this review.",
+  "primary_sources": [
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "locators": "Steady formulation, printed pp. 15\u201317: Eqs. 64, 67, 69, 70, 72\u201374; pp. 32\u201333: Eqs. 155\u2013159; pp. 40\u201341: Eqs. 202\u2013204."
+    },
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+      "locators": "Control mixing and conventional-aileron drag limitation, cached lines 1225\u20131278."
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 11907,
+      "sha256": "d85637b0f298aa9f9f3b951083265743178f88bc07b5e140f1b32e6c3a2d35bb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/atmosphere.py",
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/compare-isae-sa6-single-aileron.py",
+      "bytes": 16738,
+      "sha256": "af87d945e73f6cb82879907df342f8b212e726e8944a7be09b28cf4afb3bf30b"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-sa6-single-aileron.json",
+      "bytes": 1750899,
+      "sha256": "e4e886da9bc9cdbdb155f83a0509b755dba5f033e5f709a3eb4184588157e9e6"
+    }
+  ],
+  "capture": {
+    "condition": [
+      "speed, body alpha/beta, control F1, actual rho and sound speed, stall enabled/Ks/width, PG Mach, circulation modes, frozen/current flag, ground/gust/rates/accelerations, reference area/chord/span and moment/velocity origins"
+    ],
+    "raw_geometry": [
+      "strip identity and order, beam/physical IDs, t0/t1/tm, axis r0/r1/rm, physical triad columns c_hat/s_hat/n_hat, chord and original/current ds, Xax, vortex endpoints a/b, hv and cp locations, wind unit e and PG tensor"
+    ],
+    "material": [
+      "alpha_deg before mixing, dCLda, dCLdF1, Cdf, Cdp before mixing, dCDdF1, Cm before mixing, dCMdF1, CLmin/CLmax"
+    ],
+    "kinematics_and_solution": [
+      "final Gamma and Gamma_dot, cp_free and hv_free, final cp_induced and hv_induced vector fields, cp_jet and hv_jet vectors, retained full Vcp and Vhv, local circulation residual per strip"
+    ],
+    "native_targets": [
+      "actual native ncp, cl, Vperp and speed, tangency, flift, frate, fprofile, fapparent, mapparent, strip_force, section_moment, total force/moment and coefficients"
+    ],
+    "zero_scope_assertions": [
+      "one lifting beam; both wings retained; beta/rates/accelerations/Gamma_dot zero; no local motion, gust, ground, engine or nonzero body/point aero loads; no Fourier compression; no active speed floor; Cm_net=0 and Cdf=0 for these actual files"
+    ],
+    "capture_strategy": "Retain the final Vcp vector actually used in aero.py line 548 (cp_free + vcp.apply(Gamma) + cp_jet), and Vhv used for loads. A read-only call/return wrapper around that existing operator application or bounded function-local tracing can retain values without editing production. If an extra operator application is necessary, declare its count; it is not a new trim/aircraft solve. Retain native outputs as targets, not as inputs to reconstructed expected force terms."
+  },
+  "independent_reconstruction": {
+    "units": "All vectors are OpenSwing body axes x aft, y right, z up. F1 retains the derivative table units, which are degrees for these SA6 tables; convert alpha_deg alone to radians.",
+    "normal": "alpha_A = pi*alpha_deg/180 + F1*dCLdF1/dCLda; ncp = sin(alpha_A)*c_hat + cos(alpha_A)*n_hat. Reconstruct this from raw material and physical triad, rather than reusing captured native ncp as expected.",
+    "speeds": "V = Vhv; vp = V - dot(V,s_hat)*s_hat; u=norm(vp); v=norm(V). The native floor max(u,speed*1e-12) must be inactive for this diagnostic; assert it.",
+    "tangency": "T = dot(Vcp,ncp). Gamma_dot=0 here. General native expression subtracts (2/pi)*lag_rate/u, so do not silently apply this steady formula to moving/unsteady captures.",
+    "circulatory_force": "F_circ = rho*Gamma*cross(Vhv,s_hat)*ds.",
+    "friction_force": "F_Cdf = 0.5*rho*norm(Vhv)*Vhv*chord*Cdf*ds.",
+    "constant_pressure_force": "Cdp_net=Cdp+F1*dCDdF1; F_Cdp=0.5*rho*u*vp*chord*Cdp_net*ds.",
+    "stall_force": "F_stall=2*rho*(vp/u)*T*T*chord*ds. The tangency is evaluated at cp while this force direction and speed divisor use hv. It is nonnegative along vp for either sign of T; keep signed T in diagnostics even though force uses its square.",
+    "profile_sum": "F_Cdf+F_Cdp+F_stall must reproduce native fprofile separately from F_circ. With asserted-zero apparent/rate forces, their total must reproduce each native strip force.",
+    "leakage_crosscheck": "cl=2*Gamma/(chord*u). Let sp(x)=max(x,0)+log1p(exp(-abs(x))) implemented independently. fstall=width*(sp((cl-CLmax)/width)-sp((CLmin-cl)/width)); L=(u/dCLda)*Ks*fstall when stall enabled, otherwise zero. Verify (T-L)/speed against saved local residual. Softplus expression is independent of production expit/expm1 split.",
+    "independence_limit": "Recovering T solely as leakage+speed*saved_residual would reproduce the enforced residual and could conceal a wrong cp normal/vector. Prefer direct retained Vcp and independently rebuilt ncp; use leakage recovery only as a second consistency identity. The captured native Vcp/Vhv fields remain supplied inputs, so this verifies force-law decomposition, not independent Biot\u2013Savart accuracy."
+  },
+  "locations_and_moments": {
+    "hv": "Eq. 155: hv = rm + ((1/4-Xax)*chord/norm(cross(e,s_hat)))*e. The hv operator omits only the receiver panel own bound segment before summing; its trailing legs and other bound segments remain.",
+    "cp": "Eqs. 156\u2013157: cp = hv + (dCLda/(4*pi)*chord/norm(cross(e,s_hat)))*e. The cp operator includes the bound segments. Vcp must not replace Vhv in force or cl formulas.",
+    "profile": "Each profile contribution is applied at beam-axis rm: M_part = cross(rm-r_ref,F_part). Eq. 74 neglects a separate drag couple. Do not use cp or velocity_position=hv as the profile load arm.",
+    "circulation": "M_circ = cross(rm-r_ref,F_circ) + cross((1/4-Xax)*chord*c_hat,F_circ). Eq. 72 uses the physical chord arm, not the wind-aligned displacement hv-rm. For these straight SA6 sections its intrinsic couple is purely pitch, so the old roll/yaw decomposition was unaffected.",
+    "pitching_coefficient": "If retaining all three moment components, add M_Cm=0.5*rho*u*u*chord*chord*ds*(Cm+F1*dCMdF1)/sqrt(1-(u/sound_speed)**2)*s_hat. It is zero for these actual models. PG Mach=0 alone does not force local section Mach to zero.",
+    "normalization": "qS=0.5*rho*speed^2*Sref; Cl=-Mx/(qS*Bref), Cn=-Mz/(qS*Bref), Cm=My/(qS*Cref). Body-pitch wind projections give CL=(-sin(alpha)*Fx+cos(alpha)*Fz)/qS, CD=(cos(alpha)*Fx+sin(alpha)*Fz)/qS when beta=0."
+  },
+  "neutrality_and_crosswing": [
+    "For each mesh and pitch retain one neutral capture with identical geometry, controls masked on the left, and zero F1. Neutral total Cl/Cn should be near zero, but individual left/right component moments need not vanish.",
+    "For each single-control direction subtract its neutral strip/component loads before attributing a change to right or left half. Retain the neutral per-strip distributions; subtracting only the global neutral coefficient loses side-level baseline cancellation.",
+    "The left aileron derivative is zero, but the left-wing circulation, velocity, Cdp force and stall force can still change through aerodynamic coupling. Never zero, discard, or assume unchanged loads on that wing.",
+    "Sum receiver strips by physical y sign and optionally by actual control support. Preserve both halves in the full-wing total. Verify no panel straddles y=0 before treating a complete strip as belonging to one half; otherwise mark or geometrically partition that strip.",
+    "Matched combined observable remains C(right up)-C(right down). Per-component and per-receiver-half differences add to the same total; the shared neutral cancels algebraically.",
+    "Receiver-half load changes are not source-half induced-velocity contributions. If source-half influence attribution is desired, separately retain operator application to Gamma restricted to each source half, and verify left+right fields recover the complete induced field. This requires declared extra field products but no new solve; it is optional for the minimum load-law diagnostic."
+  ],
+  "checks_and_scope": [
+    "Retained state coefficients must match the corresponding previously accepted 966-state row before interpreting decomposition; keep the original residual and coefficient gates unchanged.",
+    "Check raw cp/hv vector sums, independent normals, local residual identity, each reconstructed force term, profile/total sums, strip moments, global wrench, coefficient normalization, per-half sums, and up-minus-down sums.",
+    "Keep raw arrays, inputs, source pins and exact capture/evaluation counts. Do not derive expected component values by subtracting native flift from native total force.",
+    "A source-supported discrepancy was not revealed in the audited steady section equations. This diagnostic can identify the term and receiver region contributing to mismatch, but neither attribution nor agreement with the published algebra proves experimental validity."
+  ],
+  "operations": {
+    "production_imports": 0,
+    "production_edits": 0,
+    "aircraft_evaluations": 0,
+    "solves": 0
+  }
+}

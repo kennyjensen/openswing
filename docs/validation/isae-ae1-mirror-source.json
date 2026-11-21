@@ -1,0 +1,445 @@
+{
+  "schema": "openswing-isae-ae1-wall-source-addendum-v1",
+  "status": "SOURCE_ADAPTER_READY_PILOT_NOT_EXECUTED_BY_REVIEWER",
+  "scope": "Source/data inspection, one new adapter, AST parsing and arithmetic on existing literal records. No production edits, constructors, residuals, equilibrium, eigenanalysis or tests executed by this reviewer.",
+  "prior_readiness": {
+    "path": "/tmp/openswing-isae-ae1-20261025/source-readiness.json",
+    "bytes": 36338,
+    "sha256": "5e498ece09445b9981d5632fa0a3dba3b63fadce89fb75a439fc6997dbfb6e9e"
+  },
+  "adapter": {
+    "path": "/home/userland/aswing/scripts/isae_ae1.py",
+    "bytes": 13221,
+    "sha256": "586019076697f4840b8852c3653b4580453a0d18ffb1ed363590cc56d68c1f52"
+  },
+  "selection": {
+    "rejected": "Simply admitting endpoint contact in GroundPlane",
+    "reason": "Coupled finite-difference geometry probes can move a clamped endpoint through the wall before its constraint is satisfied; Newton also permits roundoff root violations. No guard bypass, tolerance exemption, epsilon displacement, or constraint elimination is introduced.",
+    "selected": "Explicit complete reflected single physical lifting beam with central full clamp; no aerodynamic image flag.",
+    "status": "Ideal slip-wall reconstruction, to be checked by independent exact-sample half-image/full-field tests and resulting static mirror symmetry. It is not a simulation of every tunnel wall, spacer, viscous boundary layer or mounting detail."
+  },
+  "theory": {
+    "source": "Drela steady theory section4.5, printed pp34-36, equations165-175; pinned asw_theory.txt1733-1798",
+    "equations": [
+      "S=I-2*n*n^T; p_image=S*p-2*offset*n.",
+      "solid image: Gamma_image=-Gamma; sigma_image=sigma; nu_image=S*nu.",
+      "The explicit negative-side beam traverses from negative tip toward root. Reversing the reflected horseshoe endpoints changes its oriented vortex sign, yielding the same image field with an even physical Gamma distribution.",
+      "For span-tangent inflow beta=0, reflection leaves the freestream invariant; the symmetric full field has zero wall-normal velocity."
+    ],
+    "guide": "aswing_doc.txt2634-2672 describes G as image selection, says the Earth-origin plane normal is prescribed, and requires all aircraft geometry above it. Contact is not explicitly approved by that guide.",
+    "limitations": [
+      "No claim that the historical ASWING implementation accepted contact in the same way.",
+      "No automatic even material mirror: torsion/bending terms need the parity derived below.",
+      "A second unrelated physical beam would receive cross-physical core regularization; one continuous physical beam preserves same-physical zero-core interactions.",
+      "Half/full mesh endpoints alone do not imply equal aerodynamic samples: Glauert receiver coordinates depend on the whole beam domain. Independent equivalence must split the actual full mesh at zero and retain exactly its right-side receiver/endpoint/material samples.",
+      "The full construction is a symmetric equilibrium representation. It does not establish stability against antisymmetric disturbances or the historical transient/fluctuation branch."
+    ]
+  },
+  "material_reflection": {
+    "axes": "Both sides use increasing global parameter t along +y, chord +x and normal +z. The negative side is the reflected positive material with reversed longitudinal parameter.",
+    "equations": [
+      "S=diag(1,-1,1), D=diag(1,-1,1); r_minus(-s)=S*r_plus(s).",
+      "R_minus(-s)=S*R_plus(s)*D; this is a proper triad even though S,D individually have determinant -1.",
+      "Virtual spatial rotation theta_minus=-S*theta_plus; coordinate derivative reversal gives material curvature parity diag(1,-1,1) in [kappa_c,kappa_s,kappa_n].",
+      "In primary/native reduced order [eps_s,kappa_s,kappa_c,kappa_n], strain_minus=P*strain_plus, P=diag(1,-1,1,1). K_minus=P*K_plus*P preserves strain energy.",
+      "Oriented cut force N_minus=-S*N_plus and cut moment M_minus=S*M_plus.",
+      "Mass centroid p_minus=S*p_plus; physical inertia J_minus=S*J_plus*S^T."
+    ],
+    "odd_fields": [
+      "EIcs",
+      "EIsn"
+    ],
+    "even_fields": [
+      "EA",
+      "EIcc",
+      "GJ",
+      "EInn",
+      "EIcn",
+      "Nta",
+      "Cta",
+      "Cea",
+      "Nea"
+    ],
+    "offsets": "Nta/Cta and other c/n offsets are even: reflection/reparameterization preserves the material c,n cross-section coordinates.",
+    "inertia": "Physical Ixy/Iyz reverse sign; Ixz and diagonal entries retain sign. Encode ASW signed products only after physical reflection. Keep both root-attached lumped masses, whose centroids lie on opposite sides.",
+    "projection": "Reuse accepted pazy_primary_conm2.source and pazy_primary.projection; remove only original K12 as already disclosed, then apply parity. No coefficient fit."
+  },
+  "geometry": {
+    "original_half_domain": [
+      1.0,
+      1.549843728
+    ],
+    "original_root": {
+      "beam": 1,
+      "t": 1.0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "constraint_type": 0,
+      "root_LE": [
+        -0.0441,
+        0.0,
+        0.0
+      ],
+      "root_TE": [
+        0.0559,
+        0.0,
+        0.0
+      ]
+    },
+    "original_point_masses": {
+      "count": 16,
+      "minimum_centroid_y": 0.00644284658,
+      "maximum_centroid_y": 0.55313155757,
+      "point_centroids_on_wall": 0,
+      "root_attached_records": 1,
+      "note": "A root attachment lies on the wall but its actual point-mass centroid has y=0.00644284658m, hence is above the plane."
+    },
+    "full": {
+      "beams": 1,
+      "physical_beams": 1,
+      "domain": [
+        -0.549843728,
+        0.549843728
+      ],
+      "ground": [
+        1,
+        0,
+        0
+      ],
+      "primary_masses": 32,
+      "additional_test2_masses": 2,
+      "implicit_mass_mirroring": false,
+      "meshes": [
+        {
+          "refinement": 2,
+          "intervals_per_half": 30,
+          "total_intervals": 60,
+          "total_nodes": 61
+        },
+        {
+          "refinement": 4,
+          "intervals_per_half": 60,
+          "total_intervals": 120,
+          "total_nodes": 121
+        }
+      ],
+      "note": "All 15 section intervals and16 original mass stations per half retained. Both meshes contain the same central root and all source stations. Exact current source span is not stretched to nominal0.55m."
+    },
+    "payload": "Additional10g Test2 mass per half at TE x=.0559,y=+-actual_semispan; Avin \u00a7V/\u00a7V.B supports TE, while Riso \u00a7IV.C says10mm aft. Zero-gravity stationary force is independent of this disagreement. No modal/time claim."
+  },
+  "condition": {
+    "mach": 0.0,
+    "density": 1.23,
+    "beta": 0.0,
+    "gravity": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "gravity_magnitude": 0.0,
+    "ground_effect": 0,
+    "position_earth": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "attitude": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "controls": {},
+    "powers": {},
+    "rates": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "angular_acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "stall": true,
+    "stall_factor": 40.0,
+    "stall_width": 0.05,
+    "aero_lag": true,
+    "circulation": "pointwise",
+    "freeze_influences": false,
+    "wake_core_ratio": 0.25,
+    "section": {
+      "dCLda": 6.1185,
+      "CLmax": 1.1,
+      "CLmin": -1.1,
+      "alpha": 0.0,
+      "Cm": 0.0,
+      "Cdf": 0.0,
+      "Cdp": 0.0
+    },
+    "qualification": "Mixed-source comparison: corrected primary structural properties with literal ISAE section slope/bounds and density. Incompressible Mach0 is explicit, not inferred exact tunnel atmosphere. Preserve positive modelg9.81 solely for Weight-to-mass conversion."
+  },
+  "primary_sources": [
+    {
+      "title": "Drela ASWING steady theory",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "locator": "section4.5 equations165-175, pp34-36"
+    },
+    {
+      "title": "Drela user guide",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+      "locator": "Ground effect, pinned lines2634-2672"
+    },
+    {
+      "title": "Riso and Cesnik author preprint, DOI10.2514/1.C036869",
+      "url": "https://www.researchgate.net/publication/366714346_Impact_of_Low-Order_Modeling_on_Aeroelastic_Predictions_for_Very_Flexible_Wings",
+      "locator": "sectionIII.A pp5-7; sectionIV.C p18; Tables10/11 pp27-28",
+      "short_quote": "upright configuration (no gravity effects)",
+      "relevance": "Skin-on Test2, 5/7deg, direct midchord5deg versus averagedLE/TE7deg; differential-chord twist. Framework Bx downstream and By right-tip defines Bz; processed experimental export does not explicitly state whether its vertical axis is root-normal or tunnel-normal."
+    },
+    {
+      "title": "Avin et al author paper, DOI10.2514/1.J060621",
+      "url": "https://www.researchgate.net/publication/357596316_Experimental_Aeroelastic_Benchmark_of_a_Very_Flexible_Wing",
+      "locator": "sectionV pp14 onward; sectionV.B/Fig33/Table13 p19",
+      "relevance": "Floor mounting with20mm spacer and additional10g atTE. Exact root-plane ideal wall omits the spacer/rootgap, other tunnel boundaries and viscous effects."
+    }
+  ],
+  "observables": {
+    "positions": "Positive-tip material LE=r+Q*(-.0441,0,0), TE=r+Q*(.0559,0,0); mid=(LE+TE)/2. Q is deformation rotation for the straight reference chord/span triad.",
+    "nominal_span": 0.55,
+    "units": {
+      "speed": "m/s",
+      "displacement": "100*distance/0.55, percent nominal semispan",
+      "twist": "degrees"
+    },
+    "baseline": "Subtract each mesh own zero-flow baseline; source missing zero-speed experimental entries remain missing. One baseline suffices for the flat-jig, zero-gravity computational geometry shared by all prescribed inflow angles.",
+    "twist": "theta=atan2(z_LE-z_TE,x_TE-x_LE), positive for LE aboveTE in downstream-positive x; subtract baseline. This reuses accepted primary structural recovery. Avin written x convention must not be copied without its axis orientation.",
+    "coordinate_caveat": "Pinned README says vertical and differentialLE/TE but does not explicitly bind experimental output axes to root or tunnel. Riso Bx downstream suggests wind-normal modeled outputs; it does not prove experimental preprocessing.",
+    "retained_projections": [
+      "root_normal=100*delta_mid_z/0.55",
+      "wind_normal=100*(-sin(alpha)*delta_mid_x+cos(alpha)*delta_mid_z)/0.55, since native wind=(cos(alpha),0,sin(alpha))",
+      "Retain all three baseline-subtracted midchord components and both LE/TE vectors; label both comparisons. No hidden replacement of the measured axis."
+    ],
+    "twist_invariance": "A common rotation about span changes absolute projected chord angle by a constant, so baseline-subtracted projected twist is invariant on the same atan2 branch; it is not automatically identical to an arbitrary Euler component after finite bend.",
+    "representative_source_values": [
+      {
+        "alpha_deg": 5,
+        "speed": 30,
+        "displacement_percent": 9.19298241657405,
+        "twist_deg": 0.686033383998833
+      },
+      {
+        "alpha_deg": 5,
+        "speed": 40,
+        "displacement_percent": 16.1490609271472,
+        "twist_deg": 1.17243194787045
+      },
+      {
+        "alpha_deg": 7,
+        "speed": 30,
+        "displacement_percent": 14.4103003803251,
+        "twist_deg": 0.954718634469163
+      }
+    ]
+  },
+  "pilot": {
+    "status": "Unexecuted by reviewer; root owns plan, source freeze, tests and execution",
+    "cases": [
+      {
+        "refinement": 2,
+        "alpha_deg": 0.0,
+        "speed_m_s": 0.0
+      },
+      {
+        "refinement": 2,
+        "alpha_deg": 5.0,
+        "speed_m_s": 30.0
+      },
+      {
+        "refinement": 2,
+        "alpha_deg": 5.0,
+        "speed_m_s": 40.0
+      },
+      {
+        "refinement": 2,
+        "alpha_deg": 7.0,
+        "speed_m_s": 30.0
+      },
+      {
+        "refinement": 4,
+        "alpha_deg": 0.0,
+        "speed_m_s": 0.0
+      },
+      {
+        "refinement": 4,
+        "alpha_deg": 5.0,
+        "speed_m_s": 30.0
+      },
+      {
+        "refinement": 4,
+        "alpha_deg": 5.0,
+        "speed_m_s": 40.0
+      },
+      {
+        "refinement": 4,
+        "alpha_deg": 7.0,
+        "speed_m_s": 30.0
+      }
+    ],
+    "count": 8,
+    "path": "Independent cold jig each state, nominal4 monotone load-continuation steps; no warm speed checkpoint.",
+    "baseline": "StaticNetwork(model,panels,None,[0,0,0],[]) then same equilibrate; do not call aero at speed0.",
+    "loaded": "StaticNetwork(model,panels,condition(alpha,speed),[0,0,0],[]); equilibrate(tolerance=1e-8,continuation_steps=4) without initial_state; fresh full residual check.",
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 python3 scripts/compare-isae-ae1.py --output /tmp/openswing-isae-ae1-wall-20261025/pilot",
+    "command_status": "Source command provided, NOT executed. Root supervises600s cap and retains terminal/reaping receipts. Output directory must not already exist.",
+    "gates": {
+      "fresh_normalized_residual": 1e-08,
+      "scaled_force_moment_balance": 1e-07,
+      "mirror_position_relative": 1e-08,
+      "mirror_rotation": 1e-08,
+      "displacement_mesh_relative": 0.01,
+      "twist_mesh_gate": null,
+      "experiment_gate": null
+    },
+    "scope": "Three exact measured operating points at each mesh plus baselines; no sweep fitting, eigenanalysis, stability proof, fullAE1 validation or parameter adjustment."
+  },
+  "runner_source_review": {
+    "path": "/home/userland/aswing/scripts/compare-isae-ae1.py",
+    "status": "Read only; configuration, gravity, selected positive tip and mirror equations agree. Root owns final mutable runner pin.",
+    "notes": [
+      "Baseline uses condition=None as required by native positive-speed aero API.",
+      "Actual full residual and full geometry are recomputed for acceptance, not inferred from a lagged tangent.",
+      "Root must retain both displacement projections or explicitly preserve axis uncertainty in reduction.",
+      "Physics failure diagnostics inside compute may precede its returned raw state; root owns failure retention policy."
+    ]
+  },
+  "direct_source_pins": [
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/source-readiness.json",
+      "bytes": 36338,
+      "sha256": "5e498ece09445b9981d5632fa0a3dba3b63fadce89fb75a439fc6997dbfb6e9e"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_ae1.py",
+      "bytes": 13221,
+      "sha256": "586019076697f4840b8852c3653b4580453a0d18ffb1ed363590cc56d68c1f52"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_primary.py",
+      "bytes": 5843,
+      "sha256": "ea94c702b5ae35e9c5152f8547540cba66cebdc51eeba2ef36db9aee1d09be74"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_primary_conm2.py",
+      "bytes": 1704,
+      "sha256": "3d723c86f201e062f8ef79580c534aa7648f54baffe9c97c18a527e108b22cf1"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/pazy_loaded.py",
+      "bytes": 2659,
+      "sha256": "d7ea2b5a2ad5c0fd09a7bf3886d3628baf8588966cff87e8b6b79452a5278845"
+    },
+    {
+      "path": "/home/userland/aswing/examples/pazy-primary-conm2-skin1-horizontal.asw",
+      "bytes": 10717,
+      "sha256": "e5a93c1b5dc528d7ae553d76c6acc779503fc88ed21d9cd096e75761aeb02008"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/ground.py",
+      "bytes": 4871,
+      "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 19292,
+      "sha256": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 11907,
+      "sha256": "d85637b0f298aa9f9f3b951083265743178f88bc07b5e140f1b32e6c3a2d35bb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structure.py",
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_static.py",
+      "bytes": 39701,
+      "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 62375,
+      "sha256": "ce386c2c936d5187552e401c3748f1283f064249486d223ff8127b0e7157a800"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+      "bytes": 2329,
+      "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/README.txt",
+      "bytes": 1628,
+      "sha256": "233361fa97c12d288f27ae289043db01ca1f3ea296bb7b1d33c64227fab2145a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Static_Aeroelastic.m",
+      "bytes": 5515,
+      "sha256": "33afb0ad521d6c026dda273f5069df9915daee7bb37781c6b24dd6c5ab7e3cc5"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha5.sh",
+      "bytes": 628,
+      "sha256": "e3f19c25f2b485105b87179fa4ba11ad12cfed18bdf1f2f59c8ec4fea4490206"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha7.sh",
+      "bytes": 516,
+      "sha256": "a29740d2f8e9ddeb058fd7e3e761383588d98ae58a41ce20727a9bea1d80de56"
+    }
+  ],
+  "activity": {
+    "production_imports": 0,
+    "constructors": 0,
+    "residual_calls": 0,
+    "coupled_solves": 0,
+    "tests": 0,
+    "syntax": "ast.parse adapter only",
+    "source_edits": [
+      "scripts/isae_ae1.py"
+    ],
+    "prior_source_check": {
+      "chunk_id": "ee08d2",
+      "exit_code": 0
+    }
+  }
+}

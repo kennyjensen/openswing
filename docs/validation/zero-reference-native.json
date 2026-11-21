@@ -1,0 +1,2821 @@
+{
+  "status": "COMPARISONS_COMPUTED_NOT_PHYSICALLY_VALIDATED",
+  "revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+  "modules": {
+    "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "aero.py": "f84a8e1b0d72f3b9db5342dd13fd55eca4732ba82b24168d7fe990313c951fb8",
+    "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+    "asw.py": "12437883a9d6da3c0fc99eb420ec839303068c49f401283b27a9503dc20a70fb",
+    "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "bridge.py": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791",
+    "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "circulation_tangent.py": "a7df91d9a80192e995096b8e3256a2168e09b55217761858a85990b2a05dbe7c",
+    "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "derivatives.py": "aec8695f38b67774b908dbab7d7df0c97c7e5840ce9364013f79d08a3c5750b7",
+    "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+    "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+    "equilibrium_state.py": "913ec8e82879cc92a03711172f6bed8cb38a9548e464f391f9b4e1e200385476",
+    "equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+    "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+    "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "frequency_response.py": "2c79ddefed645fdb720d71657c6e662a89146bd3be925f7cea606c42d9deedb6",
+    "frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+    "frozen_influence.py": "4ea36dcceafe853e12ba47b4d31fda0f17635bb5c4b9b4ada2a10b1fc67d6203",
+    "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+    "geometry_partials.py": "9d760de5c11c03349e715cc02e3902ed2a4773916d433db83e7a674495eeb66e",
+    "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+    "geometry_tangent.py": "c465a9118d5a46b40db7abd1f80da0433373811587be070e45cd9de6c4f128ab",
+    "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+    "harmonic_structure.py": "56d468a0cdd8e8c802094e6aec298f64cf34389e1a875b3095f16c25251d00fb",
+    "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+    "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "linear_dynamics.py": "bd122215d81a80c06d138e301b5ca2bff09d760269bcf81fa031f4e0e3302f1e",
+    "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+    "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+    "local_rate_tangent.py": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4",
+    "mechanical_tangent.py": "37adb73625e6a74f9ef09882472758fb3e5ead8f9c754fe0a13e560a30228926",
+    "network.py": "a462f4ca3000562f56eba7cba6ae8c2cb8ebdc52185cf7306944bc47b26b2355",
+    "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+    "nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+    "output_fields.py": "f441a12f0b9f8c0f02cf0e56472a69ab4e568c58490182baa5e29740f90b0eac",
+    "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+    "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+    "radau_time.py": "0a50fd2608d506722d922d37b3b692798f12a35ff4afd89801df4aa1c2f5aba7",
+    "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "sparse_rank.py": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee",
+    "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+    "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+    "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "structured_static.py": "efc09d104d28ceb7b006231ffc536cb85bce909933f5f88ffe44be2824d6a82e",
+    "structured_time.py": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395",
+    "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+    "tangent_influences.py": "789d432d63c75c275de95fece44d34fee0f47d9edf1838f90a85a7b76784cac5",
+    "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "time_acceptance_validation.py": "cca510137c77856cb692bbb8ffbe42eeab0bdda754976b18a6fcf4ea18926f5c",
+    "time_accuracy.py": "d262936528ae808fb4aa6a9e7bb88a42cb07ba7e3c3bc529ab1b180f10fe8e50",
+    "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "time_initialization.py": "7ef976697c4236d5e8faefc8ae91cf419dae2dca0193cd099bc2559efd24b33e",
+    "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "time_integration.py": "810da5efb81f42f6ca44d909733452be389f3bd938dde64c047353b4de3f385d",
+    "time_saved_history.py": "f50bc65561a94ec30c6b015faea35f8344326fcae95498b0c3b7c4b756cd00ba",
+    "time_state.py": "9243568e61da0fe08740306ba3d53d326a83a6d0c32edbc85051a60b4b878e50",
+    "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+    "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+    "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+    "vortex_tangent.py": "c2fc407d2d2183a341546f38c1e7bc099fc61e2dd74ed232ff148abd3a09ce0b"
+  },
+  "script_sha256": "d92aca394784f8361a127bb0cc1f071d796d4cdeb7d721f039cb363ba337a36e",
+  "inputs": [
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/W0M.asw",
+      "sha256": "ad35aafe4a544969934b934c2e1511f80c3f92270d4d2c7af7d52140d4fa54b1",
+      "status": "rejected",
+      "error": "AswError: Line 34: beam is missing End."
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b11.asw",
+      "sha256": "586d8ecc7235f0b5fda27b7b8579f17b19308e54b7b054fb91785d440888e2a2",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw",
+      "sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b30.asw",
+      "sha256": "52982ed08637f4fd4ee96adbd9b524c2665e97e35aed1add19b0eee5fb1b2421",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b46.asw",
+      "sha256": "bead9f4a7aaedeb115f924ca2b16568eeb4540e63a9c7b671e406a3145884e83",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b48.asw",
+      "sha256": "8bc94c2f0f18238a691b0d5977ce01a5eefe697a6bd5da1c8e3ec1278f5cfe33",
+      "status": "rejected",
+      "error": "ValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes."
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b8.asw",
+      "sha256": "c142e591a497c36df57bd86c156fd5f73ede1a5b4c50fcf571b77d00e4e37ffd",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/WING.asw",
+      "sha256": "1dc95edc16f8decc4100d106398b6aaa165ae7eb4beba5b7d3e51b423aaccf11",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b11.asw",
+      "sha256": "3fedc1d2fdfbdf4e5caade14b99e563866c92dd22e20abad6b60cfe963ea882b",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b21.asw",
+      "sha256": "ceeb1a092cf39104f1a4cdb33deca126b9cb136a20ac49c94a94ea9f194cab6b",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b11.asw",
+      "sha256": "ee7ca07344c54dede6634a9fc420000fddada855e7e626abd2378ead5a3ec500",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b21.asw",
+      "sha256": "d2965ed14659bde1fba31ee59a61c8a4bde450c24623bc717b027ac04402ce1f",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b28.asw",
+      "sha256": "b9ba09cb8fd068c2390b0d403a8598c1413dc4b6c4e902aafb80eb00f0233fd5",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b11.asw",
+      "sha256": "b380bb4a625c108413c3190121d79da1f324fdc7f041e3a27eaade26b570b89b",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b21.asw",
+      "sha256": "63bf05f30df514fb50fadef302f4456fcd2ff703b93dcd83888de2867352b170",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b27.asw",
+      "sha256": "d024238a2dc2f0ba979aa60bc1d4fe8d9ebcf7d4236f164c9819389c0f2cffcb",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b33.asw",
+      "sha256": "756b4855461f63f5cf74168f57fe94ab04c7b67497ffebf60be22f428c7f63f4",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b39.asw",
+      "sha256": "30ff7771e002f2337f34a8318cc7ff27140ff8de8836638541d28415435900b5",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b44.asw",
+      "sha256": "764a2025135259b7050540d92435e7f1e8c9849b861ca5ca408de65148e6d3cd",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b48.asw",
+      "sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107",
+      "status": "rejected",
+      "error": "ValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes."
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b49.asw",
+      "sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107",
+      "status": "rejected",
+      "error": "ValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes."
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b11.asw",
+      "sha256": "bcb2919591e9530ec307438003aaa603a8f67ced69b04015859d3a5710adbacf",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b21.asw",
+      "sha256": "f1c37a8b19a4e881757efe358dfee30138b5e8cb876c746fdb321a09f430ab8e",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b29.asw",
+      "sha256": "1e5afac9682243116216a8822795c5d5e24d32d896b123073c6cbf70144b7269",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b35.asw",
+      "sha256": "f648afac8afc7c260902d4ed249e61a9e9901cced0390a060d397008dd9a9263",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b40.asw",
+      "sha256": "48b025f71a35c5640de4d75a01278da4e5cdeca196a9819f707eb4a390574ad6",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b48.asw",
+      "sha256": "678e4e06043ddb317778c43c6e196c296469019dd8d26840d88ca23ec49b3ddc",
+      "status": "rejected",
+      "error": "ValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes."
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b11.asw",
+      "sha256": "eebbfdf62fe020ec443fd9f23e9e73357a321b2776524819deabc970f63e5141",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b16.asw",
+      "sha256": "24435bd5748a450fb0a601ff7a28ea51a38c3df5f44bc5126037ab19b9f18a25",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b24.asw",
+      "sha256": "7b0e4c63d46ec890dc24b53ff6331412f8442ac05a96b84eb7ef8fa04ffd42d4",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b32.asw",
+      "sha256": "517fe80c5ab11895adc330018caf96606bb0bf2a4c424bf8e6b9a8bdf938de96",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b40.asw",
+      "sha256": "64ad9540f7535875d4added8f01adbe5ae09596c2751b7628ce5e51b6d2d7228",
+      "status": "parsed_and_constructed",
+      "reference": [
+        [
+          0.0,
+          0.2032,
+          1.2192
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "path": "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b48.asw",
+      "sha256": "222f1fc61097af0e17cd11455c3ef9ad83353c929c6777b2e4abd76e06d15865",
+      "status": "rejected",
+      "error": "ValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes."
+    }
+  ],
+  "unique_models": 27,
+  "runs": [
+    {
+      "specification": {
+        "source_sha256": "586d8ecc7235f0b5fda27b7b8579f17b19308e54b7b054fb91785d440888e2a2",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/1a26c36e1c021b08ffc2cb1c4407170d31c6bada93fa43eb65026c2aca3673c6.json",
+      "sha256": "31323756e42429c76fcae80593e8500e1bd476862851adbc022ee7896c226fa8",
+      "status": "computed",
+      "seconds": 2.7627670590009075
+    },
+    {
+      "specification": {
+        "source_sha256": "586d8ecc7235f0b5fda27b7b8579f17b19308e54b7b054fb91785d440888e2a2",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/e8ae8142c622fee9951cd864eb92215016976f720ab9a1428bf46f25742e6fde.json",
+      "sha256": "e8c1b62b7a44ad621e2fa4463b515e3bf29a2a3ac8d4cf5e47feb8f591e85388",
+      "status": "computed",
+      "seconds": 4.920223440996779
+    },
+    {
+      "specification": {
+        "source_sha256": "586d8ecc7235f0b5fda27b7b8579f17b19308e54b7b054fb91785d440888e2a2",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/22a0bec882b13c0400a05e2c92c20c8639e8779e498a8bf0cb5e9e1d0fa23e0c.json",
+      "sha256": "ed8a2f000307a62b52808a4cdd546c6526a8c1de97a7943d6cf9a9133a975045",
+      "status": "computed",
+      "seconds": 10.511560138998902
+    },
+    {
+      "specification": {
+        "source_sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw"
+      ],
+      "cache": ".reference/isae-st4-native/fef67c6731495545b3730e7adf40f9825050d1ee1d05de76d2d13696cf97a5a5.json",
+      "sha256": "ee5e43805d2b4fc62ec2943a15c1e364268d22f1376180f10ef0ac45229fe90d",
+      "status": "computed",
+      "seconds": 2.7202889609980048
+    },
+    {
+      "specification": {
+        "source_sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw"
+      ],
+      "cache": ".reference/isae-st4-native/5586f1f21724c93578c6e936b9305f9a250afb5ac0fe0c7edc88f94d8009559b.json",
+      "sha256": "bbe37d62346116400b709c242151e637c6d7de16d293f74b910d1d87acc302fb",
+      "status": "computed",
+      "seconds": 5.3864069580013165
+    },
+    {
+      "specification": {
+        "source_sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw"
+      ],
+      "cache": ".reference/isae-st4-native/8155f3037b7607eac1c4712431f9a2e18bdcf0ba086a18a612f113d73c444348.json",
+      "sha256": "04e062f7b711185b0765301338343cf50820f55ca13f457b789b854eccbcc649",
+      "status": "computed",
+      "seconds": 10.038199303999136
+    },
+    {
+      "specification": {
+        "source_sha256": "52982ed08637f4fd4ee96adbd9b524c2665e97e35aed1add19b0eee5fb1b2421",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b30.asw"
+      ],
+      "cache": ".reference/isae-st4-native/db167736291ac374c5a3a4442cedbfa7ff618d3bfbf4ae2c035c791615d66197.json",
+      "sha256": "a4f0bb71b1b33958ab4dfb067a1aa63cc57feeed39a4601ad2252c7aabce5154",
+      "status": "computed",
+      "seconds": 2.4259245069988538
+    },
+    {
+      "specification": {
+        "source_sha256": "52982ed08637f4fd4ee96adbd9b524c2665e97e35aed1add19b0eee5fb1b2421",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b30.asw"
+      ],
+      "cache": ".reference/isae-st4-native/95ca99af9fb3f72d1bc8a879058e0e6e68b9b1591c336c342b6137931dc1dc21.json",
+      "sha256": "dd37c8bd3970b82154c1ba4a6e4e42f730c23e34827656ca765fffe43901317c",
+      "status": "computed",
+      "seconds": 4.518461097002728
+    },
+    {
+      "specification": {
+        "source_sha256": "52982ed08637f4fd4ee96adbd9b524c2665e97e35aed1add19b0eee5fb1b2421",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b30.asw"
+      ],
+      "cache": ".reference/isae-st4-native/c1b3189d3e641278606acc4149f98994e061fb9dd0da3f2d93d2e1a508ca49c2.json",
+      "sha256": "52bea7bbc36511a9f818bec0cd9fd752d765c626dfec52d9c53b126a74c70cb4",
+      "status": "computed",
+      "seconds": 10.337413237000874
+    },
+    {
+      "specification": {
+        "source_sha256": "bead9f4a7aaedeb115f924ca2b16568eeb4540e63a9c7b671e406a3145884e83",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b46.asw"
+      ],
+      "cache": ".reference/isae-st4-native/d4b8b502f1c9c07c754ebad6628943443acb7f938f7de2b39ef94f141055a3d1.json",
+      "sha256": "02e289321e70e05c33347e7cee6ab26d070d56b261e6ef0b9dfbfe96a380aadc",
+      "status": "computed",
+      "seconds": 2.5198739080005907
+    },
+    {
+      "specification": {
+        "source_sha256": "bead9f4a7aaedeb115f924ca2b16568eeb4540e63a9c7b671e406a3145884e83",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b46.asw"
+      ],
+      "cache": ".reference/isae-st4-native/9974c4a887bfeb9bd66e6cec717cd7ffaa298856c355765efcea3e9c2a4b5f8b.json",
+      "sha256": "99612bad2a1c10603c5099bee65e4f82d1e17f7fbbaf4a033775590c46727298",
+      "status": "computed",
+      "seconds": 4.768972217003466
+    },
+    {
+      "specification": {
+        "source_sha256": "bead9f4a7aaedeb115f924ca2b16568eeb4540e63a9c7b671e406a3145884e83",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b46.asw"
+      ],
+      "cache": ".reference/isae-st4-native/977ffd8561f7c81254a82517a724facef67505b2460d46d7d1b522bfc8391d41.json",
+      "sha256": "17e38aac9ba32448b3fa26efa8f79811f10e70a9d745eb197a71f0d714fbcd2d",
+      "status": "computed",
+      "seconds": 10.650906700000633
+    },
+    {
+      "specification": {
+        "source_sha256": "c142e591a497c36df57bd86c156fd5f73ede1a5b4c50fcf571b77d00e4e37ffd",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b8.asw"
+      ],
+      "cache": ".reference/isae-st4-native/fd928a07ac4fd7ad012bdd503ed194c0ad008d4548d2927981d22518d3daa54f.json",
+      "sha256": "4c75a48e4bc28782441feb21f52c216fcbab1f89255b209d8bc4c6a7b6442cc4",
+      "status": "computed",
+      "seconds": 2.7033329190016957
+    },
+    {
+      "specification": {
+        "source_sha256": "c142e591a497c36df57bd86c156fd5f73ede1a5b4c50fcf571b77d00e4e37ffd",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b8.asw"
+      ],
+      "cache": ".reference/isae-st4-native/f917ea81ff034eb930fc4196846f77eb2f420dc15cf01fe2548e33d6c4a28f81.json",
+      "sha256": "a00929dfa28e86a8e0782fce60f831e693a8f26f87b2ef9e6f095fece535193a",
+      "status": "computed",
+      "seconds": 5.05735289400036
+    },
+    {
+      "specification": {
+        "source_sha256": "c142e591a497c36df57bd86c156fd5f73ede1a5b4c50fcf571b77d00e4e37ffd",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b8.asw"
+      ],
+      "cache": ".reference/isae-st4-native/935f6d1ecaf364710a32161c5eb3503e74c26f16aadd4f2bf6c23eb868649910.json",
+      "sha256": "f067aaf7f775a2c0e72100e6a8026a6f4c1b16f5a0bff770af6298acb46bc6cb",
+      "status": "computed",
+      "seconds": 10.558684721996542
+    },
+    {
+      "specification": {
+        "source_sha256": "1dc95edc16f8decc4100d106398b6aaa165ae7eb4beba5b7d3e51b423aaccf11",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/WING.asw"
+      ],
+      "cache": ".reference/isae-st4-native/36150d2ff9efa947f6088bfb1dd8ece1a35b459a0a99301f30779f93be6b31a1.json",
+      "sha256": "490e5c3e8a3397a1fd6bed1bae7e8f799508aa8e5e0b10b7d7e45db189eb00d2",
+      "status": "computed",
+      "seconds": 2.645575028996973
+    },
+    {
+      "specification": {
+        "source_sha256": "1dc95edc16f8decc4100d106398b6aaa165ae7eb4beba5b7d3e51b423aaccf11",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/WING.asw"
+      ],
+      "cache": ".reference/isae-st4-native/de63eb65dbb2db7c78e7581645d025e5199b3e0739924d1b5c7cd2028df08b44.json",
+      "sha256": "f7905ceda3ef10ad1198fee4f0cefdfbe3557df499e545be98231d01b37457cf",
+      "status": "computed",
+      "seconds": 4.556045785000606
+    },
+    {
+      "specification": {
+        "source_sha256": "1dc95edc16f8decc4100d106398b6aaa165ae7eb4beba5b7d3e51b423aaccf11",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/WING.asw"
+      ],
+      "cache": ".reference/isae-st4-native/bf9d694697675c29f8281ca13624b5894b3a9cd9c75716a6fa5a095e88a882bc.json",
+      "sha256": "b7d293eb5ac333aece44c1f8f07d293ada63f92d6958759b84f11b3f6bef4db5",
+      "status": "computed",
+      "seconds": 10.374347352000768
+    },
+    {
+      "specification": {
+        "source_sha256": "3fedc1d2fdfbdf4e5caade14b99e563866c92dd22e20abad6b60cfe963ea882b",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/5ec363fdf65e3978ec171d8261a74c1bf292b2e905d3a4d3ab485f51a4f4fce9.json",
+      "sha256": "30c747909de39ffc31b662f2ac14ebc0ae2ab861dc10ff172340fbe93d515ecb",
+      "status": "computed",
+      "seconds": 2.6976892730017425
+    },
+    {
+      "specification": {
+        "source_sha256": "3fedc1d2fdfbdf4e5caade14b99e563866c92dd22e20abad6b60cfe963ea882b",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/0749d30e6321a4c7099014fdea9a44f39e168ae4e90a8aa060d149f21e16fd7e.json",
+      "sha256": "f00bf70c830d6ebaf47dfddc1aed97651caf3da6285e98a1dc4467bb550dc1aa",
+      "status": "computed",
+      "seconds": 4.886613233000389
+    },
+    {
+      "specification": {
+        "source_sha256": "3fedc1d2fdfbdf4e5caade14b99e563866c92dd22e20abad6b60cfe963ea882b",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/1161647356b9172e68b4fdbf1c5cdc9a5bb300c3ba442a6e7e88163b1113a2f0.json",
+      "sha256": "dc168a9f695f7c3220f8d8c96070057419a8cb006d42aca9be5c60838ed12437",
+      "status": "computed",
+      "seconds": 10.62573256000178
+    },
+    {
+      "specification": {
+        "source_sha256": "ceeb1a092cf39104f1a4cdb33deca126b9cb136a20ac49c94a94ea9f194cab6b",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/60e8121178ba40da2adfe0b4181043ac5ef95ed29f711bc61819c6da83bd60c0.json",
+      "sha256": "ad21db9fdde6655961d72361acaeef68764d7f71945b8e431885547a320dd2b6",
+      "status": "computed",
+      "seconds": 2.82303599199804
+    },
+    {
+      "specification": {
+        "source_sha256": "ceeb1a092cf39104f1a4cdb33deca126b9cb136a20ac49c94a94ea9f194cab6b",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/58d5212961d9fc2e5b514d084ce7679301eb34c7c4b20f22b0919d445a27e273.json",
+      "sha256": "e4f6279914f5bba10045f92b51353437af3b91dffaed6e44072047bb0b288fb6",
+      "status": "computed",
+      "seconds": 4.8522818259953056
+    },
+    {
+      "specification": {
+        "source_sha256": "ceeb1a092cf39104f1a4cdb33deca126b9cb136a20ac49c94a94ea9f194cab6b",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7b/7b_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/a5307baa72de09616788cdd434ecf9331229006394a7636759bf8c41d5f48f10.json",
+      "sha256": "897d2c75eebf2369c54491fc70b7db382f55aec4361c4bf1be33b46214c7e24c",
+      "status": "computed",
+      "seconds": 10.14530294999713
+    },
+    {
+      "specification": {
+        "source_sha256": "ee7ca07344c54dede6634a9fc420000fddada855e7e626abd2378ead5a3ec500",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/39a9c5204a63a87cc1f6b54a5e30e67d84b4c653d300c7c010a88c61112eaef2.json",
+      "sha256": "4467f4d183849ab97240ece2c31ad9ae768604db02e0cb27004b1387fe4d3589",
+      "status": "computed",
+      "seconds": 2.6124924499963527
+    },
+    {
+      "specification": {
+        "source_sha256": "ee7ca07344c54dede6634a9fc420000fddada855e7e626abd2378ead5a3ec500",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/7d1920fd63331c76878c5131320491929035889466ee7a502046fded0e40d41d.json",
+      "sha256": "cdc9534a1001c1a26009f64f43683251ee77b1cf1a8328c82b57a337e57049cd",
+      "status": "computed",
+      "seconds": 4.886930212000152
+    },
+    {
+      "specification": {
+        "source_sha256": "ee7ca07344c54dede6634a9fc420000fddada855e7e626abd2378ead5a3ec500",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/dfbc9ce8254022b105b72cbb33e8e9f9a9b9db2ec4e0f4f6cea85eb99d1c3a8e.json",
+      "sha256": "1005d7f9a22229d8b1b45d74f165df73441dc24bab1d695d2efbef556433584c",
+      "status": "computed",
+      "seconds": 10.837288836999505
+    },
+    {
+      "specification": {
+        "source_sha256": "d2965ed14659bde1fba31ee59a61c8a4bde450c24623bc717b027ac04402ce1f",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/804c4d89a8b80f4c69ee46834b6128f1325f9ffafd5196e9530dc697b6ff1dd7.json",
+      "sha256": "c2884b13b695e3a77e5547ddb60a5253c19e426d2de6a3270c2f9e1116871801",
+      "status": "computed",
+      "seconds": 2.7634293510054704
+    },
+    {
+      "specification": {
+        "source_sha256": "d2965ed14659bde1fba31ee59a61c8a4bde450c24623bc717b027ac04402ce1f",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/eaf95e18019fdb7a6963ed14a7a0c20339ef0c852edd63d67f89f5f2a81e94ff.json",
+      "sha256": "c1e77a20bdcb310448c55c8e42b5518ad3a288a78231212158ebbf8930731170",
+      "status": "computed",
+      "seconds": 4.896024118999776
+    },
+    {
+      "specification": {
+        "source_sha256": "d2965ed14659bde1fba31ee59a61c8a4bde450c24623bc717b027ac04402ce1f",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/d6afb6e579235616f0b10f381917dbf3b74b0908550d28f41f4098ace1909367.json",
+      "sha256": "d14e5d81e49dbbd0c2092a10492eee74408395c953cc6f6f2d56baea6498aa03",
+      "status": "computed",
+      "seconds": 10.194211128000461
+    },
+    {
+      "specification": {
+        "source_sha256": "b9ba09cb8fd068c2390b0d403a8598c1413dc4b6c4e902aafb80eb00f0233fd5",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b28.asw"
+      ],
+      "cache": ".reference/isae-st4-native/0d7017f4ffd50fd7ca853e55bcb181f65530f272b3454caa2d1ef87320be4adf.json",
+      "sha256": "5dafc0b6cb11d60b00d49530f2d5f2ed7659e13e08526d53a1eb381a574c7092",
+      "status": "computed",
+      "seconds": 2.6707146639964776
+    },
+    {
+      "specification": {
+        "source_sha256": "b9ba09cb8fd068c2390b0d403a8598c1413dc4b6c4e902aafb80eb00f0233fd5",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b28.asw"
+      ],
+      "cache": ".reference/isae-st4-native/aef143bad3b1f87493c1ba49ec61cff4e28fde026bed7f15f20e73c0a42e3d6c.json",
+      "sha256": "e0713bf394ef1d068e37e2b2f492db2d439afdbe46c2513f50ffd74296d4597d",
+      "status": "computed",
+      "seconds": 4.678909898997517
+    },
+    {
+      "specification": {
+        "source_sha256": "b9ba09cb8fd068c2390b0d403a8598c1413dc4b6c4e902aafb80eb00f0233fd5",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7c/7c_b28.asw"
+      ],
+      "cache": ".reference/isae-st4-native/e8509d56acedaabf6a5110f4e3ba9f3a349414c9c30484290d513c53dd836c47.json",
+      "sha256": "321c2a9ed8f23ec928fb4513016292002cae3d8bef299d69462258838b94caa7",
+      "status": "computed",
+      "seconds": 10.646620137995342
+    },
+    {
+      "specification": {
+        "source_sha256": "b380bb4a625c108413c3190121d79da1f324fdc7f041e3a27eaade26b570b89b",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/8696f1821997209ac89bf8862b5fb226d2ce16fe599fb208dd584937e23fa8bf.json",
+      "sha256": "fb92f5fbbfe3d1663d813c0665583ec1d57eeaa716cb2e6646705175e4e6d9a1",
+      "status": "computed",
+      "seconds": 2.5315149500020198
+    },
+    {
+      "specification": {
+        "source_sha256": "b380bb4a625c108413c3190121d79da1f324fdc7f041e3a27eaade26b570b89b",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/b85791f313490d4a41af29cff0d0cefb4a7eb7149fbf3e4e9b7d65ebb828132a.json",
+      "sha256": "79423292322e056a1e6d7110837f54ff56fd4ec245f44e117cf368e069b65edf",
+      "status": "computed",
+      "seconds": 4.855568623999716
+    },
+    {
+      "specification": {
+        "source_sha256": "b380bb4a625c108413c3190121d79da1f324fdc7f041e3a27eaade26b570b89b",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/bdbcb3dff54760816631150c6372498ce1053e498d0c09bfb3a756a13a9d6fe9.json",
+      "sha256": "184f7f2089b935939da497a9bd1337f4f3967b7ed8fc168a3e630ef3502d680d",
+      "status": "computed",
+      "seconds": 10.249595241999486
+    },
+    {
+      "specification": {
+        "source_sha256": "63bf05f30df514fb50fadef302f4456fcd2ff703b93dcd83888de2867352b170",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/2416ca36d93def6c8bf61f8e5080447c9302ffd257f6d1c80acb385aaf3d7643.json",
+      "sha256": "e9503a432e8c36c8cb6072fa39e1b7f4d16da142f7e7f2ab3eb7a466dd677614",
+      "status": "computed",
+      "seconds": 2.7334452889990644
+    },
+    {
+      "specification": {
+        "source_sha256": "63bf05f30df514fb50fadef302f4456fcd2ff703b93dcd83888de2867352b170",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/3440d686e816e451bf27cd6dec19155c8095331c368c6bc45f5d54d4654a3637.json",
+      "sha256": "cee9d707e05824c275ad3868a33370109c4c5458a98c1cc5989b6ba7c874061a",
+      "status": "computed",
+      "seconds": 4.815808077000838
+    },
+    {
+      "specification": {
+        "source_sha256": "63bf05f30df514fb50fadef302f4456fcd2ff703b93dcd83888de2867352b170",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/60c48bda5be6a5584ebb6436478312f8ad5c6eef23a16d0d604f4bda1b01335e.json",
+      "sha256": "5c5b36f0fb2d4c7a1c09904d3c23d0489988c613db3456281513e7f38dd04612",
+      "status": "computed",
+      "seconds": 10.696541962002811
+    },
+    {
+      "specification": {
+        "source_sha256": "d024238a2dc2f0ba979aa60bc1d4fe8d9ebcf7d4236f164c9819389c0f2cffcb",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b27.asw"
+      ],
+      "cache": ".reference/isae-st4-native/04141714456decf1db83295c2c3c630182f35f64eeab39acbecf28999ddf415a.json",
+      "sha256": "03a171357da1905e95f918e4ca8ac5250954a0d5a642cbdb92dbf83260bc4337",
+      "status": "computed",
+      "seconds": 2.7485995329989237
+    },
+    {
+      "specification": {
+        "source_sha256": "d024238a2dc2f0ba979aa60bc1d4fe8d9ebcf7d4236f164c9819389c0f2cffcb",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b27.asw"
+      ],
+      "cache": ".reference/isae-st4-native/5f2d7da86e5a08a7ea28d6430ef37dccccc8d5106f13ac8d8b31605f711894aa.json",
+      "sha256": "8c38c7fb2d623e0dd4e09743a0df4adc98b1e2b28004182f1faae52fac92a91d",
+      "status": "computed",
+      "seconds": 4.903499275002105
+    },
+    {
+      "specification": {
+        "source_sha256": "d024238a2dc2f0ba979aa60bc1d4fe8d9ebcf7d4236f164c9819389c0f2cffcb",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b27.asw"
+      ],
+      "cache": ".reference/isae-st4-native/c16acef758da86673c8ded90c586fde63faaa7b3d54f44cb006ef487ecb9ce4d.json",
+      "sha256": "90895f01cb311575233fa61c4f1e567baaa09ca04569f753d051eca618c098dc",
+      "status": "computed",
+      "seconds": 10.339327898996999
+    },
+    {
+      "specification": {
+        "source_sha256": "756b4855461f63f5cf74168f57fe94ab04c7b67497ffebf60be22f428c7f63f4",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b33.asw"
+      ],
+      "cache": ".reference/isae-st4-native/8d19a307b871db33ba2d98a3e075d7da8fb1691f4331f20f8aa9ed3ab3bf922a.json",
+      "sha256": "80c12a19cb27f0c96bc750b63a83dc8bdeb4eddd960518fe6707980d4421c98d",
+      "status": "computed",
+      "seconds": 2.5983201319977525
+    },
+    {
+      "specification": {
+        "source_sha256": "756b4855461f63f5cf74168f57fe94ab04c7b67497ffebf60be22f428c7f63f4",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b33.asw"
+      ],
+      "cache": ".reference/isae-st4-native/b0f70520d45e8e42d20461f08bc91a1f129803286e88ded86ae627bf7004eafb.json",
+      "sha256": "44ddd7c651adb21d8f4b452a74486cb3447bc4ebca181506b060580b01514427",
+      "status": "computed",
+      "seconds": 5.001978754000447
+    },
+    {
+      "specification": {
+        "source_sha256": "756b4855461f63f5cf74168f57fe94ab04c7b67497ffebf60be22f428c7f63f4",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b33.asw"
+      ],
+      "cache": ".reference/isae-st4-native/d3d58cb75f9cba914dc9657de1c36a71168b1971bf1509ef32d0a3c22ce39d8c.json",
+      "sha256": "b8a1e8376a9182cdbc00d14e07c3d3b3b35a2e646c0e638c024d59bc6c3954d9",
+      "status": "computed",
+      "seconds": 10.858526910000364
+    },
+    {
+      "specification": {
+        "source_sha256": "30ff7771e002f2337f34a8318cc7ff27140ff8de8836638541d28415435900b5",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b39.asw"
+      ],
+      "cache": ".reference/isae-st4-native/191945a59a608e634d7a4b30118582604bfce00f8152eea08b54f72f92359277.json",
+      "sha256": "7b5eb7b10c35407ff3cb21a1573a25c0b57eb631aee6c33b944e688d5f03b0c5",
+      "status": "computed",
+      "seconds": 2.768485132000933
+    },
+    {
+      "specification": {
+        "source_sha256": "30ff7771e002f2337f34a8318cc7ff27140ff8de8836638541d28415435900b5",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b39.asw"
+      ],
+      "cache": ".reference/isae-st4-native/9f9d7f30e29b14515d8863da0be555dc6b30d32a03a25d5a74d34ed7e1f32219.json",
+      "sha256": "92cae876525be1fadb09c85d03221a346d379d5ccf0edce0b6798b8a2ce27fb5",
+      "status": "computed",
+      "seconds": 4.976531592001265
+    },
+    {
+      "specification": {
+        "source_sha256": "30ff7771e002f2337f34a8318cc7ff27140ff8de8836638541d28415435900b5",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b39.asw"
+      ],
+      "cache": ".reference/isae-st4-native/5e1f9914e85f623aed6676fffff5c6e8a524f17701d89a5874dc771009fd4d08.json",
+      "sha256": "769f8a445e18037dc93196ed182206a7ffa0e0129b59f8e35e7bf5c6384abcd2",
+      "status": "computed",
+      "seconds": 9.98236547599663
+    },
+    {
+      "specification": {
+        "source_sha256": "764a2025135259b7050540d92435e7f1e8c9849b861ca5ca408de65148e6d3cd",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b44.asw"
+      ],
+      "cache": ".reference/isae-st4-native/1d85faf9f566c2212e9c675c70ab53a8c841685f9a615e30271e6792e442d960.json",
+      "sha256": "2633ad07e581c37eb6b6eac4541f0d778e20d396e326058e4406473f9916423e",
+      "status": "computed",
+      "seconds": 2.680175886998768
+    },
+    {
+      "specification": {
+        "source_sha256": "764a2025135259b7050540d92435e7f1e8c9849b861ca5ca408de65148e6d3cd",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b44.asw"
+      ],
+      "cache": ".reference/isae-st4-native/43e1d4f4f7335a7640b52425be1139d96561832a26981e71addb4d3531c6d50a.json",
+      "sha256": "62b68842995e4e3ab8c8698fca890446d47ff8e0f8ad293a958299c6887af9c8",
+      "status": "computed",
+      "seconds": 4.7793276849988615
+    },
+    {
+      "specification": {
+        "source_sha256": "764a2025135259b7050540d92435e7f1e8c9849b861ca5ca408de65148e6d3cd",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b44.asw"
+      ],
+      "cache": ".reference/isae-st4-native/409e8be0bea0c27f842e33ba2edeea8a0daaf5f17d6ac003d569b0e7c303b5c9.json",
+      "sha256": "adf4827c0b63dedccc3ca6b13acecf6af7086bd6b24d5aba78f4dd6aa60c147f",
+      "status": "computed",
+      "seconds": 10.954322691002744
+    },
+    {
+      "specification": {
+        "source_sha256": "bcb2919591e9530ec307438003aaa603a8f67ced69b04015859d3a5710adbacf",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/aafb24e9e59ee7141d6b06803993404263a9642e08643d06375ac9671550f75f.json",
+      "sha256": "4e590f6f40d6529d032951052e35f7b90ce20177206f66c5c2cae53583f3fb9c",
+      "status": "computed",
+      "seconds": 2.6986475289959344
+    },
+    {
+      "specification": {
+        "source_sha256": "bcb2919591e9530ec307438003aaa603a8f67ced69b04015859d3a5710adbacf",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/5224f36258816b5f5f1536c4f65e39dbc357a3623105844eaee867c2d0e09722.json",
+      "sha256": "454c7fa2ca4439622bba2b43a058e3cd2a2438ea3fbe358d826255d0da7f1a85",
+      "status": "computed",
+      "seconds": 4.746277582002222
+    },
+    {
+      "specification": {
+        "source_sha256": "bcb2919591e9530ec307438003aaa603a8f67ced69b04015859d3a5710adbacf",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/c9233d4e72a1387434d870b7f606bc41b293e43c491a62f6a568e8e53fba9a82.json",
+      "sha256": "d65d63899c235fef9f5774a73ed929aa3539bdcf61f73442c54d393bb4403fe4",
+      "status": "computed",
+      "seconds": 10.137166076005087
+    },
+    {
+      "specification": {
+        "source_sha256": "f1c37a8b19a4e881757efe358dfee30138b5e8cb876c746fdb321a09f430ab8e",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/7920eedfca580878b2706b96de175f86437bd5156da7502ed6643b4923597590.json",
+      "sha256": "ada20fe8ec10d3cde68f9f8ad57fa7e886f6e2e2c9f93843b55c2536139ee9c9",
+      "status": "computed",
+      "seconds": 2.6756944290027604
+    },
+    {
+      "specification": {
+        "source_sha256": "f1c37a8b19a4e881757efe358dfee30138b5e8cb876c746fdb321a09f430ab8e",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/9f58723cbc7a5bf5e8baca6d630b33703df36a4eb62ab064a0edbc559359788a.json",
+      "sha256": "67686882f9e23cc571abde6ced3725d1a6bcab372fb2f9bb640b294b6a8d6c80",
+      "status": "computed",
+      "seconds": 4.983363701998314
+    },
+    {
+      "specification": {
+        "source_sha256": "f1c37a8b19a4e881757efe358dfee30138b5e8cb876c746fdb321a09f430ab8e",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b21.asw"
+      ],
+      "cache": ".reference/isae-st4-native/9b3940e6c4b4acc3806ac14008413870de270f8666b46a3752053a132f1b35e7.json",
+      "sha256": "76dcdc7f139d96460f9691871b77ba7a651a5fec8c883d24c1593483809d8969",
+      "status": "computed",
+      "seconds": 10.5285340440023
+    },
+    {
+      "specification": {
+        "source_sha256": "1e5afac9682243116216a8822795c5d5e24d32d896b123073c6cbf70144b7269",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b29.asw"
+      ],
+      "cache": ".reference/isae-st4-native/db4c5af2b83f5953b39b78e0d99365ee849416d7452c4eb73d97533d046e8658.json",
+      "sha256": "39689faca50082361eba806e7b874493dac3dc34d057b8976be81591692f41ab",
+      "status": "computed",
+      "seconds": 2.4602328399996622
+    },
+    {
+      "specification": {
+        "source_sha256": "1e5afac9682243116216a8822795c5d5e24d32d896b123073c6cbf70144b7269",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b29.asw"
+      ],
+      "cache": ".reference/isae-st4-native/ab95b86a411e1d68e42e61c1aee6ff3d8f9ee3a08527b704ab39a1a5e6ed63d1.json",
+      "sha256": "8c4b0a8435fedf1f0eb29c99429930288597f45ba3db29084d01a180503806ff",
+      "status": "computed",
+      "seconds": 4.9084519049938535
+    },
+    {
+      "specification": {
+        "source_sha256": "1e5afac9682243116216a8822795c5d5e24d32d896b123073c6cbf70144b7269",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b29.asw"
+      ],
+      "cache": ".reference/isae-st4-native/795eee53d73c76492436e78e4df4c03a3b739702e88e64cdfb664c43a1210a19.json",
+      "sha256": "31ac7df7e45e800899ed3a4354407e30e0a256fa99dd3120debbed5381ba6987",
+      "status": "computed",
+      "seconds": 10.266060503003246
+    },
+    {
+      "specification": {
+        "source_sha256": "f648afac8afc7c260902d4ed249e61a9e9901cced0390a060d397008dd9a9263",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b35.asw"
+      ],
+      "cache": ".reference/isae-st4-native/cdeb553269fe18350eeea575814b5d3ecc79432cd2a9479b2ecec76b72cd6141.json",
+      "sha256": "bdb18a155c0a00956b0942d0566fb1bc51d641c5d8c5913ecef7d41dfcc2c183",
+      "status": "computed",
+      "seconds": 2.477859949998674
+    },
+    {
+      "specification": {
+        "source_sha256": "f648afac8afc7c260902d4ed249e61a9e9901cced0390a060d397008dd9a9263",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b35.asw"
+      ],
+      "cache": ".reference/isae-st4-native/0d705d124eb504b9c56f0923cd2d5a265bf4aa5f624700b879826edda95f392e.json",
+      "sha256": "845edcde332f9b923b12916aa69e17a5d3c2563d4962e40f0acbaff54ea19a8f",
+      "status": "computed",
+      "seconds": 4.8916734410013305
+    },
+    {
+      "specification": {
+        "source_sha256": "f648afac8afc7c260902d4ed249e61a9e9901cced0390a060d397008dd9a9263",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b35.asw"
+      ],
+      "cache": ".reference/isae-st4-native/cddf82d1ef53c821a674bd3ccdc84e3b9e84dea9c1055ee2d16676e54f8b6b15.json",
+      "sha256": "d6ecea4237d4f44ccdbf4497eeaa559ff625a9d57c02a5341bfb17dd98c117b7",
+      "status": "computed",
+      "seconds": 9.826880996995897
+    },
+    {
+      "specification": {
+        "source_sha256": "48b025f71a35c5640de4d75a01278da4e5cdeca196a9819f707eb4a390574ad6",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/ba15dbf4f7f2c7f596d7b19a0535fe8979a95c4560ea76a913e7925f29e1d533.json",
+      "sha256": "8c5d799cb7371e2d6f4ec7621084e73f59dbc92001625d17e6079e80df8a8a9a",
+      "status": "computed",
+      "seconds": 2.4635477880001417
+    },
+    {
+      "specification": {
+        "source_sha256": "48b025f71a35c5640de4d75a01278da4e5cdeca196a9819f707eb4a390574ad6",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/3d84c7210b9bb6ba25983640efcc031aa6d6861b27f2677a2a28b20d84224846.json",
+      "sha256": "c2cb072800f83a9674ddaac4ca63959e3cfe883090d0c2ef8f50ac3fd1fbc263",
+      "status": "computed",
+      "seconds": 4.727756357999169
+    },
+    {
+      "specification": {
+        "source_sha256": "48b025f71a35c5640de4d75a01278da4e5cdeca196a9819f707eb4a390574ad6",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/b0748a4d94aeb6081dbd326ed4e2b78668e386e7dcb3c3fde80e5ee4027d4074.json",
+      "sha256": "b5aeecea2d26824a61b35907d24d5c0aa4a19fff543cb4ca0470b2406d4ac744",
+      "status": "computed",
+      "seconds": 10.173560736999207
+    },
+    {
+      "specification": {
+        "source_sha256": "eebbfdf62fe020ec443fd9f23e9e73357a321b2776524819deabc970f63e5141",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/3e1e0803e0f2fbe79a3c09100165f26fc10825ecd86aae662542dc994d435850.json",
+      "sha256": "f5c3b96901cda5fb51aa36f547282735cf451a430fcaf5d7b80af86f5497d7f5",
+      "status": "computed",
+      "seconds": 2.5508779709998635
+    },
+    {
+      "specification": {
+        "source_sha256": "eebbfdf62fe020ec443fd9f23e9e73357a321b2776524819deabc970f63e5141",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/329c6f524aa6ee93ad8a826dbacb629490644353ea9f3599c867a446f28fc14e.json",
+      "sha256": "5e853847f4a1172a8de465a3c081282ced960150edb29c34e7338d5fe4bc6d51",
+      "status": "computed",
+      "seconds": 4.632199483006843
+    },
+    {
+      "specification": {
+        "source_sha256": "eebbfdf62fe020ec443fd9f23e9e73357a321b2776524819deabc970f63e5141",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b11.asw"
+      ],
+      "cache": ".reference/isae-st4-native/6ab0d118238784b292cce3f328e53c678d55cfb6e747793557ac70e05c9a4e34.json",
+      "sha256": "650299b2c25ca6789f9fef00260a14cbb9098b11e6167e564596ff2e9afa576f",
+      "status": "computed",
+      "seconds": 10.758413315998041
+    },
+    {
+      "specification": {
+        "source_sha256": "24435bd5748a450fb0a601ff7a28ea51a38c3df5f44bc5126037ab19b9f18a25",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b16.asw"
+      ],
+      "cache": ".reference/isae-st4-native/70d674bc66de41f6cc9cf4640c74fa62a73eec00778b11737785f5fbdf67e824.json",
+      "sha256": "2400c61d6446ad5af9288c734a59d94b4e6b3d32090b8a8d0655827fdd5732e2",
+      "status": "computed",
+      "seconds": 2.475628856002004
+    },
+    {
+      "specification": {
+        "source_sha256": "24435bd5748a450fb0a601ff7a28ea51a38c3df5f44bc5126037ab19b9f18a25",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b16.asw"
+      ],
+      "cache": ".reference/isae-st4-native/8cc86be8398e53f67086097c2f326478ab73d390692755e82ba3c23b1e05a4c8.json",
+      "sha256": "ea7df48532238b67b9074e3a7ae69fd31cbefd5f711a3f586c55601c856741bd",
+      "status": "computed",
+      "seconds": 4.9352410720021
+    },
+    {
+      "specification": {
+        "source_sha256": "24435bd5748a450fb0a601ff7a28ea51a38c3df5f44bc5126037ab19b9f18a25",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b16.asw"
+      ],
+      "cache": ".reference/isae-st4-native/2656f17e1e1f5d5e2a8687f7b7ce30d0a1383371af81d7bdb264a4e9b7a226fe.json",
+      "sha256": "86b46d200890d4cd478c207085d7da8ef981f8b89195e5e8e6c7d50ab8d30674",
+      "status": "computed",
+      "seconds": 10.242382142998395
+    },
+    {
+      "specification": {
+        "source_sha256": "7b0e4c63d46ec890dc24b53ff6331412f8442ac05a96b84eb7ef8fa04ffd42d4",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b24.asw"
+      ],
+      "cache": ".reference/isae-st4-native/04866db6ee292e483870b8260f2f97a529dca07db21fa97ff5c5d8ff986c1d53.json",
+      "sha256": "0db1af3596f0f0b5aed4f26c4eedbfa2bdbafe8b33c57f2c044e3338a068db91",
+      "status": "computed",
+      "seconds": 2.5637275539993425
+    },
+    {
+      "specification": {
+        "source_sha256": "7b0e4c63d46ec890dc24b53ff6331412f8442ac05a96b84eb7ef8fa04ffd42d4",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b24.asw"
+      ],
+      "cache": ".reference/isae-st4-native/e071c446f1d275963fb0ddc31db3af68aeb426ee3a1dfd5b717f685173fb45ed.json",
+      "sha256": "e174d45a6acd7ed00238d81cf29d85a651b2138ca86f199249306a83f30c702e",
+      "status": "computed",
+      "seconds": 4.708793181001965
+    },
+    {
+      "specification": {
+        "source_sha256": "7b0e4c63d46ec890dc24b53ff6331412f8442ac05a96b84eb7ef8fa04ffd42d4",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b24.asw"
+      ],
+      "cache": ".reference/isae-st4-native/a22f033adb88bb7cf335fd1438a5740954039f2b62cc2d92116d8360f555f8a2.json",
+      "sha256": "b39ac8e12a2b699ce99977b682455b5602a47e27deaca6ebf01ca34b6369902e",
+      "status": "computed",
+      "seconds": 10.595830320999085
+    },
+    {
+      "specification": {
+        "source_sha256": "517fe80c5ab11895adc330018caf96606bb0bf2a4c424bf8e6b9a8bdf938de96",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b32.asw"
+      ],
+      "cache": ".reference/isae-st4-native/a8ce76156155109f00cc457c4acc5088b718afdef028d9b4a93de80e284d114c.json",
+      "sha256": "1f60529ed107979bf30daf6085cc1bcd5f43999196e1e16cde35e2071be2ce0d",
+      "status": "computed",
+      "seconds": 2.8416991170015535
+    },
+    {
+      "specification": {
+        "source_sha256": "517fe80c5ab11895adc330018caf96606bb0bf2a4c424bf8e6b9a8bdf938de96",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b32.asw"
+      ],
+      "cache": ".reference/isae-st4-native/7732fa509d61ba1179c3d268eb92c50ef1d3d8b2f62de688ce627874aca740e9.json",
+      "sha256": "b272d1181abacb1b909531e03bac61b4a609d6bcf066b67cfd08e6f0cc30b2dc",
+      "status": "computed",
+      "seconds": 4.9429242230035015
+    },
+    {
+      "specification": {
+        "source_sha256": "517fe80c5ab11895adc330018caf96606bb0bf2a4c424bf8e6b9a8bdf938de96",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b32.asw"
+      ],
+      "cache": ".reference/isae-st4-native/74275bc591422290ecde1d1fa16c28115419bea10825d0e2d0a08ee194608c92.json",
+      "sha256": "6e008dcedcbb66aed6155aebd7f231482f33a0d72d8a9fa17e682576309b82e5",
+      "status": "computed",
+      "seconds": 10.180272350997257
+    },
+    {
+      "specification": {
+        "source_sha256": "64ad9540f7535875d4added8f01adbe5ae09596c2751b7628ce5e51b6d2d7228",
+        "panels": 8,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/eedae37ac4bce5884b2061c197af41cd56bc3d39b8e664514b5c692e55b90831.json",
+      "sha256": "c19da71c764491e878c0fb764c33e3af7f6f9f269e6e0fcb038519c067898896",
+      "status": "computed",
+      "seconds": 2.5327663040006883
+    },
+    {
+      "specification": {
+        "source_sha256": "64ad9540f7535875d4added8f01adbe5ae09596c2751b7628ce5e51b6d2d7228",
+        "panels": 16,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/daa74022d40e9c3df178b452eae97b2278e640fbfdd4d2b9923e2942e8a5508a.json",
+      "sha256": "4353733606c556812e1c97b30af2acc8ecccd398b82406504e58f68c64f159d5",
+      "status": "computed",
+      "seconds": 4.938798492999922
+    },
+    {
+      "specification": {
+        "source_sha256": "64ad9540f7535875d4added8f01adbe5ae09596c2751b7628ce5e51b6d2d7228",
+        "panels": 32,
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "count": 12,
+        "shift": [
+          -0.1,
+          0.0
+        ],
+        "method": "dense"
+      },
+      "paths": [
+        "3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b40.asw"
+      ],
+      "cache": ".reference/isae-st4-native/aa401c54df9a9bf8f0dcf920df0d8af84db0fdd91264156a8153c8a37fcc5553.json",
+      "sha256": "96e3ecdf3e4c6865ffe98826d1a1a00d012f4dedbbcf735964a8e1ea468c4bf2",
+      "status": "computed",
+      "seconds": 10.081736127998738
+    }
+  ],
+  "requested": 81,
+  "full_physical_validation": false,
+  "scope": "Literal models; zero airflow and gravity=0, fixed frame. This matches the unloaded vacuum comparison only; it is not a gravity-loaded, still-air-added-mass or flutter validation."
+}

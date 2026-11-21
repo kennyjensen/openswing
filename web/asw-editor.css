@@ -1,0 +1,49 @@
+/* Palette verified against VibeLattice's published editor stylesheet. */
+.asw-editor {
+  position: relative;
+  background: #0f1115;
+  color: #f8f8f2;
+  color-scheme: dark;
+}
+.asw-editor #editor, .asw-highlight {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font: 11px/1.65 var(--mono);
+  font-variant-ligatures: none;
+  padding: 12px 20px;
+  tab-size: 2;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.asw-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  color: #f8f8f2;
+}
+.asw-editor #editor {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: transparent;
+  caret-color: #f8f8f2;
+  overflow: auto;
+}
+.asw-editor:focus-within { box-shadow: inset 0 0 0 1px #66d9ef, 0 0 0 2px rgb(102 217 239 / 28%); }
+.asw-editor #editor:focus-visible { outline: none; }
+.asw-token-comment { color: #75715e; }
+.asw-token-keyword { color: #f92672; font-weight: 600; }
+.asw-token-number { color: #ae81ff; }
+.asw-token-string { color: #e6db74; }
+@media (max-width: 720px) {
+  #workspace-editor .asw-highlight { font-size: 13px; padding: 16px; }
+}
+@media (forced-colors: active) {
+  .asw-highlight { visibility: hidden; }
+  .asw-editor #editor { color: CanvasText; -webkit-text-fill-color: CanvasText; caret-color: CanvasText; }
+}

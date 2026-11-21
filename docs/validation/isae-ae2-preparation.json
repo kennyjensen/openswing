@@ -1,0 +1,347 @@
+{
+  "coverage_before": {
+    "evidence": null,
+    "first_import_errors": [
+      "AswError: Line 60: engine is missing End."
+    ],
+    "fully_validated": false,
+    "id": "AE-2",
+    "models": 5,
+    "name": "AE-2-S Low Aspect Ratio Wing - Steady Deflection",
+    "next_step": "Match each composite layup and speed/incidence condition to measured displacement and twist with mesh refinement.",
+    "parsed": 4,
+    "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection",
+    "rejected": 1,
+    "status": "imports_available_physical_comparison_pending"
+  },
+  "coverage_unchanged": true,
+  "family": "AE-2",
+  "findings": [
+    {
+      "finding": "AE-2/Dunn.pdf is a one-page ISAE bench illustration (image-only), not the original paper/thesis. The actual local primary is Dunn thesis PDF/text under .reference/isae-st3.",
+      "id": "primary_identity",
+      "sources": [
+        {
+          "lines_1_based": [
+            1,
+            1
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Dunn.pdf"
+        },
+        {
+          "lines_1_based": [
+            3346,
+            3403
+          ],
+          "path": ".reference/isae-st3/dunn-1992.txt"
+        }
+      ]
+    },
+    {
+      "finding": "Dunn \u00a75.2.3 mixes steady pre-flutter data and time-averaged post-flutter data in Figs27/29/31. Total tip angle is root angle plus twist. Hollow markers are video; solid markers are strain-derived approximations using an assumed distributed-load shape. They are different acquisition methods, not repeat measurements or statistical uncertainty limits.",
+      "id": "measurement_definition",
+      "sources": [
+        {
+          "lines_1_based": [
+            4939,
+            4962
+          ],
+          "path": ".reference/isae-st3/dunn-1992.txt"
+        },
+        {
+          "lines_1_based": [
+            5068,
+            5083
+          ],
+          "path": ".reference/isae-st3/dunn-1992.txt"
+        }
+      ]
+    },
+    {
+      "finding": "Analysis.m replaces every first Z ordinate with zero while the original speeds are nonzero; averages B/W ordinates at B speed even when the two speeds differ; uses half their difference as error bars. Preserve original samples separately. Negative-layup T uses 50*(B+W), i.e.100 times the mean, unlike the other two. Its raw near-zero-speed values near0.01/0.05/0.10/0.15 confirm a distinct digitizer scale; document100x as archived reduction, not a silent unit correction.",
+      "id": "raw_data_integrity",
+      "sources": [
+        {
+          "lines_1_based": [
+            10,
+            56
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m"
+        },
+        {
+          "lines_1_based": [
+            78,
+            90
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m"
+        },
+        {
+          "lines_1_based": [
+            134,
+            143
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m"
+        },
+        {
+          "lines_1_based": [
+            354,
+            363
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m"
+        }
+      ]
+    },
+    {
+      "finding": "Archived output columns are sensor1 earth RY, sensor Euler Psi, local speed V and local beta. The MATLAB curves use -RY and requested root angle-Psi, plotted against local sensor V. Do not equate that local V or beta with commanded indicated speed or root incidence. The literal sensor is one midchord point; the report describes two LE/TE points.",
+      "id": "observable_mapping",
+      "sources": [
+        {
+          "lines_1_based": [
+            1,
+            14
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt"
+        },
+        {
+          "lines_1_based": [
+            95,
+            171
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m"
+        },
+        {
+          "lines_1_based": [
+            16,
+            18
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw"
+        },
+        {
+          "lines_1_based": [
+            628,
+            639
+          ],
+          "path": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt"
+        },
+        {
+          "lines_1_based": [
+            1750,
+            1809
+          ],
+          "path": ".reference/aswing_doc.txt"
+        }
+      ]
+    },
+    {
+      "finding": "Literal Units L=m,T=s,F=N makes EIcc/EInn/EIcn/EIcs/GJ N m^2, EA/GK N, mg N/m. With straight +z span and omitted zero twist, Eq3 gives local c=+x,s=+z,n=-y. Thus EIcc is out-of-plane bending about+x, EInn is in-plane bending about-y, GJ torsion about+z; rotation of the whole specimen does not exchange these local labels. Cea/Cta are dimensional offsets from the reference s-axis, Xax is a chord fraction. All three Xax values are zero after the multiplier; reference axis is at the leading edge.",
+      "id": "axis_and_units",
+      "sources": [
+        {
+          "lines_1_based": [
+            1133,
+            1184
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            192,
+            219
+          ],
+          "path": ".reference/asw_theory.txt"
+        },
+        {
+          "lines_1_based": [
+            6,
+            42
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw"
+        }
+      ]
+    },
+    {
+      "finding": "The same-named Table10 values do not reproduce the literal files under the documented ASW SI dimensions: uncoupled literal EIcc1.4163/GJ1/EInn2.5 versus table1.4163/1.2/18499; positive EIcc1.29/GJ1.2/EInn25000/EIcs.250 versus1.2947/1.2/22775/.5151; negative1.42/1.2/25000/-.551 versus1.2947/1.4/22775/-.5151. Table10 incorrectly prints N for bending/torsional rigidities and has duplicated positive-layup column headings; its axis rows also label0.5/0.4 as m despite chord.14. This is an unresolved file-to-report correspondence, not proof of a measured stiffness error or authorization to substitute values. Primary plate D coefficients in N m require conversion/foam contribution before comparison to beam rigidities; no raw D-to-EI substitution is proposed.",
+      "id": "property_correspondence",
+      "sources": [
+        {
+          "lines_1_based": [
+            3249,
+            3344
+          ],
+          "path": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt"
+        },
+        {
+          "lines_1_based": [
+            6219,
+            6244
+          ],
+          "path": ".reference/isae-st3/dunn-1992.txt"
+        }
+      ]
+    },
+    {
+      "finding": "Three steady scripts/vertical inputs support a root clamp, gravity, solid image normal(0,0,1), anchored defaults, beta-incidence and sequential indicated-speed commands. No script records NODE, K/F, altitude, initial body/Earth Euler pose, full producing state or executable hash. Part4 states40 circulations/40 cosine structural nodes, but this is a report setting, not a captured NODE command or proof of default counts. Model Constant rho_SL1.23 is sea-level density, not a measurement of actual tunnel density.",
+      "id": "setup_and_missing_state",
+      "sources": [
+        {
+          "lines_1_based": [
+            1,
+            65
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh"
+        },
+        {
+          "lines_1_based": [
+            930,
+            958
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            1938,
+            1965
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            1971,
+            2000
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            2013,
+            2033
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            2634,
+            2670
+          ],
+          "path": ".reference/aswing_doc.txt"
+        },
+        {
+          "lines_1_based": [
+            628,
+            645
+          ],
+          "path": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt"
+        }
+      ]
+    },
+    {
+      "finding": "All three steady files carry the same Name [0_3/90]_s, so identify them by path/hash and effective properties, not output title. The flat variant changes orientation, symmetry, sensor location and stiffnesses; the rejected structural file is a different setup ending in an unterminated Engine block. Neither is a drop-in replacement for a vertical aeroelastic case.",
+      "id": "model_identity",
+      "sources": [
+        {
+          "lines_1_based": [
+            1,
+            50
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw"
+        },
+        {
+          "lines_1_based": [
+            1,
+            50
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[p15_02]_S.asw"
+        },
+        {
+          "lines_1_based": [
+            1,
+            50
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[m15_02]_S.asw"
+        },
+        {
+          "lines_1_based": [
+            1,
+            46
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_flat.asw"
+        },
+        {
+          "lines_1_based": [
+            1,
+            60
+          ],
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/[0_3_90]_S/[03_90]_S.asw"
+        }
+      ]
+    }
+  ],
+  "initial_plan": {
+    "acceptance": "No experimental error threshold is established by the available sources. Numerical convergence or archive-curve agreement would remain separate from physical validation.",
+    "before_any_science": [
+      "Verify W/hollow mapping against primary Fig27 and retain the raw independent point.",
+      "Declare tunnel-speed interpretation and density/temperature; these are not recovered measured conditions.",
+      "Keep literal-file and report-property models separate if a report reconstruction is later authorized.",
+      "Declare all operating/ground/attitude/circulation settings in an immutable contract; compare actual sensor quantities, not requested labels.",
+      "Restrict any experimental interpretation to pre-flutter conditions; high-speed means cannot be treated as static roots without checking the primary flutter boundary."
+    ],
+    "candidate_physical_observation": {
+      "caution": "B has identical digitized coordinates on this row; this does not establish two independent replicates.",
+      "columns_1_based": [
+        3,
+        4
+      ],
+      "interpretation": "W/hollow -> video is inferred from digitizer B/W labels plus primary legend; retain label and verify against Fig27 before scientific execution.",
+      "line_1_based": 4,
+      "midchord_tip_deflection_literal_m": "0.001581596333254276",
+      "no_interpolation": true,
+      "no_pair_averaging": true,
+      "no_zero_replacement": true,
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/[0_3_90]_S/[03_90]_Z_ALPHA_V.csv",
+      "root_incidence_deg": 1,
+      "series": "ALPHA_1_W",
+      "speed_literal_m_s": "9.057511458580507"
+    },
+    "chosen_literal_model": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw",
+    "mesh": "Report40/40 cosine setting can anchor a declared reproduction attempt, followed by explicit refinement; exact original count/spacing and circulation representation remain unproven. Do not equate40circulations with an inferred original Fourier mode count.",
+    "next_archive_control": {
+      "Psi_sensor1_deg": -0.572223,
+      "RY_sensor1_m": -0.02582,
+      "V_sensor1_m_s": 10.0115,
+      "beta_sensor1_deg": 6.27943,
+      "line_1_based": 14,
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt",
+      "plotted_deflection_m": 0.02582,
+      "plotted_total_tip_angle_deg": 5.572223,
+      "printed_t_not_speed": 11.0,
+      "requested_beta_deg": 5,
+      "requested_indicated_speed_m_s": 10,
+      "row_index": 11,
+      "scope": "conditional archive output regression, not an experimental sample or exact producing-state reconstruction",
+      "script": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+      "script_speed_line": 33
+    },
+    "observable": "For the physical point compare midchord tip displacement along -y only; no twist observation at the same speed is asserted. For archive control retain all four printed sensor columns, -RY and beta_request-Psi separately.",
+    "parameter_policy": "Use literal archived properties; never replace them by Table10 or fitted values implicitly.",
+    "status": "CONDITIONAL_ONLY_NO_FULLY_MATCHED_LITERAL_SPECIMEN_ESTABLISHED",
+    "support": "Single vertical cantilever, root t=.0001, physical z0; solid image through Earth origin normal+z. Explicitly declare zero body/Earth attitude and gravity down-z as candidate reconstruction assumptions rather than recovered producer state."
+  },
+  "primary_paths": {
+    "misnamed_illustration": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Dunn.pdf",
+    "secondary_report": ".reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+    "thesis_pdf": ".reference/isae-st3/dunn-1992.pdf",
+    "thesis_text": ".reference/isae-st3/dunn-1992.txt"
+  },
+  "production_edits": false,
+  "reproduction": {
+    "command": "python3 prepare.py --root /path/to/repository --output /path/to/preparation",
+    "dependencies": "Python standard library and files listed in source-pins.json; no numerical package, solver, internet or upstream executable required.",
+    "inventory_sha256": "d893f7991031c5e4b92b95d70e9e2630d64aea5ddbae7e649f2d2bfd23f21570",
+    "source_pins_sha256": "c1ed86f185b8558dddaeff03fe52873fa9bdd1b25f9746386219cdc653d23b6b"
+  },
+  "scientific_solves": 0,
+  "status": "PREPARATION_COMPLETE_NO_SCIENTIFIC_RUN",
+  "upstream_revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+  "upstream_script_execution": false,
+  "validation_complete": false
+}

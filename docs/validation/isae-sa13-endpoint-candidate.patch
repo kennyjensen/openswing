@@ -1,0 +1,23 @@
+--- openswing/asw.py
++++ openswing/asw.py
+@@ -105,9 +105,18 @@
+         boundaries = np.array([v[0] for v in self._segments[1:]])
+         ids = np.where(right, np.searchsorted(boundaries, x, side="right"),
+                        np.searchsorted(boundaries, x, side="left"))
+-        for i, (_, _, spline) in enumerate(self._segments):
++        for i, (_, end, spline) in enumerate(self._segments):
+             sel = ids == i
+-            out[sel] = spline(x[sel], nu=derivative)
++            samples = x[sel]
++            values = spline(samples, nu=derivative)
++            # At the last knot, Horner evaluation can turn an exact zero
++            # into a tiny negative radius. Retain the prescribed left-side
++            # endpoint value exactly; nearby points and derivatives are live.
++            if derivative == 0:
++                terminal = samples == end
++                if np.any(terminal):
++                    values[terminal] = self.values[np.searchsorted(self.t, end, side="left")]
++            out[sel] = values
+         if reflect:
+             if derivative % 2:
+                 out = np.where(negative_side, -out, out)

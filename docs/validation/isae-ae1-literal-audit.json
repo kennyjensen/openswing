@@ -1,0 +1,1231 @@
+{
+  "status": "PASS_SAVED_RESULT_AUDIT",
+  "operations": {
+    "production_imports": 0,
+    "meshes": 0,
+    "residuals": 0,
+    "aerodynamic_evaluations": 0,
+    "solves": 0,
+    "production_edits": 0
+  },
+  "method": "Independent arithmetic from saved verification arrays and full public sensor outputs. Fresh physical residuals themselves were evaluated by the case owner, not replayed by this audit.",
+  "native": {
+    "baseline": {
+      "z_m": -0.01729465116234682,
+      "x_m": 6.287561791201291e-07,
+      "elevation_deg": -1.1059719512161663e-06,
+      "positive_chord_projection_deg": -1.1059719496302921e-06,
+      "fresh_residual_maxabs": 7.52052498244433e-14,
+      "root_translation_maxabs": 0.0,
+      "root_rotation_maxabs": 1.9610345347809924e-28,
+      "balance": {
+        "force": {
+          "applied": [
+            0.0,
+            0.0,
+            -3.6619258499999994
+          ],
+          "support": [
+            0.0,
+            0.0,
+            3.6619258500000007
+          ],
+          "defect": [
+            0.0,
+            0.0,
+            1.3322676295501878e-15
+          ],
+          "absolute_l2": 1.3322676295501878e-15,
+          "denominator": 3.6619258500000007,
+          "relative_l2": 3.6381611319360484e-16
+        },
+        "moment": {
+          "applied": [
+            -1.006631330616431,
+            -0.018308708180688357,
+            -9.751504079889537e-26
+          ],
+          "support": [
+            1.0066313306176686,
+            0.01830870818068901,
+            -1.5125450948069085e-23
+          ],
+          "defect": [
+            1.2376766278521245e-12,
+            6.522560269672795e-16,
+            -1.522296598886798e-23
+          ],
+          "absolute_l2": 1.2376767997216927e-12,
+          "denominator": 1.0067978171293102,
+          "relative_l2": 1.2293201064446976e-12
+        }
+      },
+      "seconds_reported": 0.8227272140029527,
+      "operations_reported": {
+        "public_cold_solves": 1,
+        "residual_calls": 141,
+        "fresh_residual_calls": 1,
+        "public_network_residuals": 140,
+        "verification_network_residuals": 1,
+        "continuation_steps": 4
+      }
+    },
+    "aero30": {
+      "z_m": 0.03979711745198668,
+      "x_m": 0.00013230665861405699,
+      "elevation_deg": 0.6038204973764274,
+      "positive_chord_projection_deg": 0.6038206138407495,
+      "fresh_residual_maxabs": 1.1562456080861245e-13,
+      "root_translation_maxabs": 0.0,
+      "root_rotation_maxabs": 7.48253527739928e-30,
+      "balance": {
+        "force": {
+          "applied": [
+            -1.0109273255086606,
+            -0.9698845451805245,
+            10.101484646686368
+          ],
+          "support": [
+            1.0109273255086904,
+            0.9698845451805387,
+            -10.101484646686636
+          ],
+          "defect": [
+            2.9753977059954195e-14,
+            1.4210854715202004e-14,
+            -2.682298827494378e-13
+          ],
+          "absolute_l2": 2.70248991750937e-13,
+          "denominator": 10.198168568703208,
+          "relative_l2": 2.6499757278016996e-14
+        },
+        "moment": {
+          "applied": [
+            2.4908783057566675,
+            0.3116421659707544,
+            0.26801741754545017
+          ],
+          "support": [
+            -2.490878305756706,
+            -0.31164216597076044,
+            -0.2680174175454622
+          ],
+          "defect": [
+            -3.863576125695545e-14,
+            -6.050715484207103e-15,
+            -1.2045919817182948e-14
+          ],
+          "absolute_l2": 4.091988990719897e-14,
+          "denominator": 2.524565093200824,
+          "relative_l2": 1.6208688782636146e-14
+        }
+      },
+      "seconds_reported": 1.620170911999594,
+      "operations_reported": {
+        "public_cold_solves": 1,
+        "residual_calls": 235,
+        "fresh_residual_calls": 1,
+        "public_network_residuals": 234,
+        "verification_network_residuals": 1,
+        "continuation_steps": 4
+      }
+    }
+  },
+  "comparison": {
+    "baseline_z_m": {
+      "native": -0.01729465116234682,
+      "historical": -0.0172946,
+      "native_minus_historical": -5.1162346820926574e-08,
+      "relative_difference_percent": -0.00029582844830713966
+    },
+    "aero30_absolute_z_m": {
+      "native": 0.03979711745198668,
+      "historical": 0.0393569,
+      "native_minus_historical": 0.00044021745198667694,
+      "relative_difference_percent": 1.1185267436883417
+    },
+    "baseline_subtracted_delta_z_m": {
+      "native": 0.0570917686143335,
+      "historical": 0.0566515,
+      "native_minus_historical": 0.00044026861433350134,
+      "relative_difference_percent": 0.7771526161416755
+    },
+    "absolute_sensor3_elevation_deg": {
+      "native": 0.6038204973764274,
+      "historical": 0.599742,
+      "native_minus_historical": 0.0040784973764274035,
+      "relative_difference_percent": 0.6800419807896402
+    }
+  },
+  "alternate_wind_normal_delta_m": 0.05686304071288959,
+  "limitations": [
+    "Only two conditional literal-derived states and one nominal30 mesh; no mesh convergence or full-curve claim.",
+    "The null Weight removal does not prove historical attachment handling.",
+    "Transverse gravity and remaining runtime settings are reconstruction choices, not an identified experiment.",
+    "Numerical residual acceptance is distinct from historical agreement and experimental validation; no family promotion."
+  ],
+  "checks": [
+    {
+      "name": "plan pin /home/userland/aswing/openswing/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/aero.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/applied_load_outputs.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/asw.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/asw_edit.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/atmosphere.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/beam_matching.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/body_shoulders.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/bridge.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/circulation.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/circulation_polish.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/circulation_solve.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/circulation_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/control_allocation.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/control_expressions.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/control_tables.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/custom_constraints.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/damping.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/derivative_cache.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/derivative_circulation.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/derivatives.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/descriptor_mass.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/discretization.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/distribution_curve.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/dynamic_inertia.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/equilibrium_state.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/equilibrium_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/factored_influence.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/feedback.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/field_products.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/flow_survey.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/forcing.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/frequency_response.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/frequency_sweep.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/frozen_influence.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/geometry.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/geometry_field_partials.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/geometry_partials.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/geometry_stencil.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/geometry_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/ground.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/gust.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/gust_file.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/gust_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/harmonic_structure.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/hinge_history.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/inertia.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/initial_diagnostics.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/initial_response.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/joints.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/kinematics.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/legacy_hinge_state.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/linear_dynamics.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/local_geometry_matrix.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/local_motion.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/local_rate_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/mechanical_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/network.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/newton_structure.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/nonlinear_initial.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/operating.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/output_derivatives.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/output_fields.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/position_history_checkpoint.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/position_history_lift.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/position_history_radau.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/power_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/propulsion.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/quiescent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/radau_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/radau_time.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/recovery.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/reduced_model.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/reference_flow.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/rigid_initial_rank.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/rom_file.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/rom_initial.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/rom_outputs.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/root_diagnostics.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/seeded_corrector.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/sensors.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/sparse_rank.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/stability.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/steady_feedback.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structural_geometry.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structural_outputs.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structure.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structured_radau.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structured_static.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/structured_time.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/struts.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/support_outputs.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/tangent_influences.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_acceptance.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_acceptance_validation.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_accuracy.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_cold_initial.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_history.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_initialization.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_input_transition.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_integration.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_result_storage.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_saved_history.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_state.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/time_transition_initial.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/trefftz.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/vector_ops.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/volume.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/volume_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/vortex_tangent.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /home/userland/aswing/openswing/wall_root.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/run.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/supervise.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/literal-minus-null-weights.asw",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/literal-original.asw",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/panels.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/condition.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/baseline.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/fixture.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/protocol.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/preflight.py",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/preflight.json",
+      "passed": true
+    },
+    {
+      "name": "plan pin /tmp/openswing-isae-attachment-20261025/literal-pilot/historical-observables.json",
+      "passed": true
+    },
+    {
+      "name": "baseline owner terminal",
+      "passed": true
+    },
+    {
+      "name": "baseline bounded thread environment",
+      "passed": true
+    },
+    {
+      "name": "baseline reported gates",
+      "passed": true
+    },
+    {
+      "name": "baseline one public solve and one restored residual",
+      "passed": true
+    },
+    {
+      "name": "baseline no seed",
+      "passed": true
+    },
+    {
+      "name": "baseline no external nodal loads",
+      "passed": true
+    },
+    {
+      "name": "baseline exact declared source",
+      "passed": true
+    },
+    {
+      "name": "baseline declared condition",
+      "passed": true
+    },
+    {
+      "name": "baseline declared gravity",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/inputs.json",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/last-residual-input.npy",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/progress-state.json",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/progress.jsonl",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/result.json",
+      "passed": true
+    },
+    {
+      "name": "baseline saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/verification.npz",
+      "passed": true
+    },
+    {
+      "name": "baseline independent fresh residual bound",
+      "passed": true,
+      "maxabs": 7.52052498244433e-14
+    },
+    {
+      "name": "baseline independent root translation bound",
+      "passed": true,
+      "maxabs": 0.0
+    },
+    {
+      "name": "baseline independent root rotation bound",
+      "passed": true,
+      "maxabs": 1.9610345347809924e-28
+    },
+    {
+      "name": "baseline finite all saved physical arrays",
+      "passed": true
+    },
+    {
+      "name": "baseline retained literal mesh",
+      "passed": true
+    },
+    {
+      "name": "baseline independent force balance",
+      "passed": true,
+      "relative_l2": 3.6381611319360484e-16
+    },
+    {
+      "name": "baseline force public balance matches saved operands",
+      "passed": true
+    },
+    {
+      "name": "baseline force owner normalization matches",
+      "passed": true
+    },
+    {
+      "name": "baseline independent moment balance",
+      "passed": true,
+      "relative_l2": 1.2293201064446976e-12
+    },
+    {
+      "name": "baseline moment public balance matches saved operands",
+      "passed": true
+    },
+    {
+      "name": "baseline moment owner normalization matches",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor1 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor1 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor1 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor1 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor1 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor2 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor2 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor2 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor2 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor2 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor3 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor3 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor3 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor3 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "baseline sensor3 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "baseline owner observable sensor_3_z_m",
+      "passed": true
+    },
+    {
+      "name": "baseline owner observable sensor_3_x_m",
+      "passed": true
+    },
+    {
+      "name": "baseline owner observable sensor_3_elevation_deg",
+      "passed": true
+    },
+    {
+      "name": "baseline owner observable projected_chord_angle_deg",
+      "passed": true
+    },
+    {
+      "name": "aero30 owner terminal",
+      "passed": true
+    },
+    {
+      "name": "aero30 bounded thread environment",
+      "passed": true
+    },
+    {
+      "name": "aero30 reported gates",
+      "passed": true
+    },
+    {
+      "name": "aero30 one public solve and one restored residual",
+      "passed": true
+    },
+    {
+      "name": "aero30 no seed",
+      "passed": true
+    },
+    {
+      "name": "aero30 no external nodal loads",
+      "passed": true
+    },
+    {
+      "name": "aero30 exact declared source",
+      "passed": true
+    },
+    {
+      "name": "aero30 declared condition",
+      "passed": true
+    },
+    {
+      "name": "aero30 declared gravity",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/inputs.json",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/last-residual-input.npy",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/progress-state.json",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/progress.jsonl",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/result.json",
+      "passed": true
+    },
+    {
+      "name": "aero30 saved output pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/verification.npz",
+      "passed": true
+    },
+    {
+      "name": "aero30 independent fresh residual bound",
+      "passed": true,
+      "maxabs": 1.1562456080861245e-13
+    },
+    {
+      "name": "aero30 independent root translation bound",
+      "passed": true,
+      "maxabs": 0.0
+    },
+    {
+      "name": "aero30 independent root rotation bound",
+      "passed": true,
+      "maxabs": 7.48253527739928e-30
+    },
+    {
+      "name": "aero30 finite all saved physical arrays",
+      "passed": true
+    },
+    {
+      "name": "aero30 retained literal mesh",
+      "passed": true
+    },
+    {
+      "name": "aero30 independent force balance",
+      "passed": true,
+      "relative_l2": 2.6499757278016996e-14
+    },
+    {
+      "name": "aero30 force public balance matches saved operands",
+      "passed": true
+    },
+    {
+      "name": "aero30 force owner normalization matches",
+      "passed": true
+    },
+    {
+      "name": "aero30 independent moment balance",
+      "passed": true,
+      "relative_l2": 1.6208688782636146e-14
+    },
+    {
+      "name": "aero30 moment public balance matches saved operands",
+      "passed": true
+    },
+    {
+      "name": "aero30 moment owner normalization matches",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor1 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor1 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor1 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor1 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor1 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor2 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor2 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor2 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor2 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor2 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor3 pylon position from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor3 identity frame Earth position",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor3 axes from fresh state",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor3 elevation arithmetic",
+      "passed": true
+    },
+    {
+      "name": "aero30 sensor3 regular Euler branch",
+      "passed": true
+    },
+    {
+      "name": "aero30 owner observable sensor_3_z_m",
+      "passed": true
+    },
+    {
+      "name": "aero30 owner observable sensor_3_x_m",
+      "passed": true
+    },
+    {
+      "name": "aero30 owner observable sensor_3_elevation_deg",
+      "passed": true
+    },
+    {
+      "name": "aero30 owner observable projected_chord_angle_deg",
+      "passed": true
+    },
+    {
+      "name": "aero30 final strict wall guard",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/plan.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/compare.py",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/historical-observables.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/aswing_alpha_05.txt",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/report.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/result.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/verification.npz",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/report.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/result.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/verification.npz",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/process-closeout-baseline.json",
+      "passed": true
+    },
+    {
+      "name": "comparison pin /tmp/openswing-isae-attachment-20261025/literal-pilot/process-closeout-aero30.json",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_z_m native",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_z_m historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_z_m native_minus_historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_z_m relative_difference_percent",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic aero30_absolute_z_m native",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic aero30_absolute_z_m historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic aero30_absolute_z_m native_minus_historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic aero30_absolute_z_m relative_difference_percent",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_subtracted_delta_z_m native",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_subtracted_delta_z_m historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_subtracted_delta_z_m native_minus_historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic baseline_subtracted_delta_z_m relative_difference_percent",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic absolute_sensor3_elevation_deg native",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic absolute_sensor3_elevation_deg historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic absolute_sensor3_elevation_deg native_minus_historical",
+      "passed": true
+    },
+    {
+      "name": "comparison arithmetic absolute_sensor3_elevation_deg relative_difference_percent",
+      "passed": true
+    },
+    {
+      "name": "comparison alternate wind projection",
+      "passed": true
+    },
+    {
+      "name": "comparison scientific scope remains conditional",
+      "passed": true
+    }
+  ],
+  "check_summary": {
+    "passed": 244,
+    "total": 244
+  },
+  "pins": [
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/plan.json",
+      "bytes": 23487,
+      "sha256": "1e9f5a026922a13cba969c4d23432d1c01d97a10e14969ddf50bcbd3148adb99"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/comparison.json",
+      "bytes": 11772,
+      "sha256": "d5dfaf7786353770301de0b700f1fb1b062eb2f02ca09601e913c63388a2b359"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-audit-20261025/source-audit.json",
+      "bytes": 58509,
+      "sha256": "18760cce495e11254253aea8642ab498d71151e4d79238ee6e04dfa976ffb447"
+    },
+    {
+      "path": "/tmp/openswing-isae-literal-audit-20261025/audit_results.py",
+      "bytes": 10192,
+      "sha256": "042dac7e975f7ca4cae06b15d0a6c4088ab038a9cc0b04e4789b8e13aa1afddb"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/report.json",
+      "bytes": 27722,
+      "sha256": "be2660f6e45ea9560c1393be5f7a8a010bb8a62817983985c702edeca4ea63f4"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/result.json",
+      "bytes": 152671,
+      "sha256": "4cd347d3d86fed129ed0ee37eff922d25bcfbaca14da5768d009d9c1df3a8583"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/inputs.json",
+      "bytes": 31355,
+      "sha256": "ab9fde6659de9cdd244946179b8f3b80967ebaa27e730a5cb8a557a7dd2607ae"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/baseline/verification.npz",
+      "bytes": 20484,
+      "sha256": "ae8dfef67d0c6e1ddc370b9155221b0419a663fa6b98ebcfe37eddb490668cb4"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/process-closeout-baseline.json",
+      "bytes": 848,
+      "sha256": "8991a83979e8b1dd830db8878106ca3e0b4552a9f3604e9ce8cdc0a286efae34"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/report.json",
+      "bytes": 32846,
+      "sha256": "b4e7bbdaade521739d4a5fedf45bd1432d2a23e434c2de9e78dc9d97bdb26bb2"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/result.json",
+      "bytes": 223202,
+      "sha256": "6200d34ad99164f942d68cf5e4e81545cedd620d2941f671692fe438f40c8167"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/inputs.json",
+      "bytes": 33741,
+      "sha256": "db256b005ebd06f674dc3d0c03fdcf87b4bca2ea6c7c92cea0d3bcad0607cf89"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/results/aero30/verification.npz",
+      "bytes": 20980,
+      "sha256": "5fb8eadad28b123202233bd8ce85179eb6cc602aa2787f4122dd697f4bce4715"
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/literal-pilot/process-closeout-aero30.json",
+      "bytes": 844,
+      "sha256": "2cb959c4d8cde87ac2b32de8785c8a7dc1bbea09efc0f1f44d821b74a80423fd"
+    }
+  ]
+}

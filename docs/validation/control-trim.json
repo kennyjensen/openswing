@@ -1,0 +1,910 @@
+{
+  "description": "Independent mechanical controller trim and analytical aerodynamic moment checks, with open-loop lift-trim comparison.",
+  "references": [
+    "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+    "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt"
+  ],
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "scripts/verify-control-trim.py": "a821b309b2f316283f9af27a2919bca75a3f25da033759798119b2b069576022",
+    "examples/instrumented-oscillator.asw": "181241561bc21c0dcb17347f9ad7c32c28801c6ded89449c81abe2a21bb64f40",
+    "examples/rectangular.asw": "ace0f9ce7d307bd84791c8d85bbe4c96d9d69262be6f09154b1dc10f065d69b9",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "7513c4c83e7b2777bf8a200155c2783b664f7700f45445301f728a6a4afc8bbd",
+    "openswing/asw.py": "ac47d13944bafd8394f686274ebc8fbb6e9973f2a854484200dcfae475bb6bb3",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "08607c379961af4d3fecf3609ddf28c8606b8098a1880cd83c8e68e2df1b9a30",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "9c1823306fe644437f166ab00ba783268b4772dd891d98239ce0f978d78c7595",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/feedback.py": "2df18c047f3339758127e7f0883dda75cdc4a7aa2ba826a29678dc3d82269878",
+    "openswing/forcing.py": "19b98a8da7c76a9aea5817faeff7cd74144b5c6274e1469a2614fb252b98b7bb",
+    "openswing/frequency_response.py": "05ea59ec61d7c76625d61f474e9bdb2ea280be932df234ae0b16f3fb812109df",
+    "openswing/geometry.py": "2b532a334bb438a85f89c013cacddc733b915b591da46a51af7d82d78177eb45",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "1263ecc84564a9a644a09dd52ab7f86b8712ecce1fd73f4e7aebed1774ad10d8",
+    "openswing/local_motion.py": "ba9a4fe285500c3140e07b4fca920ced1d12437c912bc1784b182c56daae974f",
+    "openswing/network.py": "3c27bf84bc2d857a70d5b9a75da68cedd4fe5e396231768609f95771a8c00d59",
+    "openswing/operating.py": "59e234f72c4216c0384c810e598f15016bbb163396ea635f970b95eb105cb242",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/steady_feedback.py": "e14c44bc84a190c4485093b62d73f5407bd4f27f72e0eb33c12f62d49d2fe9a1",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_integration.py": "b3c71555095a324795e29061d59dba41afd5023db6510f06e060890c14489433",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031"
+  },
+  "cases": [
+    {
+      "kind": "original spring-mass trim and released dynamics",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "panels": 4,
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "mach": 0,
+        "gravity_magnitude": 0
+      },
+      "controller": {
+        "outputs": [
+          {
+            "actuator": "E1",
+            "terms": [
+              {
+                "input": "RY[2]",
+                "gain": -200
+              },
+              {
+                "input": "UY[2]",
+                "gain": -20
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "command.RY[2]",
+          "quantity": "force.y",
+          "target": 5
+        }
+      ],
+      "actual": [
+        0.010000000000216058,
+        4.999999999996581,
+        2.035000000000726,
+        0.0
+      ],
+      "reference": [
+        0.01,
+        5.0,
+        2.035,
+        0.0
+      ],
+      "coordinate_order": [
+        "displacement_y",
+        "actuator",
+        "command_RY",
+        "integral_RY"
+      ],
+      "equilibrium": {
+        "residual": 8.601119816376012e-13,
+        "column_scaled_reciprocal_condition": 0.05210744529156675,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "RY[2]": 2.0,
+          "UY[2]": 0.0,
+          "E1": 0.0
+        },
+        "solved_commands": {
+          "command.RY[2]": 2.035000000000726
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      },
+      "maximum_pole_error": 1.0185654009928947e-10,
+      "maximum_transfer_error": 3.1178326946555964e-11,
+      "transfers": [
+        {
+          "omega": 0.0,
+          "actual": [
+            [
+              0.0014285714300409146,
+              0.0
+            ],
+            [
+              0.28571428568985785,
+              0.0
+            ]
+          ],
+          "reference": [
+            [
+              0.0014285714285714286,
+              -0.0
+            ],
+            [
+              0.2857142857142857,
+              -0.0
+            ]
+          ]
+        },
+        {
+          "omega": 3.0,
+          "actual": [
+            [
+              0.0014411779591948365,
+              -0.00019018477459566656
+            ],
+            [
+              0.28823559245066854,
+              -0.03803695499659609
+            ]
+          ],
+          "reference": [
+            [
+              0.00144117796223353,
+              -0.000190184775074806
+            ],
+            [
+              0.288235592446706,
+              -0.038036955014961196
+            ]
+          ]
+        },
+        {
+          "omega": 10.0,
+          "actual": [
+            [
+              0.0014705882378517395,
+              -0.0008823529373819732
+            ],
+            [
+              0.29411764705583876,
+              -0.17647058825886452
+            ]
+          ],
+          "reference": [
+            [
+              0.0014705882352941176,
+              -0.0008823529411764705
+            ],
+            [
+              0.29411764705882354,
+              -0.17647058823529413
+            ]
+          ]
+        },
+        {
+          "omega": 30.0,
+          "actual": [
+            [
+              -0.0005445544548624952,
+              -0.0004455445523635353
+            ],
+            [
+              -0.10891089106223212,
+              -0.08910891087528637
+            ]
+          ],
+          "reference": [
+            [
+              -0.0005445544554455445,
+              -0.00044554455445544556
+            ],
+            [
+              -0.1089108910891089,
+              -0.08910891089108912
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "original spring-mass trim and released dynamics",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "panels": 4,
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "mach": 0,
+        "gravity_magnitude": 0
+      },
+      "controller": {
+        "outputs": [
+          {
+            "actuator": "E1",
+            "terms": [
+              {
+                "input": "RY[2]",
+                "gain": -200
+              },
+              {
+                "input": "UY[2]",
+                "gain": -20
+              },
+              {
+                "input": "RY[2]",
+                "gain": -100,
+                "mode": "integral"
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "command.RY[2]",
+          "quantity": "force.y",
+          "target": 5
+        }
+      ],
+      "actual": [
+        0.010000000000216058,
+        4.999999999996581,
+        2.010000000000216,
+        -0.04999999999977039
+      ],
+      "reference": [
+        0.01,
+        5.0,
+        2.01,
+        -0.05
+      ],
+      "coordinate_order": [
+        "displacement_y",
+        "actuator",
+        "command_RY",
+        "integral_RY"
+      ],
+      "equilibrium": {
+        "residual": 1.5953134505030083e-13,
+        "column_scaled_reciprocal_condition": 0.04354475090577276,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "RY[2]": 2.0,
+          "UY[2]": 0.0,
+          "E1": 0.0
+        },
+        "solved_commands": {
+          "command.RY[2]": 2.010000000000216
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      },
+      "maximum_pole_error": 1.0207977441345238e-10,
+      "maximum_transfer_error": 3.896549749526912e-11,
+      "transfers": [
+        {
+          "omega": 0.0,
+          "actual": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0000000000389655,
+              0.0
+            ]
+          ],
+          "reference": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "omega": 3.0,
+          "actual": [
+            [
+              0.0014562222272483903,
+              -0.00012099597768164219
+            ],
+            [
+              0.2872112466670892,
+              -0.07273993739314168
+            ]
+          ],
+          "reference": [
+            [
+              0.0014562222302358996,
+              -0.00012099598198441004
+            ],
+            [
+              0.2872112466476996,
+              -0.07273993740474533
+            ]
+          ]
+        },
+        {
+          "omega": 10.0,
+          "actual": [
+            [
+              0.0014965579175917584,
+              -0.0008680035890057775
+            ],
+            [
+              0.2906315474550715,
+              -0.1885662975430548
+            ]
+          ],
+          "reference": [
+            [
+              0.00149655791679138,
+              -0.0008680035917390003
+            ],
+            [
+              0.290631547440886,
+              -0.18856629751571385
+            ]
+          ]
+        },
+        {
+          "omega": 30.0,
+          "actual": [
+            [
+              -0.0005461737462301567,
+              -0.0004452143631542274
+            ],
+            [
+              -0.1107187977704927,
+              -0.08722229268891606
+            ]
+          ],
+          "reference": [
+            [
+              -0.0005461737494552054,
+              -0.0004452143594043948
+            ],
+            [
+              -0.11071879775572241,
+              -0.08722229271602827
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "original spring-mass trim and released dynamics",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "panels": 8,
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "mach": 0,
+        "gravity_magnitude": 0
+      },
+      "controller": {
+        "outputs": [
+          {
+            "actuator": "E1",
+            "terms": [
+              {
+                "input": "RY[2]",
+                "gain": -200
+              },
+              {
+                "input": "UY[2]",
+                "gain": -20
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "command.RY[2]",
+          "quantity": "force.y",
+          "target": 5
+        }
+      ],
+      "actual": [
+        0.009999999999645404,
+        4.999999999996581,
+        2.0349999999987674,
+        0.0
+      ],
+      "reference": [
+        0.01,
+        5.0,
+        2.035,
+        0.0
+      ],
+      "coordinate_order": [
+        "displacement_y",
+        "actuator",
+        "command_RY",
+        "integral_RY"
+      ],
+      "equilibrium": {
+        "residual": 1.405649293107616e-12,
+        "column_scaled_reciprocal_condition": 0.036948665339736855,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "RY[2]": 2.0,
+          "UY[2]": 0.0,
+          "E1": 0.0
+        },
+        "solved_commands": {
+          "command.RY[2]": 2.0349999999987674
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      },
+      "maximum_pole_error": 1.0103507558514463e-10,
+      "maximum_transfer_error": 3.1176874695606616e-11,
+      "transfers": [
+        {
+          "omega": 0.0,
+          "actual": [
+            [
+              0.0014285714300409146,
+              0.0
+            ],
+            [
+              0.285714285689848,
+              0.0
+            ]
+          ],
+          "reference": [
+            [
+              0.0014285714285714286,
+              -0.0
+            ],
+            [
+              0.2857142857142857,
+              -0.0
+            ]
+          ]
+        },
+        {
+          "omega": 3.0,
+          "actual": [
+            [
+              0.0014411779591948365,
+              -0.00019018477459566656
+            ],
+            [
+              0.288235592450659,
+              -0.03803695499659483
+            ]
+          ],
+          "reference": [
+            [
+              0.00144117796223353,
+              -0.000190184775074806
+            ],
+            [
+              0.288235592446706,
+              -0.038036955014961196
+            ]
+          ]
+        },
+        {
+          "omega": 10.0,
+          "actual": [
+            [
+              0.0014705882378517395,
+              -0.0008823529373819732
+            ],
+            [
+              0.2941176470558306,
+              -0.17647058825885964
+            ]
+          ],
+          "reference": [
+            [
+              0.0014705882352941176,
+              -0.0008823529411764705
+            ],
+            [
+              0.29411764705882354,
+              -0.17647058823529413
+            ]
+          ]
+        },
+        {
+          "omega": 30.0,
+          "actual": [
+            [
+              -0.0005445544548624952,
+              -0.0004455445523635353
+            ],
+            [
+              -0.10891089106223326,
+              -0.0891089108752873
+            ]
+          ],
+          "reference": [
+            [
+              -0.0005445544554455445,
+              -0.00044554455445544556
+            ],
+            [
+              -0.1089108910891089,
+              -0.08910891089108912
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "original spring-mass trim and released dynamics",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "panels": 8,
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "mach": 0,
+        "gravity_magnitude": 0
+      },
+      "controller": {
+        "outputs": [
+          {
+            "actuator": "E1",
+            "terms": [
+              {
+                "input": "RY[2]",
+                "gain": -200
+              },
+              {
+                "input": "UY[2]",
+                "gain": -20
+              },
+              {
+                "input": "RY[2]",
+                "gain": -100,
+                "mode": "integral"
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "command.RY[2]",
+          "quantity": "force.y",
+          "target": 5
+        }
+      ],
+      "actual": [
+        0.009999999999645404,
+        4.999999999996581,
+        2.0099999999996454,
+        -0.04999999999990917
+      ],
+      "reference": [
+        0.01,
+        5.0,
+        2.01,
+        -0.05
+      ],
+      "coordinate_order": [
+        "displacement_y",
+        "actuator",
+        "command_RY",
+        "integral_RY"
+      ],
+      "equilibrium": {
+        "residual": 1.400005870781651e-13,
+        "column_scaled_reciprocal_condition": 0.0312500116128785,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "RY[2]": 2.0,
+          "UY[2]": 0.0,
+          "E1": 0.0
+        },
+        "solved_commands": {
+          "command.RY[2]": 2.0099999999996454
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      },
+      "maximum_pole_error": 1.012230320270839e-10,
+      "maximum_transfer_error": 4.0325964789644786e-11,
+      "transfers": [
+        {
+          "omega": 0.0,
+          "actual": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.000000000040326,
+              0.0
+            ]
+          ],
+          "reference": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "omega": 3.0,
+          "actual": [
+            [
+              0.0014562222272483903,
+              -0.00012099597768164219
+            ],
+            [
+              0.2872112466670667,
+              -0.07273993739313599
+            ]
+          ],
+          "reference": [
+            [
+              0.0014562222302358996,
+              -0.00012099598198441004
+            ],
+            [
+              0.2872112466476996,
+              -0.07273993740474533
+            ]
+          ]
+        },
+        {
+          "omega": 10.0,
+          "actual": [
+            [
+              0.0014965579175917584,
+              -0.0008680035890057775
+            ],
+            [
+              0.29063154745505915,
+              -0.18856629754304677
+            ]
+          ],
+          "reference": [
+            [
+              0.00149655791679138,
+              -0.0008680035917390003
+            ],
+            [
+              0.290631547440886,
+              -0.18856629751571385
+            ]
+          ]
+        },
+        {
+          "omega": 30.0,
+          "actual": [
+            [
+              -0.0005461737462301567,
+              -0.0004452143631542274
+            ],
+            [
+              -0.1107187977704936,
+              -0.08722229268891675
+            ]
+          ],
+          "reference": [
+            [
+              -0.0005461737494552054,
+              -0.0004452143594043948
+            ],
+            [
+              -0.11071879775572241,
+              -0.08722229271602827
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "aerodynamic lift and pitch trim",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n12 1 12\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n6 0 6 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 .008 6.283185307179586 1.2 -1.2\n6 .008 6.283185307179586 1.2 -1.2\nt Cm dCMdF1\n0 -.04 -.012\n6 -.04 -.012\nEnd\n",
+      "panels": 4,
+      "condition": {
+        "alpha": 1,
+        "mach": 0
+      },
+      "controller": {
+        "commands": {
+          "A": 1
+        },
+        "outputs": [
+          {
+            "actuator": "F1",
+            "terms": [
+              {
+                "input": "A",
+                "gain": -2
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "alpha",
+          "quantity": "lift",
+          "target": 2000
+        },
+        {
+          "variable": "command.F1",
+          "quantity": "moment.y",
+          "target": 0
+        }
+      ],
+      "alpha": 3.4561719405489524,
+      "open_loop_alpha": 3.4561719404277342,
+      "actuator": -3.3333333333333752,
+      "analytic_actuator": -3.3333333333333335,
+      "command": 1.5790105477645322,
+      "analytic_command": 1.5790105477645713,
+      "lift": 2000.0000000000002,
+      "pitch_moment": 3.318158488077373e-12,
+      "equilibrium": {
+        "residual": 7.562412031940701e-11,
+        "column_scaled_reciprocal_condition": 0.00038770544373501245,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "A": 1,
+          "F1": 0.0
+        },
+        "solved_commands": {
+          "command.F1": 1.5790105477645322
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      }
+    },
+    {
+      "kind": "aerodynamic lift and pitch trim",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n12 1 12\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n6 0 6 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 .008 6.283185307179586 1.2 -1.2\n6 .008 6.283185307179586 1.2 -1.2\nt Cm dCMdF1\n0 -.04 -.012\n6 -.04 -.012\nEnd\n",
+      "panels": 8,
+      "condition": {
+        "alpha": 1,
+        "mach": 0
+      },
+      "controller": {
+        "commands": {
+          "A": 1
+        },
+        "outputs": [
+          {
+            "actuator": "F1",
+            "terms": [
+              {
+                "input": "A",
+                "gain": -2
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "alpha",
+          "quantity": "lift",
+          "target": 2000
+        },
+        {
+          "variable": "command.F1",
+          "quantity": "moment.y",
+          "target": 0
+        }
+      ],
+      "alpha": 3.4634838761209448,
+      "open_loop_alpha": 3.463483875997528,
+      "actuator": -3.3333333333333663,
+      "analytic_actuator": -3.3333333333333335,
+      "command": 1.5936344189085252,
+      "analytic_command": 1.593634418908556,
+      "lift": 2000.0000000000002,
+      "pitch_moment": 2.6268520424833135e-12,
+      "equilibrium": {
+        "residual": 4.217343753132772e-11,
+        "column_scaled_reciprocal_condition": 0.00037591046690640674,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "A": 1,
+          "F1": 0.0
+        },
+        "solved_commands": {
+          "command.F1": 1.5936344189085252
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      }
+    },
+    {
+      "kind": "aerodynamic lift and pitch trim",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n12 1 12\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n6 0 6 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 .008 6.283185307179586 1.2 -1.2\n6 .008 6.283185307179586 1.2 -1.2\nt Cm dCMdF1\n0 -.04 -.012\n6 -.04 -.012\nEnd\n",
+      "panels": 12,
+      "condition": {
+        "alpha": 1,
+        "mach": 0
+      },
+      "controller": {
+        "commands": {
+          "A": 1
+        },
+        "outputs": [
+          {
+            "actuator": "F1",
+            "terms": [
+              {
+                "input": "A",
+                "gain": -2
+              }
+            ]
+          }
+        ]
+      },
+      "operating_constraints": [
+        {
+          "variable": "alpha",
+          "quantity": "lift",
+          "target": 2000
+        },
+        {
+          "variable": "command.F1",
+          "quantity": "moment.y",
+          "target": 0
+        }
+      ],
+      "alpha": 3.459905330874537,
+      "open_loop_alpha": 3.459905330752196,
+      "actuator": -3.333333333333365,
+      "analytic_actuator": -3.3333333333333335,
+      "command": 1.5864773284157074,
+      "analytic_command": 1.5864773284157407,
+      "lift": 1999.9999999999995,
+      "pitch_moment": 2.534677508056389e-12,
+      "equilibrium": {
+        "residual": 2.8373455898554346e-11,
+        "column_scaled_reciprocal_condition": 0.00034026649586396977,
+        "seed_continuation_steps": 4,
+        "target_continuation_steps": 4,
+        "initial_commands": {
+          "A": 1,
+          "F1": 0.0
+        },
+        "solved_commands": {
+          "command.F1": 1.5864773284157074
+        },
+        "initialization": "Commands default to measurements at the loaded structure with the prescribed operating settings; initial_integrals are guesses in steady equilibrium.",
+        "integral_condition": "measurement - command = 0 for every selected integrated error"
+      }
+    }
+  ],
+  "equations": [
+    "2 yddot + 10 ydot + 500 y = actuator",
+    "actuator = bias - 200 (y-reference) - 20 ydot - Ki I",
+    "Idot = y-reference",
+    "Cm + dCMdF1 * F1 = 0; commanded F1 = F1 + 2 (alpha-1)"
+  ],
+  "limitations": [
+    "Mechanical equations and zero section pitch moment are independent references; aerodynamic lift comparison uses the same lifting-line kernel.",
+    "This is not ASWING executable or experimental aircraft validation.",
+    "Open-loop seed is the loaded structure at prescribed operating values, so an equilibrium seed is still required."
+  ]
+}

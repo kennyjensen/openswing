@@ -1,0 +1,28 @@
+{
+  "name": "openswing",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "isae:progress": ".venv/bin/python scripts/isae_progress.py",
+    "isae:progress:watch": ".venv/bin/python scripts/isae_progress.py --watch",
+    "isae:progress:check": ".venv/bin/python scripts/isae_progress.py --check",
+    "prebuild": "npm run isae:progress",
+    "prebuild:validation": "npm run isae:progress",
+    "start": "npm run build && vite preview --host 127.0.0.1 --port 8000 --strictPort",
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/prepare.mjs && vite build && python3 scripts/package-local.py",
+    "build:validation": "node scripts/prepare.mjs --include-validation && vite build && python3 scripts/package-local.py",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": ".venv/bin/python -m pytest -q",
+    "test:isae": ".venv/bin/python scripts/run-isae-suite.py",
+    "test:isae:plan": ".venv/bin/python scripts/run-isae-suite.py --plan-only",
+    "test:isae:st1:mechanics": ".venv/bin/python scripts/run-isae-suite.py --adapters st1 --cases ST-1 --comparison-scope st1-mechanics --workers 1 --timeout-seconds 25 --max-new-jobs 1",
+    "test:isae:sa11:paper": ".venv/bin/python scripts/sa11_paper_suite_aligned.py",
+    "test:browser": "playwright test",
+    "test:wasm": "node scripts/test-wasm.mjs"
+  },
+  "dependencies": {"three": "0.186.1"},
+  "devDependencies": {"vite": "8.3.2", "@playwright/test": "1.58.2", "pyodide": "314.0.7"}
+}

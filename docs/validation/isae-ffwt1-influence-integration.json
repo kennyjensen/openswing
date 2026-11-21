@@ -1,0 +1,843 @@
+{
+  "coverage": {
+    "changed": false,
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "derivative_cancellation": {
+    "new_max_receiver_partial_error": 2.7755575615628914e-17,
+    "old_max_receiver_partial_error": 8.401943052136327e-07,
+    "powers": [
+      8,
+      12,
+      16,
+      20
+    ],
+    "reference": "Same physical collinear unit-Gamma path represented by one well-conditioned unsplit horseshoe; no solve."
+  },
+  "full_goal_complete": false,
+  "initial_rigid_benchmark_cases": [
+    {
+      "baseline_diagnostic_1e12_passes": 0,
+      "baseline_evaluations": [
+        235,
+        235,
+        235,
+        235
+      ],
+      "baseline_median_seconds": 0.2001356769906124,
+      "baseline_normalized_residuals": [
+        1.7965869532806286e-12,
+        1.7965869532806286e-12,
+        1.7965869532806286e-12,
+        1.7965869532806286e-12
+      ],
+      "baseline_timed_samples": [
+        0.21245197900861967,
+        0.19855947900214233,
+        0.2001356769906124
+      ],
+      "candidate_diagnostic_1e12_passes": 0,
+      "candidate_evaluations": [
+        235,
+        235,
+        235,
+        235
+      ],
+      "candidate_median_seconds": 0.4623038019926753,
+      "candidate_normalized_residuals": [
+        1.7958449542258373e-12,
+        1.7958449542258373e-12,
+        1.7958449542258373e-12,
+        1.7958449542258373e-12
+      ],
+      "candidate_over_baseline_timing_ratio": 2.3099519733023923,
+      "candidate_timed_samples": [
+        0.461003072996391,
+        0.46998424499179237,
+        0.4623038019926753
+      ],
+      "comparison_metrics_passed": 40,
+      "id": "dae",
+      "lifting_panels": 217,
+      "maximum_absolute_comparison_errors": {
+        "Gamma": 3.268496584496461e-13,
+        "circulation_local_residual": 8.592201024744859e-15,
+        "circulation_residual": 8.592201024744859e-15,
+        "force": 6.821210263296962e-13,
+        "moment": 4.361150329756924e-12
+      },
+      "realized_panels": 270,
+      "status": "PASS_FINITE_RIGID_SOLVE_COMPARISON",
+      "units": {
+        "force": "lb",
+        "length": "ft",
+        "moment": "lb ft",
+        "speed": "30 ft/s",
+        "time": "s"
+      }
+    },
+    {
+      "baseline_diagnostic_1e12_passes": 4,
+      "baseline_evaluations": [
+        52,
+        52,
+        52,
+        52
+      ],
+      "baseline_median_seconds": 0.01830140600213781,
+      "baseline_normalized_residuals": [
+        2.929830879190009e-16,
+        2.929830879190009e-16,
+        2.929830879190009e-16,
+        2.929830879190009e-16
+      ],
+      "baseline_timed_samples": [
+        0.01808515700395219,
+        0.018636092994711362,
+        0.01830140600213781
+      ],
+      "candidate_diagnostic_1e12_passes": 4,
+      "candidate_evaluations": [
+        52,
+        52,
+        52,
+        52
+      ],
+      "candidate_median_seconds": 0.022655988999758847,
+      "candidate_normalized_residuals": [
+        2.048209203434393e-16,
+        2.048209203434393e-16,
+        2.048209203434393e-16,
+        2.048209203434393e-16
+      ],
+      "candidate_over_baseline_timing_ratio": 1.237937074185031,
+      "candidate_timed_samples": [
+        0.022655988999758847,
+        0.021294766003848054,
+        0.022768177004763857
+      ],
+      "comparison_metrics_passed": 40,
+      "id": "flexible",
+      "lifting_panels": 48,
+      "maximum_absolute_comparison_errors": {
+        "Gamma": 1.0658141036401503e-14,
+        "circulation_local_residual": 3.108624468993521e-16,
+        "circulation_residual": 3.108624468993521e-16,
+        "force": 9.094947017729282e-13,
+        "moment": 4.303224443447107e-12
+      },
+      "realized_panels": 48,
+      "status": "PASS_FINITE_RIGID_SOLVE_COMPARISON",
+      "units": {
+        "force": "N",
+        "length": "m",
+        "moment": "N m",
+        "speed": "30 m/s",
+        "time": "s"
+      }
+    }
+  ],
+  "live_owned_sessions": [],
+  "native": {
+    "count_note": "Scopes are separate. Do not add overlapping historical runs to final-source totals.",
+    "derivative_report": "SCOPED_DERIVATIVE_INTEGRATION_PASSED_WITH_PRIOR_FAILURES_RETAINED",
+    "earlier_operator_tests": 42,
+    "final_affected_geometry_derivative_tests": 68,
+    "final_cache_time_frequency_tests": 138,
+    "final_suite_seconds": 140.92
+  },
+  "next_operator_review": {
+    "caveats": "Remaining bound reconstruction rounding and derivative ownership require checks. E+C column storage approaches E only when component count C is small; effective receiver-core separation can increase C.",
+    "implemented": false,
+    "proposal": "Graph coordinates with one directly accumulated root wake strength per connected component."
+  },
+  "operator_benchmark": {
+    "cases": [
+      {
+        "apply_time_candidate_over_baseline": 2.1328529116419546,
+        "baseline_retained_ndarray_bytes": 3179904,
+        "candidate_retained_ndarray_bytes": 6391864,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 5.770495192791714e-12,
+            "maximum_error_over_bound": 0.019836484530909432,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 1.8189894035458565e-12,
+            "maximum_error_over_bound": 0.006815493287096911,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.9028253665153785,
+        "id": "fine-pointwise-native-cp"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.1351371883079207,
+        "baseline_retained_ndarray_bytes": 3179904,
+        "candidate_retained_ndarray_bytes": 6391864,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 1.206368338557695e-12,
+            "maximum_error_over_bound": 0.005377457074145687,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 9.094947017729282e-13,
+            "maximum_error_over_bound": 0.0027245155608116942,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.8196768165856911,
+        "id": "fine-pointwise-native-hv"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.133160346027478,
+        "baseline_retained_ndarray_bytes": 3179904,
+        "candidate_retained_ndarray_bytes": 6391864,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 5.770495192791714e-12,
+            "maximum_error_over_bound": 0.019836484530909432,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 1.8189894035458565e-12,
+            "maximum_error_over_bound": 0.006815493287096911,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.806270585740862,
+        "id": "fine-pointwise-independent-cp"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.150977747111385,
+        "baseline_retained_ndarray_bytes": 3179904,
+        "candidate_retained_ndarray_bytes": 6391864,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 1.206368338557695e-12,
+            "maximum_error_over_bound": 0.005377457074145687,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 9.094947017729282e-13,
+            "maximum_error_over_bound": 0.0031175257690858244,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.8586193870441854,
+        "id": "fine-pointwise-independent-hv"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.034770322431714,
+        "baseline_retained_ndarray_bytes": 12580224,
+        "candidate_retained_ndarray_bytes": 25224184,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 2.7639224242648197e-11,
+            "maximum_error_over_bound": 0.09501178056190929,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 7.275957614183426e-12,
+            "maximum_error_over_bound": 0.01738775285573131,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.8595108202028151,
+        "id": "finer-pointwise-native-cp"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.0084091485016864,
+        "baseline_retained_ndarray_bytes": 12580224,
+        "candidate_retained_ndarray_bytes": 25224184,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 2.4381607843793063e-12,
+            "maximum_error_over_bound": 0.011450832392740917,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 3.637978807091713e-12,
+            "maximum_error_over_bound": 0.00627318113176049,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.8262640608747461,
+        "id": "finer-pointwise-native-hv"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.0147141221197713,
+        "baseline_retained_ndarray_bytes": 12580224,
+        "candidate_retained_ndarray_bytes": 25224184,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 2.7639224242648197e-11,
+            "maximum_error_over_bound": 0.09501178056190929,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 7.275957614183426e-12,
+            "maximum_error_over_bound": 0.014768923265481742,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.7867333666879003,
+        "id": "finer-pointwise-independent-cp"
+      },
+      {
+        "apply_time_candidate_over_baseline": 2.0207811259384254,
+        "baseline_retained_ndarray_bytes": 12580224,
+        "candidate_retained_ndarray_bytes": 25224184,
+        "comparisons": {
+          "induced_velocity": {
+            "atol": 2e-10,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 2.4381607843793063e-12,
+            "maximum_error_over_bound": 0.011450832392740917,
+            "passed": true,
+            "rtol": 2e-11
+          },
+          "matrix": {
+            "atol": 2e-12,
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_error_over_bound": 0.0,
+            "passed": true,
+            "rtol": 2e-13
+          },
+          "projection": {
+            "atol": 2e-12,
+            "bitwise_equal": false,
+            "maximum_absolute_difference": 3.637978807091713e-12,
+            "maximum_error_over_bound": 0.007708803319774732,
+            "passed": true,
+            "rtol": 2e-13
+          }
+        },
+        "construction_time_candidate_over_baseline": 0.824606410653696,
+        "id": "finer-pointwise-independent-hv"
+      }
+    ],
+    "retained_storage_scope": "Retained numeric arrays, not peak memory or Python container overhead.",
+    "snapshot": "Initial integration snapshot in benchmark-source; later API/scalar/derivative changes are separately pinned."
+  },
+  "original_aswing_executable_available": false,
+  "provenance_qualification": [
+    "Earlier native 42-case operator, four-case hinge, rigid benchmark and projected MP snapshots precede the final geometry_partials/source_columns amendments. Their value operator/aero/cache implementation matches current source; do not describe every module as final.",
+    "The frozen derivative report quotes the earlier four-case hinge review as final-source. That wording is qualified here; its own 68 affected final-source checks match current source.",
+    "The earlier derivative run retained 119 passes and three failures. Those failures and affected consumers pass the final 68-case selection; the entire historical 122-case selection was not rerun.",
+    "Final 138-case native and 42+3 WASM runs pin all 105 current modules.",
+    "Saved prescribed-Gamma geometry-dependent failures remain failures. Selected MP evaluation accuracy is not a full residual-vector or physical-validation certificate."
+  ],
+  "recorded_input_pins": {
+    "baseline-regression/report.json": "db7d5dce5f3866ed9ffce697ea3803ffad6989e6ee263821eecb7e7a6c63079d",
+    "benchmark-summary.json": "c45aeb9d0ccb91cf11a49ee0d670ab1951ff34acff6ddf41d8fc79c0cc492940",
+    "changes-from-integrated-09.patch": "3cfdc23bf8ce9d6d13c09c05c6c5a6d2e991dd42a1359d8c97c6b830ad9b92ef",
+    "derivative-integration/report.json": "e5d1efe21b7bb185f77e243fcc231dcdff039291051bfa80d1d789746d612bb2",
+    "final-source/composition.json": "b9e48a77323bb821435a92a8d0a9b27ca15d4e8193d100b9703535b72047e651",
+    "native-final-03.closeout.json": "13b615112f301f175be267772b5aa271f00c00bbaae6bac85793013234247c7b",
+    "next-operator-review-extra-root.md": "67c7c6fbd00142628ff95501be00721c319b85adc96638275204027e640e060a",
+    "next-operator-review.md": "7bf40dec89adecd95904ed6e9753eb2960bb70189bd19fa237e3c6d897d5f047",
+    "projected-MP-serialization-fix/summary.json": "fe6b93fa841b890e2eaf2ed03b38da801e28b0290bfa5e5b178381a76c1d50e8",
+    "review/projection-summary.json": "1c970294330cf0d6cfc2156102bc90156c86ea36376f9386fc79088e305881ca",
+    "rigid-benchmark-projection/summary.json": "7a31bee0234efbd88bc8ab4c013afc579581c669938b7ae444b59506c4ee47f9",
+    "rigid-benchmark/summary.json": "abd9ed5658c422732b41a08922880304d97e97926e2f9fdf141281fa1fd6f509",
+    "wasm-factored-03.closeout.json": "a9fdacf22310ccf8d60f556a02255befb0131f2a51dcb9dd7ba6dc992e73bbed",
+    "wasm-factored-03.json": "a992ec1d186d025103b4335f981bbbb0cf53c25d654d816f3cea0a9863e2749c"
+  },
+  "release": {
+    "build_performed": false,
+    "promoted": false,
+    "reason": "Measured runtime and storage regression; coupled and rebuilt-browser verification remain.",
+    "served_kernel_matches_previous_104_modules": true,
+    "server_pid": 14335,
+    "server_restarted": false,
+    "server_starttime_ticks": "4031287",
+    "web_files_unchanged": 51
+  },
+  "remaining": [
+    "Reduce repeated contraction cost and retained operator storage without losing cancellation accuracy or independent endpoint/core derivatives.",
+    "Verify coupled equilibrium, nonlinear time response and frequency response performance; then verify the rebuilt browser application.",
+    "Resolve ISAE model/fixture/archive correspondence, high-incidence lift discrepancy, flexible/dynamic comparisons, connected circulation convergence and remaining families."
+  ],
+  "rigid_benchmark": {
+    "browser_runs": 0,
+    "cases": [
+      {
+        "baseline_diagnostic_1e12_passes": 0,
+        "baseline_evaluations": [
+          235,
+          235,
+          235,
+          235
+        ],
+        "baseline_median_seconds": 0.20273448000079952,
+        "baseline_normalized_residuals": [
+          1.7965869532806286e-12,
+          1.7965869532806286e-12,
+          1.7965869532806286e-12,
+          1.7965869532806286e-12
+        ],
+        "baseline_timed_samples": [
+          0.20379974000388756,
+          0.19730468800116796,
+          0.20273448000079952
+        ],
+        "candidate_diagnostic_1e12_passes": 0,
+        "candidate_evaluations": [
+          235,
+          235,
+          235,
+          235
+        ],
+        "candidate_median_seconds": 0.33857216099568177,
+        "candidate_normalized_residuals": [
+          1.7945404421719028e-12,
+          1.7945404421719028e-12,
+          1.7945404421719028e-12,
+          1.7945404421719028e-12
+        ],
+        "candidate_over_baseline_timing_ratio": 1.6700275206977448,
+        "candidate_timed_samples": [
+          0.3401268490124494,
+          0.3355528909887653,
+          0.33857216099568177
+        ],
+        "comparison_metrics_passed": 40,
+        "id": "dae",
+        "lifting_panels": 217,
+        "maximum_absolute_comparison_errors": {
+          "Gamma": 5.542233338928781e-13,
+          "circulation_local_residual": 7.904769187668548e-15,
+          "circulation_residual": 7.904769187668548e-15,
+          "force": 1.0231815394945443e-12,
+          "moment": 5.565298222265369e-12
+        },
+        "prior_candidate_median_seconds": 0.4623038019926753,
+        "prior_revision_ratio": 2.3099519733023923,
+        "realized_panels": 270,
+        "status": "PASS_FINITE_RIGID_SOLVE_COMPARISON",
+        "units": {
+          "force": "lb",
+          "length": "ft",
+          "moment": "lb ft",
+          "speed": "30 ft/s",
+          "time": "s"
+        }
+      },
+      {
+        "baseline_diagnostic_1e12_passes": 4,
+        "baseline_evaluations": [
+          52,
+          52,
+          52,
+          52
+        ],
+        "baseline_median_seconds": 0.015097604002221487,
+        "baseline_normalized_residuals": [
+          2.929830879190009e-16,
+          2.929830879190009e-16,
+          2.929830879190009e-16,
+          2.929830879190009e-16
+        ],
+        "baseline_timed_samples": [
+          0.01659010400180705,
+          0.015097604002221487,
+          0.014839947994914837
+        ],
+        "candidate_diagnostic_1e12_passes": 4,
+        "candidate_evaluations": [
+          52,
+          52,
+          52,
+          52
+        ],
+        "candidate_median_seconds": 0.018707265990087762,
+        "candidate_normalized_residuals": [
+          1.185383501206147e-16,
+          1.185383501206147e-16,
+          1.185383501206147e-16,
+          1.185383501206147e-16
+        ],
+        "candidate_over_baseline_timing_ratio": 1.2390884002080822,
+        "candidate_timed_samples": [
+          0.019792292005149648,
+          0.01776666699151974,
+          0.018707265990087762
+        ],
+        "comparison_metrics_passed": 40,
+        "id": "flexible",
+        "lifting_panels": 48,
+        "maximum_absolute_comparison_errors": {
+          "Gamma": 1.0658141036401503e-14,
+          "circulation_local_residual": 3.2566542056102083e-16,
+          "circulation_residual": 3.2566542056102083e-16,
+          "force": 1.1368683772161603e-13,
+          "moment": 4.25748325483255e-12
+        },
+        "prior_candidate_median_seconds": 0.022655988999758847,
+        "prior_revision_ratio": 1.237937074185031,
+        "realized_panels": 48,
+        "status": "PASS_FINITE_RIGID_SOLVE_COMPARISON",
+        "units": {
+          "force": "N",
+          "length": "m",
+          "moment": "N m",
+          "speed": "30 m/s",
+          "time": "s"
+        }
+      }
+    ],
+    "comparison_scope": "Every finite returned result must satisfy the unchanged solve_rigid1e-8 normalized gate, including returned local residual because these are pointwise cases. Compare all candidate and repeat outputs against first baseline output. Gamma/force/moment bounds are in each literal model native units. Compare both normalized local and reported residual vectors without relaxing solver acceptance.",
+    "comparison_tolerances": {
+      "Gamma": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "force": {
+        "atol": 1e-08,
+        "rtol": 1e-09
+      },
+      "moment": {
+        "atol": 1e-08,
+        "rtol": 1e-09
+      },
+      "normalized_residual": {
+        "atol": 1e-08,
+        "rtol": 0.0
+      }
+    },
+    "complete_rigid_solve_count": 16,
+    "diagnostic_1e12_not_an_acceptance_gate": true,
+    "failed_attempts": 0,
+    "fixture_retuning": 0,
+    "performance_conclusion": "New projected-CP revision reduces the observed Daedalus slowdown from2.30995x to1.67003x against its contemporaneous baseline. Flexible ratio remains near1.24x. Both cases remain slower than baseline; no universal or cold-browser speedup is established.",
+    "production_edits": 0,
+    "qualification": "Daedalus retains input ft/lb units and engine records with default power settings. Both source versions pass the existing1e-8 solve_rigid gate and fail the separately reported1e-12 diagnostic. All prior benchmarks remain unchanged. Revision snapshots include all concurrent source changes listed in their compositions; the timings alone do not isolate every code change causally.",
+    "source_pins": {
+      "influence-integration-16/rigid-benchmark-projection/candidate/composition.json": "66dd74131131f28907b4c80bfae2c84838e2242863d3138f48423e62ca7df030",
+      "influence-integration-16/rigid-benchmark-projection/plan.json": "5c5b8212923d59741dc1dab17f7b77a7a18a9a16c8b73108dbcee0c04cbab12a",
+      "influence-integration-16/rigid-benchmark-projection/results-01/execution.json": "71cadd8572d32985b559507de2a645433288cf2dca439a614551f89d09e9fb2e",
+      "influence-integration-16/rigid-benchmark-projection/results-01/summary.json": "e24128d4139211bfbfacdb7ae132db9439eee9c8d2b900489ef97e2b56f08e28",
+      "influence-integration-16/rigid-benchmark-projection/run.py": "9781d1ac123051bc3587bcae54e3d84e4ec2a9fb7bfaeab6dcabf0be1304c3c8",
+      "influence-integration-16/rigid-benchmark/summary.json": "abd9ed5658c422732b41a08922880304d97e97926e2f9fdf141281fa1fd6f509"
+    },
+    "status": "PASS_TWO_PROJECTED_REVISION_RIGID_COMPARISONS",
+    "structural_equilibrium_solves": 0,
+    "timed_solve_count": 12,
+    "timing_scope": "Per case and implementation one fresh process parses model/imports source outside solve timings. Time solve_rigid only, including validation, mesh, inner aerodynamics, mass properties and sensors; exclude result serialization. If initial successful solve<10s, classify it as warmup and time3additional solves. Otherwise keep initial solve as sole timed sample; never retune a rejected fixture. Process wall times include startup, hashes, parsing and output.",
+    "unchanged_solver_normalized_gate": 1e-08,
+    "warmup_count": 4,
+    "worker_count": 4
+  },
+  "selected_MP": {
+    "Gamma_changes": 0,
+    "circulation_solves": 0,
+    "elapsed_seconds": 2.3633902879955713,
+    "first_attempt_failure_retained": "NumPy bool JSON serialization failure after first geometry fields saved; separate corrected runner changes one bool cast only. No physical or acceptance change.",
+    "full_vector_MP_certified": false,
+    "hinge_solves": 0,
+    "maximum_CP_normal_error_vs_MP_m_s": 1.0609477029489761e-14,
+    "maximum_HV_velocity_error_vs_MP_m_s": 5.587321094918103e-15,
+    "maximum_normalized_residual_error_vs_MP": 4.822517908294819e-16,
+    "normalized_residual_error_bound": 1e-13,
+    "passed": 8,
+    "previous_prescribed_Gamma_failures_unchanged": true,
+    "sampled_root_gate_diagnostic_only": 1e-12,
+    "sampled_root_passes": 6,
+    "scientific_method": "FactoredInfluence.projected(stored normals).apply(unchanged saved Gamma) plus original wind-normal scalar; stable HV apply, original Ks40/width.05 leakage. Compare same exact rounded geometry/frame paths against previously frozen MP80.",
+    "standalone_projected_storage_note": "Reported projected_operator_nbytes includes grouping incidence shared with the vector operator; do not sum object nbytes as unique joint storage without deduplication.",
+    "status": "PASS_EIGHT_SELECTED_PROJECTED_CP_MP_CHECKS",
+    "targets": 8,
+    "velocity_error_bound_m_s": 2e-12
+  },
+  "source": {
+    "browser_kernel_matches_integrated_09": true,
+    "browser_kernel_modules": 104,
+    "build_performed": false,
+    "changed_or_added_modules": [
+      "aero.py",
+      "circulation_tangent.py",
+      "factored_influence.py",
+      "frozen_influence.py",
+      "geometry_partials.py",
+      "geometry_tangent.py",
+      "output_fields.py",
+      "structured_static.py",
+      "tangent_influences.py",
+      "vortex_tangent.py"
+    ],
+    "full_goal_complete": false,
+    "module_count": 105,
+    "modules": {
+      "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+      "aero.py": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b",
+      "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+      "asw.py": "12437883a9d6da3c0fc99eb420ec839303068c49f401283b27a9503dc20a70fb",
+      "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+      "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+      "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+      "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+      "bridge.py": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791",
+      "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+      "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+      "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+      "circulation_tangent.py": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09",
+      "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+      "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+      "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+      "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+      "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+      "derivatives.py": "06eb1aa657b24254bb653d3013393c2129c247329fb1ec9ad0756b7da5f12321",
+      "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+      "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+      "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+      "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+      "equilibrium_state.py": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab",
+      "equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+      "factored_influence.py": "80a6fa2f49639b62ababdb54bea0b6b1d1aa5d3d3ab7f7065c1ced241c1bf713",
+      "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+      "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+      "flow_survey.py": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681",
+      "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+      "frequency_response.py": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c",
+      "frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+      "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+      "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+      "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+      "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+      "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+      "geometry_tangent.py": "243a9be2062af80d90df0a0a2f363ddf0d58227ef650c2c6b841d8bc0a700419",
+      "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+      "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+      "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+      "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+      "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+      "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+      "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+      "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+      "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+      "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+      "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+      "legacy_hinge_state.py": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa",
+      "linear_dynamics.py": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53",
+      "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+      "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+      "local_rate_tangent.py": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4",
+      "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+      "network.py": "5c5b6c518d21e786ec636412558b26ade3e9859e6783ff7cec8f65f1e2577e0d",
+      "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+      "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+      "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+      "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+      "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+      "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+      "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+      "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+      "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+      "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+      "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+      "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+      "radau_time.py": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2",
+      "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+      "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+      "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+      "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+      "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+      "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+      "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+      "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+      "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+      "sparse_rank.py": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee",
+      "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+      "steady_feedback.py": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3",
+      "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+      "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+      "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+      "structured_static.py": "31c38633228c2e254e01db2821bd2c548971bb5d5477d962a28a47135c43f04b",
+      "structured_time.py": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395",
+      "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+      "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+      "tangent_influences.py": "8d51ec1cd514128a7441e8ea8cce7537a53866c70eaf612cc8d5c5cfb7ac35f0",
+      "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+      "time_acceptance_validation.py": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b",
+      "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+      "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+      "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+      "time_initialization.py": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96",
+      "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+      "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+      "time_saved_history.py": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9",
+      "time_state.py": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75",
+      "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+      "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+      "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+      "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+      "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+      "vortex_tangent.py": "7063bf1c1e63397694ee94a78f7de101f017b6faa180b82b050fb4f8d28fb714"
+    },
+    "source_changed": true,
+    "status": "UNRELEASED_SCOPED_VERIFICATION_COMPLETE",
+    "unchanged_web_files": 51
+  },
+  "source_composition_sha256": "b9e48a77323bb821435a92a8d0a9b27ca15d4e8193d100b9703535b72047e651",
+  "status": "PROGRESS_SOURCE_ACCURACY_INTEGRATION_VERIFIED_PERFORMANCE_AND_VALIDATION_INCOMPLETE",
+  "threshold_policy": {
+    "existing_regression_threshold_changes": 0,
+    "new_control_adjustment": "A newly added scalar-vs-vector projection matrix equality assertion was changed to an explicit four-machine-epsilon algebraic-order bound after differences up to 1.11e-16. Decimal accuracy and immutability checks were unchanged.",
+    "physical_parameter_changes": 0,
+    "solver_acceptance_threshold_changes": 0
+  },
+  "wasm": {
+    "coefficient_cases": 42,
+    "final_module_pins_match": true,
+    "independent_physical_cases": 3,
+    "independent_physical_cases_detail": [
+      {
+        "max_absolute_error": 2.2737367544323206e-13,
+        "specification": {
+          "panels": 4
+        },
+        "values_compared": 28
+      },
+      {
+        "max_absolute_error": 2.2737367544323206e-13,
+        "specification": {
+          "ground": 1,
+          "mach": 0.6,
+          "panels": 8
+        },
+        "values_compared": 44
+      },
+      {
+        "max_absolute_error": 2.2737367544323206e-13,
+        "specification": {
+          "alpha": -12,
+          "beta": -9,
+          "panels": 8,
+          "rotations": [
+            [
+              0.12,
+              -0.18,
+              0.06
+            ],
+            [
+              -0.15,
+              0.11,
+              -0.04
+            ]
+          ],
+          "stretches": [
+            1.2,
+            0.9
+          ]
+        },
+        "values_compared": 44
+      }
+    ],
+    "runtime": "314.0.7",
+    "scope": "Current source loaded directly in Node-hosted local Pyodide. No rebuilt browser or UI interaction."
+  }
+}

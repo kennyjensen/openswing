@@ -1,0 +1,199 @@
+{
+  "schema": "sa1-startup-settings-audit-v1",
+  "date": "2026-10-27",
+  "status": "NO_NUMERICAL_CHANGE_JUSTIFIED",
+  "scope": "Bounded primary-source startup and version audit; new evidence supplements, without editing, frozen source-readiness records.",
+  "source_pins": [
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": ".reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/isae-validation/manifest.json",
+      "bytes": 791256,
+      "sha256": "813347a3bd9fcbd029a1ec86e0c3141f82422af26f33ebde7c2f732a16bf27f6"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+      "bytes": 4427,
+      "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+      "bytes": 309,
+      "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+      "bytes": 1636,
+      "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+    }
+  ],
+  "original_manifest_checks": 3,
+  "findings": [
+    {
+      "id": "F_MENU_IS_NOT_AUTHENTICATED_STARTUP_DEFAULT",
+      "new_evidence": true,
+      "finding": "The guide shows fast=T in a sample OPER/K menu, but does not explicitly identify F startup behavior. Its F section defines a toggle. In contrast, it explicitly identifies L as always True at startup and not persisted in .set. The original driver performs one K/F toggle; its post-toggle state is not authenticated.",
+      "sources": [
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2,
+          "line_end": 2
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2236,
+          "line_end": 2270
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2293,
+          "line_end": 2306
+        },
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2335,
+          "line_end": 2338
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+          "line_start": 9,
+          "line_end": 14
+        }
+      ],
+      "supersedes": {
+        "path": "docs/validation/isae-sa1-source-readiness-20261027/report.md",
+        "line": 53,
+        "phrase": "The guide displays fast = T as a default",
+        "replacement": "The guide displays fast = T in a menu example; no F startup default is authenticated."
+      },
+      "numerical_change_justified": false
+    },
+    {
+      "id": "DISTINCT_PG_AND_ACTUAL_MACH",
+      "new_evidence": false,
+      "finding": "Fixed M_PGspec and speed-derived V/a are explicitly different supported choices; fixed zero is described as generally adequate below flight Mach 0.3. The model sea-level sound speed and positive driver IAS do not contradict mach=0 as an AIC PG setting. Independent local-normal-Mach scaling of section Cm is separate, and literal SA1 section Cm is zero. The native polar has no actual-Mach or Mach_PG field.",
+      "sources": [
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2413,
+          "line_end": 2434
+        },
+        {
+          "path": ".reference/version_notes.txt",
+          "line_start": 604,
+          "line_end": 604
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+          "line_start": 12,
+          "line_end": 15
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+          "line_start": 79,
+          "line_end": 82
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+          "line_start": 18,
+          "line_end": 18
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+          "line_start": 1,
+          "line_end": 3
+        }
+      ],
+      "numerical_change_justified": false
+    },
+    {
+      "id": "VERSION_SCOPE_AND_STALL_CONSTANTS",
+      "new_evidence": true,
+      "finding": "The cached guide identifies version 5.97, while the technical description identifies 5.99. The 5.99 theory recommends approximately Ks 40 and transition width 0.05. Revision notes 5.96 through 5.99 and its addendum list no change to stall-law constants. Absence from revision notes does not authenticate the exact 5.96 compiled constants or prove they never changed. No documented alternative justifies substituting constants.",
+      "sources": [
+        {
+          "path": ".reference/aswing_doc.txt",
+          "line_start": 2,
+          "line_end": 2
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "line_start": 3,
+          "line_end": 5
+        },
+        {
+          "path": ".reference/asw_theory.txt",
+          "line_start": 2085,
+          "line_end": 2102
+        },
+        {
+          "path": ".reference/version_notes.txt",
+          "line_start": 89,
+          "line_end": 101
+        },
+        {
+          "path": ".reference/version_notes.txt",
+          "line_start": 1008,
+          "line_end": 1061
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+          "line_start": 84,
+          "line_end": 87
+        }
+      ],
+      "numerical_change_justified": false
+    },
+    {
+      "id": "NODE_REQUEST_NO_NEW_NUMERIC_DEFAULT",
+      "new_evidence": false,
+      "finding": "The 5.60 note says circulation defaults on LOAD were fixed without stating values. The 5.67 note establishes a requested node count with a breakpoint minimum. Neither establishes a numeric startup K, node spacing or a conversion of the explicit SA1 I 200 request into current 199 intervals. The separate metadata correction is retained; no further numerical change is justified.",
+      "sources": [
+        {
+          "path": ".reference/version_notes.txt",
+          "line_start": 448,
+          "line_end": 475
+        },
+        {
+          "path": ".reference/version_notes.txt",
+          "line_start": 591,
+          "line_end": 598
+        },
+        {
+          "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+          "line_start": 3,
+          "line_end": 5
+        }
+      ],
+      "numerical_change_justified": false
+    }
+  ],
+  "graphics_disabled_revision_scope": "The 5.98 entry concerns constraint parsing in graphics-disabled mode. This audit does not establish that the archived SA1 run used that mode and makes no claim that the fix explains SA1 results.",
+  "settings_reviewed": {
+    "mach": 0,
+    "freeze_influences": false,
+    "stall_factor": 40,
+    "stall_width": 0.05
+  },
+  "operations": {
+    "production_imports": 0,
+    "numerical_solves": 0,
+    "tests": 0,
+    "parameter_fits": 0,
+    "implementation_edits": 0,
+    "historical_artifact_edits": 0
+  }
+}

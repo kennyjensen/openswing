@@ -1,0 +1,83 @@
+{
+  "status": "RETAINED_MESH_CONSTRUCTION_FAILURES",
+  "source_report": {
+    "path": "/tmp/openswing-isae-suite-modes-run-20261026/report.json",
+    "bytes": 4733386,
+    "sha256": "9c9318bf362581c7b70af963c19df4d3208c9d3a784a7781647b32ededf69ea1"
+  },
+  "owner_receipt": {
+    "path": "/tmp/openswing-isae-suite-modes-run-20261026/owner-receipt.json",
+    "bytes": 612,
+    "sha256": "b1f8d5731413a562ad177bac8a1897877ee5d19b952b7035d13ee9cd2caada28"
+  },
+  "job_status_counts": {
+    "unsupported": 37,
+    "computed": 2,
+    "numerical_failure": 3
+  },
+  "source_geometry_pin": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+  "failed_variants": [
+    {
+      "id": "ST-4:Weight7d:vaccum",
+      "model": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b48.asw",
+      "status": "numerical_failure",
+      "failed_nominal_grid": 16,
+      "errors": [
+        {
+          "type": "ValueError",
+          "message": "Beam 1: node stations are too close; remove or move the nearly coincident nodes.",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 358, in run\n    calls += 1; result = _dispatch(request,progress);_write(out/'result.json',result)\n                         ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 332, in _dispatch\n    return dispatch(request, progress=progress)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 21, in dispatch\n    result = _dispatch(request, progress, policy)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 126, in _dispatch\n    return solve_modes(model, None, panels, gravity=request.get('gravity'),\n        loads=request.get('loads', ()), progress=progress,\n        structural_operator=policy['structural_operator'], **options)\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 1196, in solve_modes\n    system, continuation = make_system(model, condition, panels, frame=frame, quiescent_density=quiescent_density, **base_options)\n                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 966, in make_system\n    n = network_class(model, panels, condition, gravity, loads, motion, constraints, strut_mode,\n                      quiescent_density=quiescent_density, mesh_recipe=warm_start_recipe(model, panels, initial_state))\n  File \"/home/userland/aswing/openswing/source_dynamics.py\", line 80, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 303, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 153, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/network.py\", line 100, in __init__\n    mesh = mesh_beam(beam, panels, stations[beam.index], mesh_recipe=self.mesh_recipe)\n  File \"/home/userland/aswing/openswing/geometry.py\", line 95, in mesh_beam\n    raise ValueError(f'Beam {beam.index}: node stations are too close; remove or move the nearly coincident nodes.')\nValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes.\n"
+        }
+      ],
+      "physical_dispatch_attempts": 1,
+      "completed_mode_solve": false
+    },
+    {
+      "id": "ST-4:Weight7e:vaccum",
+      "model": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b48.asw",
+      "status": "numerical_failure",
+      "failed_nominal_grid": 16,
+      "errors": [
+        {
+          "type": "ValueError",
+          "message": "Beam 1: node stations are too close; remove or move the nearly coincident nodes.",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 358, in run\n    calls += 1; result = _dispatch(request,progress);_write(out/'result.json',result)\n                         ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 332, in _dispatch\n    return dispatch(request, progress=progress)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 21, in dispatch\n    result = _dispatch(request, progress, policy)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 126, in _dispatch\n    return solve_modes(model, None, panels, gravity=request.get('gravity'),\n        loads=request.get('loads', ()), progress=progress,\n        structural_operator=policy['structural_operator'], **options)\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 1196, in solve_modes\n    system, continuation = make_system(model, condition, panels, frame=frame, quiescent_density=quiescent_density, **base_options)\n                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 966, in make_system\n    n = network_class(model, panels, condition, gravity, loads, motion, constraints, strut_mode,\n                      quiescent_density=quiescent_density, mesh_recipe=warm_start_recipe(model, panels, initial_state))\n  File \"/home/userland/aswing/openswing/source_dynamics.py\", line 80, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 303, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 153, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/network.py\", line 100, in __init__\n    mesh = mesh_beam(beam, panels, stations[beam.index], mesh_recipe=self.mesh_recipe)\n  File \"/home/userland/aswing/openswing/geometry.py\", line 95, in mesh_beam\n    raise ValueError(f'Beam {beam.index}: node stations are too close; remove or move the nearly coincident nodes.')\nValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes.\n"
+        }
+      ],
+      "physical_dispatch_attempts": 1,
+      "completed_mode_solve": false
+    },
+    {
+      "id": "ST-4:Weight7f:vaccum",
+      "model": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b48.asw",
+      "status": "numerical_failure",
+      "failed_nominal_grid": 16,
+      "errors": [
+        {
+          "type": "ValueError",
+          "message": "Beam 1: node stations are too close; remove or move the nearly coincident nodes.",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 358, in run\n    calls += 1; result = _dispatch(request,progress);_write(out/'result.json',result)\n                         ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/scripts/isae_suite_modes.py\", line 332, in _dispatch\n    return dispatch(request, progress=progress)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 21, in dispatch\n    result = _dispatch(request, progress, policy)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 126, in _dispatch\n    return solve_modes(model, None, panels, gravity=request.get('gravity'),\n        loads=request.get('loads', ()), progress=progress,\n        structural_operator=policy['structural_operator'], **options)\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 1196, in solve_modes\n    system, continuation = make_system(model, condition, panels, frame=frame, quiescent_density=quiescent_density, **base_options)\n                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 966, in make_system\n    n = network_class(model, panels, condition, gravity, loads, motion, constraints, strut_mode,\n                      quiescent_density=quiescent_density, mesh_recipe=warm_start_recipe(model, panels, initial_state))\n  File \"/home/userland/aswing/openswing/source_dynamics.py\", line 80, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 303, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/source_discrete.py\", line 153, in __init__\n    super().__init__(*args, **kwargs)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/network.py\", line 100, in __init__\n    mesh = mesh_beam(beam, panels, stations[beam.index], mesh_recipe=self.mesh_recipe)\n  File \"/home/userland/aswing/openswing/geometry.py\", line 95, in mesh_beam\n    raise ValueError(f'Beam {beam.index}: node stations are too close; remove or move the nearly coincident nodes.')\nValueError: Beam 1: node stations are too close; remove or move the nearly coincident nodes.\n"
+        }
+      ],
+      "physical_dispatch_attempts": 1,
+      "completed_mode_solve": false
+    }
+  ],
+  "conclusion": "All three fail before eigensolver execution in geometry.py:95. No timeout or modal algorithm failure is inferred.",
+  "solves_by_this_audit": 0,
+  "prior_hypothesis": "Scaled48-inch point anchors versus1.2192 beam endpoint may differ in floating representation. This has not yet been established as the cause or corrected.",
+  "prior_hypothesis_status": "CONFIRMED_BY_LINKED_PARSING_AND_REQUIRED_STATION_ARITHMETIC",
+  "diagnosis": "Equivalent decimal tip stations differ by one binary64 ulp after scaling. Both survive exact unique(required), so the existing close-node guard rejects the mesh. No source/model edit or tolerance change was applied.",
+  "diagnosis_evidence": {
+    "path": "docs/validation/isae-suite-readiness/st4-tip-roundoff.json",
+    "bytes": 4086,
+    "sha256": "147b94b0444278d98d7d363ddb25c1b867f5bc4c28fd8d0169d647e1c4ec1c33"
+  },
+  "diagnosis_owner": {
+    "session_id": 50017,
+    "terminal_chunk": "d33b78",
+    "exit_code": 0,
+    "reaped": true
+  },
+  "diagnosis_scope": "Parsing and required-station arithmetic only; no mesh construction, residual or physical solve."
+}

@@ -1,0 +1,134 @@
+{
+  "recorded_utc": "2026-10-12T00:13:55.159842+00:00",
+  "status": "SETUP_AND_ALGORITHM_DIFFERENCES_CONFIRMED",
+  "aswing_equivalence_confirmed": false,
+  "goal_complete": false,
+  "references": {
+    "unsteady": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+    "steady": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+    "manual": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+    "dae_plot": "https://web.mit.edu/drela/Public/web/aswing/rudder-bode.pdf",
+    "paper": "https://web.mit.edu/drela/Public/web/aswing/asw_aiaa.pdf"
+  },
+  "scope": "Comparison of published ASWING theory/manual/DAE plot with source and existing release profile. No ASWING executable run, new performance benchmark or browser release.",
+  "findings": [
+    {
+      "topic": "Descriptor equation",
+      "assessment": "Matches published form and signs",
+      "reference": "unsteady sections 13.1\u201313.2 equations 131\u2013136",
+      "implementation": "A=R_z; M=-R_zdot; B=R_u; (i omega M-A)x=B. Unit harmonic input; full coupled descriptor retained."
+    },
+    {
+      "topic": "Jacobian construction",
+      "assessment": "Different implementation",
+      "reference": "unsteady section 13.1; paper System Solution",
+      "implementation": "Frequency constructor solves/checks a base then creates a fresh dynamic tangent with fourth-order full-residual probes and selected independent groups. It does not reuse a complete converged Newton Jacobian.",
+      "qualification": "Documents establish Jacobian reuse, not that every derivative in the licensed executable is analytic."
+    },
+    {
+      "topic": "Output recovery",
+      "assessment": "Repeated nonlinear evaluations remain",
+      "reference": "unsteady equation 136",
+      "implementation": "Each frequency/input uses real/imaginary positive/negative perturbations. Each snapshot calls DynamicSystem.residual then network_result, which evaluates the network residual again. Rate and input feedthrough must be preserved."
+    },
+    {
+      "topic": "Dynamic constraints",
+      "assessment": "Default does not reproduce published DAE flight response",
+      "reference": "manual BODE constraints; dae_plot",
+      "implementation": "Browser default fixed frame; published plot has nonzero aircraft yaw/roll rates, sideslip and bank.",
+      "qualification": "Nonzero motion rules out an entirely fixed aircraft frame; the complete reference constraint list and trim are unknown."
+    },
+    {
+      "topic": "Inputs",
+      "assessment": "All declared controls agrees; extra default gust differs",
+      "reference": "manual BODE commands N, F, I",
+      "implementation": "All flaps, engines and one gust by default. Published DAE display is unit rudder Flap 3. ASWING N computes all declared inputs; gusts are enabled separately."
+    },
+    {
+      "topic": "Frequency range",
+      "assessment": "Different defaults",
+      "reference": "dae_plot axes",
+      "implementation": "Browser 0.1\u2013100 rad/input T, 21 samples; reference 0.1\u201310 cycles/s. Matching endpoints requires 0.2*pi\u201320*pi rad/s. Exact reference sample grid unknown."
+    },
+    {
+      "topic": "Geometry coupling and structure",
+      "assessment": "Not the same derivative structure",
+      "reference": "steady section 4.6",
+      "implementation": "Steady theory lags selected influence geometry dependencies in Newton iterations for a banded structural block. OpenSwing Bode retains physical geometry derivatives and uses generic sparse LU.",
+      "qualification": "Lagging within nonlinear iterations does not justify deleting terms from the final harmonic tangent. Exact licensed implementation unverified."
+    },
+    {
+      "topic": "Beam discretization",
+      "assessment": "Different discrete equations",
+      "reference": "steady section 2",
+      "implementation": "Objective SO(3) midpoint rotations and nodal force/moment equilibrium rather than Euler-angle averages. Internal regression is not proof of ASWING parity."
+    },
+    {
+      "topic": "Circulation",
+      "assessment": "Documented option; reference setting unknown",
+      "reference": "steady section 3.1 equations 62\u201363",
+      "implementation": "One value per interval default; Fourier counts optional. Drela describes Fourier representation as typically more efficient. Reducing modes requires convergence evidence."
+    }
+  ],
+  "evidence": {
+    "released_profile": "/tmp/openswing-bode-performance-20261011/final-8/profile.prof",
+    "profile_sha256": "4937d2edd0f79ee3d12b4d137660a8b2e5c7707b7d59a5fd6ff8cb4837072f21",
+    "profile_scope": "DAE 8 intervals per beam; fixed frame; 21 frequencies; 4 inputs; prior candidate-04 release",
+    "total_seconds": 195.10047988803126,
+    "stages": {
+      "input_partials": {
+        "calls": 21,
+        "cumulative_seconds": 14.899139364000002
+      },
+      "harmonic_solve": {
+        "calls": 21,
+        "cumulative_seconds": 1.8921210400000001
+      },
+      "make_system": {
+        "calls": 1,
+        "cumulative_seconds": 51.565249153
+      },
+      "output_perturbation": {
+        "calls": 84,
+        "cumulative_seconds": 47.875710898
+      },
+      "linearize": {
+        "calls": 1,
+        "cumulative_seconds": 76.92962524100001
+      }
+    },
+    "full_case_native_seconds": 678.6465599450166,
+    "full_case_setup_seconds": 473.97737231402425,
+    "prior_record": "docs/validation/bode-performance.json"
+  },
+  "current_source_sha256": {
+    "openswing/linear_dynamics.py": "aa6caece050c219d974d79c8ae29b5028623e1c72d7abd767aca635f0781a335",
+    "openswing/descriptor_mass.py": "0950faa499a71fb3211e2a20a7f9b638e4e2d06bdd98dfdd523cb5d4247c8210",
+    "openswing/frequency_response.py": "70ee5460c73b0255dc59fd4e3e9caba4e49d34d9c9cc89c231bbf9c72c836001",
+    "openswing/network.py": "05172c95a90be51986dd948b78dabf527a71f62ebee309bfa3661c5bf8ffcab5",
+    "openswing/tangent_influences.py": "e16c059b37462713fb9770408b3954819b0f9c9f11a39d7e5201bf8c6002eecc",
+    "openswing/structured_static.py": "5b53bd3006a1baeb7ae30b6ac1de02538ebcb25ec3eb60b255a6e127166539aa",
+    "web/main.js": "6eb5c3b75f81c3ddfaee177e2e517fe4bfc785585f856ccaf90f82a7b27c70b1",
+    "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+    "tests/test_frequency_reuse.py": "8f2327a4429d8c8f6eba3662711b21c1179cdf7a702ea4c4917758797ac62af7"
+  },
+  "pending_unshipped_work": {
+    "root": "/tmp/openswing-bode-model-reuse-20261011",
+    "modules": [
+      "network.py",
+      "linear_dynamics.py",
+      "tangent_influences.py",
+      "frequency_response.py"
+    ],
+    "existing_native_tests": 52,
+    "reuse_native_tests": 10,
+    "fixture_correction": "Do not assign engine 1 power to wing-body, which has no engine.",
+    "browser_validated": false,
+    "performance_measured": false
+  },
+  "next": [
+    "Share validated physical derivative blocks between steady and dynamic analysis, with correct coordinate transformations and complete aerodynamic geometry coupling.",
+    "Reuse constant input derivatives and avoid duplicate output evaluations while preserving rate/input feedthrough.",
+    "Establish a DAE flight-response fixture matching trim, constraints, input units, frequencies, mesh and circulation before claiming ASWING agreement."
+  ]
+}

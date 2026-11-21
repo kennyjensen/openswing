@@ -1,0 +1,2082 @@
+{
+  "title": "AE-3 full320-to640 mesh refinement with an explicit-node input correction",
+  "status": "CLOSED_R4_METHOD_MISMATCH_FAILURE_RETAINED",
+  "evidence_archive": "isae-ae3-full-mesh-20261024-evidence.zip",
+  "archive_status": "VERIFIED_ARCHIVE_PUBLISHED",
+  "source_transition": {
+    "status": "PASS_EXACT_SOURCE_TRANSITION_ONLY",
+    "from_source": "Reviewed R3 coarse: not a fresh R4 run",
+    "to_source": "R4 explicit-node input continuation",
+    "from_plan_pin": {
+      "bytes": 53690,
+      "sha256": "a19d492fe13d19418c9dbfd46cb5a908a6a6fa63d112e8acbe5f16c5f4e8ac3a"
+    },
+    "from_source_pins": {
+      "__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "derivatives.py": {
+        "bytes": 30120,
+        "sha256": "2eefd06036c246d7ffbdcb6f3ae80593c5cf31488a6469a6854c0306812f6ab5"
+      },
+      "recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "equilibrium_state.py": {
+        "bytes": 17862,
+        "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+      },
+      "time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "sparse_rank.py": {
+        "bytes": 10463,
+        "sha256": "79f5e1b173cc66c96748f7bdb3e4c1180c788b60bcfff06525f0849ba4410bce"
+      },
+      "structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "derivative_cache.py": {
+        "bytes": 5264,
+        "sha256": "5da03da08413deed3f20129065ebf887b6bad1616d0e5a889e8a134c77a2856e"
+      },
+      "derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "derivative_refinement.py": {
+        "bytes": 5615,
+        "sha256": "21af9041cfd72084ef9ff19c085870ad740371978e052eac3863ef13bb89ca17"
+      }
+    },
+    "to_source_pins": {
+      "__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "derivatives.py": {
+        "bytes": 30120,
+        "sha256": "2eefd06036c246d7ffbdcb6f3ae80593c5cf31488a6469a6854c0306812f6ab5"
+      },
+      "recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "equilibrium_state.py": {
+        "bytes": 17862,
+        "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+      },
+      "time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "discretization.py": {
+        "bytes": 4792,
+        "sha256": "a46e31c4b0306d11b8915317736660ce3111f947e9fbbbb54b13fe950562a97d"
+      },
+      "initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "sparse_rank.py": {
+        "bytes": 10463,
+        "sha256": "79f5e1b173cc66c96748f7bdb3e4c1180c788b60bcfff06525f0849ba4410bce"
+      },
+      "structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "derivative_cache.py": {
+        "bytes": 5264,
+        "sha256": "5da03da08413deed3f20129065ebf887b6bad1616d0e5a889e8a134c77a2856e"
+      },
+      "derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "derivative_refinement.py": {
+        "bytes": 5615,
+        "sha256": "21af9041cfd72084ef9ff19c085870ad740371978e052eac3863ef13bb89ca17"
+      }
+    },
+    "changed_modules": [
+      "discretization.py"
+    ],
+    "unchanged_modules": 108,
+    "exact_text_changes": [
+      [
+        "not 5 <= len(nodes) <= 513",
+        "len(nodes) < 5"
+      ],
+      [
+        "use 5 to 513 finite, strictly increasing node stations including both endpoints.",
+        "use at least 5 finite, strictly increasing node stations including both endpoints."
+      ]
+    ],
+    "same_321_domain_source_proof": "For length321 both predicates are false. All other normalization checks, numeric conversions, return fields and geometry/equation code are byte-identical.",
+    "generated_count_limits_unchanged": true,
+    "minimum_finite_monotonic_endpoint_guards_unchanged": true,
+    "numerical_test_receipts_pending_at_preparation": true,
+    "physics_calls": 0,
+    "numerical_imports": 0
+  },
+  "source_tests": {
+    "native": {
+      "status": "PASS_EXPLICIT_NODE_LIMIT_REVISION",
+      "counts": {
+        "tests": 53,
+        "passed": 53,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "targeted": 26,
+        "unchanged_discretization": 27
+      },
+      "scope": [
+        "Actual frozen641-node AE3 geometry normalized, constructed, exported to JSON, and restored with exact stations/geometry.",
+        "Explicit514/641/1025 stations pass, unchanged513 boundary passes.",
+        "Generated512 intervals with extra mandatory station can roundtrip as514 explicitnodes.",
+        "Malformed high-count inputs retain finite/order/endpoint/min-spacing/default guards.",
+        "Automatic counts remain integer4..512.",
+        "Existing discretization regression file copied unchanged; small existing physics regressions only, no large AE3 residual/API/linear solve."
+      ],
+      "limits": [
+        "This does not establish a successful640 derivative or its scientific mesh verdict.",
+        "Frontend and API cap source review alone is not executed browser validation; separate agent owns actual WASM/browser geometry checks."
+      ]
+    },
+    "portable": {
+      "status": "PASS_PORTABLE_EXPLICIT_NODE_TESTS",
+      "counts": {
+        "tests": 26,
+        "passed": 26,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "scope": "Geometry-only26tests use repository-relative fixtures; no/tmp dependencies, no production writes.",
+      "operations": {
+        "physics_calls": 0,
+        "linear_solves": 0,
+        "derivative_calls": 0
+      }
+    },
+    "exact321_geometry": {
+      "status": "PASS_R3_R4_EXACT_321_GEOMETRY",
+      "counts": {
+        "passed": 23,
+        "total": 23
+      },
+      "operations": {
+        "model_parses": 2,
+        "normalizations_explicit": 2,
+        "geometry_constructions": 2,
+        "residual_evaluations": 0,
+        "derivative_API_calls": 0,
+        "equilibrium_API_calls": 0,
+        "linear_solves": 0,
+        "matrix_products": 0
+      },
+      "scope": "Exact frozen321-station geometry transition only; no new physical solve or claim about640 accuracy."
+    },
+    "actual_browser": {
+      "status": "PASS_ACTUAL_WASM_BROWSER_EXPLICIT641",
+      "counts": {
+        "passed": 52,
+        "total": 52
+      },
+      "browser_counts": {
+        "passed": 62,
+        "total": 62
+      },
+      "playwright_stats": {
+        "startTime": "2026-10-24T18:46:40.514Z",
+        "duration": 95393.59899999999,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "inspect_requests": 14,
+      "distribution_requests": 11,
+      "solve_requests": 0,
+      "rendering_scope": "Established SVG fallback used in passing browser-r3; no WebGL rendering claim.",
+      "limitations": [
+        "Geometry/inspection/export only; no640 solve or convergence claim.",
+        "SVG fallback rendering only; no WebGL rendering claim."
+      ]
+    },
+    "overlap_note": "Portable26 repeats targeted cap tests; these counts are not unique-test totals."
+  },
+  "retained_browser_failures": [
+    {
+      "stage": "nodes-browser-r4",
+      "status": "BROWSER_R4_STARTUP_FAILURE_RETAINED",
+      "solve_requests": 0,
+      "large_mesh_requests": 0,
+      "summary_pin": {
+        "bytes": 194490,
+        "sha256": "258cbafb6c85d91d91c4dd5c2d95e35309bcbe4f5372767ddd591c4624ef3d2a"
+      },
+      "lifecycle": {
+        "status": "FAILURE_RETAINED_TERMINAL_REAPED",
+        "exit_code": 1,
+        "reaped": true,
+        "supervisor": {
+          "session_id": 92942,
+          "initial_chunk": "8dde14",
+          "intermediate_chunks": [
+            "d19845",
+            "7ffd1d",
+            "a4639a"
+          ],
+          "terminal_chunk": "f82a9a",
+          "exit_code": 1,
+          "reaped": true
+        },
+        "preparation": {
+          "session_id": 56830,
+          "initial_chunk": "b2eabf",
+          "terminal_chunk": "c9d694",
+          "exit_code": 0,
+          "reaped": true
+        },
+        "syntax_check": {
+          "chunk": "787226",
+          "exit_code": 0,
+          "completed_synchronously": true
+        },
+        "server": {
+          "pid": 13671,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        },
+        "browser": {
+          "pid": 13675,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        },
+        "report_pin": {
+          "bytes": 194490,
+          "sha256": "258cbafb6c85d91d91c4dd5c2d95e35309bcbe4f5372767ddd591c4624ef3d2a"
+        },
+        "plan_pin": {
+          "bytes": 158375,
+          "sha256": "40ca456972b88d2323e143e691e389de08d282262f32dbd0edbe41fc4b49ff5e"
+        },
+        "all_owned_sessions_terminal": true,
+        "automatic_retries": 0,
+        "summary_execution": {
+          "session_id": 69380,
+          "initial_chunk": "adcef1",
+          "terminal_chunk": "56c930",
+          "exit_code": 0,
+          "reaped": true
+        }
+      }
+    },
+    {
+      "stage": "nodes-browser-r4-r2",
+      "status": "BROWSER_R4_REQUEST_ACCOUNTING_FAILURE_RETAINED",
+      "solve_requests": 0,
+      "large_mesh_requests": 0,
+      "summary_pin": {
+        "bytes": 206211,
+        "sha256": "b29cf43b9c0adf648648ebf6cc64e39e06c0e0e40cf9fa7613518f88f52cea11"
+      },
+      "lifecycle": {
+        "status": "FAILURE_RETAINED_TERMINAL_REAPED",
+        "exit_code": 1,
+        "reaped": true,
+        "supervisor": {
+          "session_id": 61222,
+          "initial_chunk": "a91d09",
+          "intermediate_chunks": [
+            "6a5297",
+            "518c49"
+          ],
+          "terminal_chunk": "444887",
+          "exit_code": 1,
+          "reaped": true
+        },
+        "preparation": {
+          "session_id": 68158,
+          "initial_chunk": "b2d134",
+          "terminal_chunk": "563bcc",
+          "exit_code": 0,
+          "reaped": true
+        },
+        "syntax_check": {
+          "chunk": "1414fb",
+          "exit_code": 0,
+          "completed_synchronously": true
+        },
+        "report_pin": {
+          "bytes": 206211,
+          "sha256": "b29cf43b9c0adf648648ebf6cc64e39e06c0e0e40cf9fa7613518f88f52cea11"
+        },
+        "plan_pin": {
+          "bytes": 204077,
+          "sha256": "9e76d3b41daa9021417f9bc9ebdf67d1d56ba69ed0d18b393753ab3fb375d3ec"
+        },
+        "all_owned_sessions_terminal": true,
+        "server": {
+          "pid": 21766,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        },
+        "baseline_server": {
+          "pid": 21764,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        },
+        "browser": {
+          "pid": 21771,
+          "exit_code": -15,
+          "reaped": true,
+          "terminated_by_supervisor": true
+        }
+      }
+    }
+  ],
+  "inherited_320": {
+    "case_id": "20O-05-320-r3-matched",
+    "coefficient": -0.00023513016902356907,
+    "new_calls": 0,
+    "source_module_pins": {
+      "__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "derivatives.py": {
+        "bytes": 30120,
+        "sha256": "2eefd06036c246d7ffbdcb6f3ae80593c5cf31488a6469a6854c0306812f6ab5"
+      },
+      "recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "equilibrium_state.py": {
+        "bytes": 17862,
+        "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+      },
+      "time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "sparse_rank.py": {
+        "bytes": 10463,
+        "sha256": "79f5e1b173cc66c96748f7bdb3e4c1180c788b60bcfff06525f0849ba4410bce"
+      },
+      "structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "derivative_cache.py": {
+        "bytes": 5264,
+        "sha256": "5da03da08413deed3f20129065ebf887b6bad1616d0e5a889e8a134c77a2856e"
+      },
+      "derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "derivative_refinement.py": {
+        "bytes": 5615,
+        "sha256": "21af9041cfd72084ef9ff19c085870ad740371978e052eac3863ef13bb89ca17"
+      }
+    },
+    "plan_sha256": "a19d492fe13d19418c9dbfd46cb5a908a6a6fa63d112e8acbe5f16c5f4e8ac3a",
+    "accuracy_counts": {
+      "passed": 246,
+      "total": 246
+    },
+    "old_output_parity": {
+      "status": "FAIL_RETAINED",
+      "numeric_values": 81703,
+      "mismatches": [
+        "derivatives.matrices.distributed_aero_wrench[2][1]",
+        "derivatives.matrices.fluid_wrench[2][1]",
+        "derivatives.matrices.net_wrench[2][1]"
+      ],
+      "maximum_tolerance_fraction": 1.0966956048435308,
+      "absolute_tolerance": 2e-08,
+      "relative_tolerance": 2e-08,
+      "old_report_unchanged": true
+    }
+  },
+  "retained_R3_640_failure": {
+    "status": "FAIL_RETAINED",
+    "phase": "network",
+    "error": "Beam 1: use 5 to 513 finite, strictly increasing node stations including both endpoints.",
+    "operations": {
+      "model_parses": 1,
+      "network_constructions": 1,
+      "zero_state_constructions": 0,
+      "external_base_residual_calls": 0,
+      "external_post_residual_calls": 0,
+      "equilibrium_captures": 0,
+      "base_output_snapshots": 0,
+      "derivative_API_calls": 0,
+      "equilibrium_calls": 0,
+      "finite_control_calls": 0,
+      "harness_matrix_products": 0,
+      "harness_factorizations": 0,
+      "harness_linear_solves": 0
+    },
+    "lifecycle": {
+      "status": "FAIL_RETAINED_INPUT_NODE_LIMIT_BEFORE_PHYSICS",
+      "supervisor_session": 12923,
+      "supervisor_exit_code": 1,
+      "supervisor_reaped": true,
+      "terminal_chunk": "073431",
+      "audit_session": 3335,
+      "audit_exit_code": 1,
+      "audit_reaped": true,
+      "execution_pin": {
+        "bytes": 332,
+        "sha256": "600d74fe3a7cf227cc49d8fdb04a152e639838f39509982fa553b3d9ac6a88b3"
+      },
+      "audit_pin": {
+        "bytes": 23131,
+        "sha256": "7ec461d58b5430a7abc0ba715b5d3f01d95f6b3a0b686522f70ca3b8dd03595b"
+      },
+      "derivative_calls": 0,
+      "residual_calls": 0,
+      "equilibrium_calls": 0,
+      "reason": "Existing upper limit513 rejects641explicit nodes; no fine-grid numerical result",
+      "original_attempt_preserved": true
+    }
+  },
+  "full_640": {
+    "status": "FAIL_RETAINED",
+    "execution": {
+      "status": "ALL_TERMINAL",
+      "pid": 758,
+      "children": [
+        {
+          "id": "20O-05-640-r4-all-saved-samples",
+          "status": "FAIL_RETAINED",
+          "pid": 937,
+          "spawned": true,
+          "reaped": true,
+          "exit_code": 1,
+          "monotonic_seconds": 214.74087456500274
+        }
+      ],
+      "monotonic_seconds": 214.74890667400905
+    },
+    "lifecycle": {
+      "status": "FAIL_RETAINED_ANALYTIC_CIRCULATION_STORAGE_FALLBACK",
+      "timestamp_unix": 1792868449.8367438,
+      "case_id": "20O-05-640-r4-all-saved-samples",
+      "supervisor_session": 32688,
+      "supervisor_exit_code": 1,
+      "supervisor_reaped": true,
+      "supervisor_terminal_chunk": "45615e",
+      "audit_session": 80851,
+      "audit_exit_code": 1,
+      "audit_reaped": true,
+      "audit_terminal_chunk": "f7f61e",
+      "execution_pin": {
+        "bytes": 332,
+        "sha256": "570719a0ec9a36aa0620d7f3917a2d890e6b23f17259cb61e09b5280b3e45284"
+      },
+      "audit_pin": {
+        "bytes": 24877,
+        "sha256": "34fdca9f40475480abbff2ec097a35f50eb13d3ea78dba84caaf37b0dc88480b"
+      },
+      "status_pin": {
+        "bytes": 24082,
+        "sha256": "817b44ff71d43cd083968bf25c0e5d5669b01705f69b167d7f6a95b7d585f57c"
+      },
+      "derivative_completed": true,
+      "derivative_seconds": 201.84880768001312,
+      "matched_mesh_comparison_available": false,
+      "reason": "128 MiB direct-circulation workspace guard declined analytic Gamma; completed centered fallback is not the frozen matched method",
+      "new_derivative_attempts": 1,
+      "new_equilibrium_calls": 0
+    },
+    "runner": {
+      "id": "20O-05-640-r4-all-saved-samples",
+      "status": "FAIL_RETAINED",
+      "phase": "derivative",
+      "check_counts": {
+        "passed": 19,
+        "total": 20
+      },
+      "operations": {
+        "model_parses": 1,
+        "network_constructions": 1,
+        "zero_state_constructions": 1,
+        "external_base_residual_calls": 1,
+        "external_post_residual_calls": 0,
+        "equilibrium_captures": 1,
+        "base_output_snapshots": 1,
+        "derivative_API_calls": 1,
+        "equilibrium_calls": 0,
+        "finite_control_calls": 0,
+        "harness_matrix_products": 0,
+        "harness_factorizations": 0,
+        "harness_linear_solves": 0
+      },
+      "derivative_residual_evaluations": 16675,
+      "derivative_seconds": 201.84880768001312,
+      "memory": {
+        "ru_maxrss_KiB": 345096,
+        "ru_maxrss_bytes": 353378304,
+        "advisory_bytes": 3221225472,
+        "advisory_only": true
+      },
+      "error": "Unchanged full API conventions",
+      "error_type": "AssertionError"
+    },
+    "audit": {
+      "status": "FAIL_RETAINED",
+      "counts": {
+        "passed": 185,
+        "total": 186
+      },
+      "accuracy_counts": {
+        "passed": 185,
+        "total": 186
+      },
+      "operations": {
+        "signed_products": 0,
+        "absolute_products": 0,
+        "factorizations": 0,
+        "solves": 0,
+        "physics_calls": 0,
+        "baseline_full_matrix_reads": 0,
+        "full_dense_candidate_reconstructions": 0
+      },
+      "error": "Selected child terminal pass and reaped",
+      "error_type": "AssertionError"
+    },
+    "returned_API_diagnostic": {
+      "method": "implicit centered residual derivatives",
+      "linear_solver": "certified_sparse",
+      "linear_residuals": [
+        5.412337245047638e-16,
+        5.981881656680343e-13
+      ],
+      "column_scaled_reciprocal_condition": null,
+      "column_scaled_reciprocal_condition_lower_bound": 2.4605511986084087e-10,
+      "physical_rhs_refinement": {
+        "initial_linear_residuals": [
+          6.4427629897778615e-15,
+          8.72368843829463e-12
+        ],
+        "method": "original-J FMA/fsum residual, two fixed same-LU corrections",
+        "requested_corrections": 2,
+        "attempted_corrections": 2,
+        "completed_corrections": 2,
+        "enabled": true,
+        "steps": [
+          {
+            "iteration": 1,
+            "compensated_residual_maximum": [
+              6.394474478630501e-15,
+              8.808729237230473e-12
+            ],
+            "correction_maximum": [
+              6.146508936638343e-17,
+              8.33210089861508e-14
+            ]
+          },
+          {
+            "iteration": 2,
+            "compensated_residual_maximum": [
+              3.723799367474173e-16,
+              5.097283171559676e-13
+            ],
+            "correction_maximum": [
+              4.335951798046766e-19,
+              2.2169150775135505e-16
+            ]
+          }
+        ],
+        "final_linear_residuals": [
+          5.412337245047638e-16,
+          5.981881656680343e-13
+        ]
+      },
+      "residual_evaluations": 16675,
+      "system_size": 8332
+    },
+    "circulation_capture": {
+      "eligible": true,
+      "enabled": false,
+      "fallback_reasons": [
+        "CirculationDerivativeUnavailable: Direct circulation derivative storage exceeds its budget."
+      ],
+      "checked_centered_gamma_probes_retained": true,
+      "capture_phase": "capture",
+      "lagged_geometry": false,
+      "factor": 1.0,
+      "circulation_rate_factor": 0.0,
+      "minimum_transverse_speed": 52.26334156772475,
+      "smooth_flow_minimum": 0.005232123117428077,
+      "capture_evaluations": 1,
+      "owner_restored": true,
+      "tangent_owner_unchanged": true,
+      "tangent_load_owner_unchanged": true,
+      "aero_cache_invalidated": true
+    },
+    "matched_method_comparison_available": false,
+    "coefficient_policy": "Full raw outputs retained; no coefficient or ratio is promoted to the planned matched-method mesh comparison.",
+    "independent_method_guard_review": "Method differs; step, response, basis, axes, parameters, normalization, references, rotation and coefficient rows match the inherited coarse metadata.",
+    "post_residual_validation_performed": false
+  },
+  "mesh_comparison": null,
+  "independent_scalar_review": {
+    "completed": false,
+    "checks": [],
+    "operations": {
+      "saved_scalar_subtractions_and_divisions_only": true,
+      "matrix_products": 0,
+      "solves": 0,
+      "physics_calls": 0
+    }
+  },
+  "mesh": {
+    "nodes": 641,
+    "intervals": 640,
+    "system_size": 8332,
+    "construction": "Split every 320 interval at its saved actual Glauert sample; retain every old node, endpoint, root and control boundary.",
+    "interval_midpoints_in_material_coordinate": false
+  },
+  "gates": {
+    "physical": 1e-08,
+    "full_linear": 1e-08,
+    "rank": 1e-10,
+    "full_API_step": 1e-05,
+    "mesh": "abs(D640_R4-D320_R3)/max(abs(D640_R4),1e-30)<=0.01"
+  },
+  "retained_old_mesh_failures": [
+    {
+      "observation_id": "20O-04",
+      "coarse_id": "20O-04-coarse",
+      "fine_id": "20O-04-fine",
+      "status": "FAIL",
+      "coarse_derivative": -0.0006642245865368195,
+      "fine_derivative": -0.0006507075477168842,
+      "relative_change": 0.020772832384320903,
+      "limit": 0.01,
+      "coarse_p": -0.8137789551087253,
+      "fine_p": -0.8140240903722965
+    },
+    {
+      "observation_id": "20O-05",
+      "coarse_id": "20O-05-coarse",
+      "fine_id": "20O-05-fine-reused",
+      "status": "FAIL",
+      "coarse_derivative": -0.0002414142308418781,
+      "fine_derivative": -0.00022531851051219313,
+      "relative_change": 0.07143541066864076,
+      "limit": 0.01,
+      "coarse_p": -0.944983949616963,
+      "fine_p": -0.9453432604343455
+    },
+    {
+      "id": "patch-coarse",
+      "axis": "shared_intervals",
+      "coarse_id": "20O-05-coarse",
+      "fine_id": "20O-05-coarse-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 160,
+      "fine_intervals": 194,
+      "coarse_derivative": -0.0002414142308418781,
+      "fine_derivative": -0.00025008921826107083,
+      "signed_change": -8.674987419192735e-06,
+      "absolute_change": 8.674987419192735e-06,
+      "relative_change": 0.034687570617845755,
+      "limit": 0.01
+    },
+    {
+      "id": "patch-fine",
+      "axis": "shared_intervals",
+      "coarse_id": "20O-05-fine-reused",
+      "fine_id": "20O-05-fine-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 286,
+      "fine_intervals": 320,
+      "coarse_derivative": -0.00022531851051219313,
+      "fine_derivative": -0.00023513016903714936,
+      "signed_change": -9.811658524956223e-06,
+      "absolute_change": 9.811658524956223e-06,
+      "relative_change": 0.041728624468457855,
+      "limit": 0.01
+    },
+    {
+      "id": "outside-refined-patch",
+      "axis": "outside_shared_intervals",
+      "coarse_id": "20O-05-coarse-split-shared",
+      "fine_id": "20O-05-fine-split-shared",
+      "status": "FAIL",
+      "coarse_intervals": 194,
+      "fine_intervals": 320,
+      "coarse_derivative": -0.00025008921826107083,
+      "fine_derivative": -0.00023513016903714936,
+      "signed_change": 1.4959049223921478e-05,
+      "absolute_change": 1.4959049223921478e-05,
+      "relative_change": 0.06362028864768104,
+      "limit": 0.01
+    }
+  ],
+  "coverage": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0,
+    "AE3": "pending"
+  },
+  "source_continuity": {
+    "ROOT_modules": 108,
+    "public_kernel_modules": 108,
+    "isolated_R4_modules": 109,
+    "source_installed": false,
+    "hosted_release_deployed": false,
+    "later_promotion_requires_separate_receipt": true
+  },
+  "limitations": [
+    "The inherited R3 coarse result is reused under the isolated input-only transition; no new R4 coarse call occurred.",
+    "The640 API completed using centered circulation columns after a storage-cap fallback. The matched-method guard failed; no new mesh verdict exists.",
+    "Five old mesh failures and three old p/body-z output parity failures remain unchanged.",
+    "No640 nonlinear finite-control checks were performed. The previous320 checks do not transfer.",
+    "One full refinement pair does not establish continuum accuracy or convergence order, or isolate aerodynamic and structural errors.",
+    "No experimental validation or original ASWING executable parity is claimed; no reference executable is available.",
+    "Single-run time and memory are descriptive; there are no timing repeats or speedup benchmark.",
+    "The source-bound browser study inspects meshes in actual WASM; it performs zero analyses."
+  ],
+  "evidence_pins": {
+    "physical-r4/plan.json": {
+      "bytes": 72637,
+      "sha256": "57593c45a408fd016f3fba09575531b9524342fcc0eda55750135fc845ccb2f0"
+    },
+    "physical-r4/source-transition.json": {
+      "bytes": 31290,
+      "sha256": "e9b57958db72e2bcd9c1eeaeba8d96f294a00a8310eff82fa829f19d747c3196"
+    },
+    "node-tests-r4/summary.json": {
+      "bytes": 17541,
+      "sha256": "997f7ce1fbde12e23fe9f5ee9cb7fb109406b5532661320cecb5797d4c5a499e"
+    },
+    "portable-r4/verification.json": {
+      "bytes": 16984,
+      "sha256": "6d1b3d90ea6e8106c659081069f25379b5caed26e7b2c1890ff599178aabbb75"
+    },
+    "geometry-transition-r4/report.json": {
+      "bytes": 35472,
+      "sha256": "68dc5cd8509222a314da5dd551d20dc903abc48e3edd03230b95f841cfbae3b1"
+    },
+    "nodes-browser-r4-r3/summary.json": {
+      "bytes": 260781,
+      "sha256": "51be3375db9d030e1b12755f4712ad23df96b1d5ea9dc263831bce787d538563"
+    },
+    "nodes-browser-r4/summary.json": {
+      "bytes": 194490,
+      "sha256": "258cbafb6c85d91d91c4dd5c2d95e35309bcbe4f5372767ddd591c4624ef3d2a"
+    },
+    "nodes-browser-r4/session-closeout.json": {
+      "bytes": 1278,
+      "sha256": "8c75c477e7236c86401ac752d019ddd3661f1b38f200bd4a033d8d494e2f5e2c"
+    },
+    "nodes-browser-r4-r2/summary.json": {
+      "bytes": 206211,
+      "sha256": "b29cf43b9c0adf648648ebf6cc64e39e06c0e0e40cf9fa7613518f88f52cea11"
+    },
+    "nodes-browser-r4-r2/session-closeout.json": {
+      "bytes": 1204,
+      "sha256": "ca0757be0093cbf1210b1673f8d733e0d352323dca97b123768373678c8a7628"
+    },
+    "node-tests-r4/session-closeout.json": {
+      "bytes": 683,
+      "sha256": "225f286ee96968bdba28237e5224428da07a63d4409af7d94e4c1d19b2ed35fb"
+    },
+    "portable-r4/session-closeout.json": {
+      "bytes": 623,
+      "sha256": "632e3890369456837abef3caabf5a54f1f87cb9e37e9ade0fc458ca47e07a636"
+    },
+    "geometry-transition-r4/session-closeout.json": {
+      "bytes": 691,
+      "sha256": "2d0bc5cf564a94772d0ed8913ebbc3f52fb353666cef2f4fefa1dc3bd0ac712b"
+    },
+    "nodes-browser-r4-r3/session-closeout.json": {
+      "bytes": 3674,
+      "sha256": "9fee557c860defc673f4ea91eadbd2de1973628adcf70f37fc6f4b18156e674d"
+    },
+    "physical-r4/reference/r3-plan.json": {
+      "bytes": 53690,
+      "sha256": "a19d492fe13d19418c9dbfd46cb5a908a6a6fa63d112e8acbe5f16c5f4e8ac3a"
+    },
+    "physical-r4/reference/r3-coarse/derivatives.json": {
+      "bytes": 1053306,
+      "sha256": "503e1d69af5ab10bc024235efb61bc099b3eb4f99150482873e090679aa19325"
+    },
+    "physical-r4/reference/r3-coarse/status.json": {
+      "bytes": 27220,
+      "sha256": "1803cd23bab8066d3a95f0e699d9aa348e2e24e74a041e5c2a183f463c9d1d9b"
+    },
+    "physical-r4/reference/r3-coarse/audit-report.json": {
+      "bytes": 44006,
+      "sha256": "8529bba6d0cdfc2a9915fc33e89f4ba48bb0adb35be39c3a63f779881463c9d8"
+    },
+    "physical-r4/reference/r3-coarse/session-closeout.json": {
+      "bytes": 570,
+      "sha256": "f6fef3b93a5199eb75411c848b73836e16ba37f7d6aa7f0ed217918717348423"
+    },
+    "physical-r4/reference/r3-failed640/status.json": {
+      "bytes": 21108,
+      "sha256": "7c3ad6817a12b8fa0cc437994e1bda0c99a0dc3047214228110c5a4bcfb31803"
+    },
+    "physical-r4/reference/r3-failed640/session-closeout.json": {
+      "bytes": 711,
+      "sha256": "b66619b5727d5be35ca222aac8c08a473de7278681af40a38f2a0f9f1e5b42d0"
+    },
+    "physical-r4/session-closeout-640.json": {
+      "bytes": 1098,
+      "sha256": "44795c6c42e5def9fd1c45bd9f0ac43112deb5e1f10538966cabcba5aea252dc"
+    },
+    "physical-r4/execution-20O-05-640-r4-all-saved-samples.json": {
+      "bytes": 332,
+      "sha256": "570719a0ec9a36aa0620d7f3917a2d890e6b23f17259cb61e09b5280b3e45284"
+    },
+    "physical-r4/results/20O-05-640-r4-all-saved-samples/status.json": {
+      "bytes": 24082,
+      "sha256": "817b44ff71d43cd083968bf25c0e5d5669b01705f69b167d7f6a95b7d585f57c"
+    },
+    "physical-r4/audit-results/20O-05-640-r4-all-saved-samples/report.json": {
+      "bytes": 24877,
+      "sha256": "34fdca9f40475480abbff2ec097a35f50eb13d3ea78dba84caaf37b0dc88480b"
+    },
+    "physical-r4/results/20O-05-640-r4-all-saved-samples/derivatives.json": {
+      "bytes": 2094462,
+      "sha256": "005d6568edf3cd0c97225153567e8a7100be93a9834812e8ad3bd1ee8ec2d0e8"
+    },
+    "physical-r4/results/20O-05-640-r4-all-saved-samples/audit.json": {
+      "bytes": 3818,
+      "sha256": "8b49a200679ef23ba405451a1913f9b774cdfa5c78155a5578a5224c86793987"
+    },
+    "ROOT/docs/validation/isae-coverage.json": {
+      "bytes": 61504,
+      "sha256": "c33dd3b7e163f60a34cc4e1c5bb8ee60a379163d6f30c48fa5918457c86c54cb"
+    },
+    "baseline-pins.json": {
+      "bytes": 14075,
+      "sha256": "5f4d6d60eb6f9b07f13d7e8ad19fd2f4e346f523cba1c8dfb857da17e3a94a53"
+    }
+  },
+  "archive_receipt": {
+    "archive": "docs/validation/isae-ae3-full-mesh-20261024-evidence.zip",
+    "bytes": 113621324,
+    "sha256": "e7f4eeed74bdd520e74d4bb49ee35a001653771af60e8c8156381f2727df96ab",
+    "members": 919,
+    "manifest_members": 916,
+    "all_member_sha_verified": true,
+    "crc_verified": true
+  },
+  "publication": {
+    "status": "DOCUMENTATION_ONLY",
+    "archived_source_document_pins": {
+      "docs/validation/isae-ae3-full-mesh.json": {
+        "bytes": 73711,
+        "sha256": "f0c6fdd867ff7e56f85e74fc445980cbb7c8f7e7fbac9a22001533c0dce51736"
+      },
+      "docs/validation/isae-ae3-full-mesh.md": {
+        "bytes": 4452,
+        "sha256": "9c94cff7b56d6e10e5838d4cd1f8aa45333f1b059b74ebd7cc01ed40bc08ae93"
+      }
+    },
+    "source_promotion": false,
+    "deployment": false,
+    "coverage_classifications_changed": false,
+    "note": "Published report adds only verified archive metadata; immutable archived report remains the original pre-publication snapshot."
+  }
+}

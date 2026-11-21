@@ -1,0 +1,159 @@
+{
+  "scope": "Actual corrected C16 stationary loaded base and four saved real/imaginary response directions. Full force/moment, rigid constraint and free-frame kinematic composition; full2044-row directional residual also uses prior independent compatibility.",
+  "expected_source": "Independent composed A32/M16 evaluator, complex step1e-24; targets copied only after accepted saved-only bookkeeping correction PASS3823.",
+  "correction": "Original run completed all18 physical evaluations; four normalized-versus-raw direction identity checks failed. Saved-only correction verifies exact raw/maxabs direction equality; all physical target arrays and gates are unchanged.",
+  "limits": [
+    "Not full tangent equality, a finite-motion time integrator, a new aircraft solution, or historical ASWING/Bode parity.",
+    "Material interpolation, topology and the loaded operating point are declared inputs.",
+    "This actual fixture has zero base spin, point spin/intrinsic tensors, distributed intrinsic tensors and additional D properties; those nonzero laws are outside its coverage."
+  ],
+  "actual_fixture_scope": {
+    "base_frame_spin_zero": true,
+    "point_spin_zero": true,
+    "point_intrinsic_inertia_zero": true,
+    "distributed_material_zero_fields": {
+      "mgcc": true,
+      "mgnn": true,
+      "Dmg": true,
+      "DCcg": true,
+      "DNcg": true,
+      "Dmgcc": true,
+      "Dmgnn": true
+    }
+  },
+  "native_test_width": 0.0005,
+  "gate": {
+    "absolute": 2e-07,
+    "relative": 2e-07
+  },
+  "operations": {
+    "native_residuals": 17,
+    "base_calls": 1,
+    "direction_calls": 16,
+    "network_constructors": 1,
+    "public_restore_calls": 1,
+    "dynamic_system_constructors": 1,
+    "linearizations": 0,
+    "trim_solves": 0,
+    "harmonic_solves": 0,
+    "circulation_solves": 0
+  },
+  "expected_maps": 19,
+  "expected_scalars": 18136,
+  "files": {
+    "inputs.npz": {
+      "bytes": 150389,
+      "sha256": "74f846379bc964829275f05dc1c4bb4bec8939a355166bd5f224ffa15502cf93"
+    },
+    "expected.npz": {
+      "bytes": 98941,
+      "sha256": "e3624541e5c538e2ee3c7d72f05e77999325d1f8c99587e325477a6d2373ae83"
+    },
+    "request.json": {
+      "bytes": 3805,
+      "sha256": "a8a815dd8e0fe27ade7b2a3db1dc053feb1c8a9e11d9142ce7cbc43b9c6c00c2"
+    }
+  },
+  "expected_pins": {
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-accepted/report.json": {
+      "bytes": 7065,
+      "sha256": "1e1c1e69b228b58934f5e90cef7418ee27839d1eae17dedd9eae2f5eb3642dd1"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/report.json": {
+      "bytes": 6683,
+      "sha256": "94c9fd7b2fbebefde17ab327ef094357c884ba71e9ff6c8d7653757c9cbf5081"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/plan.json": {
+      "bytes": 44313,
+      "sha256": "40452c5c98a4469e98c3c008a5d03f801a4817bb8adfcc9d84b38d966af178d6"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/base-A32-M16.npz": {
+      "bytes": 138961,
+      "sha256": "e44b3b93b16d1b3406b0c575c9c08c77471663b6a0376d1cb6c0ed03a771db83"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/f0-part0-A32-M16-e0.npz": {
+      "bytes": 201786,
+      "sha256": "74304c89e99e1910fe887e64e5b4df9dfbb3e0b7ceef30f0a921cdcade31051a"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/f0-part1-A32-M16-e0.npz": {
+      "bytes": 201432,
+      "sha256": "0d665dad7de35551c1acbb7d68f154280219144564e9587d487a903482a75bfd"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/f1-part0-A32-M16-e0.npz": {
+      "bytes": 201910,
+      "sha256": "9c5b1b814563165adfdc435f26fb3c419be68f417ef3d50cf8ea49470e959217"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/f1-part1-A32-M16-e0.npz": {
+      "bytes": 201746,
+      "sha256": "3aee15fa42077732aa4e78afec13f0d88260b0ab77f5dc3548199c8f59a66821"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/complete-f0-part0.npz": {
+      "bytes": 48522,
+      "sha256": "55f0f575964500ae54e368e98723924cba06219f34a69dfa5ca6203fb33fe945"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/complete-f0-part1.npz": {
+      "bytes": 48288,
+      "sha256": "e1bc425958daf347a44312009d6d62781c3006f8eb86464e456423a59116202d"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/complete-f1-part0.npz": {
+      "bytes": 48719,
+      "sha256": "7c55eb1938cf453b3d0cc19bf9590a89ecf83f395a8a2155bf2a0fc135ef6179"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/composed-attempt1/complete-f1-part1.npz": {
+      "bytes": 48335,
+      "sha256": "4a87fb73bd7e7abd9a914e67f78a80dc36af53a31b39aa04eb1b99914b58052e"
+    }
+  },
+  "input_pins": {
+    "/home/userland/aswing/tests/data/daedalus-full-aero/inputs.npz": {
+      "bytes": 137333,
+      "sha256": "2fd365e6ffe68136c8d6975906dddea17c857105f5aa5271c565d5203a859f4f"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/material/fixture.json": {
+      "bytes": 93653,
+      "sha256": "f895eeba3158d92b897b105a606c73e5f0776819ace44ace87b6c30c1881025e"
+    },
+    "/tmp/openswing-daedalus-full-balance-20261025/material/fixture.npz": {
+      "bytes": 145215,
+      "sha256": "b980bee2eeb931a88cbb9ada49941dce33f93a8eab6b8e4fce54a78e54f77cac"
+    },
+    "/home/userland/aswing/examples/dae-cruise-physical-mesh-project.json": {
+      "bytes": 119440,
+      "sha256": "73c2326060ece1a4d123fd94e16119f29568f72c928b6206294e8d07b9816012"
+    }
+  },
+  "reference_sources": {
+    "scripts/daedalus_curved_aero_reference.py": {
+      "bytes": 8461,
+      "sha256": "417b92d2e52bcf3ddf04ed46fc01dd6dc4a013334ebbf6399792102fc2fec1b2"
+    },
+    "scripts/daedalus_coupled_balance_reference.py": {
+      "bytes": 7921,
+      "sha256": "282c9113e04d953da399c2deeaf83a9ed2352d2e73dec4518758fd0d14ba8a8c"
+    },
+    "scripts/daedalus_balance_reference.py": {
+      "bytes": 15345,
+      "sha256": "86efc83716dbaea8e6a30b416164f0ce1f14efcc4260ebf05760f7b1a72e2097"
+    },
+    "scripts/daedalus_real_inertia_reference.py": {
+      "bytes": 15692,
+      "sha256": "6c3e98550ad699da1344505274b6e73f9653052c37f93ee8541a7d8bc6316bf0"
+    },
+    "scripts/daedalus_jet_reference.py": {
+      "bytes": 13084,
+      "sha256": "894dae2d2f909dd5bedb6283f4b99172e8973b8b59811d4f7c0c26b9fe725908"
+    },
+    "scripts/daedalus_aero_transfer_reference.py": {
+      "bytes": 10256,
+      "sha256": "46e9f6f9a0cde06af3d87527cbc62b26b57f4d395d744d937a056d55eb7d3e60"
+    },
+    "scripts/daedalus_volume_reference.py": {
+      "bytes": 17804,
+      "sha256": "7f679a9473505f056029c5c3561d3e5fc93be177f882244ad5a9ced40f70602e"
+    },
+    "scripts/daedalus_full_aero_reference.py": {
+      "bytes": 16284,
+      "sha256": "c7884803885281a8827b68f51514d5f7d31882f51546b57cc3885322207c579b"
+    }
+  }
+}

@@ -1,0 +1,5882 @@
+{
+  "status": "BOUNDED_COVERAGE_EXPANSION_COMPLETE_FULL_ISAE_VALIDATION_INCOMPLETE",
+  "date": "2026-10-27",
+  "acceptance": "Original archived tested ASWING calculations, unchanged model properties and precision gates; experimental agreement is not required.",
+  "registry": {
+    "families": 41,
+    "original_models": 279,
+    "registered_adapters": 11,
+    "registered_families": 21,
+    "families_without_adapters": 20,
+    "registered_jobs": 3505,
+    "required_output_slots": 63613
+  },
+  "additions": {
+    "ST5": {
+      "original_snapshots": 1,
+      "original_rows": 80,
+      "fields_per_row": 27,
+      "grids": 3,
+      "jobs": 1,
+      "required_output_slots": 6480
+    },
+    "AE2": {
+      "original_layups": 2,
+      "original_sweeps": 8,
+      "original_rows": 184,
+      "fields_per_row": 4,
+      "grids": 2,
+      "jobs": 368,
+      "required_output_slots": 1472
+    }
+  },
+  "batch": {
+    "jobs": 369,
+    "status_counts": {
+      "computed": 351,
+      "unsupported": 16,
+      "numerical_failure": 2
+    },
+    "output_accounting": {
+      "required": 7952,
+      "reported": 7952,
+      "finite": 7880,
+      "unavailable": 72,
+      "numerically_valid": 7880,
+      "passed": 3471,
+      "missing": 0
+    },
+    "all_subprocesses_reaped": true,
+    "production_kernel_unchanged": true
+  },
+  "structural_recovery_qualification": {
+    "unresolved_f_reac_display_diagnostics": 240,
+    "display_precision_matches": 9,
+    "mesh_gates_pass": false,
+    "note": "These scalar-weight display diagnostics are explicitly unresolved; they do not validate reaction-force output semantics."
+  },
+  "adapter_mesh_diagnostics": {
+    "aeroelastic": [
+      {
+        "group": "AE-2:m15_02-b01-ias000",
+        "jobs": [
+          "AE-2-m15_02-b01-ias000-m80",
+          "AE-2-m15_02-b01-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias001",
+        "jobs": [
+          "AE-2-m15_02-b01-ias001-m80",
+          "AE-2-m15_02-b01-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -6.068827470145712e-05,
+            "fine": -6.0687012249808607e-05,
+            "relative_change": 2.0802666035254694e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.004729993850143914,
+            "fine": -0.004729460252254827,
+            "relative_change": 0.0001128242675963729,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias002",
+        "jobs": [
+          "AE-2-m15_02-b01-ias002-m80",
+          "AE-2-m15_02-b01-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.000245729574411966,
+            "fine": -0.00024572448360576005,
+            "relative_change": 2.0717537508867177e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.01915167884245129,
+            "fine": -0.01914951968535178,
+            "relative_change": 0.00011275254601626819,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias003",
+        "jobs": [
+          "AE-2-m15_02-b01-ias003-m80",
+          "AE-2-m15_02-b01-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0005644233726681885,
+            "fine": -0.0005644117594319,
+            "relative_change": 2.0575822694086895e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.04398895547388733,
+            "fine": -0.043984001460180465,
+            "relative_change": 0.00011263217402692323,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias004",
+        "jobs": [
+          "AE-2-m15_02-b01-ias004-m80",
+          "AE-2-m15_02-b01-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0010335876566471194,
+            "fine": -0.001033566632569728,
+            "relative_change": 2.0341288823414496e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.08055094713478166,
+            "fine": -0.08054189180458071,
+            "relative_change": 0.0001124300658707502,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias005",
+        "jobs": [
+          "AE-2-m15_02-b01-ias005-m80",
+          "AE-2-m15_02-b01-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.00167988056578979,
+            "fine": -0.0016798469388398698,
+            "relative_change": 2.0017865403468645e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.1309126307215478,
+            "fine": -0.1308979508808626,
+            "relative_change": 0.00011214721534156395,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias006",
+        "jobs": [
+          "AE-2-m15_02-b01-ias006-m80",
+          "AE-2-m15_02-b01-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0025438842993898768,
+            "fine": -0.002543834523537697,
+            "relative_change": 1.956725239752763e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.19823253323675585,
+            "fine": -0.19821038392678358,
+            "relative_change": 0.00011174646622172346,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias007",
+        "jobs": [
+          "AE-2-m15_02-b01-ias007-m80",
+          "AE-2-m15_02-b01-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.003687227952581279,
+            "fine": -0.003687158106374585,
+            "relative_change": 1.8943100533998916e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.28730671952150627,
+            "fine": -0.28727477985318867,
+            "relative_change": 0.00011118159531416933,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias008",
+        "jobs": [
+          "AE-2-m15_02-b01-ias008-m80",
+          "AE-2-m15_02-b01-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.00520537287339171,
+            "fine": -0.005205278797972074,
+            "relative_change": 1.8073079903672937e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.40556290109386484,
+            "fine": -0.40551813985791024,
+            "relative_change": 0.00011038035430493291,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias009",
+        "jobs": [
+          "AE-2-m15_02-b01-ias009-m80",
+          "AE-2-m15_02-b01-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.007251785654359641,
+            "fine": -0.007251663539045115,
+            "relative_change": 1.683962774453354e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.5649392003598033,
+            "fine": -0.5648775015480446,
+            "relative_change": 0.00010922511799385506,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias010",
+        "jobs": [
+          "AE-2-m15_02-b01-ias010-m80",
+          "AE-2-m15_02-b01-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.010087098714358545,
+            "fine": -0.010086947009807336,
+            "relative_change": 1.5039689517736056e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.7857026890438624,
+            "fine": -0.7856182253578554,
+            "relative_change": 0.00010751238105319433,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias011",
+        "jobs": [
+          "AE-2-m15_02-b01-ias011-m80",
+          "AE-2-m15_02-b01-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.014189424926435552,
+            "fine": -0.01418925055098078,
+            "relative_change": 1.2289264619387595e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.1050101486334385,
+            "fine": -1.1048942933204704,
+            "relative_change": 0.00010485646787071469,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias012",
+        "jobs": [
+          "AE-2-m15_02-b01-ias012-m80",
+          "AE-2-m15_02-b01-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02053798278129674,
+            "fine": -0.020537823227209005,
+            "relative_change": 7.768792533096849e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.5988848485091183,
+            "fine": -1.5987242820737493,
+            "relative_change": 0.00010043410059470454,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias013",
+        "jobs": [
+          "AE-2-m15_02-b01-ias013-m80",
+          "AE-2-m15_02-b01-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.031505794302459554,
+            "fine": -0.031505817042084154,
+            "relative_change": 7.217595585476184e-07,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -2.451194213846219,
+            "fine": -2.4509686474048245,
+            "relative_change": 9.203154909118725e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias014",
+        "jobs": [
+          "AE-2-m15_02-b01-ias014-m80",
+          "AE-2-m15_02-b01-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.05486576417950191,
+            "fine": -0.054866989343542304,
+            "relative_change": 2.2329711454034983e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -4.261257203489879,
+            "fine": -4.260956917229298,
+            "relative_change": 7.047390208676983e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias015",
+        "jobs": [
+          "AE-2-m15_02-b01-ias015-m80",
+          "AE-2-m15_02-b01-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1523796329595414,
+            "fine": -0.15238809287082614,
+            "relative_change": 5.5515566376316025e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -11.671747891709456,
+            "fine": -11.671322148765181,
+            "relative_change": 3.6477696258253875e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias016",
+        "jobs": [
+          "AE-2-m15_02-b01-ias016-m80",
+          "AE-2-m15_02-b01-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.20427560963071517,
+            "fine": -0.20427732287779005,
+            "relative_change": 8.386868648654733e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -15.491343151540446,
+            "fine": -15.490142178808354,
+            "relative_change": 7.753142083718139e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias017",
+        "jobs": [
+          "AE-2-m15_02-b01-ias017-m80",
+          "AE-2-m15_02-b01-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": 0.10118089203842827,
+            "fine": 0.10117053280227649,
+            "relative_change": 0.00010239380840294477,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 7.84080784420935,
+            "fine": 7.839294563032457,
+            "relative_change": 0.00019303792767649778,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias018",
+        "jobs": [
+          "AE-2-m15_02-b01-ias018-m80",
+          "AE-2-m15_02-b01-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": 0.06521241355160035,
+            "fine": -0.2761653509576412,
+            "relative_change": 1.2361353925301177,
+            "passed": false
+          },
+          "Psi_deg": {
+            "coarse": 5.068530999089858,
+            "fine": -21.095629609531276,
+            "relative_change": 1.2402645046820424,
+            "passed": false
+          }
+        },
+        "passed": false
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias019",
+        "jobs": [
+          "AE-2-m15_02-b01-ias019-m80",
+          "AE-2-m15_02-b01-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": 0.04931660593219806,
+            "fine": 0.049313441891515986,
+            "relative_change": 6.416183013621805e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.835874278161422,
+            "fine": 3.835271005311349,
+            "relative_change": 0.0001572960161713884,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b01-ias020",
+        "jobs": [
+          "AE-2-m15_02-b01-ias020-m80",
+          "AE-2-m15_02-b01-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": 0.04071234898651105,
+            "fine": 0.040709983822821885,
+            "relative_change": 5.8097878384262966e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.167272501976498,
+            "fine": 3.166792343013387,
+            "relative_change": 0.00015162312873783553,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias000",
+        "jobs": [
+          "AE-2-m15_02-b05-ias000-m80",
+          "AE-2-m15_02-b05-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias001",
+        "jobs": [
+          "AE-2-m15_02-b05-ias001-m80",
+          "AE-2-m15_02-b05-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0003019489986146616,
+            "fine": -0.0003019427174788424,
+            "relative_change": 2.0802408720589666e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.023533100900701348,
+            "fine": -0.02353044599660655,
+            "relative_change": 0.00011282846466997151,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias002",
+        "jobs": [
+          "AE-2-m15_02-b05-ias002-m80",
+          "AE-2-m15_02-b05-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0012224238457427374,
+            "fine": -0.001222398522298255,
+            "relative_change": 2.0716193631197484e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.09526413209505069,
+            "fine": -0.09525339046932743,
+            "relative_change": 0.00011276895940747068,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias003",
+        "jobs": [
+          "AE-2-m15_02-b05-ias003-m80",
+          "AE-2-m15_02-b05-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0028070658029504736,
+            "fine": -0.0028070080815028793,
+            "relative_change": 2.0563335023742045e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.21872278502415285,
+            "fine": -0.218698146314052,
+            "relative_change": 0.0001126608090471839,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias004",
+        "jobs": [
+          "AE-2-m15_02-b05-ias004-m80",
+          "AE-2-m15_02-b05-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.005138199530477204,
+            "fine": -0.005138095081110409,
+            "relative_change": 2.0328422332900882e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.40027011307663385,
+            "fine": -0.40022509220994834,
+            "relative_change": 0.00011248886579527855,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias005",
+        "jobs": [
+          "AE-2-m15_02-b05-ias005-m80",
+          "AE-2-m15_02-b05-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.008345765382702283,
+            "fine": -0.008345598587074374,
+            "relative_change": 1.9986059258437795e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.6499321789601008,
+            "fine": -0.6498592465759516,
+            "relative_change": 0.00011222797018501538,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias006",
+        "jobs": [
+          "AE-2-m15_02-b05-ias006-m80",
+          "AE-2-m15_02-b05-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.012626350434995465,
+            "fine": -0.012626104284440857,
+            "relative_change": 1.949536840994793e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.9828458152791031,
+            "fine": -0.9827359087848307,
+            "relative_change": 0.00011183726298170933,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias007",
+        "jobs": [
+          "AE-2-m15_02-b05-ias007-m80",
+          "AE-2-m15_02-b05-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.018275909777986397,
+            "fine": -0.018275566389495273,
+            "relative_change": 1.878948557905905e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.4217308461976115,
+            "fine": -1.4215726972650935,
+            "relative_change": 0.00011124927541323262,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias008",
+        "jobs": [
+          "AE-2-m15_02-b05-ias008-m80",
+          "AE-2-m15_02-b05-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02574742491563074,
+            "fine": -0.02574696778771635,
+            "relative_change": 1.7754631075734824e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -2.0012128633033486,
+            "fine": -2.000992057481182,
+            "relative_change": 0.00011034817521683898,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias009",
+        "jobs": [
+          "AE-2-m15_02-b05-ias009-m80",
+          "AE-2-m15_02-b05-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.03575736468416755,
+            "fine": -0.03575678592364255,
+            "relative_change": 1.618603322552948e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -2.7757179229316478,
+            "fine": -2.775415613625427,
+            "relative_change": 0.00010892397691233156,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias010",
+        "jobs": [
+          "AE-2-m15_02-b05-ias010-m80",
+          "AE-2-m15_02-b05-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.04949449816691659,
+            "fine": -0.04949382002433904,
+            "relative_change": 1.3701560663886145e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -3.834709411307651,
+            "fine": -3.8343007439891816,
+            "relative_change": 0.00010658196780995924,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias011",
+        "jobs": [
+          "AE-2-m15_02-b05-ias011-m80",
+          "AE-2-m15_02-b05-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.06902838867893167,
+            "fine": -0.06902770711976325,
+            "relative_change": 9.873704297315967e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -5.331595093911327,
+            "fine": -5.331046742743717,
+            "relative_change": 0.00010285994366045539,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias012",
+        "jobs": [
+          "AE-2-m15_02-b05-ias012-m80",
+          "AE-2-m15_02-b05-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.096884394886964,
+            "fine": -0.09688326994370441,
+            "relative_change": 1.1611326292355132e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -7.444982221073209,
+            "fine": -7.444205395845002,
+            "relative_change": 0.00010435300840038002,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias013",
+        "jobs": [
+          "AE-2-m15_02-b05-ias013-m80",
+          "AE-2-m15_02-b05-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.12755210453108196,
+            "fine": -0.12754955156029124,
+            "relative_change": 2.0015521493290646e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -9.740218200700006,
+            "fine": -9.739132764863987,
+            "relative_change": 0.00011145097435527753,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias014",
+        "jobs": [
+          "AE-2-m15_02-b05-ias014-m80",
+          "AE-2-m15_02-b05-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.15692197053944734,
+            "fine": -0.15691999139454754,
+            "relative_change": 1.261244588539046e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -11.910229550301528,
+            "fine": -11.909009338660217,
+            "relative_change": 0.00010246122129987124,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias015",
+        "jobs": [
+          "AE-2-m15_02-b05-ias015-m80",
+          "AE-2-m15_02-b05-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.18649941016469393,
+            "fine": -0.18649911495675028,
+            "relative_change": 1.5828919280086224e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -14.08537713675899,
+            "fine": -14.084120760793747,
+            "relative_change": 8.920514007093998e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias016",
+        "jobs": [
+          "AE-2-m15_02-b05-ias016-m80",
+          "AE-2-m15_02-b05-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.21689921696627007,
+            "fine": -0.21690158934248474,
+            "relative_change": 1.093756953032309e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -16.354343336439552,
+            "fine": -16.353154314373576,
+            "relative_change": 7.270903479035424e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias017",
+        "jobs": [
+          "AE-2-m15_02-b05-ias017-m80",
+          "AE-2-m15_02-b05-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.24844906560366975,
+            "fine": -0.24845549578567303,
+            "relative_change": 2.5880618913023323e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -18.844007250413213,
+            "fine": -18.84307953808686,
+            "relative_change": 4.92335833151067e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias018",
+        "jobs": [
+          "AE-2-m15_02-b05-ias018-m80",
+          "AE-2-m15_02-b05-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.2817389310262617,
+            "fine": -0.2817520980052672,
+            "relative_change": 4.6732496754116566e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -21.878427676576365,
+            "fine": -21.878319163626855,
+            "relative_change": 4.959839405302056e-06,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias019",
+        "jobs": [
+          "AE-2-m15_02-b05-ias019-m80",
+          "AE-2-m15_02-b05-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.3201480313279766,
+            "fine": -0.32018316537369484,
+            "relative_change": 0.00010973108369782276,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -27.154708576281266,
+            "fine": -27.160816329679836,
+            "relative_change": 0.00022487370498861135,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b05-ias020",
+        "jobs": [
+          "AE-2-m15_02-b05-ias020-m80",
+          "AE-2-m15_02-b05-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias000",
+        "jobs": [
+          "AE-2-m15_02-b10-ias000-m80",
+          "AE-2-m15_02-b10-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias001",
+        "jobs": [
+          "AE-2-m15_02-b10-ias001-m80",
+          "AE-2-m15_02-b10-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0005921438229505223,
+            "fine": -0.0005921318798536104,
+            "relative_change": 2.0169656994129313e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.046146913514289886,
+            "fine": -0.04614173566752303,
+            "relative_change": 0.0001122161247717771,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias002",
+        "jobs": [
+          "AE-2-m15_02-b10-ias002-m80",
+          "AE-2-m15_02-b10-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0023947262285391943,
+            "fine": -0.002394678180591232,
+            "relative_change": 2.0064469769573122e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.18656822042495727,
+            "fine": -0.1865472935319058,
+            "relative_change": 0.00011218009468409337,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias003",
+        "jobs": [
+          "AE-2-m15_02-b10-ias003-m80",
+          "AE-2-m15_02-b10-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.005487809435494288,
+            "fine": -0.0054877001574960465,
+            "relative_change": 1.9913259672581903e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.4273149215703768,
+            "fine": -0.42726700668785467,
+            "relative_change": 0.00011214271584782939,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias004",
+        "jobs": [
+          "AE-2-m15_02-b10-ias004-m80",
+          "AE-2-m15_02-b10-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.010009198553319864,
+            "fine": -0.010009000748724245,
+            "relative_change": 1.9762671677779688e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.7787546751375283,
+            "fine": -0.7786673472418761,
+            "relative_change": 0.00011215045290066264,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias005",
+        "jobs": [
+          "AE-2-m15_02-b10-ias005-m80",
+          "AE-2-m15_02-b10-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.016156020809101057,
+            "fine": -0.016155700963704268,
+            "relative_change": 1.9797679934034647e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.2555960463261242,
+            "fine": -1.2554549550367862,
+            "relative_change": 0.00011238259785585178,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias006",
+        "jobs": [
+          "AE-2-m15_02-b10-ias006-m80",
+          "AE-2-m15_02-b10-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.024172023550510048,
+            "fine": -0.024171527955811484,
+            "relative_change": 2.0503242470660893e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.8757475235952485,
+            "fine": -1.875535017299397,
+            "relative_change": 0.00011330436056456933,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias007",
+        "jobs": [
+          "AE-2-m15_02-b10-ias007-m80",
+          "AE-2-m15_02-b10-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.03430233534296621,
+            "fine": -0.03430156144888766,
+            "relative_change": 2.2561482505774575e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -2.6566119685429066,
+            "fine": -2.6563050314838574,
+            "relative_change": 0.00011555038122926013,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias008",
+        "jobs": [
+          "AE-2-m15_02-b10-ias008-m80",
+          "AE-2-m15_02-b10-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.046720235094143324,
+            "fine": -0.04671904130702522,
+            "relative_change": 2.5552474637869984e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -3.6092339972926233,
+            "fine": -3.6088058730441714,
+            "relative_change": 0.00011863321650236191,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias009",
+        "jobs": [
+          "AE-2-m15_02-b10-ias009-m80",
+          "AE-2-m15_02-b10-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.061481807402275754,
+            "fine": -0.061480136864571745,
+            "relative_change": 2.717199064940927e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -4.734734247874628,
+            "fine": -4.734165166384372,
+            "relative_change": 0.00012020735869055944,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias010",
+        "jobs": [
+          "AE-2-m15_02-b10-ias010-m80",
+          "AE-2-m15_02-b10-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.07854548333702782,
+            "fine": -0.07854344720801631,
+            "relative_change": 2.592360131729647e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -6.026075224539748,
+            "fine": -6.0253596076879745,
+            "relative_change": 0.00011876749245980276,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias011",
+        "jobs": [
+          "AE-2-m15_02-b10-ias011-m80",
+          "AE-2-m15_02-b10-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.09781785474968341,
+            "fine": -0.09781567738984065,
+            "relative_change": 2.2259824813981632e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -7.472450166590284,
+            "fine": -7.471592898125893,
+            "relative_change": 0.0001147370414956732,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias012",
+        "jobs": [
+          "AE-2-m15_02-b10-ias012-m80",
+          "AE-2-m15_02-b10-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.11918757488977823,
+            "fine": -0.11918555214973357,
+            "relative_change": 1.6971352719947776e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -9.063618630286253,
+            "fine": -9.06263246078624,
+            "relative_change": 0.00010881711293936038,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias013",
+        "jobs": [
+          "AE-2-m15_02-b10-ias013-m80",
+          "AE-2-m15_02-b10-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1425455070318927,
+            "fine": -0.14254402372382252,
+            "relative_change": 1.0405964637640231e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -10.794384035712154,
+            "fine": -10.793292123572275,
+            "relative_change": 0.00010116580996582184,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias014",
+        "jobs": [
+          "AE-2-m15_02-b10-ias014-m80",
+          "AE-2-m15_02-b10-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.16780019203509378,
+            "fine": -0.16779977205511484,
+            "relative_change": 2.5028638226927595e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -12.670715189698374,
+            "fine": -12.669557947356974,
+            "relative_change": 9.134038821306169e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b10-ias015",
+        "jobs": [
+          "AE-2-m15_02-b10-ias015-m80",
+          "AE-2-m15_02-b10-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.19489880887694694,
+            "fine": -0.19490020113596548,
+            "relative_change": 7.143445775996397e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -14.72056932765939,
+            "fine": -14.719419361750873,
+            "relative_change": 7.812576571503226e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias000",
+        "jobs": [
+          "AE-2-m15_02-b15-ias000-m80",
+          "AE-2-m15_02-b15-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias001",
+        "jobs": [
+          "AE-2-m15_02-b15-ias001-m80",
+          "AE-2-m15_02-b15-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0007667242184330626,
+            "fine": -0.0007667064158758603,
+            "relative_change": 2.321952292788567e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.05981211962141336,
+            "fine": -0.0598052504972126,
+            "relative_change": 0.00011485821301058789,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias002",
+        "jobs": [
+          "AE-2-m15_02-b15-ias002-m80",
+          "AE-2-m15_02-b15-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0030812292551515505,
+            "fine": -0.0030811571382203776,
+            "relative_change": 2.340579462122585e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.24024537110633093,
+            "fine": -0.2402177175428654,
+            "relative_change": 0.00011511875039194803,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias003",
+        "jobs": [
+          "AE-2-m15_02-b15-ias003-m80",
+          "AE-2-m15_02-b15-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0069849486144481915,
+            "fine": -0.00698478356682997,
+            "relative_change": 2.3629596628526545e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.544152902925464,
+            "fine": -0.5440900819751592,
+            "relative_change": 0.00011546056872935598,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias004",
+        "jobs": [
+          "AE-2-m15_02-b15-ias004-m80",
+          "AE-2-m15_02-b15-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.01254176307187704,
+            "fine": -0.012541464909788236,
+            "relative_change": 2.3774103818665453e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -0.9758368673969962,
+            "fine": -0.9757239196750491,
+            "relative_change": 0.00011575786927991648,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias005",
+        "jobs": [
+          "AE-2-m15_02-b15-ias005-m80",
+          "AE-2-m15_02-b15-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.019830531964428,
+            "fine": -0.019830061904513148,
+            "relative_change": 2.3704409855941492e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -1.5404024077627818,
+            "fine": -1.5402239536707312,
+            "relative_change": 0.0001158624313206788,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias006",
+        "jobs": [
+          "AE-2-m15_02-b15-ias006-m80",
+          "AE-2-m15_02-b15-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.028935644075807815,
+            "fine": -0.02893497012915942,
+            "relative_change": 2.3291769280783217e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -2.242960702425005,
+            "fine": -2.242701385897308,
+            "relative_change": 0.00011562686380245676,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias007",
+        "jobs": [
+          "AE-2-m15_02-b15-ias007-m80",
+          "AE-2-m15_02-b15-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0399371449498889,
+            "fine": -0.039936249219862954,
+            "relative_change": 2.2428997300470694e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -3.087846826196205,
+            "fine": -3.0874920173104337,
+            "relative_change": 0.00011491815485907569,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias008",
+        "jobs": [
+          "AE-2-m15_02-b15-ias008-m80",
+          "AE-2-m15_02-b15-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.05290242146959819,
+            "fine": -0.05290130900505913,
+            "relative_change": 2.102905504584218e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -4.078080210424223,
+            "fine": -4.077616940346577,
+            "relative_change": 0.00011361294707738916,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias009",
+        "jobs": [
+          "AE-2-m15_02-b15-ias009-m80",
+          "AE-2-m15_02-b15-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.06788116350903174,
+            "fine": -0.06787987301813309,
+            "relative_change": 1.9011392350591704e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -5.215308087793821,
+            "fine": -5.214726238189934,
+            "relative_change": 0.00011157816869196752,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias010",
+        "jobs": [
+          "AE-2-m15_02-b15-ias010-m80",
+          "AE-2-m15_02-b15-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.08490445059276877,
+            "fine": -0.08490306832199718,
+            "relative_change": 1.6280575000558384e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -6.500441959656592,
+            "fine": -6.499735831225866,
+            "relative_change": 0.00010863955844687428,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias011",
+        "jobs": [
+          "AE-2-m15_02-b15-ias011-m80",
+          "AE-2-m15_02-b15-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.10398787377333098,
+            "fine": -0.10398655278534956,
+            "relative_change": 1.2703450071518374e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -7.935183900663283,
+            "fine": -7.934354441555404,
+            "relative_change": 0.00010454021357238935,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias012",
+        "jobs": [
+          "AE-2-m15_02-b15-ias012-m80",
+          "AE-2-m15_02-b15-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.12513828199397495,
+            "fine": -0.12513727075700418,
+            "relative_change": 8.081021462703943e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -9.524752544124237,
+            "fine": -9.523810871041423,
+            "relative_change": 9.887565970853788e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias013",
+        "jobs": [
+          "AE-2-m15_02-b15-ias013-m80",
+          "AE-2-m15_02-b15-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.14836467572448286,
+            "fine": -0.1483643635580525,
+            "relative_change": 2.1040526369369747e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -11.282552008591276,
+            "fine": -11.281525715579429,
+            "relative_change": 9.097111842150244e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:m15_02-b15-ias014",
+        "jobs": [
+          "AE-2-m15_02-b15-ias014-m80",
+          "AE-2-m15_02-b15-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.17369704851120824,
+            "fine": -0.1736980452245236,
+            "relative_change": 5.738195349671183e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": -13.238772913192792,
+            "fine": -13.237719108209381,
+            "relative_change": 7.960623539419467e-05,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias000",
+        "jobs": [
+          "AE-2-p15_02-b01-ias000-m80",
+          "AE-2-p15_02-b01-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias001",
+        "jobs": [
+          "AE-2-p15_02-b01-ias001-m80",
+          "AE-2-p15_02-b01-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -5.394672530863789e-05,
+            "fine": -5.394512708650327e-05,
+            "relative_change": 2.9626811928030462e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.0006039995749500648,
+            "fine": 0.0006037533239555221,
+            "relative_change": 0.0004078668965818578,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias002",
+        "jobs": [
+          "AE-2-p15_02-b01-ias002-m80",
+          "AE-2-p15_02-b01-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.00021541002045177797,
+            "fine": -0.00021540370281640135,
+            "relative_change": 2.9329279367140593e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.0024116174901906346,
+            "fine": 0.002410635320852998,
+            "relative_change": 0.00040743173765863874,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias003",
+        "jobs": [
+          "AE-2-p15_02-b01-ias003-m80",
+          "AE-2-p15_02-b01-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0004832659975239371,
+            "fine": -0.00048325206210165535,
+            "relative_change": 2.8836756994210307e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.0054097890236130645,
+            "fine": 0.005407589703060316,
+            "relative_change": 0.00040670995277326946,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias004",
+        "jobs": [
+          "AE-2-p15_02-b01-ias004-m80",
+          "AE-2-p15_02-b01-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0008556638040672899,
+            "fine": -0.0008556397122489039,
+            "relative_change": 2.8156498630286362e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.009576996185570617,
+            "fine": 0.009573112252255704,
+            "relative_change": 0.00040571270999122545,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias005",
+        "jobs": [
+          "AE-2-p15_02-b01-ias005-m80",
+          "AE-2-p15_02-b01-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.001330058286595109,
+            "fine": -0.0013300219893842172,
+            "relative_change": 2.7290684801900598e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.014883643516906523,
+            "fine": 0.014877626487629797,
+            "relative_change": 0.00040443475857715634,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias006",
+        "jobs": [
+          "AE-2-p15_02-b01-ias006-m80",
+          "AE-2-p15_02-b01-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0019032542437187375,
+            "fine": -0.0019032042840654703,
+            "relative_change": 2.6250284157892862e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.02129256775098213,
+            "fine": 0.021283992616568333,
+            "relative_change": 0.0004028912511048833,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias007",
+        "jobs": [
+          "AE-2-p15_02-b01-ias007-m80",
+          "AE-2-p15_02-b01-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0025714608373699713,
+            "fine": -0.002571396435480493,
+            "relative_change": 2.504549224297257e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.02875966449386267,
+            "fine": 0.028748133825661264,
+            "relative_change": 0.0004010927551448238,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias008",
+        "jobs": [
+          "AE-2-p15_02-b01-ias008-m80",
+          "AE-2-p15_02-b01-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.003330354505491549,
+            "fine": -0.003330275618153726,
+            "relative_change": 2.368793063046505e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.03723461341249374,
+            "fine": 0.037219760817333775,
+            "relative_change": 0.0003990513327814995,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias009",
+        "jobs": [
+          "AE-2-p15_02-b01-ias009-m80",
+          "AE-2-p15_02-b01-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.004175148496675713,
+            "fine": -0.004175055850279634,
+            "relative_change": 2.2190456703223754e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.046661680348403865,
+            "fine": 0.046643173253796154,
+            "relative_change": 0.00039678034997769483,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias010",
+        "jobs": [
+          "AE-2-p15_02-b01-ias010-m80",
+          "AE-2-p15_02-b01-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.005100667040975639,
+            "fine": -0.005100562143950238,
+            "relative_change": 2.0565777347763172e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.056980573587162776,
+            "fine": 0.05695811549665107,
+            "relative_change": 0.00039429131943499306,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias011",
+        "jobs": [
+          "AE-2-p15_02-b01-ias011-m80",
+          "AE-2-p15_02-b01-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0061014221892641595,
+            "fine": -0.006101307294374132,
+            "relative_change": 1.8831192150134335e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.0681273323704011,
+            "fine": 0.06810066372657218,
+            "relative_change": 0.000391606224808474,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias012",
+        "jobs": [
+          "AE-2-p15_02-b01-ias012-m80",
+          "AE-2-p15_02-b01-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.007171691283411668,
+            "fine": -0.0071715693623297825,
+            "relative_change": 1.7000613913902184e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.08003522273220239,
+            "fine": 0.08000412213508154,
+            "relative_change": 0.0003887374336579027,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias013",
+        "jobs": [
+          "AE-2-p15_02-b01-ias013-m80",
+          "AE-2-p15_02-b01-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.008305593359456872,
+            "fine": -0.00830546803194111,
+            "relative_change": 1.5089759575368356e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.09263562320846715,
+            "fine": 0.09259990729375665,
+            "relative_change": 0.0003857014089354448,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias014",
+        "jobs": [
+          "AE-2-p15_02-b01-ias014-m80",
+          "AE-2-p15_02-b01-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.009497162760997779,
+            "fine": -0.009497038211650651,
+            "relative_change": 1.3114546277667307e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.10585887899558957,
+            "fine": 0.10581840188358933,
+            "relative_change": 0.0003825148677331975,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias015",
+        "jobs": [
+          "AE-2-p15_02-b01-ias015-m80",
+          "AE-2-p15_02-b01-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.010740418594922177,
+            "fine": -0.01074029947531865,
+            "relative_change": 1.109090149676808e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.1196351093352807,
+            "fine": 0.11958976154487254,
+            "relative_change": 0.0003791945884191876,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias016",
+        "jobs": [
+          "AE-2-p15_02-b01-ias016-m80",
+          "AE-2-p15_02-b01-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.012029428877270645,
+            "fine": -0.012029320197323896,
+            "relative_change": 9.034587571522783e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.13389495461293183,
+            "fine": 0.13384466151340343,
+            "relative_change": 0.000375757232001038,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias017",
+        "jobs": [
+          "AE-2-p15_02-b01-ias017-m80",
+          "AE-2-p15_02-b01-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.01335836849295331,
+            "fine": -0.013358275505423012,
+            "relative_change": 6.961043007478926e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.14857025289462236,
+            "fine": 0.14851497277322978,
+            "relative_change": 0.0003722191800619965,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias018",
+        "jobs": [
+          "AE-2-p15_02-b01-ias018-m80",
+          "AE-2-p15_02-b01-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.01472157036238079,
+            "fine": -0.014721498444296384,
+            "relative_change": 4.885242129277289e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.16359463869991384,
+            "fine": 0.1635343605248181,
+            "relative_change": 0.00036859639101100434,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias019",
+        "jobs": [
+          "AE-2-p15_02-b01-ias019-m80",
+          "AE-2-p15_02-b01-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.016113569465013487,
+            "fine": -0.016113523999510666,
+            "relative_change": 2.821574152388951e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.17890405975021317,
+            "fine": 0.1788388007071797,
+            "relative_change": 0.00036490427566850553,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias020",
+        "jobs": [
+          "AE-2-p15_02-b01-ias020-m80",
+          "AE-2-p15_02-b01-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.01752913960511099,
+            "fine": -0.01752912586680045,
+            "relative_change": 7.837419073641533e-07,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.19443721013889004,
+            "fine": 0.19436701301638962,
+            "relative_change": 0.00036115759259263455,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias021",
+        "jobs": [
+          "AE-2-p15_02-b01-ias021-m80",
+          "AE-2-p15_02-b01-ias021-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.018963323011874516,
+            "fine": -0.01896334605840718,
+            "relative_change": 1.2153199437445035e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.2101358807610761,
+            "fine": 0.21006081125271628,
+            "relative_change": 0.0003573703629540701,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias022",
+        "jobs": [
+          "AE-2-p15_02-b01-ias022-m80",
+          "AE-2-p15_02-b01-ias022-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02041145304224871,
+            "fine": -0.02041151761253113,
+            "relative_change": 3.1634238886714116e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.22594522943917958,
+            "fine": 0.22586537385420932,
+            "relative_change": 0.00035355390517628136,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias023",
+        "jobs": [
+          "AE-2-p15_02-b01-ias023-m80",
+          "AE-2-p15_02-b01-ias023-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.021869170384383716,
+            "fine": -0.02186928081186956,
+            "relative_change": 5.049433805935261e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.24181397786458106,
+            "fine": 0.241729439112119,
+            "relative_change": 0.0003497246871236449,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias024",
+        "jobs": [
+          "AE-2-p15_02-b01-ias024-m80",
+          "AE-2-p15_02-b01-ias024-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.023332433291002094,
+            "fine": -0.023332593422844328,
+            "relative_change": 6.863010867763845e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.2576945344907554,
+            "fine": 0.25760543081162907,
+            "relative_change": 0.0003458920832748342,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias025",
+        "jobs": [
+          "AE-2-p15_02-b01-ias025-m80",
+          "AE-2-p15_02-b01-ias025-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.024797522409637535,
+            "fine": -0.024797735548142772,
+            "relative_change": 8.595079370196762e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.2735430588809336,
+            "fine": 0.27344952061666467,
+            "relative_change": 0.0003420677573615894,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias026",
+        "jobs": [
+          "AE-2-p15_02-b01-ias026-m80",
+          "AE-2-p15_02-b01-ias026-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02626104084879875,
+            "fine": -0.02626130967566481,
+            "relative_change": 1.0236613077547923e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.2893194680095412,
+            "fine": 0.289221636285299,
+            "relative_change": 0.0003382586638356114,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias027",
+        "jobs": [
+          "AE-2-p15_02-b01-ias027-m80",
+          "AE-2-p15_02-b01-ias027-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.027719910122464154,
+            "fine": -0.027720236674296628,
+            "relative_change": 1.1780268556536234e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.3049873945688853,
+            "fine": 0.30488541797936497,
+            "relative_change": 0.0003344751290375815,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias028",
+        "jobs": [
+          "AE-2-p15_02-b01-ias028-m80",
+          "AE-2-p15_02-b01-ias028-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.029171362614417787,
+            "fine": -0.02917174824632677,
+            "relative_change": 1.321936229963905e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.3205141042154879,
+            "fine": 0.3204081372140331,
+            "relative_change": 0.0003307250632777617,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias029",
+        "jobs": [
+          "AE-2-p15_02-b01-ias029-m80",
+          "AE-2-p15_02-b01-ias029-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.03061293118124444,
+            "fine": -0.030613376546846902,
+            "relative_change": 1.4548071879025219e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.33587037890098764,
+            "fine": 0.33576057997741543,
+            "relative_change": 0.0003270155286829636,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b01-ias030",
+        "jobs": [
+          "AE-2-p15_02-b01-ias030-m80",
+          "AE-2-p15_02-b01-ias030-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.03204243647700792,
+            "fine": -0.032042941518665574,
+            "relative_change": 1.5761401223422752e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.3510303730433593,
+            "fine": 0.35091690308972,
+            "relative_change": 0.00032335277280815433,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias000",
+        "jobs": [
+          "AE-2-p15_02-b05-ias000-m80",
+          "AE-2-p15_02-b05-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias001",
+        "jobs": [
+          "AE-2-p15_02-b05-ias001-m80",
+          "AE-2-p15_02-b05-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.000268422618572335,
+            "fine": -0.0002684146663223072,
+            "relative_change": 2.962673439853088e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.0030057622096591684,
+            "fine": 0.0030045370140643892,
+            "relative_change": 0.00040778182763067446,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias002",
+        "jobs": [
+          "AE-2-p15_02-b05-ias002-m80",
+          "AE-2-p15_02-b05-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0010718431527252158,
+            "fine": -0.0010718117148020314,
+            "relative_change": 2.9331572654279317e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.012006820540081526,
+            "fine": 0.012001934562195537,
+            "relative_change": 0.000407099193939865,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias003",
+        "jobs": [
+          "AE-2-p15_02-b05-ias003-m80",
+          "AE-2-p15_02-b05-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0024047379426868627,
+            "fine": -0.0024046686026580008,
+            "relative_change": 2.8835586236416783e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.026954506072021864,
+            "fine": 0.026943568372560484,
+            "relative_change": 0.0004059484367526932,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias004",
+        "jobs": [
+          "AE-2-p15_02-b05-ias004-m80",
+          "AE-2-p15_02-b05-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.004257962103157338,
+            "fine": -0.004257842245327449,
+            "relative_change": 2.814989917039155e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.04776776622925185,
+            "fine": 0.047748458890908736,
+            "relative_change": 0.0004043552146305962,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias005",
+        "jobs": [
+          "AE-2-p15_02-b05-ias005-m80",
+          "AE-2-p15_02-b05-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.006618841865562641,
+            "fine": -0.006618661326660218,
+            "relative_change": 2.7277253437358207e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.07433328547533989,
+            "fine": 0.07430339160057184,
+            "relative_change": 0.0004023218069068957,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias006",
+        "jobs": [
+          "AE-2-p15_02-b05-ias006-m80",
+          "AE-2-p15_02-b05-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.00947130480802108,
+            "fine": -0.009471056436357315,
+            "relative_change": 2.6224282943965927e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.10650570857345462,
+            "fine": 0.1064631382855053,
+            "relative_change": 0.00039985941270264687,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias007",
+        "jobs": [
+          "AE-2-p15_02-b05-ias007-m80",
+          "AE-2-p15_02-b05-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.012796048642743552,
+            "fine": -0.012795728760337199,
+            "relative_change": 2.4999154979335374e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.14410801819953936,
+            "fine": 0.1440508326246086,
+            "relative_change": 0.0003969819117934614,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias008",
+        "jobs": [
+          "AE-2-p15_02-b05-ias008-m80",
+          "AE-2-p15_02-b05-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.016570749066397616,
+            "fine": -0.016570357827461104,
+            "relative_change": 2.3610771751920205e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.18693212726092667,
+            "fine": 0.1868585602209858,
+            "relative_change": 0.0003937044139368165,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias009",
+        "jobs": [
+          "AE-2-p15_02-b05-ias009-m80",
+          "AE-2-p15_02-b05-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02077030664583291,
+            "fine": -0.020769848251347155,
+            "relative_change": 2.207018944999512e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.23473976071536384,
+            "fine": 0.2346482371240608,
+            "relative_change": 0.00039004593609904225,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias010",
+        "jobs": [
+          "AE-2-p15_02-b05-ias010-m80",
+          "AE-2-p15_02-b05-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.02536713207321504,
+            "fine": -0.02536661487202597,
+            "relative_change": 2.03890503985903e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.2872636875668499,
+            "fine": 0.2871528389582614,
+            "relative_change": 0.0003860265111452437,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias011",
+        "jobs": [
+          "AE-2-p15_02-b05-ias011-m80",
+          "AE-2-p15_02-b05-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.030331467865962136,
+            "fine": -0.030330904310807632,
+            "relative_change": 1.85802292186671e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.3442093779848187,
+            "fine": 0.34407805425963545,
+            "relative_change": 0.00038166841377267454,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias012",
+        "jobs": [
+          "AE-2-p15_02-b05-ias012-m80",
+          "AE-2-p15_02-b05-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.035631743355469606,
+            "fine": -0.03563114982710726,
+            "relative_change": 1.665756971714424e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.40525713251721684,
+            "fine": 0.4051044099026587,
+            "relative_change": 0.0003769956851242816,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias013",
+        "jobs": [
+          "AE-2-p15_02-b05-ias013-m80",
+          "AE-2-p15_02-b05-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.04123495818573953,
+            "fine": -0.04123435467935581,
+            "relative_change": 1.4636008939982842e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.4700647190859867,
+            "fine": 0.4698899033003873,
+            "relative_change": 0.00037203562871110124,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias014",
+        "jobs": [
+          "AE-2-p15_02-b05-ias014-m80",
+          "AE-2-p15_02-b05-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.04710708785898484,
+            "fine": -0.047106497607899644,
+            "relative_change": 1.253014159764277e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.538270519860705,
+            "fine": 0.5380731493551127,
+            "relative_change": 0.0003668098024009565,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias015",
+        "jobs": [
+          "AE-2-p15_02-b05-ias015-m80",
+          "AE-2-p15_02-b05-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.05321350347418347,
+            "fine": -0.05321295236887272,
+            "relative_change": 1.0356600906755133e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.6094971722236795,
+            "fine": 0.6092770092875917,
+            "relative_change": 0.00036135113049033587,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias016",
+        "jobs": [
+          "AE-2-p15_02-b05-ias016-m80",
+          "AE-2-p15_02-b05-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.05951939625611334,
+            "fine": -0.059518912286899615,
+            "relative_change": 8.131351786013748e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.6833556354628871,
+            "fine": 0.6831126617311106,
+            "relative_change": 0.00035568617797359487,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias017",
+        "jobs": [
+          "AE-2-p15_02-b05-ias017-m80",
+          "AE-2-p15_02-b05-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.06599019680792309,
+            "fine": -0.06598980939830948,
+            "relative_change": 5.870749092075932e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.7594495999653464,
+            "fine": 0.7591840044218188,
+            "relative_change": 0.0003498434397731385,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias018",
+        "jobs": [
+          "AE-2-p15_02-b05-ias018-m80",
+          "AE-2-p15_02-b05-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.07259197856210105,
+            "fine": -0.07259171787846846,
+            "relative_change": 3.5910933120422412e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.8373801185318358,
+            "fine": 0.8370922833123883,
+            "relative_change": 0.0003438512398042435,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias019",
+        "jobs": [
+          "AE-2-p15_02-b05-ias019-m80",
+          "AE-2-p15_02-b05-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.07929183521774001,
+            "fine": -0.0792917314728076,
+            "relative_change": 1.3083953456647737e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.9167503217045118,
+            "fine": 0.9164408057138522,
+            "relative_change": 0.00033773702428979306,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias020",
+        "jobs": [
+          "AE-2-p15_02-b05-ias020-m80",
+          "AE-2-p15_02-b05-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.08605822287323901,
+            "fine": -0.08605830563302623,
+            "relative_change": 9.616711206310676e-07,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.9971700699020968,
+            "fine": 0.9968395895060057,
+            "relative_change": 0.0003315281611706892,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias021",
+        "jobs": [
+          "AE-2-p15_02-b05-ias021-m80",
+          "AE-2-p15_02-b05-ias021-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.09286125897710884,
+            "fine": -0.09286155651049931,
+            "relative_change": 3.204053449538811e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.0782603899710579,
+            "fine": 1.0779097989576114,
+            "relative_change": 0.0003252507898021848,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias022",
+        "jobs": [
+          "AE-2-p15_02-b05-ias022-m80",
+          "AE-2-p15_02-b05-ias022-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.09967297221043665,
+            "fine": -0.09967351090739589,
+            "relative_change": 5.404615071051189e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.159657562279835,
+            "fine": 1.1592878328490275,
+            "relative_change": 0.00031892806974344096,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias023",
+        "jobs": [
+          "AE-2-p15_02-b05-ias023-m80",
+          "AE-2-p15_02-b05-ias023-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.10646749952203798,
+            "fine": -0.1064683033532318,
+            "relative_change": 7.549957766892992e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.2410167370369005,
+            "fine": 1.240628937632807,
+            "relative_change": 0.00031258291043367647,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias024",
+        "jobs": [
+          "AE-2-p15_02-b05-ias024-m80",
+          "AE-2-p15_02-b05-ias024-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1132212288545525,
+            "fine": -0.11322231892787323,
+            "relative_change": 9.627724736976727e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.3220149892487296,
+            "fine": 1.3216102647367707,
+            "relative_change": 0.00030623590233657343,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias025",
+        "jobs": [
+          "AE-2-p15_02-b05-ias025-m80",
+          "AE-2-p15_02-b05-ias025-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.11991288827802175,
+            "fine": -0.11991428247738267,
+            "relative_change": 1.1626633059172163e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.4023537513993816,
+            "fine": 1.4019333037074215,
+            "relative_change": 0.0002999056309227826,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias026",
+        "jobs": [
+          "AE-2-p15_02-b05-ias026-m80",
+          "AE-2-p15_02-b05-ias026-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.12652358420498633,
+            "fine": -0.12652529691777414,
+            "relative_change": 1.3536524549149014e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.4817605952204276,
+            "fine": 1.481325665245376,
+            "relative_change": 0.0002936086137275117,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias027",
+        "jobs": [
+          "AE-2-p15_02-b05-ias027-m80",
+          "AE-2-p15_02-b05-ias027-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.13303679297078222,
+            "fine": -0.13303883490290133,
+            "relative_change": 1.5348391472329175e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.5599903645882793,
+            "fine": 1.559542215648082,
+            "relative_change": 0.00028735928768113407,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias028",
+        "jobs": [
+          "AE-2-p15_02-b05-ias028-m80",
+          "AE-2-p15_02-b05-ias028-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.13943831126150194,
+            "fine": -0.13944068933592857,
+            "relative_change": 1.7054379449457525e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.6368256886365906,
+            "fine": 1.636365591656243,
+            "relative_change": 0.00028117004090875037,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias029",
+        "jobs": [
+          "AE-2-p15_02-b05-ias029-m80",
+          "AE-2-p15_02-b05-ias029-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.14571617164055056,
+            "fine": -0.145718888972946,
+            "relative_change": 1.8647770474934273e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.7120769261212665,
+            "fine": 1.711606146656324,
+            "relative_change": 0.00027505128201499134,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b05-ias030",
+        "jobs": [
+          "AE-2-p15_02-b05-ias030-m80",
+          "AE-2-p15_02-b05-ias030-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1518605297822053,
+            "fine": -0.15186358572543932,
+            "relative_change": 2.0122949286509315e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.7855816081579148,
+            "fine": 1.7851013952836987,
+            "relative_change": 0.0002690115393359771,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias000",
+        "jobs": [
+          "AE-2-p15_02-b10-ias000-m80",
+          "AE-2-p15_02-b10-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias001",
+        "jobs": [
+          "AE-2-p15_02-b10-ias001-m80",
+          "AE-2-p15_02-b10-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0005266505949201503,
+            "fine": -0.000526635322991851,
+            "relative_change": 2.8999058043567014e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.005910232966896016,
+            "fine": 0.005907831796226162,
+            "relative_change": 0.0004064385637024934,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias002",
+        "jobs": [
+          "AE-2-p15_02-b10-ias002-m80",
+          "AE-2-p15_02-b10-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.002103313108474373,
+            "fine": -0.002103252721993693,
+            "relative_change": 2.871099609121671e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.02364383748039638,
+            "fine": 0.02363426575072345,
+            "relative_change": 0.0004049937397626414,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias003",
+        "jobs": [
+          "AE-2-p15_02-b10-ias003-m80",
+          "AE-2-p15_02-b10-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0047200483351429725,
+            "fine": -0.004719915091064412,
+            "relative_change": 2.823018549906093e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.053207306058389574,
+            "fine": 0.053185893590380895,
+            "relative_change": 0.00040259675194310307,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias004",
+        "jobs": [
+          "AE-2-p15_02-b10-ias004-m80",
+          "AE-2-p15_02-b10-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.008360061929068534,
+            "fine": -0.008359831567897743,
+            "relative_change": 2.7555719145845067e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.09460408239978217,
+            "fine": 0.09456632543892213,
+            "relative_change": 0.0003992643330995284,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias005",
+        "jobs": [
+          "AE-2-p15_02-b10-ias005-m80",
+          "AE-2-p15_02-b10-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.012999392016454435,
+            "fine": -0.012999045114364765,
+            "relative_change": 2.6686736342425793e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.14782364056270525,
+            "fine": 0.14776527025837516,
+            "relative_change": 0.0003950204552668395,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias006",
+        "jobs": [
+          "AE-2-p15_02-b10-ias006-m80",
+          "AE-2-p15_02-b10-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.018606533912557115,
+            "fine": -0.018606057173788975,
+            "relative_change": 2.5622772395393175e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.21282656462393595,
+            "fine": 0.21274361659262483,
+            "relative_change": 0.0003898966870999187,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias007",
+        "jobs": [
+          "AE-2-p15_02-b10-ias007-m80",
+          "AE-2-p15_02-b10-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.025142062708813365,
+            "fine": -0.025141450157920863,
+            "relative_change": 2.4364182998779744e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.28952616244464513,
+            "fine": 0.28941504658810246,
+            "relative_change": 0.00038393254895556956,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias008",
+        "jobs": [
+          "AE-2-p15_02-b10-ias008-m80",
+          "AE-2-p15_02-b10-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.03255832828145826,
+            "fine": -0.032557582302769034,
+            "relative_change": 2.2912594746320576e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.3777674953179774,
+            "fine": 0.3776250643079054,
+            "relative_change": 0.00037717573205326956,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias009",
+        "jobs": [
+          "AE-2-p15_02-b10-ias009-m80",
+          "AE-2-p15_02-b10-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.040799305787078306,
+            "fine": -0.04079843794874109,
+            "relative_change": 2.127136186694484e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.4773051283655683,
+            "fine": 0.47712874239302244,
+            "relative_change": 0.0003696821358135346,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias010",
+        "jobs": [
+          "AE-2-p15_02-b10-ias010-m80",
+          "AE-2-p15_02-b10-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.049800684876377004,
+            "fine": -0.049799716479802816,
+            "relative_change": 1.9445825049625154e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.5877813377392691,
+            "fine": 0.5875689226642539,
+            "relative_change": 0.00036151516328002754,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias011",
+        "jobs": [
+          "AE-2-p15_02-b10-ias011-m80",
+          "AE-2-p15_02-b10-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.05949027037437198,
+            "fine": -0.0594892326616249,
+            "relative_change": 1.7443707048440736e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.7087068810357402,
+            "fine": 0.7084569761355196,
+            "relative_change": 0.0003527453446555996,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias012",
+        "jobs": [
+          "AE-2-p15_02-b10-ias012-m80",
+          "AE-2-p15_02-b10-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.06978874417551591,
+            "fine": -0.0697876781596502,
+            "relative_change": 1.527513013496252e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.8394465914142655,
+            "fine": 0.839158383632815,
+            "relative_change": 0.0003434486112177768,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias013",
+        "jobs": [
+          "AE-2-p15_02-b10-ias013-m80",
+          "AE-2-p15_02-b10-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.08061080456766306,
+            "fine": -0.08060976046165819,
+            "relative_change": 1.295260026698342e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.9792119541824346,
+            "fine": 0.9788852948293928,
+            "relative_change": 0.00033370544512950515,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias014",
+        "jobs": [
+          "AE-2-p15_02-b10-ias014-m80",
+          "AE-2-p15_02-b10-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.09186665839196008,
+            "fine": -0.09186569464311638,
+            "relative_change": 1.049084587501346e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.1270623567849347,
+            "fine": 1.1266977602132557,
+            "relative_change": 0.00032359749398096584,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias015",
+        "jobs": [
+          "AE-2-p15_02-b10-ias015-m80",
+          "AE-2-p15_02-b10-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.10346380004827968,
+            "fine": -0.10346298202662339,
+            "relative_change": 7.906418704199254e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.281915921769072,
+            "fine": 1.2815145430656596,
+            "relative_change": 0.0003132065145763529,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias016",
+        "jobs": [
+          "AE-2-p15_02-b10-ias016-m80",
+          "AE-2-p15_02-b10-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.11530897640437184,
+            "fine": -0.11530837480209305,
+            "relative_change": 5.21733377838165e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.4425698177968653,
+            "fine": 1.4421334115248858,
+            "relative_change": 0.00030261158121150985,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias017",
+        "jobs": [
+          "AE-2-p15_02-b10-ias017-m80",
+          "AE-2-p15_02-b10-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.12731021438035744,
+            "fine": -0.12730990341294435,
+            "relative_change": 2.4426019088929932e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.6077288701528414,
+            "fine": 1.6072597317878383,
+            "relative_change": 0.00029188708938860584,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias018",
+        "jobs": [
+          "AE-2-p15_02-b10-ias018-m80",
+          "AE-2-p15_02-b10-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1393787819744749,
+            "fine": -0.13937883747845475,
+            "relative_change": 3.9822386856421005e-07,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.776040348634912,
+            "fine": 1.7755412422300385,
+            "relative_change": 0.0002811009921946493,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias019",
+        "jobs": [
+          "AE-2-p15_02-b10-ias019-m80",
+          "AE-2-p15_02-b10-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.15143096394556693,
+            "fine": -0.15143146146809522,
+            "relative_change": 3.2854634265775158e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.946132166981383,
+            "fine": 1.945606243374979,
+            "relative_change": 0.00027031348619215386,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias020",
+        "jobs": [
+          "AE-2-p15_02-b10-ias020-m80",
+          "AE-2-p15_02-b10-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.163389557273079,
+            "fine": -0.163390570239086,
+            "relative_change": 6.199660148910699e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.1166514847320004,
+            "fine": 2.116102194948566,
+            "relative_change": 0.00025957620796657384,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias021",
+        "jobs": [
+          "AE-2-p15_02-b10-ias021-m80",
+          "AE-2-p15_02-b10-ias021-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.17518502375257233,
+            "fine": -0.17518662177934757,
+            "relative_change": 9.121853935016766e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.2863008712323385,
+            "fine": 2.285731879556387,
+            "relative_change": 0.00024893194212346093,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias022",
+        "jobs": [
+          "AE-2-p15_02-b10-ias022-m80",
+          "AE-2-p15_02-b10-ias022-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.18675627184287702,
+            "fine": -0.18675851925308268,
+            "relative_change": 1.2033776101064796e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.4538697006687866,
+            "fine": 2.453284801289916,
+            "relative_change": 0.00023841478925026234,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias023",
+        "jobs": [
+          "AE-2-p15_02-b10-ias023-m80",
+          "AE-2-p15_02-b10-ias023-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.19805107198547103,
+            "fine": -0.19805402655075047,
+            "relative_change": 1.4917976326407761e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.6182591699330935,
+            "fine": 2.6176622102201934,
+            "relative_change": 0.00022805070515567594,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias024",
+        "jobs": [
+          "AE-2-p15_02-b10-ias024-m80",
+          "AE-2-p15_02-b10-ias024-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.20902613541456205,
+            "fine": -0.20902984734543253,
+            "relative_change": 1.7757898776758075e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.7785001242404213,
+            "fine": 2.77789493676322,
+            "relative_change": 0.0002178583031315874,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias025",
+        "jobs": [
+          "AE-2-p15_02-b10-ias025-m80",
+          "AE-2-p15_02-b10-ias025-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.21964690416461072,
+            "fine": -0.21965141534941818,
+            "relative_change": 2.0537927334924687e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.9337636127011373,
+            "fine": 2.9331539572127743,
+            "relative_change": 0.00020784980851885722,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b10-ias026",
+        "jobs": [
+          "AE-2-p15_02-b10-ias026-m80",
+          "AE-2-p15_02-b10-ias026-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.2298871094472018,
+            "fine": -0.2298924529337316,
+            "relative_change": 2.3243418657679804e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.0833646905073167,
+            "fine": 3.082754206323492,
+            "relative_change": 0.0001980320657976347,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias000",
+        "jobs": [
+          "AE-2-p15_02-b15-ias000-m80",
+          "AE-2-p15_02-b15-ias000-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "UNAVAILABLE",
+        "passed": false,
+        "reason": "Both finite physical states are required; missing/unrun/failed states are not a mesh pass."
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias001",
+        "jobs": [
+          "AE-2-p15_02-b15-ias001-m80",
+          "AE-2-p15_02-b15-ias001-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0006847413187269419,
+            "fine": -0.0006847195314142555,
+            "relative_change": 3.181932409815218e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.007930402507687359,
+            "fine": 0.00792725893036619,
+            "relative_change": 0.00039655287518452207,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias002",
+        "jobs": [
+          "AE-2-p15_02-b15-ias002-m80",
+          "AE-2-p15_02-b15-ias002-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.002737234721326318,
+            "fine": -0.002737148234209848,
+            "relative_change": 3.159752745170316e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.03180620276732105,
+            "fine": 0.03179366293833452,
+            "relative_change": 0.0003944128429257354,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias003",
+        "jobs": [
+          "AE-2-p15_02-b15-ias003-m80",
+          "AE-2-p15_02-b15-ias003-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.006152076164090443,
+            "fine": -0.006151884126464713,
+            "relative_change": 3.1216066782546426e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.07187665888447453,
+            "fine": 0.07184857610652147,
+            "relative_change": 0.00039086060538523064,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias004",
+        "jobs": [
+          "AE-2-p15_02-b15-ias004-m80",
+          "AE-2-p15_02-b15-ias004-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.010919552898455752,
+            "fine": -0.01091921814470199,
+            "relative_change": 3.065730067169302e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.12854165518707147,
+            "fine": 0.12849206783459774,
+            "relative_change": 0.00038591761584509725,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias005",
+        "jobs": [
+          "AE-2-p15_02-b15-ias005-m80",
+          "AE-2-p15_02-b15-ias005-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.01702459237310711,
+            "fine": -0.017024083406726745,
+            "relative_change": 2.989684485235017e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.20232675979814665,
+            "fine": 0.20224998292692248,
+            "relative_change": 0.0003796137340190431,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias006",
+        "jobs": [
+          "AE-2-p15_02-b15-ias006-m80",
+          "AE-2-p15_02-b15-ias006-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.024445312005709936,
+            "fine": -0.024444605459988254,
+            "relative_change": 2.8903952769425625e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.29384529970015016,
+            "fine": 0.2937360337235374,
+            "relative_change": 0.0003719869681211827,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias007",
+        "jobs": [
+          "AE-2-p15_02-b15-ias007-m80",
+          "AE-2-p15_02-b15-ias007-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.033151203692748606,
+            "fine": -0.03315028734368782,
+            "relative_change": 2.7642266001605075e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.4037450536432022,
+            "fine": 0.40359851348044923,
+            "relative_change": 0.0003630840002091562,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias008",
+        "jobs": [
+          "AE-2-p15_02-b15-ias008-m80",
+          "AE-2-p15_02-b15-ias008-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.0431010142682947,
+            "fine": -0.04309989062496494,
+            "relative_change": 2.6070677058873484e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.5326374484515801,
+            "fine": 0.5324495167695357,
+            "relative_change": 0.0003529568083461985,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias009",
+        "jobs": [
+          "AE-2-p15_02-b15-ias009-m80",
+          "AE-2-p15_02-b15-ias009-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.054240422621753125,
+            "fine": -0.05423911299241399,
+            "relative_change": 2.4145478546403927e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.6810082990327018,
+            "fine": 0.6807756987708989,
+            "relative_change": 0.0003416694547451902,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias010",
+        "jobs": [
+          "AE-2-p15_02-b15-ias010-m80",
+          "AE-2-p15_02-b15-ias010-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.06649966649984103,
+            "fine": -0.06649821532098972,
+            "relative_change": 2.182282403074123e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 0.8491114002126426,
+            "fine": 0.8488318857491082,
+            "relative_change": 0.00032929307702407194,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias011",
+        "jobs": [
+          "AE-2-p15_02-b15-ias011-m80",
+          "AE-2-p15_02-b15-ias011-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.07979133537165775,
+            "fine": -0.0797898143632315,
+            "relative_change": 1.9062689121270133e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.036849797154712,
+            "fine": 1.036522347847827,
+            "relative_change": 0.0003159114779964882,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias012",
+        "jobs": [
+          "AE-2-p15_02-b15-ias012-m80",
+          "AE-2-p15_02-b15-ias012-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.09400861507674367,
+            "fine": -0.09400712648717467,
+            "relative_change": 1.5834858745541525e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.2436541825323395,
+            "fine": 1.243279178489153,
+            "relative_change": 0.00030162496861097253,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias013",
+        "jobs": [
+          "AE-2-p15_02-b15-ias013-m80",
+          "AE-2-p15_02-b15-ias013-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1090243357562337,
+            "fine": -0.10902301366187662,
+            "relative_change": 1.212674565368455e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.4683730031226305,
+            "fine": 1.4679523509076962,
+            "relative_change": 0.0002865571315542106,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias014",
+        "jobs": [
+          "AE-2-p15_02-b15-ias014-m80",
+          "AE-2-p15_02-b15-ias014-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.12469122202397884,
+            "fine": -0.12469023032268634,
+            "relative_change": 7.953319918774762e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.709193329598991,
+            "fine": 1.7087304969956945,
+            "relative_change": 0.0002708634299617458,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias015",
+        "jobs": [
+          "AE-2-p15_02-b15-ias015-m80",
+          "AE-2-p15_02-b15-ias015-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.14084375235553406,
+            "fine": -0.14084327802058894,
+            "relative_change": 3.3678209694761375e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 1.9636136312370127,
+            "fine": 1.9631135478583452,
+            "relative_change": 0.0002547399151786384,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias016",
+        "jobs": [
+          "AE-2-p15_02-b15-ias016-m80",
+          "AE-2-p15_02-b15-ias016-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.15730197427484446,
+            "fine": -0.1573022152169761,
+            "relative_change": 1.5317148032710377e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.2284873394907265,
+            "fine": 2.2279561392258125,
+            "relative_change": 0.00023842492029427033,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias017",
+        "jobs": [
+          "AE-2-p15_02-b15-ias017-m80",
+          "AE-2-p15_02-b15-ias017-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.1738774542843342,
+            "fine": -0.17387860257135077,
+            "relative_change": 6.603958161468343e-06,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.500147884700196,
+            "fine": 2.4995925001479278,
+            "relative_change": 0.00022219003787027052,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias018",
+        "jobs": [
+          "AE-2-p15_02-b15-ias018-m80",
+          "AE-2-p15_02-b15-ias018-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.19038122436191013,
+            "fine": -0.19038344855835496,
+            "relative_change": 1.1682719593904179e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 2.7746114306752,
+            "fine": 2.7740391198294834,
+            "relative_change": 0.00020630958000041413,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias019",
+        "jobs": [
+          "AE-2-p15_02-b15-ias019-m80",
+          "AE-2-p15_02-b15-ias019-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.20663309959646148,
+            "fine": -0.20663653187948866,
+            "relative_change": 1.6610243096726013e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.0478347401891983,
+            "fine": 3.047252670446046,
+            "relative_change": 0.00019101459777112067,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias020",
+        "jobs": [
+          "AE-2-p15_02-b15-ias020-m80",
+          "AE-2-p15_02-b15-ias020-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.22247115418191557,
+            "fine": -0.22247588717157263,
+            "relative_change": 2.1274169157073524e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.315987574027543,
+            "fine": 3.315402578331827,
+            "relative_change": 0.00017644786172856357,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      {
+        "group": "AE-2:p15_02-b15-ias021",
+        "jobs": [
+          "AE-2-p15_02-b15-ias021-m80",
+          "AE-2-p15_02-b15-ias021-m160"
+        ],
+        "gate": {
+          "relative_limit": 0.01,
+          "channels": [
+            "RY_m",
+            "Psi_deg"
+          ]
+        },
+        "status": "COMPARED",
+        "channels": {
+          "RY_m": {
+            "coarse": -0.23775969075894934,
+            "fine": -0.23776578436109366,
+            "relative_change": 2.5628591433765243e-05,
+            "passed": true
+          },
+          "Psi_deg": {
+            "coarse": 3.5756896857213007,
+            "fine": 3.57510821323363,
+            "relative_change": 0.00016264472373684488,
+            "passed": true
+          }
+        },
+        "passed": true
+      }
+    ]
+  },
+  "ae2_mesh_counts": {
+    "groups": 184,
+    "passed": 174,
+    "failed": 1,
+    "unavailable": 9
+  },
+  "ae2_saved_result_plot": {
+    "path": "docs/validation/isae-ae2-coupled-sweeps-20261027.json",
+    "bytes": 3315,
+    "sha256": "0efdabf89ad486d597ff9de6e5bfa57b5bb9c30a6be39f1aba3f99441ffb6330"
+  },
+  "families": [
+    {
+      "id": "SA-1",
+      "registered_jobs": 22,
+      "required_output_slots": 154,
+      "executable_jobs": 22,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-10",
+      "registered_jobs": 324,
+      "required_output_slots": 2268,
+      "executable_jobs": 270,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-11",
+      "registered_jobs": 656,
+      "required_output_slots": 4592,
+      "executable_jobs": 328,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-12",
+      "registered_jobs": 1020,
+      "required_output_slots": 4080,
+      "executable_jobs": 1020,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-13",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-14",
+      "registered_jobs": 360,
+      "required_output_slots": 360,
+      "executable_jobs": 360,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-15",
+      "registered_jobs": 26,
+      "required_output_slots": 182,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-2",
+      "registered_jobs": 10,
+      "required_output_slots": 70,
+      "executable_jobs": 10,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-3",
+      "registered_jobs": 44,
+      "required_output_slots": 308,
+      "executable_jobs": 44,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-4",
+      "registered_jobs": 84,
+      "required_output_slots": 588,
+      "executable_jobs": 84,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-5",
+      "registered_jobs": 24,
+      "required_output_slots": 168,
+      "executable_jobs": 24,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-6",
+      "registered_jobs": 91,
+      "required_output_slots": 528,
+      "executable_jobs": 22,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-7",
+      "registered_jobs": 116,
+      "required_output_slots": 812,
+      "executable_jobs": 116,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "SA-8",
+      "registered_jobs": 72,
+      "required_output_slots": 504,
+      "executable_jobs": 72,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "UA-1",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "UA-2",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AP-1",
+      "registered_jobs": 26,
+      "required_output_slots": 15470,
+      "executable_jobs": 6,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AP-2",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "P-1",
+      "registered_jobs": 6,
+      "required_output_slots": 110,
+      "executable_jobs": 6,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "P-2",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "P-3",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "P-4",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "P-5",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-1",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-2",
+      "registered_jobs": 11,
+      "required_output_slots": 406,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-3",
+      "registered_jobs": 1,
+      "required_output_slots": 1080,
+      "executable_jobs": 1,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-4",
+      "registered_jobs": 42,
+      "required_output_slots": 3749,
+      "executable_jobs": 5,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-5",
+      "registered_jobs": 4,
+      "required_output_slots": 25920,
+      "executable_jobs": 4,
+      "new_batch_jobs": 1,
+      "new_batch_statuses": {
+        "computed": 1
+      },
+      "whole_family_validated": false
+    },
+    {
+      "id": "ST-6",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-1",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-2",
+      "registered_jobs": 550,
+      "required_output_slots": 2200,
+      "executable_jobs": 526,
+      "new_batch_jobs": 368,
+      "new_batch_statuses": {
+        "unsupported": 16,
+        "computed": 350,
+        "numerical_failure": 2
+      },
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-3",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-4",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-5",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-6",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "AE-7",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "FFWT-1",
+      "registered_jobs": 16,
+      "required_output_slots": 64,
+      "executable_jobs": 16,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "FFWT-2",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "FFWT-3",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "FFWT-4",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    },
+    {
+      "id": "FFWT-5",
+      "registered_jobs": 0,
+      "required_output_slots": 0,
+      "executable_jobs": 0,
+      "new_batch_jobs": 0,
+      "new_batch_statuses": {},
+      "whole_family_validated": false
+    }
+  ],
+  "evidence": {
+    "plan": {
+      "path": "artifacts/isae/st5-ae2-20261027/plan.json",
+      "bytes": 18327295,
+      "sha256": "1dddfd9fb3e27416a1670e276473f18f654c5de2f314de75ad23b065374187ae"
+    },
+    "report": {
+      "path": "artifacts/isae/st5-ae2-20261027/report.json",
+      "bytes": 26659120,
+      "sha256": "8e76ed2d10ecf106cb4c1d382aaf0483f10b53f348e2bb32c332f70c647f7b4e"
+    },
+    "full_default_plan": {
+      "path": "artifacts/isae/default-plan-20261027/plan.json",
+      "bytes": 73602308,
+      "sha256": "92bc55778e2513e67a2a8dd3a2f61ad815b1f3e4223e8e4314e2c2201bf0f3dc"
+    },
+    "independent_summary": {
+      "path": "artifacts/isae/st5-ae2-summary-20261027/summary.json",
+      "bytes": 143836,
+      "sha256": "281ba007716553c24a391f5e07adec557021768da7496b2981a24ffa39d2c928"
+    }
+  },
+  "limitations": [
+    "No entire ISAE family is validated. Twenty families still have no registered comparison adapter.",
+    "Full-family scope also includes unregistered variants, derivatives, span exports and dynamic results inside registered families.",
+    "New batch results do not replace historical failures or combine runs made against different numerical implementations.",
+    "AE2 initial NaN rows remain unavailable targets. Historical atmosphere, TAS, PG/KF, continuation and node arrays remain qualified.",
+    "ST5 f_reac and some printed display conventions remain unresolved; all strict discrepancies remain reported."
+  ]
+}

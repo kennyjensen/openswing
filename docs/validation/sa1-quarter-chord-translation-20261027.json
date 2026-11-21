@@ -1,0 +1,192 @@
+{
+  "format": "openswing-independent-source-review",
+  "version": 1,
+  "recorded_utc": "2026-10-27T09:31:24.383995+00:00",
+  "status": "COMMON_TRANSLATION_INVARIANCE_FOR_LITERAL_SA1",
+  "registered_acceptance_unchanged": "19/154",
+  "pins": [
+    {
+      "path": ".reference/isae-sa1/SA_1.asw",
+      "bytes": 4427,
+      "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+    },
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": ".reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/asw_uns_theory.pdf",
+      "bytes": 357554,
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    {
+      "path": ".reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": ".reference/asw_aiaa.pdf",
+      "bytes": 459805,
+      "sha256": "351230d0c8fbc5e653eae546b2f6f7b7f1a7df62d12eb42f96ea06a9eb0a22c6"
+    },
+    {
+      "path": "docs/validation/sa1-load-consistency-20261027/report.json",
+      "bytes": 88272,
+      "sha256": "a73536e6274dcd257cd370e1e2139a0477c0156ebb32f21acea4399a382ec27a"
+    },
+    {
+      "path": "docs/validation/sa1-alpha-continuation-followup-20261027.md",
+      "bytes": 6427,
+      "sha256": "2fa45981fa4185a926d49fc4aee182ab749b12a4a7820108e279672fc6dfb8dc"
+    },
+    {
+      "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+      "bytes": 745943,
+      "sha256": "53eb985d0ea800863b0d5b80f8915de9303be8a8ab5bce3f34a022e92ae4f774"
+    }
+  ],
+  "citations": [
+    {
+      "path": ".reference/isae-sa1/SA_1.asw",
+      "lines": [
+        "40-42",
+        "49-52",
+        "79-87"
+      ]
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "pages": [
+        16,
+        32,
+        33
+      ],
+      "equations": [
+        "67",
+        "69",
+        "70",
+        "72",
+        "155",
+        "156",
+        "160"
+      ],
+      "lines": [
+        "770-802",
+        "1615-1628",
+        "1658-1669"
+      ]
+    },
+    {
+      "path": ".reference/asw_uns_theory.txt",
+      "pages": [
+        8
+      ],
+      "equations": [
+        "29-36"
+      ],
+      "lines": [
+        "369-407"
+      ]
+    },
+    {
+      "path": ".reference/asw_aiaa.pdf",
+      "printed_pages": [
+        5,
+        7,
+        8
+      ],
+      "pdf_pages_1based": [
+        6,
+        8,
+        9
+      ],
+      "equations": [
+        "15-18",
+        "unnumbered bound/control-point locations",
+        "unnumbered Biot-Savart influence formula"
+      ],
+      "visually_inspected": true
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "lines": [
+        "14-36"
+      ]
+    },
+    {
+      "path": "openswing/aero.py",
+      "lines": [
+        "390-400",
+        "458-476",
+        "553-563",
+        "587-590"
+      ]
+    }
+  ],
+  "assumptions": [
+    "literal straight planar SA1 wing",
+    "constant chord1 and Xax0",
+    "unchanged span nodes and Glauert sample stations",
+    "constant section frame and slope6.2832",
+    "current wake at prescribed alpha",
+    "uniform freestream and stationary wing",
+    "no aerodynamic ground images, other bodies, gusts or engines",
+    "all bound endpoints and force/control receivers translated consistently"
+  ],
+  "translation": "t=(c/4)*(ex-e), e=(cos(alpha),0,sin(alpha))",
+  "kernel_identity": "(R+t)-(X+t)=R-X, d(X+t)=dX; trailing-ray direction e unchanged",
+  "invariants": [
+    "W_force",
+    "W_cp",
+    "basis and interval lengths",
+    "bound normal speed for each Gamma",
+    "section cl for each Gamma",
+    "full nonlinear circulation residual and Jacobian",
+    "root set",
+    "Kutta-Joukowsky and profile force",
+    "CL/CD/CLi/CDi/efficiency",
+    "current Cm when its existing physical moment arm is preserved"
+  ],
+  "moment_qualification": {
+    "physical_wrench_relocation_fixed_reference": "Delta M=t cross F",
+    "circulatory_only_relocation": "Delta M=t cross F_circulatory",
+    "existing_physical_Cm": "-(c/(4*Cref))*(CLi*cos(alpha)+CDi*sin(alpha))",
+    "hypothetical_virtual_Cm": "-(c/(4*Cref))*CLi"
+  },
+  "limits": [
+    "Real-arithmetic identity, not floating-point reassembly equality.",
+    "Moving a receiver alone is not the common translation and has no recovered source prescription.",
+    "General nonuniform geometry/flow and changing relative object/image positions are not covered.",
+    "No historical circulation-to-endpoint-force recovery rule established."
+  ],
+  "operations": {
+    "root_solves": 0,
+    "residual_evaluations": 0,
+    "matrix_assemblies": 0,
+    "production_imports": 0,
+    "production_edits": 0,
+    "parameter_variations": 0
+  },
+  "report": {
+    "path": "docs/validation/sa1-quarter-chord-translation-20261027.md",
+    "bytes": 5609,
+    "sha256": "149355fc70924425cf6b3a85d4f9f80965a0960ad7200a36dfb5a80662cab53d"
+  },
+  "all_reviewed_inputs_unchanged": true
+}

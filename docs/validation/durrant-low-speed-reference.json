@@ -1,0 +1,45 @@
+{
+  "description": "Primary-source aerodynamic settings and low-speed asymptotic specification for the Durrant wing reconstruction.",
+  "sources": {
+    ".reference/asw_uns_theory.pdf": {
+      "bytes": 357554,
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    ".reference/durrant/thesis.pdf": {
+      "bytes": 7144562,
+      "sha256": "286c2d5b8fff0d6cdf42a21c89b1207a0fc1fbcc94383b27953ad299a0d9e07a"
+    }
+  },
+  "urls": {
+    "asw_uns_theory.pdf": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+    "thesis.pdf": "https://ndownloader.figshare.com/files/47736529"
+  },
+  "aerodynamics": {
+    "source": "Durrant (2024), Table 3.11, printed page 67 / PDF page 80; visually checked.",
+    "case": 4,
+    "Cdf": 0.0,
+    "Cdp": 0.0,
+    "alpha": 4.0,
+    "Cm": -0.1,
+    "CLmax": 1.0,
+    "CLmin": -0.3,
+    "dCLda": "2*pi"
+  },
+  "limit": {
+    "source": "Drela ASWING 5.99 Unsteady Extension, 10 March 2015, equations 33-35, 41-44, 49-56; PDF pages 8-11.",
+    "path": "Positive speed tending to zero at fixed nonzero structural frequency, fixed density, zero gravity; linearize each solved equilibrium before taking the limit.",
+    "retained_surface_inertia": "Normal mass per span rho*pi*c^2/4 at midchord, plus span-axis rotary inertia per span rho*pi*c^4/128.",
+    "circulation": "With lag enabled, finite-frequency circulation amplitude is O(U) for a fixed mechanical disturbance; circulatory/rate loads vanish as U tends to zero. Slow aerodynamic roots tend to zero separately.",
+    "limits_not_equivalent": [
+      "Vacuum removes fluid inertia.",
+      "A fixed nonzero mean-flow calculation is not an exact zero-speed solution.",
+      "Zero-frequency/DC and zero-speed limits cannot be interchanged without analysis.",
+      "A finite-amplitude nonlinear launch from exact stagnation is not established by this modal limit."
+    ]
+  },
+  "conventions": {
+    "wing_orientation": "Undeformed span is +z, chord +x, physical normal -y; positive incidence is beta, not alpha.",
+    "baseline": "Zero body alpha/beta, 1.225 kg/m^3, fixed PG Mach zero, no gravity, controls or engines, K/F off, K/W default. Case 4 supplies section camber and pitching moment.",
+    "source_identity": "Uses the published main-table structure, not the incompatible appendix input; original GVT/ASWING setup conflicts remain."
+  }
+}

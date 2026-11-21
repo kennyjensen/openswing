@@ -1,0 +1,1881 @@
+{
+  "description": "Independent prescribed-gust checks, not ASWING executable or experimental parity.",
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "scripts/verify-gust.py": "3ac674700777461a9aba7a8eef32d0aad9b81af26c0bf4770e1a58884e0f3d84",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "4f99bc6b2ec18f042d3dfc3b850e1cfcb5c06bc72a618c896780c5a4fa614fec",
+    "openswing/asw.py": "34d8976e9a6884e2c02b89d8336f0ee6844255d1559250e0af2bfb7092127a0a",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "f62d110b13ef9277b385f36ae8ddd5788ef7ef267eefa11a675641b0bee109a2",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "9c1823306fe644437f166ab00ba783268b4772dd891d98239ce0f978d78c7595",
+    "openswing/dynamic_inertia.py": "b1cddb73927953de87701f81bb4d126b475c9aef870b2cece8fee461b6fc934b",
+    "openswing/forcing.py": "eea8256b55254c38216670c5ee4d61f626b10f560f8cce36d1565e7de453b2d3",
+    "openswing/geometry.py": "49cc7e4183555b127c420b965cb9e59113e315c9493bf595da9aac46b6a555da",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/local_motion.py": "9bebb2afe18389d5fd05adbc6b7fe18606541593a12a446014316ee96ca67b98",
+    "openswing/network.py": "a79c66db76c0be4137ebc8ff2b00399d94e9fd97239d82a8a668a9c48b33bf07",
+    "openswing/operating.py": "80a8fe7b71056ea7a9b2546cba944532e20c6b4a09d6a4b288562a6bf375b3c3",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_integration.py": "1006f428314ed8c7c4ecdb4a07d075cae3d2b37624db3d54ce2632a12434233e",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031"
+  },
+  "cases": [
+    {
+      "name": "elastic_gust_feedback",
+      "source": "Name\nOriginal gust verification rod\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 0 2 0\nEnd\nBeam 1\nMassless axial rod\nt y EA\n0 0 1000\n2 2 1000\nEnd\n",
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": true,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": {
+          "type": "expression",
+          "components": [
+            "-10",
+            "5*y",
+            "0"
+          ]
+        },
+        "time": 0.0
+      },
+      "exact_formula": "y = 2 + (.5*rho*CDA*25)*(L/EA)*y^2; stable smaller root",
+      "exact_tip_y": 2.333527813434408,
+      "actual_tip_y": 2.333527813434408,
+      "error": 0.0,
+      "point_force": [
+        0.0,
+        166.76390671720407,
+        0.0
+      ],
+      "residual": 1.3183898417423734e-16
+    },
+    {
+      "name": "narrow_frozen_cosine",
+      "source": "Name\nOriginal gust verification rod\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 0 0 0 0 0 .2 0\nEnd\nBeam 1\nMassless axial rod\nt y EA\n0 0 0\n2 2 0\nEnd\n",
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": true,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": {
+          "type": "cosine",
+          "amplitude": [
+            0,
+            0,
+            2
+          ],
+          "origin": [
+            -0.4,
+            0,
+            0
+          ],
+          "length": 0.1
+        },
+        "time": 0.0
+      },
+      "duration": 0.08,
+      "requested_step": 0.08,
+      "phase_limit_radians": 0.39269908169872414,
+      "gust_resolution_retries": 6,
+      "exact_formula": "w(t)=1-cos(pi*clip((10t-.4)/.1,0,2)); F=.5*rho*CDA*sqrt(100+w^2)*[10,0,w]",
+      "maximum_force_error": 1.3100631690576847e-14,
+      "samples": [
+        {
+          "time": 0.0,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.00125,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.00125,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.0024875,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.003725,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012374999999999999,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.0049625,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012374999999999999,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.006200000000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000008,
+          "residual": 3.552713678800501e-16
+        },
+        {
+          "time": 0.007437500000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000008,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.008675,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 8.881784197001252e-16
+        },
+        {
+          "time": 0.009912500000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000008,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.01115,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 8.881784197001252e-16
+        },
+        {
+          "time": 0.012387500000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000008,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.013625,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 8.881784197001252e-16
+        },
+        {
+          "time": 0.0148625,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000008,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.016100000000000003,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 3.552713678800501e-16
+        },
+        {
+          "time": 0.017337500000000002,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.018575,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.0198125,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.02105,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.0222875,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.023524999999999997,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.024762499999999996,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.025999999999999995,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 2.842170943040401e-15
+        },
+        {
+          "time": 0.027237499999999998,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.028474999999999997,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 2.6645352591003757e-15
+        },
+        {
+          "time": 0.0297125,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.03095,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.001237499999999999,
+          "residual": 2.6645352591003757e-15
+        },
+        {
+          "time": 0.0321875,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 7.105427357601002e-16
+        },
+        {
+          "time": 0.033425,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.034662500000000006,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.03590000000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.03713750000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.03837500000000001,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.039612500000000016,
+          "force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 0.0,
+          "step": 0.0012375000000000025,
+          "residual": 2.1604696930147134e-29
+        },
+        {
+          "time": 0.04085000000000002,
+          "force": [
+            12.25007694057429,
+            2.5424816800133212e-34,
+            0.0434174350864564
+          ],
+          "exact_force": [
+            12.25007694057429,
+            0.0,
+            0.04341743508645694
+          ],
+          "maximum_force_error": 5.412337245047638e-16,
+          "step": 0.0012375000000000025,
+          "residual": 1.450087215836939e-17
+        },
+        {
+          "time": 0.04208750000000002,
+          "force": [
+            12.252635493786855,
+            -8.476709010605782e-35,
+            0.2541738241697989
+          ],
+          "exact_force": [
+            12.252635493786855,
+            0.0,
+            0.2541738241698001
+          ],
+          "maximum_force_error": 1.2212453270876722e-15,
+          "step": 0.0012375000000000025,
+          "residual": 5.1206204809241905e-17
+        },
+        {
+          "time": 0.04332500000000002,
+          "force": [
+            12.265164664059562,
+            8.19547481939205e-50,
+            0.6104795194974487
+          ],
+          "exact_force": [
+            12.265164664059562,
+            0.0,
+            0.6104795194974506
+          ],
+          "maximum_force_error": 1.887379141862766e-15,
+          "step": 0.0012375000000000025,
+          "residual": 1.740104659004327e-16
+        },
+        {
+          "time": 0.044562500000000026,
+          "force": [
+            12.295531180673954,
+            1.017964706591515e-49,
+            1.0610891661386235
+          ],
+          "exact_force": [
+            12.295531180673953,
+            0.0,
+            1.0610891661386257
+          ],
+          "maximum_force_error": 2.220446049250313e-15,
+          "step": 0.0012375000000000025,
+          "residual": 3.9152354827597353e-16
+        },
+        {
+          "time": 0.04580000000000003,
+          "force": [
+            12.34513321791155,
+            2.342492472398028e-50,
+            1.5415243004909154
+          ],
+          "exact_force": [
+            12.34513321791155,
+            0.0,
+            1.5415243004909176
+          ],
+          "maximum_force_error": 2.220446049250313e-15,
+          "step": 0.0012375000000000025,
+          "residual": 6.525392471266226e-16
+        },
+        {
+          "time": 0.04703750000000003,
+          "force": [
+            12.405282217225858,
+            -2.158381768524477e-50,
+            1.9814650248334325
+          ],
+          "exact_force": [
+            12.405282217225857,
+            0.0,
+            1.981465024833434
+          ],
+          "maximum_force_error": 1.7763568394002505e-15,
+          "step": 0.0012375000000000025,
+          "residual": 7.830470965519471e-16
+        },
+        {
+          "time": 0.04827500000000003,
+          "force": [
+            12.45936413073541,
+            4.066862805929266e-65,
+            2.31335196554553
+          ],
+          "exact_force": [
+            12.45936413073541,
+            0.0,
+            2.3133519655455315
+          ],
+          "maximum_force_error": 1.3322676295501878e-15,
+          "step": 0.0012375000000000025,
+          "residual": 7.250436079184695e-16
+        },
+        {
+          "time": 0.049512500000000036,
+          "force": [
+            12.489793696157507,
+            -3.6716561366195333e-65,
+            2.4833394857141258
+          ],
+          "exact_force": [
+            12.489793696157507,
+            0.0,
+            2.483339485714126
+          ],
+          "maximum_force_error": 4.440892098500626e-16,
+          "step": 0.0012375000000000025,
+          "residual": 3.9152354827597353e-16
+        },
+        {
+          "time": 0.05075000000000004,
+          "force": [
+            12.48600400673785,
+            1.2295465769204067e-65,
+            2.4627018728854573
+          ],
+          "exact_force": [
+            12.48600400673785,
+            0.0,
+            2.462701872885457
+          ],
+          "maximum_force_error": 4.440892098500626e-16,
+          "step": 0.0012375000000000025,
+          "residual": 6.7501559897209515e-15
+        },
+        {
+          "time": 0.051987500000000034,
+          "force": [
+            12.449331918070449,
+            -1.3157042905445054e-66,
+            2.254971116299942
+          ],
+          "exact_force": [
+            12.449331918070447,
+            0.0,
+            2.2549711162999446
+          ],
+          "maximum_force_error": 2.6645352591003757e-15,
+          "step": 0.0012374999999999955,
+          "residual": 6.217248937900877e-15
+        },
+        {
+          "time": 0.05322500000000003,
+          "force": [
+            12.392398642647485,
+            -3.735576697694473e-80,
+            1.8950195776037462
+          ],
+          "exact_force": [
+            12.392398642647485,
+            0.0,
+            1.89501957760375
+          ],
+          "maximum_force_error": 3.774758283725532e-15,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.054462500000000025,
+          "force": [
+            12.333284088648462,
+            1.9363041400029303e-81,
+            1.440600680022484
+          ],
+          "exact_force": [
+            12.333284088648464,
+            0.0,
+            1.4406006800224926
+          ],
+          "maximum_force_error": 8.659739592076221e-15,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.05570000000000002,
+          "force": [
+            12.2873850777517,
+            1.729722602462225e-81,
+            0.9606975068603263
+          ],
+          "exact_force": [
+            12.287385077751704,
+            0.0,
+            0.9606975068603394
+          ],
+          "maximum_force_error": 1.3100631690576847e-14,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.056937500000000016,
+          "force": [
+            12.261225996203578,
+            -2.0837489693072418e-82,
+            0.5250404593944403
+          ],
+          "exact_force": [
+            12.261225996203578,
+            0.0,
+            0.5250404593944511
+          ],
+          "maximum_force_error": 1.0769163338864018e-14,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.05817500000000001,
+          "force": [
+            12.251566066774963,
+            -1.478757512790155e-96,
+            0.1959104388910198
+          ],
+          "exact_force": [
+            12.251566066774963,
+            0.0,
+            0.19591043889102866
+          ],
+          "maximum_force_error": 8.854028621385623e-15,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.05941250000000001,
+          "force": [
+            12.25001766893266,
+            -9.610550893841445e-97,
+            0.02080601862619076
+          ],
+          "exact_force": [
+            12.25001766893266,
+            0.0,
+            0.020806018626194706
+          ],
+          "maximum_force_error": 3.944761184371259e-15,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.06065,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012374999999999955,
+          "residual": 5.684341886080802e-15
+        },
+        {
+          "time": 0.0618875,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012374999999999955,
+          "residual": 7.815970093361103e-15
+        },
+        {
+          "time": 0.063125,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 1.7763568394002505e-15
+        },
+        {
+          "time": 0.0643625,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.0656,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.06683750000000001,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.06807500000000001,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.06931250000000001,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07055000000000002,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07178750000000002,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07302500000000002,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07426250000000002,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07550000000000003,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07673750000000003,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07797500000000003,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.07921250000000003,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0012375000000000025,
+          "residual": 2.710505431213761e-19
+        },
+        {
+          "time": 0.08,
+          "force": [
+            12.25,
+            2.1124931863692118e-97,
+            -5.989804413749167e-120
+          ],
+          "exact_force": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "maximum_force_error": 2.1124931863692118e-97,
+          "step": 0.0007874999999999688,
+          "residual": 9.769962616701378e-15
+        }
+      ]
+    },
+    {
+      "name": "temporal_gust_empirical_lag",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n200000 1 200000\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n100000 0 100000 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 0 6.283185307179586 1.2 -1.2\n100000 0 6.283185307179586 1.2 -1.2\nEnd\n",
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": false,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": {
+          "type": "expression",
+          "components": [
+            "0",
+            "0",
+            ".002*t"
+          ]
+        },
+        "time": 0.0
+      },
+      "dt": 0.02,
+      "duration": 0.2,
+      "exact_formula": "Small-disturbance infinite-AR limit: tau=2c/V=.2; CL=2*pi*.002/10*(t-.1*(1-exp(-t/.2)))",
+      "maximum_CL_error": 6.449702401419545e-07,
+      "refinement_ratio": null,
+      "samples": [
+        {
+          "time": 0.0,
+          "CL": 0.0,
+          "exact_CL": 0.0,
+          "residual": 0.0
+        },
+        {
+          "time": 0.02,
+          "CL": 1.3708750317915754e-05,
+          "exact_CL": 1.3174258492923712e-05,
+          "residual": 2.5880262406612966e-12
+        },
+        {
+          "time": 0.04,
+          "CL": 2.8131487319499982e-05,
+          "exact_CL": 2.7486517079358027e-05,
+          "residual": 5.3512604257906845e-11
+        },
+        {
+          "time": 0.06,
+          "CL": 4.3446706885120565e-05,
+          "exact_CL": 4.2828480732129184e-05,
+          "residual": 6.398319783097433e-11
+        },
+        {
+          "time": 0.08,
+          "CL": 5.9654408033934143e-05,
+          "exact_CL": 5.910216005846311e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.1,
+          "CL": 7.669880961463738e-05,
+          "exact_CL": 7.621889058920719e-05,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.12000000000000001,
+          "CL": 9.451018556574331e-05,
+          "exact_CL": 9.409844539502188e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.14,
+          "CL": 0.00011301880997820935,
+          "exact_CL": 0.0001126682321483066,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.16,
+          "CL": 0.000132159314918249,
+          "exact_CL": 0.00013186256659478604,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.18,
+          "CL": 0.00015187177986817534,
+          "exact_CL": 0.00015162201516341612,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.2,
+          "CL": 0.00017210173170834037,
+          "exact_CL": 0.0001718928001352286,
+          "residual": 3.8051881145469784e-18
+        }
+      ]
+    },
+    {
+      "name": "temporal_gust_empirical_lag",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n200000 1 200000\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n100000 0 100000 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 0 6.283185307179586 1.2 -1.2\n100000 0 6.283185307179586 1.2 -1.2\nEnd\n",
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": false,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": {
+          "type": "expression",
+          "components": [
+            "0",
+            "0",
+            ".002*t"
+          ]
+        },
+        "time": 0.0
+      },
+      "dt": 0.01,
+      "duration": 0.2,
+      "exact_formula": "Small-disturbance infinite-AR limit: tau=2c/V=.2; CL=2*pi*.002/10*(t-.1*(1-exp(-t/.2)))",
+      "maximum_CL_error": 1.871076979997866e-07,
+      "refinement_ratio": 0.29010283940946674,
+      "samples": [
+        {
+          "time": 0.0,
+          "CL": 0.0,
+          "exact_CL": 0.0,
+          "residual": 0.0
+        },
+        {
+          "time": 0.01,
+          "CL": 6.582380174615585e-06,
+          "exact_CL": 6.437679346363044e-06,
+          "residual": 1.2158136345423791e-11
+        },
+        {
+          "time": 0.02,
+          "CL": 1.3357789207906032e-05,
+          "exact_CL": 1.3174258492923712e-05,
+          "residual": 3.158142774549437e-11
+        },
+        {
+          "time": 0.03,
+          "CL": 2.0382267622409516e-05,
+          "exact_CL": 2.019515992440973e-05,
+          "residual": 8.628389922375113e-11
+        },
+        {
+          "time": 0.04,
+          "CL": 2.7665858392418053e-05,
+          "exact_CL": 2.7486517079358027e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.05,
+          "CL": 3.520344260723768e-05,
+          "exact_CL": 3.5035139676488284e-05,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.060000000000000005,
+          "CL": 4.298517555748364e-05,
+          "exact_CL": 4.28284807321292e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.07,
+          "CL": 5.100000565839206e-05,
+          "exact_CL": 5.085460518622389e-05,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.08,
+          "CL": 5.9236848518424665e-05,
+          "exact_CL": 5.910216005846311e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.09,
+          "CL": 6.768496672912973e-05,
+          "exact_CL": 6.75603460599209e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.09999999999999999,
+          "CL": 7.633408118478838e-05,
+          "exact_CL": 7.621889058920718e-05,
+          "residual": 6.341980190911631e-18
+        },
+        {
+          "time": 0.10999999999999999,
+          "CL": 8.517439220779977e-05,
+          "exact_CL": 8.50680220456136e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.11999999999999998,
+          "CL": 9.419657089768406e-05,
+          "exact_CL": 9.409844539502185e-05,
+          "residual": 5.073584152729305e-18
+        },
+        {
+          "time": 0.12999999999999998,
+          "CL": 0.00010339174115387173,
+          "exact_CL": 0.00010330131892747691,
+          "residual": 5.073584152729305e-18
+        },
+        {
+          "time": 0.13999999999999999,
+          "CL": 0.00011275145926995836,
+          "exact_CL": 0.0001126682321483066,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.15,
+          "CL": 0.0001222676934028189,
+          "exact_CL": 0.00012219118474750414,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.16,
+          "CL": 0.00013193280366365006,
+          "exact_CL": 0.00013186256659478604,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.17,
+          "CL": 0.0001417395230518678,
+          "exact_CL": 0.00014167513871030227,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.18000000000000002,
+          "CL": 0.00015168093927593818,
+          "exact_CL": 0.00015162201516341612,
+          "residual": 2.2831128687281872e-17
+        },
+        {
+          "time": 0.19000000000000003,
+          "CL": 0.00016175047744674745,
+          "exact_CL": 0.00016169664585429094,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.2,
+          "CL": 0.00017194188361072278,
+          "exact_CL": 0.0001718928001352286,
+          "residual": 7.610376229093957e-18
+        }
+      ]
+    },
+    {
+      "name": "temporal_gust_empirical_lag",
+      "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n200000 1 200000\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n100000 0 100000 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 0 6.283185307179586 1.2 -1.2\n100000 0 6.283185307179586 1.2 -1.2\nEnd\n",
+      "condition": {
+        "speed": 10,
+        "alpha": 0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": false,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": {
+          "type": "expression",
+          "components": [
+            "0",
+            "0",
+            ".002*t"
+          ]
+        },
+        "time": 0.0
+      },
+      "dt": 0.005,
+      "duration": 0.2,
+      "exact_formula": "Small-disturbance infinite-AR limit: tau=2c/V=.2; CL=2*pi*.002/10*(t-.1*(1-exp(-t/.2)))",
+      "maximum_CL_error": 5.149653332824758e-08,
+      "refinement_ratio": 0.2752240227353249,
+      "samples": [
+        {
+          "time": 0.0,
+          "CL": 0.0,
+          "exact_CL": 0.0,
+          "residual": 0.0
+        },
+        {
+          "time": 0.005,
+          "CL": 3.2182157545677837e-06,
+          "exact_CL": 3.180537347648561e-06,
+          "residual": 1.563813464631882e-11
+        },
+        {
+          "time": 0.01,
+          "CL": 6.486676153865964e-06,
+          "exact_CL": 6.437679346363044e-06,
+          "residual": 5.4196211153001266e-11
+        },
+        {
+          "time": 0.015,
+          "CL": 9.821031153897854e-06,
+          "exact_CL": 9.769534620569607e-06,
+          "residual": 9.243748880214248e-11
+        },
+        {
+          "time": 0.02,
+          "CL": 1.3225331632303908e-05,
+          "exact_CL": 1.3174258492923712e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.025,
+          "CL": 1.669975908212868e-05,
+          "exact_CL": 1.6650051831326704e-05,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.030000000000000002,
+          "CL": 2.0243223370858122e-05,
+          "exact_CL": 2.0195159924409733e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.035,
+          "CL": 2.3854235310869408e-05,
+          "exact_CL": 2.380787138478203e-05,
+          "residual": 2.5367920763646526e-18
+        },
+        {
+          "time": 0.04,
+          "CL": 2.753119929009056e-05,
+          "exact_CL": 2.7486517079358027e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.045,
+          "CL": 3.1272510961134414e-05,
+          "exact_CL": 3.122946908609491e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.049999999999999996,
+          "CL": 3.5076589413719716e-05,
+          "exact_CL": 3.503513967648828e-05,
+          "residual": 6.341980190911631e-18
+        },
+        {
+          "time": 0.05499999999999999,
+          "CL": 3.894188733878294e-05,
+          "exact_CL": 3.89019803231902e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.05999999999999999,
+          "CL": 4.286689381012594e-05,
+          "exact_CL": 4.282848073212918e-05,
+          "residual": 5.073584152729305e-18
+        },
+        {
+          "time": 0.06499999999999999,
+          "CL": 4.6850134599982825e-05,
+          "exact_CL": 4.681316789852722e-05,
+          "residual": 5.073584152729305e-18
+        },
+        {
+          "time": 0.06999999999999999,
+          "CL": 5.089017168086232e-05,
+          "exact_CL": 5.085460518622388e-05,
+          "residual": 3.8051881145469784e-18
+        },
+        {
+          "time": 0.075,
+          "CL": 5.498560246876187e-05,
+          "exact_CL": 5.4951391429731885e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.08,
+          "CL": 5.913505899399288e-05,
+          "exact_CL": 5.910216005846311e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.085,
+          "CL": 6.333720706186378e-05,
+          "exact_CL": 6.330557824257748e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.09000000000000001,
+          "CL": 6.759074542379858e-05,
+          "exact_CL": 6.756034605992091e-05,
+          "residual": 2.2831128687281872e-17
+        },
+        {
+          "time": 0.09500000000000001,
+          "CL": 7.189440496546446e-05,
+          "exact_CL": 7.186519568353165e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.10000000000000002,
+          "CL": 7.624694791378616e-05,
+          "exact_CL": 7.621889058920719e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.10500000000000002,
+          "CL": 8.064716706315219e-05,
+          "exact_CL": 8.062022478263639e-05,
+          "residual": 2.2831128687281872e-17
+        },
+        {
+          "time": 0.11000000000000003,
+          "CL": 8.50938850205996e-05,
+          "exact_CL": 8.506802204561365e-05,
+          "residual": 8.878772267276284e-18
+        },
+        {
+          "time": 0.11500000000000003,
+          "CL": 8.958595346959431e-05,
+          "exact_CL": 8.95611352008644e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.12000000000000004,
+          "CL": 9.412225245197843e-05,
+          "exact_CL": 9.409844539502191e-05,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.12500000000000003,
+          "CL": 9.870168966764588e-05,
+          "exact_CL": 9.867886139930747e-05,
+          "residual": 1.6489148496370243e-17
+        },
+        {
+          "time": 0.13000000000000003,
+          "CL": 0.00010332319979150998,
+          "exact_CL": 0.00010330131892747694,
+          "residual": 6.341980190911631e-18
+        },
+        {
+          "time": 0.13500000000000004,
+          "CL": 0.00010798574380733951,
+          "exact_CL": 0.00010796477997060718,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.14000000000000004,
+          "CL": 0.00011268830835804517,
+          "exact_CL": 0.00011266823214830664,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.14500000000000005,
+          "CL": 0.00011742990511201195,
+          "exact_CL": 0.00011741068807594472,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.15000000000000005,
+          "CL": 0.00012220957014507912,
+          "exact_CL": 0.0001221911847475042,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.15500000000000005,
+          "CL": 0.00012702636333778358,
+          "exact_CL": 0.00012700878293367117,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.16000000000000006,
+          "CL": 0.00013187936778748894,
+          "exact_CL": 0.0001318625665947861,
+          "residual": 4.5662257374563744e-17
+        },
+        {
+          "time": 0.16500000000000006,
+          "CL": 0.00013676768923502933,
+          "exact_CL": 0.00013675164230828922,
+          "residual": 3.044150491637583e-17
+        },
+        {
+          "time": 0.17000000000000007,
+          "CL": 0.00014169045550551819,
+          "exact_CL": 0.00014167513871030232,
+          "residual": 1.775754453455257e-17
+        },
+        {
+          "time": 0.17500000000000007,
+          "CL": 0.00014664681596296105,
+          "exact_CL": 0.0001466322059509981,
+          "residual": 1.2683960381823263e-18
+        },
+        {
+          "time": 0.18000000000000008,
+          "CL": 0.00015163594097834094,
+          "exact_CL": 0.00015162201516341617,
+          "residual": 4.5662257374563744e-17
+        },
+        {
+          "time": 0.18500000000000008,
+          "CL": 0.00015665702141083704,
+          "exact_CL": 0.00015664375794539437,
+          "residual": 1.775754453455257e-17
+        },
+        {
+          "time": 0.19000000000000009,
+          "CL": 0.0001617092681018572,
+          "exact_CL": 0.000161696645854291,
+          "residual": 1.4738686461766648e-18
+        },
+        {
+          "time": 0.1950000000000001,
+          "CL": 0.0001667919113815634,
+          "exact_CL": 0.0001667799099141825,
+          "residual": 1.606504045438975e-18
+        },
+        {
+          "time": 0.2,
+          "CL": 0.00017190420058758605,
+          "exact_CL": 0.0001718928001352286,
+          "residual": 1.2683960381823262e-17
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Circulation lag is empirical; the reference is not an exact Sears gust transfer function.",
+    "Temporal ramp is a small-disturbance infinite-aspect-ratio limit with finite-AR/nonlinear error.",
+    "No numeric .gust catalog compatibility or measured-aircraft comparison is established."
+  ]
+}

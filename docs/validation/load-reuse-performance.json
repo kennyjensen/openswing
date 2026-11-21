@@ -1,0 +1,448 @@
+{
+  "status": "PASS_WITH_PRESERVED_HARNESS_FAILURES",
+  "kernel_modules": 69,
+  "changed_modules": [
+    "openswing/aero.py",
+    "openswing/dynamic_inertia.py",
+    "openswing/local_motion.py",
+    "openswing/nonlinear_initial.py",
+    "openswing/time_integration.py"
+  ],
+  "selected_native_tests": 138,
+  "collected_native_tests": 1647,
+  "full_suite_run": false,
+  "all_numerical_settings_unchanged": true,
+  "native_profile": {
+    "before": {
+      "status": "PASS",
+      "source": "baseline69",
+      "instrumentation": "cProfile plus observed exact input/output hashes; no caching or skipped calls",
+      "metrics": {
+        "snapshots": 5,
+        "maximum_errors": {
+          "force": 1.7177310684957092e-09,
+          "acceleration": 1.7177311240068605e-09,
+          "velocity": 2.1865176336177683e-11,
+          "position": 1.2776446567386301e-12
+        }
+      },
+      "seconds": 192.1391262919642,
+      "cpu_seconds": 186.987588416,
+      "chart_calls": 13821,
+      "unique_inputs": 11087,
+      "duplicate_identical_outputs": 2734,
+      "duplicate_different_outputs": [],
+      "call_multiplicities": {
+        "2": 1612,
+        "363": 1,
+        "1": 9463,
+        "733": 1,
+        "6": 2,
+        "3": 6,
+        "4": 2
+      }
+    },
+    "after": {
+      "status": "PASS",
+      "source": "candidate-01",
+      "instrumentation": "cProfile plus observed exact input/output hashes; no caching or skipped calls",
+      "metrics": {
+        "snapshots": 5,
+        "maximum_errors": {
+          "force": 1.7177310684957092e-09,
+          "acceleration": 1.7177311240068605e-09,
+          "velocity": 2.1865176336177683e-11,
+          "position": 1.2776446567386301e-12
+        }
+      },
+      "seconds": 136.82098619797034,
+      "cpu_seconds": 134.05369773,
+      "chart_calls": 13821,
+      "unique_inputs": 11087,
+      "duplicate_identical_outputs": 2734,
+      "duplicate_different_outputs": [],
+      "call_multiplicities": {
+        "2": 1612,
+        "363": 1,
+        "1": 9463,
+        "733": 1,
+        "6": 2,
+        "3": 6,
+        "4": 2
+      }
+    },
+    "comparison": {
+      "status": "PASS",
+      "entire_output_bytes_exact": true,
+      "excluded_fields": [],
+      "sha256": [
+        "639e306bed36b53abb4c1cf1e8b79c3335abf7f9cea1ec48b57952da1070299a",
+        "639e306bed36b53abb4c1cf1e8b79c3335abf7f9cea1ec48b57952da1070299a"
+      ],
+      "bytes": 383124
+    }
+  },
+  "native_mounted": {
+    "before": {
+      "status": "PASS",
+      "canonical_full_output_exact_except_evaluations": true,
+      "evaluations": [
+        1900,
+        1900
+      ],
+      "seconds": 26.039491243020166,
+      "cpu_seconds": 24.385891179,
+      "baseline_sha256": "72f9305baa696d92101e1cab3a21ab9338871abc2befb56c51c66cdef3aa3eac",
+      "current_sha256": "72f9305baa696d92101e1cab3a21ab9338871abc2befb56c51c66cdef3aa3eac"
+    },
+    "after": {
+      "status": "PASS",
+      "canonical_full_output_exact_except_evaluations": true,
+      "evaluations": [
+        1900,
+        1900
+      ],
+      "seconds": 22.632328715000767,
+      "cpu_seconds": 22.002397564,
+      "baseline_sha256": "72f9305baa696d92101e1cab3a21ab9338871abc2befb56c51c66cdef3aa3eac",
+      "current_sha256": "72f9305baa696d92101e1cab3a21ab9338871abc2befb56c51c66cdef3aa3eac"
+    },
+    "entire_output_exact_including_evaluations": true
+  },
+  "wasm": {
+    "cases": [
+      {
+        "kind": "baseline",
+        "name": "mounted48",
+        "status": "PASS",
+        "seconds": 43.84,
+        "sha256": "2a02a2f8d0d9296e7ebd8403c9101c11dafc1ba3052659e3cf0638e509cca22b"
+      },
+      {
+        "kind": "baseline",
+        "name": "curved4",
+        "status": "PASS",
+        "seconds": 285.256,
+        "sha256": "dd2ee817c7e32fa7c078d9886e07df51a00319a441d89289696a7feb9ee5c788"
+      },
+      {
+        "kind": "candidate",
+        "name": "mounted48",
+        "status": "PASS",
+        "seconds": 49.709,
+        "sha256": "2a02a2f8d0d9296e7ebd8403c9101c11dafc1ba3052659e3cf0638e509cca22b",
+        "entire_output_bytes_exact": true
+      },
+      {
+        "kind": "candidate",
+        "name": "curved4",
+        "status": "PASS",
+        "seconds": 286.485,
+        "sha256": "dd2ee817c7e32fa7c078d9886e07df51a00319a441d89289696a7feb9ee5c788",
+        "entire_output_bytes_exact": true
+      }
+    ],
+    "alternating_residual_probe": {
+      "status": "PASS",
+      "scope": "40 distinct non-equilibrium default48 physical residuals, alternating timed order; not full-solve timings",
+      "all_residual_bytes_exact": true,
+      "rounds": [
+        {
+          "before": 0.9242295059999996,
+          "after": 0.8749274490000012
+        },
+        {
+          "after": 0.8346102350000013,
+          "before": 0.8677493500000004
+        },
+        {
+          "before": 0.8834632300000003,
+          "after": 0.829436016999999
+        },
+        {
+          "after": 0.830802631000001,
+          "before": 0.8928423960000025
+        }
+      ],
+      "totals": {
+        "before": 3.568284482000003,
+        "after": 3.3697763320000025
+      }
+    },
+    "runtime_sha256": {
+      "pyodide.asm.wasm_sha256": "cc36e3cab04fdfc9a63ff13eb52eae2b911bf46c025cc7b281f394bd3de1d5e6",
+      "pyodide-lock.json_sha256": "5dc2fc119108bc148c7457dc86e7675b5c87e1cafd420b9c34c1eaef7b36c010"
+    },
+    "source_sha256": {
+      "baseline": {
+        "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+        "aero.py": "e9e2a2f225d081dbeb925b47acb890f27160be64b7bc6d5f3462f0a4f03c293b",
+        "asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+        "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+        "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+        "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+        "bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+        "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+        "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+        "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+        "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+        "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+        "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+        "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+        "derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+        "descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+        "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+        "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+        "dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+        "equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+        "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+        "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+        "forcing.py": "95ca83bc79eccc9af238d7afd4d3f134d10748262647a8b2f3af80656ec24372",
+        "frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+        "frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+        "frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+        "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+        "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+        "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+        "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+        "inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+        "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+        "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+        "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+        "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+        "linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+        "local_motion.py": "d263b4a5c66fea7752fd822f7ce47da38a8c4fac3d7ebb4be26c8f4b527b07a5",
+        "network.py": "df7df8b0e29793475f61a97d32f966fc02a345d4650e3ca3391761f70e754209",
+        "nonlinear_initial.py": "96bb718279e038386fa8fb19ab659c52c3e4ca3c95b665f9598313dc354ef81e",
+        "operating.py": "b643c605b9ab792887e9f4eb8a859607534273336abf61ce5a4f5544c5fe2933",
+        "position_history_checkpoint.py": "4a0992a4b83777d95a5b56de7929555666168b5caef6f47dc77394f72bfa0a58",
+        "position_history_lift.py": "189079a927f0b8a975464378131b336734b8bf714d86494eb37084dd2e8818fe",
+        "propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+        "radau_time.py": "de44b770e146d2ce73ecf0436e6c7857271ab2637d93bf8416cd73b8babfc54f",
+        "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+        "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+        "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+        "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+        "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+        "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+        "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+        "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+        "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+        "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+        "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+        "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+        "time_acceptance.py": "bcf446c04bf946ca3fda684dc894795414deffe78790226ddec69778da828e12",
+        "time_acceptance_validation.py": "f29c99994196251c8e7740013011c5517287e1d34cbf5c31ffa796cf9158e1e8",
+        "time_accuracy.py": "5a9d9e321f04e97b5757fee0cb48c6802fa6e32d3e03362db9b5cb321712b2fb",
+        "time_cold_initial.py": "278ec804bb6663ad9599a6472cfc7470cf71c3c26a36d880ccb3098939ed7d0f",
+        "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+        "time_initialization.py": "9418ab17bb50f49471f9c8129273173724c2141939136f18575a25a1fba28808",
+        "time_integration.py": "0f9a68b17f4861a5d7e097a31477342e1e0d2ba521c78695e9cbc28fb24e9d7d",
+        "time_saved_history.py": "14adc9140f8254d635c66989f334c67677defab7cf9e7a3e033b55af4e8aa528",
+        "time_state.py": "6a1478d7ccfe48996e60c83f2556c1682a41cfc17315c53e4a5f54f7d99ee56f",
+        "time_transition_initial.py": "d9804451d98e0a21c077a9c56d399b13e77ee82979fb2081d03fb91846433e04",
+        "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+        "vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+        "volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf"
+      },
+      "candidate": {
+        "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+        "aero.py": "e3efabb119bccd1b6c22bd990e705b4d833f1f5526b1812e38c010ff2a0ec76c",
+        "asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+        "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+        "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+        "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+        "bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+        "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+        "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+        "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+        "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+        "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+        "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+        "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+        "derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+        "descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+        "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+        "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+        "dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+        "equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+        "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+        "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+        "forcing.py": "95ca83bc79eccc9af238d7afd4d3f134d10748262647a8b2f3af80656ec24372",
+        "frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+        "frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+        "frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+        "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+        "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+        "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+        "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+        "inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+        "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+        "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+        "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+        "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+        "linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+        "local_motion.py": "885c393eace666a77de16ddcef80628250ac4fdb6dea119ae44a984648fdcbe5",
+        "network.py": "df7df8b0e29793475f61a97d32f966fc02a345d4650e3ca3391761f70e754209",
+        "nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+        "operating.py": "b643c605b9ab792887e9f4eb8a859607534273336abf61ce5a4f5544c5fe2933",
+        "position_history_checkpoint.py": "4a0992a4b83777d95a5b56de7929555666168b5caef6f47dc77394f72bfa0a58",
+        "position_history_lift.py": "189079a927f0b8a975464378131b336734b8bf714d86494eb37084dd2e8818fe",
+        "propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+        "radau_time.py": "de44b770e146d2ce73ecf0436e6c7857271ab2637d93bf8416cd73b8babfc54f",
+        "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+        "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+        "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+        "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+        "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+        "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+        "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+        "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+        "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+        "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+        "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+        "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+        "time_acceptance.py": "bcf446c04bf946ca3fda684dc894795414deffe78790226ddec69778da828e12",
+        "time_acceptance_validation.py": "f29c99994196251c8e7740013011c5517287e1d34cbf5c31ffa796cf9158e1e8",
+        "time_accuracy.py": "5a9d9e321f04e97b5757fee0cb48c6802fa6e32d3e03362db9b5cb321712b2fb",
+        "time_cold_initial.py": "278ec804bb6663ad9599a6472cfc7470cf71c3c26a36d880ccb3098939ed7d0f",
+        "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+        "time_initialization.py": "9418ab17bb50f49471f9c8129273173724c2141939136f18575a25a1fba28808",
+        "time_integration.py": "8276837f355332f593343dd97f811f332f68b0a88a58b4729e96074b6de2c3c1",
+        "time_saved_history.py": "14adc9140f8254d635c66989f334c67677defab7cf9e7a3e033b55af4e8aa528",
+        "time_state.py": "6a1478d7ccfe48996e60c83f2556c1682a41cfc17315c53e4a5f54f7d99ee56f",
+        "time_transition_initial.py": "d9804451d98e0a21c077a9c56d399b13e77ee82979fb2081d03fb91846433e04",
+        "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+        "vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+        "volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf"
+      }
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "errors": [],
+    "external": [],
+    "worker_seconds": 42.11270000004768,
+    "full_export_exact_except_software_provenance": true,
+    "source_modules": 69,
+    "evaluations": 1900,
+    "residual": 6.328310578867511e-16,
+    "offline": true,
+    "seconds": 72.819
+  },
+  "preserved_failures": [
+    "profile.py shadowed the stdlib module before scientific calls",
+    "WASM mounted baseline passed, then the two-panel harness override failed the existing input guard",
+    "Browser first launcher failed before navigation with missing libnspr4; existing Chromium/Mesa environment restored"
+  ],
+  "kernel_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "e3efabb119bccd1b6c22bd990e705b4d833f1f5526b1812e38c010ff2a0ec76c",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/forcing.py": "95ca83bc79eccc9af238d7afd4d3f134d10748262647a8b2f3af80656ec24372",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+    "openswing/initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "openswing/local_motion.py": "885c393eace666a77de16ddcef80628250ac4fdb6dea119ae44a984648fdcbe5",
+    "openswing/network.py": "df7df8b0e29793475f61a97d32f966fc02a345d4650e3ca3391761f70e754209",
+    "openswing/nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "openswing/operating.py": "b643c605b9ab792887e9f4eb8a859607534273336abf61ce5a4f5544c5fe2933",
+    "openswing/position_history_checkpoint.py": "4a0992a4b83777d95a5b56de7929555666168b5caef6f47dc77394f72bfa0a58",
+    "openswing/position_history_lift.py": "189079a927f0b8a975464378131b336734b8bf714d86494eb37084dd2e8818fe",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/radau_time.py": "de44b770e146d2ce73ecf0436e6c7857271ab2637d93bf8416cd73b8babfc54f",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_acceptance.py": "bcf446c04bf946ca3fda684dc894795414deffe78790226ddec69778da828e12",
+    "openswing/time_acceptance_validation.py": "f29c99994196251c8e7740013011c5517287e1d34cbf5c31ffa796cf9158e1e8",
+    "openswing/time_accuracy.py": "5a9d9e321f04e97b5757fee0cb48c6802fa6e32d3e03362db9b5cb321712b2fb",
+    "openswing/time_cold_initial.py": "278ec804bb6663ad9599a6472cfc7470cf71c3c26a36d880ccb3098939ed7d0f",
+    "openswing/time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "openswing/time_initialization.py": "9418ab17bb50f49471f9c8129273173724c2141939136f18575a25a1fba28808",
+    "openswing/time_integration.py": "8276837f355332f593343dd97f811f332f68b0a88a58b4729e96074b6de2c3c1",
+    "openswing/time_saved_history.py": "14adc9140f8254d635c66989f334c67677defab7cf9e7a3e033b55af4e8aa528",
+    "openswing/time_state.py": "6a1478d7ccfe48996e60c83f2556c1682a41cfc17315c53e4a5f54f7d99ee56f",
+    "openswing/time_transition_initial.py": "d9804451d98e0a21c077a9c56d399b13e77ee82979fb2081d03fb91846433e04",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf"
+  },
+  "limitations": [
+    "Shared-host observations; no controlled speedup guarantee.",
+    "Full current native suite not executed.",
+    "Cold inverse initialization remains costly.",
+    "All 40 broad ASWING requirements remain Partial."
+  ],
+  "evidence": {
+    "status": "CRC_AND_MEMBERSHIP_PASS",
+    "members": 433,
+    "bytes": 2451500,
+    "sha256": "cf0a69012cb3ecd8587433a8d37599256275fd6ab356c5f0d6c8cb663ac39020",
+    "archive": "load-reuse-performance-evidence.zip",
+    "fresh_extraction_verification": {
+      "status": "PASS",
+      "payloads": 432,
+      "selected_native_tests": 138,
+      "native_entire_output_exact": true,
+      "wasm_entire_output_exact": true,
+      "browser_physical_export_exact": true,
+      "native_metrics": {
+        "snapshots": 5,
+        "maximum_errors": {
+          "force": 1.7177310684957092e-09,
+          "acceleration": 1.7177311240068605e-09,
+          "velocity": 2.1865176336177683e-11,
+          "position": 1.2776446567386301e-12
+        }
+      },
+      "wasm_metrics": {
+        "snapshots": 5,
+        "maximum_errors": {
+          "force": 1.7177310684957092e-09,
+          "acceleration": 1.7177311240068605e-09,
+          "velocity": 2.1865176336177683e-11,
+          "position": 1.2776446567386301e-12
+        }
+      }
+    }
+  }
+}

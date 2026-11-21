@@ -1,0 +1,3169 @@
+{
+  "format": "openswing-isae-independent-saved-audit",
+  "version": 1,
+  "date": "2026-10-27",
+  "status": "PASS_SAVED_EVIDENCE_AUDIT_WITH_OPEN_REFERENCE_COMPARISONS",
+  "scope": "Standard-library reads and independent arithmetic on saved source/plan/report/artifacts only; no adapter/extractor/production imports, tests, plans or numerical solves.",
+  "inputs": [
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/report.json",
+      "bytes": 4955193,
+      "sha256": "e952f44b5a3fd770cd808537da2eb6ace29b5a5441885d4327b08a92e559c544"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/plan.json",
+      "bytes": 7225575,
+      "sha256": "55d5634d7369ce6e28ad8ea5240c3ca5b7b4f50d3c3732af31cd1c6713cd0fbf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/catalog.json",
+      "bytes": 4285915,
+      "sha256": "f63c73569a83c6daab2b17105947bab6e2fd072c31e8ebd1284c59b8729d557a"
+    }
+  ],
+  "source_catalog": {
+    "path": "/home/userland/aswing/docs/validation/isae-ae3-reference.json",
+    "bytes": 2766842,
+    "sha256": "1a05d227901584bef399e6229281cc0846592e8c178fd663fbac0614ade99a3e"
+  },
+  "source_review": {
+    "path": "/home/userland/aswing/docs/validation/isae-ae3-reference-independent-review-20261027.json",
+    "bytes": 5175,
+    "sha256": "6263aeef5fc8548df4be24f6a5dc956dc9e521f546ec9ef578ed8898ca537468"
+  },
+  "immutability": {
+    "current_code_files": 128,
+    "frozen_code_files": 128,
+    "kernel_modules": 123,
+    "unique_job_source_pins": 52,
+    "unique_kernel_pins": 123,
+    "raw_artifact_pins": 84,
+    "all_before_after_hashes_match": true,
+    "checked_file_count": 393
+  },
+  "scope_accounting": {
+    "jobs": 50,
+    "computed": 12,
+    "unsupported": 38,
+    "model_inventory_zero_target_jobs": 5,
+    "required_slots": 725,
+    "native_distinct_cells": 576,
+    "native_slots": 612,
+    "embedded_distinct_cells": 113,
+    "embedded_slots": 113,
+    "valid_finite_slots": 72,
+    "matched_slots": 50,
+    "matched_distinct_cells": 25,
+    "unavailable_slots": 653,
+    "full_six_coefficient_states_matching": 0,
+    "complete_family_reproduction": false,
+    "selected_family_count": 1,
+    "retained_catalog_families": 41,
+    "all_distinct_target_cells": 689
+  },
+  "physical_evidence": {
+    "checks_per_worker": 29,
+    "checks_total": 348,
+    "checks_passed": 348,
+    "immutable_gates": {
+      "residual": 1e-08,
+      "relative_balance": 1e-07,
+      "restored_parity": 2e-10,
+      "clamp": 1e-10
+    },
+    "maximum_metrics": {
+      "fresh_full_residual": 3.7354951553315284e-13,
+      "force_balance": 9.895616068402918e-09,
+      "moment_balance": 4.1260115803803817e-10,
+      "root_clamp_position": 5.352320606863323e-26,
+      "root_clamp_frame": 2.439743266773287e-33,
+      "independent_distributed_aero_force": 0.0,
+      "independent_distributed_aero_moment": 0.0,
+      "independent_force": 0.0,
+      "independent_moment": 0.0,
+      "independent_coefficient_mapping": 0.0,
+      "restored_coefficient_parity": 0.0
+    },
+    "cold_solves": 12,
+    "restored_residuals": 12,
+    "retries": 0,
+    "workers_reaped": 12
+  },
+  "matched_coefficient_subgroups": {
+    "CX": {
+      "slots": 12,
+      "matches": 2,
+      "zero_matches": 0,
+      "nonzero_matches": 2
+    },
+    "CY": {
+      "slots": 12,
+      "matches": 12,
+      "zero_matches": 12,
+      "nonzero_matches": 0
+    },
+    "CL": {
+      "slots": 12,
+      "matches": 12,
+      "zero_matches": 12,
+      "nonzero_matches": 0
+    },
+    "Cl": {
+      "slots": 12,
+      "matches": 0,
+      "zero_matches": 0,
+      "nonzero_matches": 0
+    },
+    "Cm": {
+      "slots": 12,
+      "matches": 12,
+      "zero_matches": 12,
+      "nonzero_matches": 0
+    },
+    "Cn": {
+      "slots": 12,
+      "matches": 12,
+      "zero_matches": 12,
+      "nonzero_matches": 0
+    }
+  },
+  "native_coefficient_results": [
+    {
+      "coordinate_id": "Straight_20O-fmat-001",
+      "nominal": 80,
+      "speed": 27.0934,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000015",
+          "expected": -1.5e-05,
+          "tolerance": 5e-07,
+          "predicted": -9.473338342570599e-06,
+          "abs_error": 5.526661657429402e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.1306821163401588e-17,
+          "abs_error": 1.1306821163401588e-17,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 4.213771866834397e-15,
+          "abs_error": 4.213771866834397e-15,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.002056",
+          "expected": -0.002056,
+          "tolerance": 5e-07,
+          "predicted": -0.0015628935673483036,
+          "abs_error": 0.0004931064326516965,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 7.567358387252824e-19,
+          "abs_error": 7.567358387252824e-19,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": -1.4382565756539267e-18,
+          "abs_error": 1.4382565756539267e-18,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-001",
+      "nominal": 160,
+      "speed": 27.0934,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000015",
+          "expected": -1.5e-05,
+          "tolerance": 5e-07,
+          "predicted": -9.439769255436855e-06,
+          "abs_error": 5.560230744563145e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -3.1094832426277505e-18,
+          "abs_error": 3.1094832426277505e-18,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 2.948993963314365e-14,
+          "abs_error": 2.948993963314365e-14,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.002056",
+          "expected": -0.002056,
+          "tolerance": 5e-07,
+          "predicted": -0.0015752550110180656,
+          "abs_error": 0.0004807449889819345,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.1937589283707549e-17,
+          "abs_error": 1.1937589283707549e-17,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.383980561223222e-17,
+          "abs_error": 1.383980561223222e-17,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-002",
+      "nominal": 80,
+      "speed": 38.502,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000014",
+          "expected": -1.4e-05,
+          "tolerance": 5e-07,
+          "predicted": -7.454929235077098e-06,
+          "abs_error": 6.545070764922902e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -3.2368438934560316e-16,
+          "abs_error": 3.2368438934560316e-16,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 7.307876581376284e-14,
+          "abs_error": 7.307876581376284e-14,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001957",
+          "expected": -0.001957,
+          "tolerance": 5e-07,
+          "predicted": -0.0012386361958634997,
+          "abs_error": 0.0007183638041365003,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 3.081720856071785e-17,
+          "abs_error": 3.081720856071785e-17,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 7.86044862525995e-17,
+          "abs_error": 7.86044862525995e-17,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-002",
+      "nominal": 160,
+      "speed": 38.502,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000014",
+          "expected": -1.4e-05,
+          "tolerance": 5e-07,
+          "predicted": -7.424911893261097e-06,
+          "abs_error": 6.575088106738903e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -1.7673825389514537e-15,
+          "abs_error": 1.7673825389514537e-15,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 3.711858632182804e-13,
+          "abs_error": 3.711858632182804e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001957",
+          "expected": -0.001957,
+          "tolerance": 5e-07,
+          "predicted": -0.0012525388042828962,
+          "abs_error": 0.0007044611957171037,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.596607818569945e-16,
+          "abs_error": 1.596607818569945e-16,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 4.188590052879657e-16,
+          "abs_error": 4.188590052879657e-16,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-003",
+      "nominal": 80,
+      "speed": 43.0429,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000013",
+          "expected": -1.3e-05,
+          "tolerance": 5e-07,
+          "predicted": -6.380054316602248e-06,
+          "abs_error": 6.619945683397751e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -2.642024708597774e-16,
+          "abs_error": 2.642024708597774e-16,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 5.377406447892008e-14,
+          "abs_error": 5.377406447892008e-14,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001878",
+          "expected": -0.001878,
+          "tolerance": 5e-07,
+          "predicted": -0.0010204192047944848,
+          "abs_error": 0.0008575807952055151,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 2.3692435833091336e-17,
+          "abs_error": 2.3692435833091336e-17,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 5.615237661725494e-17,
+          "abs_error": 5.615237661725494e-17,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-003",
+      "nominal": 160,
+      "speed": 43.0429,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000013",
+          "expected": -1.3e-05,
+          "tolerance": 5e-07,
+          "predicted": -6.349941289289001e-06,
+          "abs_error": 6.650058710710998e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -1.392358937421018e-15,
+          "abs_error": 1.392358937421018e-15,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 2.6907870148255354e-13,
+          "abs_error": 2.6907870148255354e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001878",
+          "expected": -0.001878,
+          "tolerance": 5e-07,
+          "predicted": -0.0010351072250271505,
+          "abs_error": 0.0008428927749728494,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.1661182261811807e-16,
+          "abs_error": 1.1661182261811807e-16,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 2.9182707527677183e-16,
+          "abs_error": 2.9182707527677183e-16,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-004",
+      "nominal": 80,
+      "speed": 47.234,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000012",
+          "expected": -1.2e-05,
+          "tolerance": 5e-07,
+          "predicted": -5.271294596727751e-06,
+          "abs_error": 6.728705403272249e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -6.363964111779839e-16,
+          "abs_error": 6.363964111779839e-16,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.3892559023592656e-13,
+          "abs_error": 1.3892559023592656e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001759",
+          "expected": -0.001759,
+          "tolerance": 5e-07,
+          "predicted": -0.0007378372934541781,
+          "abs_error": 0.0010211627065458218,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 5.830615979089788e-17,
+          "abs_error": 5.830615979089788e-17,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 8.865997141082589e-17,
+          "abs_error": 8.865997141082589e-17,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-004",
+      "nominal": 160,
+      "speed": 47.234,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000012",
+          "expected": -1.2e-05,
+          "tolerance": 5e-07,
+          "predicted": -5.238838560341226e-06,
+          "abs_error": 6.761161439658774e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -2.914498311360088e-15,
+          "abs_error": 2.914498311360088e-15,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 6.220477635118707e-13,
+          "abs_error": 6.220477635118707e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001759",
+          "expected": -0.001759,
+          "tolerance": 5e-07,
+          "predicted": -0.0007532590840237565,
+          "abs_error": 0.0010057409159762434,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 2.554357015749228e-16,
+          "abs_error": 2.554357015749228e-16,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 3.9319989691445037e-16,
+          "abs_error": 3.9319989691445037e-16,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-005",
+      "nominal": 80,
+      "speed": 50.9245,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000011",
+          "expected": -1.1e-05,
+          "tolerance": 5e-07,
+          "predicted": -4.289508567911094e-06,
+          "abs_error": 6.710491432088906e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -7.021041818819077e-15,
+          "abs_error": 7.021041818819077e-15,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.8718046123996587e-12,
+          "abs_error": 1.8718046123996587e-12,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001578",
+          "expected": -0.001578,
+          "tolerance": 5e-07,
+          "predicted": -0.0003865691204041068,
+          "abs_error": 0.0011914308795958931,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 7.705254100432171e-16,
+          "abs_error": 7.705254100432171e-16,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 9.68623862531134e-16,
+          "abs_error": 9.68623862531134e-16,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-005",
+      "nominal": 160,
+      "speed": 50.9245,
+      "matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000011",
+          "expected": -1.1e-05,
+          "tolerance": 5e-07,
+          "predicted": -4.251727094582617e-06,
+          "abs_error": 6.748272905417383e-06,
+          "passed": false
+        },
+        {
+          "name": "CY",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": -3.366306850713109e-14,
+          "abs_error": 3.366306850713109e-14,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 8.711277248467749e-12,
+          "abs_error": 8.711277248467749e-12,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "-0.001578",
+          "expected": -0.001578,
+          "tolerance": 5e-07,
+          "predicted": -0.0004024732822242279,
+          "abs_error": 0.001175526717775772,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 3.5792558271769134e-15,
+          "abs_error": 3.5792558271769134e-15,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 4.535986836623733e-15,
+          "abs_error": 4.535986836623733e-15,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-006",
+      "nominal": 80,
+      "speed": 59.4556,
+      "matching_channels": [
+        "CX",
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000005",
+          "expected": -5e-06,
+          "tolerance": 5e-07,
+          "predicted": -4.777266656227266e-06,
+          "abs_error": 2.2273334377273454e-07,
+          "passed": true
+        },
+        {
+          "name": "CY",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 7.179047390104747e-16,
+          "abs_error": 7.179047390104747e-16,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 1.0566391948591092e-13,
+          "abs_error": 1.0566391948591092e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "0.000450",
+          "expected": 0.00045,
+          "tolerance": 5e-07,
+          "predicted": 0.0012727513725823425,
+          "abs_error": 0.0008227513725823425,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 8.555235026779442e-15,
+          "abs_error": 8.555235026779442e-15,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": -1.0587051275573207e-17,
+          "abs_error": 1.0587051275573207e-17,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "coordinate_id": "Straight_20O-fmat-006",
+      "nominal": 160,
+      "speed": 59.4556,
+      "matching_channels": [
+        "CX",
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "coefficients": [
+        {
+          "name": "CX",
+          "expected_token": "-0.000005",
+          "expected": -5e-06,
+          "tolerance": 5e-07,
+          "predicted": -4.7173811352106145e-06,
+          "abs_error": 2.826188647893859e-07,
+          "passed": true
+        },
+        {
+          "name": "CY",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 4.7959887958480115e-15,
+          "abs_error": 4.7959887958480115e-15,
+          "passed": true
+        },
+        {
+          "name": "CL",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": 6.794047206943716e-13,
+          "abs_error": 6.794047206943716e-13,
+          "passed": true
+        },
+        {
+          "name": "Cl",
+          "expected_token": "0.000450",
+          "expected": 0.00045,
+          "tolerance": 5e-07,
+          "predicted": 0.0012607423044035332,
+          "abs_error": 0.0008107423044035332,
+          "passed": false
+        },
+        {
+          "name": "Cm",
+          "expected_token": "0.000000",
+          "expected": 0.0,
+          "tolerance": 5e-07,
+          "predicted": 3.8629025240425575e-14,
+          "abs_error": 3.8629025240425575e-14,
+          "passed": true
+        },
+        {
+          "name": "Cn",
+          "expected_token": "-0.000000",
+          "expected": -0.0,
+          "tolerance": 5e-07,
+          "predicted": -5.3234477797451966e-17,
+          "abs_error": 5.3234477797451966e-17,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "workers": [
+    {
+      "id": "AE-3-Straight_20O-fmat-001-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-001-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-002-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-002-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-003-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-003-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-004-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-004-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-005-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-005-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-006-coefficients-m80",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CX",
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    },
+    {
+      "id": "AE-3-Straight_20O-fmat-006-coefficients-m160",
+      "physical_checks": 29,
+      "source_pins_unchanged": true,
+      "kernel_pins_unchanged": true,
+      "reaped": true,
+      "archive_matching_channels": [
+        "CX",
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ],
+      "all_six_match": false
+    }
+  ],
+  "earlier_code_review": {
+    "status": "NO_CONCRETE_DEFECT_FOUND",
+    "reviewed_code": {
+      "scripts/isae_suite_ae3.py": "3c42a07f8ff07e0a59c076c5a9984a9fded6a34940874a6701402d0d279e058c",
+      "scripts/run-isae-suite.py": "abbdafc4ee215a4c0089ce8382147f07fd58f5d2df3b60264a0fa3c1833099e6"
+    },
+    "summary_reviewed_sha256": "271ebc587c7971f6d6ccb1513faeb30671e5215aa24077bdab4e353fd84392ab",
+    "findings": [
+      "All576 native cells and113 embedded cells retained; mesh repeats only36 finite-control coefficient cells.",
+      "Source Eqs218,224,225 support stability-axis signs and normalization; distributed aerodynamic wrench excludes engine forces.",
+      "Finite F1=1 coefficients remain separate from derivatives; original token precision and negative zero preserved.",
+      "Runner/summary block unsupported predictions, physical calls and pass promotion; canonical full-field verification and final rehash retain provenance."
+    ]
+  },
+  "remaining_findings": [],
+  "limitations": [
+    "This audit establishes saved evidence consistency, not historical setup identity or full-family reproduction.",
+    "Only six finite-control coefficients at six conditional states on two prospective grids were computed. Derivatives, tensors, centroids, normalized rates and embedded arrays remain unavailable.",
+    "No new solve or residual was executed. Physical evidence is reconstructed from saved outputs; historical model/title, constraint-mask/startup, atmosphere and node-array uncertainty remains."
+  ],
+  "audit_operations": {
+    "physics_calls": 0,
+    "production_imports": 0,
+    "adapter_imports": 0,
+    "extractor_imports": 0,
+    "tests_run": 0,
+    "plans_run": 0
+  },
+  "verified_files": [
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/report.json",
+      "bytes": 4955193,
+      "sha256": "e952f44b5a3fd770cd808537da2eb6ace29b5a5441885d4327b08a92e559c544"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/plan.json",
+      "bytes": 7225575,
+      "sha256": "55d5634d7369ce6e28ad8ea5240c3ca5b7b4f50d3c3732af31cd1c6713cd0fbf"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae3-reference.json",
+      "bytes": 2766842,
+      "sha256": "1a05d227901584bef399e6229281cc0846592e8c178fd663fbac0614ade99a3e"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae3-reference-independent-review-20261027.json",
+      "bytes": 5175,
+      "sha256": "6263aeef5fc8548df4be24f6a5dc956dc9e521f546ec9ef578ed8898ca537468"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/catalog.json",
+      "bytes": 4285915,
+      "sha256": "f63c73569a83c6daab2b17105947bab6e2fd072c31e8ebd1284c59b8729d557a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/__init__.py",
+      "bytes": 100,
+      "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/__init__.py",
+      "bytes": 100,
+      "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/applied_load_outputs.py",
+      "bytes": 6251,
+      "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/applied_load_outputs.py",
+      "bytes": 6251,
+      "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/arc_length.py",
+      "bytes": 9731,
+      "sha256": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/arc_length.py",
+      "bytes": 9731,
+      "sha256": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 28001,
+      "sha256": "e3b352c4427c028f12a1b004340e9904f5d1fa7bf02dc779adb5cc91cc981947"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/asw.py",
+      "bytes": 28001,
+      "sha256": "e3b352c4427c028f12a1b004340e9904f5d1fa7bf02dc779adb5cc91cc981947"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw_edit.py",
+      "bytes": 12706,
+      "sha256": "390e87047bc3ca225bb12047a3b35da49d67355b6be7a829df9c06c2ca13f3c2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/asw_edit.py",
+      "bytes": 12706,
+      "sha256": "390e87047bc3ca225bb12047a3b35da49d67355b6be7a829df9c06c2ca13f3c2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/atmosphere.py",
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/atmosphere.py",
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/beam_matching.py",
+      "bytes": 3051,
+      "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/beam_matching.py",
+      "bytes": 3051,
+      "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/beam_spline.py",
+      "bytes": 2947,
+      "sha256": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/beam_spline.py",
+      "bytes": 2947,
+      "sha256": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/body_shoulders.py",
+      "bytes": 3343,
+      "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/body_shoulders.py",
+      "bytes": 3343,
+      "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/bridge.py",
+      "bytes": 16465,
+      "sha256": "f9f1feb32f758da31fc3213574b29fa33ad9bbf25dc89ae6d5e1a835db88b42d"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/bridge.py",
+      "bytes": 16465,
+      "sha256": "f9f1feb32f758da31fc3213574b29fa33ad9bbf25dc89ae6d5e1a835db88b42d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_polish.py",
+      "bytes": 5095,
+      "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/circulation_polish.py",
+      "bytes": 5095,
+      "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_solve.py",
+      "bytes": 7012,
+      "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/circulation_solve.py",
+      "bytes": 7012,
+      "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_tangent.py",
+      "bytes": 16820,
+      "sha256": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/circulation_tangent.py",
+      "bytes": 16820,
+      "sha256": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_allocation.py",
+      "bytes": 8411,
+      "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/control_allocation.py",
+      "bytes": 8411,
+      "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_expressions.py",
+      "bytes": 5757,
+      "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/control_expressions.py",
+      "bytes": 5757,
+      "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/control_tables.py",
+      "bytes": 3801,
+      "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/control_tables.py",
+      "bytes": 3801,
+      "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/custom_constraints.py",
+      "bytes": 9749,
+      "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/custom_constraints.py",
+      "bytes": 9749,
+      "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/damping.py",
+      "bytes": 1635,
+      "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/damping.py",
+      "bytes": 1635,
+      "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivative_cache.py",
+      "bytes": 5250,
+      "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/derivative_cache.py",
+      "bytes": 5250,
+      "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivative_circulation.py",
+      "bytes": 5832,
+      "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/derivative_circulation.py",
+      "bytes": 5832,
+      "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/derivatives.py",
+      "bytes": 24933,
+      "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/derivatives.py",
+      "bytes": 24933,
+      "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/descriptor_mass.py",
+      "bytes": 10869,
+      "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/descriptor_mass.py",
+      "bytes": 10869,
+      "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5761,
+      "sha256": "725b3d8138d7e9f820ca2efbf3a22488240ada237ebd7fbc16a57bf3a4f294f1"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/discretization.py",
+      "bytes": 5761,
+      "sha256": "725b3d8138d7e9f820ca2efbf3a22488240ada237ebd7fbc16a57bf3a4f294f1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/distribution_curve.py",
+      "bytes": 9605,
+      "sha256": "cf6603d7da313c436f6f3d8d9d94faa6c72185acde0112936a7f3f33c5115103"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/distribution_curve.py",
+      "bytes": 9605,
+      "sha256": "cf6603d7da313c436f6f3d8d9d94faa6c72185acde0112936a7f3f33c5115103"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/dynamic_inertia.py",
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/dynamic_inertia.py",
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/equilibrium_state.py",
+      "bytes": 21725,
+      "sha256": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/equilibrium_state.py",
+      "bytes": 21725,
+      "sha256": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/equilibrium_tangent.py",
+      "bytes": 4973,
+      "sha256": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/equilibrium_tangent.py",
+      "bytes": 4973,
+      "sha256": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/factored_influence.py",
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/factored_influence.py",
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/feedback.py",
+      "bytes": 24602,
+      "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/feedback.py",
+      "bytes": 24602,
+      "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/field_products.py",
+      "bytes": 792,
+      "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/field_products.py",
+      "bytes": 792,
+      "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/flow_survey.py",
+      "bytes": 9589,
+      "sha256": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/flow_survey.py",
+      "bytes": 9589,
+      "sha256": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/forcing.py",
+      "bytes": 21844,
+      "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/forcing.py",
+      "bytes": 21844,
+      "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frequency_response.py",
+      "bytes": 46737,
+      "sha256": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/frequency_response.py",
+      "bytes": 46737,
+      "sha256": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frequency_sweep.py",
+      "bytes": 5149,
+      "sha256": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/frequency_sweep.py",
+      "bytes": 5149,
+      "sha256": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 12918,
+      "sha256": "0fa2612993619710ca7bf19ca066677a2094c6eb81600f2a949af86256b8bdd9"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/geometry.py",
+      "bytes": 12918,
+      "sha256": "0fa2612993619710ca7bf19ca066677a2094c6eb81600f2a949af86256b8bdd9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_field_partials.py",
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/geometry_field_partials.py",
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_partials.py",
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/geometry_partials.py",
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_stencil.py",
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/geometry_stencil.py",
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_tangent.py",
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/geometry_tangent.py",
+      "bytes": 38257,
+      "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/ground.py",
+      "bytes": 6125,
+      "sha256": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/ground.py",
+      "bytes": 6125,
+      "sha256": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust.py",
+      "bytes": 10381,
+      "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/gust.py",
+      "bytes": 10381,
+      "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust_file.py",
+      "bytes": 4716,
+      "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/gust_file.py",
+      "bytes": 4716,
+      "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/gust_tangent.py",
+      "bytes": 5382,
+      "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/gust_tangent.py",
+      "bytes": 5382,
+      "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/harmonic_structure.py",
+      "bytes": 11685,
+      "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/harmonic_structure.py",
+      "bytes": 11685,
+      "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/hinge_history.py",
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/hinge_history.py",
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/inertia.py",
+      "bytes": 11646,
+      "sha256": "e7a74abf6c11e34acc4215ffac8552e0778bb6698c0ab59cf53062e406308e4d"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/inertia.py",
+      "bytes": 11646,
+      "sha256": "e7a74abf6c11e34acc4215ffac8552e0778bb6698c0ab59cf53062e406308e4d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/initial_diagnostics.py",
+      "bytes": 7346,
+      "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/initial_diagnostics.py",
+      "bytes": 7346,
+      "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/initial_response.py",
+      "bytes": 12115,
+      "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/initial_response.py",
+      "bytes": 12115,
+      "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/joints.py",
+      "bytes": 3046,
+      "sha256": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/joints.py",
+      "bytes": 3046,
+      "sha256": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/kinematics.py",
+      "bytes": 2561,
+      "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/kinematics.py",
+      "bytes": 2561,
+      "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/legacy_hinge_state.py",
+      "bytes": 6832,
+      "sha256": "62a22068fa3af4aac635f8064f855b47f0cad86befb27dee4d172380fe7bffbc"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/legacy_hinge_state.py",
+      "bytes": 6832,
+      "sha256": "62a22068fa3af4aac635f8064f855b47f0cad86befb27dee4d172380fe7bffbc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/linear_dynamics.py",
+      "bytes": 84195,
+      "sha256": "4927600b4137b04a1aaebf9b1f64e50ae7b42220da34c86de43e9a6c97d164bf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/linear_dynamics.py",
+      "bytes": 84195,
+      "sha256": "4927600b4137b04a1aaebf9b1f64e50ae7b42220da34c86de43e9a6c97d164bf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_geometry_matrix.py",
+      "bytes": 8878,
+      "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/local_geometry_matrix.py",
+      "bytes": 8878,
+      "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_motion.py",
+      "bytes": 13211,
+      "sha256": "3468ee1102fc898473ca73cf9834d7a28e1b1ff2bff1c4827302bf47810d8484"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/local_motion.py",
+      "bytes": 13211,
+      "sha256": "3468ee1102fc898473ca73cf9834d7a28e1b1ff2bff1c4827302bf47810d8484"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_rate_tangent.py",
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/local_rate_tangent.py",
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/mechanical_tangent.py",
+      "bytes": 6390,
+      "sha256": "f737bdcf5b00f1d9fd925d1f31925e0c264e84f6337b99343daa4f3321b4a304"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/mechanical_tangent.py",
+      "bytes": 6390,
+      "sha256": "f737bdcf5b00f1d9fd925d1f31925e0c264e84f6337b99343daa4f3321b4a304"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/modal_arnoldi.py",
+      "bytes": 10040,
+      "sha256": "b69e5c801e9662120c8b009085dd24e1aba01c38ce4da6548b3f2189570b3519"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/modal_arnoldi.py",
+      "bytes": 10040,
+      "sha256": "b69e5c801e9662120c8b009085dd24e1aba01c38ce4da6548b3f2189570b3519"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 65674,
+      "sha256": "19683527744bb76201f2e0f48e452251061c0f96d226e5d74c457e575110cf7e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/network.py",
+      "bytes": 65674,
+      "sha256": "19683527744bb76201f2e0f48e452251061c0f96d226e5d74c457e575110cf7e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/newton_structure.py",
+      "bytes": 4108,
+      "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/newton_structure.py",
+      "bytes": 4108,
+      "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/nonlinear_initial.py",
+      "bytes": 23838,
+      "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/nonlinear_initial.py",
+      "bytes": 23838,
+      "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/numerical_policy.py",
+      "bytes": 16504,
+      "sha256": "12f77f344b5af91b205a41570290bad3873ad5ecae941d052d80d1e160566abf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/numerical_policy.py",
+      "bytes": 16504,
+      "sha256": "12f77f344b5af91b205a41570290bad3873ad5ecae941d052d80d1e160566abf"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/operating.py",
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/operating.py",
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/output_derivatives.py",
+      "bytes": 2159,
+      "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/output_derivatives.py",
+      "bytes": 2159,
+      "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/output_fields.py",
+      "bytes": 11902,
+      "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/output_fields.py",
+      "bytes": 11902,
+      "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/point_objects.py",
+      "bytes": 1719,
+      "sha256": "cc4656460d0f94adf66641a477545bb46f298d2d95ee915ee0453d9d47b91aff"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/point_objects.py",
+      "bytes": 1719,
+      "sha256": "cc4656460d0f94adf66641a477545bb46f298d2d95ee915ee0453d9d47b91aff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_checkpoint.py",
+      "bytes": 9373,
+      "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/position_history_checkpoint.py",
+      "bytes": 9373,
+      "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_lift.py",
+      "bytes": 10301,
+      "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/position_history_lift.py",
+      "bytes": 10301,
+      "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/position_history_radau.py",
+      "bytes": 3301,
+      "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/position_history_radau.py",
+      "bytes": 3301,
+      "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/power_tangent.py",
+      "bytes": 5710,
+      "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/power_tangent.py",
+      "bytes": 5710,
+      "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/propulsion.py",
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/propulsion.py",
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/quiescent.py",
+      "bytes": 5580,
+      "sha256": "7923dbb733510d9ece55cf65980cab3223cf631ae10800cd6ddb93e82c14bbad"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/quiescent.py",
+      "bytes": 5580,
+      "sha256": "7923dbb733510d9ece55cf65980cab3223cf631ae10800cd6ddb93e82c14bbad"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/radau_tangent.py",
+      "bytes": 4159,
+      "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/radau_tangent.py",
+      "bytes": 4159,
+      "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/radau_time.py",
+      "bytes": 4074,
+      "sha256": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/radau_time.py",
+      "bytes": 4074,
+      "sha256": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/recovery.py",
+      "bytes": 7364,
+      "sha256": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/recovery.py",
+      "bytes": 7364,
+      "sha256": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/reduced_model.py",
+      "bytes": 17492,
+      "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/reduced_model.py",
+      "bytes": 17492,
+      "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/reference_flow.py",
+      "bytes": 3892,
+      "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/reference_flow.py",
+      "bytes": 3892,
+      "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rigid_initial_rank.py",
+      "bytes": 11620,
+      "sha256": "6ab9533ea1707ef2a429d00964aa7610ba30892fb58a9ce923d3a5d0f061c8f2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/rigid_initial_rank.py",
+      "bytes": 11620,
+      "sha256": "6ab9533ea1707ef2a429d00964aa7610ba30892fb58a9ce923d3a5d0f061c8f2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_file.py",
+      "bytes": 21226,
+      "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/rom_file.py",
+      "bytes": 21226,
+      "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_initial.py",
+      "bytes": 6195,
+      "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/rom_initial.py",
+      "bytes": 6195,
+      "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/rom_outputs.py",
+      "bytes": 11136,
+      "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/rom_outputs.py",
+      "bytes": 11136,
+      "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/root_diagnostics.py",
+      "bytes": 4331,
+      "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/root_diagnostics.py",
+      "bytes": 4331,
+      "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/seeded_corrector.py",
+      "bytes": 8299,
+      "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/seeded_corrector.py",
+      "bytes": 8299,
+      "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sensors.py",
+      "bytes": 14586,
+      "sha256": "19fddcd802f786aad1fcbab038e95a2b76e7c563522b047843073a7aad7fe15c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/sensors.py",
+      "bytes": 14586,
+      "sha256": "19fddcd802f786aad1fcbab038e95a2b76e7c563522b047843073a7aad7fe15c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_discrete.py",
+      "bytes": 26573,
+      "sha256": "71d1dc861f945801576b9e9e1daf81ac09305b3fdd92bce5bac70f712d8af9d0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_discrete.py",
+      "bytes": 26573,
+      "sha256": "71d1dc861f945801576b9e9e1daf81ac09305b3fdd92bce5bac70f712d8af9d0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_dynamics.py",
+      "bytes": 13072,
+      "sha256": "58a581bf8fe5251ae2d788d179fab06902f661362082727e512b82e92587630e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_dynamics.py",
+      "bytes": 13072,
+      "sha256": "58a581bf8fe5251ae2d788d179fab06902f661362082727e512b82e92587630e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_quiescent.py",
+      "bytes": 6505,
+      "sha256": "392be444d815e8a20358503ccd521d12bdddd8be5129ee4fe45c748a9f55d338"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_quiescent.py",
+      "bytes": 6505,
+      "sha256": "392be444d815e8a20358503ccd521d12bdddd8be5129ee4fe45c748a9f55d338"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_recovery.py",
+      "bytes": 9468,
+      "sha256": "b126e29b30d909ff210d8c2825cdb0c8e932549ea9f9e1a1255a2332747b13b7"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_recovery.py",
+      "bytes": 9468,
+      "sha256": "b126e29b30d909ff210d8c2825cdb0c8e932549ea9f9e1a1255a2332747b13b7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_time.py",
+      "bytes": 11588,
+      "sha256": "ae5a26ec35604457baf5e807b302a38ee6aa8cc34a66d622f8a78e5d4404566e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/source_time.py",
+      "bytes": 11588,
+      "sha256": "ae5a26ec35604457baf5e807b302a38ee6aa8cc34a66d622f8a78e5d4404566e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sparse_rank.py",
+      "bytes": 9144,
+      "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/sparse_rank.py",
+      "bytes": 9144,
+      "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/stability.py",
+      "bytes": 23781,
+      "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/stability.py",
+      "bytes": 23781,
+      "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/steady_feedback.py",
+      "bytes": 8268,
+      "sha256": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/steady_feedback.py",
+      "bytes": 8268,
+      "sha256": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structural_geometry.py",
+      "bytes": 5810,
+      "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structural_geometry.py",
+      "bytes": 5810,
+      "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structural_outputs.py",
+      "bytes": 7897,
+      "sha256": "e7a6bde6a5762f8108ed24e0bb4fedec75731829b5efc9ec50739c4c2869ac86"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structural_outputs.py",
+      "bytes": 7897,
+      "sha256": "e7a6bde6a5762f8108ed24e0bb4fedec75731829b5efc9ec50739c4c2869ac86"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structure.py",
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structure.py",
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_radau.py",
+      "bytes": 6514,
+      "sha256": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structured_radau.py",
+      "bytes": 6514,
+      "sha256": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_static.py",
+      "bytes": 48860,
+      "sha256": "3b89103692ad7ac2d2020311559d56db77bd3a11935303668a269f25130e4164"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structured_static.py",
+      "bytes": 48860,
+      "sha256": "3b89103692ad7ac2d2020311559d56db77bd3a11935303668a269f25130e4164"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/structured_time.py",
+      "bytes": 9435,
+      "sha256": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/structured_time.py",
+      "bytes": 9435,
+      "sha256": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/struts.py",
+      "bytes": 1477,
+      "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/struts.py",
+      "bytes": 1477,
+      "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/support_outputs.py",
+      "bytes": 6436,
+      "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/support_outputs.py",
+      "bytes": 6436,
+      "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/tangent_influences.py",
+      "bytes": 15650,
+      "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/tangent_influences.py",
+      "bytes": 15650,
+      "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_acceptance.py",
+      "bytes": 6030,
+      "sha256": "55242cc959489366b294ef4b45021e82b878ec09b8738215560ecc5870ab52f9"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_acceptance.py",
+      "bytes": 6030,
+      "sha256": "55242cc959489366b294ef4b45021e82b878ec09b8738215560ecc5870ab52f9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_acceptance_validation.py",
+      "bytes": 22406,
+      "sha256": "7bd7853f7a0e711b7cd4604137fc387b4c5ace68fd06ce1e2103922e51b4cefd"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_acceptance_validation.py",
+      "bytes": 22406,
+      "sha256": "7bd7853f7a0e711b7cd4604137fc387b4c5ace68fd06ce1e2103922e51b4cefd"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_accuracy.py",
+      "bytes": 17505,
+      "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_accuracy.py",
+      "bytes": 17505,
+      "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_cold_initial.py",
+      "bytes": 10150,
+      "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_cold_initial.py",
+      "bytes": 10150,
+      "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_history.py",
+      "bytes": 12251,
+      "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_history.py",
+      "bytes": 12251,
+      "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_initialization.py",
+      "bytes": 10059,
+      "sha256": "e1e415c5d540a2deede9bbe3f2f9f822b01750c5313addbf757e3a1895abd838"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_initialization.py",
+      "bytes": 10059,
+      "sha256": "e1e415c5d540a2deede9bbe3f2f9f822b01750c5313addbf757e3a1895abd838"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_input_transition.py",
+      "bytes": 2954,
+      "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_input_transition.py",
+      "bytes": 2954,
+      "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_integration.py",
+      "bytes": 48292,
+      "sha256": "5f4aa2de2b542b4a5bc5469ba8460ddfc9d3f3fe4ae95d1a587690ed0a4c7d87"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_integration.py",
+      "bytes": 48292,
+      "sha256": "5f4aa2de2b542b4a5bc5469ba8460ddfc9d3f3fe4ae95d1a587690ed0a4c7d87"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_network.py",
+      "bytes": 3971,
+      "sha256": "803faa68f098ede871fd094a722df06232ecd3b5eeb84da8a790629209d350a8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_network.py",
+      "bytes": 3971,
+      "sha256": "803faa68f098ede871fd094a722df06232ecd3b5eeb84da8a790629209d350a8"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_result_storage.py",
+      "bytes": 5370,
+      "sha256": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_result_storage.py",
+      "bytes": 5370,
+      "sha256": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_saved_history.py",
+      "bytes": 12120,
+      "sha256": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_saved_history.py",
+      "bytes": 12120,
+      "sha256": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_state.py",
+      "bytes": 19863,
+      "sha256": "e7c2cf673ebf4fcf0cc060ef323102f77e5a05378e651ab3526840640335c577"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_state.py",
+      "bytes": 19863,
+      "sha256": "e7c2cf673ebf4fcf0cc060ef323102f77e5a05378e651ab3526840640335c577"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/time_transition_initial.py",
+      "bytes": 6461,
+      "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/time_transition_initial.py",
+      "bytes": 6461,
+      "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/trefftz.py",
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/trefftz.py",
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/vector_ops.py",
+      "bytes": 1749,
+      "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/vector_ops.py",
+      "bytes": 1749,
+      "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/volume.py",
+      "bytes": 9324,
+      "sha256": "4687fde9e91c921ca832b7a9e9fa47cdb7a4cdae1732c5353540bda0eae4f777"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/volume.py",
+      "bytes": 9324,
+      "sha256": "4687fde9e91c921ca832b7a9e9fa47cdb7a4cdae1732c5353540bda0eae4f777"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/volume_tangent.py",
+      "bytes": 12795,
+      "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/volume_tangent.py",
+      "bytes": 12795,
+      "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/vortex_tangent.py",
+      "bytes": 26804,
+      "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/vortex_tangent.py",
+      "bytes": 26804,
+      "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/wall_root.py",
+      "bytes": 9800,
+      "sha256": "ada712af326b476e562cb6dc800bc7b8f06e8e08a6637f33904de219834cb41e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/openswing/wall_root.py",
+      "bytes": 9800,
+      "sha256": "ada712af326b476e562cb6dc800bc7b8f06e8e08a6637f33904de219834cb41e"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/extract-isae-ae3-reference.py",
+      "bytes": 37663,
+      "sha256": "9b0daa09e30faea89bed892cfd36ff541b44f19e29f7f7e57c98799aa2741ad5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/scripts/extract-isae-ae3-reference.py",
+      "bytes": 37663,
+      "sha256": "9b0daa09e30faea89bed892cfd36ff541b44f19e29f7f7e57c98799aa2741ad5"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_ae3.py",
+      "bytes": 33984,
+      "sha256": "3c42a07f8ff07e0a59c076c5a9984a9fded6a34940874a6701402d0d279e058c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/scripts/isae_suite_ae3.py",
+      "bytes": 33984,
+      "sha256": "3c42a07f8ff07e0a59c076c5a9984a9fded6a34940874a6701402d0d279e058c"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_ap1.py",
+      "bytes": 39028,
+      "sha256": "29172613174ab0d667de5b2faa8f3c0af8d6c333a183df48fbfdc3caec95b9f9"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/scripts/isae_suite_ap1.py",
+      "bytes": 39028,
+      "sha256": "29172613174ab0d667de5b2faa8f3c0af8d6c333a183df48fbfdc3caec95b9f9"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_suite_catalog.py",
+      "bytes": 17424,
+      "sha256": "629c1fe22368cdcae6e105ecb4824647a91c59107e4e66d48442ef7abf16f47f"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/scripts/isae_suite_catalog.py",
+      "bytes": 17424,
+      "sha256": "629c1fe22368cdcae6e105ecb4824647a91c59107e4e66d48442ef7abf16f47f"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/run-isae-suite.py",
+      "bytes": 33505,
+      "sha256": "abbdafc4ee215a4c0089ce8382147f07fd58f5d2df3b60264a0fa3c1833099e6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/frozen-code/scripts/run-isae-suite.py",
+      "bytes": 33505,
+      "sha256": "abbdafc4ee215a4c0089ce8382147f07fd58f5d2df3b60264a0fa3c1833099e6"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/manifest.json",
+      "bytes": 791256,
+      "sha256": "813347a3bd9fcbd029a1ec86e0c3141f82422af26f33ebde7c2f732a16bf27f6"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/.DS_Store",
+      "bytes": 8196,
+      "sha256": "41a36d1e577843ca592535798eb2768040fba60f4c12516e6c35b50e3af89e58"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/.DS_Store",
+      "bytes": 6148,
+      "sha256": "58440abe22b94626b85be60dcfe8f75f82ee1e027bf35a83b5791444a35c6e15"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Roll.asw",
+      "bytes": 5194,
+      "sha256": "6d50d711539638ad2830d79750c306c5d22a2a25aaa913651b5213dde4f57301"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Roll_analysis.sh",
+      "bytes": 238,
+      "sha256": "b798a5a3ea5cfab41f2d48c7058773a41959777982ce22f389a22e15a20b22b0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Roll_rate.sh",
+      "bytes": 212,
+      "sha256": "cc87d606cdc3971a643058f9550f495a2da13e26f0136539ca6bb2f46fffc866"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.asw",
+      "bytes": 5220,
+      "sha256": "fbe1ede2e3241f74be581dcebb470b71fb661ce891cdf7db00413020d3b73513"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_001",
+      "bytes": 4906,
+      "sha256": "cd8557627af1375d1606cafb1802cf6fc55abf32d0fa80410d1f8deee0a75b50"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_002",
+      "bytes": 4906,
+      "sha256": "53b23faad39ab5bf15f564bc9a91f2bd1773fc51a15b15fd293c5d0b1abd3f62"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_003",
+      "bytes": 4906,
+      "sha256": "c369d53dd819fb80c43a192bffee224e07cb8f33536165a9abcec545d27e21b7"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_004",
+      "bytes": 4906,
+      "sha256": "57cf1523fe60c9ce9dd7a2ebb4cc91229685568b9a6b5bc32f020d7e8edff945"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_005",
+      "bytes": 4906,
+      "sha256": "3326c76e30d079aaab065475869b882a8bb4bb2dfae93357fa5468b57300e028"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_20O.fmat_006",
+      "bytes": 4906,
+      "sha256": "53d7abff49fd561796cca9bdbbbef9f7ca82632691c7a7f3765fe648ab26bf47"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_40O.asw",
+      "bytes": 5198,
+      "sha256": "4738f5727a69b131466c27d595aa470f8f0f8f54df960e222c1f5819b98242d7"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_60O.asw",
+      "bytes": 5198,
+      "sha256": "c73b7ccacee57ffd91b9bdbb1a07838550f7f79add501c1236cc9eb04129f2a6"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_80O.asw",
+      "bytes": 5198,
+      "sha256": "9ff6566bf78a688c3afc379f448cf7423b0113c68fd57d2d1b0c00dccf8db88e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/Straight_95O.asw",
+      "bytes": 5201,
+      "sha256": "0a99680970a2cfa870d46f4c4c1fe50f094409e32da42950c991f4af462ea683"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/ASWING_Model/Straight_Wing/temp_analysis.sh",
+      "bytes": 232,
+      "sha256": "21b2451e7a220e83c7332e0c4f3fc343865e9d66396bb5732dfd64a9e7629548"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Croll_VS_Helix.csv",
+      "bytes": 1134,
+      "sha256": "fc418fd4aadae7fc99b3f535351aaa060f6a6b84af2886600a759add634c0144"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Data_extraction/CM_VS_delta_F_Straight_Wing.png",
+      "bytes": 1070842,
+      "sha256": "de226881e6f3a9265a8459dd0a7774faa0782b224de45856c0b45b1a836bbbe6"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Data_extraction/CM_VS_delta_F_Swept_Wing.png",
+      "bytes": 848354,
+      "sha256": "a57514a4b9c94462a2fa77ddf78a2d0c79eac541f8a581afcd5113cb6b359203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Data_extraction/EI_GJ.png",
+      "bytes": 1395889,
+      "sha256": "155e711ff2149dad4a43f610da59fc28c8d4c0d50f1db0dcfaadc4dabf6c8f83"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Data_extraction/Helix_Angle_VS_dF.png",
+      "bytes": 1363905,
+      "sha256": "6b47c57b2ad6ab71f876ac348dc2291d77c15dc3cc7161b4e4fa65cd12741f13"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Data_extraction/Roll_Coeff_VS_Helix.png",
+      "bytes": 939051,
+      "sha256": "bcc6caaec8f6670d4d6f54ad610e7f7b1d398bc9977ee6a8d35d28a824d70c3e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/GJ_EI.csv",
+      "bytes": 1750,
+      "sha256": "bc403fa798873223e1d303cf64c754dfe75863de988e870678ea8cf276f6a02b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Helix_Angle_VS_dF.csv",
+      "bytes": 1173,
+      "sha256": "2e7f3d13b4fe538d31520c76f41723ce389466733bd4db7844dad97bbc1de459"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Post_analysis.asv",
+      "bytes": 11336,
+      "sha256": "8e362dbeed900c4ce7e28b1b432b4a469620bde09839d94a4a567b6facc1009c"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Post_analysis.m",
+      "bytes": 11331,
+      "sha256": "943613d0885043efc9f4b4764dc8c5dba90fa0dcd7c465209375cbb01dff2fc6"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Rolling_Coefficient.eps",
+      "bytes": 83990,
+      "sha256": "9d40d7ab01170dc0594ee59446a563689fc2b8493884123023204b71956e5e6a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Straight_Wing_dCM_ddeltaF.csv",
+      "bytes": 786,
+      "sha256": "ba83337c82707d197c4d57a14f81b652fde228d6da7a548357b99811730da0cf"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/Swept_Wing_dCM_ddeltaF.csv",
+      "bytes": 1783,
+      "sha256": "17d23bf6f5928ea220dd36963c6a6e523085a45ccc19858525ba04d955eac188"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_alpha0.eps",
+      "bytes": 138003,
+      "sha256": "bfb942559b3d7cc24db20af3bf7408d9d2f058f1a0c9f708dca2027439653a2c"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/.DS_Store",
+      "bytes": 6148,
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/NACA63A012.txt",
+      "bytes": 1091,
+      "sha256": "b7efa948a6f19eb560edd3f5fbcfde32d4ba6b908d947e79e09d7e1a84792851"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/NACA63A012_alpha0_dF_Re3E5.txt",
+      "bytes": 2304,
+      "sha256": "6fd6e842c4b15a5c9801d65344c24c1d4ce66c28e1963bc77d582ce4286eb97d"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/NACA63A012_alpha0_dF_Re6P5E5.txt",
+      "bytes": 2304,
+      "sha256": "2f80b9d1c12d027c4fce7c613fff5bc869e38b63c80a80463e9a0765b23fc8ff"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/NACA63A012_dF_CM0_Re3E5.txt",
+      "bytes": 2304,
+      "sha256": "e57ca0f0623280de3dec9261f72ff8430d8a8a46cb83adf4acaa6948d1450f89"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/NACA63A012_dF_CM0_Re6P5E5.txt",
+      "bytes": 2304,
+      "sha256": "fce27f979402ca5d52ccc2de0c9c839c313d758232ffd67f4d12827f102916c9"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/dCM0_ddF.eps",
+      "bytes": 96992,
+      "sha256": "8f7f295c28a7084179e75e0acbfc4e808e95d50faebbaf7acf52dc903cd58f58"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/dalpha0_ddF.eps",
+      "bytes": 98251,
+      "sha256": "f7ffafdb4fe35d22cdd7bfb1e61e21de23d2dbf0220041135cab4422846a6444"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/flap_analysis_CM0.sh",
+      "bytes": 1487,
+      "sha256": "7b3b0afa4e32b47ca909835f94aee3a16cb9cd36cdb105ebda54c6166dcf605f"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_analysis/flap_analysis_alpha0.sh",
+      "bytes": 1496,
+      "sha256": "5c158c06a6d3670fd9722fd5899e951afa9bd98c77a6a86f6d234db8192cf619"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/airfoil_cm0.eps",
+      "bytes": 143494,
+      "sha256": "b5f3ee915e43f46b9e73cd3a42d20f9bfcb016e0fe76cef261119b67ce15ebe1"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/helix_angle_VS_dF.eps",
+      "bytes": 115379,
+      "sha256": "3f970d67a2d8e5ea72d7e249cba25e954a9033cbcb1252b5721cdcd6788b2e67"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-3-S - Ailerons Reversal/heuristic_reversal_speed.eps",
+      "bytes": 128610,
+      "sha256": "2694702d90cc609803d87621a28bfeab0f1d7e8ddf44567e33f01b59eba7d34f"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/5 - Technical Reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4 .pdf",
+      "bytes": 3552321,
+      "sha256": "c8804f2a53d2c8f33d9d047d1b945617ce70c88af979678da47481e1fc749ed8"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "bytes": 113163,
+      "sha256": "ee117e282812586936831dbc370678f7c59d77a1e57bb22cfd097b1da0527aa7"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/job.json",
+      "bytes": 57956,
+      "sha256": "f445d38d1aac2d0c614ff9efbc8d65d1dceb278553c1d07d20cd3c1a60f6da73"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/physical-checks.json",
+      "bytes": 46335,
+      "sha256": "9b018609cb6f4998ad1c491ac18fbe6c19c17941f4c6ac4ba5c67ff44f6cb48e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/request.json",
+      "bytes": 6556,
+      "sha256": "34dcba5e4e04ae8aade99fa4ea81dab3d85081bed09f9b717ed2710e1ae121c6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/restored-result.json",
+      "bytes": 852382,
+      "sha256": "57e307d63c2c0dfd97facd092c719fadec8e805b620ebcdf8e249c74593482d5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/a19c95b7389cce5a3a3a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m80-nlqtvk1q/result.json",
+      "bytes": 988215,
+      "sha256": "167b5bd85a8d4a96864ae8f62e5129ad163dc02acc9d02829ab30b5d2f395ddd"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/job.json",
+      "bytes": 57963,
+      "sha256": "e5a2fbcfe908d9ca5ccddb0561802279258d69dad24beccc2ff4f8f0247096af"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/physical-checks.json",
+      "bytes": 77940,
+      "sha256": "933a638ce168a7f8ab8b07c36cd246eba5f4ba910a8b43ff873aa3e23f98a985"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/request.json",
+      "bytes": 6558,
+      "sha256": "3ee3e216bb36a16be879f4b1f3599470e64b3710544dffe92c667b1e7a9886cb"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/restored-result.json",
+      "bytes": 1662889,
+      "sha256": "08846940e65447dc8ae3eb47988a8015b0af9a7dcd150fbe5182004906ee82b8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/10e7d25563f621432e9a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-001-coefficients-m160-bygq4f8y/result.json",
+      "bytes": 1928894,
+      "sha256": "5659cb1373a871fbd9c033cb0dc4a403a489464d04220a715eed32121e4df28d"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/job.json",
+      "bytes": 57953,
+      "sha256": "bf68721d031fb50c2ae2a875a12a90eecea07829ec681b61a103c9b09ebcebf8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/physical-checks.json",
+      "bytes": 46346,
+      "sha256": "188023b4846c29aa6a5eefce4d590f0de85535caa56627a90326c8dd85912ae8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/request.json",
+      "bytes": 6555,
+      "sha256": "1efc9d8c4805c6823578ae37609e97a6ec8942b739eefd7fb1ead73c2ae5697e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/restored-result.json",
+      "bytes": 851108,
+      "sha256": "d9b2abcbf3305b3a3aec23790ea432c0154a84d31ca091a47d7464eacfcae7b5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/2e8afc942ce50bf532f9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m80-hs0ajvws/result.json",
+      "bytes": 986619,
+      "sha256": "b9b7c95b4e3afacfe8d7df7aa1360a4409de1b0792bc7c9732a5521a9d8de6d2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/job.json",
+      "bytes": 57960,
+      "sha256": "7e69856127cb2843b476cb5303049fdb068f5cf9539aeed96dd4377a512e8c83"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/physical-checks.json",
+      "bytes": 77933,
+      "sha256": "d49e58731a947a216a99fe614c93f4ac165e72edf9a26cf6a533c05a12196ec7"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/request.json",
+      "bytes": 6557,
+      "sha256": "1dc03092d62dbba31c4cdd7ac3cffb5d1068438a4fb64c5ab0713191e0348ec6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/restored-result.json",
+      "bytes": 1659692,
+      "sha256": "c1f2187967a55c6096af7c985fdc3be8db44e7e212a530b7cedef157d393af7a"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/310789bcd806e3d29fd0/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-002-coefficients-m160-iu5dkcl9/result.json",
+      "bytes": 1925049,
+      "sha256": "85e72fdf2f07a86dd87e6fddec654327f7083deb0d4f0d01371ed5d93f176596"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/job.json",
+      "bytes": 57959,
+      "sha256": "1c036e834a76540ffbb59be2ce320960c1b907c5904078c7acd68c9f2bc531bf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/physical-checks.json",
+      "bytes": 46356,
+      "sha256": "db37a1a2d24a48a42931638f38343432ea1f96bcd73417c5644375cd22f8580b"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/request.json",
+      "bytes": 6556,
+      "sha256": "fc976bf479b03b80a72d71e96ad7073a052bcf8c486019fcc83c4c512b24791e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/restored-result.json",
+      "bytes": 850759,
+      "sha256": "88dd232b1a63b73daf70b2d8219699223160102004849e780cece55b49abfde2"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/c0255b350c604153fef9/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m80-14ilsxe4/result.json",
+      "bytes": 986219,
+      "sha256": "e199864ae3f595b323d0420107e96bef3c1bcee34ee83558a3fbb82276337d50"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/job.json",
+      "bytes": 57966,
+      "sha256": "25375bbaa28f7ceb7620bbffa766b8cf5724e71e2242c8220db9be9011c23e43"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/physical-checks.json",
+      "bytes": 77947,
+      "sha256": "7c38190a9b3b99b3bfc457f5869f13a2ffd42ca56c73bd5614b2000e98403140"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/request.json",
+      "bytes": 6558,
+      "sha256": "ec3812e98606226dac99854b6d5259bb8e1af9e09d32d9edd0867263cfba2851"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/restored-result.json",
+      "bytes": 1658938,
+      "sha256": "45dc962ff0e67a810e08dfa82a9b795eeeb9325e54052ba04accbb7ecc2f649e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/5fab51786fd9c5e1ebf3/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-003-coefficients-m160-90t8fvbn/result.json",
+      "bytes": 1924218,
+      "sha256": "b4bd067c5224d5e6af5bfb9250c9ea93a26041b7eaa5919d8780c44c21879f48"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/job.json",
+      "bytes": 57956,
+      "sha256": "379e6584faec9958f906fe70a745cabf7b43ec47c0894952307081c23cb13609"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/physical-checks.json",
+      "bytes": 46292,
+      "sha256": "a3b89f56b9f2637783649fc27ef39354948968029c2eb2006adb6b3b35643db5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/request.json",
+      "bytes": 6555,
+      "sha256": "645d7eed740b75c4a1ee6a9be291357738ff172f7f2456adff670622d252985b"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/restored-result.json",
+      "bytes": 850607,
+      "sha256": "136028c422c86ae9c5af06213951d55db1a7e0036ea843c6e01be06ec01cc123"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/bf8c2366a7f684a5b487/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m80-0jbtyfhz/result.json",
+      "bytes": 985978,
+      "sha256": "80bf9990d03736684ba9156753aabe8ebd04d92b49c3f825ea5825fae0cbb05c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/job.json",
+      "bytes": 57963,
+      "sha256": "f309cc495e28b1a5e9c68cfca2533ab245c242accb5f50239b0aa360115d9e7b"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/physical-checks.json",
+      "bytes": 77930,
+      "sha256": "7b469c4a577391810effd21e7599e300f61178273ea23f0917b0ad837a654873"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/request.json",
+      "bytes": 6557,
+      "sha256": "36e8f033b58af4e440fadf6d65334ea574b93e2e71040eb44617c8e88c05f01e"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/restored-result.json",
+      "bytes": 1658215,
+      "sha256": "e3db92dd6877dec03c5d198d69bbc30fe08c43b2329c9d2447b2da4e19f743bf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/b9cf59c7c160bb18a151/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-004-coefficients-m160-uh7d5ei6/result.json",
+      "bytes": 1923346,
+      "sha256": "4c62d81bf34a2b1aaa71a990a60708c99fa0ad5cc2641d582af5b21dac987064"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/job.json",
+      "bytes": 57959,
+      "sha256": "b65f7c11ff50e1f19068aa9e3f013ab56dc6e44181d07191c81b179a93bb9218"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/physical-checks.json",
+      "bytes": 46285,
+      "sha256": "e391979aad0d2dfd69cc3f4e974329231737d44654ce8a277f5ef0c5ea8f67ba"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/request.json",
+      "bytes": 6556,
+      "sha256": "794f268601791f0f44faac87b6349b69ff9cc0304034d2b13b66f35e4bfa5cdf"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/restored-result.json",
+      "bytes": 850648,
+      "sha256": "6e7bffb898e0a65da7e0712e75cb9245ed88189b94abd8b8509b6ae630d19c42"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/dcb35ba90afaf4fa36ff/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m80-gsbr3u3e/result.json",
+      "bytes": 986092,
+      "sha256": "758d29724fe221b90ceb804dd0a98784da30e36367195c513766a79619d447d6"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/job.json",
+      "bytes": 57966,
+      "sha256": "849d34be5b2d60004bb2eae336b7055a4aa51eb2138549a43aec8b17781b93d8"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/physical-checks.json",
+      "bytes": 77957,
+      "sha256": "3b5b95efe71e84fe596ac2be9ad33093324e7396b7aef5a4ff97441269f49e79"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/request.json",
+      "bytes": 6558,
+      "sha256": "9fce63f9581d5f0d68a058d81588936dff399d9f5512cf0067ade61c8a3f59b5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/restored-result.json",
+      "bytes": 1658743,
+      "sha256": "4a55405315d457d21051b61d0038a81556ee6d7d398a76b881e542f9377e66f4"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/4ab1b1878e48bfa4f63a/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-005-coefficients-m160-vgqpz5mr/result.json",
+      "bytes": 1923948,
+      "sha256": "266f7f1b13758c1b9aef98e0f99d527abd78959cd20638291a5ad1887dc25fc5"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/job.json",
+      "bytes": 57955,
+      "sha256": "3cd0ae6dda19e08000609fa0ed8b27c676ce295e0a7003a7e938bb81ec841b2d"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/physical-checks.json",
+      "bytes": 46278,
+      "sha256": "f69fcad908df1c2e176dfde8256864294be2a080f534b1f195233c3a85459280"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/preflight.json",
+      "bytes": 2535,
+      "sha256": "f9cc040e7283198853e18a6f2cfe4e3b421ad2de4d993502507525d9d778c3b0"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/request.json",
+      "bytes": 6556,
+      "sha256": "6cb6ecc87602023ae303909eef21dab1b47eb2ffa9598652b6a62b0ae6e68e3c"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/restored-result.json",
+      "bytes": 849006,
+      "sha256": "f36dcf767717e5955a6b798a29478b47ecbd41b3a1ad4a368430443ce2401eb4"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/d446dfad25c8284ce1fb/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m80-ujs3lyj3/result.json",
+      "bytes": 984369,
+      "sha256": "b99c88126bfc9f08ea83bd9fd66a3b269a03a135f885cb9e4f977547db93bf60"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/job.json",
+      "bytes": 57962,
+      "sha256": "93dd9aa4d12377c043c2f2c630b16d24dc539f233071a52dd18b30b42f733ab3"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/operations.json",
+      "bytes": 63,
+      "sha256": "221886009bf5093782382568486d59cc7b7b601732c5404155ecebb4e57db8da"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/physical-checks.json",
+      "bytes": 77878,
+      "sha256": "da50ee3d4e5329a8e6039e08b21ec491c594fc996f73b9c842c8901c2b2bc114"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/preflight.json",
+      "bytes": 4525,
+      "sha256": "7da8bf5ca8007fff1063654e89d3a3eb1dc37ee23d4dc826ea0a1488cf1404ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/request.json",
+      "bytes": 6558,
+      "sha256": "e50722b50829b4f03aa2183b6edbc7555a5d505f5182228173cce5f086f7c1d9"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/restored-result.json",
+      "bytes": 1655787,
+      "sha256": "2f4dcec7370ad4aaada2430488520e210c2dea33c05d7093bd8fbb1f86bb31ef"
+    },
+    {
+      "path": "/home/userland/aswing/artifacts/isae/ae3-20261027/jobs/7441a2f1e2329ac8f52b/artifacts/openswing-isae-suite-ae3-AE-3-Straight_20O-fmat-006-coefficients-m160-ayjidj3g/result.json",
+      "bytes": 1920828,
+      "sha256": "9916a5b32a91cab805448c16bca8d285a6a0bfa40151a274501d9f6e6108e132"
+    }
+  ],
+  "matched_reference_breakdown": {
+    "printed_zero": {
+      "required_computed_slots": 48,
+      "matched_slots": 48,
+      "distinct_original_cells": 24,
+      "matched_distinct_cells": 24,
+      "channels": [
+        "CY",
+        "CL",
+        "Cm",
+        "Cn"
+      ]
+    },
+    "nonzero": {
+      "required_computed_slots": 24,
+      "matched_slots": 2,
+      "distinct_original_cells": 12,
+      "matched_distinct_cells": 1,
+      "matching_cell": {
+        "native_file": "Straight_20O.fmat_006",
+        "channel": "CX",
+        "expected_token": "-0.000005",
+        "meshes": [
+          80,
+          160
+        ]
+      }
+    },
+    "rolling_moment_Cl": {
+      "required_computed_slots": 12,
+      "matched_slots": 0,
+      "distinct_original_cells": 6,
+      "matched_distinct_cells": 0
+    },
+    "states_001_through_005": "4 of6 coefficients match on each mesh.",
+    "state_006": "5 of6 coefficients match on each mesh."
+  },
+  "secondary_independent_scalar_review": {
+    "reviewer": "/root/st2_suite_adapter",
+    "status": "PASS_NO_DEFECT",
+    "scope": "Separate read-only standard-library original catalog/plan/report check; no solves, imports, tests, plans or edits.",
+    "report_sha256": "e952f44b5a3fd770cd808537da2eb6ace29b5a5441885d4327b08a92e559c544",
+    "plan_sha256": "55d5634d7369ce6e28ad8ea5240c3ca5b7b4f50d3c3732af31cd1c6713cd0fbf",
+    "slot_breakdown": {
+      "base_coefficients": 72,
+      "stability_derivatives": 216,
+      "control_derivatives": 36,
+      "mass_inertia": 198,
+      "centroid": 54,
+      "normalized_rates": 36,
+      "original_aswing_locked_embedded": 43,
+      "modified_aswing_locked_embedded": 43,
+      "modified_aswing_roll_embedded": 27
+    },
+    "checks": [
+      "All725 observations/results equal original tokens, source positions and precision.",
+      "All72 finite pass booleans independently agree using both Decimal(str(prediction)) and Decimal.from_float(prediction).",
+      "All653 unavailable slots retain null prediction/error, false pass and explicit reason.",
+      "All50 plan/report jobs and execution/selection metadata agree.",
+      "All689 distinct targets retained; only36 base cells repeat across meshes; all other653 occur once.",
+      "All41 original family ledger entries remain visible."
+    ]
+  },
+  "batch_seconds": 66.68145262899998
+}

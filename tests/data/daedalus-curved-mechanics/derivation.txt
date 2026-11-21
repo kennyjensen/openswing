@@ -1,0 +1,49 @@
+Independent derivative of the implemented objective mixed beam element
+=====================================================================
+This checks the actual current loaded C16 discrete compatibility operator.
+It does not claim this discretization is historically identical to ASWING.
+
+Physical material endpoint frames are Ra=Qa R0a and Rb=Qb R0b.
+k=log(Ra^T Rb), Rbar=Ra exp(k/2), dr=rb+Qb offb-ra-Qa offa.
+The residual is [(Rbar^T dr-v0-ds (S l)_u)/L;
+                k-k0-ds (S l)_theta], l=[Rbar^T N; Rbar^T M].
+ds and material compliance are fixed original material quantities. The
+restored state contains full loaded N0,M0 and deformed endpoint frames.
+
+For spatial endpoint rotations theta_a,theta_b:
+ dk=Jl(k)^(-1) Ra^T(theta_b-theta_a)
+ theta_bar=theta_a + Ra Jl(k/2) dk/2
+ ddr=du_b-du_a+theta_b cross ob-theta_a cross oa
+ dl=[Rbar^T(dN-theta_bar cross N0);
+     Rbar^T(dM-theta_bar cross M0)]
+ dc=[(Rbar^T(ddr-theta_bar cross dr)-ds(S dl)_u)/L;
+     dk-ds(S dl)_theta].
+Jl and its inverse are evaluated by closed Rodrigues expressions/series;
+no production SO(3), interpolation, local_motion or tangent helper is used.
+The independent raw residual uses scipy.spatial.transform.Rotation and is
+tested by a fourth-order central stencil at fixed widths 2e-4 and 1e-4.
+
+Rigid objectivity requires du=t+phi cross r, theta_a=theta_b=phi,
+dN=phi cross N0, dM=phi cross M0. Holding resultants fixed while rotating
+the geometry is not an objectivity mode. We retain separate N0 and M0
+transport actions in all four saved harmonic direction parts.
+
+Production imports are limited to constructing and restoring the public
+tagged physical-breaks-v1 network, DynamicSystem coordinate conversion,
+and sampled input material/mesh properties. Section stiffness/axis couplings
+are guarded zero for this literal; independent diagonal reciprocal stiffness
+is compared with production S. Constructor compliance inversions and its
+Euler 3x3 coordinate solve are existing constructor work, not aircraft solves.
+No production geometry/tangent helper is used to compute expected values.
+
+References: .reference/asw_theory.txt equations16-20 (material constitutive
+law and continuum kinematics),48-54 (published grid equations; different
+parameterization, no historical parity claim). Native contract inspected at
+openswing/network.py constitutive_frame/geometry/residual compatibility,
+openswing/linear_dynamics.py DynamicSystem.unpack spatial-increment chart,
+openswing/structural_outputs.py loaded local-resultant derivative. These are
+source provenance, not expected numerical tangent calls.
+
+Excluded: nodal/global force balance, aero/gravity/inertia assembly, live
+brace/joint follower-load tangent, full moving-root curved-beam impedance,
+historical reference trim, and the full-aircraft near1Hz Bode discrepancy.

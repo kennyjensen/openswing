@@ -1,0 +1,49 @@
+# Original two-input mechanical ROM
+# Op.Point : 7
+# Mode: 3
+# Eigenvalue: -2.50000000000000000e+00 1.56124949959959949e+01 1/s
+# Eigenvector...
+# Real(x) Imag(x)
+1.00000000000000000e+00 0.00000000000000000e+00 q
+-2.50000000000000000e+00 1.56124949959959949e+01 v
+0.00000000000000000e+00 0.00000000000000000e+00 z
+# Control variable influence-matrix row 3
+# Real(w*B) Imag(w*B)
+-0.00000000000000000e+00 -1.60128153805087145e-02 1 / s = d(zdot 3) / d(Flap_01)
+0.00000000000000000e+00 4.80384461415261400e-03 1 / s = d(zdot 3) / d(Peng_02)
+# Output variable dependence-matrix column 3
+# Real(Cv+Qvl) Imag(Cv+Qvl)
+1.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(z 3)
+-2.50000000000000000e+00 1.56124949959959949e+01 m/s = d( v rate [1] ) / d(z 3)
+-2.37499999999999972e+02 -7.80624749799799815e+01 m/s^2 = d( a acceleration [1] ) / d(z 3)
+0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(z 3)
+# Mode: 8
+# Eigenvalue: -4.00000000000000000e+00 0.00000000000000000e+00 1/s
+# Eigenvector...
+# Real(x) Imag(x)
+0.00000000000000000e+00 0.00000000000000000e+00 q
+0.00000000000000000e+00 0.00000000000000000e+00 v
+1.00000000000000000e+00 0.00000000000000000e+00 z
+# Control variable influence-matrix row 8
+# Real(w*B) Imag(w*B)
+0.00000000000000000e+00 0.00000000000000000e+00 1 / s = d(zdot 8) / d(Flap_01)
+2.00000000000000000e+00 0.00000000000000000e+00 1 / s = d(zdot 8) / d(Peng_02)
+# Output variable dependence-matrix column 8
+# Real(Cv+Qvl) Imag(Cv+Qvl)
+0.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(z 8)
+0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(z 8)
+0.00000000000000000e+00 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(z 8)
+1.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(z 8)
+# Output-variable dependence-matrix D + QVW*B
+# Column for forcing variable: Flap_01
+# Real(D+QVW*B) Imag(D+QVW*B)
+0.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(Flap_01)
+0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(Flap_01)
+5.00000000000000000e-01 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(Flap_01)
+0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(Flap_01)
+# Column for forcing variable: Peng_02
+# Real(D+QVW*B) Imag(D+QVW*B)
+1.00000000000000006e-01 0.00000000000000000e+00 m = d( q pos [1] ) / d(Peng_02)
+0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(Peng_02)
+-1.49999999999999994e-01 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(Peng_02)
+0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(Peng_02)

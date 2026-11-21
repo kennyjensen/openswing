@@ -1,0 +1,150 @@
+{
+  "project": "examples/dae-cruise-physical-mesh-project.json",
+  "case_index": 0,
+  "dimensions": [
+    108,
+    103,
+    82,
+    30,
+    1384,
+    2044
+  ],
+  "layout": {
+    "network_size": 1384,
+    "nodes": 108,
+    "elements": 103,
+    "node_coordinates": {
+      "start": 0,
+      "width": 648,
+      "order": "interleaved body translation / L and spatial rotation in radians",
+      "translation_scale": 115.5794531913004
+    },
+    "internal_loads": {
+      "start": 648,
+      "width": 618,
+      "force_scale": 2739.1285950898914,
+      "moment_scale": 316586.98524114455
+    },
+    "reactions": {
+      "start": 1266,
+      "width": 30
+    },
+    "circulation": {
+      "start": 1296,
+      "width": 82,
+      "scale": 64.84580052493439,
+      "discretization": {
+        "lifting_panels": 82,
+        "independent_unknowns": 82,
+        "beams": [
+          {
+            "beam": 1,
+            "representation": "pointwise",
+            "panels": 28,
+            "unknowns": 28,
+            "panel_start": 0,
+            "coefficient_start": 0,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          },
+          {
+            "beam": 2,
+            "representation": "pointwise",
+            "panels": 18,
+            "unknowns": 18,
+            "panel_start": 28,
+            "coefficient_start": 28,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          },
+          {
+            "beam": 3,
+            "representation": "pointwise",
+            "panels": 18,
+            "unknowns": 18,
+            "panel_start": 46,
+            "coefficient_start": 46,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          },
+          {
+            "beam": 5,
+            "representation": "pointwise",
+            "panels": 18,
+            "unknowns": 18,
+            "panel_start": 64,
+            "coefficient_start": 64,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          }
+        ],
+        "convention": "Material arc coordinate s in [-L/2,L/2]; theta=acos(2*arc/L-1), decreasing pi to zero. Gamma=sum A_k sin(k theta). Weighted residual=(2/pi) sum R_i sin(k theta_i) delta_theta_i.",
+        "scope": "Fourier modes are per logical lifting beam; refine mode count and structural intervals independently. Local flow defects need not vanish in a truncated series."
+      }
+    },
+    "operating": {
+      "start": 1378,
+      "variables": [
+        "acceleration.x",
+        "acceleration.y",
+        "acceleration.z",
+        "angular_acceleration.x",
+        "angular_acceleration.y",
+        "angular_acceleration.z"
+      ],
+      "scales": [
+        32.18,
+        32.18,
+        32.18,
+        0.2784231895156792,
+        0.2784231895156792,
+        0.2784231895156792
+      ]
+    },
+    "local_velocity": {
+      "start": 1384,
+      "width": 324,
+      "scale": 60.98644770517502
+    },
+    "local_rates": {
+      "start": 1708,
+      "width": 324,
+      "scale": 0.527658212781417
+    },
+    "frame": {
+      "start": 2032,
+      "width": 12,
+      "order": "U_body, Omega_body, position_Earth, bank/elevation/heading",
+      "scales": [
+        60.98644770517502,
+        0.527658212781417,
+        115.5794531913004,
+        1.0
+      ]
+    },
+    "feedback": null
+  },
+  "scales": {
+    "L": 115.5794531913004,
+    "F": 2739.1285950898914,
+    "V": 60.98644770517502,
+    "W": 0.527658212781417,
+    "Gamma_scale": 64.84580052493439
+  },
+  "frequencies_Hz": [
+    1.0,
+    1.0,
+    1.15737773741517,
+    1.15737773741517
+  ],
+  "width": 0.0005,
+  "comparison_gate": {
+    "atol": 2e-07,
+    "rtol": 2e-07
+  },
+  "base_residual_gate": 1e-08
+}

@@ -1,0 +1,368 @@
+{
+  "adjacent_difference_ratio": 0.25000266545119765,
+  "adjacent_differences": [
+    {
+      "Cl_control_change": -2.7513989691728587e-09,
+      "Cl_p_change": -1.5081454617371648e-06,
+      "from_id": "saved-step-1e-5",
+      "from_step": 1e-05,
+      "to_id": "step-5e-6",
+      "to_step": 5e-06
+    },
+    {
+      "Cl_control_change": -6.878570760128922e-10,
+      "Cl_p_change": -3.770401032499038e-07,
+      "from_id": "step-5e-6",
+      "from_step": 5e-06,
+      "to_id": "step-2p5e-6",
+      "to_step": 2.5e-06
+    }
+  ],
+  "all_restored_bases_bytes_identical": true,
+  "case": "20O-05-n128",
+  "conclusion": "Both authorized smaller API steps satisfy both existing nonlinear centered-control comparison gates on the identical restored128 equilibrium. The original1e-5 failures are retained. This resolves the selected comparison at the tested smaller steps, not mesh or experimental validation.",
+  "coverage": {
+    "AE3": "pending",
+    "changed": false,
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "created_utc": "2026-10-24T05:50:29.046375+00:00",
+  "evidence": {
+    "artifact-pins.json": {
+      "bytes": 26349,
+      "sha256": "4c533446e0add960999ba697fd742d16340b1d7adadb6138c82cf8c7db71a9ac"
+    },
+    "closeout.json": {
+      "bytes": 12023,
+      "sha256": "35bdfc7a20d848feed97d0b57973526550968185f9a1205b231616ea1c172dc2"
+    },
+    "convention-review.json": {
+      "bytes": 26516,
+      "sha256": "2cc6664f5cd3336e3a88eb39ff55273de7ab5c7ce539fee154813dd10ad01df0"
+    },
+    "independent-postrun-review.json": {
+      "bytes": 20197,
+      "sha256": "ec10914af9aad57d1938f6993400c6626906ee59736de808c4990b4ad968015d"
+    },
+    "plan.json": {
+      "bytes": 96686,
+      "sha256": "acc93d3b095225c6e38882d1384ca093375bbcb98b6bf9e45142c0f208399186"
+    },
+    "report.json": {
+      "bytes": 37461,
+      "sha256": "003d22a663beeaaf5123f7d42f467bbbedd6132e31d47e71d25747a2b4077a94"
+    }
+  },
+  "gate": {
+    "absolute": 1e-09,
+    "formula": "abs(D_h - implicit_at_requested_step) <= 1e-9 + 1e-5*abs(implicit_at_requested_step)",
+    "relative": 1e-05
+  },
+  "immutable_snapshot_policy": "The170-artifact terminal snapshot was frozen before these standalone documentation files. No prior report,plan,closeout or snapshot manifest is rewritten.",
+  "independent_review": "PASS_SAVED_ONLY_INDEPENDENT_REVIEW",
+  "lifecycle": {
+    "children": [
+      {
+        "exit_code": 0,
+        "id": "step-5e-6",
+        "monotonic_seconds": 27.76847395300865,
+        "pid": 4577,
+        "reaped": true,
+        "status": "PASS_EXECUTION",
+        "wall_seconds": 27.76848077774048
+      },
+      {
+        "exit_code": 0,
+        "id": "step-2p5e-6",
+        "monotonic_seconds": 24.543654445005814,
+        "pid": 4843,
+        "reaped": true,
+        "status": "PASS_EXECUTION",
+        "wall_seconds": 24.54365301132202
+      }
+    ],
+    "exec_session": 98510,
+    "live_owned_handles": [],
+    "saved_only_reducer": {
+      "exec_session": 12190,
+      "exit_code": 0,
+      "reaped": true,
+      "terminal": true,
+      "terminal_tool_chunk_id": "9c53ec"
+    },
+    "supervisor_exit_code": 0,
+    "supervisor_pid": 4541,
+    "supervisor_reaped": true,
+    "supervisor_terminal": true
+  },
+  "limitations": [
+    "Diagnostic tangent/API-step trends only. Original nonlinear finite amplitudes/checks and all original failures remain unchanged; no fitted gate,modified measurement/model,experimental acceptance or global validation claim.",
+    "Unchanged API step varies centered state/input probes AND directional output stencil; actual parameter/output_step metadata retained. No pure-J-only sensitivity attribution.",
+    "Original128 contract narrative inherited D_implicit64 label; original executed reducer and saved report use128 base correctly. Preserve source contract unchanged; this plan explicitly uses128.",
+    "Two smaller steps on one fixed128 state; this is not a new equilibrium study,mesh convergence proof,branch uniqueness proof or experimental validation.",
+    "Only control scalar comparisons have the inherited finite-resolve acceptance gate. p and full array changes are descriptive.",
+    "Timing is incidental under uncontrolled concurrency; no repeats or broad performance conclusion.",
+    "The original1e-5 default has not been changed. A pass for this point at smaller steps does not establish a universal default or arbitrary-case error bound.",
+    "AE-3 mesh failures, finite-control experimental observable/condition conventions and the lack of an original ASWING executable comparison remain outside this diagnostic.",
+    "The source/cache implementation remains unchanged; lower error here results from the explicitly selected smaller API step, not a new solver or fitted acceptance tolerance.",
+    "Parent may add a separate saved support-moment/output analysis later; it is not part of the frozen diagnostic report or this document."
+  ],
+  "maximum_new_fresh_base_residual": 0.0,
+  "maximum_new_fresh_linear_residual": 5.484501741648273e-14,
+  "model_or_measurement_changes": false,
+  "new_derivative_calls": 2,
+  "new_equilibrium_solves": 0,
+  "new_step_gate_checks": 4,
+  "new_step_gate_failures": 0,
+  "numerical_source_modules": 106,
+  "production_default_step_changed": false,
+  "production_source_edits": 0,
+  "reported_prediction_replaced": false,
+  "retained_original_gate_failures": 2,
+  "richardson_extrapolation": null,
+  "saved_nonlinear_references": [
+    {
+      "centered_native_Cl_F1": -0.00021099868207671217,
+      "h": 0.05,
+      "minus_native_Cl": 1.0549934102679035e-05,
+      "original_pass_gate": false,
+      "plus_native_Cl": -1.0549934104992182e-05
+    },
+    {
+      "centered_native_Cl_F1": -0.0002109986928631703,
+      "h": 0.025,
+      "minus_native_Cl": 5.274967321290118e-06,
+      "original_pass_gate": false,
+      "plus_native_Cl": -5.274967321868398e-06
+    }
+  ],
+  "saved_reference_step_reruns": 0,
+  "scalar_convention": "Native stability Cl row3/control.1 column0, per unchanged literal file-flap setting. At alpha0: -distributed_aero_Mx/(q*S_literal*b_literal). No primary sign/area conversion and no radian conversion. p is normalized stability p*b/(2*V).",
+  "scope": "Unchanged API step varies centered state/input probes AND directional output stencil; actual parameter/output_step metadata retained. No pure-J-only sensitivity attribution.",
+  "status": "SELECTED_SMALLER_STEP_NUMERICAL_CONSISTENCY_DEMONSTRATED",
+  "steps": [
+    {
+      "Cl_control": -0.0002109950279207334,
+      "Cl_p": -0.94527837571799,
+      "all_nonlinear_checks_pass": false,
+      "failures": [],
+      "fresh_base_residual": 0.0,
+      "fresh_full_linear_residual": {
+        "maximum": 6.206146707654625e-14,
+        "pass_gate": true,
+        "values": [
+          1.491862189340054e-16,
+          6.206146707654625e-14
+        ]
+      },
+      "id": "saved-step-1e-5",
+      "new_run": false,
+      "nonlinear_comparisons": [
+        {
+          "absolute_difference": 3.6541559787816105e-09,
+          "acceptance_limit": 3.109950279207334e-09,
+          "centered_native_Cl_F1": -0.00021099868207671217,
+          "h": 0.05,
+          "implicit_native_Cl_F1": -0.0002109950279207334,
+          "pass_gate": false,
+          "relative_difference": 1.7318682884576807e-05,
+          "signed_implicit_minus_centered": 3.6541559787816105e-09,
+          "tolerance_fraction": 1.1749885531009145
+        },
+        {
+          "absolute_difference": 3.6649424369069542e-09,
+          "acceptance_limit": 3.109950279207334e-09,
+          "centered_native_Cl_F1": -0.0002109986928631703,
+          "h": 0.025,
+          "implicit_native_Cl_F1": -0.0002109950279207334,
+          "pass_gate": false,
+          "relative_difference": 1.7369804743853016e-05,
+          "signed_implicit_minus_centered": 3.6649424369069542e-09,
+          "tolerance_fraction": 1.1784569230608655
+        }
+      ],
+      "parameter_steps": [
+        {
+          "name": "control.1",
+          "output_step": 1e-05,
+          "scale": 1.0,
+          "step": 1e-05,
+          "unit": "file flap setting"
+        },
+        {
+          "name": "p",
+          "output_step": 2.5010289302070995e-06,
+          "scale": 1.0,
+          "step": 1e-05,
+          "unit": "p b/(2 V0)"
+        }
+      ],
+      "reciprocal_condition": 4.639498903917114e-06,
+      "residual_evaluations": 3414,
+      "restored_base_bytes_identical": true,
+      "status": "DIAGNOSTIC_STEP_COMPLETE",
+      "step": 1e-05,
+      "timing": {
+        "derivative_seconds": 19.130167046008864,
+        "derivative_wall_seconds": 19.1301691532135,
+        "output_phase_seconds": 0.19879750002291985,
+        "phase_seconds": {
+          "centered_J_and_scaling": 15.96141938699293,
+          "centered_input_columns": 0.02868322900030762,
+          "physical_RHS_solve_and_full_residual": 0.2212378389958758,
+          "rank_and_optional_sparse_factor": 2.426653048984008
+        }
+      }
+    },
+    {
+      "Cl_control": -0.00021099777931970256,
+      "Cl_p": -0.9452798838634517,
+      "all_nonlinear_checks_pass": true,
+      "failures": [],
+      "fresh_base_residual": 0.0,
+      "fresh_full_linear_residual": {
+        "maximum": 4.9924907957743514e-14,
+        "pass_gate": true,
+        "values": [
+          8.606622367712141e-17,
+          4.9924907957743514e-14
+        ]
+      },
+      "id": "step-5e-6",
+      "new_run": true,
+      "nonlinear_comparisons": [
+        {
+          "absolute_difference": 9.027570096087519e-10,
+          "acceptance_limit": 3.1099777931970257e-09,
+          "centered_native_Cl_F1": -0.00021099868207671217,
+          "h": 0.05,
+          "implicit_native_Cl_F1": -0.00021099777931970256,
+          "pass_gate": true,
+          "relative_difference": 4.278514269294275e-06,
+          "signed_implicit_minus_centered": 9.027570096087519e-10,
+          "tolerance_fraction": 0.2902776385038836
+        },
+        {
+          "absolute_difference": 9.135434677340955e-10,
+          "acceptance_limit": 3.1099777931970257e-09,
+          "centered_native_Cl_F1": -0.0002109986928631703,
+          "h": 0.025,
+          "implicit_native_Cl_F1": -0.00021099777931970256,
+          "pass_gate": true,
+          "relative_difference": 4.3296354619443645e-06,
+          "signed_implicit_minus_centered": 9.135434677340955e-10,
+          "tolerance_fraction": 0.29374597777914746
+        }
+      ],
+      "parameter_steps": [
+        {
+          "name": "control.1",
+          "output_step": 5e-06,
+          "scale": 1.0,
+          "step": 5e-06,
+          "unit": "file flap setting"
+        },
+        {
+          "name": "p",
+          "output_step": 1.250510667967159e-06,
+          "scale": 1.0,
+          "step": 5e-06,
+          "unit": "p b/(2 V0)"
+        }
+      ],
+      "reciprocal_condition": 4.639489211948916e-06,
+      "residual_evaluations": 3414,
+      "restored_base_bytes_identical": true,
+      "status": "DIAGNOSTIC_STEP_COMPLETE",
+      "step": 5e-06,
+      "timing": {
+        "derivative_seconds": 19.564284624997526,
+        "derivative_wall_seconds": 19.56428623199463,
+        "output_phase_seconds": 0.1776647660008166,
+        "phase_seconds": {
+          "centered_J_and_scaling": 16.749254230991937,
+          "centered_input_columns": 0.022985416988376528,
+          "physical_RHS_solve_and_full_residual": 0.21733354197931476,
+          "rank_and_optional_sparse_factor": 2.115247059002286
+        }
+      }
+    },
+    {
+      "Cl_control": -0.00021099846717677857,
+      "Cl_p": -0.945280260903555,
+      "all_nonlinear_checks_pass": true,
+      "failures": [],
+      "fresh_base_residual": 0.0,
+      "fresh_full_linear_residual": {
+        "maximum": 5.484501741648273e-14,
+        "pass_gate": true,
+        "values": [
+          8.326672684688674e-17,
+          5.484501741648273e-14
+        ]
+      },
+      "id": "step-2p5e-6",
+      "new_run": true,
+      "nonlinear_comparisons": [
+        {
+          "absolute_difference": 2.1489993359585964e-10,
+          "acceptance_limit": 3.109984671767786e-09,
+          "centered_native_Cl_F1": -0.00021099868207671217,
+          "h": 0.05,
+          "implicit_native_Cl_F1": -0.00021099846717677857,
+          "pass_gate": true,
+          "relative_difference": 1.018490496501154e-06,
+          "signed_implicit_minus_centered": 2.1489993359585964e-10,
+          "tolerance_fraction": 0.06909999767738587
+        },
+        {
+          "absolute_difference": 2.2568639172120333e-10,
+          "acceptance_limit": 3.109984671767786e-09,
+          "centered_native_Cl_F1": -0.0002109986928631703,
+          "h": 0.025,
+          "implicit_native_Cl_F1": -0.00021099846717677857,
+          "pass_gate": true,
+          "relative_difference": 1.0696115224956536e-06,
+          "signed_implicit_minus_centered": 2.2568639172120333e-10,
+          "tolerance_fraction": 0.07256832928148102
+        }
+      ],
+      "parameter_steps": [
+        {
+          "name": "control.1",
+          "output_step": 2.5e-06,
+          "scale": 1.0,
+          "step": 2.5e-06,
+          "unit": "file flap setting"
+        },
+        {
+          "name": "p",
+          "output_step": 6.25254859340363e-07,
+          "scale": 1.0,
+          "step": 2.5e-06,
+          "unit": "p b/(2 V0)"
+        }
+      ],
+      "reciprocal_condition": 4.639486788944644e-06,
+      "residual_evaluations": 3414,
+      "restored_base_bytes_identical": true,
+      "status": "DIAGNOSTIC_STEP_COMPLETE",
+      "step": 2.5e-06,
+      "timing": {
+        "derivative_seconds": 19.159253869001986,
+        "derivative_wall_seconds": 19.159255743026733,
+        "output_phase_seconds": 0.18683065101504326,
+        "phase_seconds": {
+          "centered_J_and_scaling": 16.069409672985785,
+          "centered_input_columns": 0.024998801993206143,
+          "physical_RHS_solve_and_full_residual": 0.21868606697535142,
+          "rank_and_optional_sparse_factor": 2.375051616982091
+        }
+      }
+    }
+  ],
+  "third_run": false,
+  "trend_interpretation": "Each halving of the full API step changes Cl_control by approximately one quarter of the preceding change. This is consistent with centered-stencil step sensitivity. The changed state/input/output stencils are coupled; it does not isolate a pure Jacobian or output-differencing cause."
+}

@@ -1,0 +1,2810 @@
+{
+  "status": "COMPLETED_KF_OPTION_DOES_NOT_RESOLVE_BODE_MISMATCH",
+  "aircraft_bode_match": false,
+  "report": {
+    "status": "PASS_FROZEN_JIG_LEVEL_FLIGHT_DIAGNOSTIC",
+    "passed": 47,
+    "total": 47,
+    "operations": {
+      "FrequencyAnalysis_constructions": 1,
+      "make_system_calls": 1,
+      "full_linearizations": 1,
+      "input_partials_calls": 1,
+      "harmonic_calls": 7,
+      "extra_base_residual_calls": 1,
+      "physical_output_stencil_calls": 0,
+      "initial_state_API_arguments": 1,
+      "input_residuals_captured": 5,
+      "retries": 0
+    },
+    "fresh_full_residual": 2.1695931586666315e-10,
+    "frequency_count": 7,
+    "resolved": 7,
+    "gaps": [],
+    "timing_and_nfev": {
+      "status": "STARTED",
+      "trim_seconds": 61.86190483899554,
+      "trim_boundary_source_nfev": 2309,
+      "linearization_seconds": 14.755284803017275,
+      "linearization_source_nfev": 223,
+      "construction_seconds": 77.0537738870189,
+      "fresh_base_nfev": 1,
+      "input_stencil_seconds": 0.18498083399026655,
+      "input_stencil_nfev": 5,
+      "harmonic_seconds": 0.8507410690071993,
+      "harmonic_nfev": 0
+    },
+    "source_owned_total_network_nfev": 2541,
+    "trim_comparison": [
+      {
+        "variable": "alpha",
+        "current_geometry": 3.039546933866092,
+        "frozen_jig": 3.1250126537437573,
+        "signed_change": 0.08546571987766516
+      },
+      {
+        "variable": "attitude.bank",
+        "current_geometry": 0.0066393329278260325,
+        "frozen_jig": 0.006548738270685697,
+        "signed_change": -9.059465714033547e-05
+      },
+      {
+        "variable": "power.1",
+        "current_geometry": 6.168696269114552,
+        "frozen_jig": 6.19886294311618,
+        "signed_change": 0.030166674001628202
+      },
+      {
+        "variable": "beta",
+        "current_geometry": 0.017411535491707545,
+        "frozen_jig": 0.015181697807879401,
+        "signed_change": -0.0022298376838281436
+      },
+      {
+        "variable": "control.2",
+        "current_geometry": -10.089958923921024,
+        "frozen_jig": -10.316308302618717,
+        "signed_change": -0.22634937869769267
+      },
+      {
+        "variable": "control.3",
+        "current_geometry": 0.10504381357313247,
+        "frozen_jig": 0.05714193798236117,
+        "signed_change": -0.0479018755907713
+      },
+      {
+        "variable": "attitude.elevation",
+        "current_geometry": 3.039548928276554,
+        "frozen_jig": 3.1250143660181746,
+        "signed_change": 0.08546543774162041
+      }
+    ],
+    "flight_path_deg": 3.360634244915983e-12,
+    "feasibility": {
+      "signed_type0_setting": 6.19886294311618,
+      "engine_output": [
+        {
+          "thrust": 6.19886294311618,
+          "torque": 0.0,
+          "delta_velocity": 1.2200334967390962,
+          "viscous_power": null,
+          "inviscid_power": null,
+          "requested_power": 6.19886294311618,
+          "power_clipped": false,
+          "minimum_power": null,
+          "index": 1,
+          "type": 0,
+          "beam": 4,
+          "t": -6.5,
+          "position": [
+            -6.511907705998806,
+            -0.0002486781692850453,
+            -0.04282469407683448
+          ],
+          "axes": [
+            [
+              0.999985177567651,
+              -3.3054703595957564e-05,
+              -0.005444589275614017
+            ],
+            [
+              3.3103893653630695e-05,
+              0.9999999994120636,
+              8.944549242887085e-06
+            ],
+            [
+              0.005444588976753522,
+              -9.124653767278663e-06,
+              0.9999851780739627
+            ]
+          ],
+          "force": [
+            -6.198771060889565,
+            -0.00020520649964235019,
+            -0.03375026084849625
+          ],
+          "moment": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axial_velocity": 21.87292719162075,
+          "radius": 5.5,
+          "jet_enabled": true
+        }
+      ],
+      "controls": {
+        "control.2": -10.316308302618717,
+        "control.3": 0.05714193798236117
+      },
+      "controls_finite": true,
+      "positive_required_thrust": true,
+      "negative_required_thrust": false,
+      "any_power_clipped": false,
+      "interpretation": "Type0 power.1 is a signed native thrust setting (dFdPe=1), not watts. Positive thrust is reported explicitly; it alone does not establish human-power or actuator feasibility. Any negative thrust remains a declared braking conditional point, with no clipping or retargeting. No control-travel or human-power limits are supplied by the literal model. All source jet-domain and clipping guards remain active."
+    },
+    "changed_option": {
+      "name": "freeze_influences",
+      "prior": false,
+      "trial": true
+    },
+    "frozen_configuration": {
+      "requested": true,
+      "network": true,
+      "operating": true,
+      "system": true,
+      "physical_override": true,
+      "original_seed_launch": false,
+      "cache_type": "FrozenInfluences",
+      "cache_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cache_model_identity": true,
+      "cache_material_identity": true,
+      "cache_configuration_key": [
+        0.1,
+        0.25,
+        0,
+        null,
+        null
+      ],
+      "no_extra_residual": true
+    },
+    "comparisons": [
+      {
+        "frequency_Hz": 0.1,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.0020612741272498596,
+          "imag": 0.0005124599108582844,
+          "magnitude_native": 0.0021240212305686946,
+          "magnitude_display": 0.12169745210776972,
+          "phase_deg": 13.961434096464092
+        },
+        "frozen_jig": {
+          "real": 0.002040207966432365,
+          "imag": 0.00046788725831870497,
+          "magnitude_native": 0.002093171524933177,
+          "magnitude_display": 0.11992989417563359,
+          "phase_deg": 12.916469543895998
+        },
+        "drawing_magnitude": 0.11823821391655272,
+        "frozen_jig_over_drawing": 1.0143073901663873,
+        "absolute_complex_change": 4.9300146916643265e-05,
+        "relative_complex_change": 0.02321075995245275,
+        "relative_magnitude_change": 0.0145241983420561
+      },
+      {
+        "frequency_Hz": 0.1,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": 0.0015797935838478669,
+          "imag": -0.00038541909973082594,
+          "magnitude_native": 0.0016261290385465132,
+          "magnitude_display": 0.09317033085238156,
+          "phase_deg": -13.710507043361988
+        },
+        "frozen_jig": {
+          "real": 0.001705371060408452,
+          "imag": -0.00044346151412806686,
+          "magnitude_native": 0.0017620864247225236,
+          "magnitude_display": 0.10096011527389724,
+          "phase_deg": -14.576262930791131
+        },
+        "drawing_magnitude": 0.09249758622135526,
+        "frozen_jig_over_drawing": 1.091489187969623,
+        "absolute_complex_change": 0.00013834241753123055,
+        "relative_complex_change": 0.08507468611155575,
+        "relative_magnitude_change": 0.08360799355599324
+      },
+      {
+        "frequency_Hz": 0.1,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": 0.008214427362927953,
+          "imag": -0.0046595052515753105,
+          "magnitude_native": 0.009443929589438783,
+          "magnitude_display": 0.5410973074935586,
+          "phase_deg": -29.56339574000686
+        },
+        "frozen_jig": {
+          "real": 0.008594444680259192,
+          "imag": -0.0046155039518743415,
+          "magnitude_native": 0.009755375753491159,
+          "magnitude_display": 0.5589418582392988,
+          "phase_deg": -28.237284336968244
+        },
+        "drawing_magnitude": 0.5257898663073604,
+        "frozen_jig_over_drawing": 1.0630517894244824,
+        "absolute_complex_change": 0.0003825562388028802,
+        "relative_complex_change": 0.04050816296117833,
+        "relative_magnitude_change": 0.032978450453576905
+      },
+      {
+        "frequency_Hz": 0.1,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 0.000570104947143211,
+          "imag": 0.002688520329193049,
+          "magnitude_native": 0.002748301513888435,
+          "magnitude_display": 0.15746607757522213,
+          "phase_deg": 78.0276861959727
+        },
+        "frozen_jig": {
+          "real": 0.0006651351883245397,
+          "imag": 0.0028914603412261933,
+          "magnitude_native": 0.0029669761919556108,
+          "magnitude_display": 0.1699952137148533,
+          "phase_deg": 77.04536649523129
+        },
+        "drawing_magnitude": 0.14654228016455387,
+        "frozen_jig_over_drawing": 1.160042095182113,
+        "absolute_complex_change": 0.0002240879185118964,
+        "relative_complex_change": 0.08153687555003583,
+        "relative_magnitude_change": 0.07956720795084223
+      },
+      {
+        "frequency_Hz": 1.0,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.0012390558538273057,
+          "imag": -0.00041892183467929573,
+          "magnitude_native": 0.0013079582992109422,
+          "magnitude_display": 0.07494049032389631,
+          "phase_deg": -18.680272827252143
+        },
+        "frozen_jig": {
+          "real": 0.0012660560300611146,
+          "imag": -0.00039994974314302577,
+          "magnitude_native": 0.0013277265035745434,
+          "magnitude_display": 0.07607312500248274,
+          "phase_deg": -17.531435400051524
+        },
+        "drawing_magnitude": 0.05874611013586934,
+        "frozen_jig_over_drawing": 1.2949474412269866,
+        "absolute_complex_change": 3.299923898997287e-05,
+        "relative_complex_change": 0.025229580338975998,
+        "relative_magnitude_change": 0.015113787936149698
+      },
+      {
+        "frequency_Hz": 1.0,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": -0.00011365429903445328,
+          "imag": -0.000573086639140952,
+          "magnitude_native": 0.0005842478888715685,
+          "magnitude_display": 0.03347493822176921,
+          "phase_deg": -101.21732452363557
+        },
+        "frozen_jig": {
+          "real": -0.00011651356579113347,
+          "imag": -0.0005793252669832693,
+          "magnitude_native": 0.0005909256941262589,
+          "magnitude_display": 0.03385754827927326,
+          "phase_deg": -101.37159076080158
+        },
+        "drawing_magnitude": 0.04991064654942679,
+        "frozen_jig_over_drawing": 0.6783632475236309,
+        "absolute_complex_change": 6.862644077962445e-06,
+        "relative_complex_change": 0.011746117031277826,
+        "relative_magnitude_change": 0.011429746485842097
+      },
+      {
+        "frequency_Hz": 1.0,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -0.000329998862897508,
+          "imag": -0.0005430779402254705,
+          "magnitude_native": 0.0006354784801023462,
+          "magnitude_display": 0.0364102348812527,
+          "phase_deg": -121.28476927856691
+        },
+        "frozen_jig": {
+          "real": -0.0003284532065108568,
+          "imag": -0.0005475064556235332,
+          "magnitude_native": 0.0006384706945637423,
+          "magnitude_display": 0.0365816761412887,
+          "phase_deg": -120.9598576847507
+        },
+        "drawing_magnitude": 0.030685134898640335,
+        "frozen_jig_over_drawing": 1.192162793552185,
+        "absolute_complex_change": 4.6905012841351935e-06,
+        "relative_complex_change": 0.007381054482568427,
+        "relative_magnitude_change": 0.004708600771050758
+      },
+      {
+        "frequency_Hz": 1.0,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 9.474993505318592e-05,
+          "imag": -7.617246226155142e-06,
+          "magnitude_native": 9.505562914763556e-05,
+          "magnitude_display": 0.005446286369120248,
+          "phase_deg": -4.596303437800787
+        },
+        "frozen_jig": {
+          "real": 9.567773564183007e-05,
+          "imag": -7.5426918357709846e-06,
+          "magnitude_native": 9.59745867283487e-05,
+          "magnitude_display": 0.005498938760046664,
+          "phase_deg": -4.507552875533136
+        },
+        "drawing_magnitude": 0.007934518588757003,
+        "frozen_jig_over_drawing": 0.6930399996590229,
+        "absolute_complex_change": 9.3079121687626e-07,
+        "relative_complex_change": 0.009792068341692868,
+        "relative_magnitude_change": 0.009667576649099417
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.0012460888922557198,
+          "imag": -0.00026710511508535624,
+          "magnitude_native": 0.00127439502114056,
+          "magnitude_display": 0.07301745614383942,
+          "phase_deg": -12.098540675554595
+        },
+        "frozen_jig": {
+          "real": 0.0012746026925533288,
+          "imag": -0.0002548157625744534,
+          "magnitude_native": 0.0012998242560902592,
+          "magnitude_display": 0.07447444398270374,
+          "phase_deg": -11.30540367679046
+        },
+        "drawing_magnitude": 0.039143031013880246,
+        "frozen_jig_over_drawing": 1.902623329202454,
+        "absolute_complex_change": 3.104939600940991e-05,
+        "relative_complex_change": 0.02436402802454554,
+        "relative_magnitude_change": 0.019953966021415033
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": -0.00020544986119234277,
+          "imag": -0.0004315612743033964,
+          "magnitude_native": 0.0004779694330627475,
+          "magnitude_display": 0.027385631250756142,
+          "phase_deg": -115.45733754466086
+        },
+        "frozen_jig": {
+          "real": -0.00020925021736290924,
+          "imag": -0.00043665248815321646,
+          "magnitude_native": 0.00048420145484789656,
+          "magnitude_display": 0.027742699796878767,
+          "phase_deg": -115.60441785168126
+        },
+        "drawing_magnitude": 0.0417701339461291,
+        "frozen_jig_over_drawing": 0.6641755047436165,
+        "absolute_complex_change": 6.35320120000635e-06,
+        "relative_complex_change": 0.013292065894875553,
+        "relative_magnitude_change": 0.01303853626206869
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -0.0003019133756482534,
+          "imag": -0.00047882951299535817,
+          "magnitude_native": 0.0005660648274806475,
+          "magnitude_display": 0.032433125545442164,
+          "phase_deg": -122.23240459293241
+        },
+        "frozen_jig": {
+          "real": -0.0003012303057220861,
+          "imag": -0.00048302796074250554,
+          "magnitude_native": 0.0005692589111682705,
+          "magnitude_display": 0.03261613306015454,
+          "phase_deg": -121.94886645800025
+        },
+        "drawing_magnitude": 0.026561171463866825,
+        "frozen_jig_over_drawing": 1.2279628970629077,
+        "absolute_complex_change": 4.253651138676167e-06,
+        "relative_complex_change": 0.007514424023848381,
+        "relative_magnitude_change": 0.005642611115477233
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 6.470028028505656e-05,
+          "imag": -2.0217023678637518e-05,
+          "magnitude_native": 6.778535472642647e-05,
+          "magnitude_display": 0.003883814738621404,
+          "phase_deg": -17.352561214788683
+        },
+        "frozen_jig": {
+          "real": 6.539988852661241e-05,
+          "imag": -2.027210793052811e-05,
+          "magnitude_native": 6.846972892629493e-05,
+          "magnitude_display": 0.00392302649188151,
+          "phase_deg": -17.22195151840038
+        },
+        "drawing_magnitude": 0.006065143627638054,
+        "frozen_jig_over_drawing": 0.6468151016250958,
+        "absolute_complex_change": 7.017734438258659e-07,
+        "relative_complex_change": 0.010352877058151263,
+        "relative_magnitude_change": 0.010096195596091706
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.0012697453959043792,
+          "imag": -0.00017699409076963785,
+          "magnitude_native": 0.0012820219493393003,
+          "magnitude_display": 0.07345444694027654,
+          "phase_deg": -7.935518411971628
+        },
+        "frozen_jig": {
+          "real": 0.0012982291358854202,
+          "imag": -0.00016861204238942927,
+          "magnitude_native": 0.0013091328848136615,
+          "magnitude_display": 0.07500778912160895,
+          "phase_deg": -7.400065825134288
+        },
+        "drawing_magnitude": 0.033986189632675384,
+        "frozen_jig_over_drawing": 2.2070079032776926,
+        "absolute_complex_change": 2.9691449583267425e-05,
+        "relative_complex_change": 0.023159860561333713,
+        "relative_magnitude_change": 0.02114701350342177
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": -0.00023966695298584096,
+          "imag": -0.0003306249364195979,
+          "magnitude_native": 0.0004083541317728773,
+          "magnitude_display": 0.023396968297314944,
+          "phase_deg": -125.9380081234545
+        },
+        "frozen_jig": {
+          "real": -0.0002438537955246582,
+          "imag": -0.00033475405500211624,
+          "magnitude_native": 0.00041415570855916217,
+          "magnitude_display": 0.023729374161690138,
+          "phase_deg": -126.07171290523006
+        },
+        "drawing_magnitude": 0.036852674648257276,
+        "frozen_jig_over_drawing": 0.6438982892877295,
+        "absolute_complex_change": 5.880414161719206e-06,
+        "relative_complex_change": 0.014400280795958339,
+        "relative_magnitude_change": 0.014207219506013554
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -0.00028743461651447753,
+          "imag": -0.0004477598521969283,
+          "magnitude_native": 0.0005320785130131076,
+          "magnitude_display": 0.03048585316524772,
+          "phase_deg": -122.69799740454064
+        },
+        "frozen_jig": {
+          "real": -0.000287209356362824,
+          "imag": -0.00045176890527232565,
+          "magnitude_native": 0.0005353357433922222,
+          "magnitude_display": 0.03067247871887278,
+          "phase_deg": -122.44591442321062
+        },
+        "drawing_magnitude": 0.025177661683563467,
+        "frozen_jig_over_drawing": 1.218241753518217,
+        "absolute_complex_change": 4.015376532440747e-06,
+        "relative_complex_change": 0.0075465865172830784,
+        "relative_magnitude_change": 0.0061217100473935256
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 4.675775715033076e-05,
+          "imag": -2.368580113856998e-05,
+          "magnitude_native": 5.2414740572716666e-05,
+          "magnitude_display": 0.0030031434190897844,
+          "phase_deg": -26.865136660902927
+        },
+        "frozen_jig": {
+          "real": 4.729904922146925e-05,
+          "imag": -2.3786493497749873e-05,
+          "magnitude_native": 5.2943340753804606e-05,
+          "magnitude_display": 0.0030334299785159747,
+          "phase_deg": -26.69763135521171
+        },
+        "drawing_magnitude": 0.005073831673180363,
+        "frozen_jig_over_drawing": 0.5978578269654282,
+        "absolute_complex_change": 5.50577930428206e-07,
+        "relative_complex_change": 0.010504257474371574,
+        "relative_magnitude_change": 0.010084952731085174
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.0009207441812199157,
+          "imag": -0.0014981743263128987,
+          "magnitude_native": 0.0017584925815235734,
+          "magnitude_display": 0.10075420322636561,
+          "phase_deg": -58.42605325517206
+        },
+        "frozen_jig": {
+          "real": 0.0009336874119512378,
+          "imag": -0.0014018676178371623,
+          "magnitude_native": 0.001684341117819262,
+          "magnitude_display": 0.09650563731139106,
+          "phase_deg": -56.33515100874987
+        },
+        "drawing_magnitude": 0.10894950570485253,
+        "frozen_jig_over_drawing": 0.8857831587857564,
+        "absolute_complex_change": 9.717257493343849e-05,
+        "relative_complex_change": 0.05525901897706462,
+        "relative_magnitude_change": 0.042167629527368244
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": 4.806060114703806e-05,
+          "imag": -1.1955093007188612e-05,
+          "magnitude_native": 4.952520198267954e-05,
+          "magnitude_display": 0.0028375850531404748,
+          "phase_deg": -13.968837606415745
+        },
+        "frozen_jig": {
+          "real": 7.104429283648907e-05,
+          "imag": 4.826960095187486e-06,
+          "magnitude_native": 7.12080830271209e-05,
+          "magnitude_display": 0.004079922624671179,
+          "phase_deg": 3.886871723155444
+        },
+        "drawing_magnitude": 0.006011748538580131,
+        "frozen_jig_over_drawing": 0.678658230378143,
+        "absolute_complex_change": 2.8458520516827836e-05,
+        "relative_complex_change": 0.5746270459791489,
+        "relative_magnitude_change": 0.43781509567642996
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -5.5862870828771155e-05,
+          "imag": -1.9267459174657078e-05,
+          "magnitude_native": 5.9092261086195106e-05,
+          "magnitude_display": 0.0033857371621241294,
+          "phase_deg": -160.97036053398114
+        },
+        "frozen_jig": {
+          "real": -5.7921816106977065e-05,
+          "imag": -2.2240449920142274e-05,
+          "magnitude_native": 6.204493850251464e-05,
+          "magnitude_display": 0.0035549131163428306,
+          "phase_deg": -158.994527368274
+        },
+        "drawing_magnitude": 0.002474007287705741,
+        "frozen_jig_over_drawing": 1.436904868473311,
+        "absolute_complex_change": 3.6163420235629026e-06,
+        "relative_complex_change": 0.06119823403419805,
+        "relative_magnitude_change": 0.049967243798855504
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 2.1889286184982194e-06,
+          "imag": 2.319186860322752e-06,
+          "magnitude_native": 3.1890494179260106e-06,
+          "magnitude_display": 0.00018271907230581224,
+          "phase_deg": 46.65505334187402
+        },
+        "frozen_jig": {
+          "real": 1.7153201080196169e-06,
+          "imag": 2.9188352882279654e-06,
+          "magnitude_native": 3.3855461173614606e-06,
+          "magnitude_display": 0.0001939775038717142,
+          "phase_deg": 59.55840451276765
+        },
+        "drawing_magnitude": 0.00014455567401899853,
+        "frozen_jig_over_drawing": 1.3418878586960226,
+        "absolute_complex_change": 7.641225414074332e-07,
+        "relative_complex_change": 0.239608247245155,
+        "relative_magnitude_change": 0.06161607227875481
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": 0.001226385255947445,
+          "imag": -0.009890272036071956,
+          "magnitude_native": 0.009966017346137434,
+          "magnitude_display": 0.5710107324878442,
+          "phase_deg": -82.93145324512665
+        },
+        "frozen_jig": {
+          "real": 0.0009806629031120038,
+          "imag": -0.009940650971616798,
+          "magnitude_native": 0.009988905919521219,
+          "magnitude_display": 0.5723221511418106,
+          "phase_deg": -84.36589957357175
+        },
+        "drawing_magnitude": 0.4863748455309722,
+        "frozen_jig_over_drawing": 1.1767100136870983,
+        "absolute_complex_change": 0.0002508336337687121,
+        "relative_complex_change": 0.02516889395801911,
+        "relative_magnitude_change": 0.0022966620053753296
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": 0.00044594142854760104,
+          "imag": -0.0013574936904883247,
+          "magnitude_native": 0.0014288641913809328,
+          "magnitude_display": 0.08186788766350059,
+          "phase_deg": -71.81446715456778
+        },
+        "frozen_jig": {
+          "real": 0.000406337129837054,
+          "imag": -0.001374723138224198,
+          "magnitude_native": 0.0014335179000811962,
+          "magnitude_display": 0.08213452553110899,
+          "phase_deg": -73.53350999547683
+        },
+        "drawing_magnitude": 0.06588665080689478,
+        "frozen_jig_over_drawing": 1.2466034397746917,
+        "absolute_complex_change": 4.318974815436445e-05,
+        "relative_complex_change": 0.030226629245025387,
+        "relative_magnitude_change": 0.003256928634880187
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -0.00025126706808113964,
+          "imag": 0.00021500650093024665,
+          "magnitude_native": 0.00033070067273043187,
+          "magnitude_display": 0.01894775282959082,
+          "phase_deg": 139.4467552254052
+        },
+        "frozen_jig": {
+          "real": -0.0002448743453202225,
+          "imag": 0.00022249280309996738,
+          "magnitude_native": 0.00033085720851643604,
+          "magnitude_display": 0.018956721669471623,
+          "phase_deg": 137.74171808642538
+        },
+        "drawing_magnitude": 0.015591693103122384,
+        "frozen_jig_over_drawing": 1.2158218831074452,
+        "absolute_complex_change": 9.844370191856522e-06,
+        "relative_complex_change": 0.029768219431114025,
+        "relative_magnitude_change": 0.0004733458348050442
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 3.365358810447795e-05,
+          "imag": 9.135490083517127e-06,
+          "magnitude_native": 3.487149511236792e-05,
+          "magnitude_display": 0.0019979894952497604,
+          "phase_deg": 15.187335320305802
+        },
+        "frozen_jig": {
+          "real": 3.427521983365259e-05,
+          "imag": 8.220532503068974e-06,
+          "magnitude_native": 3.5247238888730354e-05,
+          "magnitude_display": 0.002019518027813635,
+          "phase_deg": 13.48700766454886
+        },
+        "drawing_magnitude": 0.001175657681556838,
+        "frozen_jig_over_drawing": 1.7177772573555037,
+        "absolute_complex_change": 1.1061525124214074e-06,
+        "relative_complex_change": 0.03172082266209133,
+        "relative_magnitude_change": 0.010775097974768789
+      },
+      {
+        "frequency_Hz": 10.0,
+        "channel": "yaw_rate",
+        "current_geometry": {
+          "real": -0.0007940146913686895,
+          "imag": -0.003557597756248706,
+          "magnitude_native": 0.0036451284099980816,
+          "magnitude_display": 0.20885047367612244,
+          "phase_deg": -102.58155188643278
+        },
+        "frozen_jig": {
+          "real": -0.0008381716756835944,
+          "imag": -0.003525683768517169,
+          "magnitude_native": 0.0036239450593936536,
+          "magnitude_display": 0.2076367570905428,
+          "phase_deg": -103.37285944579259
+        },
+        "drawing_magnitude": 0.17186802869914472,
+        "frozen_jig_over_drawing": 1.2081174064899023,
+        "absolute_complex_change": 5.448249146942023e-05,
+        "relative_complex_change": 0.014946659031265488,
+        "relative_magnitude_change": 0.0058114140907423225
+      },
+      {
+        "frequency_Hz": 10.0,
+        "channel": "roll_rate",
+        "current_geometry": {
+          "real": 9.894698306013889e-05,
+          "imag": -0.0004670826348447752,
+          "magnitude_native": 0.0004774481052745324,
+          "magnitude_display": 0.027355761368748528,
+          "phase_deg": -78.03926373219879
+        },
+        "frozen_jig": {
+          "real": 8.666647564651699e-05,
+          "imag": -0.00046579779129953653,
+          "magnitude_native": 0.00047379179011514637,
+          "magnitude_display": 0.027146269941546005,
+          "phase_deg": -79.46005282372258
+        },
+        "drawing_magnitude": 0.021600412474530345,
+        "frozen_jig_over_drawing": 1.2567477576437458,
+        "absolute_complex_change": 1.2347537619775203e-05,
+        "relative_complex_change": 0.025861528160584856,
+        "relative_magnitude_change": 0.007658036798122112
+      },
+      {
+        "frequency_Hz": 10.0,
+        "channel": "sideslip",
+        "current_geometry": {
+          "real": -9.264187297891515e-05,
+          "imag": 7.781109230982193e-05,
+          "magnitude_native": 0.00012098381179103705,
+          "magnitude_display": 0.006931861805031508,
+          "phase_deg": 139.97267109148274
+        },
+        "frozen_jig": {
+          "real": -8.95675760175249e-05,
+          "imag": 7.871592894165561e-05,
+          "magnitude_native": 0.00011924155375875843,
+          "magnitude_display": 0.006832037772959176,
+          "phase_deg": 138.68957090929652
+        },
+        "drawing_magnitude": 0.0060850548608917705,
+        "frozen_jig_over_drawing": 1.1227569724750082,
+        "absolute_complex_change": 3.2046889298528495e-06,
+        "relative_complex_change": 0.02648857630133179,
+        "relative_magnitude_change": 0.014400753344487476
+      },
+      {
+        "frequency_Hz": 10.0,
+        "channel": "bank",
+        "current_geometry": {
+          "real": 1.0440389203046214e-05,
+          "imag": 9.037574008141366e-07,
+          "magnitude_native": 1.0479432434564874e-05,
+          "magnitude_display": 0.0006004272501930725,
+          "phase_deg": 4.947394672952203
+        },
+        "frozen_jig": {
+          "real": 1.0476911830807013e-05,
+          "imag": 6.510320615467129e-07,
+          "magnitude_native": 1.0497119807626552e-05,
+          "magnitude_display": 0.0006014406620201801,
+          "phase_deg": 3.555770044857055
+        },
+        "drawing_magnitude": 0.00034421753728236775,
+        "frozen_jig_over_drawing": 1.7472690867775502,
+        "absolute_complex_change": 2.5535073809642353e-07,
+        "relative_complex_change": 0.02436684807988136,
+        "relative_magnitude_change": 0.0016878178443461179
+      }
+    ],
+    "plan_pin": {
+      "bytes": 41663,
+      "sha256": "2464ffd4e556f97f6bf794800d4bb2aa71696139fd021525da7ee24b683d4037"
+    },
+    "limitations": [
+      "Prospective existing K/F model-option sensitivity. The manual illustrates this option, but no available evidence establishes that the original rudder-Bode drawing used it.",
+      "K/F freezes vortex and volume velocity coefficients on undeformed material geometry at zero influence wind angles. Current physical frames, motion, circulation, force transfer and existing apparent/lag laws remain active. This is distinct from a Newton lagging approximation.",
+      "Only freeze_influences changes from the complete solved C16 condition used as the initial guess. Literal Dae16,6.7m/s,PGMach.1,Earth gravity,stall,lag,body-factor,jet and all numerical accuracy settings remain unchanged.",
+      "All original seven level-flight trim rows are retained, including flight_path=0. Fresh trim changes are consequences of the declared model option, not imposed elevation or output changes.",
+      "The exact C16 physical packet, including its original false launch flag, is an immutable initial guess only. Restore decodes physical fields and does not replace the new condition. A fresh trim and fresh full A/M/F3 are required.",
+      "Source snapshot differs from original C16 only in documented equilibrium progress reporting. Current ROOT/public and reviewed zero-elevation snapshots are byte-identical to this source.",
+      "Type0 power.1 is signed native thrust setting, not watts. Positive/negative thrust and clipping are reported explicitly without clipping, retargeting or adding feasibility gates; positive thrust alone does not establish human-power or actuator feasibility.",
+      "Original trim/rank,geometry,clipping,jet-domain and harmonic gates remain active. A failure is retained with no retry, changed tolerance, alternate target or adaptive frequencies.",
+      "Seven fixed frequencies only: no 203-frequency sweep, mesh refinement, stability proof or continuum/reference validation.",
+      "Four outputs use this case actual V/W,alpha,beta and Euler bank, native F3 units, and one display conversion. No physical output stencils.",
+      "Previous C16 and primary-graphic magnitudes are descriptive comparisons, not fitted objectives. Single-run timing is not a controlled performance result."
+    ]
+  },
+  "plan": {
+    "status": "FROZEN_PREPARATION_AWAITING_ROOT_REVIEW_NO_LAUNCH",
+    "python": "/home/userland/aswing/.venv/bin/python",
+    "wall_cap_seconds": 300,
+    "thread_variables": [
+      "OPENBLAS_NUM_THREADS",
+      "OMP_NUM_THREADS",
+      "MKL_NUM_THREADS",
+      "NUMEXPR_NUM_THREADS"
+    ],
+    "retries": 0,
+    "source_modules": [
+      "__init__.py",
+      "aero.py",
+      "applied_load_outputs.py",
+      "asw.py",
+      "asw_edit.py",
+      "atmosphere.py",
+      "beam_matching.py",
+      "body_shoulders.py",
+      "bridge.py",
+      "circulation.py",
+      "circulation_polish.py",
+      "circulation_solve.py",
+      "circulation_tangent.py",
+      "control_allocation.py",
+      "control_expressions.py",
+      "control_tables.py",
+      "custom_constraints.py",
+      "damping.py",
+      "derivative_cache.py",
+      "derivative_circulation.py",
+      "derivatives.py",
+      "descriptor_mass.py",
+      "discretization.py",
+      "distribution_curve.py",
+      "dynamic_inertia.py",
+      "equilibrium_state.py",
+      "equilibrium_tangent.py",
+      "factored_influence.py",
+      "feedback.py",
+      "field_products.py",
+      "flow_survey.py",
+      "forcing.py",
+      "frequency_response.py",
+      "frequency_sweep.py",
+      "frozen_influence.py",
+      "geometry.py",
+      "geometry_field_partials.py",
+      "geometry_partials.py",
+      "geometry_stencil.py",
+      "geometry_tangent.py",
+      "ground.py",
+      "gust.py",
+      "gust_file.py",
+      "gust_tangent.py",
+      "harmonic_structure.py",
+      "hinge_history.py",
+      "inertia.py",
+      "initial_diagnostics.py",
+      "initial_response.py",
+      "joints.py",
+      "kinematics.py",
+      "legacy_hinge_state.py",
+      "linear_dynamics.py",
+      "local_geometry_matrix.py",
+      "local_motion.py",
+      "local_rate_tangent.py",
+      "mechanical_tangent.py",
+      "network.py",
+      "newton_structure.py",
+      "nonlinear_initial.py",
+      "operating.py",
+      "output_derivatives.py",
+      "output_fields.py",
+      "position_history_checkpoint.py",
+      "position_history_lift.py",
+      "position_history_radau.py",
+      "power_tangent.py",
+      "propulsion.py",
+      "quiescent.py",
+      "radau_tangent.py",
+      "radau_time.py",
+      "recovery.py",
+      "reduced_model.py",
+      "reference_flow.py",
+      "rigid_initial_rank.py",
+      "rom_file.py",
+      "rom_initial.py",
+      "rom_outputs.py",
+      "root_diagnostics.py",
+      "seeded_corrector.py",
+      "sensors.py",
+      "sparse_rank.py",
+      "stability.py",
+      "steady_feedback.py",
+      "structural_geometry.py",
+      "structural_outputs.py",
+      "structure.py",
+      "structured_static.py",
+      "structured_time.py",
+      "struts.py",
+      "support_outputs.py",
+      "tangent_influences.py",
+      "time_acceptance.py",
+      "time_acceptance_validation.py",
+      "time_accuracy.py",
+      "time_cold_initial.py",
+      "time_history.py",
+      "time_initialization.py",
+      "time_input_transition.py",
+      "time_integration.py",
+      "time_saved_history.py",
+      "time_state.py",
+      "time_transition_initial.py",
+      "trefftz.py",
+      "vector_ops.py",
+      "volume.py",
+      "volume_tangent.py",
+      "vortex_tangent.py"
+    ],
+    "source_transition": {
+      "baseline": "C16 frozen source",
+      "changed_modules": [
+        "equilibrium_state.py"
+      ],
+      "unchanged_modules": 107,
+      "changes": {
+        "equilibrium_state.py": {
+          "prior": {
+            "bytes": 17862,
+            "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+          },
+          "current": {
+            "bytes": 18913,
+            "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+          }
+        }
+      },
+      "exact_source_match": "Reviewed zero-elevation source, current ROOT and public/kernel, all108 modules.",
+      "interpretation": "Only published equilibrium progress instrumentation differs from C16. The K/F setting is an existing model option, not a source/accuracy change.",
+      "published_evidence": "/home/userland/aswing/docs/validation/equilibrium-progress.json"
+    },
+    "speed_m_s": 6.7,
+    "speed_ft_s": 21.981627296587927,
+    "changed_option": {
+      "name": "freeze_influences",
+      "prior": false,
+      "trial": true
+    },
+    "operating_constraints": [
+      {
+        "variable": "alpha",
+        "quantity": "force.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.bank",
+        "quantity": "force.y",
+        "target": 0.0
+      },
+      {
+        "variable": "power.1",
+        "quantity": "force.x",
+        "target": 0.0
+      },
+      {
+        "variable": "beta",
+        "quantity": "moment.x",
+        "target": 0.0
+      },
+      {
+        "variable": "control.2",
+        "quantity": "moment.y",
+        "target": 0.0
+      },
+      {
+        "variable": "control.3",
+        "quantity": "moment.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.elevation",
+        "quantity": "flight_path",
+        "target": 0.0
+      }
+    ],
+    "trim_variables": [
+      "alpha",
+      "attitude.bank",
+      "power.1",
+      "beta",
+      "control.2",
+      "control.3",
+      "attitude.elevation"
+    ],
+    "fixed_condition_keys": [
+      "speed",
+      "density",
+      "mach",
+      "rates",
+      "acceleration",
+      "angular_acceleration",
+      "body_added_mass_factor",
+      "position_earth",
+      "ground_effect",
+      "ground_normal",
+      "stall",
+      "stall_factor",
+      "stall_width",
+      "altitude_m",
+      "gravity_magnitude",
+      "load_factor",
+      "gust",
+      "sensor_flow",
+      "time",
+      "circulation_modes",
+      "aero_lag",
+      "wake_core_ratio",
+      "freeze_influences"
+    ],
+    "expected_mesh": {
+      "nodes": 117,
+      "elements": 112,
+      "circulation_unknowns": 91,
+      "constraint_unknowns": 30,
+      "network_dynamic_unknowns": 1501,
+      "full_dynamic_unknowns": 2215
+    },
+    "frequencies_Hz": [
+      0.1,
+      1.0,
+      1.09647819614319,
+      1.15737773741517,
+      6.65332925161684,
+      8.90352386262554,
+      10.0
+    ],
+    "operations": {
+      "FrequencyAnalysis_constructions": 1,
+      "make_system_calls": 1,
+      "full_linearizations": 1,
+      "input_partials_calls": 1,
+      "harmonic_calls": 7,
+      "extra_base_residual_calls": 1,
+      "physical_output_stencil_calls": 0,
+      "initial_state_API_arguments": 1,
+      "input_residuals_captured": 5,
+      "retries": 0
+    },
+    "channels": [
+      "yaw_rate",
+      "roll_rate",
+      "sideslip",
+      "bank"
+    ],
+    "prior16_request": "/tmp/openswing-daedalus-cruise16-20261024/request.json",
+    "prior16_base": "/tmp/openswing-daedalus-cruise16-20261024/results/base.json",
+    "prior_four_outputs": "/tmp/openswing-daedalus-four-outputs-20261025/results/recovered.npz",
+    "reference_curves": {
+      "yaw_rate": {
+        "path": "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/yaw-reference.csv",
+        "magnitude_column": "yaw_magnitude_deg_s_per_file_F3"
+      },
+      "roll_rate": {
+        "path": "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/roll_rate-reference.csv",
+        "magnitude_column": "magnitude_deg_s_per_native_F3"
+      },
+      "sideslip": {
+        "path": "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/sideslip-reference.csv",
+        "magnitude_column": "magnitude_deg_per_native_F3"
+      },
+      "bank": {
+        "path": "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/bank-reference.csv",
+        "magnitude_column": "magnitude_deg_per_native_F3"
+      }
+    },
+    "gates": {
+      "requested_equilibrium_tolerance": 1e-09,
+      "fresh_full_residual": 1e-08,
+      "source_owned_base_rank": "unchanged",
+      "kinematically_steady": true,
+      "flight_path_deg": 1e-07,
+      "all7_normalized_constraints": 1e-08,
+      "zero_rates_accelerations": true,
+      "harmonic_scaled_residual": 1e-07,
+      "harmonic_backward_error": 1e-09,
+      "harmonic_rcond": 1e-12,
+      "bank_identity": "1e-11+1e-7*(sum absolute kinematic terms including lhs)"
+    },
+    "output_equations": {
+      "yaw": "W*z[frame_start+5] rad/s",
+      "roll": "W*z[frame_start+3] rad/s",
+      "bank": "z[frame_start+9] rad, ASW Euler bank perturbation",
+      "velocity": "Uhat=V*z[frame_start:frame_start+3]; V is recorded coordinate scale, not airspeed",
+      "beta_general": "v=-U-Omega cross r_velocity; beta=-asin(v_y/|v|). Differentiate at saved base. Literal r_velocity=0.",
+      "beta_specialized": "betahat=[cos(alpha0)sin(beta0)*Uhat_x+cos(beta0)*Uhat_y+sin(alpha0)sin(beta0)*Uhat_z]/speed0",
+      "bank_identity": "i*2*pi*f*bank=-Omega_x+sin(phi0)*tan(theta0)*Omega_y-cos(phi0)*tan(theta0)*Omega_z; saved base rates zero"
+    },
+    "constructor_accounting": "Unchanged FrequencyAnalysis owns trim/rank acceptance, retained tangent/output fields, base_report, applied-load caches and optional ReusableBeamStructure preparation. Those operations are included and reported. Each harmonic calls the original full sparse solver with _structure omitted.",
+    "harmonic_path": "Original full sparse harmonic_solve(A,M,B,omega); _structure omitted; native control.3 RHS frequency independent.",
+    "scale_policy": "Fresh L/F/Gamma/V/W/operating scales; V=max(sqrt(gL),speed),W=V/L. Source input_partials uses 1e-5*channel.scale; derivative per one native F3.",
+    "checkpoint": "Raw trim packet/base/layout after make_system; raw A/M at linearize return; fresh residual and five original input residuals; each raw harmonic state before gates.",
+    "limits": [
+      "Prospective existing K/F model-option sensitivity. The manual illustrates this option, but no available evidence establishes that the original rudder-Bode drawing used it.",
+      "K/F freezes vortex and volume velocity coefficients on undeformed material geometry at zero influence wind angles. Current physical frames, motion, circulation, force transfer and existing apparent/lag laws remain active. This is distinct from a Newton lagging approximation.",
+      "Only freeze_influences changes from the complete solved C16 condition used as the initial guess. Literal Dae16,6.7m/s,PGMach.1,Earth gravity,stall,lag,body-factor,jet and all numerical accuracy settings remain unchanged.",
+      "All original seven level-flight trim rows are retained, including flight_path=0. Fresh trim changes are consequences of the declared model option, not imposed elevation or output changes.",
+      "The exact C16 physical packet, including its original false launch flag, is an immutable initial guess only. Restore decodes physical fields and does not replace the new condition. A fresh trim and fresh full A/M/F3 are required.",
+      "Source snapshot differs from original C16 only in documented equilibrium progress reporting. Current ROOT/public and reviewed zero-elevation snapshots are byte-identical to this source.",
+      "Type0 power.1 is signed native thrust setting, not watts. Positive/negative thrust and clipping are reported explicitly without clipping, retargeting or adding feasibility gates; positive thrust alone does not establish human-power or actuator feasibility.",
+      "Original trim/rank,geometry,clipping,jet-domain and harmonic gates remain active. A failure is retained with no retry, changed tolerance, alternate target or adaptive frequencies.",
+      "Seven fixed frequencies only: no 203-frequency sweep, mesh refinement, stability proof or continuum/reference validation.",
+      "Four outputs use this case actual V/W,alpha,beta and Euler bank, native F3 units, and one display conversion. No physical output stencils.",
+      "Previous C16 and primary-graphic magnitudes are descriptive comparisons, not fitted objectives. Single-run timing is not a controlled performance result."
+    ],
+    "limitations": [
+      "Prospective existing K/F model-option sensitivity. The manual illustrates this option, but no available evidence establishes that the original rudder-Bode drawing used it.",
+      "K/F freezes vortex and volume velocity coefficients on undeformed material geometry at zero influence wind angles. Current physical frames, motion, circulation, force transfer and existing apparent/lag laws remain active. This is distinct from a Newton lagging approximation.",
+      "Only freeze_influences changes from the complete solved C16 condition used as the initial guess. Literal Dae16,6.7m/s,PGMach.1,Earth gravity,stall,lag,body-factor,jet and all numerical accuracy settings remain unchanged.",
+      "All original seven level-flight trim rows are retained, including flight_path=0. Fresh trim changes are consequences of the declared model option, not imposed elevation or output changes.",
+      "The exact C16 physical packet, including its original false launch flag, is an immutable initial guess only. Restore decodes physical fields and does not replace the new condition. A fresh trim and fresh full A/M/F3 are required.",
+      "Source snapshot differs from original C16 only in documented equilibrium progress reporting. Current ROOT/public and reviewed zero-elevation snapshots are byte-identical to this source.",
+      "Type0 power.1 is signed native thrust setting, not watts. Positive/negative thrust and clipping are reported explicitly without clipping, retargeting or adding feasibility gates; positive thrust alone does not establish human-power or actuator feasibility.",
+      "Original trim/rank,geometry,clipping,jet-domain and harmonic gates remain active. A failure is retained with no retry, changed tolerance, alternate target or adaptive frequencies.",
+      "Seven fixed frequencies only: no 203-frequency sweep, mesh refinement, stability proof or continuum/reference validation.",
+      "Four outputs use this case actual V/W,alpha,beta and Euler bank, native F3 units, and one display conversion. No physical output stencils.",
+      "Previous C16 and primary-graphic magnitudes are descriptive comparisons, not fitted objectives. Single-run timing is not a controlled performance result."
+    ],
+    "pins": {
+      "/tmp/openswing-daedalus-frozen-jig-20261025/prepare.py": {
+        "bytes": 11174,
+        "sha256": "dc358afa430bb9836d69851a1bdeb85aac586326334afbd571d5480b2aaa0a78"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/run.py": {
+        "bytes": 22313,
+        "sha256": "a87fa6d4f32587cb9a434c44d9779ca0229185ab2e9fd514fc929fb4f6fc90b8"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/supervise.py": {
+        "bytes": 2777,
+        "sha256": "0b48badd9f5c17b1877f2f903a70e04051c9d6cb16cebdd4025325ecb152ab60"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/request.json": {
+        "bytes": 12243,
+        "sha256": "e01d2221bbada7367dd299d8c4a4813f3f3072b191f0ea6564f9ab4061b9ac8f"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/seed.json": {
+        "bytes": 68616,
+        "sha256": "02cf0c4d88c34bba8cbdf1175ee1d552d99986d869d28e102c840d84fc16796e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/dae.asw": {
+        "bytes": 9555,
+        "sha256": "bb020c3bbcf049bef9f381c0242d9c4a5feaa0e60edbd2d363852885f7929386"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/proposal.json": {
+        "bytes": 4770,
+        "sha256": "968f70eeeb54c88523d73741b4ac6fc926ce07344681e462af53eeeab540f552"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source-transition.json": {
+        "bytes": 814,
+        "sha256": "8479cca9c93f4e1e2a39592474fa1a4a341ec61fe967c6f19a442ce1ddfad6ce"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/prior-coverage.json": {
+        "bytes": 7230,
+        "sha256": "e4d9b011941259b766060e2fdcc2ecce4c575f965a2fd10be89633d253999046"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivative_cache.py": {
+        "bytes": 5250,
+        "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivatives.py": {
+        "bytes": 24933,
+        "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/equilibrium_state.py": {
+        "bytes": 18913,
+        "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_tangent.py": {
+        "bytes": 38257,
+        "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_rate_tangent.py": {
+        "bytes": 7672,
+        "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/sparse_rank.py": {
+        "bytes": 9144,
+        "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/plan.json": {
+        "bytes": 39651,
+        "sha256": "4cedb7b06e4d3b9fe6e2c57804c5489e80cad619ce1d56d3dc2f5e334497fdcc"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/report.json": {
+        "bytes": 9078,
+        "sha256": "5a683dad5169f59d2573cf65ac86c2dfbc8087955d8d2676cf03d5d096c03f1b"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/session-closeout.json": {
+        "bytes": 1547,
+        "sha256": "2bbcc5df751c8e0ec815a619e45fd2092de39baced87b68323c1bea45872eeed"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/request.json": {
+        "bytes": 16731,
+        "sha256": "2a371d1cff52f07e9af8a90c21907265c20e3514722af411916de44e043a8cd4"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/results/base.json": {
+        "bytes": 824755,
+        "sha256": "dd4c9eac4f8aeae2a8441c356a17996c7a4129a87e29888e7545a38f7744f6c3"
+      },
+      "/tmp/openswing-daedalus-cruise16-20261024/source/openswing/equilibrium_state.py": {
+        "bytes": 17862,
+        "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/plan.json": {
+        "bytes": 14447,
+        "sha256": "4397e43d6795c33bd044984ee26709c0cf32ddbbebf9ca69a9641bf5ae3aea9e"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/run.py": {
+        "bytes": 22960,
+        "sha256": "af90c53ca99455dc1cb8f10953babb46a3dae237f14dcea58f0006dcf89db3ac"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/summary.json": {
+        "bytes": 10511,
+        "sha256": "77ad49376c05e7006ebf890ce70c86a1a014e0227628670f5eba3f11e6f58abf"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/session-closeout.json": {
+        "bytes": 1628,
+        "sha256": "110a65a974a4b7e9870a557f4ae147781687fd074558bf0050755653afe32544"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/report.json": {
+        "bytes": 14986,
+        "sha256": "f6b6e8e120f9d64925e5b2a471b0adc479cba1c79640feaffc43eb0d1a954ea9"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/recovered.npz": {
+        "bytes": 52499,
+        "sha256": "7dc890d5f56de046083c6c8a9ca346b9a219a0761001e8d306f66e075eccbcf4"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/recovery.json": {
+        "bytes": 4249,
+        "sha256": "6a83d27090d1e33aaa091b050a00471672a10d89edc02a83fd782de6e6ea0d5a"
+      },
+      "/tmp/openswing-daedalus-zero-elevation-20261025/plan.json": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "/tmp/openswing-daedalus-zero-elevation-20261025/run.py": {
+        "bytes": 20044,
+        "sha256": "31f6cf6eeb7958343f0e98ffca7b8795496e84f066120c5fb72c9aa60671becf"
+      },
+      "/tmp/openswing-daedalus-zero-elevation-20261025/supervise.py": {
+        "bytes": 2777,
+        "sha256": "0b48badd9f5c17b1877f2f903a70e04051c9d6cb16cebdd4025325ecb152ab60"
+      },
+      "/tmp/openswing-daedalus-zero-elevation-20261025/review/source-review.json": {
+        "bytes": 3375,
+        "sha256": "61173c4f9f0a4924b3dba267672f4824351201de1aebb08cc1c8b08b2eee8e28"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/yaw-reference.csv": {
+        "bytes": 7870,
+        "sha256": "0891450a32f0a97a427ac0a0b0da891b81c75f8ae5f46b6ef9590c0b94825224"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/roll_rate-reference.csv": {
+        "bytes": 7520,
+        "sha256": "0cdd126c6fe39804f339be7da37e5005a0e5e2bd75158c6ded8ccdd035cd4d26"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/sideslip-reference.csv": {
+        "bytes": 7873,
+        "sha256": "f2940568ae408ec4e22bbd625428a399bc944971ce0612f1772acc022a33962f"
+      },
+      "/tmp/openswing-daedalus-four-outputs-20261025/results/reference/bank-reference.csv": {
+        "bytes": 7946,
+        "sha256": "af8cca28cd6d1268b994703cf2dbb60079ed7e2f01b86a2ea1d69ed1c98f395d"
+      },
+      "/tmp/openswing-daedalus-body-factor2-20261024/plan.json": {
+        "bytes": 30430,
+        "sha256": "127adc51f5fbe8494c77c3ae76aff54d1f802b8fb9763356e30fddba457eaa4e"
+      },
+      "/tmp/openswing-rudder-bode-research-20261024/aswing_doc.txt": {
+        "bytes": 145039,
+        "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+      },
+      "/tmp/openswing-daedalus-lateral-contributions-20261025/frozen-influence-source-lead.json": {
+        "bytes": 2434,
+        "sha256": "8cfcc6be42e40451b303207fd1e5cf7b71158ac9f72998e894fbcb2946b3e576"
+      },
+      "/home/userland/aswing/.reference/aswing_doc.txt": {
+        "bytes": 145039,
+        "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+      },
+      "/home/userland/aswing/.reference/asw_theory.txt": {
+        "bytes": 202732,
+        "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+      },
+      "/home/userland/aswing/docs/validation/equilibrium-progress.json": {
+        "bytes": 9386,
+        "sha256": "fb68fc36c6303bf0a47d7c085207fe9c8446076de8556abce6b0ff96c1c8ef9b"
+      }
+    }
+  },
+  "source_review": {
+    "status": "PASS_SOURCE_ONLY_PRELAUNCH",
+    "passed": 14,
+    "total": 14,
+    "checks": [
+      {
+        "name": "all144 frozen dependencies unchanged",
+        "passed": true
+      },
+      {
+        "name": "108 source modules equal ROOT/public and accepted zero-elevation snapshot",
+        "passed": true
+      },
+      {
+        "name": "source-only preparation no physical execution",
+        "passed": true
+      },
+      {
+        "name": "exact unmodified C16 seed",
+        "passed": true
+      },
+      {
+        "name": "only option changes solved C16 condition",
+        "passed": true
+      },
+      {
+        "name": "literal model16 speed Mach and original seven level-flight rows",
+        "passed": true
+      },
+      {
+        "name": "unchanged numerical gates and single300s supervisor",
+        "passed": true
+      },
+      {
+        "name": "seven fixed frequencies and one fresh A/M/F3",
+        "passed": true
+      },
+      {
+        "name": "no output stencils and no reused matrix constructor",
+        "passed": true
+      },
+      {
+        "name": "correct physical_state API and explicit live option chain",
+        "passed": true
+      },
+      {
+        "name": "positive and negative thrust report without new gate",
+        "passed": true
+      },
+      {
+        "name": "no zero-elevation hypothesis remains",
+        "passed": true
+      },
+      {
+        "name": "all three scripts AST-valid",
+        "passed": true
+      },
+      {
+        "name": "named coverage search found no prior equivalent",
+        "passed": true
+      }
+    ],
+    "plan_pin": {
+      "bytes": 41663,
+      "sha256": "2464ffd4e556f97f6bf794800d4bb2aa71696139fd021525da7ee24b683d4037"
+    },
+    "runner_pin": {
+      "bytes": 22313,
+      "sha256": "a87fa6d4f32587cb9a434c44d9779ca0229185ab2e9fd514fc929fb4f6fc90b8"
+    },
+    "supervisor_pin": {
+      "bytes": 2777,
+      "sha256": "0b48badd9f5c17b1877f2f903a70e04051c9d6cb16cebdd4025325ecb152ab60"
+    },
+    "frozen_pin_count": 144,
+    "peer_review": {
+      "agent": "/root/ae3_measurement_review",
+      "scope": "Seed and condition propagation, FrozenInfluences constructor ownership, physical_state API",
+      "finding": "No remaining blocker after three-tuple unpack correction before freeze.",
+      "source_contracts": [
+        "equilibrium_state.restore_physical_fields176\u2013195 restores physical fields and selected trim variables only, not launch.condition.",
+        "OperatingSystem.apply234\u2013269 preserves freeze_influences in replace(prescribed,...).",
+        "_dynamic_base installs solved condition and TimeSystem.condition209\u2013223 preserves it in actual physical overrides.",
+        "FrozenInfluences reconstructs undeformed geometry and fixed+x direction from immutable model/material mesh; source network178 owns the cache, not the seed."
+      ],
+      "prefreeze_correction": "Draft physical_state return unpack changed from two values to its documented three before any plan freeze or scientific import/evaluation. No failed physical attempt exists."
+    },
+    "interpretation": [
+      "This is the existing K/F model option, not a relaxation of solver/accuracy tolerances and not merely holding a cache at the old loaded shape.",
+      "The manual sample menu demonstrates an available setting, not that the unknown original rudder-Bode result used it.",
+      "Level flight remains required. Thrust/control feasibility values are reported without an invented acceptance threshold.",
+      "No launch is authorized by this source-only receipt; root owns the next decision."
+    ],
+    "operations": {
+      "production_imports": 0,
+      "physical_evaluations": 0,
+      "matrix_products": 0,
+      "solves": 0
+    },
+    "pins": {
+      "/tmp/openswing-daedalus-frozen-jig-20261025/prepare.py": {
+        "bytes": 11174,
+        "sha256": "dc358afa430bb9836d69851a1bdeb85aac586326334afbd571d5480b2aaa0a78"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/request.json": {
+        "bytes": 12243,
+        "sha256": "e01d2221bbada7367dd299d8c4a4813f3f3072b191f0ea6564f9ab4061b9ac8f"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/seed.json": {
+        "bytes": 68616,
+        "sha256": "02cf0c4d88c34bba8cbdf1175ee1d552d99986d869d28e102c840d84fc16796e"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/prior-coverage.json": {
+        "bytes": 7230,
+        "sha256": "e4d9b011941259b766060e2fdcc2ecce4c575f965a2fd10be89633d253999046"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/proposal.json": {
+        "bytes": 4770,
+        "sha256": "968f70eeeb54c88523d73741b4ac6fc926ce07344681e462af53eeeab540f552"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/source-transition.json": {
+        "bytes": 814,
+        "sha256": "8479cca9c93f4e1e2a39592474fa1a4a341ec61fe967c6f19a442ce1ddfad6ce"
+      },
+      "/tmp/openswing-daedalus-frozen-jig-20261025/freeze-receipt.json": {
+        "bytes": 380,
+        "sha256": "94b8cc80666c42610fa2b827bed806e8fa4d1e82d35d53ab3c1bfe029a2aa266"
+      }
+    }
+  },
+  "saved_audit": {
+    "status": "PASS_SAVED_KF_AUDIT",
+    "passed": 190,
+    "total": 190,
+    "checks": [
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/prepare.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/run.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/supervise.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/request.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/seed.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/dae.asw",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/proposal.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source-transition.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/prior-coverage.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/__init__.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/aero.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/applied_load_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/asw.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/asw_edit.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/atmosphere.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/beam_matching.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/body_shoulders.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/bridge.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_polish.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_solve.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/circulation_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_allocation.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_expressions.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/control_tables.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/custom_constraints.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/damping.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivative_cache.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivative_circulation.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/derivatives.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/descriptor_mass.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/discretization.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/distribution_curve.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/dynamic_inertia.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/equilibrium_state.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/equilibrium_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/factored_influence.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/feedback.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/field_products.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/flow_survey.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/forcing.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frequency_response.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frequency_sweep.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/frozen_influence.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_field_partials.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_partials.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_stencil.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/geometry_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/ground.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust_file.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/gust_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/harmonic_structure.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/hinge_history.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/inertia.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/initial_diagnostics.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/initial_response.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/joints.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/kinematics.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/legacy_hinge_state.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/linear_dynamics.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_geometry_matrix.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_motion.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/local_rate_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/mechanical_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/network.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/newton_structure.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/nonlinear_initial.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/operating.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/output_derivatives.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/output_fields.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_checkpoint.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_lift.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/position_history_radau.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/power_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/propulsion.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/quiescent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/radau_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/radau_time.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/recovery.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/reduced_model.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/reference_flow.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rigid_initial_rank.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_file.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_initial.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/rom_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/root_diagnostics.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/seeded_corrector.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/sensors.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/sparse_rank.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/stability.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/steady_feedback.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structural_geometry.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structural_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structure.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structured_static.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/structured_time.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/struts.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/support_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/tangent_influences.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_acceptance.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_acceptance_validation.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_accuracy.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_cold_initial.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_history.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_initialization.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_input_transition.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_integration.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_saved_history.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_state.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/time_transition_initial.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/trefftz.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/vector_ops.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/volume.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/volume_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-frozen-jig-20261025/source/openswing/vortex_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/plan.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/report.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/session-closeout.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/request.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/results/base.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-cruise16-20261024/source/openswing/equilibrium_state.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/plan.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/run.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/summary.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/session-closeout.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/report.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/recovered.npz",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/recovery.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-zero-elevation-20261025/plan.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-zero-elevation-20261025/run.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-zero-elevation-20261025/supervise.py",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-zero-elevation-20261025/review/source-review.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/reference/yaw-reference.csv",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/reference/roll_rate-reference.csv",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/reference/sideslip-reference.csv",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-four-outputs-20261025/results/reference/bank-reference.csv",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-body-factor2-20261024/plan.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-rudder-bode-research-20261024/aswing_doc.txt",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /tmp/openswing-daedalus-lateral-contributions-20261025/frozen-influence-source-lead.json",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /home/userland/aswing/.reference/aswing_doc.txt",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /home/userland/aswing/.reference/asw_theory.txt",
+        "passed": true
+      },
+      {
+        "name": "unchanged dependency /home/userland/aswing/docs/validation/equilibrium-progress.json",
+        "passed": true
+      },
+      {
+        "name": "complete original numerical checks",
+        "passed": true
+      },
+      {
+        "name": "seven successful frequencies",
+        "passed": true
+      },
+      {
+        "name": "predeclared frequencies",
+        "passed": true
+      },
+      {
+        "name": "unmodified native geometry model",
+        "passed": true
+      },
+      {
+        "name": "fixed level-flight constraints",
+        "passed": true
+      },
+      {
+        "name": "all seven trim residuals",
+        "passed": true
+      },
+      {
+        "name": "fresh base residual",
+        "passed": true,
+        "maximum": 2.1695931586666315e-10
+      },
+      {
+        "name": "option reaches physical residual",
+        "passed": true
+      },
+      {
+        "name": "all four outputs from raw states",
+        "passed": true,
+        "maximum": 8.673617379884035e-19
+      },
+      {
+        "name": "one angular display conversion",
+        "passed": true
+      },
+      {
+        "name": "native input derivative sign",
+        "passed": true,
+        "maximum": 3.469446951953614e-18
+      },
+      {
+        "name": "saved full-equation residual 0",
+        "passed": true,
+        "scaled": 2.960066019994694e-17,
+        "backward": 1.8463750190205796e-18
+      },
+      {
+        "name": "saved full-equation residual 1",
+        "passed": true,
+        "scaled": 6.10093038600086e-18,
+        "backward": 4.922827843952537e-19
+      },
+      {
+        "name": "saved full-equation residual 2",
+        "passed": true,
+        "scaled": 6.80150101075345e-18,
+        "backward": 4.960601813421687e-19
+      },
+      {
+        "name": "saved full-equation residual 3",
+        "passed": true,
+        "scaled": 8.784219405590999e-18,
+        "backward": 4.2312142373768053e-19
+      },
+      {
+        "name": "saved full-equation residual 4",
+        "passed": true,
+        "scaled": 1.1561913186781912e-17,
+        "backward": 2.8185249311040897e-20
+      },
+      {
+        "name": "saved full-equation residual 5",
+        "passed": true,
+        "scaled": 1.210814145586956e-16,
+        "backward": 2.301645900176627e-19
+      },
+      {
+        "name": "saved full-equation residual 6",
+        "passed": true,
+        "scaled": 4.1570978496450256e-17,
+        "backward": 1.0500345396181929e-19
+      },
+      {
+        "name": "raw response and drawing 0 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 0 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 0 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 0 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 1 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 1 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 1 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 1 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 2 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 2 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 2 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 2 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 3 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 3 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 3 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 3 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 4 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 4 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 4 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 4 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 5 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 5 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 5 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 5 bank",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 6 yaw_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 6 roll_rate",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 6 sideslip",
+        "passed": true
+      },
+      {
+        "name": "raw response and drawing 6 bank",
+        "passed": true
+      }
+    ],
+    "residuals": [
+      {
+        "frequency_Hz": 0.1,
+        "scaled": 2.960066019994694e-17,
+        "backward": 1.8463750190205796e-18
+      },
+      {
+        "frequency_Hz": 1.0,
+        "scaled": 6.10093038600086e-18,
+        "backward": 4.922827843952537e-19
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "scaled": 6.80150101075345e-18,
+        "backward": 4.960601813421687e-19
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "scaled": 8.784219405590999e-18,
+        "backward": 4.2312142373768053e-19
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "scaled": 1.1561913186781912e-17,
+        "backward": 2.8185249311040897e-20
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "scaled": 1.210814145586956e-16,
+        "backward": 2.301645900176627e-19
+      },
+      {
+        "frequency_Hz": 10.0,
+        "scaled": 4.1570978496450256e-17,
+        "backward": 1.0500345396181929e-19
+      }
+    ],
+    "source_report_pin": {
+      "bytes": 31162,
+      "sha256": "6db32e9b95ec5ab6691bedc3a13826413942d6303a4dce894fc94be3aff224ac"
+    },
+    "operations": {
+      "aircraft_imports": 0,
+      "physical_residuals": 0,
+      "new_linearizations": 0,
+      "factorizations": 0,
+      "harmonic_solves": 0,
+      "saved_sparse_pencil_products": 7
+    },
+    "limits": [
+      "Checks saved results, input stencil and four-output recovery; no new physical evaluation.",
+      "Reciprocal condition estimates are read from the accepted solve, not recomputed.",
+      "Seven markers do not locate a new minimum or establish mesh convergence."
+    ]
+  },
+  "lifecycle": {
+    "original": {
+      "status": "TERMINAL_SUCCESS_REAPED",
+      "owned_session": 73360,
+      "launch_chunk": "178515",
+      "poll_chunks": [
+        "9950a8",
+        "e75aae",
+        "b025c2"
+      ],
+      "terminal_chunk": "bbc5dc",
+      "exit_code": 0,
+      "reaped": true,
+      "supervisor_pid": 24415,
+      "child_pid": 24483,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "timed_out": false,
+      "wall_cap_seconds": 300,
+      "elapsed_seconds": 90.25012751700706,
+      "preflight_chunk": "bba205",
+      "preflight_frozen_pins": 144,
+      "final_frozen_pins_unchanged": 144,
+      "attempts": 1,
+      "retries": 0,
+      "operations": {
+        "FrequencyAnalysis_constructions": 1,
+        "make_system_calls": 1,
+        "full_linearizations": 1,
+        "input_partials_calls": 1,
+        "harmonic_calls": 7,
+        "extra_base_residual_calls": 1,
+        "physical_output_stencil_calls": 0,
+        "initial_state_API_arguments": 1,
+        "input_residuals_captured": 5,
+        "retries": 0
+      },
+      "source_owned_total_network_nfev": 2541,
+      "pins": {
+        "/tmp/openswing-daedalus-frozen-jig-20261025/plan.json": {
+          "bytes": 41663,
+          "sha256": "2464ffd4e556f97f6bf794800d4bb2aa71696139fd021525da7ee24b683d4037"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/source-review.json": {
+          "bytes": 4823,
+          "sha256": "fe0d6832e035bf70b06ab7e524691f0a9da84ad9782a72ec27c4c69565609795"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/report.json": {
+          "bytes": 31162,
+          "sha256": "6db32e9b95ec5ab6691bedc3a13826413942d6303a4dce894fc94be3aff224ac"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/process-closeout.json": {
+          "bytes": 913,
+          "sha256": "2c80d6c207885b1ed8b89c78d4a9555672597e7e31819f4065ffd33d9db8dd5b"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/results/status.json": {
+          "bytes": 949,
+          "sha256": "c8fe4909eb670a1b9c45899add59f5e9d477ae98bb5fbab89469bb064e37d775"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/terminal-summary.json": {
+          "bytes": 24337,
+          "sha256": "84f99d85e864278ed5fae5eca4c6f98cfd8c8ff5882caee277750433e3f09ddc"
+        },
+        "/tmp/openswing-daedalus-frozen-jig-20261025/comparison.csv": {
+          "bytes": 6641,
+          "sha256": "f6040c7f6454c405498e2082f7d94800ae5029b16faae2d5629b87e57e9d88c0"
+        }
+      },
+      "launch_metadata_note": "execution.json retains the initial launch record; process-closeout.json and this receipt are the authoritative terminal/reaped records."
+    },
+    "saved_audit": {
+      "owned_session": 84707,
+      "launch_chunk": "ebda12",
+      "terminal_chunk": "6e227b",
+      "exit_code": 0,
+      "reaped": true,
+      "physics_evaluations": 0,
+      "harmonic_solves": 0,
+      "report_pin": {
+        "bytes": 27331,
+        "sha256": "e205638255ef7ef3217bd1d8f0bcdbd5065a5bbcf14ba2a7015a4aef4417af2b"
+      },
+      "figure_visually_inspected": true
+    }
+  },
+  "figure": {
+    "png": {
+      "bytes": 227238,
+      "sha256": "9b5f5f992b6c20149ef9f3c17de260e93f3ffe893c31cb47eb9a8faa14aac923"
+    },
+    "svg": {
+      "bytes": 139607,
+      "sha256": "36f289e0ba26de80cb20d5491d32202953dbab0fffdc916af927fe57e6146b0e"
+    }
+  }
+}

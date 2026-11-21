@@ -1,0 +1,420 @@
+{
+  "schema": "openswing-isae-sa6-primary-section-research-v1",
+  "status": "SOURCE_RESEARCH_COMPLETE_NO_MODEL_CHANGE",
+  "date_utc": "2026-10-25T12:29:39.983482+00:00",
+  "scope": "Bounded primary-source search for independent Clark-Y plain-flap lift/drag and stall evidence relevant to the remaining SA6 single-aileron mismatch. No new aircraft evaluations, solves, fits, coefficient changes, or table retranscription.",
+  "conclusion": {
+    "strongest_independent_experiment": "NACA TR-554 is a suitable separate finite-wing flap benchmark. It is not a directly applicable 35%-chord two-dimensional section polar.",
+    "directly_matched_2d_polar_found": false,
+    "search_limit": "No true 2D Clark-Y 35%-chord sealed plain-flap lift/drag dataset at the SA6 Reynolds range was found in the bounded NASA/NACA/ISAE sources reviewed; this is not a claim that none exists.",
+    "physical_constraint": "The primary data demonstrate finite-deflection changes of maximum lift and substantial separated-flow drag. They do not identify a unique numerical clmax(F), clmin(F), or post-stall law for the current SA6 section model.",
+    "model_correction_supported": false
+  },
+  "sa6_conditions": {
+    "sources": [
+      "naca-tr-298 printed pp4–6/PDF6–8",
+      "naca-tr-343 printed pp3–4/PDF5–6"
+    ],
+    "geometry": {
+      "span_in": 60,
+      "chord_in": 10,
+      "aspect_ratio": 6,
+      "section": "Clark Y, constant spanwise section",
+      "hinge": "Aileron rotation axes midway between upper and lower surfaces; slots wax-filled and smoothed during testing.",
+      "35_percent_case": "20-inch tip aileron, 35% wing chord; single-right up/down observations, combined observable handled in prior review."
+    },
+    "reported_speeds_ft_s": [
+      40,
+      58.7,
+      80
+    ],
+    "reported_speeds_m_s": [
+      12.192,
+      17.89176,
+      24.384
+    ],
+    "reported_reynolds_number": "No single numeric Reynolds number is given with these faired tables. Data from the three speeds were combined after only slight scale effect was reported.",
+    "standard_air_reynolds_estimate": {
+      "classification": "Derived scale estimate, not measured run metadata",
+      "chord_m": 0.254,
+      "formula": "Re=V_m_s*c_m*68650, using NACA TR-938 standard-symbol example Re=6,865,000 at1m chord,100m/s,15C,standard pressure (PDF2).",
+      "values": [
+        212593.1232,
+        311980.408296,
+        425186.2464
+      ],
+      "range_rounded": "0.213–0.425 million",
+      "do_not_claim": "A single Reynolds300,000 or a single20m/s condition exactly reproduces all original runs."
+    },
+    "incidence": "Wing is set4degrees relative to fuselage. Body pitches0/8/12degrees therefore imply geometric wing incidences4/12/16degrees before induced flow; these are not section effective incidence.",
+    "observed_unsteadiness": "TR-298 reports marked aileron-flow unsteadiness beyond16degrees, greatest near24degrees and reduced beyond32degrees; this is not evidence that the entire wing or support fairing remains stalled.",
+    "stalled_wing_or_fuselage_claim": "Not established. TR-343 measured diminishing downward-aileron effectiveness at high pitch; those global moments do not locate separation or classify all wing sections/fuselage as stalled."
+  },
+  "ranked_primary_leads": [
+    {
+      "rank": 1,
+      "source": "naca-tr-554",
+      "classification": "Independent finite-wing experiment; lift, total drag, pitching moment and hinge moment",
+      "locators": [
+        "printed223–226/PDF1–4: model, conditions and reduction",
+        "printed229/PDF7: figs13–15,30%-chord flap",
+        "printed224/PDF2: fig1 hinge/gap geometry"
+      ],
+      "geometry": {
+        "span_in": 60,
+        "chord_in": 10,
+        "aspect_ratio": 6,
+        "flap_chord_fractions": [
+          0.1,
+          0.2,
+          0.3
+        ],
+        "flap_span": "full span",
+        "type": "ordinary/plain flap",
+        "gap": "nominal0.0032c; sealed with plasticine for principal curves, open-gap comparisons retained",
+        "hinge": "Rounded leading-edge cutout/axis detailed in fig1;30% flap geometry includes0.0365c nose-radius annotation. Reproduce the drawing rather than assume identical SA6 hinge."
+      },
+      "conditions": {
+        "reported_reynolds": 609000,
+        "dynamic_pressure_lb_ft2": 16.37,
+        "nominal_speed_mph": 80,
+        "incidence": "Published alpha referenced to airfoil geometry; jet-boundary correction applied to finite-wing angle. Do not substitute SA6 fuselage pitch or local effective alpha.",
+        "flap_deflections_deg": [
+          0,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "range": "From below zero lift through stall."
+      },
+      "constraints": "Fig15 visibly shows maximum lift changing with deflection, peaking and then declining; gap sealing changes it substantially. Figs13–14 retain separated-flow drag. No curve ordinates were digitized or fitted in this review.",
+      "applicability": "Closest retrieved independent lift/drag case in airfoil, size, Reynolds order and flap type. Three differences remain:30% rather than35%, full-span rather than single-tip, and Re609k above SA6~213–425k. Treat as a separate finite-wing benchmark, not direct section input."
+    },
+    {
+      "rank": 2,
+      "source": "naca-tr-574",
+      "classification": "Independent pressure-derived local section forces on a finite reflected wing, not a true2D drag polar",
+      "locators": [
+        "printed1–2/PDF5–6: apparatus, geometry, incidence and Re",
+        "printed3/PDF7: coefficient definitions",
+        "figs7–10: integrated normal-force/pitch/hinge increments"
+      ],
+      "geometry": {
+        "half_span_in": 60,
+        "chord_in": 20,
+        "equivalent_full_wing_aspect_ratio": 6,
+        "flap_chord_fraction": 0.3,
+        "flap_span_fraction_of_semispan": 0.4,
+        "tab_chord_fraction_of_flap": 0.2,
+        "tab_span_fraction_of_flap": 0.5,
+        "gap": "Flap and tab gaps sealed with plasticine",
+        "pressure_station": "At center of flap/tab span,20%semispan inboard of rectangular tip; root reflection plane."
+      },
+      "conditions": {
+        "reported_reynolds": 1220000,
+        "dynamic_pressure_lb_ft2": 16.37,
+        "nominal_speed_mph": 80,
+        "alpha_deg": [
+          -5,
+          0,
+          10,
+          15
+        ],
+        "tab_neutral_flap_deg": [
+          -30,
+          -15,
+          0,
+          15,
+          30
+        ],
+        "axes": "Alpha and flap angle relative to airfoil chord; tab angle relative to flap chord; downward flap/tab positive."
+      },
+      "applicability": "Useful independent up/down control effectiveness and high-incidence normal-force evidence. Section-normal force is not lift and pressure integration does not provide a full skin-friction/profile-drag polar. Finite-wing downwash, tab geometry and Re mismatch prohibit treating it as directly matched2D SA6 data."
+    },
+    {
+      "rank": 3,
+      "source": "naca-tn-663",
+      "classification": "Independent finite-wing partial-span plain-flap lift/drag",
+      "locators": [
+        "printed2–3/PDF4–5: geometry, test conditions and corrections"
+      ],
+      "geometry": "60-inch span, AR6 rectangular or5:1tapered Clark-Y wings;20%-chord sealed flap segments. Center/tip span fractions20/40/60/80% plus fullspan.",
+      "conditions": "16.37lb/ft2, nominal80mph; flap60degrees only with neutral baseline; alpha approximately−14 to20degrees. Reynolds not explicitly quoted in inspected conditions paragraph.",
+      "applicability": "Supports a separate span-interference comparison if needed; less useful thanTR554 for SA6 finite-deflection saturation because flap chord and deflection differ substantially."
+    }
+  ],
+  "summary_and_baseline_sources": [
+    {
+      "source": "naca-tr-938",
+      "locators": [
+        "printed1/PDF5: scope explicitly allows rectangularAR6 exceptions",
+        "printed5–7/PDF9–11: figs5/7/8/9 and plain-flap discussion",
+        "reference10 identifiesTR554"
+      ],
+      "provenance": "Clark-Y maximum-lift/gap/drag curves reuseTR554. They are not a new independent experiment and are not made2D by the generic section wording in the report/figure title. The drag paragraph explicitly says total-wing drag forAR6.",
+      "physical_constraint": "The review associates much plain-flap drag with flap separation at deflections around15–20degrees; Reynolds number, surface condition and hinge leakage affect separation onset. These are physical cautions, not an exactSA6 stall threshold."
+    },
+    {
+      "source": "naca-tr-244",
+      "locators": [
+        "airfoil catalogueNo584, ClarkY; introductory discussion of source laboratory/model size/velocity"
+      ],
+      "provenance": "TR298 cites this compilation for the undeflected wing reference. It does not supply the needed35%finite-deflection polar. No new numerical coefficient was extracted; no section/finite-wing conversion inferred."
+    }
+  ],
+  "aswing_isae_implications": {
+    "original_aswing": {
+      "source": "/home/userland/aswing/.reference/asw_theory.txt",
+      "locator": "section5.7, printedpp40–41, equations202–204; section-input table printed44",
+      "meaning": "Section lift is based on circulation and section-normal speed. Leakage is controlled by supplied clmin/clmax limits. These equations do not prescribe a measured control-dependent limit function."
+    },
+    "isae_data_provenance": {
+      "source": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/5 - Technical Reports/Experimental_validation_of_ASWING_Part_1_Aerodynamics_V4.pdf",
+      "locators": [
+        "PDF21/equation28",
+        "PDF27–28/SA6 text",
+        "PDF31/Table4"
+      ],
+      "facts": [
+        "SA6 polars and flap derivatives were computed inXFOIL; high-deflection convergence failed and the derivative range was reduced. They are not independent experimental section data.",
+        "The report proposes shifting both section lift limits with flap deflection, but explicitly says no experimental data were found to evaluate that change. It evaluates only the other three proposed improvements.",
+        "The retained ClarkY_c015 polar has a Reynolds300000 header and no numerical rows; script provenance cannot stand in for a validated high-deflection polar.",
+        "The original35%literal control derivative is−0.071 per degree; the−0.71 table entry is inconsistent and not a justified correction."
+      ],
+      "inference": "Measured finite-wing CLmax variation makes a deflection-independent section-limit model a hypothesis to test. It does not validate the proposed linear shift, determine its sign across the current control convention, or justify tuningSA6 limits to roll/yaw."
+    }
+  },
+  "next_action_ranked": [
+    {
+      "rank": 1,
+      "action": "Complete the already-planned saved SA6 local diagnostic against separate measured up/down moments, retaining both circulatory and noncirculatory force contributions.",
+      "purpose": "Determine whether discrepancy correlates with section-limit activation, effective incidence, or drag asymmetry; do not infer local stall solely from global roll."
+    },
+    {
+      "rank": 2,
+      "action": "DigitizeTR554 figs13–15 for the sealed30%full-span configuration with image-based reading uncertainty, alongside its neutral-wingfig4. Freeze measured observable, geometric angles, Re609k and corrections before any new model comparison.",
+      "purpose": "A distinct no-fit finite-wing lift/drag-through-stall benchmark can test saturation and drag together. It cannot be labeled matched35%SA6 or used as2D lookup input."
+    },
+    {
+      "rank": 3,
+      "action": "Before changing section laws, obtain genuinely2D sealed plain-flap Clark-Y lift/drag data spanning positive and negative deflections, c_f/c=.35 and Re~.21–.43million, or document a new experiment/computation as an additional unvalidated model.",
+      "purpose": "Current sources constrain physical trends but leave exact local CLmax(F),CLmin(F),drag asymmetry and post-stall behavior underdetermined."
+    }
+  ],
+  "visual_checks": [
+    {
+      "file": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/tr554-pdf-2.png",
+        "bytes": 359838,
+        "sha256": "ecfe69a43ac94f4387744b7a25cbb3bc8a821f79308bf453760727568e6fb2f8"
+      },
+      "confirms": "ReportedRe, testq, flap/gap/hinge geometry."
+    },
+    {
+      "file": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/tr554-pdf-7.png",
+        "bytes": 356777,
+        "sha256": "7b503d17406c05c41bcc55b3f785ba297270791f906b12fb55ae7151010d21df"
+      },
+      "confirms": "30%lift/drag and CLmax-versus-deflection figures; no digitized values claimed."
+    },
+    {
+      "file": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-574-pdf-6.png",
+        "bytes": 346532,
+        "sha256": "d8a50434a45825e7434a5eb5c66917b8850b43d9e8a0cfb3994f1b1aebf12042"
+      },
+      "confirms": "Finite half-span geometry, chord20in, pressure station, axes, tab/flap settings andRe1.22M."
+    },
+    {
+      "file": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-938-pdf-9.png",
+        "bytes": 374408,
+        "sha256": "ca8f9502c1f72abf31500a18915be654e9d9e27a0149e866237e0470d6852101"
+      },
+      "confirms": "Plain-flap discussion and Reynolds caveat."
+    },
+    {
+      "file": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-938-pdf-10.png",
+        "bytes": 293246,
+        "sha256": "8f2d5eba85916b2921431ee13d18299fab4e4cf99529e0191d4006c853718f61"
+      },
+      "confirms": "ClarkYTR554 provenance and total-wing drag wording."
+    }
+  ],
+  "sources": [
+    {
+      "id": "naca-tr-554",
+      "url": "https://ntrs.nasa.gov/citations/19930091629",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930091629/downloads/19930091629.pdf",
+      "pdf": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-554.pdf",
+        "bytes": 1165944,
+        "sha256": "b3bd5ccc4e7dba25993143da08ea6c2ab57452e2785a80357ded67dca2f08804"
+      },
+      "pages": 14,
+      "text": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-554.txt",
+        "bytes": 73907,
+        "sha256": "26fa89c5cc175aca466aeca39e7cc1894b5670e540f75804dbc9a5bb82bc3ec7"
+      }
+    },
+    {
+      "id": "naca-tr-938",
+      "url": "https://ntrs.nasa.gov/citations/19930092003",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930092003/downloads/19930092003.pdf",
+      "pdf": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-938.pdf",
+        "bytes": 3152852,
+        "sha256": "52f225eec9eae413a3f115a38100a58116d763934057a499796c557cfd230ef3"
+      },
+      "pages": 36,
+      "text": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-938.txt",
+        "bytes": 213252,
+        "sha256": "ec1a6fbe6c3b5930a1f15a5ffff368f6b14dd006c7e5fd96f183f720cd4b0cb3"
+      }
+    },
+    {
+      "id": "naca-tr-574",
+      "url": "https://ntrs.nasa.gov/citations/19930091649",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930091649/downloads/19930091649.pdf",
+      "pdf": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-574.pdf",
+        "bytes": 2212777,
+        "sha256": "470eecd721011dce67e512a3b89f359f88c468a3c9435390dbcf608471664420"
+      },
+      "pages": 18,
+      "text": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-574.txt",
+        "bytes": 49143,
+        "sha256": "f3c5500ebaabb7c7bea7f8a3a8e227f20a694459d5a5a594cb98c280e368f06c"
+      }
+    },
+    {
+      "id": "naca-tr-244",
+      "url": "https://ntrs.nasa.gov/citations/19930091311",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930091311/downloads/19930091311.pdf",
+      "pdf": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-244.pdf",
+        "bytes": 3474007,
+        "sha256": "c6dc631ef22c3f3c20b4bd4e71d128ecfcee509759b8e8ac8cd71f3e089f4435"
+      },
+      "pages": 47,
+      "text": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tr-244.txt",
+        "bytes": 339817,
+        "sha256": "016fc277f4acabf663e15c53f78bbcef3ac4b33b2c089cbc5337cb18e7e5b920"
+      }
+    },
+    {
+      "id": "naca-tn-663",
+      "url": "https://ntrs.nasa.gov/citations/19930081462",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930081462/downloads/19930081462.pdf",
+      "pdf": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tn-663.pdf",
+        "bytes": 852886,
+        "sha256": "3b87bd791ac814f88cd26b3f7a2573bc4a820cf72e15e342f8a86ce881500952"
+      },
+      "pages": 15,
+      "text": {
+        "path": "/tmp/openswing-isae-sa6-local-20261025/research-sources/naca-tn-663.txt",
+        "bytes": 33560,
+        "sha256": "c283746e1790380b26f527c5bdf0a0d65b3d87a7afa8bb5c1e7cd8483e92ad18"
+      }
+    },
+    {
+      "id": "naca-tr-298",
+      "url": "https://ntrs.nasa.gov/citations/19930091367",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930091367/downloads/19930091367.pdf",
+      "pdf": {
+        "path": "/home/userland/aswing/.reference/isae-sa6/naca-tr-298.pdf",
+        "bytes": 15505713,
+        "sha256": "f4e51cbf0d12e3ceecdeab6bf18ebf1631ab0f9699f41f0093bb3111eeb72114"
+      },
+      "text": {
+        "path": "/home/userland/aswing/.reference/isae-sa6/naca-tr-298.txt",
+        "bytes": 136959,
+        "sha256": "71ed414fc1388e65f068c3979a233b7571d33df920db96438776bb307469bc96"
+      }
+    },
+    {
+      "id": "naca-tr-343",
+      "url": "https://ntrs.nasa.gov/citations/19930091412",
+      "pdf_url": "https://ntrs.nasa.gov/api/citations/19930091412/downloads/19930091412.pdf",
+      "pdf": {
+        "path": "/home/userland/aswing/.reference/isae-sa6/naca-tr-343.pdf",
+        "bytes": 27667400,
+        "sha256": "80e4382eed1b14d63e71536209c67a81406c46886017ada574b9bcb700635c28"
+      },
+      "text": {
+        "path": "/home/userland/aswing/.reference/isae-sa6/naca-tr-343.txt",
+        "bytes": 233030,
+        "sha256": "c1dc8e2fc3b23c669449a07b6bfe41986fdae43ceaea9cc65df85f048ad0d8bb"
+      }
+    }
+  ],
+  "local_provenance_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/5 - Technical Reports/Experimental_validation_of_ASWING_Part_1_Aerodynamics_V4.pdf",
+      "bytes": 5805028,
+      "sha256": "d610223c623f42b29ac2cc18a35042866a948429853ceae4a43a369bf4f1bc2b"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_1_Aerodynamics_V4.txt",
+      "bytes": 172347,
+      "sha256": "37899d50a5ed73f82cfba79cc82b8a968792c70c7d3572548fd11fcb1eff8096"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 6 - Straight Wing - Rolling and Yawing Moments induced by various Ailerons/flap_analysis_alpha0.sh",
+      "bytes": 1507,
+      "sha256": "68bbbd9306da9ebb4f4e8fbbb72f5d409683f8024c39d182994c104f75841c64"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 6 - Straight Wing - Rolling and Yawing Moments induced by various Ailerons/flap_analysis_CM0.sh",
+      "bytes": 1487,
+      "sha256": "7b3b0afa4e32b47ca909835f94aee3a16cb9cd36cdb105ebda54c6166dcf605f"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 6 - Straight Wing - Rolling and Yawing Moments induced by various Ailerons/Simulation/chordwise/Straight_Wing_20b_35c.asw",
+      "bytes": 5162,
+      "sha256": "381ec4ad73aeb1aaa5cb2d5b79d080b2b57071d5f2b4f84ae1c6b93cdf2603b7"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 6 - Straight Wing - Rolling and Yawing Moments induced by various Ailerons/ClarkY.txt",
+      "bytes": 2557,
+      "sha256": "f102e12177ec229b852038e40ec1f440288adadc76b2470d88797531ae3866c3"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 6 - Straight Wing - Rolling and Yawing Moments induced by various Ailerons/ClarkY_c015.txt",
+      "bytes": 419,
+      "sha256": "976fa14615e3d8fd93940ef0eeb79d498b4a939b6b168d2c298a924e52f4bdd0"
+    }
+  ],
+  "activity": {
+    "new_pdf_downloads": 5,
+    "new_aircraft_imports": 0,
+    "new_residual_calls": 0,
+    "new_solves": 0,
+    "new_fits": 0,
+    "model_or_repo_edits": 0,
+    "asynchronous_download_process": {
+      "session_id": 18029,
+      "terminal_chunk": "251690",
+      "exit_code": 0,
+      "reaped": true
+    },
+    "remaining_processes": []
+  }
+}

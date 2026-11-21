@@ -1,0 +1,458 @@
+{
+  "title": "Canonical free-flight local-rate assembly: same-state Daedalus comparison",
+  "date": "2026-10-24",
+  "status": "PASS_SCOPED_NUMERICAL_AND_RUNTIME_CHECKS",
+  "goal_status": "active and incomplete",
+  "condition": {
+    "mesh_panels_per_beam": 32,
+    "speed_ft_s": 30,
+    "PG_Mach": 0.1,
+    "frame": "free",
+    "descriptor_dimension": 3719,
+    "base": "exact saved steady trim; no retrim"
+  },
+  "source_transition": {
+    "status": "PASS_SOLE_LOCAL_RATE_SOURCE_DELTA",
+    "modules": 108,
+    "changed_modules": [
+      "local_rate_tangent.py"
+    ],
+    "old_pin": {
+      "bytes": 6125,
+      "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+    },
+    "candidate_pin": {
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    "all_other107_modules_byte_equal": true
+  },
+  "method": "Grouped exact local polynomial coefficients plus analytic incident-flow chain rule; reconstruct each canonical global load row from that column's external nodal wrenches. Engine-mount and unsupported columns retain full differences.",
+  "timing": {
+    "previous_native_linearization_seconds": 227.51550920997397,
+    "updated_native_linearization_seconds": 73.45651276397984,
+    "observed_ratio": 3.097281652084341,
+    "scope": "One native observation per implementation on the same saved state. Excludes trim, harmonic solves and output recovery. Not a controlled or browser speed benchmark."
+  },
+  "residuals": {
+    "previous_linearization": 5498,
+    "updated_linearization": 849,
+    "accounting": "5498 - 4*1176 + 55 = 849",
+    "phase_counts": {
+      "fresh_saved_base": {
+        "entered": 1,
+        "completed": 1,
+        "failed": 0
+      },
+      "production_sparse_linearization": {
+        "entered": 849,
+        "completed": 849,
+        "failed": 0
+      },
+      "base_report": {
+        "entered": 2,
+        "completed": 2,
+        "failed": 0
+      },
+      "single_F3_input_stencil": {
+        "entered": 5,
+        "completed": 5,
+        "failed": 0
+      }
+    },
+    "all_operations": {
+      "network_constructions": 1,
+      "dynamic_system_constructions": 1,
+      "full_residual_entered": 857,
+      "full_residual_completed": 857,
+      "full_residual_failed": 0,
+      "full_linearizations": 1,
+      "harmonic_solves": 4,
+      "input_partials_calls": 1,
+      "trim_calls": 0
+    }
+  },
+  "local_rate_assembly": {
+    "columns": 1176,
+    "groups": 27,
+    "engine_mount_columns": 6,
+    "operating_load_rows": 6,
+    "load_evaluations": 55,
+    "coefficient_amplitude": 1.0,
+    "method": "quadratic local-motion coefficient and analytic incident-flow chain rule"
+  },
+  "matrices": {
+    "A": {
+      "shape": [
+        3719,
+        3719
+      ],
+      "entries_compared": 13830961,
+      "unequal_entries": 22909,
+      "entrywise_exact": false,
+      "sparse_storage_bytes_equal": false,
+      "max_absolute_error": 3.3475428663456335e-12,
+      "max_allowance_fraction": 0.00016737488101323876,
+      "failures": 0,
+      "worst": {
+        "row": 2388,
+        "column": 3191,
+        "new": 1.3516392600367417e-05,
+        "previous": 1.351638925282455e-05,
+        "absolute_error": 3.3475428663456335e-12,
+        "allowance": 2.0000270327785055e-08
+      },
+      "allowance": "2e-8*(1+abs(previous))",
+      "block_columns": 64
+    },
+    "M": {
+      "shape": [
+        3719,
+        3719
+      ],
+      "entries_compared": 13830961,
+      "unequal_entries": 0,
+      "entrywise_exact": true,
+      "sparse_storage_bytes_equal": true,
+      "max_absolute_error": 0.0,
+      "max_allowance_fraction": 0.0,
+      "failures": 0,
+      "worst": {
+        "row": 0,
+        "column": 0,
+        "new": 0.0,
+        "previous": 0.0,
+        "absolute_error": 0.0,
+        "allowance": 2e-08
+      },
+      "allowance": "2e-8*(1+abs(previous))",
+      "block_columns": 64
+    }
+  },
+  "rudder_rhs": {
+    "entrywise_exact": true,
+    "raw_bytes_exact": true,
+    "max_absolute_error": 0.0,
+    "max_allowance_fraction": 0.0,
+    "unequal_entries": 0,
+    "failures": 0,
+    "allowance": "2e-8*(1+abs(previous))"
+  },
+  "yaw": [
+    {
+      "frequency_Hz": 0.1,
+      "available": true,
+      "reference": {
+        "real": 0.0060834853887635505,
+        "imag": 0.0021697539354058365
+      },
+      "candidate": {
+        "real": 0.0060834853887589664,
+        "imag": 0.0021697539354035324
+      },
+      "absolute_complex_error": 5.13051743029292e-15,
+      "allowance": 1.2927681930672968e-09,
+      "allowance_fraction": 3.968629068851049e-06,
+      "relative_complex_error": 7.943402628780529e-13,
+      "pass_": true
+    },
+    {
+      "frequency_Hz": 1.0,
+      "available": true,
+      "reference": {
+        "real": 0.00035160697009929096,
+        "imag": -0.0003381272208448643
+      },
+      "candidate": {
+        "real": 0.00035160697022337454,
+        "imag": -0.0003381272209678038
+      },
+      "absolute_complex_error": 1.746735860140315e-13,
+      "allowance": 9.856177097586436e-11,
+      "allowance_fraction": 0.0017722245073782744,
+      "relative_complex_error": 3.5807793209748865e-10,
+      "pass_": true
+    },
+    {
+      "frequency_Hz": 8.90352386262554,
+      "available": true,
+      "reference": {
+        "real": 0.0030822620931612544,
+        "imag": -0.012097355154644156
+      },
+      "candidate": {
+        "real": 0.003082262087022212,
+        "imag": -0.012097355153088676
+      },
+      "absolute_complex_error": 6.333037082605103e-12,
+      "allowance": 2.4977686424539565e-09,
+      "allowance_fraction": 0.002535477856100856,
+      "relative_complex_error": 5.072986719651092e-10,
+      "pass_": true
+    },
+    {
+      "frequency_Hz": 10.0,
+      "available": true,
+      "reference": {
+        "real": -0.0010069456624504846,
+        "imag": -0.006046041696534869
+      },
+      "candidate": {
+        "real": -0.0010069456662330095,
+        "imag": -0.006046041695086019
+      },
+      "absolute_complex_error": 4.050513524412161e-12,
+      "allowance": 1.2268639363871683e-09,
+      "allowance_fraction": 0.0033015181262398097,
+      "relative_complex_error": 6.608422687349333e-10,
+      "pass_": true
+    }
+  ],
+  "numerical_gates": {
+    "fresh_full_residual": 1e-08,
+    "moving_field": 2e-08,
+    "harmonic_rcond": 1e-12,
+    "harmonic_scaled_residual": 1e-07,
+    "harmonic_backward_error": 1e-09
+  },
+  "fresh_full_residual_max_abs": 2.97796555486591e-14,
+  "native_tests": {
+    "counts": {
+      "passed": 15,
+      "total": 15,
+      "skipped": 0
+    },
+    "tests": [
+      "test_unsupported_compositions_fall_back[torsion-joint]",
+      "test_failed_local_partial_restarts_original_complete_columns[capture]",
+      "test_failed_local_partial_restarts_original_complete_columns[late]",
+      "test_material_damping_and_arbitrary_combined_rate_directions",
+      "test_incident_field_budget_restores_physical_context",
+      "test_canonical_frame_load_rows_match_full_rate_columns_and_combined_directions[wing-body-free-extra0]",
+      "test_canonical_frame_load_rows_match_full_rate_columns_and_combined_directions[jet-2-mixed-extra1]",
+      "test_canonical_extension_preserves_unsupported_contexts[cross_axis]",
+      "test_canonical_extension_preserves_unsupported_contexts[custom]",
+      "test_canonical_extension_preserves_unsupported_contexts[feedback]",
+      "test_canonical_extension_preserves_unsupported_contexts[owned_capture]",
+      "test_canonical_rate_capture_releases_owner_when_a_group_fails[RuntimeError]",
+      "test_canonical_rate_capture_releases_owner_when_a_group_fails[MemoryError]",
+      "test_canonical_rate_capture_releases_owner_when_a_group_fails[KeyboardInterrupt]",
+      "test_free_frame_optimization_preserves_full_matrices_and_output_field_recovery"
+    ],
+    "elapsed_seconds": 42.1804701880028,
+    "retained_initial_timeout": {
+      "path": "/tmp/openswing-frame-local-rate-20261024",
+      "session_closeout_pin": {
+        "bytes": 1278,
+        "sha256": "aa6d83f8e5b2a90fd82100b796057957058186c4953202f7e7f40e9357c7f795"
+      },
+      "status": "TIMEOUT_RETAINED_NOT_A_COMPLETED_SUITE",
+      "completed_pass_markers": 7,
+      "incomplete_original_case": "eighth parametrization of test_complete_local_motion_columns: name=dae, extra={}; inferred from seven completed markers and declared collection order",
+      "full_file_pass_claim": false
+    },
+    "full_file_pass_claim": false
+  },
+  "wasm_tests": {
+    "status": "PASS",
+    "cases": 11,
+    "pyodide": "314.0.7",
+    "elapsed_seconds": 69.38603534,
+    "tests": [
+      {
+        "test": "test_canonical_frame_load_rows_match_full_rate_columns_and_combined_directions",
+        "arguments": [
+          "wing-body",
+          "free",
+          "{}"
+        ]
+      },
+      {
+        "test": "test_canonical_frame_load_rows_match_full_rate_columns_and_combined_directions",
+        "arguments": [
+          "jet-2",
+          "mixed",
+          "{'powers': {1: 50000.0}}"
+        ]
+      },
+      {
+        "test": "test_canonical_extension_preserves_unsupported_contexts",
+        "arguments": [
+          "cross_axis"
+        ]
+      },
+      {
+        "test": "test_canonical_extension_preserves_unsupported_contexts",
+        "arguments": [
+          "custom"
+        ]
+      },
+      {
+        "test": "test_canonical_extension_preserves_unsupported_contexts",
+        "arguments": [
+          "feedback"
+        ]
+      },
+      {
+        "test": "test_canonical_extension_preserves_unsupported_contexts",
+        "arguments": [
+          "owned_capture"
+        ]
+      },
+      {
+        "test": "test_canonical_rate_capture_releases_owner_when_a_group_fails",
+        "arguments": [
+          "<class 'RuntimeError'>"
+        ]
+      },
+      {
+        "test": "test_canonical_rate_capture_releases_owner_when_a_group_fails",
+        "arguments": [
+          "<class 'MemoryError'>"
+        ]
+      },
+      {
+        "test": "test_canonical_rate_capture_releases_owner_when_a_group_fails",
+        "arguments": [
+          "<class 'KeyboardInterrupt'>"
+        ]
+      },
+      {
+        "test": "test_free_frame_optimization_preserves_full_matrices_and_output_field_recovery",
+        "arguments": []
+      },
+      {
+        "test": "test_material_damping_and_arbitrary_combined_rate_directions",
+        "arguments": []
+      }
+    ],
+    "scope": "Actual Pyodide in Node, not browser UI or full-aircraft timing."
+  },
+  "independent_saved_review": {
+    "status": "PASS_SAVED_LOCAL_RATE_BENCHMARK_REVIEW",
+    "counts": {
+      "passed": 186,
+      "total": 186
+    },
+    "scope": "Every A/M entry, exact M/B storage, four saved yaw responses, source pins and residual accounting independently reduced. No new physical evaluation, matrix product, factorization or solve."
+  },
+  "release": {
+    "status": "PASS_SOURCE_PUBLIC_AND_HTTP",
+    "source": {
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    "public": {
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    "previous_public": {
+      "bytes": 6125,
+      "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+    },
+    "prior_http_attempt": "User port8085 refused; temporary Vite8086 reached ready, but a two-second request timed out; its child was terminated and reaped in finally.",
+    "scope": "Source/public kernel and temporary local Vite delivery only; no full build, download, hosted deployment or browser performance benchmark.",
+    "http_status": 200,
+    "served_sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+    "manifest_contains_module": true,
+    "temporary_vite": {
+      "pid": 23293,
+      "exit_code": 143,
+      "reaped": true
+    },
+    "elapsed_seconds": 5.299549509014469
+  },
+  "remaining": [
+    "Maximum sampled16-to32 complex yaw change14.28%; spatial convergence unresolved.",
+    "Drela drawing operating point and mesh unidentified; magnitude differs.",
+    "No finite-amplitude nonlinear rudder-step validation.",
+    "No complete Daedalus browser benchmark or rebuilt hosted/download release.",
+    "Whole-file native run incomplete: seventh original case passed before timeout during eighth."
+  ],
+  "evidence_pins": {
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/plan.json": {
+      "bytes": 31648,
+      "sha256": "cf826baa17ae8603ca27a6fdf9177afeeaa54a22eccd4fbb99f32bf424e0f0b6"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/run.py": {
+      "bytes": 18132,
+      "sha256": "fcb84b7574fc4eaccebd8502b313740de6ab6db6e8de5e856f49c9e0a14c40cb"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/report.json": {
+      "bytes": 29486,
+      "sha256": "c396efff775b06b8c97ba516c930b81e78a1734db98eed694e79c5df62867bf6"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/session-closeout.json": {
+      "bytes": 3008,
+      "sha256": "71c25831cae5f48b8294510dedb1154a31a102f833b8887affe85c10bbe8338c"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/review/reference/report.json": {
+      "bytes": 79198,
+      "sha256": "3e05b272d979dc14d02c4f937a525abe75386db5ecfe719ba9db478f4fd8f0e0"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/review/reference/session-closeout.json": {
+      "bytes": 710,
+      "sha256": "2bb6701bd5a47f415bbbc8ad86dc29201e53fa4efba929cf5df221fe0816be0e"
+    },
+    "/tmp/openswing-daedalus-mesh32-resume-20261024/report.json": {
+      "bytes": 26989,
+      "sha256": "0eef2f4e16d25f7ed0ae7d68505e4f7df32ad9e3ef04ac40cdd4dc57ce5742cf"
+    },
+    "/tmp/openswing-frame-local-rate-focused-20261024/report.json": {
+      "bytes": 22440,
+      "sha256": "016af4c281596a0b42c5653de870110b828089fdaadfee207c68c3adfc110fe4"
+    },
+    "/tmp/openswing-frame-local-rate-focused-20261024/session-closeout.json": {
+      "bytes": 615,
+      "sha256": "f2647e45c02a72b12e1a2e09727897490b40362754cf533d2840f63867966722"
+    },
+    "/tmp/openswing-frame-local-rate-wasm-20261024/report.json": {
+      "bytes": 13656,
+      "sha256": "6d5fd3f5f2caaefeb181809f5ee404a310902fbb15cf4a02ce8d1529cb9bd53c"
+    },
+    "/tmp/openswing-frame-local-rate-wasm-20261024/session-closeout.json": {
+      "bytes": 695,
+      "sha256": "024546a0c8bc7d14655fc2bccfa8cf5880bfb8c04b0896eb8a3e372eda08e731"
+    },
+    "/tmp/openswing-daedalus-local-rate-release-20261024/runtime-sync.json": {
+      "bytes": 1003,
+      "sha256": "6b23d51c50d2c6824296dba7ca82f5529cdade616842a4ff1f01de4ac092c847"
+    },
+    "/home/userland/aswing/openswing/local_rate_tangent.py": {
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    "/home/userland/aswing/public/kernel/local_rate_tangent.py": {
+      "bytes": 7672,
+      "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+    },
+    "/home/userland/aswing/tests/test_local_rate_tangent.py": {
+      "bytes": 11248,
+      "sha256": "81020a99fa51f8cfe06d245c593891635fa6e098cf2c504a3383781350f81ea7"
+    },
+    "/home/userland/aswing/scripts/test-local-rate-wasm.mjs": {
+      "bytes": 4511,
+      "sha256": "a7960f0fdf1512eac0c07d69d40d110bd442793de3e767be3e2b974dbf306817"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/results/A.npz": {
+      "bytes": 7505854,
+      "sha256": "d821a7d79deaa5443075ca13e5c4129f5c022756f1106cc6c524b118523bf887"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/results/M.npz": {
+      "bytes": 199464,
+      "sha256": "e3ed3eee3a44deed0c1bd69f1492f6e83bbd5f663d72d6b03a6c48ed67145976"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/results/control-rhs.npz": {
+      "bytes": 59768,
+      "sha256": "5a6ea9c0e51821f313db33866dfc44278ea124235b8c00ea6b0f964c000695be"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/results/states.npz": {
+      "bytes": 239088,
+      "sha256": "b81ad545acbcac45fdaa6a274015c63cbcf94fb56bbadf77dd59330aa9925add"
+    },
+    "/tmp/openswing-daedalus-mesh32-local-rate-20261024/results/samples.json": {
+      "bytes": 2441,
+      "sha256": "573c5134eb09025445fc3e5f58e04bd917bf2a5f4e8d3f3124af9aab6e4d0cd2"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "format": "SA1_NEXT_ACTION_AUDIT",
+  "updated_utc": "2026-10-28T00:11:03.041797+00:00",
+  "previous_goal_turn_classification": "progress",
+  "previous_progress_evidence": {
+    "path": "docs/validation/sa1-differences-20261027-verification.json",
+    "bytes": 40637,
+    "sha256": "3a09fe863e4e8467793b49ab3fa1bc621a30b38f30d52fa1673a78c09c7e8db0"
+  },
+  "previous_progress_reason": "Four cold rigid/mounted calls and prescribed-field conservation checks eliminated additional explanations; original baselines unchanged.",
+  "current_turn_classification": "no progress toward native parity; current evidence revalidated and remaining action audited",
+  "registered_status": {
+    "passed": 19,
+    "required": 154,
+    "baseline_jobs_complete": 22
+  },
+  "verified_previous_pins": 187,
+  "new_forward_solves": 0,
+  "new_residual_evaluations": 0,
+  "production_edits": 0,
+  "source_pins": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": ".reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    {
+      "path": ".reference/ASWING_Extended_User_Manual.pdf",
+      "bytes": 3126157,
+      "sha256": "4f3af9fc10383f4f84888214e295d0bfaf0ef6190a37a5701f58d2d075f360d0"
+    },
+    {
+      "path": ".reference/ASWING_Extended_User_Manual.txt",
+      "bytes": 222073,
+      "sha256": "f735309dff805b659d94a2da1c9052e3fe6888071843a23dbfcbd9f40f48f88e"
+    },
+    {
+      "path": "openswing/geometry.py",
+      "bytes": 12985,
+      "sha256": "2d2469303a5ba93068e21c28f8fc69773f1aefbe9a1931cb1bafb89bccdfea57"
+    },
+    {
+      "path": "openswing/discretization.py",
+      "bytes": 5761,
+      "sha256": "725b3d8138d7e9f820ca2efbf3a22488240ada237ebd7fbc16a57bf3a4f294f1"
+    },
+    {
+      "path": "openswing/circulation.py",
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "docs/validation/sa1-differences-20261027.md",
+      "bytes": 7494,
+      "sha256": "70eebbf0fef1b514f962fd85b7aa55850a6a8b3498ad03c3bb0fbc3a59730c68"
+    },
+    {
+      "path": "docs/validation/steady-aero-review-20261027/legacy-mesh-settings-review.md",
+      "bytes": 3034,
+      "sha256": "01f003f6ad0adf62c871ccc2ca2ef9ee17e6bedf4b7828cb843007c70fc43ee2"
+    },
+    {
+      "path": "docs/validation/sa1-mesh-limit-followup-20261027.md",
+      "bytes": 5299,
+      "sha256": "b959899bc70d7f6abf1dfb492690b705679f88b549b7938b784c72ec3c3bcbad"
+    }
+  ],
+  "render": {
+    "path": "artifacts/isae/sa1-next-action-audit-20261028/extended-manual-p21.png",
+    "bytes": 215839,
+    "sha256": "2974698775136032b2600adcb4cf2bf72341a3e62dbdf09e5103db50bf847fb5"
+  },
+  "render_process": {
+    "session_id": 12991,
+    "exit_code": 0,
+    "terminal_chunk": "2974ad",
+    "pdf_page_index": 20
+  },
+  "findings": [
+    "Theory text line582 starts from prescribed nodes. Eqs63,150-154,201 define Glauert coordinates, sampling and testing given those nodes, not the NODE generator.",
+    "Current geometry.py and circulation.py implement those published sampling rules. Uniform-theta node spacing is an additional reconstruction choice, not a consequence of the coordinate definition.",
+    "NODE/I200 in SA_1.sh requests nodes. Version notes describe a breakpoint minimum but do not specify allocation/density/blend. No newly source-defined generator was identified.",
+    "Extended Manual p21 figure visibly labels100nodes; caption says180. It showsk1/k19 but neither a spacing formula nor authenticated SA1 settings. This qualifies the earlier caption quotation, not a proposed numerical correction.",
+    "For straight current-wake SA1, Vperp=U*sqrt(1+(Wg)^2)>=U. The numerical speed floor cannot affect the retained branch.",
+    "No new source-supported operator/residual/load change or unperformed discriminating numerical test was identified by either independent review.",
+    "Missing historical discrete implementation evidence is not proof that it caused the mismatch or that the current implementation is correct."
+  ],
+  "reviewers": {
+    "st2_suite_adapter": "Mesh source audit: no implementable documented missing rule; all source/module pins unchanged; terminal no pending process.",
+    "tip_source_audit": "Residual/basis/load audit: no new falsifiable defect or justified alternative; terminal no pending process."
+  },
+  "blocked_audit": {
+    "same_condition_observed_consecutive_resumed_turns": 2,
+    "first_turn_made_progress": true,
+    "condition": "Cannot distinguish or justify a correction to the historical circulation discretization/sampling/load mapping from current aggregate references and examined source definitions; user requires SA1-first until passing.",
+    "goal_remains_active": true,
+    "not_complete": true,
+    "ledger": [
+      {
+        "turn": "resumed user SA1 focus",
+        "classification": "progress",
+        "evidence": "docs/validation/sa1-differences-20261027.md",
+        "condition_remained": true
+      },
+      {
+        "turn": "first automatic continuation after resumed SA1 focus",
+        "classification": "no progress after revalidation",
+        "evidence": "docs/validation/sa1-next-action-audit-20261028.json",
+        "condition_remained": true
+      }
+    ],
+    "rule": "Old pre-resume blocked turns are excluded. If the same condition remains after next authoritative-state check and no meaningful safe action exists, third resumed turn satisfies blocked threshold."
+  }
+}

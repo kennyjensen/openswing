@@ -1,0 +1,451 @@
+{
+  "ae2_attempt": {
+    "archive_input": "[03_90].asw",
+    "attempted_meshes": [
+      40
+    ],
+    "closeout": {
+      "bytes": 5017,
+      "sha256": "16e53cb7cac2d7e8d555c5585dc6901b3692ae893f96d2ff7bf36f75d86aae94"
+    },
+    "conditional_position_earth": [
+      0,
+      0,
+      0
+    ],
+    "input_sha256": "eb35a50606bcceee263352cbd40ffd509b504082c78ba61732ad52ce03193db8",
+    "requested_meshes": [
+      40,
+      80,
+      160
+    ],
+    "result": "Initial GroundIntersectionError before any full equilibrium residual; no physical result.",
+    "script_position_specified": false,
+    "unstarted_meshes": [
+      80,
+      160
+    ]
+  },
+  "backtracking_control": {
+    "equilibrium_runs": 3,
+    "independent_review": {
+      "bytes": 124760,
+      "sha256": "9666ab448fafbbea377b9e32a2d22bbb927ef461cfcabcfe350e9533804f045b"
+    },
+    "outcomes": {
+      "baseline_injected": {
+        "exception": "GroundIntersectionError",
+        "rejected_clearance": -14.025702677194719,
+        "solve_seconds": 0.22157289099413902,
+        "status": "PASS_BASELINE_ABORT_REPRODUCED"
+      },
+      "candidate_injected": {
+        "actual_rejections": 4,
+        "array_comparisons": 11,
+        "complete_physical_comparison_passed": true,
+        "full_normalized_residual": 4.166251784406983e-14,
+        "minimum_clearance": 1.8757777440177248,
+        "numeric_output_fields": 928,
+        "rejected_clearances": [
+          -14.025702677194719,
+          -6.014304547030424,
+          -2.0086054819482744,
+          -0.005755949407200145
+        ],
+        "solve_seconds": 1.066106407000916,
+        "status": "PASS_CANDIDATE_RECOVERY"
+      },
+      "reference": {
+        "full_normalized_residual": 4.1607006692838574e-14,
+        "minimum_clearance": 1.8757777440177246,
+        "solve_seconds": 0.8566427869955078,
+        "status": "PASS_REFERENCE"
+      }
+    },
+    "scope": "One explicitly artificial oversized Newton root-coordinate proposal in a valid small mounted flexible-wing case; no experimental or speed claim."
+  },
+  "change": "Structured mounted Newton line search treats GroundIntersectionError as a rejected trial and backtracks, alongside the existing AnalysisError handling.",
+  "coverage": {
+    "fully_validated_families": 0,
+    "partial_families": 17,
+    "pending_families": 24,
+    "promoted": false
+  },
+  "date": "2026-10-16",
+  "evidence": {
+    "backtracking-review/review.json": {
+      "bytes": 124760,
+      "sha256": "9666ab448fafbbea377b9e32a2d22bbb927ef461cfcabcfe350e9533804f045b"
+    },
+    "backtracking/closeout.json": {
+      "bytes": 8003,
+      "sha256": "971c0b24dcfbca1344f803aa4affc96d86f55ab3e1ada0d3b2dca779bccc805b"
+    },
+    "domain-audit/report.json": {
+      "bytes": 16939,
+      "sha256": "bff7f6ee0ce87a04ebfeb7226bcb09df0542ba8b861bce7cb1b1dbaebb46d26e"
+    },
+    "geometry-review/report.json": {
+      "bytes": 11638,
+      "sha256": "0f5812f1fd9f558b54f83ec8474ce10a89e0b6317e0d7782b9ba6a54197a636a"
+    },
+    "integration/native/summary.json": {
+      "bytes": 12413,
+      "sha256": "3ba9160813a3bf53ae5c367c0d2edee6d2c96ce29af77bf56d78502b3b038f34"
+    },
+    "integration/wasm-execution.json": {
+      "bytes": 956,
+      "sha256": "388b2f41ad43757092a102dedc5587d4d87907e3508344934289d2189f0540a8"
+    },
+    "integration/wasm-report.json": {
+      "bytes": 4755,
+      "sha256": "5c9727bae07152fac3683f148dffd13c2832da9927f146241996628ffa277f8e"
+    },
+    "production-control/execution-receipt.json": {
+      "bytes": 1823,
+      "sha256": "fb1524292c974abab26bf39b83b6f1ab5cd1d46d8136047d64673bfaef591b85"
+    },
+    "production-control/results-01/report.json": {
+      "bytes": 5219,
+      "sha256": "e17665ec56703f03cb95270cb2780a4f6b6b9a509ea1303922815672595603cb"
+    },
+    "production-review/report.json": {
+      "bytes": 10028,
+      "sha256": "386ba285ad9eaf2d8894642a9b2f62c60dbb6f79adb4570730c20904e42e7fd6"
+    },
+    "reference/results-01/report.json": {
+      "bytes": 13395,
+      "sha256": "5bbbc91b8e5773755465302607aaebe07dcf8b8dc6347afce8136e61bab3528b"
+    },
+    "reference/summary.json": {
+      "bytes": 6531,
+      "sha256": "ddf2a4bc744d00183e8572673a86156fb177ab72b932e46dced3df542ec9e9ec"
+    }
+  },
+  "independent_reference": {
+    "checks_passed": 79,
+    "equilibria": 0,
+    "geometry": "16 strips in a vertical half-wing, prescribed exactly mirrored circulation, solid image plane; separate explicit full-wing line-vortex reference.",
+    "maximum_quadrature_difference": 4.440892098500626e-16
+  },
+  "preserved": "Initial geometry, full physical residual, actual trial geometry, final geometry and convergence tolerances remain strict; no wall-contact permission was added.",
+  "production_controls": {
+    "declared_checks_passed": 18,
+    "derivative_tolerance": 2e-08,
+    "endpoint_derivative_scaled_errors": [
+      1.6715107059463482e-11,
+      2.3654346634103993e-11,
+      2.209141436314642e-11
+    ],
+    "equilibria": 0,
+    "independently_recomputed_from_saved_arrays": 14,
+    "maximum_field_difference": 4.440892098500626e-16,
+    "maximum_force_difference": 3.469446951953614e-18,
+    "maximum_moment_difference": 6.938893903907228e-18,
+    "saved_artifact_limit": "Three finite-difference stencil sets and one correct-mask reference vector were not stored; these four checks received source/report review, not independent saved-array recomputation."
+  },
+  "raw_archive": {
+    "all_member_bytes_verified": true,
+    "bytes": 16384797,
+    "members": 520,
+    "path": "docs/validation/ground-backtracking-20261016-raw.zip",
+    "previous_catalog_entries_unchanged": 152,
+    "sha256": "185feb9661f7d7e9db428e3139269cf6c25d1aff6df9ad7d33b98c442620c95c"
+  },
+  "regression": {
+    "native_distinct_passed": 58,
+    "native_summary": {
+      "collection": {
+        "count": 58,
+        "exit_code": 0,
+        "reaped": true,
+        "scientific_execution": false,
+        "status": "PASS_COLLECT_ONLY"
+      },
+      "distinct_passed_node_count": 58,
+      "followup": {
+        "cap_seconds": 300,
+        "cleanup_seconds": 5,
+        "clock_policy": "Either UTC or perf_counter limit terminates the exact owned group.",
+        "exit_code": 0,
+        "passed_previously_completed_nodes_repeated": 0,
+        "perf_counter_seconds": 42.15703899000073,
+        "possible_partial_node_rerun": "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[posed]",
+        "possible_partial_qualification": "The first unfinished node was next pending or active at interruption; no pass was inferred. Its one authorized continuation execution is identified explicitly.",
+        "pytest_seconds": 39.954,
+        "status": "PASS_EIGHT_UNFINISHED_CONTROLS",
+        "terminal_and_reaped": true,
+        "utc_seconds": 61.28971552848816
+      },
+      "followup_completed_node_count": 8,
+      "original_completed_pass_marker_count": 50,
+      "original_interruption": {
+        "clock_discrepancy_retained": true,
+        "configured_cap_seconds": 180,
+        "exit_code": -15,
+        "junit_completed": false,
+        "passing_marker_count": 50,
+        "perf_counter_seconds": 172.30316440199385,
+        "pytest_assertion_failures_reported": 0,
+        "qualification": "Not a completed passing suite invocation; only the first 50 collected nodes have passing markers. External termination was retained after UTC/ps elapsed exceeded the configured cap while monotonic wait was pending.",
+        "source_unchanged": true,
+        "status": "FAILURE_RETAINED",
+        "terminal_and_reaped": true,
+        "utc_age_at_external_sigterm_seconds": 340.114057302475
+      },
+      "ownership": {
+        "all_owned_pids_absent": true,
+        "no_live_handles": true,
+        "owned_pids": [
+          15823,
+          15659,
+          22758,
+          22709,
+          21144
+        ],
+        "sessions": [
+          {
+            "exit_code": 1,
+            "reaped": true,
+            "role": "initial supervisor; worker exit -15",
+            "session_id": 85573
+          },
+          {
+            "exit_code": 0,
+            "reaped": true,
+            "role": "collect-only supervisor",
+            "session_id": 25421
+          },
+          {
+            "exit_code": 0,
+            "reaped": true,
+            "role": "unfinished-only supervisor",
+            "session_id": 88530
+          }
+        ]
+      },
+      "passed_node_ids": [
+        "tests/test_structured_ground.py::test_crossing_newton_proposal_backtracks_to_same_physical_state",
+        "tests/test_structured_ground.py::test_initial_crossing_geometry_is_still_rejected_before_tangent",
+        "tests/test_ground.py::test_earth_rotation_matches_passive_euler_sequence_and_gravity",
+        "tests/test_ground.py::test_earth_plane_reflection_is_an_involution_and_preserves_tangential_location",
+        "tests/test_ground.py::test_vortex_and_volume_images_satisfy_plane_boundary[0.0-1]",
+        "tests/test_ground.py::test_vortex_and_volume_images_satisfy_plane_boundary[0.0--1]",
+        "tests/test_ground.py::test_vortex_and_volume_images_satisfy_plane_boundary[0.65-1]",
+        "tests/test_ground.py::test_vortex_and_volume_images_satisfy_plane_boundary[0.65--1]",
+        "tests/test_ground.py::test_image_vortex_matches_independent_line_integrals",
+        "tests/test_ground.py::test_elliptic_circulation_center_downwash_matches_exact_height_factor",
+        "tests/test_ground.py::test_own_volume_image_is_retained_when_real_self_field_is_excluded",
+        "tests/test_ground.py::test_ground_height_sensitivity_far_limit_and_rigid_coupled_agreement",
+        "tests/test_ground.py::test_ground_height_and_attitude_can_be_solved_from_operating_targets",
+        "tests/test_ground.py::test_earth_velocity_and_motion_component_targets_recover_body_inputs",
+        "tests/test_ground.py::test_ground_parameters_and_actual_geometry_clearance_are_checked",
+        "tests/test_ground.py::test_coupled_wing_body_ground_images_and_earth_targets_recover_the_same_state",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[rectangular-extra0]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[flexible-extra1]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[wing-body-extra2]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[powered-extra3]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[articulated-extra4]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[dae-extra5]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[flexible-extra6]",
+        "tests/test_structured_static.py::test_grouped_structural_columns_equal_the_entire_lagged_linearization[wing-body-extra7]",
+        "tests/test_structured_static.py::test_failed_linearization_restores_full_fields",
+        "tests/test_structured_static.py::test_failed_sparse_direction_retries_the_full_physical_tangent",
+        "tests/test_structured_static.py::test_field_budget_failure_restores_physics_before_full_solver_fallback",
+        "tests/test_structured_static.py::test_nonlinear_prototype_converges_to_full_physical_equilibrium[False-flexible]",
+        "tests/test_structured_static.py::test_nonlinear_prototype_converges_to_full_physical_equilibrium[False-wing-body]",
+        "tests/test_structured_static.py::test_nonlinear_prototype_converges_to_full_physical_equilibrium[True-flexible]",
+        "tests/test_structured_static.py::test_nonlinear_prototype_converges_to_full_physical_equilibrium[True-wing-body]",
+        "tests/test_structured_dispatch.py::test_dispatch_and_fallback[mounted]",
+        "tests/test_structured_dispatch.py::test_dispatch_and_fallback[vacuum]",
+        "tests/test_structured_dispatch.py::test_dispatch_and_fallback[trim]",
+        "tests/test_structured_dispatch.py::test_dispatch_and_fallback[seed]",
+        "tests/test_structured_dispatch.py::test_dispatch_and_fallback[dynamic]",
+        "tests/test_structured_dispatch.py::test_direct_structured_fallback_uses_original_solver",
+        "tests/test_structured_rank.py::test_certificate_is_conservative_for_ill_conditioned_and_singular_blocks",
+        "tests/test_structured_rank.py::test_coupled_mechanisms_and_redundant_reactions_are_rejected[1 0 1]",
+        "tests/test_structured_rank.py::test_coupled_mechanisms_and_redundant_reactions_are_rejected[1 0 0\\n1 0 0]",
+        "tests/test_structured_rank.py::test_inconclusive_certificate_uses_exact_full_check",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[transient-wing-extra0-free-None]",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[flexible-extra1-free-None]",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[powered-extra2-mixed-targets2]",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[articulated-extra3-mixed-targets3]",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[wing-body-extra4-free-None]",
+        "tests/test_structured_initial_frames.py::test_initial_matrix_local_rows_global_wrenches_and_complete_border[guided-body-None-free-None]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[free]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[mixed]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[powered]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[posed]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[vacuum]",
+        "tests/test_structured_initial_frames.py::test_initial_state_and_response_match_original_unsteady_equations[flow]",
+        "tests/test_structured_initial_frames.py::test_initial_override_preserves_original_unknown_coordinates_and_scales",
+        "tests/test_structured_initial_frames.py::test_large_linear_frame_acceleration_does_not_require_artificial_unit_steps",
+        "tests/test_structured_initial_frames.py::test_initial_free_frame_still_rejects_missing_mass_or_mechanisms[missing_inertia]",
+        "tests/test_structured_initial_frames.py::test_initial_free_frame_still_rejects_missing_mass_or_mechanisms[redundant_ground]",
+        "tests/test_structured_initial_frames.py::test_initial_free_frame_still_rejects_missing_mass_or_mechanisms[unrestrained_rotation]"
+      ],
+      "records": {
+        "cap-observation.json": {
+          "bytes": 210,
+          "sha256": "6d69bd8c6b0d66db4e6dc83d2551a12178dd03242b6d9c1101674a1f499bcd98"
+        },
+        "collection-01/collect.log": {
+          "bytes": 6101,
+          "sha256": "1e255a6c78f8e46a9639a8fd17afdb816080728b7e7a72b66aea9cac940d850d"
+        },
+        "collection-01/completion-map.json": {
+          "bytes": 7788,
+          "sha256": "eac046e007f2f3a2723887929a6bb181f88f8079e69eb74285844120fe2a20cc"
+        },
+        "collection-01/execution.json": {
+          "bytes": 622,
+          "sha256": "3546a5827b7c69a240ec9c1d7dbf11eef3940739a7b54ab0f7973d06e492ea80"
+        },
+        "collection-01/run.py": {
+          "bytes": 2915,
+          "sha256": "93bc1a8ca095c92b0be77deeaddd0b37321be0e2d478925cb6ffaac5d0207db9"
+        },
+        "continuation-01/execution.json": {
+          "bytes": 3496,
+          "sha256": "1ab737e1a35f74b85d1610fa3008b861967dc7ec3e9e5277ba2463dce7e00134"
+        },
+        "continuation-01/junit.xml": {
+          "bytes": 1515,
+          "sha256": "ea673af32a804b7cad284fb47f450a5d902b7f801ce49b235fd383488fecbeb5"
+        },
+        "continuation-01/manifest.json": {
+          "bytes": 948,
+          "sha256": "7637ca03df6605ecbdd7174d5a42a48c7b8c46bdd021c25e2883ba0fecfa7f6b"
+        },
+        "continuation-01/pins-after.json": {
+          "bytes": 47211,
+          "sha256": "37e248a7b8022e66266fddb2525e0265576c096cfdd442b39eb83d1ff6c61a3d"
+        },
+        "continuation-01/pins-before.json": {
+          "bytes": 47211,
+          "sha256": "37e248a7b8022e66266fddb2525e0265576c096cfdd442b39eb83d1ff6c61a3d"
+        },
+        "continuation-01/plan.json": {
+          "bytes": 3032,
+          "sha256": "ae6a24362f35d170ce8013f07703bc35a3d05e765b3fb03b1eb06070ec2e1d48"
+        },
+        "continuation-01/pytest.log": {
+          "bytes": 1537,
+          "sha256": "2dc7578624576368b74b8af4d149d98d2a940acea0e35ce4ef131f0f520d1fc2"
+        },
+        "continuation-01/run.py": {
+          "bytes": 4055,
+          "sha256": "67742e8f89ec1a31837f8552970928a736af953e18061b40e5565d57e33e9ebe"
+        },
+        "execution.json": {
+          "bytes": 810,
+          "sha256": "04b907a42caff2d17486911fd3efd844d815932d137aef59227611f177f453b5"
+        },
+        "external-cap-enforcement.json": {
+          "bytes": 368,
+          "sha256": "76eae74fdc6a1ac0fdaa8d809fe10b3ee9b1a55efa0d6f0c26b058305b0d4499"
+        },
+        "manifest.json": {
+          "bytes": 1104,
+          "sha256": "bfa48f1168b4524f966b6fa70f2da56e0f87c5c3ffc80c7962641fdc039d5c24"
+        },
+        "pins-after.json": {
+          "bytes": 47211,
+          "sha256": "37e248a7b8022e66266fddb2525e0265576c096cfdd442b39eb83d1ff6c61a3d"
+        },
+        "pins-before.json": {
+          "bytes": 47211,
+          "sha256": "37e248a7b8022e66266fddb2525e0265576c096cfdd442b39eb83d1ff6c61a3d"
+        },
+        "plan.json": {
+          "bytes": 1386,
+          "sha256": "f1d6088bdc5dd10a9583795860035c541ec935f3d4bdd804ea8e2a8247ea0531"
+        },
+        "pytest.log": {
+          "bytes": 50,
+          "sha256": "dd89800342a2addec342ca19569ffac89df7946b38145f98f63937b588fc1727"
+        },
+        "run.py": {
+          "bytes": 4441,
+          "sha256": "50a04b3681b56b0c4d239c6c1d4b7dd933a12497e6de098d4a0ff5add70a19b2"
+        }
+      },
+      "scope": "Only six requested native test files, with original interruption and authorized unfinished-only continuation retained. No other study reruns, source/test edits, browser claims, numerical tolerance changes or performance conclusions.",
+      "source_and_test_inputs_unchanged": true,
+      "source_composition": {
+        "bytes": 9537,
+        "sha256": "9ca778c3817f1668dca942bfa95f498b13108e1144aadb5d7437f11cd5b94b46"
+      },
+      "source_module_count": 105,
+      "status": "PASS_58_DISTINCT_TARGETED_NODES_WITH_INITIAL_INTERRUPTION_RETAINED"
+    },
+    "wasm": {
+      "artifacts": {
+        "source-pins.json": {
+          "bytes": 9537,
+          "sha256": "9ca778c3817f1668dca942bfa95f498b13108e1144aadb5d7437f11cd5b94b46"
+        },
+        "wasm-report.json": {
+          "bytes": 4755,
+          "sha256": "5c9727bae07152fac3683f148dffd13c2832da9927f146241996628ffa277f8e"
+        },
+        "wasm.log": {
+          "bytes": 788,
+          "sha256": "1c119cfe5ec41c3ac00c53cfe0a29dcf7c66550408cf8a556a7c65e789365b02"
+        },
+        "wasm.mjs": {
+          "bytes": 4375,
+          "sha256": "b5185656b076b46b01e99a58acf611e714f741adb330d5c988dcbc06fc7f5807"
+        }
+      },
+      "browser_ui_test": false,
+      "cap_seconds": 150,
+      "exit_code": 0,
+      "handle_reaped": true,
+      "kill_grace_seconds": 5,
+      "maximum_state_difference": 1.1744620033449227e-16,
+      "numeric_state_components": 128,
+      "pyodide": "314.0.7",
+      "seconds": 36.048901486000005,
+      "session_id": 96048,
+      "source_modules": 105,
+      "source_unchanged": true,
+      "status": "PASS_WASM_GROUND_BACKTRACKING",
+      "tests": 2
+    }
+  },
+  "release": "Source and WASM checks complete; build, local promotion and hosted publication require their separate receipts.",
+  "remaining": [
+    "Resolve AE-2 producing Earth pose and model/specimen correspondence before claiming a matched comparison.",
+    "Any future wall-root contact support needs a justified continuous geometry certificate and separately verified derivative domains.",
+    "Resolve swept-wing convergence and the remaining static/dynamic experimental families.",
+    "No original ASWING executable is available; direct executable parity is not established."
+  ],
+  "retained_dense_diagnostic_failure": {
+    "maximum_absolute_error": 1.100076671800565e-05,
+    "meaning": "Separately evaluated dense horseshoes lose cancellation accuracy near the seam. The factored equilibrium operator passes the declared controls.",
+    "receiver": [
+      0.2,
+      0.0,
+      1e-12
+    ],
+    "unchanged_tolerance": 5e-13
+  },
+  "setup_qualification": {
+    "interpretation": "A qualified transverse-wall extension is a new explicitly scoped implementation capability motivated by image symmetry, not proof that original ASWING accepted this contact or that the conditional literal AE2 model matches the specimen.",
+    "literal_model": "[03_90].asw lines26-37 clamp t=.0001 but the root coordinate is xyz=(0,0,0). Parameter t is not Earth clearance. AE21/22 explicitly declared zero pose, therefore contact follows from those assumptions.",
+    "manual": "aswing_doc.txt:2634-2672 documents an image plane through Earth origin, pose-controlled clearance, and requires all aircraft parts above the plane. Lines1941-1999 establish %/A as anchored constraint defaults, not a numerical pose assignment.",
+    "primary_experiment": "Dunn1992 section4.5, printed84-85/PDF110-111, text3346-3370: free-jet test section, floor-mounted pedestal/turntable, finite cover disk. This supports a root support/endplate motivation; it does not establish an infinite solid plane, exact zero gap, same literal stiffness, or the archived numerical Earth pose.",
+    "script": "Literal [0_90]_3s_A1.sh lines5-12 explicitly selects OPER G, flag1, normal0 0 1, keyboard anchored defaults, beta1. It contains no explicit Earth translation or Euler-angle setting; initial/loaded producing state remains unknown."
+  },
+  "source": {
+    "changed_modules": [
+      "structured_static.py"
+    ],
+    "clearance_guard_sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "modules": 105,
+    "other_modules_unchanged": 104,
+    "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+  },
+  "status": "SOURCE_FIX_VERIFIED_NATIVE_AND_WASM"
+}

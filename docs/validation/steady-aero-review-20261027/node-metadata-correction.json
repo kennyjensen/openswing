@@ -1,0 +1,339 @@
+{
+  "schema": "isae-node-metadata-correction-v1",
+  "status": "PASS",
+  "date": "2026-10-27",
+  "summary": "NODE/I driver metadata now states requested node count. Existing interval reconstructions, job IDs, reference targets, routes and all numerical settings are unchanged.",
+  "renamed_fields": {
+    "declared_panels": "requested_nodes",
+    "panel_token": "node_count_token"
+  },
+  "no_legacy_alias": true,
+  "source_qualification": {
+    "version": "ASWING v5.67",
+    "revision_date": "22 Jan 2007",
+    "lines": [
+      591,
+      598
+    ],
+    "source": {
+      "path": ".reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    "meaning": "NODE/I requests a node count that may be increased to fit breakpoints. Historical node arrays and circulation K are not recovered; the current adapter reuses the numeric request as a nominal interval-count reconstruction."
+  },
+  "sa1": {
+    "jobs": 22,
+    "slots": 154,
+    "original_node_request": 200,
+    "original_node_count_token": "200",
+    "unchanged_nominal_interval_counts": [
+      200,
+      400
+    ],
+    "no_automatic_subtraction": true
+  },
+  "plan_equivalence": {
+    "status": "PASS",
+    "adapters": {
+      "extra_polars": {
+        "jobs": 710,
+        "slots": 2810
+      },
+      "polars": {
+        "jobs": 372,
+        "slots": 2604
+      },
+      "sa11": {
+        "jobs": 656,
+        "slots": 4592
+      },
+      "sa12": {
+        "jobs": 1020,
+        "slots": 4080
+      },
+      "sa6": {
+        "jobs": 91,
+        "slots": 528
+      }
+    },
+    "total_jobs": 2849,
+    "total_slots": 14614,
+    "before_plan_sha256": "03fbfb4ae5aad785ca070e0cdf67e6cfd7908f376c7508aebcf5c7799ff65b47",
+    "after_plan_sha256": "94a0b63edbb6bb7fb9c9d99fb8fd5302207c1d4494deeedbc221a1db189e4b06",
+    "exact_expected_metadata_migration": true,
+    "all_ids_routes_reference_targets_and_numerical_settings_unchanged": true,
+    "original_source_pins_unchanged": true,
+    "planning_imports_production": false,
+    "numerical_solves": 0,
+    "allowed_differences": [
+      "driver_declarations field names; explicit null node_count_token for SA6",
+      "mesh_source reconstruction wording in polars, extra_polars and SA12",
+      "NODE/I qualification in polars, extra_polars and SA12",
+      "changed helper file byte/hash pins only"
+    ]
+  },
+  "tests": {
+    "command": [
+      "/home/userland/aswing/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_isae_suite_polars.py",
+      "tests/test_isae_suite_extra_polars.py",
+      "tests/test_isae_suite_sa6.py",
+      "tests/test_isae_suite_sa11.py",
+      "tests/test_isae_suite_sa12.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 21.27069993799887,
+    "log": {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/focused-tests.log",
+      "bytes": 181,
+      "sha256": "57eb402141c94d01600b5ed75e66fa7263b7ac88d88c326685fae0a9a1799f3c"
+    },
+    "numerical_solves": 0,
+    "scope": "existing source-only and mocked-worker tests for the five shared-parser adapters",
+    "passed": 105,
+    "pytest_seconds": 19.11,
+    "log_text": "........................................................................ [ 68%]\n.................................                                        [100%]\n105 passed in 19.11s\n"
+  },
+  "function_audit": [
+    {
+      "path": "scripts/isae_suite_extra_polars.py",
+      "unchanged_functions": [
+        "_blocker",
+        "_tables",
+        "_unsupported",
+        "decode_driver",
+        "decode_table",
+        "validate_blocked"
+      ],
+      "changed_functions": [
+        "_settings",
+        "plan",
+        "run"
+      ]
+    },
+    {
+      "path": "scripts/isae_suite_polars.py",
+      "unchanged_functions": [
+        "_command_values",
+        "_number",
+        "_pin",
+        "_rho_sl",
+        "decode_polar",
+        "printed_value",
+        "reconstructed_wrench",
+        "reference_checks",
+        "run"
+      ],
+      "changed_functions": [
+        "decode_driver",
+        "plan"
+      ]
+    },
+    {
+      "path": "scripts/isae_suite_sa11.py",
+      "unchanged_functions": [
+        "_canonical",
+        "_manifest",
+        "_no_sidecars",
+        "_paths",
+        "_require",
+        "_settings",
+        "_stable",
+        "_unsupported",
+        "decode_table",
+        "normalization_evidence",
+        "plan",
+        "run",
+        "validate_blocked"
+      ],
+      "changed_functions": [
+        "_table_jobs"
+      ]
+    },
+    {
+      "path": "scripts/isae_suite_sa12.py",
+      "unchanged_functions": [
+        "_manifest",
+        "_require",
+        "_validate_job",
+        "decode_driver",
+        "physical_checks",
+        "plan",
+        "reference_checks",
+        "run"
+      ],
+      "changed_functions": [
+        "_table_jobs"
+      ]
+    },
+    {
+      "path": "scripts/isae_suite_sa6.py",
+      "unchanged_functions": [
+        "_canonical",
+        "_one",
+        "_report",
+        "_require",
+        "_settings",
+        "_verify",
+        "decode_fmat",
+        "plan",
+        "reference_checks",
+        "run",
+        "stability_coefficients",
+        "validate_blocked"
+      ],
+      "changed_functions": [
+        "decode_driver"
+      ]
+    }
+  ],
+  "all_worker_run_functions_identical_after_driver_key_rename": true,
+  "before_files": {
+    "scripts/isae_suite_polars.py": {
+      "bytes": 19798,
+      "sha256": "cd045a2024d50c686cb6e617aedf572dedb3a03b4daa98dd86eef7a77c23f38b"
+    },
+    "tests/test_isae_suite_polars.py": {
+      "bytes": 11139,
+      "sha256": "b3fd65afaab3cbeb79f15ee98b461f0086e4c3ce3f8f57de9c2f9691218b8cca"
+    },
+    "scripts/isae_suite_extra_polars.py": {
+      "bytes": 16314,
+      "sha256": "64e84a868dee2253b023d163aa908d188ffeb584d0a8b3ebd8cdd3c68bb12133"
+    },
+    "tests/test_isae_suite_extra_polars.py": {
+      "bytes": 5310,
+      "sha256": "2b6118e618c4d678f107aada9585088041e0523c654f9d1c993ab32e06e387c8"
+    },
+    "scripts/isae_suite_sa6.py": {
+      "bytes": 17738,
+      "sha256": "7fbfc422b14ea8106ef7555526d16d55515c16240469201711957246357c5fa4"
+    },
+    "tests/test_isae_suite_sa6.py": {
+      "bytes": 9052,
+      "sha256": "3e1654c2027b0053432ee202b87596b360104d11258919be785eb4cb1a096b10"
+    },
+    "scripts/isae_suite_sa11.py": {
+      "bytes": 13531,
+      "sha256": "420b4acd3ebd721f81ef610313033869238209837e346bbf18047312ffb22ad1"
+    },
+    "tests/test_isae_suite_sa11.py": {
+      "bytes": 11739,
+      "sha256": "42072383de33fe91c6406ff3e82e44c774f9271d0a68ef870591a02845405b53"
+    },
+    "scripts/isae_suite_sa12.py": {
+      "bytes": 16748,
+      "sha256": "65aa5968022c891f715ece1b4d4e10cb2cd6b08cab2269c4b6cecaeb348670f9"
+    },
+    "tests/test_isae_suite_sa12.py": {
+      "bytes": 7849,
+      "sha256": "0c490097a6baf7b50f4a1fff12e881e551753e76741dee0a92f46f21601c28eb"
+    }
+  },
+  "frozen_files": [
+    {
+      "path": "scripts/isae_suite_polars.py",
+      "bytes": 20656,
+      "sha256": "6cacdf904bb45c2c942e72e47a58b2ccee2c221f41d5d278dc2e77d34a57b9e5"
+    },
+    {
+      "path": "tests/test_isae_suite_polars.py",
+      "bytes": 13662,
+      "sha256": "b07038ae5ac0d324900083cc5dcbf9e599df2aa005c126b3ea80e897b91005f6"
+    },
+    {
+      "path": "scripts/isae_suite_extra_polars.py",
+      "bytes": 16287,
+      "sha256": "92e656c1be9f002edce130e67c643168ecbbc3b69c19d5bcfe6d1cdc8da9a3ed"
+    },
+    {
+      "path": "tests/test_isae_suite_extra_polars.py",
+      "bytes": 6180,
+      "sha256": "df14418bfacfc05d812257243c0515f14f9f0750aed8f962d03bc940a0b69c16"
+    },
+    {
+      "path": "scripts/isae_suite_sa6.py",
+      "bytes": 17777,
+      "sha256": "19ea3bdd4db8527bb6929140ae58bde3b307db513103ea7f9642ccedf5096a0b"
+    },
+    {
+      "path": "tests/test_isae_suite_sa6.py",
+      "bytes": 9234,
+      "sha256": "9394f08bef0ac809bd406de31748082e496b2bbb513ffa990749f71fa0200d9b"
+    },
+    {
+      "path": "scripts/isae_suite_sa11.py",
+      "bytes": 13531,
+      "sha256": "c836bfa01a6d0f50d8a88661178d9fd0f2c9d6d5b4b65999730360796aac6bd6"
+    },
+    {
+      "path": "tests/test_isae_suite_sa11.py",
+      "bytes": 11939,
+      "sha256": "2f1c29c674cff753e6fc605ffb64f98099b1f6d03999118966772e607238fb34"
+    },
+    {
+      "path": "scripts/isae_suite_sa12.py",
+      "bytes": 16852,
+      "sha256": "dd75699250e4b5659113852f4041edb29ac70952d656499dc960a04773d60745"
+    },
+    {
+      "path": "tests/test_isae_suite_sa12.py",
+      "bytes": 8305,
+      "sha256": "e5c4a31dd4e844061e3c9d3dca6bb9855cf24e5da55eb65d6fc4a25c187fb8b1"
+    }
+  ],
+  "verification_artifacts": [
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/before-receipt.json",
+      "bytes": 2427,
+      "sha256": "2e698bd31c269a416639810791af9b29b1c36f64605f49178f7721a4b2f14a7e"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/before-plans.json.gz",
+      "bytes": 354357,
+      "sha256": "089553d14d35ba2f7ebf4f284a4aa0e50b63ba060c1f4444bcacc1191a67a8c9"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/after-plans.json.gz",
+      "bytes": 361165,
+      "sha256": "214e95a8fa488199051d2c745fda3e135d21179082f00fae89da76aee7458a7e"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/plan-equivalence.json",
+      "bytes": 1102,
+      "sha256": "03cc117e2c0acc76c8d3cbf4dedcdefc41ab46cdfcaf9739d0b251a359607277"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/function-audit.json",
+      "bytes": 1723,
+      "sha256": "2e7c3cca695470dd25c4ab7740cf4cffac25fe8a7c6d009cbd064a7fc2ef71ca"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/test-receipt.json",
+      "bytes": 665,
+      "sha256": "c5148336a424849ca2702a0dbf30407df621b84a6e51d75ff6e0edd3c31a02c6"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/focused-tests.log",
+      "bytes": 181,
+      "sha256": "57eb402141c94d01600b5ed75e66fa7263b7ac88d88c326685fae0a9a1799f3c"
+    },
+    {
+      "path": "/tmp/openswing-sa1-node-metadata-20261027/changes.diff",
+      "bytes": 19378,
+      "sha256": "62efa302e051252966923eba848e371cf81b3a2ce3e36049c3140b4f8511eb7f"
+    }
+  ],
+  "scope": {
+    "production_changes": false,
+    "runner_summary_changes": false,
+    "historical_artifacts_changed": false,
+    "real_numerical_solves": 0,
+    "source_only_planning_imports_production": false,
+    "test_workers": "Existing worker tests use stubbed solver results; no archived comparisons or numerical batches were run."
+  }
+}

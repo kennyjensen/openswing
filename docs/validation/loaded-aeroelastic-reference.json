@@ -1,0 +1,2956 @@
+{
+  "status": "PASS_SCOPED_INDEPENDENT_REFERENCE_PUBLISHED_DISCREPANCY_OPEN",
+  "date": "2026-10-11",
+  "numerical_kernel_changed": false,
+  "ui_changed": false,
+  "scope": "Six complete nodal aerodynamic/gravity operators, hybrid modal reconstruction, six independently re-equilibrated continuum-rod/discrete-fluid solutions and one local flutter bracket. No full-spectrum, original-ASWING or experimental parity claim.",
+  "cases": [
+    {
+      "index": 0,
+      "wing": "25",
+      "requested_intervals": 8,
+      "actual_intervals": 10,
+      "nodes": 11,
+      "derivative_columns": 218,
+      "speed_m_s": 33.21,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 1.7369434623582888e-16,
+          "lift": 9.389190813724468e-17,
+          "Cm": 3.784949784146896e-16,
+          "profile": 8.673617379884035e-19,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 3.7860339863193815e-16,
+          "gravity": 6.505213034913027e-19
+        },
+        "components": {
+          "residual": 1.0562045312185345e-11,
+          "lift": 3.8163916471489756e-11,
+          "Cm": 8.261620554339544e-11,
+          "profile": 9.40057785218179e-13,
+          "circulation_rate": 1.07032438467769e-15,
+          "apparent": 5.134781488891349e-16,
+          "total": 8.265234561581161e-11,
+          "gravity": 6.550388125322965e-14
+        },
+        "native_step": {
+          "residual": 1.5596887406231799e-09,
+          "lift": 2.6859301824225072e-11,
+          "Cm": 7.006837239936716e-11,
+          "profile": 2.6725879754445955e-09,
+          "circulation_rate": 4.163336342344337e-17,
+          "apparent": 4.163336342344337e-17,
+          "total": 2.672594496405667e-09,
+          "gravity": 7.09248921189659e-14
+        },
+        "reference_step": {
+          "residual": 1.5596554731246777e-09,
+          "lift": 2.6107588327003474e-11,
+          "Cm": 7.694040738727426e-11,
+          "profile": 2.6725873007726886e-09,
+          "circulation_rate": 4.163336342344337e-17,
+          "apparent": 3.469446951953614e-17,
+          "total": 2.6726062404835993e-09,
+          "gravity": 2.710505431213761e-14
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 5.1711211701555015e-11,
+              "Cm": 8.261645869388369e-11,
+              "profile": 8.796401107513674e-13,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 8.265252003883983e-11,
+              "gravity": 6.550388125322965e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 8.865341794006554e-11,
+            "maximum_equation_error": 5.551115123125783e-16,
+            "condition": 28.362331525287455
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 5.1678734394178997e-11,
+              "Cm": 8.261645958159705e-11,
+              "profile": 8.837133017603518e-13,
+              "circulation_rate": 1.8794087877399123e-12,
+              "apparent": 7.289741972028434e-17,
+              "total": 8.265252048224583e-11,
+              "gravity": 6.550388125322965e-14,
+              "apparent_acceleration": 1.0191500421363742e-17,
+              "apparent_pitch_rate": 7.28583859910259e-17
+            },
+            "gamma": 8.851018568031036e-11,
+            "maximum_equation_error": 3.331391796911832e-16,
+            "condition": 27.883542552448713
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 5.158259080737638e-11,
+              "Cm": 8.261646229107407e-11,
+              "profile": 8.957003698782521e-13,
+              "circulation_rate": 3.740773800312425e-12,
+              "apparent": 1.4602879140565722e-16,
+              "total": 8.265252187670482e-11,
+              "gravity": 6.550388125322965e-14,
+              "apparent_acceleration": 4.0766001685454967e-17,
+              "apparent_pitch_rate": 1.457167719820518e-16
+            },
+            "gamma": 8.808557111716297e-11,
+            "maximum_equation_error": 3.330733302831865e-16,
+            "condition": 26.580927163386466
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 5.1426193639705416e-11,
+              "Cm": 8.261646688673714e-11,
+              "profile": 9.149246118541516e-13,
+              "circulation_rate": 5.5669765899162146e-12,
+              "apparent": 2.231008837199937e-16,
+              "total": 8.265252434000514e-11,
+              "gravity": 6.550388125322965e-14,
+              "apparent_acceleration": 9.020562075079397e-17,
+              "apparent_pitch_rate": 2.220446049250313e-16
+            },
+            "gamma": 8.739220556732486e-11,
+            "maximum_equation_error": 3.3315396105820817e-16,
+            "condition": 24.76504284219653
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 5.0956142802608004e-11,
+              "Cm": 8.261648142963426e-11,
+              "profile": 1.1965911994909702e-12,
+              "circulation_rate": 9.054845969073345e-12,
+              "apparent": 3.656112350607221e-16,
+              "total": 8.265253253786961e-11,
+              "gravity": 6.550388125322965e-14,
+              "apparent_acceleration": 2.5673907444456745e-16,
+              "apparent_pitch_rate": 3.608224830031759e-16
+            },
+            "gamma": 8.52885776696192e-11,
+            "maximum_equation_error": 1.0568118599982635e-15,
+            "condition": 20.76876328927239
+          }
+        ],
+        "apparent_mass_error": 1.0329950603570417e-17,
+        "apparent_mass_step": 1.1006610814418396e-17,
+        "apparent_mass_asymmetry": 2.6469779601696886e-22,
+        "energy_mass_minimum_eigenvalue": -3.848410398270807e-22,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                -26.49608273767886,
+                74.31211744478088
+              ],
+              "reconstructed_per_s": [
+                -26.49608270116908,
+                74.3121174369356
+              ],
+              "relative": 4.733308602170817e-10,
+              "mac": 1.0000000000000004,
+              "backward_error": 1.294721294670526e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -50.92333964109627,
+                164.34301359032463
+              ],
+              "reconstructed_per_s": [
+                -50.92333966043141,
+                164.34301355909633
+              ],
+              "relative": 2.1347918400997434e-10,
+              "mac": 1.0000000000000002,
+              "backward_error": 3.0945262603403747e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                -26.49608273767886,
+                74.31211744478088
+              ],
+              "reconstructed_per_s": [
+                -26.496082694802034,
+                74.31211747411791
+              ],
+              "relative": 6.585090669587369e-10,
+              "mac": 1.0000000000000004,
+              "backward_error": 1.1505458349029456e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -50.92333964109627,
+                164.34301359032463
+              ],
+              "reconstructed_per_s": [
+                -50.923339670758594,
+                164.34301365283977
+              ],
+              "relative": 4.021774855232361e-10,
+              "mac": 1.0000000000000002,
+              "backward_error": 3.132447643164897e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.0010650940643923724,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 2.6385638238576388e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 1.356187068698616e-14
+          }
+        ],
+        "base_mismatch": 3.3306690738754696e-16,
+        "poles": [
+          {
+            "rate_per_s": [
+              -26.605817491941895,
+              74.17234015957399
+            ],
+            "seed_per_s": [
+              -26.49608273767886,
+              74.31211744478088
+            ],
+            "backward_error": 3.86219274999854e-16,
+            "maximum_normalized_equation_error": 4.582410065437971e-15,
+            "smallest_singular_value": 4.9034134458955016e-14,
+            "shape_mac": 0.999994426774525,
+            "relative_root_change": 0.0022524520789960795,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -50.76905561548478,
+              164.28264847815885
+            ],
+            "seed_per_s": [
+              -50.92333964109627,
+              164.34301359032463
+            ],
+            "backward_error": 1.1347126248244747e-16,
+            "maximum_normalized_equation_error": 2.46810867012513e-15,
+            "smallest_singular_value": 4.888595607026465e-14,
+            "shape_mac": 0.9999879534513546,
+            "relative_root_change": 0.000962924644938444,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 5.853423202709023e-09,
+            "continuum_tolerance_relative": 1.6131475992322776e-14
+          },
+          {
+            "difference_step_relative": 3.243529282001693e-09,
+            "continuum_tolerance_relative": 3.1689647594916636e-15
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-00.json": "d62c70b4a41b3fa100c0e555ce99ccfde03728fcc23208e6d89a978490e607f5",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "wing": "75",
+      "requested_intervals": 8,
+      "actual_intervals": 10,
+      "nodes": 11,
+      "derivative_columns": 218,
+      "speed_m_s": 24.58,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 2.241449047885411e-16,
+          "lift": 3.7470027081099033e-16,
+          "Cm": 1.43982048506075e-16,
+          "profile": 2.372659898532363e-18,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 3.7470027081099033e-16,
+          "gravity": 2.168404344971009e-18
+        },
+        "components": {
+          "residual": 6.352073895403753e-12,
+          "lift": 9.078386176489261e-11,
+          "Cm": 1.211234527029801e-10,
+          "profile": 1.4716099373500977e-12,
+          "circulation_rate": 3.3306690738754696e-16,
+          "apparent": 4.718447854656915e-16,
+          "total": 1.1322684687976167e-10,
+          "gravity": 6.884127802856375e-14
+        },
+        "native_step": {
+          "residual": 1.9632318083437735e-09,
+          "lift": 7.69638981994343e-11,
+          "Cm": 1.361306180627797e-10,
+          "profile": 2.6434461913032737e-09,
+          "circulation_rate": 5.551115123125783e-17,
+          "apparent": 4.163336342344337e-17,
+          "total": 2.6434402999875317e-09,
+          "gravity": 8.028416459741027e-14
+        },
+        "reference_step": {
+          "residual": 1.9688397515247324e-09,
+          "lift": 9.496888228621193e-11,
+          "Cm": 1.0670356380871114e-10,
+          "profile": 2.6434379508695545e-09,
+          "circulation_rate": 5.551115123125783e-17,
+          "apparent": 4.163336342344337e-17,
+          "total": 2.643445720998394e-09,
+          "gravity": 9.486769009248164e-15
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 9.034890283837749e-11,
+              "Cm": 1.2112482825441678e-10,
+              "profile": 1.6056890996296082e-12,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 1.1321515975081897e-10,
+              "gravity": 6.884127802856375e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 4.188924467712907e-11,
+            "maximum_equation_error": 3.885780586188048e-16,
+            "condition": 32.664724517070574
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 9.044650769445544e-11,
+              "Cm": 1.2112483017623957e-10,
+              "profile": 1.5829984420866399e-12,
+              "circulation_rate": 1.422052508676955e-12,
+              "apparent": 7.981856336281789e-17,
+              "total": 1.1321514896456085e-10,
+              "gravity": 6.884127802856375e-14,
+              "apparent_acceleration": 1.734723475976807e-17,
+              "apparent_pitch_rate": 7.979727989493313e-17
+            },
+            "gamma": 4.080854985811605e-11,
+            "maximum_equation_error": 6.967363362929339e-16,
+            "condition": 31.357076613161745
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 9.067957647963825e-11,
+              "Cm": 1.2112483443299049e-10,
+              "profile": 1.5332658072513356e-12,
+              "circulation_rate": 2.6232110016589053e-12,
+              "apparent": 1.597647594850104e-16,
+              "total": 1.132151070279655e-10,
+              "gravity": 6.884127802856375e-14,
+              "apparent_acceleration": 6.938893903907228e-17,
+              "apparent_pitch_rate": 1.5959455978986625e-16
+            },
+            "gamma": 3.8182312927152305e-11,
+            "maximum_equation_error": 5.969673675924924e-16,
+            "condition": 28.212962460145107
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 9.094327900854972e-11,
+              "Cm": 1.2112483865273244e-10,
+              "profile": 1.4915521438836675e-12,
+              "circulation_rate": 3.5435546695587535e-12,
+              "apparent": 2.364972761103288e-16,
+              "total": 1.1321502073623062e-10,
+              "gravity": 6.884127802856375e-14,
+              "apparent_acceleration": 1.5959455978986625e-16,
+              "apparent_pitch_rate": 2.3592239273284576e-16
+            },
+            "gamma": 3.507366019880662e-11,
+            "maximum_equation_error": 4.558914767928297e-16,
+            "condition": 24.58187999896858
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 9.135009868247743e-11,
+              "Cm": 1.2112484335377036e-10,
+              "profile": 1.7632030311168489e-12,
+              "circulation_rate": 4.758045792335993e-12,
+              "apparent": 4.440892098500626e-16,
+              "total": 1.1321470982240835e-10,
+              "gravity": 6.884127802856375e-14,
+              "apparent_acceleration": 4.440892098500626e-16,
+              "apparent_pitch_rate": 4.0245584642661925e-16
+            },
+            "gamma": 2.951823542361579e-11,
+            "maximum_equation_error": 1.2000271614968145e-15,
+            "condition": 18.48071409949251
+          }
+        ],
+        "apparent_mass_error": 4.882353494510951e-17,
+        "apparent_mass_step": 5.1373765860834994e-17,
+        "apparent_mass_asymmetry": 6.249349527838124e-22,
+        "energy_mass_minimum_eigenvalue": -1.0176062475370325e-21,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                7.77728452095262,
+                110.70533030618479
+              ],
+              "reconstructed_per_s": [
+                7.777284517916095,
+                110.70533031750188
+              ],
+              "relative": 1.0558269250468639e-10,
+              "mac": 1.0000000000000004,
+              "backward_error": 1.4960335242123324e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -114.42427494864872,
+                62.08193567792065
+              ],
+              "reconstructed_per_s": [
+                -114.4242749320181,
+                62.08193566545555
+              ],
+              "relative": 1.5965126997814435e-10,
+              "mac": 0.9999999999999998,
+              "backward_error": 1.2921948829321215e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                7.77728452095262,
+                110.70533030618479
+              ],
+              "reconstructed_per_s": [
+                7.777284511156024,
+                110.7053303164189
+              ],
+              "relative": 1.2765771818850003e-10,
+              "mac": 0.9999999999999998,
+              "backward_error": 2.4891853344353756e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -114.42427494864872,
+                62.08193567792065
+              ],
+              "reconstructed_per_s": [
+                -114.42427493243288,
+                62.08193565935028
+              ],
+              "relative": 1.8938132252390034e-10,
+              "mac": 0.9999999999999997,
+              "backward_error": 1.4130198160427657e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.004248170273310397,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 7.794991213522311e-08,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 1.500786346522205e-14
+          }
+        ],
+        "base_mismatch": 6.661338147750939e-16,
+        "poles": [
+          {
+            "rate_per_s": [
+              7.800474224462001,
+              110.54270567966857
+            ],
+            "seed_per_s": [
+              7.77728452095262,
+              110.70533030618479
+            ],
+            "backward_error": 8.532382574116043e-17,
+            "maximum_normalized_equation_error": 1.662148702121097e-15,
+            "smallest_singular_value": 4.9088997325877316e-14,
+            "shape_mac": 0.99998922702422,
+            "relative_root_change": 0.0014801981090289988,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -114.4388927356194,
+              62.25919284372308
+            ],
+            "seed_per_s": [
+              -114.42427494864872,
+              62.08193567792065
+            ],
+            "backward_error": 1.4642656674051716e-16,
+            "maximum_normalized_equation_error": 1.7615002377487094e-15,
+            "smallest_singular_value": 4.803359901626998e-14,
+            "shape_mac": 0.9999857474066461,
+            "relative_root_change": 0.0013662434853771118,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 6.136591314695595e-11,
+            "continuum_tolerance_relative": 2.5903914749285474e-14
+          },
+          {
+            "difference_step_relative": 1.379741331676262e-09,
+            "continuum_tolerance_relative": 1.4251210298396156e-14
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-01.json": "4656c2baed2fe64d646088e804a7b397e8ddf2b27050f344810840bcd6de8c30",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "wing": "25",
+      "requested_intervals": 16,
+      "actual_intervals": 18,
+      "nodes": 19,
+      "derivative_columns": 378,
+      "speed_m_s": 33.21,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 1.2904127898383339e-15,
+          "lift": 2.1471946399717612e-16,
+          "Cm": 5.398242616805327e-16,
+          "profile": 9.274628150346205e-19,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 5.398242616805327e-16,
+          "gravity": 2.778268066994105e-19
+        },
+        "components": {
+          "residual": 8.043424338953345e-11,
+          "lift": 1.1478086999605749e-10,
+          "Cm": 2.844404399515721e-10,
+          "profile": 4.79138301571428e-13,
+          "circulation_rate": 1.053562619091064e-14,
+          "apparent": 2.498001805406602e-16,
+          "total": 2.844585099866508e-10,
+          "gravity": 6.211574960648752e-14
+        },
+        "native_step": {
+          "residual": 1.7310800065341184e-09,
+          "lift": 1.0450263340767117e-10,
+          "Cm": 1.467720620943456e-10,
+          "profile": 2.6727043225078725e-09,
+          "circulation_rate": 2.7755575615628914e-17,
+          "apparent": 1.3877787807814457e-17,
+          "total": 2.6727011090410535e-09,
+          "gravity": 6.832732448243297e-14
+        },
+        "reference_step": {
+          "residual": 1.7316994755889623e-09,
+          "lift": 7.058065796313601e-11,
+          "Cm": 1.4448258850875679e-10,
+          "profile": 2.672712799288348e-09,
+          "circulation_rate": 2.0816681711721685e-17,
+          "apparent": 2.0816681711721685e-17,
+          "total": 2.6727047242047774e-09,
+          "gravity": 2.2587549777623728e-14
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 1.4055567598486238e-10,
+              "Cm": 2.8443894154690026e-10,
+              "profile": 3.703464835150272e-12,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 2.844569964810756e-10,
+              "gravity": 6.211574960648752e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 4.705295406776111e-10,
+            "maximum_equation_error": 4.440892098500626e-16,
+            "condition": 27.939525057409487
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 1.4048588280327224e-10,
+              "Cm": 2.844389340066133e-10,
+              "profile": 3.710299958493092e-12,
+              "circulation_rate": 4.491540689282704e-12,
+              "apparent": 3.5580048129681206e-17,
+              "total": 2.8445699684703193e-10,
+              "gravity": 6.211574960648752e-14,
+              "apparent_acceleration": 4.445228907190568e-18,
+              "apparent_pitch_rate": 3.5561831257524545e-17
+            },
+            "gamma": 4.700342518714453e-10,
+            "maximum_equation_error": 3.348690356123522e-16,
+            "condition": 27.47830800076983
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 1.40279130297507e-10,
+              "Cm": 2.844389128663655e-10,
+              "profile": 3.7305135242988954e-12,
+              "circulation_rate": 8.948766552662309e-12,
+              "apparent": 7.126928574009358e-17,
+              "total": 2.8445699921714804e-10,
+              "gravity": 6.211574960648752e-14,
+              "apparent_acceleration": 1.7780915628762273e-17,
+              "apparent_pitch_rate": 7.112366251504909e-17
+            },
+            "gamma": 4.685625313297855e-10,
+            "maximum_equation_error": 4.997930709674e-16,
+            "condition": 26.220871716268736
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 1.3994294197076588e-10,
+              "Cm": 2.844388818293841e-10,
+              "profile": 3.763270738614911e-12,
+              "circulation_rate": 1.333910258469312e-11,
+              "apparent": 1.0456026864460421e-16,
+              "total": 2.8445700671359585e-10,
+              "gravity": 6.211574960648752e-14,
+              "apparent_acceleration": 4.163336342344337e-17,
+              "apparent_pitch_rate": 1.0408340855860843e-16
+            },
+            "gamma": 4.661548378172935e-10,
+            "maximum_equation_error": 4.47545209131181e-16,
+            "condition": 24.461804542978616
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 1.3893133993190365e-10,
+              "Cm": 2.844388074277039e-10,
+              "profile": 3.861030463070763e-12,
+              "circulation_rate": 2.1805686834952573e-11,
+              "apparent": 1.8266769994417016e-16,
+              "total": 2.8445705037885033e-10,
+              "gravity": 6.211574960648752e-14,
+              "apparent_acceleration": 1.1102230246251565e-16,
+              "apparent_pitch_rate": 1.8041124150158794e-16
+            },
+            "gamma": 4.5879530115520023e-10,
+            "maximum_equation_error": 5.013320832966251e-16,
+            "condition": 20.56734416485749
+          }
+        ],
+        "apparent_mass_error": 5.2510335183540005e-18,
+        "apparent_mass_step": 5.262978006399266e-18,
+        "apparent_mass_asymmetry": 9.941676987121701e-23,
+        "energy_mass_minimum_eigenvalue": -3.0119618383002738e-22,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                -25.267866696030477,
+                74.0582203130748
+              ],
+              "reconstructed_per_s": [
+                -25.26786665939777,
+                74.05822024524693
+              ],
+              "relative": 9.851496090563151e-10,
+              "mac": 0.9999999999999998,
+              "backward_error": 1.5462999154584603e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -52.41288476760381,
+                165.06922137149675
+              ],
+              "reconstructed_per_s": [
+                -52.41288477206228,
+                165.0692213334217
+              ],
+              "relative": 2.2134700795960285e-10,
+              "mac": 0.9999999999999997,
+              "backward_error": 4.329728861964553e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                -25.267866696030477,
+                74.0582203130748
+              ],
+              "reconstructed_per_s": [
+                -25.267866620592162,
+                74.05822012296035
+              ],
+              "relative": 2.613857143884893e-09,
+              "mac": 0.9999999999999998,
+              "backward_error": 1.5939055831401064e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -52.41288476760381,
+                165.06922137149675
+              ],
+              "reconstructed_per_s": [
+                -52.41288483337427,
+                165.0692215157225
+              ],
+              "relative": 9.152602497717161e-10,
+              "mac": 0.9999999999999997,
+              "backward_error": 4.2628460665120906e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.00027023717220092707,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 1.6576862974526286e-10,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 6.390893178487496e-15
+          }
+        ],
+        "base_mismatch": 6.036837696399289e-16,
+        "poles": [
+          {
+            "rate_per_s": [
+              -25.294984685430393,
+              74.02370114665872
+            ],
+            "seed_per_s": [
+              -25.267866696030477,
+              74.0582203130748
+            ],
+            "backward_error": 1.1366148199923752e-16,
+            "maximum_normalized_equation_error": 1.4016179185043608e-15,
+            "smallest_singular_value": 4.897042128854606e-14,
+            "shape_mac": 0.999999652607803,
+            "relative_root_change": 0.0005609846781321542,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -52.376381216884376,
+              165.05358178473026
+            ],
+            "seed_per_s": [
+              -52.41288476760381,
+              165.06922137149675
+            ],
+            "backward_error": 6.788863205030332e-16,
+            "maximum_normalized_equation_error": 1.324162251413737e-14,
+            "smallest_singular_value": 4.881305508728079e-14,
+            "shape_mac": 0.9999991456763704,
+            "relative_root_change": 0.00022930118296551425,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 7.264687947814543e-09,
+            "continuum_tolerance_relative": 1.0937592788412968e-15
+          },
+          {
+            "difference_step_relative": 3.812156480621945e-09,
+            "continuum_tolerance_relative": 1.6413119927504086e-15
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-02.json": "ba4dcc1042ee3942bbc7304e07fd2442e596606a341b40fbf813f3fc6b9382c8",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "wing": "75",
+      "requested_intervals": 16,
+      "actual_intervals": 18,
+      "nodes": 19,
+      "derivative_columns": 378,
+      "speed_m_s": 24.58,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 7.01123286089977e-16,
+          "lift": 9.662409761190816e-16,
+          "Cm": 1.6384463230600943e-15,
+          "profile": 1.4593761948623126e-18,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 1.5523606705647452e-15,
+          "gravity": 1.3010426069826053e-18
+        },
+        "components": {
+          "residual": 2.3351099789806728e-11,
+          "lift": 4.3252438609864274e-10,
+          "Cm": 9.37274708082028e-10,
+          "profile": 8.03063231215855e-13,
+          "circulation_rate": 1.0658357876836e-14,
+          "apparent": 2.42861286636753e-16,
+          "total": 8.880157893742524e-10,
+          "gravity": 4.385794325817408e-14
+        },
+        "native_step": {
+          "residual": 2.4207714684398607e-09,
+          "lift": 3.7134647201848836e-10,
+          "Cm": 6.932099570473686e-10,
+          "profile": 2.6471120372732545e-09,
+          "circulation_rate": 2.7755575615628914e-17,
+          "apparent": 2.7755575615628914e-17,
+          "total": 2.6470886402979454e-09,
+          "gravity": 4.7954693105282684e-14
+        },
+        "reference_step": {
+          "residual": 2.435886131308298e-09,
+          "lift": 3.8852023443065875e-10,
+          "Cm": 5.594826546495568e-10,
+          "profile": 2.647110102776211e-09,
+          "circulation_rate": 2.0816681711721685e-17,
+          "apparent": 2.7755575615628914e-17,
+          "total": 2.6471347180229143e-09,
+          "gravity": 1.2197274440461925e-14
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 4.330353992054725e-10,
+              "Cm": 9.3728135528489e-10,
+              "profile": 9.22452803141169e-13,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 8.87981465783191e-10,
+              "gravity": 4.385794325817408e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 4.823863530845074e-11,
+            "maximum_equation_error": 4.440892098500626e-16,
+            "condition": 32.676540231915894
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 4.330395413784232e-10,
+              "Cm": 9.372813546521931e-10,
+              "profile": 8.971440504751177e-13,
+              "circulation_rate": 9.800995362475051e-13,
+              "apparent": 4.6848857626736244e-17,
+              "total": 8.879813764800906e-10,
+              "gravity": 4.385794325817408e-14,
+              "apparent_acceleration": 9.107298248878237e-18,
+              "apparent_pitch_rate": 4.683753385137379e-17
+            },
+            "gamma": 4.7561610841754915e-11,
+            "maximum_equation_error": 6.713178136967714e-16,
+            "condition": 31.362137042711435
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 4.330435887971829e-10,
+              "Cm": 9.372813528489667e-10,
+              "profile": 8.366033802778892e-13,
+              "circulation_rate": 1.8781662637207374e-12,
+              "apparent": 9.376562508478369e-17,
+              "total": 8.879811217157116e-10,
+              "gravity": 4.385794325817408e-14,
+              "apparent_acceleration": 3.642919299551295e-17,
+              "apparent_pitch_rate": 9.367506770274758e-17
+            },
+            "gamma": 4.5737631030372416e-11,
+            "maximum_equation_error": 6.896132118834561e-16,
+            "condition": 28.204838153921866
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 4.3303679802142683e-10,
+              "Cm": 9.37281349915861e-10,
+              "profile": 7.914918783476535e-13,
+              "circulation_rate": 2.650743043816367e-12,
+              "apparent": 1.4253857148018715e-16,
+              "total": 8.879807236463369e-10,
+              "gravity": 4.385794325817408e-14,
+              "apparent_acceleration": 8.153200337090993e-17,
+              "apparent_pitch_rate": 1.4224732503009818e-16
+            },
+            "gamma": 4.323061040111996e-11,
+            "maximum_equation_error": 4.460365043975677e-16,
+            "condition": 24.563413116318152
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 4.3299351350580153e-10,
+              "Cm": 9.37281340863258e-10,
+              "profile": 1.129819374454705e-12,
+              "circulation_rate": 3.824866750048482e-12,
+              "apparent": 2.37353028501565e-16,
+              "total": 8.879795480537752e-10,
+              "gravity": 4.385794325817408e-14,
+              "apparent_acceleration": 2.220446049250313e-16,
+              "apparent_pitch_rate": 2.3592239273284576e-16
+            },
+            "gamma": 3.772180634217821e-11,
+            "maximum_equation_error": 3.855927796350635e-16,
+            "condition": 18.45475857154333
+          }
+        ],
+        "apparent_mass_error": 2.7598649527260254e-17,
+        "apparent_mass_step": 2.4383193345474722e-17,
+        "apparent_mass_asymmetry": 2.117582368135751e-22,
+        "energy_mass_minimum_eigenvalue": -3.54161858013909e-22,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                6.859417047435372,
+                110.56963835133539
+              ],
+              "reconstructed_per_s": [
+                6.8594172249248535,
+                110.56963842700837
+              ],
+              "relative": 1.7416873737363286e-09,
+              "mac": 0.9999999999999997,
+              "backward_error": 2.433174612154371e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -111.83583016225829,
+                62.1861646725824
+              ],
+              "reconstructed_per_s": [
+                -111.83582982688617,
+                62.18616466324551
+              ],
+              "relative": 2.62188038415264e-09,
+              "mac": 0.9999999999999997,
+              "backward_error": 1.8115407038813277e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                6.859417047435372,
+                110.56963835133539
+              ],
+              "reconstructed_per_s": [
+                6.859416902110328,
+                110.56963841138635
+              ],
+              "relative": 1.4193922407691366e-09,
+              "mac": 1.0000000000000002,
+              "backward_error": 2.3577212389533384e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -111.83583016225829,
+                62.1861646725824
+              ],
+              "reconstructed_per_s": [
+                -111.83583019354899,
+                62.18616461519575
+              ],
+              "relative": 5.107993520681291e-10,
+              "mac": 1.0000000000000002,
+              "backward_error": 1.7318997385938112e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.0010528701382063695,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 5.812873648396266e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 1.395712303347844e-14
+          }
+        ],
+        "base_mismatch": 1.3183898417423734e-15,
+        "poles": [
+          {
+            "rate_per_s": [
+              6.866607267952685,
+              110.53284860946711
+            ],
+            "seed_per_s": [
+              6.859417047435372,
+              110.56963835133539
+            ],
+            "backward_error": 6.910146633055406e-17,
+            "maximum_normalized_equation_error": 1.6185256000440124e-15,
+            "smallest_singular_value": 4.922673062775486e-14,
+            "shape_mac": 0.9999993510668573,
+            "relative_root_change": 0.0003383737455747309,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -111.84294204162418,
+              62.23418445485927
+            ],
+            "seed_per_s": [
+              -111.83583016225829,
+              62.1861646725824
+            ],
+            "backward_error": 5.773228569556729e-16,
+            "maximum_normalized_equation_error": 8.133870718798263e-15,
+            "smallest_singular_value": 4.820076239012454e-14,
+            "shape_mac": 0.9999990288793544,
+            "relative_root_change": 0.000379358131853708,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 5.65746330501754e-10,
+            "continuum_tolerance_relative": 2.118257694610502e-15
+          },
+          {
+            "difference_step_relative": 2.192492454980145e-09,
+            "continuum_tolerance_relative": 1.1710827348712715e-15
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-03.json": "639629a2d428ec4a6971d85fa7efb46ac505032be8b23625360f2e40c5e4fb00",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "wing": "25",
+      "requested_intervals": 32,
+      "actual_intervals": 34,
+      "nodes": 35,
+      "derivative_columns": 698,
+      "speed_m_s": 33.21,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 2.7446344571431605e-15,
+          "lift": 1.1249952792252715e-15,
+          "Cm": 7.095019016745141e-16,
+          "profile": 4.074228476293185e-18,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 1.1248597539537109e-15,
+          "gravity": 3.2526065174565133e-19
+        },
+        "components": {
+          "residual": 3.737903468720601e-10,
+          "lift": 4.383067982634556e-10,
+          "Cm": 5.387039194356133e-10,
+          "profile": 2.6743653593622662e-12,
+          "circulation_rate": 2.2132469468250093e-14,
+          "apparent": 7.320533068622126e-16,
+          "total": 5.389207598701634e-10,
+          "gravity": 2.710505431213761e-14
+        },
+        "native_step": {
+          "residual": 2.07334621947161e-09,
+          "lift": 1.1820116644365233e-09,
+          "Cm": 1.2692610273359536e-09,
+          "profile": 2.6726787829872874e-09,
+          "circulation_rate": 1.3877787807814457e-17,
+          "apparent": 1.0408340855860843e-17,
+          "total": 2.672671294348672e-09,
+          "gravity": 2.614508476796e-14
+        },
+        "reference_step": {
+          "residual": 2.0672429039701932e-09,
+          "lift": 3.8726255999189073e-10,
+          "Cm": 5.951474845374851e-10,
+          "profile": 2.672679602318869e-09,
+          "circulation_rate": 1.3877787807814457e-17,
+          "apparent": 1.0408340855860843e-17,
+          "total": 2.6726803287885348e-09,
+          "gravity": 1.5585413005742704e-14
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 5.381298462392436e-10,
+              "Cm": 5.388402814797465e-10,
+              "profile": 1.4507002269415154e-11,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 5.406638713123524e-10,
+              "gravity": 2.710505431213761e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 1.9710243437387476e-09,
+            "maximum_equation_error": 6.661338147750939e-16,
+            "condition": 27.908451569484992
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 5.378861023518498e-10,
+              "Cm": 5.388400208429853e-10,
+              "profile": 1.452327425488032e-11,
+              "circulation_rate": 1.5181520327113014e-11,
+              "apparent": 1.0414628970131108e-16,
+              "total": 5.411865477503974e-10,
+              "gravity": 2.710505431213761e-14,
+              "apparent_acceleration": 1.4094628242311558e-17,
+              "apparent_pitch_rate": 1.0408340855860843e-16
+            },
+            "gamma": 1.968465472551466e-09,
+            "maximum_equation_error": 7.772800161809615e-16,
+            "condition": 27.450387861038646
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 5.371639459060201e-10,
+              "Cm": 5.388392437482891e-10,
+              "profile": 1.457139974026806e-11,
+              "circulation_rate": 3.023991102220471e-11,
+              "apparent": 2.0866941148776988e-16,
+              "total": 5.427344608270903e-10,
+              "gravity": 2.710505431213761e-14,
+              "apparent_acceleration": 5.637851296924623e-17,
+              "apparent_pitch_rate": 2.0816681711721685e-16
+            },
+            "gamma": 1.9608749506446065e-09,
+            "maximum_equation_error": 5.594315114139762e-16,
+            "condition": 26.20088526629516
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 5.359891189575394e-10,
+              "Cm": 5.388379678884861e-10,
+              "profile": 1.4649421473038107e-11,
+              "circulation_rate": 4.50588388305628e-11,
+              "apparent": 3.1396226095237586e-16,
+              "total": 5.45249115773622e-10,
+              "gravity": 2.710505431213761e-14,
+              "apparent_acceleration": 1.2663481374630692e-16,
+              "apparent_pitch_rate": 3.122502256758253e-16
+            },
+            "gamma": 1.9484933432081275e-09,
+            "maximum_equation_error": 5.613217783960923e-16,
+            "condition": 24.451355028053023
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 5.32448018477639e-10,
+              "Cm": 5.388340789123493e-10,
+              "profile": 1.4882699979857185e-11,
+              "circulation_rate": 7.357718971178731e-11,
+              "apparent": 5.283258337133034e-16,
+              "total": 5.527903780389593e-10,
+              "gravity": 2.710505431213761e-14,
+              "apparent_acceleration": 3.5214886562329184e-16,
+              "apparent_pitch_rate": 5.204170427930421e-16
+            },
+            "gamma": 1.9108981771063707e-09,
+            "maximum_equation_error": 5.003707553108401e-16,
+            "condition": 20.57208453288942
+          }
+        ],
+        "apparent_mass_error": 2.368802496842087e-18,
+        "apparent_mass_step": 2.7751049283317023e-18,
+        "apparent_mass_asymmetry": 7.258509875152818e-23,
+        "energy_mass_minimum_eigenvalue": -7.929408221640345e-23,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                -24.661152801402302,
+                73.96457529980535
+              ],
+              "reconstructed_per_s": [
+                -24.661152857283284,
+                73.96457532232508
+              ],
+              "relative": 7.727323223524181e-10,
+              "mac": 0.9999999999999997,
+              "backward_error": 9.875654823057654e-14,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -53.11847929230747,
+                165.4499469913076
+              ],
+              "reconstructed_per_s": [
+                -53.118479150574224,
+                165.4499461561245
+              ],
+              "relative": 4.8750338037307225e-09,
+              "mac": 1.0000000000000002,
+              "backward_error": 2.7183573982038075e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                -24.661152801402302,
+                73.96457529980535
+              ],
+              "reconstructed_per_s": [
+                -24.66115280977315,
+                73.96457576004494
+              ],
+              "relative": 5.903943518339991e-09,
+              "mac": 0.9999999999999994,
+              "backward_error": 1.247749955592371e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -53.11847929230747,
+                165.4499469913076
+              ],
+              "reconstructed_per_s": [
+                -53.11847926001397,
+                165.44994705808665
+              ],
+              "relative": 4.268774652818692e-10,
+              "mac": 1.0000000000000002,
+              "backward_error": 1.9040709602401743e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 6.765678866766571e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 1.0487083002306614e-11
+          }
+        ],
+        "base_mismatch": 6.848861755504032e-13,
+        "poles": [
+          {
+            "rate_per_s": [
+              -24.668029539565836,
+              73.95582137836621
+            ],
+            "seed_per_s": [
+              -24.661152801402302,
+              73.96457529980535
+            ],
+            "backward_error": 3.4727424265844725e-15,
+            "maximum_normalized_equation_error": 8.497323189227702e-14,
+            "smallest_singular_value": 6.809112099184595e-14,
+            "shape_mac": 0.9999999773447515,
+            "relative_root_change": 0.00014277700633415867,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -53.10808899429597,
+              165.44569416142195
+            ],
+            "seed_per_s": [
+              -53.11847929230747,
+              165.4499469913076
+            ],
+            "backward_error": 1.701292554825548e-15,
+            "maximum_normalized_equation_error": 6.420712679043698e-14,
+            "smallest_singular_value": 6.845529203133321e-14,
+            "shape_mac": 0.9999999388367065,
+            "relative_root_change": 6.460902544087199e-05,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 9.91233622240062e-09,
+            "continuum_tolerance_relative": 5.0556207791221956e-15
+          },
+          {
+            "difference_step_relative": 3.790872834755519e-09,
+            "continuum_tolerance_relative": 2.1263866387705138e-15
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-04.json": "decb9a26c1c2c189d5880ca18b15a2c7265a2d99c29c52fbc23e0faee5a5da33",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "wing": "75",
+      "requested_intervals": 32,
+      "actual_intervals": 34,
+      "nodes": 35,
+      "derivative_columns": 698,
+      "speed_m_s": 24.58,
+      "operator": {
+        "status": "PASS",
+        "checks": {
+          "base": true,
+          "components": true,
+          "differentiation": true,
+          "apparent_mass": true,
+          "harmonic": true,
+          "circulation": true,
+          "mass_refinement": true,
+          "mass_symmetry": true,
+          "mass_positive_semidefinite": true,
+          "zero_acceleration_tangency": true,
+          "gravity_has_no_rate_or_circulation_terms": true,
+          "production_modes": true,
+          "independent_modes": true
+        },
+        "base": {
+          "residual": 6.824458305402669e-16,
+          "lift": 7.341783431202842e-15,
+          "Cm": 7.767007523251657e-15,
+          "profile": 1.0073284266012244e-18,
+          "circulation_rate": 0.0,
+          "apparent": 0.0,
+          "total": 7.341783431202842e-15,
+          "gravity": 1.3010426069826053e-18
+        },
+        "components": {
+          "residual": 4.584619592937382e-11,
+          "lift": 2.7040092531946933e-09,
+          "Cm": 2.0200132076301594e-09,
+          "profile": 3.945655259269167e-13,
+          "circulation_rate": 7.497865175953855e-14,
+          "apparent": 7.147060721024445e-16,
+          "total": 2.7040092531946933e-09,
+          "gravity": 1.4681904419074472e-14
+        },
+        "native_step": {
+          "residual": 3.0968623061859655e-09,
+          "lift": 2.451136262981036e-09,
+          "Cm": 1.9553730741065736e-09,
+          "profile": 2.647919283147506e-09,
+          "circulation_rate": 1.3877787807814457e-17,
+          "apparent": 1.0408340855860843e-17,
+          "total": 2.6479108263671725e-09,
+          "gravity": 1.4230153513872044e-14
+        },
+        "reference_step": {
+          "residual": 3.13856010529743e-09,
+          "lift": 1.6805368584086374e-09,
+          "Cm": 1.5507958060073657e-09,
+          "profile": 2.6479191202994926e-09,
+          "circulation_rate": 2.0816681711721685e-17,
+          "apparent": 1.0408340855860843e-17,
+          "total": 2.6478882385327918e-09,
+          "gravity": 9.03501809522261e-15
+        },
+        "harmonics": [
+          {
+            "omega_per_s": 0.0,
+            "components": {
+              "lift": 2.703972402609583e-09,
+              "Cm": 2.0200152146119064e-09,
+              "profile": 4.5102000600060387e-13,
+              "circulation_rate": 0.0,
+              "apparent": 0.0,
+              "total": 2.7039722852413095e-09,
+              "gravity": 1.4681904419074472e-14,
+              "apparent_acceleration": 0.0,
+              "apparent_pitch_rate": 0.0
+            },
+            "gamma": 7.50085792089461e-11,
+            "maximum_equation_error": 6.661338147750939e-16,
+            "condition": 32.83569396166551
+          },
+          {
+            "omega_per_s": 50.0,
+            "components": {
+              "lift": 2.7039729042807397e-09,
+              "Cm": 2.0200151967431314e-09,
+              "profile": 4.4339484469330696e-13,
+              "circulation_rate": 8.00278279528042e-13,
+              "apparent": 1.3707588007468477e-16,
+              "total": 2.7039735483644257e-09,
+              "gravity": 1.4681904419074472e-14,
+              "apparent_acceleration": 2.6346112791397758e-17,
+              "apparent_pitch_rate": 1.3704315460216776e-16
+            },
+            "gamma": 7.375500466349076e-11,
+            "maximum_equation_error": 6.697380712247044e-16,
+            "condition": 31.50870027734967
+          },
+          {
+            "omega_per_s": 100.0,
+            "components": {
+              "lift": 2.7039743356921443e-09,
+              "Cm": 2.0200151577827016e-09,
+              "profile": 4.2544025875023893e-13,
+              "circulation_rate": 1.5370170063058698e-12,
+              "apparent": 2.743480192970707e-16,
+              "total": 2.703976857248909e-09,
+              "gravity": 1.4681904419074472e-14,
+              "apparent_acceleration": 1.0538445116559103e-16,
+              "apparent_pitch_rate": 2.740863092043355e-16
+            },
+            "gamma": 7.058674865217747e-11,
+            "maximum_equation_error": 8.887271275567985e-16,
+            "condition": 28.32420360665691
+          },
+          {
+            "omega_per_s": 150.0,
+            "components": {
+              "lift": 2.7039764443389013e-09,
+              "Cm": 2.020015118530918e-09,
+              "profile": 4.0547451105875286e-13,
+              "circulation_rate": 2.181808919774711e-12,
+              "apparent": 4.137458826295146e-16,
+              "total": 2.703981310435285e-09,
+              "gravity": 1.4681904419074472e-14,
+              "apparent_acceleration": 2.3592239273284576e-16,
+              "apparent_pitch_rate": 4.128641872824801e-16
+            },
+            "gamma": 6.659769550239492e-11,
+            "maximum_equation_error": 8.886119947416683e-16,
+            "condition": 24.656268457751818
+          },
+          {
+            "omega_per_s": 250.0,
+            "components": {
+              "lift": 2.7039813296590903e-09,
+              "Cm": 2.0200150551727027e-09,
+              "profile": 5.671804643143374e-13,
+              "circulation_rate": 3.210592917071955e-12,
+              "apparent": 6.90988506853362e-16,
+              "total": 2.7039911548500923e-09,
+              "gravity": 1.4681904419074472e-14,
+              "apparent_acceleration": 6.591949208711867e-16,
+              "apparent_pitch_rate": 6.869504964868156e-16
+            },
+            "gamma": 5.878093683556383e-11,
+            "maximum_equation_error": 8.979100305537893e-16,
+            "condition": 18.512986572178143
+          }
+        ],
+        "apparent_mass_error": 1.664553827331995e-17,
+        "apparent_mass_step": 1.8111578597088508e-17,
+        "apparent_mass_asymmetry": 1.3912143927376234e-22,
+        "energy_mass_minimum_eigenvalue": -3.0993737629190956e-22,
+        "matched_modes": {
+          "production": [
+            {
+              "target_per_s": [
+                6.552012170921194,
+                110.3754464835862
+              ],
+              "reconstructed_per_s": [
+                6.552011911974815,
+                110.37544671111233
+              ],
+              "relative": 3.117532373488129e-09,
+              "mac": 0.9999999999999996,
+              "backward_error": 2.7261826805052864e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -110.97366151407482,
+                62.890456645978496
+              ],
+              "reconstructed_per_s": [
+                -110.97366152241433,
+                62.89045652340663
+              ],
+              "relative": 9.631525314057978e-10,
+              "mac": 1.0000000000000002,
+              "backward_error": 1.459996684692706e-13,
+              "growth_sign_preserved": true
+            }
+          ],
+          "independent": [
+            {
+              "target_per_s": [
+                6.552012170921194,
+                110.3754464835862
+              ],
+              "reconstructed_per_s": [
+                6.552012235602414,
+                110.37544686309262
+              ],
+              "relative": 3.481774722157704e-09,
+              "mac": 0.9999999999999997,
+              "backward_error": 3.402700596476979e-13,
+              "growth_sign_preserved": true
+            },
+            {
+              "target_per_s": [
+                -110.97366151407482,
+                62.890456645978496
+              ],
+              "reconstructed_per_s": [
+                -110.97366112169253,
+                62.890456562656226
+              ],
+              "relative": 3.144764447237338e-09,
+              "mac": 0.9999999999999999,
+              "backward_error": 2.4169850546107333e-13,
+              "growth_sign_preserved": true
+            }
+          ]
+        },
+        "scope": "Complete independent aerodynamic/gravity tangent and nodal transfer; hybrid coupled pole reconstruction retains audited production discrete mechanics. No full independent continuum aeroelastic equilibrium or flutter boundary."
+      },
+      "independent_continuum": {
+        "status": "PASS_LOCAL_SOLUTIONS",
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.0002699043051551338,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.4648071979522037e-10,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 1.2047200934160338e-14
+          }
+        ],
+        "base_mismatch": 1.1379786002407855e-15,
+        "poles": [
+          {
+            "rate_per_s": [
+              6.5540214769794085,
+              110.36603803766842
+            ],
+            "seed_per_s": [
+              6.552012170921194,
+              110.3754464835862
+            ],
+            "backward_error": 8.720299108505368e-17,
+            "maximum_normalized_equation_error": 3.582918828258168e-15,
+            "smallest_singular_value": 1.896312168524897e-15,
+            "shape_mac": 0.9999999574490319,
+            "relative_root_change": 8.700944069127697e-05,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          },
+          {
+            "rate_per_s": [
+              -110.97559927827518,
+              62.90370011358551
+            ],
+            "seed_per_s": [
+              -110.97366151407482,
+              62.890456645978496
+            ],
+            "backward_error": 8.109804095229193e-17,
+            "maximum_normalized_equation_error": 5.199378929718844e-15,
+            "smallest_singular_value": 8.634129453109617e-16,
+            "shape_mac": 0.999999931653276,
+            "relative_root_change": 0.00010493079248026887,
+            "root_solver_success": true,
+            "message": "The solution converged."
+          }
+        ],
+        "refinements": [
+          {
+            "difference_step_relative": 2.5328559330779194e-09,
+            "continuum_tolerance_relative": 2.097829742743801e-15
+          },
+          {
+            "difference_step_relative": 1.5934280200127475e-09,
+            "continuum_tolerance_relative": 6.5672965997453406e-15
+          }
+        ],
+        "source_sha256": {
+          "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+          "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+          "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+          "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+          "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+          "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+          "inputs/case-05.json": "c32d14d14a244872f9f84b18f41904f491d044c6cce09cbd3cffdd434699b170",
+          "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+        }
+      }
+    }
+  ],
+  "boundary": {
+    "status": "PASS_LOCAL_BRACKET",
+    "source_sha256": {
+      "continuum_boundary.py": "d9ca3a2bcb8a6f24300673239c022483067e9a709470b2553c9980d08374064f",
+      "continuum_coupled.py": "cd8cd9abcae5df5234620cd0b9d44d9e914805fdc3695b43f8215181495c2164",
+      "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+      "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+      "loaded_dynamic_reference.py": "3ae7040a18d36296f4ad35e5aaeb5195c412b5a0d7212a7afcddda632ef6e52a",
+      "loaded_wing_reference.py": "7b68935295225722c7ff64c3ced342ab94be7d3283a0023efae25d5186321805",
+      "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+      "inputs/case-05.json": "c32d14d14a244872f9f84b18f41904f491d044c6cce09cbd3cffdd434699b170",
+      "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564"
+    },
+    "plan": {
+      "initial_speeds": [
+        22.57,
+        22.59
+      ],
+      "center_growth_tolerance": 1e-05,
+      "confirmation_half_width": 0.0005,
+      "max_interpolations": 5,
+      "scope": "Local continuation of one matched oscillatory branch; not a full-spectrum or experimental stability claim."
+    },
+    "center_case": 2,
+    "bracket_cases": [
+      3,
+      4
+    ],
+    "center_speed_m_s": 22.57626989458303,
+    "bracket_m_s": [
+      22.575769894583033,
+      22.57676989458303
+    ],
+    "published_speed_m_s": 24.58,
+    "source_setup_agreement": false,
+    "cases": [
+      {
+        "index": 0,
+        "speed_m_s": 22.57,
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.06596535670896762,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.4478522171849275e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 7.488635302944862e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 3,
+            "residual": 1.419219036877913e-13
+          }
+        ],
+        "pole": {
+          "rate_per_s": [
+            -0.021904423291849003,
+            117.61946218011626
+          ],
+          "seed_per_s": [
+            6.552012170921194,
+            110.3754464835862
+          ],
+          "backward_error": 1.220681658900974e-16,
+          "maximum_normalized_equation_error": 4.883820940057713e-15,
+          "smallest_singular_value": 3.028677068606709e-15,
+          "shape_mac": 0.9714987784477926,
+          "relative_root_change": 0.08847118411645703,
+          "root_solver_success": true,
+          "message": "The solution converged."
+        }
+      },
+      {
+        "index": 1,
+        "speed_m_s": 22.59,
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.06530560819003049,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.2887699431409e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 7.360468364382191e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 3,
+            "residual": 1.4122215644203752e-14
+          }
+        ],
+        "pole": {
+          "rate_per_s": [
+            0.04796732016975721,
+            117.52912470016611
+          ],
+          "seed_per_s": [
+            6.552012170921194,
+            110.3754464835862
+          ],
+          "backward_error": 8.54447448162247e-17,
+          "maximum_normalized_equation_error": 2.53099040043628e-15,
+          "smallest_singular_value": 1.30590566279137e-15,
+          "shape_mac": 0.9721399087536783,
+          "relative_root_change": 0.0874415275375478,
+          "root_solver_success": true,
+          "message": "The solution converged."
+        }
+      },
+      {
+        "index": 2,
+        "speed_m_s": 22.57626989458303,
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.06575852770232571,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.3974593746318987e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 7.4489512353994e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 3,
+            "residual": 9.97567004182301e-14
+          }
+        ],
+        "pole": {
+          "rate_per_s": [
+            2.5024212561126617e-06,
+            117.59110087827965
+          ],
+          "seed_per_s": [
+            6.552012170921194,
+            110.3754464835862
+          ],
+          "backward_error": 1.1992483166843828e-16,
+          "maximum_normalized_equation_error": 4.593148086347614e-15,
+          "smallest_singular_value": 2.526719808164632e-15,
+          "shape_mac": 0.9717006710354699,
+          "relative_root_change": 0.08814809449501437,
+          "root_solver_success": true,
+          "message": "The solution converged."
+        }
+      },
+      {
+        "index": 3,
+        "speed_m_s": 22.575769894583033,
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.06577502147652375,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.401460424093995e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 7.451533450077678e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 3,
+            "residual": 2.497590437569826e-14
+          }
+        ],
+        "pole": {
+          "rate_per_s": [
+            -0.0017439222592372423,
+            117.5933605214213
+          ],
+          "seed_per_s": [
+            6.552012170921194,
+            110.3754464835862
+          ],
+          "backward_error": 8.350223858856356e-17,
+          "maximum_normalized_equation_error": 2.5290052342182938e-15,
+          "smallest_singular_value": 1.5591020436089559e-15,
+          "shape_mac": 0.9716846032993942,
+          "relative_root_change": 0.08817384211519216,
+          "root_solver_success": true,
+          "message": "The solution converged."
+        }
+      },
+      {
+        "index": 4,
+        "speed_m_s": 22.57676989458303,
+        "equilibrium_history": [
+          {
+            "iteration": 0,
+            "residual": 0.06574203393581171,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 1,
+            "residual": 4.3934613662732015e-05,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 2,
+            "residual": 7.446068134531937e-09,
+            "accepted_fraction": 1.0
+          },
+          {
+            "iteration": 3,
+            "residual": 3.481934904141463e-14
+          }
+        ],
+        "pole": {
+          "rate_per_s": [
+            0.0017502040482110961,
+            117.58884002914466
+          ],
+          "seed_per_s": [
+            6.552012170921194,
+            110.3754464835862
+          ],
+          "backward_error": 2.956858904808482e-16,
+          "maximum_normalized_equation_error": 9.323884637108231e-15,
+          "smallest_singular_value": 8.244432742380699e-15,
+          "shape_mac": 0.9717167386823465,
+          "relative_root_change": 0.08812233108380603,
+          "root_solver_success": true,
+          "message": "The solution converged."
+        }
+      }
+    ],
+    "production_near_neutral_speed_m_s": 22.57773776819322,
+    "production_bracket_m_s": [
+      22.57604443786,
+      22.57773776819
+    ],
+    "center_difference_m_s": -0.0014678736101885193,
+    "published_difference_fraction": -0.08151871869068217,
+    "boundary_shape_comparison": "MAC is against the source mode at 24.58 m/s for branch tracking, not a same-speed production solution."
+  },
+  "plan": {
+    "status": "FIXED_BEFORE_PILOT",
+    "scope": "All nodal q/qdot/qddot and Gamma/Gammadot derivatives of corrected loaded aerodynamic components, node transfer and gravity; hybrid pole reconstruction using separately audited discrete mechanics.",
+    "steps": [
+      1e-05,
+      3e-06
+    ],
+    "mass_steps": [
+      1e-05,
+      3e-06
+    ],
+    "omega_per_s": [
+      0.0,
+      50.0,
+      100.0,
+      150.0,
+      250.0
+    ],
+    "gates": {
+      "base": 1e-10,
+      "tangent": 1e-07,
+      "step": 5e-06,
+      "mass": 2e-07,
+      "harmonic": 1e-07,
+      "circulation": 1e-09,
+      "mode_relative": 2e-05,
+      "mode_mac": 0.999,
+      "mode_backward": 1e-09
+    },
+    "limits": [
+      "Single unsymmetrized wing, constant chord/section aero properties, zero rigid rates/acceleration, no body/engine/ground, Mach-zero influences with retained local Cm correction.",
+      "A hybrid modal control uses independently evaluated fluid/gravity operators but retained production structural Jacobians and real mass. It is not a fully independent aeroelastic continuum solution.",
+      "The wind-aligned kinematic-arm convention is retained; its physical interpretation remains separate from formula reproduction.",
+      "No parameter fitting or experimental flutter agreement is claimed."
+    ],
+    "pre_full_study_extension": "Retain unchanged pilot gates and additionally enforce apparent-mass step/symmetry/PSD checks at the existing mass bound, exact absence of acceleration in tangency and rates/circulation in gravity, and adaptive vortex-line quadrature self-checks."
+  },
+  "audit": {
+    "status": "PASS",
+    "operator_cases": [
+      {
+        "status": "PASS",
+        "index": 0,
+        "columns": 218,
+        "maximum_scaled_tangent_error": 8.265234561581161e-11,
+        "maximum_hybrid_root_relative": 6.585090669587369e-10
+      },
+      {
+        "status": "PASS",
+        "index": 1,
+        "columns": 218,
+        "maximum_scaled_tangent_error": 1.211234527029801e-10,
+        "maximum_hybrid_root_relative": 1.8938132252390034e-10
+      },
+      {
+        "status": "PASS",
+        "index": 2,
+        "columns": 378,
+        "maximum_scaled_tangent_error": 2.844585099866508e-10,
+        "maximum_hybrid_root_relative": 2.613857143884893e-09
+      },
+      {
+        "status": "PASS",
+        "index": 3,
+        "columns": 378,
+        "maximum_scaled_tangent_error": 9.37274708082028e-10,
+        "maximum_hybrid_root_relative": 1.4193922407691366e-09
+      },
+      {
+        "status": "PASS",
+        "index": 4,
+        "columns": 698,
+        "maximum_scaled_tangent_error": 5.389207598701634e-10,
+        "maximum_hybrid_root_relative": 5.903943518339991e-09
+      },
+      {
+        "status": "PASS",
+        "index": 5,
+        "columns": 698,
+        "maximum_scaled_tangent_error": 2.7040092531946933e-09,
+        "maximum_hybrid_root_relative": 3.481774722157704e-09
+      }
+    ],
+    "continuum_cases": [
+      {
+        "status": "PASS",
+        "index": 0,
+        "speed_m_s": 33.21,
+        "independent_base_residual": 1.356187068698616e-14,
+        "modes": [
+          {
+            "rate_per_s": [
+              -26.605817491941895,
+              74.17234015957399
+            ],
+            "shape_mac": 0.999994426774525,
+            "relative_change": 0.0022524520789960795
+          },
+          {
+            "rate_per_s": [
+              -50.76905561548478,
+              164.28264847815885
+            ],
+            "shape_mac": 0.9999879534513546,
+            "relative_change": 0.000962924644938444
+          }
+        ]
+      },
+      {
+        "status": "PASS",
+        "index": 1,
+        "speed_m_s": 24.58,
+        "independent_base_residual": 1.500786346522205e-14,
+        "modes": [
+          {
+            "rate_per_s": [
+              7.800474224462001,
+              110.54270567966857
+            ],
+            "shape_mac": 0.99998922702422,
+            "relative_change": 0.0014801981090289988
+          },
+          {
+            "rate_per_s": [
+              -114.4388927356194,
+              62.25919284372308
+            ],
+            "shape_mac": 0.9999857474066461,
+            "relative_change": 0.0013662434853771118
+          }
+        ]
+      },
+      {
+        "status": "PASS",
+        "index": 2,
+        "speed_m_s": 33.21,
+        "independent_base_residual": 4.173156517396539e-15,
+        "modes": [
+          {
+            "rate_per_s": [
+              -25.294984685430393,
+              74.02370114665872
+            ],
+            "shape_mac": 0.999999652607803,
+            "relative_change": 0.0005609846781321542
+          },
+          {
+            "rate_per_s": [
+              -52.376381216884376,
+              165.05358178473026
+            ],
+            "shape_mac": 0.9999991456763704,
+            "relative_change": 0.00022930118296551425
+          }
+        ]
+      },
+      {
+        "status": "PASS",
+        "index": 3,
+        "speed_m_s": 24.58,
+        "independent_base_residual": 8.5352558918998e-15,
+        "modes": [
+          {
+            "rate_per_s": [
+              6.866607267952685,
+              110.53284860946711
+            ],
+            "shape_mac": 0.9999993510668573,
+            "relative_change": 0.0003383737455747309
+          },
+          {
+            "rate_per_s": [
+              -111.84294204162418,
+              62.23418445485927
+            ],
+            "shape_mac": 0.9999990288793544,
+            "relative_change": 0.000379358131853708
+          }
+        ]
+      },
+      {
+        "status": "PASS",
+        "index": 4,
+        "speed_m_s": 33.21,
+        "independent_base_residual": 4.634708918750915e-12,
+        "modes": [
+          {
+            "rate_per_s": [
+              -24.668029539565836,
+              73.95582137836621
+            ],
+            "shape_mac": 0.9999999773447515,
+            "relative_change": 0.00014277700633415867
+          },
+          {
+            "rate_per_s": [
+              -53.10808899429597,
+              165.44569416142195
+            ],
+            "shape_mac": 0.9999999388367065,
+            "relative_change": 6.460902544087199e-05
+          }
+        ]
+      },
+      {
+        "status": "PASS",
+        "index": 5,
+        "speed_m_s": 24.58,
+        "independent_base_residual": 2.13604589445289e-15,
+        "modes": [
+          {
+            "rate_per_s": [
+              6.5540214769794085,
+              110.36603803766842
+            ],
+            "shape_mac": 0.9999999574490319,
+            "relative_change": 8.700944069127697e-05
+          },
+          {
+            "rate_per_s": [
+              -110.97559927827518,
+              62.90370011358551
+            ],
+            "shape_mac": 0.999999931653276,
+            "relative_change": 0.00010493079248026887
+          }
+        ]
+      }
+    ],
+    "boundary": {
+      "status": "PASS_LOCAL_BRACKET",
+      "cases": [
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 22.57,
+          "independent_base_residual": 1.510035665897197e-14,
+          "modes": [
+            {
+              "rate_per_s": [
+                -0.021904423291849003,
+                117.61946218011626
+              ],
+              "shape_mac": 0.9714987784477926,
+              "relative_change": 0.08847118411645703
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 22.59,
+          "independent_base_residual": 1.4122215644203752e-14,
+          "modes": [
+            {
+              "rate_per_s": [
+                0.04796732016975721,
+                117.52912470016611
+              ],
+              "shape_mac": 0.9721399087536783,
+              "relative_change": 0.0874415275375478
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 22.57626989458303,
+          "independent_base_residual": 8.188768711143861e-16,
+          "modes": [
+            {
+              "rate_per_s": [
+                2.5024212561126617e-06,
+                117.59110087827965
+              ],
+              "shape_mac": 0.9717006710354699,
+              "relative_change": 0.08814809449501437
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 22.575769894583033,
+          "independent_base_residual": 1.2987660342290502e-14,
+          "modes": [
+            {
+              "rate_per_s": [
+                -0.0017439222592372423,
+                117.5933605214213
+              ],
+              "shape_mac": 0.9716846032993942,
+              "relative_change": 0.08817384211519216
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 22.57676989458303,
+          "independent_base_residual": 2.3295337016870535e-15,
+          "modes": [
+            {
+              "rate_per_s": [
+                0.0017502040482110961,
+                117.58884002914466
+              ],
+              "shape_mac": 0.9717167386823465,
+              "relative_change": 0.08812233108380603
+            }
+          ]
+        }
+      ],
+      "center_speed_m_s": 22.57626989458303,
+      "bracket_m_s": [
+        22.575769894583033,
+        22.57676989458303
+      ]
+    }
+  },
+  "negative_checks": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "wrong_apparent_mass_sign",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 3568 / 44100 (8.09%)\nFirst 5 mismatches are at indices:\n [0, 0]: 6.902762373226595e-12 (ACTUAL), -6.902762373226595e-12 (DESIRED)\n [0, 1]: 1.9971610828153023e-08 (ACTUAL), -1.9971610828153023e-08 (DESIRED)\n [0, 2]: 3.7148358313817995e-11 (ACTUAL), -3.7148358313817995e-11 (DESIRED)\n [0, 5]: 2.180820373226375e-10 (ACTUAL), -2.180820373226375e-10 (DESIRED)\n [0, 6]: 2.3138657232794293e-12 (ACTUAL), -2.3138657232794293e-12 (DESIRED)"
+      },
+      {
+        "name": "erased_circulation_lag",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 1 / 1 (100%)\nMax absolute difference among violations: 0.04785093\nMax relative difference among violations: 1.04372738e+09\n ACTUAL: array(0.047851)\n DESIRED: array(4.58462e-11)"
+      },
+      {
+        "name": "erased_gravity_tangent",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 1 / 1 (100%)\nMax absolute difference among violations: 9.14922452e-05\nMax relative difference among violations: 6.23163335e+09\n ACTUAL: array(9.149225e-05)\n DESIRED: array(1.46819e-14)"
+      },
+      {
+        "name": "unrelated_hybrid_mode",
+        "status": "REJECTED",
+        "reason": ""
+      },
+      {
+        "name": "false_operator_error",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 1 / 1 (100%)\nMax absolute difference among violations: 2.70400925e-09\nMax relative difference among violations: inf\n ACTUAL: array(2.704009e-09)\n DESIRED: array(0.)"
+      },
+      {
+        "name": "moved_clamp",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 1 / 3 (33.3%)\nMismatch at index:\n [0]: 0.001 (ACTUAL), 5.542023746136727e-28 (DESIRED)\nMax absolute difference among violations: 0.001\nMax relative difference among violations: 1.80439501e+24\n ACTUAL: array([ 1.000000e-03, -2.578959e-30,  1.728978e-23])\n DESIRED: array([ 5.542024e-28, -2.578959e-30,  2.864069e-28])"
+      },
+      {
+        "name": "false_crossing_growth_sign",
+        "status": "REJECTED",
+        "reason": "\nNot equal to tolerance rtol=1e-08, atol=1e-12\n\nMismatched elements: 49528 / 59536 (83.2%)\nFirst 5 mismatches are at indices:\n [6, 0]: (5.723004923218959e-08+1.0985397438595024e-07j) (ACTUAL), (5.722611642828459e-08+1.0985458850986927e-07j) (DESIRED)\n [6, 1]: (6.937753641399546e-07-1.3525130502513422e-09j) (ACTUAL), (6.937754129641452e-07-1.3412021569056916e-09j) (DESIRED)\n [6, 2]: (1.0641871496614963e-06-1.806889358882741e-12j) (ACTUAL), (1.0641871495925525e-06+5.3468427510524656e-12j) (DESIRED"
+      }
+    ]
+  },
+  "maxima": {
+    "scaled_fluid_tangent": 2.7040092531946933e-09,
+    "relative_hybrid_root": 5.903943518339991e-09,
+    "finest_relative_independent_root": 0.00014277700633415867,
+    "finest_minimum_shape_mac": 0.999999931653276,
+    "relative_fd_or_ode_pole_refinement": 9.91233622240062e-09,
+    "scaled_apparent_energy_mass": 4.882353494510951e-17,
+    "scaled_fd_step": 3.13856010529743e-09
+  },
+  "source_modules": {
+    "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "aero.py": "69e44f2990019aa5127ff88b778a89af2d3ffaf69484f483fb946f905cfcaf9c",
+    "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+    "network.py": "922dcdfefa4d5fee3e8424c171d3b9b662b101cbb224342d280baea76ff9aef2",
+    "inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+    "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "volume.py": "58f65af4e150e51952ee174ac412c5f5196eb2e011015af150da249ba54b67cb",
+    "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "local_motion.py": "31d953d3297e76be1c0249d1f3a623472ce707e04d4d17a6ff0523378db571e8",
+    "dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+    "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "time_integration.py": "6e0f59ee2e381215ca50c440456ebca5d5c55b3d94ab2029e265ad947b9ed5b7",
+    "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "time_state.py": "9243568e61da0fe08740306ba3d53d326a83a6d0c32edbc85051a60b4b878e50",
+    "time_initialization.py": "7ef976697c4236d5e8faefc8ae91cf419dae2dca0193cd099bc2559efd24b33e",
+    "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "radau_time.py": "0828f58db9cb85e6eefa4186b487278830daeb34e952f8d12063fc26c888142f",
+    "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "frozen_influence.py": "9a29a014dc5c2e47c49bdad619ce332a6b21a2d197914a5b7ad37a2da9eb97a4",
+    "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "time_accuracy.py": "0ff52c61b79cbf31213d838fab28bfa196e94dc51089315ec03a42333af034e4",
+    "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+    "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "time_acceptance_validation.py": "cca510137c77856cb692bbb8ffbe42eeab0bdda754976b18a6fcf4ea18926f5c",
+    "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "time_saved_history.py": "f50bc65561a94ec30c6b015faea35f8344326fcae95498b0c3b7c4b756cd00ba",
+    "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "tangent_influences.py": "959537fd6b341eebd2c9d1b8d7d6f18588fceac76afacd0798aa3fb49709b0ad",
+    "structured_static.py": "2590fc13765c7f0ee80d0e50535d036c2f84fefdfec4d3978ddab1ce522626e1"
+  },
+  "operator_source_sha256": {
+    "static_reference.py": "04ae25066be8cacb53813a97f28a3473e117c70ffc1216c78b1a01f2e9b8d516",
+    "production_adapter.py": "e47d85869234978cc6558352b3de835ff45f8ca596ad11b6de9883c40d24f2bf",
+    "loaded_aero_reference.py": "b61ae0117dcc08f1eafdcd5426c68b2ca8239c47cc51b17e8b4a9d3ab71bd6e4",
+    "loaded_aero_geometry.py": "e3ebaa3ab90870e248d4c033b70ca9b6c669f430dfbec9f2f49d3fb0953fcf87",
+    "coupled.py": "485ac793c9d04d37b67bae4106fad732bbcacec6e77f847560fb21816bbb0e86",
+    "run.py": "348d4fa9e9889c44e1835b2477f73eb0e8c63449eb1ecbcc4d767705254303ee",
+    "plan.json": "97793986c6fcb9e689432feab1b21ef08ecfe76ba8f5193886673f56c9380245",
+    "production/openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "production/openswing/aero.py": "69e44f2990019aa5127ff88b778a89af2d3ffaf69484f483fb946f905cfcaf9c",
+    "production/openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "production/openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "production/openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "production/openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "production/openswing/bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+    "production/openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "production/openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "production/openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "production/openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "production/openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "production/openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "production/openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "production/openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "production/openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "production/openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "production/openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "production/openswing/dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+    "production/openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "production/openswing/feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "production/openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "production/openswing/forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "production/openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "production/openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "production/openswing/frozen_influence.py": "9a29a014dc5c2e47c49bdad619ce332a6b21a2d197914a5b7ad37a2da9eb97a4",
+    "production/openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "production/openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "production/openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "production/openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "production/openswing/inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+    "production/openswing/initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "production/openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "production/openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "production/openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "production/openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "production/openswing/local_motion.py": "31d953d3297e76be1c0249d1f3a623472ce707e04d4d17a6ff0523378db571e8",
+    "production/openswing/network.py": "922dcdfefa4d5fee3e8424c171d3b9b662b101cbb224342d280baea76ff9aef2",
+    "production/openswing/nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "production/openswing/operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "production/openswing/position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "production/openswing/position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "production/openswing/position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "production/openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "production/openswing/radau_time.py": "0828f58db9cb85e6eefa4186b487278830daeb34e952f8d12063fc26c888142f",
+    "production/openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "production/openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "production/openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "production/openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "production/openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "production/openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "production/openswing/root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "production/openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "production/openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "production/openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "production/openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "production/openswing/structured_static.py": "2590fc13765c7f0ee80d0e50535d036c2f84fefdfec4d3978ddab1ce522626e1",
+    "production/openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "production/openswing/tangent_influences.py": "959537fd6b341eebd2c9d1b8d7d6f18588fceac76afacd0798aa3fb49709b0ad",
+    "production/openswing/time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "production/openswing/time_acceptance_validation.py": "cca510137c77856cb692bbb8ffbe42eeab0bdda754976b18a6fcf4ea18926f5c",
+    "production/openswing/time_accuracy.py": "0ff52c61b79cbf31213d838fab28bfa196e94dc51089315ec03a42333af034e4",
+    "production/openswing/time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "production/openswing/time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "production/openswing/time_initialization.py": "7ef976697c4236d5e8faefc8ae91cf419dae2dca0193cd099bc2559efd24b33e",
+    "production/openswing/time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "production/openswing/time_integration.py": "6e0f59ee2e381215ca50c440456ebca5d5c55b3d94ab2029e265ad947b9ed5b7",
+    "production/openswing/time_saved_history.py": "f50bc65561a94ec30c6b015faea35f8344326fcae95498b0c3b7c4b756cd00ba",
+    "production/openswing/time_state.py": "9243568e61da0fe08740306ba3d53d326a83a6d0c32edbc85051a60b4b878e50",
+    "production/openswing/time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "production/openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "production/openswing/vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+    "production/openswing/volume.py": "58f65af4e150e51952ee174ac412c5f5196eb2e011015af150da249ba54b67cb",
+    "inputs/case-00.json": "d62c70b4a41b3fa100c0e555ce99ccfde03728fcc23208e6d89a978490e607f5",
+    "inputs/case-01.json": "4656c2baed2fe64d646088e804a7b397e8ddf2b27050f344810840bcd6de8c30",
+    "inputs/case-02.json": "ba4dcc1042ee3942bbc7304e07fd2442e596606a341b40fbf813f3fc6b9382c8",
+    "inputs/case-03.json": "639629a2d428ec4a6971d85fa7efb46ac505032be8b23625360f2e40c5e4fb00",
+    "inputs/case-04.json": "decb9a26c1c2c189d5880ca18b15a2c7265a2d99c29c52fbc23e0faee5a5da33",
+    "inputs/case-05.json": "c32d14d14a244872f9f84b18f41904f491d044c6cce09cbd3cffdd434699b170",
+    "inputs/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564",
+    "mechanical-static/case-00.json": "93260bffb029383eab77dbef0dfee217c952844b7a00a4ac2d4db9a1476eda99",
+    "mechanical-static/case-00.npz": "670655688d0a449f937d003a4846d52ef1bb89c922a8b48780c8b1b23852cd8d",
+    "mechanical-static/case-01.json": "2fad906e02f9c718882cc565cb2f4a0806ae2e93992407276c74e3d5148796bf",
+    "mechanical-static/case-01.npz": "cedbf4d629c75171cf7e025cb140e230f8d8159095066a8b4cc35777f69833f4",
+    "mechanical-static/case-02.json": "a7a61bd9918875c4391b7f5d59773f1f4ca3d76bcad36556cbc605d41bb704e4",
+    "mechanical-static/case-02.npz": "72713dd8f482e22594c41e2b381008a3f239884f12127b7da0b1cd52ca200a7f",
+    "mechanical-static/case-03.json": "e1f56d47949dccce9b20dfa9a94070a06da343c9109dcb96e8e9d8b72a3ea055",
+    "mechanical-static/case-03.npz": "02c0394ff8edd829446fee2f25f1fd7c95925ad53bef6cdf551baf6211c7c2d8",
+    "mechanical-static/case-04.json": "c5df2cc66a25bddd54f604e616ddffbfffa769c5464529ef446574304fdc5226",
+    "mechanical-static/case-04.npz": "f8330258fe0ab47c73f5c8f67efdb0c3860eb6d0620160e69ae3ad3c894daa9a",
+    "mechanical-static/case-05.json": "00ab991b402866ae0efd4642fe7240dff36a8165a091e3375a535d3090fb6d32",
+    "mechanical-static/case-05.npz": "b9799cd5031bd5afa891446c3f721e9fbc3eb69892567c4ac66f789a0a0dce1d",
+    "mechanical-dynamic/case-00.json": "471764cc872582a99a3b541b65eda45917a60be4384abc0e674b346f493cece8",
+    "mechanical-dynamic/case-00.npz": "74e2c01e577b8148a4598ab0032ed74c4395f7a8f3ea20a9744eb93d032aca21",
+    "mechanical-dynamic/case-01.json": "b1ca1876f3bfc0a68cc9b8a9c449c58f369f6815e0aef5a7a57b02fc0cf6b20d",
+    "mechanical-dynamic/case-01.npz": "659ec66a3aad508380cfbdb882fb5f31d41603f5e9a4c2f1a60727530fb006a5",
+    "mechanical-dynamic/case-02.json": "0c3e9e41cc4f3289ab3d0c9041d198b4fdfc69c1384b9037bb0ae8b9e239c67c",
+    "mechanical-dynamic/case-02.npz": "24dfa5e449a7fc41ed5291dfe21235f3e723db48e77bbb66cc23d47d9f2073fc",
+    "mechanical-dynamic/case-03.json": "523bedaab7d02eff8bffe59a5f4197489c4cd9c4f445ab796afa24d7332f7705",
+    "mechanical-dynamic/case-03.npz": "de5027871a1938b843b3d37bd1792beead4816beeb70da496c114829f2d45969",
+    "mechanical-dynamic/case-04.json": "64c696684e6d426e7c087182278cfca34d223b3feeb667a4dc97b6748e389dc5",
+    "mechanical-dynamic/case-04.npz": "2b8b27444f26294f00f4b310bea996a85f441f5c97b5a787362c0f770392f08b",
+    "mechanical-dynamic/case-05.json": "6b37c445d2b7cc822dcc38bb1b89033bbd4f8ec358286884283133bf4b358777",
+    "mechanical-dynamic/case-05.npz": "6cbfb91198e7a5f8108ca433712fb8f9541a6861e229d082a8402cb17975c453"
+  },
+  "vortex_self_checks": [
+    {
+      "exclude_physical_own_bound": false,
+      "scaled_error": 1.4324045383774342e-16
+    },
+    {
+      "exclude_physical_own_bound": true,
+      "scaled_error": 2.220446049250313e-16
+    }
+  ],
+  "method": {
+    "operator_error": "max(abs(A-B))/max(1,max(abs(B))) after stated coordinate/wrench normalization; not an entrywise relative bound.",
+    "normalization": "q: translation/chord and spatial rotation; qdot: U/chord; qddot: (U/chord)^2; Gamma: U*chord; Gammadot: U^2. Force: q_infinity*chord*span; moment: force*chord.",
+    "fluid": "Independent wind-aligned horseshoes, geodesic motion, virtual-power nodal transfer, lift, Cm, profile drag, circulation-rate lift, apparent inertia/pitch rate, empirical lag and gravity. Own physical bound omitted in force-point and beam-axis apparent-rate field. Adaptive vortex quadrature and independent apparent kinetic-energy matrix.",
+    "hybrid": "Independently reconstructed fluid/gravity with retained audited production static mechanics and real mass; quadratic polynomial eigenproblem. This control still depends on production mechanics.",
+    "continuum": "Independent nonlinear spatial-rod integration with exact rank-three compliance and distributed real inertia, actual offsets and coupled bending. Independently recomputed fluid/gravity loads and circulation at each equilibrium. Local coupled characteristic roots and physical mode shapes; no production matrices or imports.",
+    "gates": "Original fixed fluid gates retained. Independent base residual <1e-10, mode equation error <1e-8, backward error <1e-9, shape MAC >0.9 and relative FD/ODE pole change <1e-6. Local boundary center growth <1e-5 /s with computed opposite-sign endpoints.",
+    "source_state": "Saved production geometry and modes provide initial guesses and local-root targets. Authoritative independent state files retain only recomputed pose/circulation; unused original loads are not relabeled."
+  },
+  "sources": [
+    {
+      "title": "Drela steady formulation, sections 2.4 and 4.3",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "title": "Drela unsteady extension, relative velocities and section loads",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44"
+    },
+    {
+      "title": "Durrant thesis, Tables 4.5\u20134.6 and property tables",
+      "url": "https://doi.org/10.6084/m9.figshare.26317378.v1",
+      "sha256": "286c2d5b8fff0d6cdf42a21c89b1207a0fc1fbcc94383b27953ad299a0d9e07a"
+    }
+  ],
+  "retained_history": [
+    "Initial preflight failed because the production adapter omitted required arguments; corrected before physical comparisons. Both records retained.",
+    "Successful fluid pilot and matching sources retained; subsequent plan added checks without relaxing gates.",
+    "Initial continuum pilot contains unused original fields; it is historical only. Final cases retain only independently recomputed state.",
+    "Original 58-module, three-motion aerodynamic review and unused pinned static helper retained."
+  ],
+  "limits": [
+    "Single unsymmetrized wing with constant chord/section aero properties; zero rigid motion and influence Mach; local Cm Mach correction retained. No bodies, engines, ground, gusts, controls or Fourier circulation in this study.",
+    "Independent fluid implementation retains current discrete Glauert sampling, wind-aligned horseshoes and geodesic nodal transfer. It does not validate every shared aerodynamic assumption.",
+    "Physical versus virtual kinematic-arm interpretation remains a source/model-convention question: steady section 4.3 describes wind-aligned influence points; unsteady equations 29\u201336 specify physical section arms. No convention changed in this study.",
+    "Local modes are seeded from saved production branches. No complete finite spectrum, absence of earlier instability or fully converged aerodynamic mesh limit is established.",
+    "Main-table/appendix property and operating-setting conflicts remain; exact original ASWING input is unavailable. No physical parameter was fitted.",
+    "Earlier structural matrix-norm bounds do not cover every weak nodal input; separate local mesh checks remain necessary.",
+    "Prior WASM/browser replay covers N16 production bracket endpoints and N32 production near-neutral point. This new independent reference runs in native Python; numerical kernel and UI are unchanged."
+  ],
+  "evidence": {
+    "path": "loaded-aeroelastic-reference-evidence.zip",
+    "bytes": 97128760,
+    "sha256": "91a318148178a6924c46623896ab411f9c5b055c8dc01ab78f739e3fbd82b964"
+  },
+  "portable_replay": {
+    "status": "PASS",
+    "manifest_files": 208,
+    "audit": {
+      "status": "PASS",
+      "operator_cases": [
+        {
+          "status": "PASS",
+          "index": 0,
+          "columns": 218,
+          "maximum_scaled_tangent_error": 8.265234561581161e-11,
+          "maximum_hybrid_root_relative": 6.585090669587369e-10
+        },
+        {
+          "status": "PASS",
+          "index": 1,
+          "columns": 218,
+          "maximum_scaled_tangent_error": 1.211234527029801e-10,
+          "maximum_hybrid_root_relative": 1.8938132252390034e-10
+        },
+        {
+          "status": "PASS",
+          "index": 2,
+          "columns": 378,
+          "maximum_scaled_tangent_error": 2.844585099866508e-10,
+          "maximum_hybrid_root_relative": 2.613857143884893e-09
+        },
+        {
+          "status": "PASS",
+          "index": 3,
+          "columns": 378,
+          "maximum_scaled_tangent_error": 9.37274708082028e-10,
+          "maximum_hybrid_root_relative": 1.4193922407691366e-09
+        },
+        {
+          "status": "PASS",
+          "index": 4,
+          "columns": 698,
+          "maximum_scaled_tangent_error": 5.389207598701634e-10,
+          "maximum_hybrid_root_relative": 5.903943518339991e-09
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "columns": 698,
+          "maximum_scaled_tangent_error": 2.7040092531946933e-09,
+          "maximum_hybrid_root_relative": 3.481774722157704e-09
+        }
+      ],
+      "continuum_cases": [
+        {
+          "status": "PASS",
+          "index": 0,
+          "speed_m_s": 33.21,
+          "independent_base_residual": 1.356187068698616e-14,
+          "modes": [
+            {
+              "rate_per_s": [
+                -26.605817491941895,
+                74.17234015957399
+              ],
+              "shape_mac": 0.999994426774525,
+              "relative_change": 0.0022524520789960795
+            },
+            {
+              "rate_per_s": [
+                -50.76905561548478,
+                164.28264847815885
+              ],
+              "shape_mac": 0.9999879534513546,
+              "relative_change": 0.000962924644938444
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 1,
+          "speed_m_s": 24.58,
+          "independent_base_residual": 1.500786346522205e-14,
+          "modes": [
+            {
+              "rate_per_s": [
+                7.800474224462001,
+                110.54270567966857
+              ],
+              "shape_mac": 0.99998922702422,
+              "relative_change": 0.0014801981090289988
+            },
+            {
+              "rate_per_s": [
+                -114.4388927356194,
+                62.25919284372308
+              ],
+              "shape_mac": 0.9999857474066461,
+              "relative_change": 0.0013662434853771118
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 2,
+          "speed_m_s": 33.21,
+          "independent_base_residual": 4.173156517396539e-15,
+          "modes": [
+            {
+              "rate_per_s": [
+                -25.294984685430393,
+                74.02370114665872
+              ],
+              "shape_mac": 0.999999652607803,
+              "relative_change": 0.0005609846781321542
+            },
+            {
+              "rate_per_s": [
+                -52.376381216884376,
+                165.05358178473026
+              ],
+              "shape_mac": 0.9999991456763704,
+              "relative_change": 0.00022930118296551425
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 3,
+          "speed_m_s": 24.58,
+          "independent_base_residual": 8.5352558918998e-15,
+          "modes": [
+            {
+              "rate_per_s": [
+                6.866607267952685,
+                110.53284860946711
+              ],
+              "shape_mac": 0.9999993510668573,
+              "relative_change": 0.0003383737455747309
+            },
+            {
+              "rate_per_s": [
+                -111.84294204162418,
+                62.23418445485927
+              ],
+              "shape_mac": 0.9999990288793544,
+              "relative_change": 0.000379358131853708
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 4,
+          "speed_m_s": 33.21,
+          "independent_base_residual": 4.634708918750915e-12,
+          "modes": [
+            {
+              "rate_per_s": [
+                -24.668029539565836,
+                73.95582137836621
+              ],
+              "shape_mac": 0.9999999773447515,
+              "relative_change": 0.00014277700633415867
+            },
+            {
+              "rate_per_s": [
+                -53.10808899429597,
+                165.44569416142195
+              ],
+              "shape_mac": 0.9999999388367065,
+              "relative_change": 6.460902544087199e-05
+            }
+          ]
+        },
+        {
+          "status": "PASS",
+          "index": 5,
+          "speed_m_s": 24.58,
+          "independent_base_residual": 2.13604589445289e-15,
+          "modes": [
+            {
+              "rate_per_s": [
+                6.5540214769794085,
+                110.36603803766842
+              ],
+              "shape_mac": 0.9999999574490319,
+              "relative_change": 8.700944069127697e-05
+            },
+            {
+              "rate_per_s": [
+                -110.97559927827518,
+                62.90370011358551
+              ],
+              "shape_mac": 0.999999931653276,
+              "relative_change": 0.00010493079248026887
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "status": "PASS_LOCAL_BRACKET",
+        "cases": [
+          {
+            "status": "PASS",
+            "index": 5,
+            "speed_m_s": 22.57,
+            "independent_base_residual": 1.510035665897197e-14,
+            "modes": [
+              {
+                "rate_per_s": [
+                  -0.021904423291849003,
+                  117.61946218011626
+                ],
+                "shape_mac": 0.9714987784477926,
+                "relative_change": 0.08847118411645703
+              }
+            ]
+          },
+          {
+            "status": "PASS",
+            "index": 5,
+            "speed_m_s": 22.59,
+            "independent_base_residual": 1.4122215644203752e-14,
+            "modes": [
+              {
+                "rate_per_s": [
+                  0.04796732016975721,
+                  117.52912470016611
+                ],
+                "shape_mac": 0.9721399087536783,
+                "relative_change": 0.0874415275375478
+              }
+            ]
+          },
+          {
+            "status": "PASS",
+            "index": 5,
+            "speed_m_s": 22.57626989458303,
+            "independent_base_residual": 8.188768711143861e-16,
+            "modes": [
+              {
+                "rate_per_s": [
+                  2.5024212561126617e-06,
+                  117.59110087827965
+                ],
+                "shape_mac": 0.9717006710354699,
+                "relative_change": 0.08814809449501437
+              }
+            ]
+          },
+          {
+            "status": "PASS",
+            "index": 5,
+            "speed_m_s": 22.575769894583033,
+            "independent_base_residual": 1.2987660342290502e-14,
+            "modes": [
+              {
+                "rate_per_s": [
+                  -0.0017439222592372423,
+                  117.5933605214213
+                ],
+                "shape_mac": 0.9716846032993942,
+                "relative_change": 0.08817384211519216
+              }
+            ]
+          },
+          {
+            "status": "PASS",
+            "index": 5,
+            "speed_m_s": 22.57676989458303,
+            "independent_base_residual": 2.3295337016870535e-15,
+            "modes": [
+              {
+                "rate_per_s": [
+                  0.0017502040482110961,
+                  117.58884002914466
+                ],
+                "shape_mac": 0.9717167386823465,
+                "relative_change": 0.08812233108380603
+              }
+            ]
+          }
+        ],
+        "center_speed_m_s": 22.57626989458303,
+        "bracket_m_s": [
+          22.575769894583033,
+          22.57676989458303
+        ]
+      }
+    },
+    "audit_sha256": "1b7b2f847a04e1bf67d30e06ca1c1881a78f90d7a8d4d4a6e471da6a4fb8b588",
+    "scope": "Fresh extraction; complete independent fluid tangent replay, energy matrix, hybrid polynomial, six continuum solutions/refinements and five boundary residual checks. Original gates retained; no production imports."
+  },
+  "figure_sha256": {
+    "svg": "5b4612ac0e6a667fd2455ca4dc5f2aed1f02d0156608031dc3f8329066580ff0",
+    "png": "2662d3c8b099c55db6c2e2270f171e0ced91a4137f50e3685af66c6b9a4109ed",
+    "pdf": "922842269937af11682b551d89943b956140718e9c536e952a9adae1e9e6bb6a"
+  },
+  "kinematic_arm_sensitivity": {
+    "path": "aero-kinematic-arms.json",
+    "status": "PASS_SCOPED_PUBLISHED_DISCREPANCY_OPEN",
+    "largest_speed_shift_m_s": 0.018691697292283038,
+    "conclusion": "Motion arms alone do not explain the roughly 2 m/s published gap with virtual influence geometry held fixed.",
+    "numerical_kernel_changed": false
+  }
+}

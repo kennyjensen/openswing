@@ -1,0 +1,2000 @@
+{
+  "status": "targeted native/WASM/JavaScript/browser checks passed; integrated",
+  "recorded_at": 1791474267.6703901,
+  "working_copy": "/tmp/openswing-stall-controls-20261008",
+  "jobs": {
+    "native": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-stall-parameters.py"
+        ],
+        "wrapper_pid": 19400,
+        "started": 1791457606.4819465,
+        "pid": 19421,
+        "exit_code": 1,
+        "ended": 1791457608.7072985
+      },
+      "log": "Traceback (most recent call last):\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 115, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 87, in main\n    result=run(spec)\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 81, in run\n    result=compute(spec);cases.append(dict(specification=spec,result=result));return result\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 63, in compute\n    assert result['condition']['stall_factor']==spec['factor'] and result['condition']['stall_width']==spec['width']\n           ~~~~~~^^^^^^^^^^^^^\nKeyError: 'condition'\n",
+      "log_sha256": "2b6f30f941f474ab71ca449cd8614987513be17d2b82b6b4c3b77d55b7b8fb59"
+    },
+    "native-final": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-stall-parameters.py"
+        ],
+        "wrapper_pid": 19664,
+        "started": 1791457686.4814134,
+        "pid": 19684,
+        "exit_code": 1,
+        "ended": 1791457689.014721
+      },
+      "log": "Traceback (most recent call last):\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 115, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 89, in main\n    assert errors[-1]<1e-4,(factor,width,alpha,errors)\n           ^^^^^^^^^^^^^^^\nAssertionError: (0.0, 0.05, -25.0, [0.0021277436153175344, 0.00021281627475433496])\n",
+      "log_sha256": "97f0a81c5a344d427be8747af77f1a51dd562cbf4ff4782ffd4424bf5b99ed73"
+    },
+    "native-refined": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-stall-parameters.py"
+        ],
+        "wrapper_pid": 19949,
+        "started": 1791457782.6577237,
+        "pid": 19965,
+        "exit_code": 0,
+        "ended": 1791457787.2096558
+      },
+      "log": "infinite-span 0.0 0.05 -25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 0.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 0.0 0.05 25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 10.0 0.05 -25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 10.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 10.0 0.05 25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 40.0 0.05 -25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 40.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.05 25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 80.0 0.05 -25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 80.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 80.0 0.05 25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 40.0 0.01 -25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.01 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.01 25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.15 -25.0 [9.979032309725966e-05, 9.961403457214857e-06, 9.959634581502286e-07]\ninfinite-span 40.0 0.15 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.15 25.0 [9.979032309725966e-05, 9.961403457214857e-06, 9.959634581502286e-07]\nfinite 0.0 0.05 1.937432895313442 0.21700109751342062\nfinite 10.0 0.05 1.221964590473115 0.19856139742445011\nfinite 40.0 0.05 1.1249850223625635 0.2137548721698615\nfinite 80.0 0.05 1.0887862332507197 0.22010867630448805\nfinite 40.0 0.01 1.1620851875822171 0.20999032077910368\nfinite 40.0 0.15 0.9449961161771977 0.2438765019083669\nCompleted 63 native cases\n",
+      "log_sha256": "631aa826258327bf2d1836d0297fa077e7826694b9b742baf2efab185e1fbc53"
+    },
+    "tests": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_stall_parameters.py",
+          "tests/test_aero.py"
+        ],
+        "wrapper_pid": 19401,
+        "started": 1791457606.4266322,
+        "pid": 19420,
+        "exit_code": 1,
+        "ended": 1791457614.0017154
+      },
+      "log": "..............................F............                              [100%]\n=================================== FAILURES ===================================\n_______ test_zero_factor_and_disabled_stall_recover_the_same_finite_wing _______\n\n    def test_zero_factor_and_disabled_stall_recover_the_same_finite_wing():\n        model = parse_asw(Path('examples/stall-branch.asw').read_text())\n        conditions = [FlightCondition(alpha=25, mach=0, stall_factor=0, stall_width=.15),\n                      FlightCondition(alpha=25, mach=0, stall=False, stall_factor=80, stall_width=.01)]\n        results = [solve_rigid(model, condition, panels=12) for condition in conditions]\n        for key in ['CL', 'CD', 'Cm', 'force', 'moment']:\n            np.testing.assert_allclose(results[0][key], results[1][key], rtol=2e-10, atol=1e-9)\n        for condition, result in zip(conditions, results):\n>           assert result['condition']['stall_factor'] == condition.stall_factor\n                   ^^^^^^^^^^^^^^^^^^^\nE           KeyError: 'condition'\n\ntests/test_stall_parameters.py:29: KeyError\n=========================== short test summary info ============================\nFAILED tests/test_stall_parameters.py::test_zero_factor_and_disabled_stall_recover_the_same_finite_wing\n1 failed, 42 passed in 6.12s\n",
+      "log_sha256": "20ad638c85f1829c22b3199765dad8b66dc9362e3c60b2ec753112155cadda63"
+    },
+    "tests-final": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_stall_parameters.py",
+          "tests/test_aero.py"
+        ],
+        "wrapper_pid": 19665,
+        "started": 1791457686.4286163,
+        "pid": 19683,
+        "exit_code": 0,
+        "ended": 1791457690.1711073
+      },
+      "log": "...........................................                              [100%]\n43 passed in 2.25s\n",
+      "log_sha256": "078899c44a053c6b43809521c364e8198642b127ebe3bb97ecb7c5d55bf48314"
+    },
+    "build": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "wrapper_pid": 20191,
+        "started": 1791457873.0801015,
+        "pid": 20216,
+        "exit_code": 0,
+        "ended": 1791457886.4454515
+      },
+      "log": "\n> openswing@0.1.0 build\n> node scripts/prepare.mjs && vite build && python3 scripts/package-local.py\n\nRuntime package verified: numpy 2.4.6 (2.8 MiB)\nRuntime package verified: scipy 1.18.0 (13.4 MiB)\nPackaged 635 source files\nvite v8.3.2 building client environment for production...\ntransforming...\n\u2713 43 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.68 kB \u2502 gzip:   0.40 kB\ndist/assets/worker-C4x75HWL.js    1.99 kB\ndist/assets/index--NdoYADC.css   29.34 kB \u2502 gzip:   6.88 kB\ndist/assets/index-BP8GpCAJ.js   907.98 kB \u2502 gzip: 247.21 kB\n\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u2713 built in 2.69s\nPackaged dist/openswing-local.zip (49.9 MiB)\n",
+      "log_sha256": "1e7a158b548d46d86dbfef576821de2624a3f83f5fb2e4bba685b3289cd77859"
+    },
+    "js": {
+      "status": {
+        "command": [
+          "node",
+          "--test",
+          "tests/distribution-history.test.mjs",
+          "tests/frequency-comparison.test.mjs",
+          "tests/frequency-overlays.test.mjs",
+          "tests/loading-data.test.mjs",
+          "tests/projects.test.mjs",
+          "tests/solutions.test.mjs"
+        ],
+        "wrapper_pid": 20192,
+        "started": 1791457872.996373,
+        "pid": 20210,
+        "exit_code": 0,
+        "ended": 1791457873.7585428
+      },
+      "log": "\u2714 signed sampled extrema retain earliest tied snapshot and event side without mutating states (14.739375ms)\n\u2714 envelopes describe sampled analytic waves, not a continuous-time bound (0.806119ms)\n\u2714 null, absent, nonfinite and nonnumeric values remain gaps, including all-missing stations (2.727031ms)\n\u2714 coincident stations remain distinct and incompatible material grids are rejected (1.291224ms)\n\u2714 aerodynamic density uses each state\u2019s current length and preserves force impulses separately (0.508828ms)\n\u2714 snapshot-specific physical stress conversion does not turn missing metadata into zero (5.086016ms)\n\u2714 history tables include every state and beam with raw quantities, ordinals and event metadata (3.96664ms)\n\u2714 separate convected gust traces retain analytical complex force and spatial phase (3.330052ms)\n\u2714 harmonic transfers, initial spectra and unlike output units have separate axis groups (1.007058ms)\n\u2714 physical sensor station metadata and imaginary acceleration survive exports (1.056016ms)\n\u2714 free-flight DC is an explicit export gap while finite-frequency displacement remains \u22121/\u03c9\u00b2 (0.526797ms)\n\u2714 phase unwrap is independent for every trace and resets at missing or zero output (1.104818ms)\n\u2714 standalone SVG never connects phase gaps and excludes DC only on a log axis (1.940807ms)\n\u2714 broken-loop traces use the matched response for each forcing channel (0.442864ms)\n\u2714 unmatched broken-loop forcing remains a gap instead of borrowing another response (0.549505ms)\n\u2714 trace identity distinguishes physical components and stations, ignoring display controls (0.342396ms)\n\u2714 hidden traces do not enter figures; zero and undefined values have distinct CSV statuses (0.669453ms)\n\u2714 input labels are escaped in standalone SVG and remain literal in CSV (0.69013ms)\n\u2714 fresh refined grids preserve exact previous per-trace values without modifying the report (3.182578ms)\n\u2714 nearly constant physical gain does not expand roundoff into a full-height curve (0.633073ms)\n\u2714 section transfers and initial spectra retain radians, load density and unavailable archive samples (0.834062ms)\n\u2714 independent millimetre/Newton data in Hz reproduces the oscillator including resonance and a retained gap (12.46138ms)\n\u2714 time units and the negative harmonic convention match independent complex mechanics and saved native results (4.015495ms)\n\u2714 decibels use amplitude ratios, phase units and a signed unit multiplier exactly once (0.78776ms)\n\u2714 zero magnitude needs no phase; missing, malformed and infinite measurements have different meanings (4.003281ms)\n\u2714 Fortran exponent tables, column remapping, comments and quoted CSV retain numerical meaning (1.959167ms)\n\u2714 ambiguous grids, incomplete maps, invalid conversions and numerical overflow cannot create an overlay (1.309635ms)\n\u2714 OpenSwing comparison CSV preserves computed/external identity, status, source mapping and exact complex values (7.746666ms)\n\u2714 single Bode CSV and old comparison headers remain readable (2.17ms)\n\u2714 unit, spectral type and Laplace damping mismatches are rejected before plotting (4.461953ms)\n\u2714 external plotting uses its own grid, resets phase after gaps and never changes the computed spectrum (8.961303ms)\n\u2714 unresolved CSV rows cannot override their status with apparently valid numeric data (2.109505ms)\n\u2714 finite extreme external values do not overflow or erase the comparison axes (1.332266ms)\n\u2714 local Mach is dimensionless while raw velocity follows the input time and length units (1.063177ms)\n\u2714 older archives and body sections leave missing surface airflow as gaps (0.262213ms)\n\u2714 airflow histories retain missing samples and export physical sample locations and units (4.003307ms)\n\u2714 derived section outputs retain raw load units and convert only the displayed incidence measure (0.682943ms)\n\u2714 portable projects retain literal model text, applied mesh and independent named configurations (15.399427ms)\n\u2714 update, rename, select and deletion produce new projects without mutating prior records (7.013516ms)\n\u2714 loaded equilibrium and all nested setup data are copied without shared ownership (0.319193ms)\n\u2714 ambiguous identities, missing selected cases and unknown or future formats are rejected (4.31099ms)\n\u2714 invalid physical input packets fail before JSON can silently replace values (0.845208ms)\n\u2714 deep or non-JSON equilibrium payloads are rejected while benign names stay plain data (0.521171ms)\n\u2714 version-1 projects upgrade without inventing computed solutions (7.888281ms)\n\u2714 saved values, inputs and provenance survive portable projects independently of case edits (60.459635ms)\n\u2714 checksums detect numerical, request, context and view corruption before display (12.984505ms)\n\u2714 nonfinite data, incompatible kinds, incomplete histories, duplicate records and missing provenance fail (5.454974ms)\n\u2714 portable frequency results preserve all samples and gaps while dropping only the live worker handle (0.683906ms)\n\u2714 the numerical fingerprint is checked independently of the solution checksum (5.250755ms)\n\u2714 branching a time history retains old numerical origins without relabeling them as the new kernel (1.297135ms)\n\u2139 tests 50\n\u2139 suites 0\n\u2139 pass 50\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 560.654845\n",
+      "log_sha256": "c41546c9900086e0f0d1feda3de2bee2de94658d19cba0c468a3f2ffe1def619"
+    },
+    "wasm": {
+      "status": {
+        "command": [
+          "node",
+          "scripts/test-stall-parameters-wasm.mjs"
+        ],
+        "wrapper_pid": 20488,
+        "started": 1791457922.859588,
+        "pid": 20512,
+        "exit_code": 0,
+        "ended": 1791457933.4297843
+      },
+      "log": "Loading numpy, scipy\nLoaded numpy, scipy\nStall parameters replay 8 3.031447823277665e-16\nStall parameters replay 17 1.6556841869803542e-16\nStall parameters replay 26 3.990581935693033e-18\nStall parameters replay 35 8.326672684688674e-17\nStall parameters replay 44 1.793411109246078e-16\nStall parameters replay 53 2.146656440048789e-16\nStall parameters replay 54 4.120833269919505e-16\nStall parameters replay 55 2.220446049250313e-16\nStall parameters replay 56 2.220446049250313e-16\nStall parameters replay 57 3.3306690738754696e-16\nStall parameters replay 58 2.220446049250313e-16\nStall parameters replay 59 2.220446049250313e-16\nStall parameters replay 60 4.401049175022837e-16\nStall parameters replay 61 2.220446049250313e-16\nStall parameters replay 62 2.5858383113886055e-16\n",
+      "log_sha256": "fe0612cf730b17692551565bdda180c0967ba997faa9a0c78e52a4a34ce4b371"
+    },
+    "browser": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--output=/tmp/openswing-stall-parameters-browser-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 20489,
+        "started": 1791457922.7998888,
+        "pid": 20510,
+        "exit_code": -15,
+        "ended": 1791458891.291842
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --output=/tmp/openswing-stall-parameters-browser-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 3 browser tests\nStall browser case \u001b[33m0\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m10\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m80\u001b[39m \u001b[33m0.05\u001b[39m\ntimedOut: stall parameters change verified loads and survive cases and computed archives offline (422.1s)\n\u001b[31mTest timeout of 360000ms exceeded.\u001b[39m\nError: locator.click: Test timeout of 360000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#tab-report')\u001b[22m\n\n",
+      "log_sha256": "7a54f92c90d897ac7f807a32f3d0c614ea9dbada6701285eaef51c54dc67ae0c"
+    },
+    "browser-single-renderer": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--output=/tmp/openswing-stall-parameters-browser-single-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 24564,
+        "started": 1791459056.710485,
+        "pid": 24589,
+        "exit_code": 1,
+        "ended": 1791462520.7377756
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --output=/tmp/openswing-stall-parameters-browser-single-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 3 browser tests\nStall browser case \u001b[33m0\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m10\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m80\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.01\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.15\u001b[39m\ntimedOut: stall parameters change verified loads and survive cases and computed archives offline (394.2s)\n\u001b[31mTest timeout of 360000ms exceeded.\u001b[39m\nError: locator.uncheck: Target page, context or browser has been closed\npassed: old cases restore the original stall defaults and invalid parameters are rejected (80.5s)\nfailed: saved equilibrium time launch retains its stall parameters over current controls (101.4s)\nError: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#solve')\nExpected: enabled\nReceived: disabled\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('#solve')\u001b[22m\n\u001b[2m    17 \u00d7 locator resolved to <button disabled id=\"solve\" class=\"primary\">\u2026</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n\n{\"status\":\"failed\",\"counts\":{\"timedOut\":1,\"passed\":1,\"failed\":1}}\n",
+      "log_sha256": "c2af346e8cdc62879c0951c538607f35f7144b0df891ba1f6436787cff2123be"
+    },
+    "stable-native": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-W",
+          "error::RuntimeWarning",
+          "scripts/verify-stall-parameters.py"
+        ],
+        "wrapper_pid": 10895,
+        "started": 1791463702.6380649,
+        "pid": 10915,
+        "exit_code": 1,
+        "ended": 1791463708.7164493
+      },
+      "log": "infinite-span 0.0 0.05 -25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 0.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 0.0 0.05 25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 10.0 0.05 -25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 10.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 10.0 0.05 25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 40.0 0.05 -25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 40.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.05 25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 80.0 0.05 -25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 80.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 80.0 0.05 25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 40.0 0.01 -25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.01 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.01 25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.15 -25.0 [9.979032309703761e-05, 9.961403457214857e-06, 9.959634581502286e-07]\ninfinite-span 40.0 0.15 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.15 25.0 [9.979032309703761e-05, 9.961403457214857e-06, 9.959634581502286e-07]\nfinite 0.0 0.05 1.937432895313442 0.21700109751342062\nfinite 10.0 0.05 1.221964590473115 0.19856139742445011\nfinite 40.0 0.05 1.1249850223625635 0.2137548721698615\nfinite 80.0 0.05 1.0887862332507197 0.22010867630448805\nfinite 40.0 0.01 1.1620851875822171 0.20999032077910368\nfinite 40.0 0.15 0.9449961161771977 0.24387650190836693\nTraceback (most recent call last):\n  File \"/tmp/openswing-stall-controls-20261008/openswing/aero.py\", line 435, in evaluate_aerodynamics\n    z, solver_report = continue_circulation(\n                       ~~~~~~~~~~~~~~~~~~~~^\n        lambda z: residual(basis.decode(z*coefficient_scale)), regularizer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        derivative=None if engine_rows else lambda z:\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        circulation_jacobian(basis.decode(z*coefficient_scale))*coefficient_scale)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-stall-controls-20261008/openswing/circulation_solve.py\", line 130, in continue_circulation\n    raise CirculationContinuationError(\n        f'Circulation continuation stopped at lambda={y[-1]:.9g}: {reason}; '\n        'no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.')\nopenswing.circulation_solve.CirculationContinuationError: Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 159, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 136, in main\n    result=run(dict(factor=40.,width=width,alpha=alpha,span=span,panels=16,high_precision_reference=True))\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 104, in run\n    result=compute(spec);cases.append(dict(specification=spec,result=result));return result\n  File \"/tmp/openswing-stall-controls-20261008/scripts/verify-stall-parameters.py\", line 85, in compute\n    result=solve_rigid(parse_asw(source_for(span,units)),condition,spec.get('panels',16))\n  File \"/tmp/openswing-stall-controls-20261008/openswing/aero.py\", line 770, in solve_rigid\n    result = evaluate_aerodynamics(model, condition, meshes, circulation_method=circulation_method)\n  File \"/tmp/openswing-stall-controls-20261008/openswing/aero.py\", line 440, in evaluate_aerodynamics\n    raise AnalysisError(str(exc)) from exc\nopenswing.aero.AnalysisError: Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\n",
+      "log_sha256": "dd9fcee4b8b5fc7532033e2c33704a46a104e8c07a678f6ab3b7a702763ce5a4"
+    },
+    "stable-tests": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_stall_parameters.py",
+          "tests/test_aero.py",
+          "tests/test_circulation.py",
+          "tests/test_circulation_solve.py",
+          "--junitxml=/tmp/openswing-stall-parameters-stable-tests-20261008.xml"
+        ],
+        "wrapper_pid": 10896,
+        "started": 1791463702.478918,
+        "pid": 10914,
+        "exit_code": 1,
+        "ended": 1791463792.9739735
+      },
+      "log": "........................................................................ [ 64%]\n...............................F.......                                  [100%]\n=================================== FAILURES ===================================\n_ test_analytic_tangent_matches_perturbed_complete_flow_residual[1e-310-0-0.3] _\n\nresidual = <function evaluate_aerodynamics.<locals>.<lambda> at 0x73b46b6770>\nregularizer = array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],\n       [0., 1., 0., 0., 0., 0., 0., 0., 0., 0... 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.],\n       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]])\nderivative = <function evaluate_aerodynamics.<locals>.<lambda> at 0x73b46b6560>\nkwargs = {}\n\n    def inspect(residual, regularizer, *, derivative, **kwargs):\n        assert derivative is not None\n        n = len(regularizer)\n        for amplitude in [-1.8, -.6, 0., .6, 1.8]:\n            z = amplitude*np.cos(np.arange(n)*.37)\n            direction = np.sin(np.arange(n)*.73+.4)\n            h = 2e-6\n            measured = (residual(z+h*direction)-residual(z-h*direction))/(2*h)\n            np.testing.assert_allclose(derivative(z)@direction, measured, rtol=2e-7, atol=2e-8)\n            checked.append(amplitude)\n>       return original(residual, regularizer, derivative=derivative, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_circulation_solve.py:118: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nresidual = <function evaluate_aerodynamics.<locals>.<lambda> at 0x73b46b6770>\nregularizer = array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],\n       [0., 1., 0., 0., 0., 0., 0., 0., 0., 0... 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.],\n       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]])\nderivative = <function evaluate_aerodynamics.<locals>.<lambda> at 0x73b46b6560>\ntolerance = 1e-11, max_step = 0.04\n\n    def continue_circulation(residual, regularizer, *, derivative=None, tolerance=1e-11, max_step=.04):\n        \"\"\"Pseudo-arclength predictor/corrector, rollback and exact endpoint solve.\n    \n        The metric uses the mean square of dimensionless circulation coordinates\n        plus lambda squared. Lambda may turn at a fold inside [0,1]. A path that\n        leaves this interval or exhausts the bounded step search is unresolved;\n        an intermediate homotopy state is never returned as a physical solution.\n        \"\"\"\n        d = np.asarray(regularizer, dtype=float)\n        if d.ndim != 2 or d.shape[0] != d.shape[1] or not np.all(np.isfinite(d)):\n            raise ValueError('Circulation regularizer must be a finite square matrix.')\n        if not np.isfinite(max_step) or max_step <= 0 or not np.isfinite(tolerance) or tolerance <= 0:\n            raise ValueError('Circulation continuation step and tolerance must be positive and finite.')\n        n = len(d)\n        if not n:\n            return np.empty(0), dict(method='continuation', path='pseudo-arclength', steps=0,\n                attempts=0, evaluations=0, trace=[], final_regularization=0., physical_residual=0.)\n        singular = np.linalg.svd(d, compute_uv=False)\n        if singular[-1] <= 1e-12*singular[0]:\n            raise CirculationContinuationError('Circulation continuation has an unresolved coordinate scaling.')\n        evaluations = 0\n        def r(z):\n            nonlocal evaluations\n            evaluations += 1\n            value = np.asarray(residual(z), dtype=float)\n            if value.shape != (n,) or not np.all(np.isfinite(value)):\n                raise CirculationContinuationError('Circulation continuation encountered a nonfinite residual.')\n            return value\n        def physical_jacobian(z):\n            return derivative(z) if derivative is not None else jacobian(r, z)\n        def h(y):\n            z, parameter = y[:-1], y[-1]\n            return parameter*r(z)-(1-parameter)*(d@z)\n        def h_jacobian(y):\n            z, parameter = y[:-1], y[-1]\n            return np.column_stack((parameter*physical_jacobian(z)-(1-parameter)*d, r(z)+d@z))\n        metric = np.r_[np.full(n, 1/n), 1.]\n        def norm(y):\n            return float(np.sqrt(np.dot(metric*y, y)))\n        y = np.zeros(n+1)\n        tangent = np.r_[np.zeros(n), 1.]\n        step = min(.04, max_step)\n        trace = []\n        reason = 'step search exhausted'\n        for attempt in range(600):\n            if step < 1e-7:\n                reason = 'arclength step became too small'\n                break\n            # The bordered system remains regular at a simple lambda fold. Its\n            # last row orients the new tangent along the previously accepted path.\n            try:\n                direction = np.linalg.solve(np.vstack((h_jacobian(y), metric*tangent)), np.r_[np.zeros(n), 1.])\n            except np.linalg.LinAlgError:\n                reason = 'arclength tangent is singular'\n                break\n            tangent = direction/norm(direction)\n            predicted = y+step*tangent\n            limit = .5*max(1., float(np.max(abs(y[:-1]))))\n            if np.max(abs(predicted[:-1]-y[:-1])) > limit:\n                step *= .5\n                continue\n            def corrector(trial):\n                return np.r_[h(trial), np.dot(metric*tangent, trial-predicted)]\n            try:\n                solution = root(corrector, predicted,\n                    jac=lambda trial: np.vstack((h_jacobian(trial), metric*tangent)),\n                    method='hybr', options={'xtol': 1e-11})\n                candidate = solution.x\n                error = float(np.max(abs(corrector(candidate))))\n                correction = norm(candidate-predicted)\n            except CirculationContinuationError:\n                step *= .5\n                continue\n            if (error > tolerance or correction > .5*step or norm(candidate-y) > 1.5*step\n                    or np.max(abs(candidate-predicted)) > .25*np.max(abs(predicted-y))\n                    or np.max(abs(candidate[:-1]-y[:-1])) > limit):\n                step *= .5\n                continue\n            if candidate[-1] < 0:\n                reason = 'path left the admissible regularization interval'\n                break\n            if y[-1] < 1 <= candidate[-1]:\n                # Locate lambda=1 on the accepted path, then solve R=0 exactly.\n                fraction = (1-y[-1])/(candidate[-1]-y[-1])\n                guess = y[:-1]+fraction*(candidate[:-1]-y[:-1])\n                endpoint = root(r, guess, jac=physical_jacobian, method='hybr', options={'xtol': 1e-11})\n                error = float(np.max(abs(r(endpoint.x))))\n                if error > tolerance or norm(np.r_[endpoint.x-guess, 0.]) > .5*step:\n                    step *= .5\n                    continue\n                trace.append(dict(parameter=1., residual=error, physical_residual=error,\n                                  step=float(step*fraction), predictor_correction=norm(np.r_[endpoint.x-guess, 0.]),\n                                  parameter_tangent=float(tangent[-1])))\n                return endpoint.x, dict(method='continuation', path='pseudo-arclength', steps=len(trace),\n                    attempts=attempt+1, evaluations=evaluations, trace=trace, maximum_step=max_step, final_regularization=0.,\n                    physical_residual=error,\n                    scope='A continuation branch of the unchanged circulation equations; uniqueness and aircraft stability are not established.')\n            y = candidate.copy()\n            trace.append(dict(parameter=float(y[-1]), residual=error,\n                              physical_residual=float(np.max(abs(r(y[:-1])))),\n                              step=float(step), predictor_correction=correction, parameter_tangent=float(tangent[-1])))\n            step = min(max_step, step*1.4 if correction < .1*step else step)\n>       raise CirculationContinuationError(\n            f'Circulation continuation stopped at lambda={y[-1]:.9g}: {reason}; '\n            'no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.')\nE       openswing.circulation_solve.CirculationContinuationError: Circulation continuation stopped at lambda=0.851535414: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\n\nopenswing/circulation_solve.py:130: CirculationContinuationError\n\nThe above exception was the direct cause of the following exception:\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x73b6cb86b0>\nmodes = 0, rate = 0.3, width = 1e-310\n\n    @pytest.mark.parametrize('modes,rate', [(0, 0.), (0, .3), (8, .3)])\n    @pytest.mark.parametrize('width', [1e-310, .05, 1e100])\n    def test_analytic_tangent_matches_perturbed_complete_flow_residual(monkeypatch, modes, rate, width):\n        import openswing.circulation_solve as solver\n        original = solver.continue_circulation\n        checked = []\n        def inspect(residual, regularizer, *, derivative, **kwargs):\n            assert derivative is not None\n            n = len(regularizer)\n            for amplitude in [-1.8, -.6, 0., .6, 1.8]:\n                z = amplitude*np.cos(np.arange(n)*.37)\n                direction = np.sin(np.arange(n)*.73+.4)\n                h = 2e-6\n                measured = (residual(z+h*direction)-residual(z-h*direction))/(2*h)\n                np.testing.assert_allclose(derivative(z)@direction, measured, rtol=2e-7, atol=2e-8)\n                checked.append(amplitude)\n            return original(residual, regularizer, derivative=derivative, **kwargs)\n        monkeypatch.setattr(solver, 'continue_circulation', inspect)\n        model = parse_asw(SOURCE)\n        meshes = model_meshes(model, 16)\n        condition = FlightCondition(speed=47.9, alpha=25, circulation_modes={1: modes}, stall_width=width)\n        basis = CirculationBasis(meshes, condition.circulation_modes)\n>       result = evaluate_aerodynamics(model, condition, meshes,\n            circulation_rate=basis.decode(rate*np.cos(np.arange(basis.size)*.3)),\n            circulation_method='continuation')\n\ntests/test_circulation_solve.py:124: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmodel = Model(name='Rigid rectangular wing - circulation branch study', source='Name\\nRigid rectangular wing - circulation bra...00771413'), (25, '2.95 6.2832 -1.2 1.2 .00352562 .00771413')], line=18, header='Beam 1', end_line=26)], diagnostics=[])\ncondition = FlightCondition(speed=47.9, alpha=25, beta=0.0, density=None, mach=None, rates=(0.0, 0.0, 0.0), acceleration=(0.0, 0.0..., sensor_flow='full', time=0.0, circulation_modes={1: 0}, aero_lag=True, wake_core_ratio=0.25, freeze_influences=False)\nmeshes = [PanelMesh(beam=Beam(index=1, physical_index=1, name='Rectangular wing', distributions={'x': Distribution(name='x', t=...79633, 1.37444679,\n       1.17809725, 0.9817477 , 0.78539816, 0.58904862, 0.39269908,\n       0.19634954, 0.        ]))]\ncirculation = None, point_positions = None, engine_positions = None\nengine_rotations = None, local_motion = None\ncirculation_rate = array([ 0.3       ,  0.28660095,  0.24760068,  0.18648299,  0.10870733,\n        0.02122116, -0.06816063, -0.15145383, -0.22121811, -0.27122164,\n       -0.29699775, -0.29624393, -0.26902752, -0.21777969, -0.14707825,\n       -0.06323874])\nsensor_positions = None, circulation_basis = None, survey_positions = None\ncirculation_method = 'continuation', frozen_influences = None\n\n    def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,\n                              circulation=None, point_positions=None, engine_positions=None, engine_rotations=None,\n                              *, local_motion=None, circulation_rate=None, sensor_positions=None, circulation_basis=None,\n                              survey_positions=None, circulation_method='auto', frozen_influences=None):\n        \"\"\"Evaluate the aerodynamic residual and loads on supplied geometry.\n    \n        If circulation is supplied, no inner aerodynamic solve is performed. This\n        permits a simultaneous structural/circulation Newton solve. K/F optionally\n        freezes velocity coefficients at jig geometry and zero wind angles; current\n        normals, kinematics, circulation and physical load transfer are retained.\n        Optional NetworkMotion and circulation-rate fields evaluate the documented\n        unsteady loads and lag residual at an instant; they do not integrate time.\n        \"\"\"\n        if circulation_method not in ('auto', 'direct', 'continuation'):\n            raise AnalysisError('Circulation method must be auto, direct or continuation.')\n        if not isinstance(condition.aero_lag, (bool, np.bool_)):\n            raise AnalysisError('Aerodynamic lag must be a boolean.')\n        if not isinstance(condition.freeze_influences, (bool, np.bool_)):\n            raise AnalysisError('Freeze aerodynamic influences must be a boolean.')\n        core_ratio = _wake_core_ratio(condition)\n        air = operating_air(model, condition)\n        rho = air[\"density\"]\n        motion_state = condition.motion()\n        mach = air[\"ambient_mach\"] if condition.mach is None else float(condition.mach)\n        if not np.isfinite(rho) or rho <= 0 or not np.isfinite(mach) or not 0 <= mach < 1:\n            raise AnalysisError(\"Density must be positive and Prandtl\u2013Glauert Mach must be in [0, 1).\")\n        e, ey, ez = condition.vectors()\n        wind = np.array([1., 0., 0.]) if condition.freeze_influences else e\n        # Equivalent to P^T P in wind axes: an orthogonal rotation cancels from\n        # the isotropic Biot\u2013Savart kernel. Velocities transform with P^T, not P^-1.\n        pg = np.eye(3) + (1 / np.sqrt(1 - mach ** 2) - 1) * np.outer(wind, wind)\n        if not meshes:\n            raise AnalysisError(\"No beam geometry in this configuration.\")\n        ground = GroundPlane.from_condition(condition)\n        frozen = None\n        if condition.freeze_influences:\n            frozen = (FrozenInfluences(model, meshes) if frozen_influences is None else frozen_influences)\n            frozen.configure(model, meshes, mach, core_ratio, ground)\n        basis = circulation_basis if circulation_basis is not None else CirculationBasis(meshes, condition.circulation_modes)\n        if circulation_basis is not None:basis.validate_settings(condition.circulation_modes)\n        gust = gust_field(condition.gust)\n        gust_locations = []\n    \n        def gust_velocity(points):\n            points = np.asarray(points)\n            if gust.kind == 'none':\n                return np.zeros_like(points, dtype=float)\n            gust_locations.append(points.reshape(-1, 3))\n            return gust.body_velocity(points, condition)\n        engine_rows = model.records.get(\"engine\", [])\n        engine_points = np.array([row[4:7] for row in engine_rows] if engine_positions is None else engine_positions).reshape(-1,3)\n        point_locations = [row[2:5] for row in model.records.get(\"weight\",[])] if point_positions is None else point_positions\n        clearance = ground.clearance(meshes,point_locations,engine_points,engine_rows,engine_rotations) if ground.flag else None\n        volume = None if frozen else VolumeField(model, meshes, e, pg, point_positions, ground)\n        def volume_velocity(points, reference=None, **exclusions):\n            return (frozen.volume(points if reference is None else reference, **exclusions) if frozen else\n                    volume.velocity(points, **exclusions))\n        arrays = {k: [] for k in (\"normal\", \"section_normal\", \"jig_normal\", \"s\", \"c\", \"slope\", \"clmax\", \"clmin\", \"cdf\", \"cdp\", \"cm\", \"xax\", \"beam\", \"t\")}\n        for mesh in meshes:\n            beam = mesh.beam\n            if not beam.lifting:\n                continue\n            t = mesh.tm\n            chord = beam.value(\"chord\", t)\n            slope = beam.value(\"dCLda\", t)\n            clmin, clmax = beam.value(\"CLmin\", t), beam.value(\"CLmax\", t)\n            if np.any(chord <= 0) or np.any(slope <= 0) or np.any(clmin >= clmax):\n                raise AnalysisError(f\"Beam {beam.index}: chord and lift slope must be positive, and CLmin < CLmax.\")\n            c, s, n = mesh.frames[..., 0], mesh.frames[..., 1], mesh.frames[..., 2]\n            xax = beam.value(\"Xax\", t)\n            alpha = np.deg2rad(beam.value(\"alpha\", t))\n            cm, cdp = beam.value(\"Cm\", t).copy(), beam.value(\"Cdp\", t).copy()\n            for k, value in condition.controls.items():\n                alpha += value * beam.value(f\"dCLdF{k}\", t) / slope\n                cm += value * beam.value(f\"dCMdF{k}\", t)\n                cdp += value * beam.value(f\"dCDdF{k}\", t)\n            cdf = beam.value(\"Cdf\", t)\n            if np.any(cdf < 0) or np.any(cdp < 0):\n                raise AnalysisError(\"Control settings or interpolation produced a negative profile drag coefficient.\")\n            values = dict(normal=np.sin(alpha)[:, None] * c + np.cos(alpha)[:, None] * n,\n                          section_normal=n, jig_normal=surface_frame(beam, t)[..., 2],\n                          s=s, c=c, slope=slope, clmax=clmax, clmin=clmin,\n                          cdf=cdf, cdp=cdp, cm=cm, xax=xax, beam=np.full(len(t), beam.index), t=t)\n            for key, val in values.items():\n                arrays[key].extend(val)\n        vector_keys = {\"a\", \"b\", \"hv\", \"cp\", \"normal\", \"section_normal\", \"jig_normal\", \"s\", \"c\", \"rm\"}\n        p = {k: np.asarray(v).reshape(-1,3) if k in vector_keys else np.asarray(v) for k, v in arrays.items()}\n        p.update(lifting_geometry(meshes, wind))\n        ig = frozen.geometry if frozen else p\n        gamma_dot = np.zeros(len(p['t'])) if circulation_rate is None else np.asarray(circulation_rate,dtype=float)\n        if gamma_dot.shape != (len(p['t']),) or not np.all(np.isfinite(gamma_dot)):\n            raise AnalysisError('Circulation rates must be a finite vector with one entry per lifting panel.')\n        if basis.modes:basis.encode(gamma_dot)\n        # K/L disables both shed-vorticity downwash and rate lift. Keep the actual\n        # circulation derivative in outputs; an algebraic circulation can still\n        # change with motion or forcing. Apparent-mass terms are independent.\n        lag_rate = gamma_dot if condition.aero_lag else np.zeros_like(gamma_dot)\n        surface_motion = None if local_motion is None else local_motion.surface()\n        with np.errstate(over='ignore'):\n            source_core = np.maximum(core_ratio * ig[\"chord\"], ig[\"ds\"])\n        if np.any(~np.isfinite(source_core)) or np.any(source_core > np.sqrt(np.finfo(float).max)):\n            raise AnalysisError('Wake core radius is too large for the vortex calculation in these input units.')\n    \n        def influences(points, physical=None, *, reference=None, exclude_bound=None):\n            if frozen:\n                return frozen.vortex(points if reference is None else reference, physical, exclude_bound=exclude_bound)\n            target_cores = source_core[None,:] if physical is None else np.where(\n                np.asarray(physical)[:,None] == p[\"physical\"][None,:],0.,source_core[None,:])\n            return horseshoe_velocity(points[:,None,:],p['a'][None,:,:],p['b'][None,:,:],\n                                      e,pg,target_cores,ground,exclude_bound=exclude_bound)\n    \n        # The bound-segment midpoint may differ from the theta midpoint under curved\n        # geometry. Omit the panel's own physical bound segment BEFORE summation:\n        # subtracting two near-singular evaluations loses the finite wake velocity,\n        # especially when PG transforms round differently in broadcast operations.\n        vcp = influences(p[\"cp\"], p[\"physical\"], reference=ig['cp'])\n        vhv = influences(p[\"hv\"], p[\"physical\"], reference=ig['hv'], exclude_bound=np.eye(len(p[\"t\"]), dtype=bool))\n        omega = np.asarray(condition.rates)\n        # Speed/angles apply at the explicitly specified velocity-reference point.\n        cp_free = condition.speed * e - np.cross(omega, p[\"cp\"] - model.reference[3])\n        hv_free = condition.speed * e - np.cross(omega, p[\"hv\"] - model.reference[3])\n        cp_free += gust_velocity(p['cp'])\n        hv_free += gust_velocity(p['hv'])\n        if surface_motion is not None:\n            cp_free -= surface_motion.velocity_at(p['cp'])\n            hv_free -= surface_motion.velocity_at(p['hv'])\n        cp_free += condition.speed*volume_velocity(p[\"cp\"], ig['cp'])\n        hv_free += condition.speed*volume_velocity(p[\"hv\"], ig['hv'])\n        engine_free = condition.speed*e-np.cross(omega, engine_points-model.reference[3])\n        engine_free += gust_velocity(engine_points)\n        engine_reference = np.array([row[4:7] for row in engine_rows]).reshape(-1, 3)\n        engine_free += condition.speed*volume_velocity(engine_points, engine_reference)\n        engine_rates = np.broadcast_to(omega,engine_points.shape).copy()\n        if local_motion is not None:\n            for i,position in enumerate(engine_points):\n                mount = local_motion.point('engine',i)\n                engine_free[i] -= mount.velocity_at(position)\n                engine_rates[i] += mount.rates\n        engine_aic = influences(engine_points, reference=engine_reference)\n        flow_key, flow_cache = None, None\n    \n        def engine_flow(gamma):\n            nonlocal flow_key, flow_cache\n            key = gamma.tobytes()\n            if key != flow_key:\n                inflows = engine_free+np.einsum(\"ijk,j->ik\", engine_aic, gamma)\n                engines = [engine_load(row, condition.powers.get(int(row[0]), 0.), rho, position, velocity,\n                                       engine_rates[i], None if engine_rotations is None else engine_rotations[i])\n                           for i, (row, position, velocity) in enumerate(zip(engine_rows, engine_points, inflows))]\n                flow_cache = engines, jet_velocity(p[\"cp\"], engines, e, rho), jet_velocity(p[\"hv\"], engines, e, rho)\n                flow_key = key\n            return flow_cache\n        aic = np.einsum(\"ijk,ik->ij\", vcp, p[\"normal\"])\n        rhs = -np.sum(cp_free * p[\"normal\"], axis=-1)\n        linear_error = None\n        if circulation is None:\n            try:\n                coefficients0 = np.linalg.solve(basis.test@aic@basis.sample, basis.test@rhs) if basis.modes else np.linalg.solve(aic, rhs)\n                gamma0 = basis.decode(coefficients0) if basis.modes else coefficients0\n            except np.linalg.LinAlgError as exc:\n                linear_error = exc\n                coefficients0 = np.zeros(basis.size)\n                gamma0 = basis.decode(coefficients0)\n                if circulation_method == 'direct' or not condition.stall:\n                    raise AnalysisError(\"Singular circulation matrix; check overlapping surfaces and mesh.\") from exc\n    \n        def velocities(gamma):\n            v = hv_free + np.einsum(\"ijk,j->ik\", vhv, gamma) + engine_flow(gamma)[2]\n            vperp = v - np.sum(v * p[\"s\"], axis=-1)[:, None] * p[\"s\"]\n            speed = np.linalg.norm(vperp, axis=-1)\n            return v, vperp, np.maximum(speed, condition.speed * 1e-12)\n    \n        def local_residual(gamma):\n            _, _, speed = velocities(gamma)\n            cl = 2 * gamma / (p[\"chord\"] * speed)\n            fstall, _ = _stall_leakage(cl, p['clmin'], p['clmax'], condition.stall_width)\n            leakage = speed / p[\"slope\"] * condition.stall_factor * fstall if condition.stall else 0.\n            jet_normal = np.sum(engine_flow(gamma)[1]*p[\"normal\"], axis=-1)\n            return (aic @ gamma - rhs + jet_normal - leakage - 2/np.pi*lag_rate/speed) / condition.speed\n    \n        def residual(gamma):\n            value = local_residual(gamma)\n            return basis.test@value if basis.modes else value\n    \n        def circulation_jacobian(gamma):\n            # Exact fixed-geometry derivative when no circulation-dependent engine\n            # jet is present. Local speed, stall leakage and prescribed lag-rate\n            # terms all vary with circulation. Engine feedback uses centered\n            # derivatives of the complete residual in the continuation helper.\n            _, vp, speed = velocities(gamma)\n            speed_jacobian = np.einsum('ik,ijk->ij', vp/speed[:, None], vhv)\n            speed_jacobian[np.linalg.norm(vp, axis=1) <= condition.speed*1e-12] = 0.\n            cl = 2*gamma/(p['chord']*speed)\n            f, df = _stall_leakage(cl, p['clmin'], p['clmax'], condition.stall_width)\n            strength = condition.stall_factor/p['slope'] if condition.stall else np.zeros_like(cl)\n            leakage_jacobian = np.diag(strength*2/p['chord']*df)\n            leakage_jacobian += (strength*(f-cl*df))[:, None]*speed_jacobian\n            physical = (aic-leakage_jacobian+(2/np.pi*lag_rate/speed**2)[:, None]*speed_jacobian)/condition.speed\n            return basis.test@physical@basis.sample if basis.modes else physical\n    \n        iterations = 0\n        solver_report = dict(method='prescribed' if circulation is not None else 'linear', evaluations=0)\n        if circulation is not None:\n            gamma = np.asarray(circulation, dtype=float)\n            if gamma.shape != gamma_dot.shape:\n                raise AnalysisError('Circulation must have one entry per lifting panel.')\n            if basis.modes:basis.encode(gamma)\n        elif len(gamma0) and (condition.stall or engine_rows or np.any(lag_rate)):\n            section_guess = 2*gamma0/(p['chord']*velocities(gamma0)[2])\n            near_stall = condition.stall and condition.stall_factor > 0 and bool(np.any(\n                (section_guess > p['clmax']-2*condition.stall_width) |\n                (section_guess < p['clmin']+2*condition.stall_width)))\n            continuation = circulation_method == 'continuation' or (\n                circulation_method == 'auto' and (near_stall or linear_error is not None))\n            if not continuation:\n                solution = root(lambda x: residual(basis.decode(x)), coefficients0, method=\"hybr\", options={\"xtol\": 1e-10})\n                gamma = basis.decode(solution.x)\n                iterations = int(solution.nfev)\n                solver_report = dict(method='direct', evaluations=iterations)\n                continuation = circulation_method == 'auto' and (\n                    not np.all(np.isfinite(gamma)) or np.max(abs(residual(gamma)), initial=0.) > 1e-8)\n            if continuation:\n                from .circulation_solve import continue_circulation, CirculationContinuationError\n                # Gamma has units L^2/T. Local scales and the common coefficient\n                # scale transform together under arbitrary consistent input units.\n                local_scale = .5*p['chord']*condition.speed\n                coefficient_scale = float(np.max(local_scale))\n                regularizer = basis.test@((coefficient_scale/local_scale)[:, None]*basis.sample)\n                try:\n                    z, solver_report = continue_circulation(\n                        lambda z: residual(basis.decode(z*coefficient_scale)), regularizer,\n                        derivative=None if engine_rows else lambda z:\n                        circulation_jacobian(basis.decode(z*coefficient_scale))*coefficient_scale)\n                except CirculationContinuationError as exc:\n>                   raise AnalysisError(str(exc)) from exc\nE                   openswing.aero.AnalysisError: Circulation continuation stopped at lambda=0.851535414: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\n\nopenswing/aero.py:440: AnalysisError\n=========================== short test summary info ============================\nFAILED tests/test_circulation_solve.py::test_analytic_tangent_matches_perturbed_complete_flow_residual[1e-310-0-0.3]\n1 failed, 110 passed in 88.52s (0:01:28)\n",
+      "log_sha256": "a4bcca4f7700aa95a77f1d088f50f5b5bd2e74bda37bb73b3a376f6ed64a7b76"
+    },
+    "stable-native-final": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-W",
+          "error::RuntimeWarning",
+          "scripts/verify-stall-parameters.py"
+        ],
+        "wrapper_pid": 12610,
+        "started": 1791464068.0731516,
+        "pid": 12630,
+        "exit_code": 0,
+        "ended": 1791464076.57838
+      },
+      "log": "infinite-span 0.0 0.05 -25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 0.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 0.0 0.05 25.0 [0.0021277436153175344, 0.00021281627475433496, 2.1281842053078037e-05]\ninfinite-span 10.0 0.05 -25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 10.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 10.0 0.05 25.0 [0.00011953613961024345, 1.1945227729848185e-05, 1.19443648149975e-06]\ninfinite-span 40.0 0.05 -25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 40.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.05 25.0 [7.390828356229617e-05, 7.262801919483142e-06, 7.249766934003254e-07]\ninfinite-span 80.0 0.05 -25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 80.0 0.05 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 80.0 0.05 25.0 [8.48193668676056e-05, 8.352286840984657e-06, 8.339101605914223e-07]\ninfinite-span 40.0 0.01 -25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.01 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.01 25.0 [7.159752107346873e-05, 7.032005372886729e-06, 7.01898132865475e-07]\ninfinite-span 40.0 0.15 -25.0 [9.979032309703761e-05, 9.961403457214857e-06, 9.959634581502286e-07]\ninfinite-span 40.0 0.15 0.0 [0.0, 1.734723475976807e-18, 0.0]\ninfinite-span 40.0 0.15 25.0 [9.979032309703761e-05, 9.961403457214857e-06, 9.959634581502286e-07]\nfinite 0.0 0.05 1.937432895313442 0.21700109751342062\nfinite 10.0 0.05 1.221964590473115 0.19856139742445011\nfinite 40.0 0.05 1.1249850223625635 0.2137548721698615\nfinite 80.0 0.05 1.0887862332507197 0.22010867630448805\nfinite 40.0 0.01 1.1620851875822171 0.20999032077910368\nfinite 40.0 0.15 0.9449961161771977 0.24387650190836693\nextreme infinite-span 1e-310 -25.0 [7.167013805145506e-05, 7.039156715349382e-06, 7.026121686681819e-07]\nextreme infinite-span 1e-310 25.0 [7.167013805145506e-05, 7.039156715349382e-06, 7.026121686681819e-07]\nextreme infinite-span 1e+100 -25.0 [2.1644756092453754e-05, 2.1479895176979014e-06, 2.1463385024844683e-07]\nextreme infinite-span 1e+100 25.0 [2.1644756092453754e-05, 2.1479895176979014e-06, 2.1463385024844683e-07]\nCompleted 75 native cases\n",
+      "log_sha256": "2c6ea011c16b12794b27c75bb596756ac673a92f60ab64bfed3cf8d2df374c6d"
+    },
+    "stable-tests-final": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_stall_parameters.py",
+          "tests/test_aero.py",
+          "tests/test_circulation.py",
+          "tests/test_circulation_solve.py",
+          "--junitxml=/tmp/openswing-stall-parameters-stable-tests-final-20261008.xml"
+        ],
+        "wrapper_pid": 12612,
+        "started": 1791464067.992775,
+        "pid": 12625,
+        "exit_code": 0,
+        "ended": 1791464148.4722397
+      },
+      "log": "........................................................................ [ 63%]\n.........................................                                [100%]\n113 passed in 78.88s (0:01:18)\n",
+      "log_sha256": "dd881f368f58431c47196998546181964098c3ff2d9c7e09dd37ca11d9e34d3d"
+    },
+    "stable-build": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "wrapper_pid": 12940,
+        "started": 1791464160.6017644,
+        "pid": 12950,
+        "exit_code": 0,
+        "ended": 1791464175.0764012
+      },
+      "log": "\n> openswing@0.1.0 build\n> node scripts/prepare.mjs && vite build && python3 scripts/package-local.py\n\nRuntime package verified: numpy 2.4.6 (2.8 MiB)\nRuntime package verified: scipy 1.18.0 (13.4 MiB)\nPackaged 642 source files\nvite v8.3.2 building client environment for production...\ntransforming...\n\u2713 43 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.68 kB \u2502 gzip:   0.40 kB\ndist/assets/worker-C4x75HWL.js    1.99 kB\ndist/assets/index--NdoYADC.css   29.34 kB \u2502 gzip:   6.88 kB\ndist/assets/index-BP8GpCAJ.js   907.98 kB \u2502 gzip: 247.21 kB\n\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u2713 built in 1.85s\nPackaged dist/openswing-local.zip (50.1 MiB)\n",
+      "log_sha256": "1c43115685b0ca127811963f2b124bfd14bad9eb8e9806ff02d95ce7644dca12"
+    },
+    "stable-js": {
+      "status": {
+        "command": [
+          "node",
+          "--test",
+          "tests/distribution-history.test.mjs",
+          "tests/frequency-comparison.test.mjs",
+          "tests/frequency-overlays.test.mjs",
+          "tests/loading-data.test.mjs",
+          "tests/projects.test.mjs",
+          "tests/solutions.test.mjs"
+        ],
+        "wrapper_pid": 13919,
+        "started": 1791464333.3576264,
+        "pid": 13946,
+        "exit_code": 0,
+        "ended": 1791464350.474737
+      },
+      "log": "\u2714 signed sampled extrema retain earliest tied snapshot and event side without mutating states (33.695599ms)\n\u2714 envelopes describe sampled analytic waves, not a continuous-time bound (7.735756ms)\n\u2714 null, absent, nonfinite and nonnumeric values remain gaps, including all-missing stations (1.115261ms)\n\u2714 coincident stations remain distinct and incompatible material grids are rejected (2.38875ms)\n\u2714 aerodynamic density uses each state\u2019s current length and preserves force impulses separately (0.815157ms)\n\u2714 snapshot-specific physical stress conversion does not turn missing metadata into zero (0.282109ms)\n\u2714 history tables include every state and beam with raw quantities, ordinals and event metadata (1.12776ms)\n\u2714 separate convected gust traces retain analytical complex force and spatial phase (8.853438ms)\n\u2714 harmonic transfers, initial spectra and unlike output units have separate axis groups (1.887266ms)\n\u2714 physical sensor station metadata and imaginary acceleration survive exports (1.993464ms)\n\u2714 free-flight DC is an explicit export gap while finite-frequency displacement remains \u22121/\u03c9\u00b2 (1.155208ms)\n\u2714 phase unwrap is independent for every trace and resets at missing or zero output (2.465677ms)\n\u2714 standalone SVG never connects phase gaps and excludes DC only on a log axis (5.05375ms)\n\u2714 broken-loop traces use the matched response for each forcing channel (0.979037ms)\n\u2714 unmatched broken-loop forcing remains a gap instead of borrowing another response (4.00125ms)\n\u2714 trace identity distinguishes physical components and stations, ignoring display controls (0.580807ms)\n\u2714 hidden traces do not enter figures; zero and undefined values have distinct CSV statuses (1.030443ms)\n\u2714 input labels are escaped in standalone SVG and remain literal in CSV (0.886068ms)\n\u2714 fresh refined grids preserve exact previous per-trace values without modifying the report (2.75737ms)\n\u2714 nearly constant physical gain does not expand roundoff into a full-height curve (1.151146ms)\n\u2714 section transfers and initial spectra retain radians, load density and unavailable archive samples (1.152213ms)\n\u2714 independent millimetre/Newton data in Hz reproduces the oscillator including resonance and a retained gap (103.234922ms)\n\u2714 time units and the negative harmonic convention match independent complex mechanics and saved native results (23.768828ms)\n\u2714 decibels use amplitude ratios, phase units and a signed unit multiplier exactly once (5.31961ms)\n\u2714 zero magnitude needs no phase; missing, malformed and infinite measurements have different meanings (6.550833ms)\n\u2714 Fortran exponent tables, column remapping, comments and quoted CSV retain numerical meaning (18.757057ms)\n\u2714 ambiguous grids, incomplete maps, invalid conversions and numerical overflow cannot create an overlay (5.484375ms)\n\u2714 OpenSwing comparison CSV preserves computed/external identity, status, source mapping and exact complex values (15.181588ms)\n\u2714 single Bode CSV and old comparison headers remain readable (3.037969ms)\n\u2714 unit, spectral type and Laplace damping mismatches are rejected before plotting (6.452162ms)\n\u2714 external plotting uses its own grid, resets phase after gaps and never changes the computed spectrum (22.168255ms)\n\u2714 unresolved CSV rows cannot override their status with apparently valid numeric data (1.549427ms)\n\u2714 finite extreme external values do not overflow or erase the comparison axes (3.632421ms)\n\u2714 local Mach is dimensionless while raw velocity follows the input time and length units (8.383125ms)\n\u2714 older archives and body sections leave missing surface airflow as gaps (1.646484ms)\n\u2714 airflow histories retain missing samples and export physical sample locations and units (6.841458ms)\n\u2714 derived section outputs retain raw load units and convert only the displayed incidence measure (2.523072ms)\n\u2714 portable projects retain literal model text, applied mesh and independent named configurations (49.845964ms)\n\u2714 update, rename, select and deletion produce new projects without mutating prior records (13.849375ms)\n\u2714 loaded equilibrium and all nested setup data are copied without shared ownership (3.048984ms)\n\u2714 ambiguous identities, missing selected cases and unknown or future formats are rejected (20.086901ms)\n\u2714 invalid physical input packets fail before JSON can silently replace values (1.839089ms)\n\u2714 deep or non-JSON equilibrium payloads are rejected while benign names stay plain data (2.565781ms)\n\u2714 version-1 projects upgrade without inventing computed solutions (3.525547ms)\n\u2714 saved values, inputs and provenance survive portable projects independently of case edits (177.285808ms)\n\u2714 checksums detect numerical, request, context and view corruption before display (18.513255ms)\n\u2714 nonfinite data, incompatible kinds, incomplete histories, duplicate records and missing provenance fail (9.405443ms)\n\u2714 portable frequency results preserve all samples and gaps while dropping only the live worker handle (0.949635ms)\n\u2714 the numerical fingerprint is checked independently of the solution checksum (15.441354ms)\n\u2714 branching a time history retains old numerical origins without relabeling them as the new kernel (1.399557ms)\n\u2139 tests 50\n\u2139 suites 0\n\u2139 pass 50\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 16039.421549\n",
+      "log_sha256": "4c6e32af8eb78e1f72e896bf03b5c85dcf2169e6fd68931261ee7e74c7f60559"
+    },
+    "stable-wasm": {
+      "status": {
+        "command": [
+          "node",
+          "scripts/test-stall-parameters-wasm.mjs"
+        ],
+        "wrapper_pid": 13350,
+        "started": 1791464198.4391897,
+        "pid": 13377,
+        "exit_code": 0,
+        "ended": 1791464215.4422588
+      },
+      "log": "Loading numpy, scipy\nLoaded numpy, scipy\nStall parameters replay 8 3.031447823277665e-16\nStall parameters replay 17 4.988227419616292e-19\nStall parameters replay 26 3.990581935693033e-18\nStall parameters replay 35 8.326672684688674e-17\nStall parameters replay 44 1.793411109246078e-16\nStall parameters replay 53 4.293256894636905e-16\nStall parameters replay 54 4.120833269919505e-16\nStall parameters replay 55 2.220446049250313e-16\nStall parameters replay 56 4.440892098500626e-16\nStall parameters replay 57 3.3306690738754696e-16\nStall parameters replay 58 2.220446049250313e-16\nStall parameters replay 59 3.3306690738754696e-16\nStall parameters replay 60 4.368671646608432e-16\nStall parameters replay 61 5.551115123125783e-16\nStall parameters replay 62 2.5858383113886055e-16\nStall parameters replay 65 1.808626420076361e-16\nStall parameters replay 68 1.808626420076361e-16\nStall parameters replay 71 1.3877787807814457e-16\nStall parameters replay 74 1.3877787807814457e-16\n",
+      "log_sha256": "2297f1ba4af666b16c94903e1ef3ed03abc20a3f0246cfd6e4bd4b81c0417b8a"
+    },
+    "stable-browser": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--output=/tmp/openswing-stall-parameters-stable-browser-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 13352,
+        "started": 1791464198.3250434,
+        "pid": 13371
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --output=/tmp/openswing-stall-parameters-stable-browser-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 3 browser tests\nStall browser case \u001b[33m0\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m10\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m80\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.01\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.15\u001b[39m\npassed: stall parameters change verified loads and survive cases and computed archives offline (900.0s)\n",
+      "log_sha256": "e8269910a68cb586f531d2a6a3388dfacc1e73d70a67684926a3f6197af25253"
+    },
+    "stable-browser-legacy": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--grep",
+          "old cases restore the original stall defaults and invalid parameters are rejected",
+          "--output=/tmp/openswing-stall-parameters-stable-browser-legacy-20261008-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 29541,
+        "started": 1791470782.5729206,
+        "pid": 29542,
+        "exit_code": 0,
+        "ended": 1791470987.861987
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --grep old cases restore the original stall defaults and invalid parameters are rejected --output=/tmp/openswing-stall-parameters-stable-browser-legacy-20261008-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 1 browser tests\npassed: old cases restore the original stall defaults and invalid parameters are rejected (189.7s)\n{\"status\":\"passed\",\"counts\":{\"passed\":1}}\n",
+      "log_sha256": "67b21ba600c947dd940bf8dc971fe660caa4102577c0760eafffbe6b2c5dc315"
+    },
+    "stable-browser-launch": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--grep",
+          "saved equilibrium time launch retains its stall parameters over current controls",
+          "--output=/tmp/openswing-stall-parameters-stable-browser-launch-20261008-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 30582,
+        "started": 1791470989.2423258,
+        "pid": 30585,
+        "exit_code": 0,
+        "ended": 1791471207.7335877
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --grep saved equilibrium time launch retains its stall parameters over current controls --output=/tmp/openswing-stall-parameters-stable-browser-launch-20261008-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 1 browser tests\npassed: saved equilibrium time launch retains its stall parameters over current controls (192.1s)\n{\"status\":\"passed\",\"counts\":{\"passed\":1}}\n",
+      "log_sha256": "02801e55b9610e2421aeccfaee6f96932603111a3dded22a7bb64e7a1c0fd3c7"
+    },
+    "stable-browser-controls": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/stall-parameters.spec.js",
+          "--workers=1",
+          "--grep",
+          "stall parameters change verified loads and survive cases and computed archives offline",
+          "--output=/tmp/openswing-stall-parameters-stable-browser-controls-20261008-results",
+          "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+        ],
+        "wrapper_pid": 32030,
+        "started": 1791471209.6847327,
+        "pid": 32032,
+        "exit_code": 0,
+        "ended": 1791471624.4736483
+      },
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/stall-parameters.spec.js --workers=1 --grep stall parameters change verified loads and survive cases and computed archives offline --output=/tmp/openswing-stall-parameters-stable-browser-controls-20261008-results --reporter=/tmp/openswing-stall-parameters-reporter.cjs\n\nRunning 1 browser tests\nStall browser case \u001b[33m0\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m10\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m80\u001b[39m \u001b[33m0.05\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.01\u001b[39m\nStall browser case \u001b[33m40\u001b[39m \u001b[33m0.15\u001b[39m\npassed: stall parameters change verified loads and survive cases and computed archives offline (159.4s)\n{\"status\":\"passed\",\"counts\":{\"passed\":1}}\n",
+      "log_sha256": "85d8d34d34e8c04bbeb5a22b5ba2a8c2c5777536171243975b618262ded48d8f"
+    }
+  },
+  "source_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "8a550760edddde8aaefc9a97fdc0893d949f2074555c3bd1d195b08f3c4bfc08",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+    "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+    "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+    "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+    "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+    "scripts/verify-stall-parameters.py": "a3d45bb2842c757d90e5b6580a57a5c4f5711169214e5db238ef304bbaf203cd",
+    "scripts/test-stall-parameters-wasm.mjs": "263fc1b91150cbc42795c4c7a3139b5d388b853e53585ded1ab71258fe8eeb55",
+    "tests/test_stall_parameters.py": "e499982ddb98d6ffb500a6b3e5d0e29440492829145814f9b15b6bd51874bdaa",
+    "tests/test_circulation_solve.py": "eaa6f89c92c196702854ff94c4e7620fff25fc814594a953af48ec21296e5668",
+    "tests/test_circulation.py": "b8e56aa84321de902acbe8c46cf4c6a8796cac0d3ce089e854cf6929b9ddc38e",
+    "tests/test_aero.py": "bc6dc8440749399894eb036b204ee0a595eb70697d8c593443b40f111f4eeacf",
+    "tests/browser/stall-parameters.spec.js": "89ec7bf5dd2cacf24be6cef637a93aed01a4a242c98d1757ca4796a692a9a5f7",
+    "web/case-settings.js": "3388ad2d40436141b2c90934ad62fd6240c658f5b8b1da4abd79d0dabd567d98",
+    "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+    "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+    "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+    "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+    "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+    "web/equilibrium-state.js": "32f4e45aa0930d56f63cebe7d3fb8f0365bf193096fb9435fdb4a277b816b217",
+    "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+    "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+    "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+    "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+    "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+    "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+    "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+    "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+    "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+    "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+    "web/main.js": "ff792e5ec1b9da06ab57b879056c3b36b81f794e9ce169f088fd0eea17e34090",
+    "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+    "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+    "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+    "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+    "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+    "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+    "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+    "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+    "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+    "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+    "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+    "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+    "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+    "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+    "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+    "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+    "web/time-results.js": "e0e15c6d473b5b9c6a20bdd58156263d1cdd2226d76371da8b4d5b91730e130b",
+    "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+    "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe",
+    "docs/validation/stall-parameters.json": "96e821d0c0fead6ee203916a23aa528edc7295aa743555eff39691984d4fb58e",
+    "package.json": "7c55459cc7fd5b694a5ab7560b3907f0daa49c9a8da730321facd0274d9a1710",
+    "package-lock.json": "10dede454f2863bfe2e66bbeb5b7c5f8f80239dabe6355a759f4d26ca00128b7",
+    "index.html": "1cb1278afe826c389c818272c4d71287269b52cde5fad8fea2ea422a6f6502a7",
+    "tests/distribution-history.test.mjs": "0b6f63b7dbc8a1b9aa24b32e29adeda620478ae133ce76fafb8870b999dc37ef",
+    "tests/frequency-comparison.test.mjs": "7d0d7c43aede2d6093af1c403145a501eb2abdf0ff07d61386683a8af336de79",
+    "tests/frequency-overlays.test.mjs": "f768d71f863c2c99835cd9b05682022566e97f4f2686a3d217fc95867038b64e",
+    "tests/loading-data.test.mjs": "f285356f62a0d37c76206d375e84b9551d57db8e3ed16d31387be44a55b49c39",
+    "tests/projects.test.mjs": "ab8fe5e048b5f2773b1cce4cc570367f2469024194c58399b8dccf057ad17009",
+    "tests/solutions.test.mjs": "3d132204a40b7be35c232f236f2c750ee8e6015438103feb273f5e0b11ab9bb9",
+    "web/style.css": "9eb2e51f9b9d33d1f04340baf6e784fa7c715a60d816e9af280d93057e6c581e"
+  },
+  "tested_assets_sha256": {
+    "dist/assets/index-BP8GpCAJ.js": "c6c0603fc663763f33185b77041f83230d5685eea96650d9b140bd777305a92b",
+    "dist/assets/index--NdoYADC.css": "add1d94f3cae289f66941e084f03681fe1b030bb99702d62b3f7e1ec00cbadb8",
+    "dist/assets/worker-C4x75HWL.js": "0dd7aa6a9de67e6ed17ad52c1d7835e102579dfd70fde2a9307b1c0e0cfaf8e8",
+    "dist/index.html": "96592775edf9adde4745201e82cde93982d9a1349e3c6635443d323f1b558d21",
+    "dist/kernel/manifest.json": "2085dd59c92a70389a15d9120ef2f3d033aa41112ea8914bafa9ee621a673436"
+  },
+  "changed_existing_sources": {
+    "openswing/aero.py": {
+      "before": "3dc051109c489b9f4e38d371becd01b8bfd667619aacc096ddd5c2b48e44708b",
+      "after": "8a550760edddde8aaefc9a97fdc0893d949f2074555c3bd1d195b08f3c4bfc08"
+    },
+    "openswing/circulation_solve.py": {
+      "before": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+      "after": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    "tests/test_circulation_solve.py": {
+      "before": "98fcb158537e5dc7f6e7685fbf8a7e43a54c42eff8388b1d1e39570ba2845154",
+      "after": "eaa6f89c92c196702854ff94c4e7620fff25fc814594a953af48ec21296e5668"
+    },
+    "web/case-settings.js": {
+      "before": "dd9f6676ead79245dd79f50772b2eed3c464aceeebdf8abcea6e0276d03591fc",
+      "after": "3388ad2d40436141b2c90934ad62fd6240c658f5b8b1da4abd79d0dabd567d98"
+    },
+    "web/equilibrium-state.js": {
+      "before": "08a99355ea285d163a7251644a4ff4b3d9ca3f62dbd72eb6ba027f256e7c5a0d",
+      "after": "32f4e45aa0930d56f63cebe7d3fb8f0365bf193096fb9435fdb4a277b816b217"
+    },
+    "web/main.js": {
+      "before": "a5b32cf24503dcc8321fb0cc746c661d10cea44fd9565e7d3399c1d71ebc6cd9",
+      "after": "ff792e5ec1b9da06ab57b879056c3b36b81f794e9ce169f088fd0eea17e34090"
+    },
+    "README.md": {
+      "before": "315c65710d71f65994dd0da3582f5a21458e41e532176031e44f3ea4af0f322d",
+      "after": "6ef5a117f887db5aa64dd4985e9a9ea0e86423e069558d119b164c0e806f3914"
+    },
+    "docs/NUMERICS.md": {
+      "before": "b8ec18bb82e94401eb25a5a5a610b321167848940f70208d202851cbd91b50cf",
+      "after": "fcc3ff90643462f4a4426d57cdccfd4252273b158f8e04306ad9abe0e02395ac"
+    }
+  },
+  "artifacts_sha256": {
+    "docs/validation/stall-parameters.json": "96e821d0c0fead6ee203916a23aa528edc7295aa743555eff39691984d4fb58e",
+    "docs/validation/stall-parameters.md": "757e64e5e3b086988fc9883d4f3a41862e2fe602748901cb2245f4293115af50",
+    "docs/validation/stall-parameters.pdf": "794189f2a5a3da4164f6cdda275b9edefac8c7a8f23700c0440073861764084b",
+    "docs/validation/stall-parameters.png": "eaa1f9ecd74295600ed88d4f8bf74b5544ddf25331d407a9fe4e959d33540c27",
+    "docs/validation/stall-parameters.svg": "312e7fb1ab691279f8f9aa5c53aab87572b9a1b33570cf1a677230809be9a752",
+    "docs/validation/stall-parameters-wasm.json": "47a0bf5d4bf65ad980a6f03fa1df1801bfc9088e2f3da9c4ff4b8367fceab9f8",
+    "scripts/plot-stall-parameters.py": "1c1bd594cc9159af8dd4950f9d909d050cbb1775e8da5095c8d4af04ce56d49a",
+    "README.md": "6ef5a117f887db5aa64dd4985e9a9ea0e86423e069558d119b164c0e806f3914",
+    "docs/NUMERICS.md": "fcc3ff90643462f4a4426d57cdccfd4252273b158f8e04306ad9abe0e02395ac"
+  },
+  "screenshots_sha256": {
+    "docs/validation/stall-parameters-desktop.png": "b8c05d3810c719d70a5d37a88782481d141e36057b186310457728056209a811",
+    "docs/validation/stall-parameters-mobile.png": "77a6e82c27de0ff6209af9276d49e451e3783fdaee6f8090f03a23972d12a897",
+    "docs/validation/stall-parameters-browser-values.json": "1d684cd581ca99e0b87b077ede93099d95a3a2de03c2267907acd6989aca69e1",
+    "docs/validation/stall-parameters-browser-launch.json": "ecd310097982325ab96a982e993f3408b3cffec6a555dd962666863757f8491c"
+  },
+  "source_generations": {
+    "before_stable": {
+      "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+      "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+      "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+      "openswing/aero.py": "8b562f337059d1ad80035c767da632edc54128f64c322363e41866b8ebf03c84",
+      "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+      "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+      "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+      "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+      "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+      "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+      "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+      "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+      "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+      "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+      "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+      "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+      "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+      "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+      "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+      "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+      "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+      "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+      "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+      "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+      "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+      "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+      "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+      "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+      "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+      "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+      "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+      "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+      "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+      "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+      "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+      "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+      "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+      "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+      "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+      "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+      "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+      "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+      "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+      "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+      "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+      "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+      "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+      "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+      "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+      "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+      "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+      "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+      "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+      "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+      "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+      "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+      "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+      "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+      "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+      "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe",
+      "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+      "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+      "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+      "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+      "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+      "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+      "web/style.css": "9eb2e51f9b9d33d1f04340baf6e784fa7c715a60d816e9af280d93057e6c581e",
+      "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+      "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+      "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+      "web/main.js": "ff792e5ec1b9da06ab57b879056c3b36b81f794e9ce169f088fd0eea17e34090",
+      "web/time-results.js": "e0e15c6d473b5b9c6a20bdd58156263d1cdd2226d76371da8b4d5b91730e130b",
+      "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+      "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+      "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+      "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+      "web/equilibrium-state.js": "32f4e45aa0930d56f63cebe7d3fb8f0365bf193096fb9435fdb4a277b816b217",
+      "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+      "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+      "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+      "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+      "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+      "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+      "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+      "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+      "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+      "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+      "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+      "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+      "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+      "web/case-settings.js": "3388ad2d40436141b2c90934ad62fd6240c658f5b8b1da4abd79d0dabd567d98",
+      "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+      "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+      "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+      "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+      "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+      "dist/assets/index-BP8GpCAJ.js": "c6c0603fc663763f33185b77041f83230d5685eea96650d9b140bd777305a92b",
+      "dist/assets/index--NdoYADC.css": "add1d94f3cae289f66941e084f03681fe1b030bb99702d62b3f7e1ec00cbadb8",
+      "dist/assets/worker-C4x75HWL.js": "0dd7aa6a9de67e6ed17ad52c1d7835e102579dfd70fde2a9307b1c0e0cfaf8e8",
+      "dist/index.html": "96592775edf9adde4745201e82cde93982d9a1349e3c6635443d323f1b558d21",
+      "scripts/verify-stall-parameters.py": "14f66648272b2f701f43240dea6db414076930e7d8ecd9b514aedf36e4818267",
+      "scripts/test-stall-parameters-wasm.mjs": "556b266b3e49925db6ba41cdc24b0a63b3a8b10b60f72775a2f1cfaf0db297c2",
+      "tests/test_stall_parameters.py": "e370e6e47f594c7af7c0e77a5d90ec52c0249ff3ff82051fc43ebed65102839c",
+      "tests/browser/stall-parameters.spec.js": "0f0ddbf2df523056467e41b7a1fffc775f8fc6d442af73772b2f27f8df5e0675",
+      "docs/validation/stall-parameters.json": "aab150bb13b005b74ec40bd5c01a2b5a803d92608215ddbb5092df31710f1147",
+      "examples/stall-branch.asw": "c4309aeed42315780dc51519f01fa23f4ba1a0714abc244593df5c33c49950e2",
+      "package.json": "7c55459cc7fd5b694a5ab7560b3907f0daa49c9a8da730321facd0274d9a1710",
+      "package-lock.json": "10dede454f2863bfe2e66bbeb5b7c5f8f80239dabe6355a759f4d26ca00128b7",
+      "playwright.config.js": "9d37d254105ea2af476a9fbe88f3c50c75c0b1850e4d40ea70035070cb423e12"
+    },
+    "stable_leakage_before_continuation_fix": {
+      "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+      "openswing/aero.py": "8a550760edddde8aaefc9a97fdc0893d949f2074555c3bd1d195b08f3c4bfc08",
+      "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+      "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+      "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+      "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+      "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+      "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+      "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+      "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+      "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+      "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+      "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+      "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+      "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+      "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+      "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+      "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+      "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+      "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+      "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+      "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+      "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+      "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+      "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+      "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+      "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+      "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+      "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+      "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+      "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+      "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+      "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+      "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+      "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+      "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+      "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+      "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+      "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+      "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+      "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+      "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+      "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+      "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+      "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+      "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+      "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+      "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+      "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+      "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+      "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+      "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+      "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+      "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+      "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+      "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+      "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+      "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+      "scripts/verify-stall-parameters.py": "28c78d2a5ed538ecdec57f9a29e3793c49449724f319978b146e1c6cf5bc6ce4",
+      "scripts/test-stall-parameters-wasm.mjs": "06efabf14de116345b9198df5dbe66002e28365da1d0b022cb1f28c799ed9244",
+      "tests/test_stall_parameters.py": "e499982ddb98d6ffb500a6b3e5d0e29440492829145814f9b15b6bd51874bdaa",
+      "tests/test_circulation_solve.py": "a2721f25f4eb4bbfbafa0dc3a2d4744dff537340055e7c63106d9d747236a210",
+      "tests/test_circulation.py": "b8e56aa84321de902acbe8c46cf4c6a8796cac0d3ce089e854cf6929b9ddc38e",
+      "tests/test_aero.py": "bc6dc8440749399894eb036b204ee0a595eb70697d8c593443b40f111f4eeacf",
+      "tests/browser/stall-parameters.spec.js": "89ec7bf5dd2cacf24be6cef637a93aed01a4a242c98d1757ca4796a692a9a5f7",
+      "web/case-settings.js": "3388ad2d40436141b2c90934ad62fd6240c658f5b8b1da4abd79d0dabd567d98",
+      "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+      "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+      "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+      "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+      "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+      "web/equilibrium-state.js": "32f4e45aa0930d56f63cebe7d3fb8f0365bf193096fb9435fdb4a277b816b217",
+      "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+      "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+      "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+      "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+      "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+      "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+      "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+      "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+      "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+      "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+      "web/main.js": "ff792e5ec1b9da06ab57b879056c3b36b81f794e9ce169f088fd0eea17e34090",
+      "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+      "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+      "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+      "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+      "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+      "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+      "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+      "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+      "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+      "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+      "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+      "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+      "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+      "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+      "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+      "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+      "web/time-results.js": "e0e15c6d473b5b9c6a20bdd58156263d1cdd2226d76371da8b4d5b91730e130b",
+      "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+      "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe"
+    },
+    "final": {
+      "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+      "openswing/aero.py": "8a550760edddde8aaefc9a97fdc0893d949f2074555c3bd1d195b08f3c4bfc08",
+      "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+      "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+      "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+      "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+      "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+      "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+      "openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+      "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+      "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+      "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+      "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+      "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+      "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+      "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+      "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+      "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+      "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+      "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+      "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+      "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+      "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+      "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+      "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+      "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+      "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+      "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+      "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+      "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+      "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+      "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+      "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+      "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+      "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+      "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+      "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+      "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+      "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+      "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+      "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+      "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+      "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+      "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+      "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+      "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+      "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+      "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+      "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+      "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+      "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+      "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+      "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+      "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+      "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+      "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+      "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+      "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+      "scripts/verify-stall-parameters.py": "a3d45bb2842c757d90e5b6580a57a5c4f5711169214e5db238ef304bbaf203cd",
+      "scripts/test-stall-parameters-wasm.mjs": "263fc1b91150cbc42795c4c7a3139b5d388b853e53585ded1ab71258fe8eeb55",
+      "tests/test_stall_parameters.py": "e499982ddb98d6ffb500a6b3e5d0e29440492829145814f9b15b6bd51874bdaa",
+      "tests/test_circulation_solve.py": "eaa6f89c92c196702854ff94c4e7620fff25fc814594a953af48ec21296e5668",
+      "tests/test_circulation.py": "b8e56aa84321de902acbe8c46cf4c6a8796cac0d3ce089e854cf6929b9ddc38e",
+      "tests/test_aero.py": "bc6dc8440749399894eb036b204ee0a595eb70697d8c593443b40f111f4eeacf",
+      "tests/browser/stall-parameters.spec.js": "89ec7bf5dd2cacf24be6cef637a93aed01a4a242c98d1757ca4796a692a9a5f7",
+      "web/case-settings.js": "3388ad2d40436141b2c90934ad62fd6240c658f5b8b1da4abd79d0dabd567d98",
+      "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+      "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+      "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+      "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+      "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+      "web/equilibrium-state.js": "32f4e45aa0930d56f63cebe7d3fb8f0365bf193096fb9435fdb4a277b816b217",
+      "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+      "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+      "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+      "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+      "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+      "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+      "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+      "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+      "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+      "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+      "web/main.js": "ff792e5ec1b9da06ab57b879056c3b36b81f794e9ce169f088fd0eea17e34090",
+      "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+      "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+      "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+      "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+      "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+      "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+      "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+      "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+      "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+      "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+      "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+      "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+      "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+      "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+      "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+      "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+      "web/time-results.js": "e0e15c6d473b5b9c6a20bdd58156263d1cdd2226d76371da8b4d5b91730e130b",
+      "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+      "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe"
+    }
+  },
+  "native_tests": 113,
+  "native_test_groups": {
+    "stall_parameters": 62,
+    "aerodynamics": 12,
+    "circulation": 18,
+    "continuation": 21
+  },
+  "native_tests_junit_sha256": "79b95b1e2f5e6e6879803c75b7663441703f7f2d85f793208686756a63359a27",
+  "javascript_tests": 50,
+  "native_study_cases": 75,
+  "independent_limits": 22,
+  "largest_final_coefficient_reference_error": 2.1281842053078037e-05,
+  "independent_high_precision_leakage_cases": 270,
+  "maximum_scaled_leakage_error": 4.074212934405874e-16,
+  "independent_continuation_corner_cases": 2,
+  "wasm_cases": 19,
+  "wasm_compared_values": 570,
+  "wasm_independent_limits": 10,
+  "wasm_invalid_input_cases": 30,
+  "wasm_high_precision_leakage_cases": 270,
+  "wasm_continuation_corner_cases": 2,
+  "maximum_scaled_native_wasm_difference": 5.551115123125783e-16,
+  "browser_workflow_counts": {
+    "passed": 3
+  },
+  "browser_workflows_passed": 3,
+  "interrupted_browser_workflow_counts": {
+    "passed": 1
+  },
+  "interruption_audit": {
+    "observed_at": 1791470719.6873362,
+    "process_audit": [
+      {
+        "pid": 13352,
+        "present": false
+      },
+      {
+        "pid": 13371,
+        "present": false
+      },
+      {
+        "pid": 14979,
+        "present": false
+      },
+      {
+        "pid": 14995,
+        "present": false
+      },
+      {
+        "pid": 14666,
+        "present": false
+      },
+      {
+        "pid": 20487,
+        "present": false
+      },
+      {
+        "pid": 15934,
+        "present": false
+      }
+    ],
+    "main_source_count": 364,
+    "main_source_match": true,
+    "isolated_source_match": true,
+    "native_progress": {
+      "completed_files": 40,
+      "total_files": 69,
+      "completed_cases": 697,
+      "total_cases": 1118,
+      "nonpassing_files": []
+    },
+    "browser": "One workflow reports passed with complete values and captures; no terminal supervisor result exists. Remaining workflows are unproved. Preserve the whole run as incomplete and obtain separate terminal results.",
+    "cause": "Not established. Supervisors, test child and HTTP server processes are absent.",
+    "browser_preservation": "/tmp/openswing-stall-parameters-stable-browser-interrupted-20261008"
+  },
+  "primary_pdf": {
+    "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+    "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c",
+    "visually_inspected_page": 41
+  },
+  "visual_inspection": {
+    "inspected_at": 1791474211.3863454,
+    "inspected_sha256": {
+      "docs/validation/stall-parameters.png": "eaa1f9ecd74295600ed88d4f8bf74b5544ddf25331d407a9fe4e959d33540c27",
+      "docs/validation/stall-parameters-desktop.png": "b8c05d3810c719d70a5d37a88782481d141e36057b186310457728056209a811",
+      "docs/validation/stall-parameters-mobile.png": "77a6e82c27de0ff6209af9276d49e451e3783fdaee6f8090f03a23972d12a897"
+    },
+    "observations": "The regenerated sensitivity figure and final desktop/mobile control captures were visually inspected. Parameter labels, values, units and help text are legible. The mobile layout remains within the viewport."
+  },
+  "initial_probes": {
+    "openswing-stall-parameters-extreme-probe": {
+      "path": "/tmp/openswing-stall-parameters-extreme-probe.json",
+      "sha256": "8b229edc016eddaf938bb9facc3c076c6ebd860c9e80fc487871467cb155877b",
+      "results": [
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "reference_CL": 1.2383272361291437,
+          "status": "rejected",
+          "error": "Circulation continuation stopped at lambda=0.901893934: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.",
+          "warnings": [
+            "overflow encountered in divide",
+            "overflow encountered in divide"
+          ]
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 0.05,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "reference_CL": 1.2083499788944565,
+          "status": "computed",
+          "CL": 1.2083492675209226,
+          "warnings": []
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "reference_CL": 0.06491407330120041,
+          "status": "rejected",
+          "error": "Circulation continuation stopped at lambda=0.149871599: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.",
+          "warnings": []
+        }
+      ]
+    },
+    "openswing-stall-extreme-refinement-probe": {
+      "path": "/tmp/openswing-stall-extreme-refinement-probe.json",
+      "sha256": "1859bce446c37be7ba051a3aafeda2ef586a408407f99698108579b697007513",
+      "results": [
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "rejected",
+          "message": "Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present."
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": -1.2382721183813745,
+          "CD": 0.2493085522718064,
+          "residual": 1.0383714301295827e-15,
+          "error": 7.167013805156608e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": -1.2383216872445257,
+          "CD": 0.24937318325314262,
+          "residual": 1.0754561240627822e-15,
+          "error": 7.039156715349382e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": -1.2383216872445257,
+          "CD": 0.2493731832531427,
+          "residual": 1.0383714301295827e-15,
+          "error": 7.039156715266115e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": -1.2383266808733806,
+          "CD": 0.2493795197976893,
+          "residual": 7.416938786639877e-16,
+          "error": 7.026121686681819e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": -25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": -0.038327236129143794,
+            "normalized_normal_velocity": -0.24399819282622667,
+            "scalar_residual": 4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": -1.2383266808733808,
+          "CD": 0.24937951979768933,
+          "residual": 7.78778572597187e-16,
+          "error": 7.026121686404263e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "rejected",
+          "message": "Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present."
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": 1.2382721183813745,
+          "CD": 0.24930855227180646,
+          "residual": 1.0383714301295827e-15,
+          "error": 7.167013805151057e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": 1.2383216872445257,
+          "CD": 0.24937318325314262,
+          "residual": 1.0754561240627822e-15,
+          "error": 7.039156715349382e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": 1.2383216872445257,
+          "CD": 0.24937318325314262,
+          "residual": 1.149625511929181e-15,
+          "error": 7.039156715349382e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": 1.2383266808733806,
+          "CD": 0.2493795197976893,
+          "residual": 7.416938786639877e-16,
+          "error": 7.026121686681819e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e-310,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 1.2383272361291437,
+            "CD": 0.24938022240985797,
+            "section_leakage": 0.038327236129143794,
+            "normalized_normal_velocity": 0.24399819282622667,
+            "scalar_residual": -4.440892098500626e-15
+          },
+          "status": "computed",
+          "CL": 1.2383266808733808,
+          "CD": 0.24937951979768933,
+          "residual": 1.260879593728779e-15,
+          "error": 7.026121686404263e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06490782331707332,
+          "CD": 0.694336420233755,
+          "residual": 6.675244907975889e-16,
+          "error": 2.1644756092453754e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06490782331707332,
+          "CD": 0.694336420233755,
+          "residual": 1.1125408179959815e-15,
+          "error": 2.1644756092453754e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06491344882080592,
+          "CD": 0.6943559170003297,
+          "residual": 6.675244907975889e-16,
+          "error": 2.1479895176979014e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06491344882080596,
+          "CD": 0.6943559170003297,
+          "residual": 9.64202042263184e-16,
+          "error": 2.1479895176979014e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06491401085839173,
+          "CD": 0.6943578503559972,
+          "residual": 5.191857150647914e-16,
+          "error": 2.1463385024844683e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": -25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": -0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": -0.06491407330119822,
+            "normalized_normal_velocity": -0.4132548593150017,
+            "scalar_residual": -8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": -0.06491401085839169,
+          "CD": 0.6943578503559972,
+          "residual": 1.260879593728779e-15,
+          "error": 2.1463385024844683e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06490782331707332,
+          "CD": 0.694336420233755,
+          "residual": 6.675244907975889e-16,
+          "error": 2.1644756092453754e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 5900.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06490782331707332,
+          "CD": 0.694336420233755,
+          "residual": 1.1125408179959815e-15,
+          "error": 2.1644756092453754e-05
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06491344882080592,
+          "CD": 0.6943559170003297,
+          "residual": 6.675244907975889e-16,
+          "error": 2.1479895176979014e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 59000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06491344882080584,
+          "CD": 0.6943559170003297,
+          "residual": 1.0383714301295827e-15,
+          "error": 2.1479895176979014e-06
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "auto",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06491401085839173,
+          "CD": 0.6943578503559972,
+          "residual": 5.191857150647914e-16,
+          "error": 2.1463385024844683e-07
+        },
+        {
+          "specification": {
+            "factor": 40.0,
+            "width": 1e+100,
+            "alpha": 25.0,
+            "span": 590000.0,
+            "panels": 16
+          },
+          "method": "direct",
+          "reference": {
+            "CL": 0.06491407330119822,
+            "CD": 0.6943580649898474,
+            "section_leakage": 0.06491407330119822,
+            "normalized_normal_velocity": 0.4132548593150017,
+            "scalar_residual": 8.970602038971265e-14
+          },
+          "status": "computed",
+          "CL": 0.06491401085839175,
+          "CD": 0.6943578503559971,
+          "residual": 1.260879593728779e-15,
+          "error": 2.1463385035946914e-07
+        }
+      ]
+    },
+    "openswing-stall-corner-reference-probe": {
+      "path": "/tmp/openswing-stall-corner-reference-probe.json",
+      "sha256": "85e01ace32913276a2716b44a042d8e621b06ed8c28e0ea328544f93bc321799",
+      "results": [
+        {
+          "size": 2,
+          "spread": 0.0,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 0.0,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 1e-08,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 1e-08,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 1e-06,
+          "threshold": "original",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 1e-06,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 2,
+          "spread": 0.01,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 1.9140624999999996e-05,
+          "steps": 69
+        },
+        {
+          "size": 2,
+          "spread": 0.01,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 1.9140624999999996e-05,
+          "steps": 69
+        },
+        {
+          "size": 2,
+          "spread": 0.2,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.0012249999999999997,
+          "steps": 57
+        },
+        {
+          "size": 2,
+          "spread": 0.2,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.0012249999999999997,
+          "steps": 57
+        },
+        {
+          "size": 4,
+          "spread": 0.0,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 0.0,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 1e-08,
+          "threshold": "original",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 1e-08,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 1e-06,
+          "threshold": "original",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 1e-06,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 0.01,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00015312499999999997,
+          "steps": 63
+        },
+        {
+          "size": 4,
+          "spread": 0.01,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00015312499999999997,
+          "steps": 63
+        },
+        {
+          "size": 4,
+          "spread": 0.2,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.0006124999999999999,
+          "steps": 64
+        },
+        {
+          "size": 4,
+          "spread": 0.2,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.0006124999999999999,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 0.0,
+          "threshold": "original",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 0.0,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 0.0,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 1e-08,
+          "threshold": "original",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 1e-08,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 1e-06,
+          "threshold": "original",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 1e-06,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 0.00010718749999999997,
+          "steps": 64
+        },
+        {
+          "size": 16,
+          "spread": 0.01,
+          "threshold": "original",
+          "status": "rejected",
+          "message": "Circulation continuation stopped at lambda=0.459770111: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present."
+        },
+        {
+          "size": 16,
+          "spread": 0.01,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 3.205680847167967e-09,
+          "steps": 262
+        },
+        {
+          "size": 16,
+          "spread": 0.2,
+          "threshold": "original",
+          "status": "rejected",
+          "message": "Circulation continuation stopped at lambda=0.45904066: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present."
+        },
+        {
+          "size": 16,
+          "spread": 0.2,
+          "threshold": "roundoff",
+          "status": "computed",
+          "error": 2.220446049250313e-16,
+          "minimum_step": 3.5654112261090473e-08,
+          "steps": 201
+        }
+      ]
+    }
+  },
+  "probe_jobs": {
+    "openswing-stall-extreme-refinement-probe-20261008": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/probe-stall-extreme-refinement.py"
+        ],
+        "wrapper_pid": 11114,
+        "started": 1791463758.098404,
+        "pid": 11129,
+        "exit_code": 0,
+        "ended": 1791463761.009844
+      },
+      "log": "{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"computed\", \"CL\": -1.2382721183813745, \"CD\": 0.2493085522718064, \"residual\": 1.0383714301295827e-15, \"error\": 7.167013805156608e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"computed\", \"CL\": -1.2383216872445257, \"CD\": 0.24937318325314262, \"residual\": 1.0754561240627822e-15, \"error\": 7.039156715349382e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"computed\", \"CL\": -1.2383216872445257, \"CD\": 0.2493731832531427, \"residual\": 1.0383714301295827e-15, \"error\": 7.039156715266115e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"computed\", \"CL\": -1.2383266808733806, \"CD\": 0.2493795197976893, \"residual\": 7.416938786639877e-16, \"error\": 7.026121686681819e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": -25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": -0.038327236129143794, \"normalized_normal_velocity\": -0.24399819282622667, \"scalar_residual\": 4.440892098500626e-15}, \"status\": \"computed\", \"CL\": -1.2383266808733808, \"CD\": 0.24937951979768933, \"residual\": 7.78778572597187e-16, \"error\": 7.026121686404263e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"computed\", \"CL\": 1.2382721183813745, \"CD\": 0.24930855227180646, \"residual\": 1.0383714301295827e-15, \"error\": 7.167013805151057e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"computed\", \"CL\": 1.2383216872445257, \"CD\": 0.24937318325314262, \"residual\": 1.0754561240627822e-15, \"error\": 7.039156715349382e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"computed\", \"CL\": 1.2383216872445257, \"CD\": 0.24937318325314262, \"residual\": 1.149625511929181e-15, \"error\": 7.039156715349382e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"computed\", \"CL\": 1.2383266808733806, \"CD\": 0.2493795197976893, \"residual\": 7.416938786639877e-16, \"error\": 7.026121686681819e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e-310, \"alpha\": 25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 1.2383272361291437, \"CD\": 0.24938022240985797, \"section_leakage\": 0.038327236129143794, \"normalized_normal_velocity\": 0.24399819282622667, \"scalar_residual\": -4.440892098500626e-15}, \"status\": \"computed\", \"CL\": 1.2383266808733808, \"CD\": 0.24937951979768933, \"residual\": 1.260879593728779e-15, \"error\": 7.026121686404263e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06490782331707332, \"CD\": 0.694336420233755, \"residual\": 6.675244907975889e-16, \"error\": 2.1644756092453754e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06490782331707332, \"CD\": 0.694336420233755, \"residual\": 1.1125408179959815e-15, \"error\": 2.1644756092453754e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06491344882080592, \"CD\": 0.6943559170003297, \"residual\": 6.675244907975889e-16, \"error\": 2.1479895176979014e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06491344882080596, \"CD\": 0.6943559170003297, \"residual\": 9.64202042263184e-16, \"error\": 2.1479895176979014e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06491401085839173, \"CD\": 0.6943578503559972, \"residual\": 5.191857150647914e-16, \"error\": 2.1463385024844683e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": -25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": -0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": -0.06491407330119822, \"normalized_normal_velocity\": -0.4132548593150017, \"scalar_residual\": -8.970602038971265e-14}, \"status\": \"computed\", \"CL\": -0.06491401085839169, \"CD\": 0.6943578503559972, \"residual\": 1.260879593728779e-15, \"error\": 2.1463385024844683e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06490782331707332, \"CD\": 0.694336420233755, \"residual\": 6.675244907975889e-16, \"error\": 2.1644756092453754e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 5900.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06490782331707332, \"CD\": 0.694336420233755, \"residual\": 1.1125408179959815e-15, \"error\": 2.1644756092453754e-05}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06491344882080592, \"CD\": 0.6943559170003297, \"residual\": 6.675244907975889e-16, \"error\": 2.1479895176979014e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 59000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06491344882080584, \"CD\": 0.6943559170003297, \"residual\": 1.0383714301295827e-15, \"error\": 2.1479895176979014e-06}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"auto\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06491401085839173, \"CD\": 0.6943578503559972, \"residual\": 5.191857150647914e-16, \"error\": 2.1463385024844683e-07}\n{\"specification\": {\"factor\": 40.0, \"width\": 1e+100, \"alpha\": 25.0, \"span\": 590000.0, \"panels\": 16}, \"method\": \"direct\", \"reference\": {\"CL\": 0.06491407330119822, \"CD\": 0.6943580649898474, \"section_leakage\": 0.06491407330119822, \"normalized_normal_velocity\": 0.4132548593150017, \"scalar_residual\": 8.970602038971265e-14}, \"status\": \"computed\", \"CL\": 0.06491401085839175, \"CD\": 0.6943578503559971, \"residual\": 1.260879593728779e-15, \"error\": 2.1463385035946914e-07}\n",
+      "log_sha256": "d469bce4ccd89b18e177895404e6baab7a8c643fbde1a0651cca3a869f320711"
+    },
+    "openswing-stall-continuation-corner-probe-20261008": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/probe-stall-continuation-corner.py"
+        ],
+        "wrapper_pid": 11528,
+        "started": 1791463884.347069,
+        "pid": 11549,
+        "exit_code": 1,
+        "ended": 1791463884.8413455
+      },
+      "log": "Traceback (most recent call last):\n  File \"/tmp/probe-stall-continuation-corner.py\", line 4, in <module>\n    from openswing import circulation_solve as solver\nModuleNotFoundError: No module named 'openswing'\n",
+      "log_sha256": "7cef464704b2999cd6e626f4516b9489c1995b9a4422e350705ffb259b2a20d1"
+    },
+    "openswing-stall-continuation-corner-probe-final-20261008": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/probe-stall-continuation-corner.py"
+        ],
+        "wrapper_pid": 11659,
+        "started": 1791463907.4941127,
+        "pid": 11684,
+        "exit_code": 0,
+        "ended": 1791463910.8928251
+      },
+      "log": "{\"minimum_step\": 1e-07, \"case\": \"piecewise-independent\", \"result\": [1.2195121951219512], \"reference\": 1.2195121951219512, \"error\": 0.0, \"steps\": 52, \"status\": \"computed\"}\n{\"minimum_step\": 1e-07, \"case\": \"narrow-wing\", \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.828056753: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"minimum_step\": 1e-07, \"case\": \"narrow-rate\", \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.851535414: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"minimum_step\": 1e-10, \"case\": \"piecewise-independent\", \"result\": [1.2195121951219512], \"reference\": 1.2195121951219512, \"error\": 0.0, \"steps\": 52, \"status\": \"computed\"}\n{\"minimum_step\": 1e-10, \"case\": \"narrow-wing\", \"CL\": 1.2382721183813745, \"CD\": 0.2493085522718065, \"residual\": 7.416938786639877e-16, \"status\": \"computed\"}\n{\"minimum_step\": 1e-10, \"case\": \"narrow-rate\", \"residual\": 1.895936869574109e-15, \"status\": \"computed\"}\n{\"minimum_step\": 1e-12, \"case\": \"piecewise-independent\", \"result\": [1.2195121951219512], \"reference\": 1.2195121951219512, \"error\": 0.0, \"steps\": 52, \"status\": \"computed\"}\n{\"minimum_step\": 1e-12, \"case\": \"narrow-wing\", \"CL\": 1.2382721183813745, \"CD\": 0.2493085522718065, \"residual\": 7.416938786639877e-16, \"status\": \"computed\"}\n{\"minimum_step\": 1e-12, \"case\": \"narrow-rate\", \"residual\": 1.895936869574109e-15, \"status\": \"computed\"}\n{\"minimum_step\": 1e-14, \"case\": \"piecewise-independent\", \"result\": [1.2195121951219512], \"reference\": 1.2195121951219512, \"error\": 0.0, \"steps\": 52, \"status\": \"computed\"}\n{\"minimum_step\": 1e-14, \"case\": \"narrow-wing\", \"CL\": 1.2382721183813745, \"CD\": 0.2493085522718065, \"residual\": 7.416938786639877e-16, \"status\": \"computed\"}\n{\"minimum_step\": 1e-14, \"case\": \"narrow-rate\", \"residual\": 1.895936869574109e-15, \"status\": \"computed\"}\n",
+      "log_sha256": "67ac608aad51a39f67acbc24e3a3dfe48ce2bf43b143ab2955599429857e655d"
+    },
+    "openswing-stall-corner-reference-probe-20261008": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/probe-stall-corner-reference.py"
+        ],
+        "wrapper_pid": 11945,
+        "started": 1791463980.6448483,
+        "pid": 11955,
+        "exit_code": 0,
+        "ended": 1791463983.2764924
+      },
+      "log": "{\"size\": 2, \"spread\": 0.0, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 0.0, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 1e-08, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 1e-08, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 1e-06, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 1e-06, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 2, \"spread\": 0.01, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 1.9140624999999996e-05, \"steps\": 69}\n{\"size\": 2, \"spread\": 0.01, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 1.9140624999999996e-05, \"steps\": 69}\n{\"size\": 2, \"spread\": 0.2, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.0012249999999999997, \"steps\": 57}\n{\"size\": 2, \"spread\": 0.2, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.0012249999999999997, \"steps\": 57}\n{\"size\": 4, \"spread\": 0.0, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 0.0, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 1e-08, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 1e-08, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 1e-06, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 1e-06, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 4, \"spread\": 0.01, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00015312499999999997, \"steps\": 63}\n{\"size\": 4, \"spread\": 0.01, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00015312499999999997, \"steps\": 63}\n{\"size\": 4, \"spread\": 0.2, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.0006124999999999999, \"steps\": 64}\n{\"size\": 4, \"spread\": 0.2, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.0006124999999999999, \"steps\": 64}\n{\"size\": 16, \"spread\": 0.0, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 0.0, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 0.0, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 1e-08, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 1e-08, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 1e-06, \"threshold\": \"original\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 1e-06, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 0.00010718749999999997, \"steps\": 64}\n{\"size\": 16, \"spread\": 0.01, \"threshold\": \"original\", \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.459770111: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"size\": 16, \"spread\": 0.01, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 3.205680847167967e-09, \"steps\": 262}\n{\"size\": 16, \"spread\": 0.2, \"threshold\": \"original\", \"status\": \"rejected\", \"message\": \"Circulation continuation stopped at lambda=0.45904066: arclength step became too small; no full physical solution was returned. Refine the mesh/basis or use operating-point continuation; a fold or competing branch may be present.\"}\n{\"size\": 16, \"spread\": 0.2, \"threshold\": \"roundoff\", \"status\": \"computed\", \"error\": 2.220446049250313e-16, \"minimum_step\": 3.5654112261090473e-08, \"steps\": 201}\n",
+      "log_sha256": "648f0a072f79c50e1fa16306e7e9e4d1412473f497fd78fd0e1fc3519a652ddd"
+    }
+  },
+  "first_browser_interruption": {
+    "observed_at": 1791458889.8738759,
+    "reason": "The first browser workflow timed out after four numerical comparisons; the remaining attempt stayed slow with no further completed workflow. Stop the browser descendants and retry unchanged tests with LP_NUM_THREADS=1 to reduce software-rasterizer concurrency.",
+    "original_status": {
+      "command": [
+        "npm",
+        "run",
+        "test:browser",
+        "--",
+        "tests/browser/stall-parameters.spec.js",
+        "--workers=1",
+        "--output=/tmp/openswing-stall-parameters-browser-results",
+        "--reporter=/tmp/openswing-stall-parameters-reporter.cjs"
+      ],
+      "wrapper_pid": 20489,
+      "started": 1791457922.7998888,
+      "pid": 20510
+    },
+    "processes": [
+      {
+        "pid": 20533,
+        "pgid": 20489,
+        "state": "S",
+        "command": "sh"
+      },
+      {
+        "pid": 20534,
+        "pgid": 20489,
+        "state": "S",
+        "command": "MainThread"
+      },
+      {
+        "pid": 21681,
+        "pgid": 20489,
+        "state": "R",
+        "command": "MainThread"
+      }
+    ],
+    "log_sha256_before_stop": "7a54f92c90d897ac7f807a32f3d0c614ea9dbada6701285eaef51c54dc67ae0c",
+    "mesa_environment_documentation": "https://docs.mesa3d.org/envvars.html#envvar-LP_NUM_THREADS"
+  },
+  "final_browser_environment": {
+    "LD_LIBRARY_PATH": "/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu",
+    "VK_ICD_FILENAMES": "/tmp/aswing-webgl-mesa/lvp.json",
+    "OPENSWING_WEBGL_DRIVER": "mesa",
+    "OPENSWING_CHROMIUM_EXECUTABLE": "/tmp/aswing-chromium/chrome-linux/chrome",
+    "OPENSWING_BASE_URL": "http://127.0.0.1:8001",
+    "LP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "retained_failures": "Original study/test metadata assumption and intermediate span-reference failure are retained. The first browser was stopped after its timed-out workflow; the next run had one pass, one workflow timeout and one library-startup timeout. The expanded stable-leakage batch passed 110 tests but failed a prescribed-rate continuation; its study also stopped at the fixed minimum continuation step. The final kernel refines that step to floating-point resolution without weakening residual, branch or iteration guards. A diagnostic script initially failed to import the local package, then ran with an explicit path. The first stable-kernel browser reports its main workflow passed with complete values and captures, but its supervisor disappeared without a terminal result. After process absence and source checks, all unchanged workflows were rerun as separate durable jobs. Each of the three final jobs has a zero exit, as does their supervisor. Historical jobs and source generations are separate from the final checks.",
+  "scope": "Controls for published stall parameters, stable evaluation of the same physical law, and finer bounded continuation through sharp transitions. Independent component/limiting references do not establish experimental stall accuracy or arbitrary branch uniqueness. The full native baseline runs on separate frozen main-worktree sources and is not evidence for this changed kernel. Main integration is complete. The integrated bundles are audited separately against these tested bytes. Full regression of this changed kernel and broad aircraft/experimental validation remain separate gates. All broad goal requirements remain Partial.",
+  "integration": {
+    "main_worktree": "/home/userland/aswing",
+    "integrated_at": 1791474290.1103234,
+    "all_tested_sources_match": true,
+    "files": [
+      "README.md",
+      "docs/NUMERICS.md",
+      "openswing/aero.py",
+      "openswing/circulation_solve.py",
+      "tests/test_circulation_solve.py",
+      "web/case-settings.js",
+      "web/equilibrium-state.js",
+      "web/main.js",
+      "docs/validation/stall-parameters-browser-launch.json",
+      "docs/validation/stall-parameters-browser-values.json",
+      "docs/validation/stall-parameters-checks.json",
+      "docs/validation/stall-parameters-desktop.png",
+      "docs/validation/stall-parameters-mobile.png",
+      "docs/validation/stall-parameters-wasm.json",
+      "docs/validation/stall-parameters.json",
+      "docs/validation/stall-parameters.md",
+      "docs/validation/stall-parameters.pdf",
+      "docs/validation/stall-parameters.png",
+      "docs/validation/stall-parameters.svg",
+      "scripts/plot-stall-parameters.py",
+      "scripts/test-stall-parameters-wasm.mjs",
+      "scripts/verify-stall-parameters.py",
+      "tests/browser/stall-parameters.spec.js",
+      "tests/test_stall_parameters.py"
+    ],
+    "backup": "/tmp/openswing-stall-merge-backup-20261008"
+  },
+  "updated_full_regression": {
+    "status": "running; final outcome unverified",
+    "working_copy": "/tmp/openswing-post-stall-regression-20261008",
+    "output": "/tmp/openswing-native-post-stall-20261008",
+    "job": {
+      "command": [
+        "/home/userland/aswing/.venv/bin/python",
+        "/tmp/run-openswing-native-files-snapshot.py",
+        "/tmp/openswing-native-post-stall-20261008",
+        "/tmp/openswing-post-stall-regression-20261008"
+      ],
+      "wrapper_pid": 19052,
+      "started": 1791474442.5304615,
+      "pid": 19055
+    },
+    "expected_tests": 1188,
+    "frozen_source_files": 370
+  }
+}

@@ -1,0 +1,64 @@
+........................................................................ [ 21%]
+........................................................................ [ 43%]
+........................................................................ [ 64%]
+............F.F......................................................... [ 86%]
+..............................................                           [100%]
+=================================== FAILURES ===================================
+______ test_new_literal_triplet_is_untouched_and_preserves_original_loads ______
+
+jobs = [{'id': 'ST3-M15_0-static-three-grids', 'case_id': 'ST-3', 'adapter': 'structure', 'snapshot': 'st3-m15_0', ...}, {'id...d': 'ST5-30LB_80_20-static-three-grids', 'case_id': 'ST-5', 'adapter': 'structure', 'snapshot': 'st5-30lb_80_20', ...}]
+original_target = {'schema': 'st5-additional-original-output-target-v1', 'case': 'JW_1_30lb_80_20', 'status': 'FAIL_RETAINED', 'acceptance': 'Archived tested ASWING outputs; experimental agreement is optional.', ...}
+
+    def test_new_literal_triplet_is_untouched_and_preserves_original_loads(jobs, original_target):
+        # Pin expectations are independent of the decoder and manifest reader.
+        expected = {
+            '.asw': (13272, '0615f0f6e551a05970d763b2191bd473ba545e61d04726bf9a5b62a9db77c765'),
+            '.sh': (189, 'c2677bd1f9b8763f6e459f68f888d589ca5a93a5c96dbb04db4805e483c5fc2e'),
+            '.txt': (36109, '1ea62b15605c4402903faceab7a43b2a843fc4f86c8bf649f32502340b1e015b'),
+        }
+        for suffix, (size, digest) in expected.items():
+            raw = ORIGINAL.with_suffix(suffix).read_bytes()
+            assert len(raw) == size
+            assert hashlib.sha256(raw).hexdigest() == digest
+        model = ORIGINAL.with_suffix('.asw').read_text().splitlines()
+        assert model[111].split()[:3] == ['*', '3.335', '-24']
+        assert model[178].split()[:3] == ['*', '2.001', '-6']
+        assert model[172].split()[:3] == ['*', '0.5', '1.1699']
+        changes = {(v['beam'], v['property']): v['multiplier']
+                   for v in original_target['literal_changes_from_20lb80_20']}
+        assert changes == {(1, 'Dmg'): -24., (2, 'Dmg'): -6., (2, 'mg'): 1.1699}
+        driver = ORIGINAL.with_suffix('.sh').read_text().splitlines()
+        assert driver[0].endswith('Aswing_R_5_92/bin/aswing JW_1_30lb_80_20 <<EOF')
+>       assert driver[1:] == ['oper', 'x', 'k', 'v', '1 4 6 9 10 11 13 14 15 16 17 18 19 20 21 23 24 25 26',
+                              '', '', 'w', 'JW_1_30lb_80_20.txt', 'O', 'EOF']
+E       AssertionError: assert ['oper', 'x',...26 ', '', ...] == ['oper', 'x',... 26', '', ...]
+E         
+E         At index 4 diff: '1 4 6 9 10 11 13 14 15 16 17 18 19 20 21 23 24 25 26 ' != '1 4 6 9 10 11 13 14 15 16 17 18 19 20 21 23 24 25 26'
+E         Left contains 2 more items, first extra item: ''
+E         Use -v to get more diff
+
+tests/test_isae_suite_structure.py:84: AssertionError
+______ test_duplicate_traces_exact_joint_anchor_and_all_grid_rows_survive ______
+
+original_target = {'schema': 'st5-additional-original-output-target-v1', 'case': 'JW_1_30lb_80_20', 'status': 'FAIL_RETAINED', 'acceptance': 'Archived tested ASWING outputs; experimental agreement is optional.', ...}
+jobs = [{'id': 'ST3-M15_0-static-three-grids', 'case_id': 'ST-3', 'adapter': 'structure', 'snapshot': 'st3-m15_0', ...}, {'id...d': 'ST5-30LB_80_20-static-three-grids', 'case_id': 'ST-5', 'adapter': 'structure', 'snapshot': 'st5-30lb_80_20', ...}]
+
+    def test_duplicate_traces_exact_joint_anchor_and_all_grid_rows_survive(original_target, jobs):
+        forward, rear = original_target['beams']
+        assert [g['rows'] for g in forward['duplicate_groups']] == [[10, 11], [16, 17], [22, 23], [28, 29], [34, 35]]
+        assert [g['rows'] for g in rear['duplicate_groups']] == [[10, 11], [18, 19], [26, 27]]
+        assert [forward['rows'][i]['printed_t'] for i in (33, 34)] == [2.000999, 2.000999]
+        assert [forward['rows'][i]['exact_anchor_t'] for i in (33, 34)] == [2.001, 2.001]
+        assert forward['rows'][21]['raw_tokens'][0] == '-0.000000'
+>       assert forward['rows'][22]['raw_tokens'][0] == '0.000000'
+E       AssertionError: assert '-0.000000' == '0.000000'
+E         
+E         - 0.000000
+E         + -0.000000
+E         ? +
+
+tests/test_isae_suite_structure.py:133: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_isae_suite_structure.py::test_new_literal_triplet_is_untouched_and_preserves_original_loads
+FAILED tests/test_isae_suite_structure.py::test_duplicate_traces_exact_joint_anchor_and_all_grid_rows_survive
+2 failed, 332 passed in 170.97s (0:02:50)

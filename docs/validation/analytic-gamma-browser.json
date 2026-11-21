@@ -1,0 +1,130 @@
+{
+  "status": "PACKAGED_BROWSER_PASS_EXPERIMENTAL_VALIDATION_UNCHANGED",
+  "date": "2026-10-24",
+  "study": {
+    "status": "PASS",
+    "scope": "Packaged worker, offline current/frozen mounted derivatives, exports and mobile SVG view.",
+    "cases": [
+      {
+        "influences": "current",
+        "output": "/tmp/openswing-analytic-gamma-browser-20261024/test-results/analytic-circulation-deriv-a9a18-rrent-and-frozen-influences/result-current.json",
+        "physical_residual": 0,
+        "maximum_linear_residual": 7.073313310986152e-16,
+        "rank": 0.02797024049029342,
+        "numerical_runtime": {
+          "pyodide": "314.0.7",
+          "python": "3.14.2",
+          "numpy": "2.4.6",
+          "scipy": "1.18.0"
+        }
+      },
+      {
+        "influences": "frozen",
+        "output": "/tmp/openswing-analytic-gamma-browser-20261024/test-results/analytic-circulation-deriv-a9a18-rrent-and-frozen-influences/result-frozen.json",
+        "physical_residual": 0,
+        "maximum_linear_residual": 6.330234512653545e-16,
+        "rank": 0.027970240490293452,
+        "numerical_runtime": {
+          "pyodide": "314.0.7",
+          "python": "3.14.2",
+          "numpy": "2.4.6",
+          "scipy": "1.18.0"
+        }
+      }
+    ],
+    "numeric_values_compared": 1570,
+    "maximum_scaled_error": 0.0008535997682730352,
+    "worst_comparison": "frozen.matrices.internal_moments[0][1][2]",
+    "tolerance": {
+      "absolute": 2e-08,
+      "relative": 3e-06
+    },
+    "source_modules": 107,
+    "parity_exclusions": [
+      "linear_residuals (independently gated at 1e-8)",
+      "residual_evaluations (wrapper work count)"
+    ],
+    "native_reference": {
+      "path": "/tmp/openswing-analytic-gamma-derivatives-20261024/runtime/native-raw.json",
+      "bytes": 77449,
+      "sha256": "ac150034a74d440e39e046e93112b1a48802440f7e1211eb8c7228a4d4b0516e"
+    },
+    "new_native_solves": 0,
+    "new_browser_mounted_calls": 2,
+    "root_source_unchanged": true,
+    "root_runtime_unchanged": true,
+    "hosted_release_updated": false,
+    "speedup_claim": false
+  },
+  "validation": {
+    "build": {
+      "status": "PASS",
+      "supervisor_pid": 24309,
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "maximum_seconds": 600,
+      "child_pid": 24351,
+      "source_modules": 107,
+      "artifacts": {
+        "openswing-source.zip": {
+          "bytes": 170622390,
+          "sha256": "a65f65e2d451d536a8404fbbb7f74b1da4842baf3c8429327a4fb3818effc27f"
+        },
+        "openswing-local.zip": {
+          "bytes": 195049724,
+          "sha256": "e84d052a61d6d3b813bbe7ed2a287012bdbcbcba81dd8c1ea018ab944cfd336b"
+        }
+      },
+      "exit_code": 0,
+      "reaped": true,
+      "seconds": 64.7539380179951
+    },
+    "browser": {
+      "status": "PASS",
+      "supervisor_pid": 26715,
+      "retries": 0,
+      "preview_pid": 26732,
+      "test_pid": 26787,
+      "exit_code": 0,
+      "seconds": 81.90561219802476,
+      "test_lifecycle": {
+        "pid": 26787,
+        "exit_code": 0,
+        "reaped": true
+      },
+      "preview_lifecycle": {
+        "pid": 26732,
+        "exit_code": 143,
+        "reaped": true
+      },
+      "pins_unchanged": true
+    },
+    "independent_review": {
+      "path": "independent-review.json",
+      "bytes": 127539,
+      "sha256": "c501ec9cd4a9a73d0b647c226efdf36d73de52989e09659ce9adec82af9033c1"
+    }
+  },
+  "durable_test": {
+    "path": "tests/browser/analytic-circulation-derivatives.spec.js",
+    "bytes": 4534,
+    "sha256": "3dfe450634a6334c33a7953c95c0acd3e26fa92f39f0b1d27291234530da0c0d"
+  },
+  "coverage": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0,
+    "AE3": "pending"
+  },
+  "scope": "Two small mounted browser calls including derivatives; offline after initialization, SVG fallback. No new native solves.",
+  "evidence_archive": "analytic-gamma-browser-20261024-evidence.zip",
+  "limitations": [
+    "No large-model performance benchmark or speedup claim.",
+    "No new WebGL/3D validation.",
+    "ROOT runtime bundles and hosted release unchanged.",
+    "AE3 numerical mesh and experimental comparisons remain separate."
+  ]
+}

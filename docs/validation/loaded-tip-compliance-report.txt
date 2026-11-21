@@ -1,0 +1,189 @@
+Six-input tip compliance of an exactly preloaded rod
+2026-10-10
+
+Result and scope
+================
+The independent continuum tangent boundary-value problem agrees with the actual
+production static residual under mesh refinement for all six tip-wrench inputs.
+All 12 predeclared gates pass across 24 cases. The maximum 32-element relative
+errors are 1.2539684e-4 for the complete 6x6 tip-compliance matrix and 1.2904934e-4
+over all nodal motions produced by those six inputs. Errors reduce approximately
+fourfold per mesh doubling. No production source correction is indicated by
+these cases. No main repository file was changed.
+
+This extends the prior four-virtual-field energy check to the complete tip
+compliance and six complete spatial nodal response fields. It does NOT validate
+the full distributed-load operator, actual loaded Durrant equilibrium, coupled
+aerodynamic tangent, eigenmodes, or flutter. No eigenvalue or nonlinear equilibrium
+solve was executed. The earlier loaded-structure-evidence.zip remains unchanged.
+
+Fixed cases and normalization
+=============================
+The plan was written before execution and kept unchanged through both attempts.
+Length L=2 m, (GKc,EA,GKn)=(120,300,80) N,
+(EIcc,GJ,EInn)=(15,6,35) N m^2. All section axes coincide, all stiffnesses are
+finite, and the unloaded rod is straight. Root translation and rotation are fixed.
+
+Exact base: r0(s)=lambda*s*e_s, R0(s)=Exp(tau*s*skew(e_s)),
+N0=P*e_s, M0=GJ*tau*e_s, lambda=1+P/EA. The prescribed tip wrench has these
+constant SPATIAL force/moment components; the root reactions balance it.
+
+P=(-2,0,60) N; tau=(0,0.8) rad/m; uniform elements N=(4,8,16,32): 24 cases.
+The nonzero-torque base reaches a tip twist of 1.6 rad. The negative axial force
+is a compressive preload, not a claim of a computed stability margin.
+
+The six input components are Fx,Fy,Fz,Mx,My,Mz. Outputs are physical translations
+x,y,z and infinitesimal spatial rotations theta_x,theta_y,theta_z. Nodal DOFs
+are interleaved in that order. Root DOFs are excluded from the production tangent;
+the largest matrix has 192 free mechanical coordinates. Two central-difference
+steps, 2e-5 and 5e-6, are retained for every complete matrix.
+
+Let Dq=diag(L,L,L,1,1,1) and E*=EIcc/L=7.5 N m. Reported comparison matrices use
+C_hat=E* Dq^-1 C Dq^-T. Thus unit dimensionless input means 3.75 N or 7.5 N m,
+and unit dimensionless output means 2 m or 1 rad. This gives comparisons a stated
+normalization instead of adding incompatible dimensional matrix entries.
+
+Independent continuum derivation
+================================
+For the linearized spatial fields z=(u,theta,delta N,delta M), the exact material
+constitutive law and geometrically exact kinematics imply
+
+ u'       = theta cross r0' + R0 D^-1 R0^T (delta N - theta cross N0)
+ theta'   = R0 B^-1 R0^T (delta M - theta cross M0)
+ delta N' = 0
+ delta M' = -u' cross N0 - r0' cross delta N.
+
+Here D=diag(GKc,EA,GKn), B=diag(EIcc,GJ,EInn). The theta cross N0/M0 terms retain
+the physical force and torque prestress. The root has u(0)=theta(0)=0, and the
+six independent tip conditions prescribe delta N(L) and delta M(L).
+
+continuum_compliance.py has no OpenSwing imports. It integrates six fundamental
+solutions, initialized with the six root internal-wrench basis vectors and zero
+root motion, using a 12x6 state. A 6x6 endpoint-wrench map then supplies all six
+tip load solutions. DOP853 tolerances (rtol,atol)=(3e-11,3e-13) and (1e-12,1e-14)
+are both retained. This is an independent continuum linear BVP; it does not reuse
+production geometry, compliance, residual assembly, finite differences or modes.
+
+The steady ASWING formulation supplies the underlying symmetric constitutive
+relations (16-20), kinematics, and spatial balances (46-47):
+https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf
+The present incremental equations are explicitly derived from those continuum
+relations, not claimed to reproduce ASWING's own discrete grid or Jacobian.
+
+Closed-form cross-check
+=======================
+For tau=0, a bending plane satisfies EI*theta''=P*a*theta-a*F,
+a=lambda-P/G. With zero root motion and tip moment T, let
+k=sqrt(abs(P*a/EI)). For P*a>0, t=tanh(kL)/k and c=sech(kL);
+for P*a<0, t=tan(kL)/k and c=sec(kL). Then
+
+ u(L)/F     = L/G + (a/P)*(L-t)
+ u(L)/T     = theta(L)/F = (1-c)/P
+ theta(L)/T = t/EI.
+
+The zero-P limits are L/G+L^3/(3EI), L^2/(2EI), L/EI. The x/theta_z plane has
+negative cross-coupling signs; z/theta_x has positive signs. Axial and torsional
+terms are L/EA and L/GJ. The independent numerical continuum matrices agree with
+these exact expressions within 5.54001e-14 dimensionless component difference.
+
+Dead spatial torque and rotational chart terms
+==============================================
+A constant spatial end torque is not the gradient of a global orientation
+potential on SO(3). It must not be confused with a material follower torque or
+assumed to yield a symmetric physical tangent at a twisted loaded base.
+
+For left-chart rotation R=Exp(q)R0, the chart covector is Jl(q)^T times the
+physical moment. Its first derivative adds (1/2)*skew(M0). At equilibrium the
+same chart derivative of the prescribed dead tip torque cancels that term in
+the full residual. Production therefore differentiates the actual physical
+internal restoring moment, with the constant physical external load subtracted
+implicitly. It does not pull back only the internal moment and discard the
+external-load connection term.
+
+For the continuum endpoint stiffness Ktip=C^-1, let G be the 6x6 matrix whose
+rotational block is skew(M_tip), with all other blocks zero. The independently
+derived identity is
+
+ Ktip - Ktip^T + G = 0.
+
+In the stated normalization the raw skew part is 0.64 for tau=0.8; it correctly
+remains nonzero under refinement. The corrected continuum identity holds within
+7.44649e-13. The extra production finite-mesh defect after adding G decreases
+quadratically; its largest 32-element entry is 0.00282485 dimensionless. At zero
+torque the production corrected defect is below 5.75e-11. This separates the
+physical dead-torque effect from the known strong-form midpoint discretization
+error, and avoids misdiagnosing raw nonsymmetry as a new defect.
+
+Actual production measurement
+=============================
+production_compliance.py constructs unmodified StaticNetwork objects. At every
+perturbed geometry it eliminates the mixed constitutive equations through the
+actual compliance, then calls the unmodified static residual. Gravity, mass,
+aerodynamics, struts, point objects, offsets and damping are absent. Interior
+base wrenches vanish and the endpoint wrenches match the exact preload; constant
+dead external loads have zero physical derivative. Root reactions need not be
+included when the root motion is fixed and its equations are removed.
+
+Every free nodal mechanical coordinate is centrally differentiated. Six unit
+dimensionless loads at the tip are solved simultaneously. Both complete matrices
+and all six nodal solutions are preserved; no eigenvalue search or static
+nonlinear continuation is used. The production tangent source and all 58 kernel
+module bytes are pinned before and after execution.
+
+Numerical evidence
+==================
+Final run: run-02, 24 cases, child exit code 0, 53.97165 seconds, one BLAS thread.
+Maximum normalized exact-base wrench error: 5.68434e-13.
+Maximum mixed compatibility residual: 7.07767e-16.
+Maximum production derivative-step change (tip or nodal profile): 9.32622e-11.
+Maximum continuum tolerance change: tip 1.36702e-12; profile 3.39319e-11.
+Maximum normalized linear-solve backward error: 1.07149e-17.
+Largest dimensionless production tangent condition number: 3.41733e5.
+All 18 successive tip-error ratios lie between 0.248236 and 0.251316.
+
+Relative complete tip-matrix errors (N=4,8,16,32):
+ P=-2, tau=0:   .00437320, .00109905, .000275126, .0000688041
+ P=-2, tau=.8:  .00803083, .00200666, .000501603, .000125397
+ P= 0, tau=0:   .00197876, .000494690,.000123673, .0000309182
+ P= 0, tau=.8:  .00565771, .00140861, .000351793, .0000879258
+ P=60, tau=0:   .000720646,.000178890,.0000446449,.0000111564
+ P=60, tau=.8:  .00336050, .000836712,.000208946, .0000522218
+
+The complete gates, all input conditions, both matrix/continuum step ladders,
+all profile components, and mesh ratios remain in the machine-readable records.
+The 0.2% predeclared finest-tip gate was not used to weaken the observed errors.
+
+Retained failed attempt
+=======================
+run-01 terminated with child exit 1 due to a diagnostic adapter TypeError:
+abs() was called on a serialized list while preparing the first case report.
+No physical validation gate failed, and no failed case was relabeled a pass.
+Its exact four diagnostic sources, source pins, traceback, state and terminal
+record are retained. Only conversion of that list to a NumPy array changed
+before run-02. The fixed 24-case plan, all tolerances, numerical methods and
+production kernel stayed unchanged. The byte verifier checks those statements.
+
+Limits and reproduction
+=======================
+These exact axial/twist bases have zero axis offsets, finite diagonal section
+stiffness, and uniform geometry. They do not represent the actual Durrant wing's
+coupled bending stiffness, offsets, rigid compliance directions, piecewise
+properties, nonuniform bending/torsion or aerodynamic equilibrium. Agreement of
+six boundary-driven response columns does not prove the complete distributed-load
+operator or nonlinear dynamic energy conservation. The loaded Durrant continuum
+tangent and experimental flutter agreement remain separate unfinished work.
+
+After extracting the archive, audit existing bytes (no numerical solves):
+
+  python verify-bundle.py
+
+Replay with NumPy and SciPy installed, using a NEW output directory:
+
+  OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  PYTHONDONTWRITEBYTECODE=1 python run_compliance.py \
+    --repo production --plan plan.json --output replay
+
+This replays the specified cases against the exact archived kernel. It does not
+run a full regression. Original wrapper terminal records are preserved; numerical
+results are never inferred from wrapper exit alone. All evidence stayed in the
+dedicated /tmp directory for a later explicit integration by the root agent.

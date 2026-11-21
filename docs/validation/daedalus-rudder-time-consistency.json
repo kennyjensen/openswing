@@ -1,0 +1,2082 @@
+{
+  "schema": "openswing-daedalus-rudder-time-consistency-v1",
+  "status": "COARSE_SAME_GRID_CONSISTENCY_OBSERVED_TEMPORAL_ACCURACY_UNRESOLVED",
+  "native_case": {
+    "amplitude": 0.1,
+    "dt": 0.04,
+    "duration": 1.0,
+    "expected_steps": 25
+  },
+  "input": "Actual native relative +F3 step, held beyond 1 s; saved initial snapshot precedes input.",
+  "baseline_control_3": 0.10504381357313247,
+  "method": "Public free-flight BDF path; BDF1 startup then BDF2. Full saved descriptor companion, no M inverse or reduction.",
+  "coarse_same_grid_metrics": [
+    {
+      "group": "yaw_rate_rad_s",
+      "maximum_absolute_difference": 3.163353170434341e-07,
+      "reference_infinity_norm": 0.002916165691713608,
+      "relative_infinity_difference": 0.0001084764552104541,
+      "maximum_time": 0.08,
+      "maximum_index": [
+        2
+      ],
+      "within_prospective_fine_limit": true
+    },
+    {
+      "group": "roll_rate_rad_s",
+      "maximum_absolute_difference": 5.8166511909720896e-08,
+      "reference_infinity_norm": 0.0013229224807265556,
+      "relative_infinity_difference": 4.3968193720448045e-05,
+      "maximum_time": 0.08,
+      "maximum_index": [
+        2
+      ],
+      "within_prospective_fine_limit": true
+    },
+    {
+      "group": "sideslip_rad",
+      "maximum_absolute_difference": 1.7424382240532887e-07,
+      "reference_infinity_norm": 0.0035779990839313832,
+      "relative_infinity_difference": 4.8698677198618986e-05,
+      "maximum_time": 0.76,
+      "maximum_index": [
+        19
+      ],
+      "within_prospective_fine_limit": true
+    },
+    {
+      "group": "bank_rad",
+      "maximum_absolute_difference": 3.543234607550783e-08,
+      "reference_infinity_norm": 0.0010722009028879243,
+      "relative_infinity_difference": 3.304636843717667e-05,
+      "maximum_time": 0.76,
+      "maximum_index": [
+        19
+      ],
+      "within_prospective_fine_limit": true
+    },
+    {
+      "group": "complete_scaled_nodal_motion",
+      "maximum_absolute_difference": 1.273268004160083e-06,
+      "reference_infinity_norm": 0.004404706278758655,
+      "relative_infinity_difference": 0.0002890699001430167,
+      "maximum_time": 0.48,
+      "maximum_index": [
+        12,
+        35,
+        3
+      ],
+      "within_prospective_fine_limit": true
+    }
+  ],
+  "maximum_lateral_relative_difference": 0.0001084764552104541,
+  "complete_motion_relative_difference": 0.0002890699001430167,
+  "coarse_metrics_are_diagnostic_not_fine_acceptance": true,
+  "checks": {
+    "native_technical": {
+      "passed": 50,
+      "total": 50
+    },
+    "independent_saved_outputs": {
+      "passed": 409,
+      "total": 409
+    },
+    "original_linear": {
+      "passed": 12,
+      "total": 12
+    },
+    "refined_linear": {
+      "passed": 15,
+      "total": 15
+    },
+    "saved_temporal_reductions": {
+      "passed": 68,
+      "total": 68
+    }
+  },
+  "native_operations": {
+    "constructors": 1,
+    "restores": 1,
+    "time_systems": 1,
+    "full_network_residuals": 336,
+    "external_calls": 336,
+    "public_launches": 1,
+    "detailed_bdf_residuals": 25,
+    "snapshots": 26,
+    "restart_records": 26,
+    "structured_tangent_attempts": 2,
+    "structured_tangent_successes": 2,
+    "dense_tangent_starts": 0,
+    "centered_rank_starts": 0,
+    "retries_observed": 0
+  },
+  "measured_native_cost": {
+    "child_lifecycle_seconds": 24.743565929995384,
+    "runner_seconds": 23.142982126999414,
+    "owner_lifecycle_seconds": 26.935561505000805,
+    "maximum_resident_set_KiB": 284248,
+    "memory_scope": "RUSAGE_CHILDREN after waiting for the frozen supervisor and its reaped physical child; owner process excluded.",
+    "instrumented_indent2_result_JSON_bytes": 44185789,
+    "bridge_equivalent_JSON": {
+      "bytes": 22713890,
+      "sha256": "b9a1c67b1e9068c57e892167ac6971a66d6eee61096aa33fa6b7aa698e5f6c2e"
+    },
+    "all_stage_result_artifacts": {
+      "files": 118,
+      "total_bytes": 99543798,
+      "JSON_files": 61,
+      "JSON_bytes": 97531161,
+      "result_JSON_bytes": 44185789,
+      "progress_JSONL_bytes": 42770
+    },
+    "instrumentation_caveat": "Runtime and RSS include the native audit instrumentation; result.json uses indent=2 and is not the production bridge encoding."
+  },
+  "accepted_steps": 25,
+  "rejected_steps": 0,
+  "maximum_accepted_residual": 9.547696399872758e-11,
+  "saved_linear_grids": [
+    {
+      "steps": 25,
+      "dt": 0.04
+    },
+    {
+      "steps": 50,
+      "dt": 0.02
+    },
+    {
+      "steps": 100,
+      "dt": 0.01
+    },
+    {
+      "steps": 200,
+      "dt": 0.005
+    },
+    {
+      "steps": 400,
+      "dt": 0.0025
+    },
+    {
+      "steps": 800,
+      "dt": 0.00125
+    },
+    {
+      "steps": 1600,
+      "dt": 0.000625
+    }
+  ],
+  "saved_linear_operations": {
+    "initial": {
+      "aircraft_imports": 0,
+      "physical_evaluations": 0,
+      "equilibria": 0,
+      "matrix_assemblies": 0,
+      "factorizations": 6,
+      "condition_estimates": 6,
+      "condition_solve_calls": 24,
+      "step_solves": 175,
+      "full_residual_products": 175,
+      "history_mass_products": 175,
+      "output_map_products": 3
+    },
+    "refinement": {
+      "aircraft_imports": 0,
+      "physical_evaluations": 0,
+      "equilibria": 0,
+      "matrix_assemblies": 0,
+      "factorizations": 8,
+      "condition_estimates": 8,
+      "condition_solve_calls": 38,
+      "step_solves": 3000,
+      "full_residual_products": 3000,
+      "history_mass_products": 3000,
+      "output_map_products": 4
+    }
+  },
+  "temporal_relative_limit": 0.005,
+  "finest_adjacent_pair": {
+    "coarse_steps": 800,
+    "fine_steps": 1600,
+    "coarse_dt": 0.00125,
+    "fine_dt": 0.000625,
+    "sampling": "all coarse-grid timestamps, including0 and1",
+    "samples": 801,
+    "groups": [
+      {
+        "group": "yaw_rate_rad_s",
+        "maximum_absolute_difference": 0.0001662825966231901,
+        "reference_infinity_norm": 0.004619976303958741,
+        "relative_infinity_difference": 0.03599208863489338,
+        "zero_reference": false,
+        "passes_resolution_limit": false
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "maximum_absolute_difference": 0.00019311937544889805,
+        "reference_infinity_norm": 0.0014110098335352354,
+        "relative_infinity_difference": 0.13686607340293602,
+        "zero_reference": false,
+        "passes_resolution_limit": false
+      },
+      {
+        "group": "sideslip_rad",
+        "maximum_absolute_difference": 3.732370190109792e-05,
+        "reference_infinity_norm": 0.0035889997161263963,
+        "relative_infinity_difference": 0.010399471956877543,
+        "zero_reference": false,
+        "passes_resolution_limit": false
+      },
+      {
+        "group": "bank_rad",
+        "maximum_absolute_difference": 9.189481941172106e-07,
+        "reference_infinity_norm": 0.0010709665344865572,
+        "relative_infinity_difference": 0.0008580550040788835,
+        "zero_reference": false,
+        "passes_resolution_limit": true
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "maximum_absolute_difference": 3.377066767940979e-05,
+        "reference_infinity_norm": 0.004427854694307006,
+        "relative_infinity_difference": 0.007626868994330259,
+        "zero_reference": false,
+        "passes_resolution_limit": false
+      }
+    ],
+    "all_five_pass": false
+  },
+  "finest_triplet": {
+    "steps": [
+      400,
+      800,
+      1600
+    ],
+    "dt": [
+      0.0025,
+      0.00125,
+      0.000625
+    ],
+    "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+    "samples": 401,
+    "groups": [
+      {
+        "group": "yaw_rate_rad_s",
+        "medium_minus_coarse": {
+          "maximum_absolute_difference": 0.0005776312519949745,
+          "reference_infinity_norm": 0.0046080319407459484,
+          "relative_infinity_difference": 0.1253531354432121,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "fine_minus_medium": {
+          "maximum_absolute_difference": 0.0001662825966231901,
+          "reference_infinity_norm": 0.0046080319407459484,
+          "relative_infinity_difference": 0.036085382818824875,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "strict_decrease": true,
+        "difference_ratio": 0.2878698062975249,
+        "observed_order_diagnostic": 1.7965116175149989,
+        "passes_temporal_criterion": false
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "medium_minus_coarse": {
+          "maximum_absolute_difference": 0.0002963338300845032,
+          "reference_infinity_norm": 0.0014110098335352354,
+          "relative_infinity_difference": 0.21001542515267188,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "fine_minus_medium": {
+          "maximum_absolute_difference": 0.00018649771628240664,
+          "reference_infinity_norm": 0.0014110098335352354,
+          "relative_infinity_difference": 0.1321732222199637,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "strict_decrease": true,
+        "difference_ratio": 0.6293500685670095,
+        "observed_order_diagnostic": 0.668065372381113,
+        "passes_temporal_criterion": false
+      },
+      {
+        "group": "sideslip_rad",
+        "medium_minus_coarse": {
+          "maximum_absolute_difference": 7.345871093997799e-05,
+          "reference_infinity_norm": 0.0035889997161263963,
+          "relative_infinity_difference": 0.020467739412156294,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "fine_minus_medium": {
+          "maximum_absolute_difference": 3.732370190109792e-05,
+          "reference_infinity_norm": 0.0035889997161263963,
+          "relative_infinity_difference": 0.010399471956877543,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "strict_decrease": true,
+        "difference_ratio": 0.5080908911074489,
+        "observed_order_diagnostic": 0.9768414946995969,
+        "passes_temporal_criterion": false
+      },
+      {
+        "group": "bank_rad",
+        "medium_minus_coarse": {
+          "maximum_absolute_difference": 2.177261949074678e-06,
+          "reference_infinity_norm": 0.0010709665344865572,
+          "relative_infinity_difference": 0.002032987846925115,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        "fine_minus_medium": {
+          "maximum_absolute_difference": 9.189481941172106e-07,
+          "reference_infinity_norm": 0.0010709665344865572,
+          "relative_infinity_difference": 0.0008580550040788835,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        "strict_decrease": true,
+        "difference_ratio": 0.42206597810050256,
+        "observed_order_diagnostic": 1.2444595536843548,
+        "passes_temporal_criterion": true
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "medium_minus_coarse": {
+          "maximum_absolute_difference": 9.400240010100586e-05,
+          "reference_infinity_norm": 0.004427854694307006,
+          "relative_infinity_difference": 0.02122978430657783,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "fine_minus_medium": {
+          "maximum_absolute_difference": 3.377066767940979e-05,
+          "reference_infinity_norm": 0.004427854694307006,
+          "relative_infinity_difference": 0.007626868994330259,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        "strict_decrease": true,
+        "difference_ratio": 0.3592532493119655,
+        "observed_order_diagnostic": 1.4769268895059078,
+        "passes_temporal_criterion": false
+      }
+    ],
+    "all_five_pass": false
+  },
+  "all_adjacent_pairs": [
+    {
+      "coarse_steps": 25,
+      "fine_steps": 50,
+      "coarse_dt": 0.04,
+      "fine_dt": 0.02,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 26,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0005473268676020758,
+          "reference_infinity_norm": 0.002909017988075727,
+          "relative_infinity_difference": 0.18814832697687253,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.0001019575886644868,
+          "reference_infinity_norm": 0.0013134186835287328,
+          "relative_infinity_difference": 0.07762763690140269,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 3.030948762998376e-05,
+          "reference_infinity_norm": 0.0035807505848817287,
+          "relative_infinity_difference": 0.008464562641685604,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 3.4533123177556103e-06,
+          "reference_infinity_norm": 0.0010715736608105408,
+          "relative_infinity_difference": 0.0032226550950715947,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 0.0009794240133493338,
+          "reference_infinity_norm": 0.004390856947386327,
+          "relative_infinity_difference": 0.2230598776241935,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "coarse_steps": 50,
+      "fine_steps": 100,
+      "coarse_dt": 0.02,
+      "fine_dt": 0.01,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 51,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0010864916537086336,
+          "reference_infinity_norm": 0.0032455100342535298,
+          "relative_infinity_difference": 0.3347676150255772,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.00023922364262607968,
+          "reference_infinity_norm": 0.001321969891416897,
+          "relative_infinity_difference": 0.1809599781199843,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 6.559689425594088e-05,
+          "reference_infinity_norm": 0.003581467369343011,
+          "relative_infinity_difference": 0.01831564760786137,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 2.8827856983687085e-06,
+          "reference_infinity_norm": 0.0010714322071119534,
+          "relative_infinity_difference": 0.002690590855150099,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 0.000600427737404013,
+          "reference_infinity_norm": 0.004442663944634024,
+          "relative_infinity_difference": 0.13515038384328545,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "coarse_steps": 100,
+      "fine_steps": 200,
+      "coarse_dt": 0.01,
+      "fine_dt": 0.005,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 101,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0014581311402551865,
+          "reference_infinity_norm": 0.0038822352758738797,
+          "relative_infinity_difference": 0.3755906163948205,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.0005798900982755655,
+          "reference_infinity_norm": 0.0013666281264685981,
+          "relative_infinity_difference": 0.4243217939425967,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 0.00015424837673640537,
+          "reference_infinity_norm": 0.003579966979432657,
+          "relative_infinity_difference": 0.04308653616711577,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 6.237590157402888e-06,
+          "reference_infinity_norm": 0.0010719284990499077,
+          "relative_infinity_difference": 0.005819035656698659,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 0.00041377375157701296,
+          "reference_infinity_norm": 0.0044555061687654276,
+          "relative_infinity_difference": 0.09286795616572228,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "coarse_steps": 200,
+      "fine_steps": 400,
+      "coarse_dt": 0.005,
+      "fine_dt": 0.0025,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 201,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0013243336349526135,
+          "reference_infinity_norm": 0.004478827356192157,
+          "relative_infinity_difference": 0.29568758284948615,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.0005299095612063242,
+          "reference_infinity_norm": 0.001402421906151162,
+          "relative_infinity_difference": 0.377853168780442,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 0.00013785268232258447,
+          "reference_infinity_norm": 0.0035999745344148146,
+          "relative_infinity_difference": 0.038292682630043325,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 5.206260556696577e-06,
+          "reference_infinity_norm": 0.001071395681553161,
+          "relative_infinity_difference": 0.004859325687358812,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 0.00024253109582040352,
+          "reference_infinity_norm": 0.004443573835738839,
+          "relative_infinity_difference": 0.054580188106647616,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "coarse_steps": 400,
+      "fine_steps": 800,
+      "coarse_dt": 0.0025,
+      "fine_dt": 0.00125,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 401,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0005776312519949745,
+          "reference_infinity_norm": 0.004607347826328509,
+          "relative_infinity_difference": 0.12537174829608552,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.0002963338300845032,
+          "reference_infinity_norm": 0.0013974145205496865,
+          "relative_infinity_difference": 0.21205864525290424,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 7.345871093997799e-05,
+          "reference_infinity_norm": 0.0035929990865411453,
+          "relative_infinity_difference": 0.020444956753577728,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 2.177261949074678e-06,
+          "reference_infinity_norm": 0.0010709854764168302,
+          "relative_infinity_difference": 0.0020329518905887406,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 9.400240010100586e-05,
+          "reference_infinity_norm": 0.004429163461826649,
+          "relative_infinity_difference": 0.02122351114633235,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "coarse_steps": 800,
+      "fine_steps": 1600,
+      "coarse_dt": 0.00125,
+      "fine_dt": 0.000625,
+      "sampling": "all coarse-grid timestamps, including0 and1",
+      "samples": 801,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "maximum_absolute_difference": 0.0001662825966231901,
+          "reference_infinity_norm": 0.004619976303958741,
+          "relative_infinity_difference": 0.03599208863489338,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "maximum_absolute_difference": 0.00019311937544889805,
+          "reference_infinity_norm": 0.0014110098335352354,
+          "relative_infinity_difference": 0.13686607340293602,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "sideslip_rad",
+          "maximum_absolute_difference": 3.732370190109792e-05,
+          "reference_infinity_norm": 0.0035889997161263963,
+          "relative_infinity_difference": 0.010399471956877543,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        },
+        {
+          "group": "bank_rad",
+          "maximum_absolute_difference": 9.189481941172106e-07,
+          "reference_infinity_norm": 0.0010709665344865572,
+          "relative_infinity_difference": 0.0008580550040788835,
+          "zero_reference": false,
+          "passes_resolution_limit": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "maximum_absolute_difference": 3.377066767940979e-05,
+          "reference_infinity_norm": 0.004427854694307006,
+          "relative_infinity_difference": 0.007626868994330259,
+          "zero_reference": false,
+          "passes_resolution_limit": false
+        }
+      ],
+      "all_five_pass": false
+    }
+  ],
+  "all_triplets": [
+    {
+      "steps": [
+        25,
+        50,
+        100
+      ],
+      "dt": [
+        0.04,
+        0.02,
+        0.01
+      ],
+      "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+      "samples": 26,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0005473268676020758,
+            "reference_infinity_norm": 0.0029535263393538885,
+            "relative_infinity_difference": 0.18531301390791344,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.000425217475367065,
+            "reference_infinity_norm": 0.0029535263393538885,
+            "relative_infinity_difference": 0.14396942045219252,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.7768985966832014,
+          "observed_order_diagnostic": 0.3642017891877704,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0001019575886644868,
+            "reference_infinity_norm": 0.0013179477787194729,
+            "relative_infinity_difference": 0.07736087143266746,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.00019164882358047042,
+            "reference_infinity_norm": 0.0013179477787194729,
+            "relative_infinity_difference": 0.1454145806647041,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 1.8796916059983702,
+          "observed_order_diagnostic": -0.9104959837152234,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "sideslip_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 3.030948762998376e-05,
+            "reference_infinity_norm": 0.003581467369343011,
+            "relative_infinity_difference": 0.008462868568740798,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 6.559689425594088e-05,
+            "reference_infinity_norm": 0.003581467369343011,
+            "relative_infinity_difference": 0.01831564760786137,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 2.1642363294537823,
+          "observed_order_diagnostic": -1.1138580466299655,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "bank_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 3.4533123177556103e-06,
+            "reference_infinity_norm": 0.0010714322071119534,
+            "relative_infinity_difference": 0.0032230805596781685,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 2.8827856983687085e-06,
+            "reference_infinity_norm": 0.0010714322071119534,
+            "relative_infinity_difference": 0.002690590855150099,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.834788583571352,
+          "observed_order_diagnostic": 0.26051722431009594,
+          "passes_temporal_criterion": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0009794240133493338,
+            "reference_infinity_norm": 0.004442663944634024,
+            "relative_infinity_difference": 0.22045872151376877,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.000600427737404013,
+            "reference_infinity_norm": 0.004442663944634024,
+            "relative_infinity_difference": 0.13515038384328545,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.6130416747193402,
+          "observed_order_diagnostic": 0.7059429428844256,
+          "passes_temporal_criterion": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "steps": [
+        50,
+        100,
+        200
+      ],
+      "dt": [
+        0.02,
+        0.01,
+        0.005
+      ],
+      "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+      "samples": 51,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0010864916537086336,
+            "reference_infinity_norm": 0.0038822352758738797,
+            "relative_infinity_difference": 0.2798623927974246,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.0014581311402551865,
+            "reference_infinity_norm": 0.0038822352758738797,
+            "relative_infinity_difference": 0.3755906163948205,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 1.3420546170584906,
+          "observed_order_diagnostic": -0.4244433855142894,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.00023922364262607968,
+            "reference_infinity_norm": 0.0013619845820505413,
+            "relative_infinity_difference": 0.17564342928604637,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.0005592092983221722,
+            "reference_infinity_norm": 0.0013619845820505413,
+            "relative_infinity_difference": 0.4105841620323281,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 2.337600465336315,
+          "observed_order_diagnostic": -1.225028370445325,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "sideslip_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 6.559689425594088e-05,
+            "reference_infinity_norm": 0.003579966979432657,
+            "relative_infinity_difference": 0.01832332382751097,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.00015424837673640537,
+            "reference_infinity_norm": 0.003579966979432657,
+            "relative_infinity_difference": 0.04308653616711577,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 2.351458532999611,
+          "observed_order_diagnostic": -1.2335558910888114,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "bank_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 2.8827856983687085e-06,
+            "reference_infinity_norm": 0.0010719284990499077,
+            "relative_infinity_difference": 0.002689345139087014,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 5.573433597875777e-06,
+            "reference_infinity_norm": 0.0010719284990499077,
+            "relative_infinity_difference": 0.005199445301450357,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": false,
+          "difference_ratio": 1.933349954188282,
+          "observed_order_diagnostic": -0.9511028023062625,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.000600427737404013,
+            "reference_infinity_norm": 0.0044555061687654276,
+            "relative_infinity_difference": 0.13476083629133095,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.000285435858410215,
+            "reference_infinity_norm": 0.0044555061687654276,
+            "relative_infinity_difference": 0.06406362096661762,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.4753875289711212,
+          "observed_order_diagnostic": 1.0728240378996323,
+          "passes_temporal_criterion": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "steps": [
+        100,
+        200,
+        400
+      ],
+      "dt": [
+        0.01,
+        0.005,
+        0.0025
+      ],
+      "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+      "samples": 101,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0014581311402551865,
+            "reference_infinity_norm": 0.004478827356192157,
+            "relative_infinity_difference": 0.3255609167965053,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.001216178268835707,
+            "reference_infinity_norm": 0.004478827356192157,
+            "relative_infinity_difference": 0.2715394392584238,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.8340664534623851,
+          "observed_order_diagnostic": 0.2617657612638595,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0005798900982755655,
+            "reference_infinity_norm": 0.001402421906151162,
+            "relative_infinity_difference": 0.41349189978572776,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.0005269913380180863,
+            "reference_infinity_norm": 0.001402421906151162,
+            "relative_infinity_difference": 0.3757723233690588,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.9087779556595539,
+          "observed_order_diagnostic": 0.13800025525423695,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "sideslip_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.00015424837673640537,
+            "reference_infinity_norm": 0.0035999745344148146,
+            "relative_infinity_difference": 0.042847074406174614,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.00013785268232258447,
+            "reference_infinity_norm": 0.0035999745344148146,
+            "relative_infinity_difference": 0.038292682630043325,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.89370588682538,
+          "observed_order_diagnostic": 0.16212796753992353,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "bank_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 6.237590157402888e-06,
+            "reference_infinity_norm": 0.001071395681553161,
+            "relative_infinity_difference": 0.005821929530610477,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 5.0381068487247616e-06,
+            "reference_infinity_norm": 0.001071395681553161,
+            "relative_infinity_difference": 0.004702377408709742,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.807700846254774,
+          "observed_order_diagnostic": 0.30810704391509564,
+          "passes_temporal_criterion": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.00041377375157701296,
+            "reference_infinity_norm": 0.004443573835738839,
+            "relative_infinity_difference": 0.09311733457630601,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.00019162463993356018,
+            "reference_infinity_norm": 0.004443573835738839,
+            "relative_infinity_difference": 0.04312399141257849,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.46311453832734084,
+          "observed_order_diagnostic": 1.110559047317717,
+          "passes_temporal_criterion": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "steps": [
+        200,
+        400,
+        800
+      ],
+      "dt": [
+        0.005,
+        0.0025,
+        0.00125
+      ],
+      "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+      "samples": 201,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0013243336349526135,
+            "reference_infinity_norm": 0.004599886291875028,
+            "relative_infinity_difference": 0.2879057330812372,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.000555411011113865,
+            "reference_infinity_norm": 0.004599886291875028,
+            "relative_infinity_difference": 0.12074450885773216,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.4193890394800238,
+          "observed_order_diagnostic": 1.2536389370638288,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0005299095612063242,
+            "reference_infinity_norm": 0.0013974145205496865,
+            "relative_infinity_difference": 0.3792071381925237,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.0002963338300845032,
+            "reference_infinity_norm": 0.0013974145205496865,
+            "relative_infinity_difference": 0.21205864525290424,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.5592158582870398,
+          "observed_order_diagnostic": 0.8385228215351206,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "sideslip_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.00013785268232258447,
+            "reference_infinity_norm": 0.0035929990865411453,
+            "relative_infinity_difference": 0.03836702403820827,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 7.345871093997799e-05,
+            "reference_infinity_norm": 0.0035929990865411453,
+            "relative_infinity_difference": 0.020444956753577728,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.5328783575504153,
+          "observed_order_diagnostic": 0.9081218545624273,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "bank_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 5.206260556696577e-06,
+            "reference_infinity_norm": 0.0010709854764168302,
+            "relative_infinity_difference": 0.004861186889401185,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 2.177261949074678e-06,
+            "reference_infinity_norm": 0.0010709854764168302,
+            "relative_infinity_difference": 0.0020329518905887406,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.4182007268679945,
+          "observed_order_diagnostic": 1.2577325254325156,
+          "passes_temporal_criterion": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.00024253109582040352,
+            "reference_infinity_norm": 0.004428587416727313,
+            "relative_infinity_difference": 0.054764888439219714,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 9.349308255962715e-05,
+            "reference_infinity_norm": 0.004428587416727313,
+            "relative_infinity_difference": 0.02111126500664578,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.38548905344846845,
+          "observed_order_diagnostic": 1.3752382016986322,
+          "passes_temporal_criterion": false
+        }
+      ],
+      "all_five_pass": false
+    },
+    {
+      "steps": [
+        400,
+        800,
+        1600
+      ],
+      "dt": [
+        0.0025,
+        0.00125,
+        0.000625
+      ],
+      "sampling": "all triplet coarsest-grid timestamps, fixed finest norm on those same timestamps",
+      "samples": 401,
+      "groups": [
+        {
+          "group": "yaw_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0005776312519949745,
+            "reference_infinity_norm": 0.0046080319407459484,
+            "relative_infinity_difference": 0.1253531354432121,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.0001662825966231901,
+            "reference_infinity_norm": 0.0046080319407459484,
+            "relative_infinity_difference": 0.036085382818824875,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.2878698062975249,
+          "observed_order_diagnostic": 1.7965116175149989,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "roll_rate_rad_s",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 0.0002963338300845032,
+            "reference_infinity_norm": 0.0014110098335352354,
+            "relative_infinity_difference": 0.21001542515267188,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 0.00018649771628240664,
+            "reference_infinity_norm": 0.0014110098335352354,
+            "relative_infinity_difference": 0.1321732222199637,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.6293500685670095,
+          "observed_order_diagnostic": 0.668065372381113,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "sideslip_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 7.345871093997799e-05,
+            "reference_infinity_norm": 0.0035889997161263963,
+            "relative_infinity_difference": 0.020467739412156294,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 3.732370190109792e-05,
+            "reference_infinity_norm": 0.0035889997161263963,
+            "relative_infinity_difference": 0.010399471956877543,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.5080908911074489,
+          "observed_order_diagnostic": 0.9768414946995969,
+          "passes_temporal_criterion": false
+        },
+        {
+          "group": "bank_rad",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 2.177261949074678e-06,
+            "reference_infinity_norm": 0.0010709665344865572,
+            "relative_infinity_difference": 0.002032987846925115,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 9.189481941172106e-07,
+            "reference_infinity_norm": 0.0010709665344865572,
+            "relative_infinity_difference": 0.0008580550040788835,
+            "zero_reference": false,
+            "passes_resolution_limit": true
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.42206597810050256,
+          "observed_order_diagnostic": 1.2444595536843548,
+          "passes_temporal_criterion": true
+        },
+        {
+          "group": "complete_scaled_nodal_motion",
+          "medium_minus_coarse": {
+            "maximum_absolute_difference": 9.400240010100586e-05,
+            "reference_infinity_norm": 0.004427854694307006,
+            "relative_infinity_difference": 0.02122978430657783,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "fine_minus_medium": {
+            "maximum_absolute_difference": 3.377066767940979e-05,
+            "reference_infinity_norm": 0.004427854694307006,
+            "relative_infinity_difference": 0.007626868994330259,
+            "zero_reference": false,
+            "passes_resolution_limit": false
+          },
+          "strict_decrease": true,
+          "difference_ratio": 0.3592532493119655,
+          "observed_order_diagnostic": 1.4769268895059078,
+          "passes_temporal_criterion": false
+        }
+      ],
+      "all_five_pass": false
+    }
+  ],
+  "time_band_diagnostic": {
+    "rows": [
+      {
+        "group": "yaw_rate_rad_s",
+        "band": "full_time_[0,1]",
+        "samples": 801,
+        "maximum_difference": {
+          "time_seconds": 0.1475,
+          "index": [
+            118
+          ],
+          "signed_value": 0.0001662825966231901,
+          "absolute_value": 0.0001662825966231901,
+          "component": "yaw_rate_rad_s",
+          "coarse_value": 0.0016597629063621522,
+          "fine_value": 0.0018260455029853423,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.004619976303958741,
+        "reference_norm_location": {
+          "time_seconds": 0.05125,
+          "index": [
+            41
+          ],
+          "signed_value": 0.004619976303958741,
+          "absolute_value": 0.004619976303958741,
+          "component": "yaw_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.03599208863489338,
+        "original_full_time_gate_unchanged": true,
+        "passes_original_0p5percent_gate": false
+      },
+      {
+        "group": "yaw_rate_rad_s",
+        "band": "[0,.01]",
+        "samples": 9,
+        "maximum_difference": {
+          "time_seconds": 0.00875,
+          "index": [
+            7
+          ],
+          "signed_value": 1.5597249422972713e-05,
+          "absolute_value": 1.5597249422972713e-05,
+          "component": "yaw_rate_rad_s",
+          "coarse_value": 2.5312100938943745e-05,
+          "fine_value": 4.090935036191646e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 4.090935036191646e-05,
+        "reference_norm_location": {
+          "time_seconds": 0.00875,
+          "index": [
+            7
+          ],
+          "signed_value": 4.090935036191646e-05,
+          "absolute_value": 4.090935036191646e-05,
+          "component": "yaw_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.3812636789630516
+      },
+      {
+        "group": "yaw_rate_rad_s",
+        "band": "(.01,.1]",
+        "samples": 72,
+        "maximum_difference": {
+          "time_seconds": 0.0925,
+          "index": [
+            65
+          ],
+          "signed_value": 0.00014952309518022073,
+          "absolute_value": 0.00014952309518022073,
+          "component": "yaw_rate_rad_s",
+          "coarse_value": 0.0009349039871163056,
+          "fine_value": 0.0010844270822965264,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.004619976303958741,
+        "reference_norm_location": {
+          "time_seconds": 0.05125,
+          "index": [
+            32
+          ],
+          "signed_value": 0.004619976303958741,
+          "absolute_value": 0.004619976303958741,
+          "component": "yaw_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.03236447231387273
+      },
+      {
+        "group": "yaw_rate_rad_s",
+        "band": "(.1,1]",
+        "samples": 720,
+        "maximum_difference": {
+          "time_seconds": 0.1475,
+          "index": [
+            37
+          ],
+          "signed_value": 0.0001662825966231901,
+          "absolute_value": 0.0001662825966231901,
+          "component": "yaw_rate_rad_s",
+          "coarse_value": 0.0016597629063621522,
+          "fine_value": 0.0018260455029853423,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0038036386611505707,
+        "reference_norm_location": {
+          "time_seconds": 0.1075,
+          "index": [
+            5
+          ],
+          "signed_value": 0.0038036386611505707,
+          "absolute_value": 0.0038036386611505707,
+          "component": "yaw_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.043716717447837415
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "band": "full_time_[0,1]",
+        "samples": 801,
+        "maximum_difference": {
+          "time_seconds": 0.12875,
+          "index": [
+            103
+          ],
+          "signed_value": -0.00019311937544889805,
+          "absolute_value": 0.00019311937544889805,
+          "component": "roll_rate_rad_s",
+          "coarse_value": -4.731870965100991e-05,
+          "fine_value": -0.00024043808509990796,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0014110098335352354,
+        "reference_norm_location": {
+          "time_seconds": 0.7675,
+          "index": [
+            614
+          ],
+          "signed_value": 0.0014110098335352354,
+          "absolute_value": 0.0014110098335352354,
+          "component": "roll_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.13686607340293602,
+        "original_full_time_gate_unchanged": true,
+        "passes_original_0p5percent_gate": false
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "band": "[0,.01]",
+        "samples": 9,
+        "maximum_difference": {
+          "time_seconds": 0.00625,
+          "index": [
+            5
+          ],
+          "signed_value": -2.255647603112506e-05,
+          "absolute_value": 2.255647603112506e-05,
+          "component": "roll_rate_rad_s",
+          "coarse_value": -8.247288903367047e-06,
+          "fine_value": -3.080376493449211e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 7.346389102297961e-05,
+        "reference_norm_location": {
+          "time_seconds": 0.01,
+          "index": [
+            8
+          ],
+          "signed_value": 7.346389102297961e-05,
+          "absolute_value": 7.346389102297961e-05,
+          "component": "roll_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.30704167335853966
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "band": "(.01,.1]",
+        "samples": 72,
+        "maximum_difference": {
+          "time_seconds": 0.08,
+          "index": [
+            55
+          ],
+          "signed_value": -0.00017310249167515378,
+          "absolute_value": 0.00017310249167515378,
+          "component": "roll_rate_rad_s",
+          "coarse_value": -0.000554638810517459,
+          "fine_value": -0.0007277413021926128,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.001075913062526952,
+        "reference_norm_location": {
+          "time_seconds": 0.1,
+          "index": [
+            71
+          ],
+          "signed_value": 0.001075913062526952,
+          "absolute_value": 0.001075913062526952,
+          "component": "roll_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.1608889209585347
+      },
+      {
+        "group": "roll_rate_rad_s",
+        "band": "(.1,1]",
+        "samples": 720,
+        "maximum_difference": {
+          "time_seconds": 0.12875,
+          "index": [
+            22
+          ],
+          "signed_value": -0.00019311937544889805,
+          "absolute_value": 0.00019311937544889805,
+          "component": "roll_rate_rad_s",
+          "coarse_value": -4.731870965100991e-05,
+          "fine_value": -0.00024043808509990796,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0014110098335352354,
+        "reference_norm_location": {
+          "time_seconds": 0.7675,
+          "index": [
+            533
+          ],
+          "signed_value": 0.0014110098335352354,
+          "absolute_value": 0.0014110098335352354,
+          "component": "roll_rate_rad_s"
+        },
+        "relative_infinity_difference": 0.13686607340293602
+      },
+      {
+        "group": "sideslip_rad",
+        "band": "full_time_[0,1]",
+        "samples": 801,
+        "maximum_difference": {
+          "time_seconds": 0.13,
+          "index": [
+            104
+          ],
+          "signed_value": 3.732370190109792e-05,
+          "absolute_value": 3.732370190109792e-05,
+          "component": "sideslip_rad",
+          "coarse_value": 0.0003909156083384098,
+          "fine_value": 0.0004282393102395077,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0035889997161263963,
+        "reference_norm_location": {
+          "time_seconds": 1.0,
+          "index": [
+            800
+          ],
+          "signed_value": 0.0035889997161263963,
+          "absolute_value": 0.0035889997161263963,
+          "component": "sideslip_rad"
+        },
+        "relative_infinity_difference": 0.010399471956877543,
+        "original_full_time_gate_unchanged": true,
+        "passes_original_0p5percent_gate": false
+      },
+      {
+        "group": "sideslip_rad",
+        "band": "[0,.01]",
+        "samples": 9,
+        "maximum_difference": {
+          "time_seconds": 0.00625,
+          "index": [
+            5
+          ],
+          "signed_value": 5.301026830814547e-06,
+          "absolute_value": 5.301026830814547e-06,
+          "component": "sideslip_rad",
+          "coarse_value": 2.4504688918677035e-06,
+          "fine_value": 7.751495722682251e-06,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 1.6491301583107796e-05,
+        "reference_norm_location": {
+          "time_seconds": 0.01,
+          "index": [
+            8
+          ],
+          "signed_value": -1.6491301583107796e-05,
+          "absolute_value": 1.6491301583107796e-05,
+          "component": "sideslip_rad"
+        },
+        "relative_infinity_difference": 0.3214438110964171
+      },
+      {
+        "group": "sideslip_rad",
+        "band": "(.01,.1]",
+        "samples": 72,
+        "maximum_difference": {
+          "time_seconds": 0.08875,
+          "index": [
+            62
+          ],
+          "signed_value": -3.481050067325931e-05,
+          "absolute_value": 3.481050067325931e-05,
+          "component": "sideslip_rad",
+          "coarse_value": 0.00021159286148363294,
+          "fine_value": 0.00017678236081037363,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.00035024118101191617,
+        "reference_norm_location": {
+          "time_seconds": 0.08,
+          "index": [
+            55
+          ],
+          "signed_value": 0.00035024118101191617,
+          "absolute_value": 0.00035024118101191617,
+          "component": "sideslip_rad"
+        },
+        "relative_infinity_difference": 0.09939008477725228
+      },
+      {
+        "group": "sideslip_rad",
+        "band": "(.1,1]",
+        "samples": 720,
+        "maximum_difference": {
+          "time_seconds": 0.13,
+          "index": [
+            23
+          ],
+          "signed_value": 3.732370190109792e-05,
+          "absolute_value": 3.732370190109792e-05,
+          "component": "sideslip_rad",
+          "coarse_value": 0.0003909156083384098,
+          "fine_value": 0.0004282393102395077,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0035889997161263963,
+        "reference_norm_location": {
+          "time_seconds": 1.0,
+          "index": [
+            719
+          ],
+          "signed_value": 0.0035889997161263963,
+          "absolute_value": 0.0035889997161263963,
+          "component": "sideslip_rad"
+        },
+        "relative_infinity_difference": 0.010399471956877543
+      },
+      {
+        "group": "bank_rad",
+        "band": "full_time_[0,1]",
+        "samples": 801,
+        "maximum_difference": {
+          "time_seconds": 0.135,
+          "index": [
+            108
+          ],
+          "signed_value": 9.189481941172106e-07,
+          "absolute_value": 9.189481941172106e-07,
+          "component": "bank_rad",
+          "coarse_value": -5.603440600169766e-05,
+          "fine_value": -5.511545780758045e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0010709665344865572,
+        "reference_norm_location": {
+          "time_seconds": 1.0,
+          "index": [
+            800
+          ],
+          "signed_value": -0.0010709665344865572,
+          "absolute_value": 0.0010709665344865572,
+          "component": "bank_rad"
+        },
+        "relative_infinity_difference": 0.0008580550040788835,
+        "original_full_time_gate_unchanged": true,
+        "passes_original_0p5percent_gate": true
+      },
+      {
+        "group": "bank_rad",
+        "band": "[0,.01]",
+        "samples": 9,
+        "maximum_difference": {
+          "time_seconds": 0.0075,
+          "index": [
+            6
+          ],
+          "signed_value": 4.1404556901697803e-08,
+          "absolute_value": 4.1404556901697803e-08,
+          "component": "bank_rad",
+          "coarse_value": 2.8579913144082773e-08,
+          "fine_value": 6.998447004578058e-08,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 6.998447004578058e-08,
+        "reference_norm_location": {
+          "time_seconds": 0.0075,
+          "index": [
+            6
+          ],
+          "signed_value": 6.998447004578058e-08,
+          "absolute_value": 6.998447004578058e-08,
+          "component": "bank_rad"
+        },
+        "relative_infinity_difference": 0.5916249258530195
+      },
+      {
+        "group": "bank_rad",
+        "band": "(.01,.1]",
+        "samples": 72,
+        "maximum_difference": {
+          "time_seconds": 0.08375,
+          "index": [
+            58
+          ],
+          "signed_value": 8.740972576737795e-07,
+          "absolute_value": 8.740972576737795e-07,
+          "component": "bank_rad",
+          "coarse_value": -2.4943419889031972e-05,
+          "fine_value": -2.4069322631358193e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 3.0328907819535208e-05,
+        "reference_norm_location": {
+          "time_seconds": 0.07125,
+          "index": [
+            48
+          ],
+          "signed_value": -3.0328907819535208e-05,
+          "absolute_value": 3.0328907819535208e-05,
+          "component": "bank_rad"
+        },
+        "relative_infinity_difference": 0.02882059792178745
+      },
+      {
+        "group": "bank_rad",
+        "band": "(.1,1]",
+        "samples": 720,
+        "maximum_difference": {
+          "time_seconds": 0.135,
+          "index": [
+            27
+          ],
+          "signed_value": 9.189481941172106e-07,
+          "absolute_value": 9.189481941172106e-07,
+          "component": "bank_rad",
+          "coarse_value": -5.603440600169766e-05,
+          "fine_value": -5.511545780758045e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0010709665344865572,
+        "reference_norm_location": {
+          "time_seconds": 1.0,
+          "index": [
+            719
+          ],
+          "signed_value": -0.0010709665344865572,
+          "absolute_value": 0.0010709665344865572,
+          "component": "bank_rad"
+        },
+        "relative_infinity_difference": 0.0008580550040788835
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "band": "full_time_[0,1]",
+        "samples": 801,
+        "maximum_difference": {
+          "time_seconds": 0.0675,
+          "index": [
+            54,
+            35,
+            4
+          ],
+          "signed_value": -3.377066767940979e-05,
+          "absolute_value": 3.377066767940979e-05,
+          "node_index": 35,
+          "beam": 2,
+          "material_station": -7.5,
+          "component": "spatial_rotation_y_rad",
+          "state_column": 214,
+          "coarse_value": 0.0001336491349653165,
+          "fine_value": 9.98784672859067e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.004427854694307006,
+        "reference_norm_location": {
+          "time_seconds": 0.395,
+          "index": [
+            316,
+            75,
+            3
+          ],
+          "signed_value": -0.004427854694307006,
+          "absolute_value": 0.004427854694307006,
+          "node_index": 75,
+          "beam": 3,
+          "material_station": 5.0,
+          "component": "spatial_rotation_x_rad",
+          "state_column": 453
+        },
+        "relative_infinity_difference": 0.007626868994330259,
+        "original_full_time_gate_unchanged": true,
+        "passes_original_0p5percent_gate": false
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "band": "[0,.01]",
+        "samples": 9,
+        "maximum_difference": {
+          "time_seconds": 0.01,
+          "index": [
+            8,
+            75,
+            5
+          ],
+          "signed_value": 2.635186640586229e-05,
+          "absolute_value": 2.635186640586229e-05,
+          "node_index": 75,
+          "beam": 3,
+          "material_station": 5.0,
+          "component": "spatial_rotation_z_rad",
+          "state_column": 455,
+          "coarse_value": -0.0008275404414995279,
+          "fine_value": -0.0008011885750936656,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.0008287228933297121,
+        "reference_norm_location": {
+          "time_seconds": 0.01,
+          "index": [
+            8,
+            72,
+            5
+          ],
+          "signed_value": -0.0008287228933297121,
+          "absolute_value": 0.0008287228933297121,
+          "node_index": 72,
+          "beam": 3,
+          "material_station": 4.283745852285818,
+          "component": "spatial_rotation_z_rad",
+          "state_column": 437
+        },
+        "relative_infinity_difference": 0.031798163919405625
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "band": "(.01,.1]",
+        "samples": 72,
+        "maximum_difference": {
+          "time_seconds": 0.0675,
+          "index": [
+            45,
+            35,
+            4
+          ],
+          "signed_value": -3.377066767940979e-05,
+          "absolute_value": 3.377066767940979e-05,
+          "node_index": 35,
+          "beam": 2,
+          "material_station": -7.5,
+          "component": "spatial_rotation_y_rad",
+          "state_column": 214,
+          "coarse_value": 0.0001336491349653165,
+          "fine_value": 9.98784672859067e-05,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.003614746860747683,
+        "reference_norm_location": {
+          "time_seconds": 0.03125,
+          "index": [
+            16,
+            75,
+            5
+          ],
+          "signed_value": -0.003614746860747683,
+          "absolute_value": 0.003614746860747683,
+          "node_index": 75,
+          "beam": 3,
+          "material_station": 5.0,
+          "component": "spatial_rotation_z_rad",
+          "state_column": 455
+        },
+        "relative_infinity_difference": 0.009342470989081815
+      },
+      {
+        "group": "complete_scaled_nodal_motion",
+        "band": "(.1,1]",
+        "samples": 720,
+        "maximum_difference": {
+          "time_seconds": 0.1875,
+          "index": [
+            69,
+            75,
+            5
+          ],
+          "signed_value": 3.025568279522821e-05,
+          "absolute_value": 3.025568279522821e-05,
+          "node_index": 75,
+          "beam": 3,
+          "material_station": 5.0,
+          "component": "spatial_rotation_z_rad",
+          "state_column": 455,
+          "coarse_value": 0.0026369169779009286,
+          "fine_value": 0.002667172660696157,
+          "difference_sign": "fine minus coarse"
+        },
+        "reference_norm": 0.004427854694307006,
+        "reference_norm_location": {
+          "time_seconds": 0.395,
+          "index": [
+            235,
+            75,
+            3
+          ],
+          "signed_value": -0.004427854694307006,
+          "absolute_value": 0.004427854694307006,
+          "node_index": 75,
+          "beam": 3,
+          "material_station": 5.0,
+          "component": "spatial_rotation_x_rad",
+          "state_column": 453
+        },
+        "relative_infinity_difference": 0.006833034253388809
+      }
+    ],
+    "qualitative_findings": [
+      "All four scalar channels have their largest800-to1600 differences after0.1s: yaw0.1475s,roll0.12875s,sideslip0.13s,bank0.135s. The error is not confined to the first0.01s.",
+      "Complete scaled motion reaches its largest difference at0.0675s: beam2,t=-7.5,spatial rotation_y (tailplane tip). For0.1<t<=1 its largest difference is at0.1875s: beam3,t=5,spatial rotation_z (upper fin tip).",
+      "Fine yaw absolute peak decreases from0.0046199763 at0.05125s to decile maxima near0.003 after0.3s, with persistent fluctuations rather than monotonic decay.",
+      "Fine roll has a substantial early positive peak0.0013788064 at0.105625s and a later slightly larger peak0.0014110712 at0.766875s; late decile maxima remain about0.00135-0.00141. This is not a startup-only spike or a monotone decay.",
+      "Sideslip and bank magnitude increase toward their largest saved values at1s; their early sign-changing oscillations give way to slower drift. This does not by itself establish an unstable mode.",
+      "Fine complete-motion norm peaks at0.395625s then its decile maximum decreases through1s; different components can control that norm.",
+      "Time-band ratios use their own explicitly recorded fine-grid reference norm. Very small early norms explain the large early percentages; no floor, reweighting, or acceptance change is applied.",
+      "Original full-time differences, norms and ratios reproduce exactly. Four of five original0.5% criteria still fail; only bank passes. No new simulation, factorization, solve, matrix product or timestep was performed."
+    ],
+    "acceptance": "Original full-time0.5% gate unchanged; time bands are descriptive."
+  },
+  "nonlinear_fine_and_half_amplitude_executed": false,
+  "historical_output_cost": {
+    "artifact": {
+      "archive": "/home/userland/aswing/docs/validation/direct-time-circulation.zip",
+      "archive_pin": {
+        "bytes": 61590197,
+        "sha256": "4595eb323630d5cbe068c25c38815146e0236da98beb97941b2bb561b4f59081"
+      },
+      "member": "observations/full-candidate-01-dae/response.json",
+      "member_pin": {
+        "bytes": 41705987,
+        "sha256": "5ace488d2e1fb49211c747b9aae9a7bf33fe766fb874d71e99436cbfa52763db"
+      },
+      "compressed_bytes": 14579981
+    },
+    "exact_duplicate_state_option_value_bytes": 9982512,
+    "exact_duplicate_fraction": 0.2393544121135414,
+    "caveat": "Gross removable value bytes before small reference-key overhead; no encoder implemented or benchmarked. Values were independently equality-checked. Numerical chart values, coefficients and acceptance metadata are retained.",
+    "chronology": "Historical cost receipt predates the newly measured C16 run. Its then-unmeasured statement is preserved as historical evidence.",
+    "browser_stall_cause_established": false
+  },
+  "current_C16_serialization": {
+    "native_file_bytes": 44185789,
+    "bridge_equivalent": {
+      "bytes": 22713890,
+      "sha256": "b9a1c67b1e9068c57e892167ac6971a66d6eee61096aa33fa6b7aa698e5f6c2e"
+    },
+    "bridge_encoding": {
+      "source": "openswing/bridge.py:171-172",
+      "expression": "json.dumps(result, allow_nan=False)",
+      "indent": null,
+      "ensure_ascii": true,
+      "separators": [
+        ", ",
+        ": "
+      ],
+      "sort_keys": false,
+      "trailing_newline": false,
+      "byte_encoding": "UTF-8"
+    },
+    "exact_duplicate_value_bytes": 5582029,
+    "duplicate_fraction_of_bridge_bytes": 0.24575398577698493,
+    "caveats": [
+      "The bridge dispatch itself was not invoked; only its exact JSON encoder options were applied to the final saved native result.",
+      "Duplicate bytes are gross replaceable value bytes before reference-key/schema overhead; no new encoder was implemented.",
+      "No estimate of browser memory, transfer time, garbage collection or stall causation follows from these sizes.",
+      "The historical Dae48 measurements and their receipt remain unchanged."
+    ]
+  },
+  "receipts": {
+    "/tmp/openswing-daedalus-time-consistency-20261025/native-preparation/session-closeout-amplitude-0p1-dt-0p04.json": {
+      "bytes": 984,
+      "sha256": "14490d63032ed5f5f20544484126d9a7d25ced7f6ba1d5105e1acb1be47a7da1"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/native-preparation/owner-case-summary-amplitude-0p1-dt-0p04.json": {
+      "bytes": 18547,
+      "sha256": "866d911b800d5e9c8b64ee2fbecd318c47d8a5a1f4f33252036ffa7385e6effd"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/native-preparation/results/amplitude-0p1-dt-0p04/report.json": {
+      "bytes": 4894,
+      "sha256": "1fb60d2652128c84a9c463036787edc550bbf269682bc1cc9daa10736b07121d"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/coarse-comparison/report.json": {
+      "bytes": 3403,
+      "sha256": "0c25134b892d6fea185728ac0c08b3a45880a1cbdd24df021a0bcb372b5e936c"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/saved-coarse-review/results/report.json": {
+      "bytes": 62224,
+      "sha256": "775e1365835ea07dde54fb61f6978b598caa2e9f74d8f1e342a2b6e2c5bcfac7"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/saved-coarse-review/session-closeout.json": {
+      "bytes": 729,
+      "sha256": "b598eb3d2e4d787cd390d1dd5ba9a73ca984c09cb4852ddd0800af9298edb268"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/report.json": {
+      "bytes": 4385,
+      "sha256": "dbdba1d99315193554cfaac16200b978aecd8d7b1dfc37dc8e4b9b1309e2116b"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-results/session-closeout.json": {
+      "bytes": 719,
+      "sha256": "84cc2d0e696d1b60dbce0ae9d04388aae7566d24b75b37e598484f764ed7fec5"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/report.json": {
+      "bytes": 7558,
+      "sha256": "254e48ea98eee6fb22ada763473032f9fc1a01b76299047c1c84cdb02b14d0a8"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/session-closeout.json": {
+      "bytes": 2951,
+      "sha256": "097aade16c64653c8980b3d6a177f6173303a9b50bf0f9704272724f8bf45909"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/linear-results/temporal-comparison.json": {
+      "bytes": 41878,
+      "sha256": "0da50d9e24380a204c83cb768fae1ee4cd7f93634900a6aee48d9616453a94f6"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/report.json": {
+      "bytes": 49009,
+      "sha256": "bce3e90cf1bbe0c2a3d5141562c80d42169c4a66dfebd767819efa577f003460"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/linear-refinement/time-band-diagnostic/session-closeout.json": {
+      "bytes": 1836,
+      "sha256": "bd0522760bc19f8f6c39aad2b1a3e4ad93929a0eceffa26fd9f136bb90e0e0be"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/output-cost-review/receipt.json": {
+      "bytes": 625,
+      "sha256": "be7c8b1a880c4ae1a98bf2d2b192a27c30993f44f121e37224adcb8a953d6a74"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/output-cost-review/current-c16.json": {
+      "bytes": 23925,
+      "sha256": "c40ddf8aae90ea02bd4fd0ef22a764093a34cda4660505e7f3f72bb6b4d9a053"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/output-cost-review/current-c16-closeout.json": {
+      "bytes": 768,
+      "sha256": "5fc2c68f7e39bb9fe55e0c181432c52f643234e804ca51ad8594e374857101fb"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/figures/report.json": {
+      "bytes": 2597,
+      "sha256": "4f322e55743c95e1e1cd81fb6cef5e07afa6c023635de4e39cfd123c8342bf59"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/figures/session-closeout.json": {
+      "bytes": 540,
+      "sha256": "0571200de0f604999c0910f81f363b685a135751d8009ac9780451ec72b2eda8"
+    }
+  },
+  "figure_sources": {
+    "/tmp/openswing-daedalus-time-consistency-20261025/figures/daedalus-rudder-time-consistency.svg": {
+      "bytes": 119901,
+      "sha256": "2663c8579a6f145901acb17fdd9d60865f2faba4398ee3089fdc6a414e97507a"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/figures/daedalus-rudder-time-consistency.png": {
+      "bytes": 290927,
+      "sha256": "0f7d3623a7d4268d3d777e4c6f747b197cdd4302f66de870d14f1d3e53015e84"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/figures/daedalus-rudder-time-consistency.csv": {
+      "bytes": 365985,
+      "sha256": "0b0c1589d059d64de6557ba7a55ed44c008ddc9a468ea3afa31b75416e8e115f"
+    },
+    "/tmp/openswing-daedalus-time-consistency-20261025/plot.py": {
+      "bytes": 3769,
+      "sha256": "52719b905ca1657644f4c9d9083160ea26cde1140943a000e76997e10a3e5d1c"
+    }
+  },
+  "evidence": {
+    "archive": "daedalus-rudder-time-consistency-20261025-evidence.zip",
+    "manifest": "manifest.json",
+    "external_dependencies": "external-dependencies.json",
+    "raw": "All current stage raw states, BDF residual packets, snapshots, restarts, full seven-grid linear states, source, plans, retained preparation/failure evidence and final receipts.",
+    "old_archives": "Historical repository ZIPs are not duplicated; their paths and hashes are retained and they are required separately for those historical claims."
+  },
+  "limitations": [
+    "Coarse same-grid agreement does not establish continuous-time accuracy or nonlinear amplitude convergence.",
+    "The temporal 0.5% criterion remains failed for yaw, roll, sideslip and full scaled motion at the finest saved pair; bank alone passes.",
+    "No nonlinear fine-grid or half-amplitude case was executed. No inferred acceptance from the coarse metrics.",
+    "Native CPU/RSS/output-size measurements are case-specific. Browser performance and the cause of the reported browser stall were not measured.",
+    "No production equations/defaults, browser code, build, WASM or hosted release changed. The historical Daedalus near-1-Hz Bode mismatch remains unresolved."
+  ],
+  "next": [
+    "Implement lossless trajectory/checkpoint storage against these exact saved data; verify exact round trips and browser resume without dropping steps, precision, physical values or restart metadata, and without changing dt or equations.",
+    "Separately study efficient, accuracy-controlled transient integration before repeating fine nonlinear/amplitude convergence cases.",
+    "Preserve the unresolved full-aircraft Bode discrepancy and accepted component evidence; do not fit parameters or claim reference parity."
+  ]
+}

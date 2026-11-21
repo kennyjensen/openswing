@@ -1,0 +1,978 @@
+{
+  "status": "DIAGNOSTIC_SOURCE_DISCRETE_COMPARISON_COMPLETE",
+  "goal_complete": false,
+  "acceptance": "Original archived ASWING outputs. Experiment agreement is optional and not an acceptance blocker.",
+  "source_sha256": "4ae68c3970b38a3ed4656620cc048fba00c1d788bf141e79c22b385add4736ec",
+  "target_sha256": "5e96202114d1912ffb6b4472eaadcd02a24e31140e28222bbe7186e21334cf4f",
+  "plan_sha256": "247e64816b4f8cdcbd0030ac0021098ee5cf241423e3943a853694172df8ee04",
+  "kernel_pins": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+    "openswing/applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+    "openswing/arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+    "openswing/asw.py": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd",
+    "openswing/asw_edit.py": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/bridge.py": "aee0537bc901063cc5efdcf4c3eca80f5aeb01d6c9c00567697ed9cd2c42e5b1",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+    "openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "openswing/circulation_tangent.py": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+    "openswing/derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+    "openswing/derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+    "openswing/descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+    "openswing/discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+    "openswing/equilibrium_state.py": "83e26b6c54898339a2874fee2d58c6100a8e6efecaed5c16f31433a21662eed6",
+    "openswing/equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+    "openswing/factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+    "openswing/feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+    "openswing/field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+    "openswing/flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+    "openswing/forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "openswing/frequency_response.py": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c",
+    "openswing/frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+    "openswing/frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+    "openswing/geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+    "openswing/geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+    "openswing/geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+    "openswing/geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+    "openswing/geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+    "openswing/ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+    "openswing/harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+    "openswing/hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+    "openswing/inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+    "openswing/initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+    "openswing/linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+    "openswing/local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+    "openswing/local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+    "openswing/local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+    "openswing/mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+    "openswing/network.py": "cb5a264ea9ac75632c5bfdcf226c1101398fbcf867bef11b478aae0340df6943",
+    "openswing/newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+    "openswing/nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+    "openswing/operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "openswing/output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+    "openswing/output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+    "openswing/position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "openswing/position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "openswing/position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "openswing/power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+    "openswing/propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+    "openswing/quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+    "openswing/radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+    "openswing/radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "openswing/seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+    "openswing/stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+    "openswing/steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+    "openswing/structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+    "openswing/structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+    "openswing/structured_static.py": "ad68533017abc75d506a5db305b42c269219c403145c4d07590fa96f857519a3",
+    "openswing/structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+    "openswing/tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+    "openswing/time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "openswing/time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+    "openswing/time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+    "openswing/time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "openswing/time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "openswing/time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+    "openswing/time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "openswing/time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+    "openswing/time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+    "openswing/time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+    "openswing/time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+    "openswing/time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+    "openswing/volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+    "openswing/volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+    "openswing/vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+    "openswing/wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+  },
+  "columns": [
+    "t",
+    "x-x0",
+    "y",
+    "z-z0",
+    "phi",
+    "tw-tw0",
+    "psi",
+    "Mc_prime",
+    "Ms_prime",
+    "Mn_prime",
+    "Fc",
+    "Fs",
+    "Fn",
+    "ux",
+    "uy",
+    "uz",
+    "wc",
+    "ws",
+    "wn",
+    "eps",
+    "tau",
+    "chord",
+    "cl",
+    "cm",
+    "f_aero",
+    "f_reac",
+    "da_eff",
+    "a_flap"
+  ],
+  "rows": 80,
+  "structural_entries": 1120,
+  "conditional_zero_entries": 800,
+  "input_echo_entries": 160,
+  "unresolved_display_entries": 80,
+  "cold_solves": 3,
+  "fresh_residuals": 3,
+  "all_numerical_gates_pass": true,
+  "all_fine_mesh_gates_pass": false,
+  "strict_structural_reference_match": false,
+  "meshes": [
+    {
+      "level": 0,
+      "intervals_by_beam": {
+        "1": 38,
+        "2": 32
+      },
+      "seconds": 1.2632329699990805,
+      "numerical_gates_pass": true,
+      "checks": {
+        "fresh_residual": 1.081974548532268e-14,
+        "stored_residual": 1.0819342079577729e-14,
+        "force_balance": 2.1316282072803006e-14,
+        "moment_balance": 4.30866453626777e-12,
+        "clamps": 1.5064037343655723e-27,
+        "joint_position": 7.150313327541902e-16,
+        "joint_rotation": 0.0
+      },
+      "metrics": {
+        "x-x0": {
+          "max_abs_difference": 6.835013727701442e-07,
+          "rmse": 3.2175530720406756e-07,
+          "matches": 69
+        },
+        "y": {
+          "max_abs_difference": 1.0437131869878158e-06,
+          "rmse": 4.370273287360759e-07,
+          "matches": 58
+        },
+        "z-z0": {
+          "max_abs_difference": 5.371747143212424e-07,
+          "rmse": 2.9936640293457485e-07,
+          "matches": 77
+        },
+        "phi": {
+          "max_abs_difference": 6.349889309475998e-06,
+          "rmse": 2.763707402903205e-06,
+          "matches": 8
+        },
+        "tw-tw0": {
+          "max_abs_difference": 8.3712078346454e-06,
+          "rmse": 3.9877773781161495e-06,
+          "matches": 14
+        },
+        "psi": {
+          "max_abs_difference": 1.0038112250754239e-05,
+          "rmse": 4.849177906869644e-06,
+          "matches": 15
+        },
+        "Mc_prime": {
+          "max_abs_difference": 7.650127291450315e-05,
+          "rmse": 2.241446921141401e-05,
+          "matches": 23
+        },
+        "Ms_prime": {
+          "max_abs_difference": 8.729593207279507e-05,
+          "rmse": 3.60034013027432e-05,
+          "matches": 20
+        },
+        "Mn_prime": {
+          "max_abs_difference": 0.0008019148825084699,
+          "rmse": 0.00029933373849618536,
+          "matches": 20
+        },
+        "Fc": {
+          "max_abs_difference": 0.0005110075206342657,
+          "rmse": 0.0003547243150350217,
+          "matches": 20
+        },
+        "Fs": {
+          "max_abs_difference": 0.0003434675301878798,
+          "rmse": 0.00023378239435842458,
+          "matches": 20
+        },
+        "Fn": {
+          "max_abs_difference": 3.877233927063184e-05,
+          "rmse": 2.0093372492355556e-05,
+          "matches": 20
+        },
+        "ux": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uy": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uz": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wc": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "ws": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wn": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "eps": {
+          "max_abs_difference": 1.2199556854072791e-08,
+          "rmse": 3.4130148628153565e-09,
+          "matches": 19
+        },
+        "tau": {
+          "max_abs_difference": 0.04004703104396867,
+          "rmse": 0.014345192336731417,
+          "matches": 20
+        },
+        "chord": {
+          "max_abs_difference": 6.297513722719472e-07,
+          "rmse": 3.2052788108260256e-07,
+          "matches": 70
+        },
+        "cl": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "cm": {
+          "max_abs_difference": 0.00011163359890957458,
+          "rmse": 5.323280507241761e-05,
+          "matches": 40
+        },
+        "f_aero": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "f_reac": {
+          "max_abs_difference": 0.08648197491856369,
+          "rmse": 0.04014985107827883,
+          "matches": 3
+        },
+        "da_eff": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "a_flap": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        }
+      },
+      "applied_force": [
+        0.0,
+        0.0,
+        38.58023396532735
+      ],
+      "applied_moment_about_Xmom": [
+        -1.9390299256212898e-08,
+        0.5990618899834629,
+        0.0
+      ],
+      "applied_moment_about_origin": [
+        -1.9390299256212898e-08,
+        -41.453393132223354,
+        0.0
+      ],
+      "structural_matches": 403,
+      "structural_entries": 1120,
+      "full_structural_rows": 0
+    },
+    {
+      "level": 1,
+      "intervals_by_beam": {
+        "1": 76,
+        "2": 64
+      },
+      "seconds": 1.9875912780044018,
+      "numerical_gates_pass": true,
+      "checks": {
+        "fresh_residual": 9.246840024596433e-15,
+        "stored_residual": 9.247243218109322e-15,
+        "force_balance": 1.4210854715202004e-14,
+        "moment_balance": 4.254596674968525e-12,
+        "clamps": 3.7522311671163406e-27,
+        "joint_position": 6.26560435479373e-16,
+        "joint_rotation": 0.0
+      },
+      "metrics": {
+        "x-x0": {
+          "max_abs_difference": 5.216323098146056e-06,
+          "rmse": 1.805633505483043e-06,
+          "matches": 44
+        },
+        "y": {
+          "max_abs_difference": 4.147073213722763e-06,
+          "rmse": 1.808319188779134e-06,
+          "matches": 25
+        },
+        "z-z0": {
+          "max_abs_difference": 5.972183097502706e-05,
+          "rmse": 2.089128137984839e-05,
+          "matches": 6
+        },
+        "phi": {
+          "max_abs_difference": 0.003411943558010222,
+          "rmse": 0.0015927237154144496,
+          "matches": 0
+        },
+        "tw-tw0": {
+          "max_abs_difference": 0.0015365310036461674,
+          "rmse": 0.0006836035053143888,
+          "matches": 4
+        },
+        "psi": {
+          "max_abs_difference": 0.00031065564842336357,
+          "rmse": 0.0001864974330014845,
+          "matches": 0
+        },
+        "Mc_prime": {
+          "max_abs_difference": 0.031316413621048866,
+          "rmse": 0.008778483722258371,
+          "matches": 4
+        },
+        "Ms_prime": {
+          "max_abs_difference": 0.006145012336136624,
+          "rmse": 0.003345859145865193,
+          "matches": 6
+        },
+        "Mn_prime": {
+          "max_abs_difference": 0.13401948262660213,
+          "rmse": 0.04576444694837016,
+          "matches": 6
+        },
+        "Fc": {
+          "max_abs_difference": 0.049605169850947206,
+          "rmse": 0.02700557725761745,
+          "matches": 10
+        },
+        "Fs": {
+          "max_abs_difference": 0.056763701484220164,
+          "rmse": 0.04005078659714281,
+          "matches": 10
+        },
+        "Fn": {
+          "max_abs_difference": 0.022976348464270657,
+          "rmse": 0.010985639232939617,
+          "matches": 6
+        },
+        "ux": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uy": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uz": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wc": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "ws": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wn": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "eps": {
+          "max_abs_difference": 2.2317954914019165e-07,
+          "rmse": 1.277794906711605e-07,
+          "matches": 2
+        },
+        "tau": {
+          "max_abs_difference": 3.034231240495842,
+          "rmse": 1.6566056687984265,
+          "matches": 6
+        },
+        "chord": {
+          "max_abs_difference": 6.297513722719472e-07,
+          "rmse": 3.2052788108260256e-07,
+          "matches": 70
+        },
+        "cl": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "cm": {
+          "max_abs_difference": 0.00011163359890957458,
+          "rmse": 5.323280507241761e-05,
+          "matches": 40
+        },
+        "f_aero": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "f_reac": {
+          "max_abs_difference": 0.08648197491856369,
+          "rmse": 0.04014985107827883,
+          "matches": 3
+        },
+        "da_eff": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "a_flap": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        }
+      },
+      "applied_force": [
+        0.0,
+        0.0,
+        38.606330073334625
+      ],
+      "applied_moment_about_Xmom": [
+        -3.871134569000925e-09,
+        0.6111433193803448,
+        0.0
+      ],
+      "applied_moment_about_origin": [
+        -3.871134569000925e-09,
+        -41.4697564605544,
+        0.0
+      ],
+      "structural_matches": 129,
+      "structural_entries": 1120,
+      "full_structural_rows": 0
+    },
+    {
+      "level": 2,
+      "intervals_by_beam": {
+        "1": 152,
+        "2": 128
+      },
+      "seconds": 3.6469641699950444,
+      "numerical_gates_pass": true,
+      "checks": {
+        "fresh_residual": 8.458263632961748e-15,
+        "stored_residual": 8.457860503365058e-15,
+        "force_balance": 7.105427357601002e-15,
+        "moment_balance": 4.246825113796149e-12,
+        "clamps": 2.1526463973968497e-27,
+        "joint_position": 3.6000933137381175e-16,
+        "joint_rotation": 0.0
+      },
+      "metrics": {
+        "x-x0": {
+          "max_abs_difference": 6.3542376804847506e-06,
+          "rmse": 2.2127388732781007e-06,
+          "matches": 38
+        },
+        "y": {
+          "max_abs_difference": 5.082415968082898e-06,
+          "rmse": 2.224830152321719e-06,
+          "matches": 24
+        },
+        "z-z0": {
+          "max_abs_difference": 7.468386987586131e-05,
+          "rmse": 2.6145716188465105e-05,
+          "matches": 6
+        },
+        "phi": {
+          "max_abs_difference": 0.004267005461821682,
+          "rmse": 0.00199217260625174,
+          "matches": 0
+        },
+        "tw-tw0": {
+          "max_abs_difference": 0.0019226343760966602,
+          "rmse": 0.0008559571413581794,
+          "matches": 4
+        },
+        "psi": {
+          "max_abs_difference": 0.0003867310891401132,
+          "rmse": 0.00023279307461831865,
+          "matches": 0
+        },
+        "Mc_prime": {
+          "max_abs_difference": 0.03914976989491059,
+          "rmse": 0.010974709548555235,
+          "matches": 4
+        },
+        "Ms_prime": {
+          "max_abs_difference": 0.007659078618959869,
+          "rmse": 0.004174098191276816,
+          "matches": 6
+        },
+        "Mn_prime": {
+          "max_abs_difference": 0.16768711032624495,
+          "rmse": 0.05725306017104668,
+          "matches": 6
+        },
+        "Fc": {
+          "max_abs_difference": 0.062088054645109025,
+          "rmse": 0.03381214587395452,
+          "matches": 8
+        },
+        "Fs": {
+          "max_abs_difference": 0.07101499631245467,
+          "rmse": 0.050102310079753035,
+          "matches": 10
+        },
+        "Fn": {
+          "max_abs_difference": 0.028727947808024012,
+          "rmse": 0.013736027869384779,
+          "matches": 6
+        },
+        "ux": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uy": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "uz": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wc": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "ws": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "wn": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "eps": {
+          "max_abs_difference": 2.7878929521389065e-07,
+          "rmse": 1.5996559431085688e-07,
+          "matches": 2
+        },
+        "tau": {
+          "max_abs_difference": 3.781918772261861,
+          "rmse": 2.0686915340887544,
+          "matches": 6
+        },
+        "chord": {
+          "max_abs_difference": 6.297513722719472e-07,
+          "rmse": 3.2052788108260256e-07,
+          "matches": 70
+        },
+        "cl": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "cm": {
+          "max_abs_difference": 0.00011163359890957458,
+          "rmse": 5.323280507241761e-05,
+          "matches": 40
+        },
+        "f_aero": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "f_reac": {
+          "max_abs_difference": 0.08648197491856369,
+          "rmse": 0.04014985107827883,
+          "matches": 3
+        },
+        "da_eff": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        },
+        "a_flap": {
+          "max_abs_difference": 0.0,
+          "rmse": 0.0,
+          "matches": 80
+        }
+      },
+      "applied_force": [
+        0.0,
+        0.0,
+        38.61284635063342
+      ],
+      "applied_moment_about_Xmom": [
+        -8.464733970521749e-10,
+        0.6141873414677046,
+        0.0
+      ],
+      "applied_moment_about_origin": [
+        -8.464733970521749e-10,
+        -41.473815180722724,
+        0.0
+      ],
+      "structural_matches": 120,
+      "structural_entries": 1120,
+      "full_structural_rows": 0
+    }
+  ],
+  "mesh_changes": [
+    {
+      "coarse": 0,
+      "fine": 1,
+      "measures": {
+        "x-x0": {
+          "max_abs_change": 4.6375006439447475e-06,
+          "fine_deformation_envelope": 0.0028088308544849117,
+          "relative_change": 0.001651043043955447,
+          "passes": false
+        },
+        "y": {
+          "max_abs_change": 3.783409650903735e-06,
+          "fine_deformation_envelope": 0.0007390938462656926,
+          "relative_change": 0.005118984104683857,
+          "passes": false
+        },
+        "z-z0": {
+          "max_abs_change": 5.962084843236237e-05,
+          "fine_deformation_envelope": 0.011953278171862314,
+          "relative_change": 0.0049878240575634055,
+          "passes": false
+        },
+        "phi": {
+          "max_abs_change": 0.0034121661459289854,
+          "fine_deformation_envelope": 0.2845157470662736,
+          "relative_change": 0.011992890309632576,
+          "passes": false
+        },
+        "tw-tw0": {
+          "max_abs_change": 0.0015398038558333618,
+          "fine_deformation_envelope": 0.07404807945552619,
+          "relative_change": 0.020794649464989556,
+          "passes": false
+        },
+        "psi": {
+          "max_abs_change": 0.00030388316048757247,
+          "fine_deformation_envelope": 0.07055491469252928,
+          "relative_change": 0.004307044545541052,
+          "passes": false
+        },
+        "Mc_prime": {
+          "max_abs_change": 0.03131111010279852,
+          "fine_deformation_envelope": 11.933026415411105,
+          "relative_change": 0.0026239035273031217,
+          "passes": false
+        },
+        "Ms_prime": {
+          "max_abs_change": 0.006063219143677134,
+          "fine_deformation_envelope": 1.3188649876638634,
+          "relative_change": 0.004597300861263333,
+          "passes": false
+        },
+        "Mn_prime": {
+          "max_abs_change": 0.1346514466750044,
+          "fine_deformation_envelope": 31.125450517373398,
+          "relative_change": 0.004326088279424117,
+          "passes": false
+        },
+        "Fc": {
+          "max_abs_change": 0.04995538401620436,
+          "fine_deformation_envelope": 11.38302881508185,
+          "relative_change": 0.004388584517155608,
+          "passes": false
+        },
+        "Fs": {
+          "max_abs_change": 0.05701242281195462,
+          "fine_deformation_envelope": 13.995848694270428,
+          "relative_change": 0.00407352380390438,
+          "passes": false
+        },
+        "Fn": {
+          "max_abs_change": 0.023003942491147455,
+          "fine_deformation_envelope": 11.832406348464271,
+          "relative_change": 0.0019441474382878288,
+          "passes": false
+        },
+        "eps": {
+          "max_abs_change": 2.2230460816393408e-07,
+          "fine_deformation_envelope": 0.00019147399031090403,
+          "relative_change": 0.0011610172629868377,
+          "passes": false
+        },
+        "tau": {
+          "max_abs_change": 2.9941842094518734,
+          "fine_deformation_envelope": 651.2917687595041,
+          "relative_change": 0.0045973008612634645,
+          "passes": false
+        }
+      }
+    },
+    {
+      "coarse": 1,
+      "fine": 2,
+      "measures": {
+        "x-x0": {
+          "max_abs_change": 1.1626417157906133e-06,
+          "fine_deformation_envelope": 0.002807668212769121,
+          "relative_change": 0.0004140951236698776,
+          "passes": true
+        },
+        "y": {
+          "max_abs_change": 9.487501717586611e-07,
+          "fine_deformation_envelope": 0.0007387484382372911,
+          "relative_change": 0.0012842669069087305,
+          "passes": false
+        },
+        "z-z0": {
+          "max_abs_change": 1.4962040913835128e-05,
+          "fine_deformation_envelope": 0.011938316130948479,
+          "relative_change": 0.0012532790009679882,
+          "passes": false
+        },
+        "phi": {
+          "max_abs_change": 0.0008551254195010571,
+          "fine_deformation_envelope": 0.2836606216467725,
+          "relative_change": 0.00301460743664977,
+          "passes": false
+        },
+        "tw-tw0": {
+          "max_abs_change": 0.00038612998694390055,
+          "fine_deformation_envelope": 0.07402760035191196,
+          "relative_change": 0.005216027334511968,
+          "passes": false
+        },
+        "psi": {
+          "max_abs_change": 7.607544071674965e-05,
+          "fine_deformation_envelope": 0.07047883925181253,
+          "relative_change": 0.001079408252524437,
+          "passes": false
+        },
+        "Mc_prime": {
+          "max_abs_change": 0.007833356273861725,
+          "fine_deformation_envelope": 11.940859770291478,
+          "relative_change": 0.000656012751556709,
+          "passes": true
+        },
+        "Ms_prime": {
+          "max_abs_change": 0.0015140662828232454,
+          "fine_deformation_envelope": 1.3173509213810402,
+          "relative_change": 0.0011493264689381166,
+          "passes": false
+        },
+        "Mn_prime": {
+          "max_abs_change": 0.03366762769964282,
+          "fine_deformation_envelope": 31.091782889673755,
+          "relative_change": 0.0010828464813069487,
+          "passes": false
+        },
+        "Fc": {
+          "max_abs_change": 0.01248288479416182,
+          "fine_deformation_envelope": 11.37065993606954,
+          "relative_change": 0.0010978153303630271,
+          "passes": false
+        },
+        "Fs": {
+          "max_abs_change": 0.014251491175990338,
+          "fine_deformation_envelope": 13.981775716477197,
+          "relative_change": 0.0010192905010767187,
+          "passes": false
+        },
+        "Fn": {
+          "max_abs_change": 0.005751600175631921,
+          "fine_deformation_envelope": 11.838157947808025,
+          "relative_change": 0.0004858526301971582,
+          "passes": true
+        },
+        "eps": {
+          "max_abs_change": 5.5609746073699e-08,
+          "fine_deformation_envelope": 0.00019145831742686017,
+          "relative_change": 0.00029045354007638095,
+          "passes": true
+        },
+        "tau": {
+          "max_abs_change": 0.7476875317660188,
+          "fine_deformation_envelope": 650.544081227738,
+          "relative_change": 0.0011493264689380418,
+          "passes": false
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Unavailable historical exporter executable/source: selective scaling is independently source-supported, not proven by tracing its implementation.",
+    "The manual generic first18 nodal/remaining derived rule is contradicted by nonzero final rear eps/tau. Preserve eps/tau as nodal table observables.",
+    "Precise historical spline endpoint derivatives, mesh generation and interior unrounded t values are not recoverable from six-decimal output. Forward root jig Euler angle differs from a natural-spline reconstruction; do not force matching by fitting.",
+    "Positive forward joint prints2.000999 although literal anchor is2.001; a simple half-unit rounding interpretation does not encompass that coordinate. Exact known anchors and printed coordinates remain separate.",
+    "Forward/rear absolute Euler angles, one-sided local forces and moments must retain mirrored-root orientation and joint sidedness.",
+    "General nonflat f_reac projection and nonzero rate conventions are not established by this static snapshot.",
+    "Printed half-unit values describe output precision, not an engineering acceptance tolerance; coordinate/model reconstruction limitations must be reported separately.",
+    "Global sum moment origin must be independently established before comparing; Xmom alone does not prove the origin of this displayed diagnostic."
+  ],
+  "production_default_changed": false,
+  "app_restart_compatible": false,
+  "operator": "Absolute Eq48; Eq54 preferred Euler K endpoint average; inverse of endpoint-average stiffness; Eq55/56 endpoint-average gravity force with symmetric split and zero distributed couple.",
+  "operator_qualifications": [
+    "Historical ASWING spline caller and exact unrounded NODE coordinates unknown.",
+    "Eq48 scalar axial compliance uses Fs_a/EA_a, not explicitly printed separately.",
+    "Set ds=ds0=unloaded spline arc. Historical finite-strain ds convention unavailable.",
+    "Absolute Eq48 may move sampled curved jig at zero load; retain that source discrete effect, no silent exact-jig subtraction.",
+    "Mesh refinement tests continuum sensitivity; archived ASWING likely uses a finite grid. No reference pass implied by convergence."
+  ],
+  "archived_grid_diagnostics": {
+    "strict_printed_match": false,
+    "normalization": "Per channel max absolute difference / max absolute archived value. Descriptive only; not a new acceptance tolerance. Absolute angle/y envelopes include jig geometry.",
+    "normalized_max_percent": {
+      "x-x0": 0.024289316729571575,
+      "y": 3.229452491377455e-05,
+      "z-z0": 0.00447161170666147,
+      "phi": 4.332306758506801e-05,
+      "tw-tw0": 0.011292909338772663,
+      "psi": 3.1012789993621844e-05,
+      "Mc_prime": 0.0006427743942645578,
+      "Ms_prime": 0.0065883225087203165,
+      "Mn_prime": 0.002565350220296345,
+      "Fc": 0.004469904433225033,
+      "Fs": 0.00244427995229026,
+      "Fn": 0.0003283167711788955,
+      "eps": 0.006369345032159986,
+      "tau": 0.006120348426314815
+    },
+    "positive_tips": [
+      {
+        "beam": 1,
+        "quantities": {
+          "z-z0": {
+            "candidate": 0.012012899020294676,
+            "archived": 0.012013,
+            "signed_percent": -0.0008405869085425584
+          },
+          "tw-tw0": {
+            "candidate": -0.060048097266410055,
+            "archived": -0.06004,
+            "signed_percent": -0.013486453048055158
+          }
+        }
+      },
+      {
+        "beam": 2,
+        "quantities": {
+          "z-z0": {
+            "candidate": 0.006272537174714321,
+            "archived": 0.006272,
+            "signed_percent": 0.008564647868642259
+          },
+          "tw-tw0": {
+            "candidate": -0.059702649657781576,
+            "archived": -0.059695,
+            "signed_percent": -0.012814570368670187
+          }
+        }
+      }
+    ]
+  },
+  "primary_correction": "Rendered E_a^{-1} in Eq54 is inverse of averaged endpoint stiffness. Prior text-only average-inverse reading is superseded.",
+  "archive_balance_evidence": {
+    "stage": "/tmp/openswing-isae-st5-discrete-balance-20261026",
+    "finite_intervals": 70,
+    "force_triples_rounding_consistent": 70,
+    "moment_triples_rounding_consistent": 70,
+    "scope": "Independent archived printed data with propagated bounds; no fitted stations and no production solver."
+  },
+  "preflight": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "colored_vs_single_columns",
+        "passes": true,
+        "max_absolute": 0.0,
+        "max_gate_fraction": 0.0
+      },
+      {
+        "name": "fallback_vs_single_columns",
+        "passes": true,
+        "max_absolute": 0.0,
+        "max_gate_fraction": 0.0
+      },
+      {
+        "name": "symmetric_dead_gravity_transfer",
+        "passes": true
+      },
+      {
+        "name": "newton_hook_restored",
+        "passes": true
+      }
+    ],
+    "size": 876,
+    "elements": 70,
+    "residual_evaluations": 1390,
+    "equilibrium_solves": 0,
+    "elapsed_seconds": 5.905956645998231,
+    "source_plan_sha256": "bac23563b884983e5b0da6fcc789e0c62a87685dd24eacf25c71bfc66103f71e"
+  },
+  "report": "docs/validation/isae-st5-source-discrete.md",
+  "evidence": "docs/validation/isae-st5-source-discrete-20261026-evidence.zip"
+}

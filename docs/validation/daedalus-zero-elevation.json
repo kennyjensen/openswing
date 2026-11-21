@@ -1,0 +1,4764 @@
+{
+  "format": "openswing-daedalus-zero-elevation-diagnostic",
+  "version": 1,
+  "status": "Numerically resolved; does not match Drela reference",
+  "matched_reference": false,
+  "production_changed": false,
+  "source_stage": "/tmp/openswing-daedalus-zero-elevation-20261025",
+  "source_plan_pin": {
+    "bytes": 39896,
+    "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+  },
+  "artifacts": {
+    "report.json": {
+      "status": "PASS_ZERO_ELEVATION_DIAGNOSTIC",
+      "passed": 45,
+      "total": 45,
+      "operations": {
+        "FrequencyAnalysis_constructions": 1,
+        "make_system_calls": 1,
+        "full_linearizations": 1,
+        "input_partials_calls": 1,
+        "harmonic_calls": 7,
+        "extra_base_residual_calls": 1,
+        "physical_output_stencil_calls": 0,
+        "initial_state_API_arguments": 1,
+        "input_residuals_captured": 5,
+        "retries": 0
+      },
+      "fresh_full_residual": 1.3200320111966415e-10,
+      "frequency_count": 7,
+      "resolved": 7,
+      "gaps": [],
+      "timing_and_nfev": {
+        "status": "STARTED",
+        "trim_seconds": 154.0989755599876,
+        "trim_boundary_source_nfev": 3815,
+        "linearization_seconds": 20.963055667001754,
+        "linearization_source_nfev": 223,
+        "construction_seconds": 175.6369303939864,
+        "fresh_base_nfev": 1,
+        "input_stencil_seconds": 0.21480812499066815,
+        "input_stencil_nfev": 5,
+        "harmonic_seconds": 2.177660054003354,
+        "harmonic_nfev": 0
+      },
+      "source_owned_total_network_nfev": 4047,
+      "trim_comparison": [
+        {
+          "variable": "alpha",
+          "level_flight": 3.039546933866092,
+          "zero_elevation": 3.592664238560595,
+          "signed_change": 0.5531173046945028
+        },
+        {
+          "variable": "attitude.bank",
+          "level_flight": 0.0066393329278260325,
+          "zero_elevation": 0.007483506397445892,
+          "signed_change": 0.0008441734696198596
+        },
+        {
+          "variable": "power.1",
+          "level_flight": 6.168696269114552,
+          "zero_elevation": -8.955640895382293,
+          "signed_change": -15.124337164496845
+        },
+        {
+          "variable": "beta",
+          "level_flight": 0.017411535491707545,
+          "zero_elevation": 0.016337489830425406,
+          "signed_change": -0.0010740456612821393
+        },
+        {
+          "variable": "control.2",
+          "level_flight": -10.089958923921024,
+          "zero_elevation": -9.877566585162588,
+          "signed_change": 0.21239233875843588
+        },
+        {
+          "variable": "control.3",
+          "level_flight": 0.10504381357313247,
+          "zero_elevation": 0.10603141879087408,
+          "signed_change": 0.000987605217741605
+        },
+        {
+          "variable": "attitude.elevation",
+          "level_flight": 3.039548928276554,
+          "zero_elevation": -0.0,
+          "signed_change": -3.039548928276554
+        }
+      ],
+      "flight_path_deg": -3.59266619970187,
+      "feasibility": {
+        "signed_type0_setting": -8.955640895382293,
+        "engine_output": [
+          {
+            "thrust": -8.955640895382293,
+            "torque": -0.0,
+            "delta_velocity": -1.891266692126693,
+            "viscous_power": null,
+            "inviscid_power": null,
+            "requested_power": -8.955640895382293,
+            "power_clipped": false,
+            "minimum_power": null,
+            "index": 1,
+            "type": 0,
+            "beam": 4,
+            "t": -6.5,
+            "position": [
+              -6.512742041727602,
+              -0.00023640875639779365,
+              -0.050584650638779476
+            ],
+            "axes": [
+              [
+                0.9999797208549788,
+                -3.1400241684591696e-05,
+                -0.0063684293843743415
+              ],
+              [
+                3.145345935792846e-05,
+                0.9999999994712566,
+                8.256327816823771e-06
+              ],
+              [
+                0.006368429121756386,
+                -8.456469520369886e-06,
+                0.9999797213138922
+              ]
+            ],
+            "force": [
+              8.955459282641819,
+              0.00028168588692710896,
+              0.05703336428214504
+            ],
+            "moment": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axial_velocity": 21.899143882920463,
+            "radius": 5.5,
+            "jet_enabled": true
+          }
+        ],
+        "controls": {
+          "control.2": -9.877566585162588,
+          "control.3": 0.10603141879087408
+        },
+        "controls_finite": true,
+        "negative_required_thrust": true,
+        "any_power_clipped": false,
+        "interpretation": "Type0 power.1 is a native thrust setting (dFdPe=1), not watts. Negative thrust is a braking conditional point; positive-propulsion Daedalus feasibility is not established. No control travel or human-power limits are supplied by the literal model. All source jet-domain and clipping guards remain active."
+      },
+      "comparisons": [
+        {
+          "frequency_Hz": 0.1,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.0020612741272498596,
+            "imag": 0.0005124599108582844,
+            "magnitude_native": 0.0021240212305686946,
+            "magnitude_display": 0.12169745210776972,
+            "phase_deg": 13.961434096464092
+          },
+          "zero_elevation": {
+            "real": 0.0016159717670671831,
+            "imag": 0.0004682897866928032,
+            "magnitude_native": 0.00168245655999762,
+            "magnitude_display": 0.09639766010196259,
+            "phase_deg": 16.160972291981906
+          },
+          "drawing_magnitude": 0.11823821391655272,
+          "zero_elevation_over_drawing": 0.8152834596266464,
+          "absolute_complex_change": 0.00044748764435798244,
+          "relative_complex_change": 0.21067945928119097,
+          "relative_magnitude_change": 0.20789089309283793
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": 0.0015797935838478669,
+            "imag": -0.00038541909973082594,
+            "magnitude_native": 0.0016261290385465132,
+            "magnitude_display": 0.09317033085238156,
+            "phase_deg": -13.710507043361988
+          },
+          "zero_elevation": {
+            "real": 0.0012867894591799744,
+            "imag": -0.0003772333032506956,
+            "magnitude_native": 0.0013409444721307897,
+            "magnitude_display": 0.07683045881449228,
+            "phase_deg": -16.33894899604018
+          },
+          "drawing_magnitude": 0.09249758622135526,
+          "zero_elevation_over_drawing": 0.8306212297327403,
+          "absolute_complex_change": 0.0002931184476221379,
+          "relative_complex_change": 0.180255343010255,
+          "relative_magnitude_change": 0.17537634446933603
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": 0.008214427362927953,
+            "imag": -0.0046595052515753105,
+            "magnitude_native": 0.009443929589438783,
+            "magnitude_display": 0.5410973074935586,
+            "phase_deg": -29.56339574000686
+          },
+          "zero_elevation": {
+            "real": 0.006536792656639141,
+            "imag": -0.004353773183573213,
+            "magnitude_native": 0.007853979829990183,
+            "magnitude_display": 0.4499998966393133,
+            "phase_deg": -33.665250156782655
+          },
+          "drawing_magnitude": 0.5257898663073604,
+          "zero_elevation_over_drawing": 0.8558550201807377,
+          "absolute_complex_change": 0.0017052654647149775,
+          "relative_complex_change": 0.18056736325332082,
+          "relative_magnitude_change": 0.1683567994012421
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "bank",
+          "level_flight": {
+            "real": 0.000570104947143211,
+            "imag": 0.002688520329193049,
+            "magnitude_native": 0.002748301513888435,
+            "magnitude_display": 0.15746607757522213,
+            "phase_deg": 78.0276861959727
+          },
+          "zero_elevation": {
+            "real": 0.0006003854491123216,
+            "imag": 0.0020479890314703962,
+            "magnitude_native": 0.002134179411513675,
+            "magnitude_display": 0.1222794730034473,
+            "phase_deg": 73.66105100395983
+          },
+          "drawing_magnitude": 0.14654228016455387,
+          "zero_elevation_over_drawing": 0.8344313522768882,
+          "absolute_complex_change": 0.0006412466391036813,
+          "relative_complex_change": 0.23332470468147917,
+          "relative_magnitude_change": 0.22345514102849262
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.0012390558538273057,
+            "imag": -0.00041892183467929573,
+            "magnitude_native": 0.0013079582992109422,
+            "magnitude_display": 0.07494049032389631,
+            "phase_deg": -18.680272827252143
+          },
+          "zero_elevation": {
+            "real": 0.001098860322396886,
+            "imag": -0.0003030381624925127,
+            "magnitude_native": 0.0011398798779103992,
+            "magnitude_display": 0.06531030615615344,
+            "phase_deg": -15.417523242392594
+          },
+          "drawing_magnitude": 0.05874611013586934,
+          "zero_elevation_over_drawing": 1.111738394339681,
+          "absolute_complex_change": 0.00018188956130727124,
+          "relative_complex_change": 0.1390637311732343,
+          "relative_magnitude_change": 0.1285044189879298
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": -0.00011365429903445328,
+            "imag": -0.000573086639140952,
+            "magnitude_native": 0.0005842478888715685,
+            "magnitude_display": 0.03347493822176921,
+            "phase_deg": -101.21732452363557
+          },
+          "zero_elevation": {
+            "real": -6.216876385674356e-05,
+            "imag": -0.0004812248301486239,
+            "magnitude_native": 0.00048522396102320363,
+            "magnitude_display": 0.027801285085249927,
+            "phase_deg": -97.36119042692631
+          },
+          "drawing_magnitude": 0.04991064654942679,
+          "zero_elevation_over_drawing": 0.5570211369175144,
+          "absolute_complex_change": 0.00010530599358003397,
+          "relative_complex_change": 0.1802419753427346,
+          "relative_magnitude_change": 0.16948957751413052
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -0.000329998862897508,
+            "imag": -0.0005430779402254705,
+            "magnitude_native": 0.0006354784801023462,
+            "magnitude_display": 0.0364102348812527,
+            "phase_deg": -121.28476927856691
+          },
+          "zero_elevation": {
+            "real": -0.0002723450551748312,
+            "imag": -0.0004582350403135521,
+            "magnitude_native": 0.000533058328186836,
+            "magnitude_display": 0.030541992439405228,
+            "phase_deg": -120.72449151129993
+          },
+          "drawing_magnitude": 0.030685134898640335,
+          "zero_elevation_over_drawing": 0.9953351204187977,
+          "absolute_complex_change": 0.00010257816146913139,
+          "relative_complex_change": 0.16141878077855729,
+          "relative_magnitude_change": 0.16117013419402504
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "bank",
+          "level_flight": {
+            "real": 9.474993505318592e-05,
+            "imag": -7.617246226155142e-06,
+            "magnitude_native": 9.505562914763556e-05,
+            "magnitude_display": 0.005446286369120248,
+            "phase_deg": -4.596303437800787
+          },
+          "zero_elevation": {
+            "real": 7.658931045671124e-05,
+            "imag": -9.8944660737135e-06,
+            "magnitude_native": 7.722579190347202e-05,
+            "magnitude_display": 0.0044247119456245106,
+            "phase_deg": -7.361190426926306
+          },
+          "drawing_magnitude": 0.007934518588757003,
+          "zero_elevation_over_drawing": 0.5576534853537564,
+          "absolute_complex_change": 1.8302841745701538e-05,
+          "relative_complex_change": 0.1925487412983664,
+          "relative_magnitude_change": 0.18757266038890924
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.0012460888922557198,
+            "imag": -0.00026710511508535624,
+            "magnitude_native": 0.00127439502114056,
+            "magnitude_display": 0.07301745614383942,
+            "phase_deg": -12.098540675554595
+          },
+          "zero_elevation": {
+            "real": 0.001111560166584517,
+            "imag": -0.00020225556772998955,
+            "magnitude_native": 0.0011298111871526054,
+            "magnitude_display": 0.06473341267050946,
+            "phase_deg": -10.312516245589972
+          },
+          "drawing_magnitude": 0.039143031013880246,
+          "zero_elevation_over_drawing": 1.653765970436852,
+          "absolute_complex_change": 0.00014934336886153905,
+          "relative_complex_change": 0.11718765875896117,
+          "relative_magnitude_change": 0.11345291812153721
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": -0.00020544986119234277,
+            "imag": -0.0004315612743033964,
+            "magnitude_native": 0.0004779694330627475,
+            "magnitude_display": 0.027385631250756142,
+            "phase_deg": -115.45733754466086
+          },
+          "zero_elevation": {
+            "real": -0.00014511161403733328,
+            "imag": -0.0003733708660576685,
+            "magnitude_native": 0.00040057856176931565,
+            "magnitude_display": 0.02295146095280234,
+            "phase_deg": -111.23875219942137
+          },
+          "drawing_magnitude": 0.0417701339461291,
+          "zero_elevation_over_drawing": 0.5494706093689529,
+          "absolute_complex_change": 8.382617539613442e-05,
+          "relative_complex_change": 0.17537978288483935,
+          "relative_magnitude_change": 0.16191594261064818
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -0.0003019133756482534,
+            "imag": -0.00047882951299535817,
+            "magnitude_native": 0.0005660648274806475,
+            "magnitude_display": 0.032433125545442164,
+            "phase_deg": -122.23240459293241
+          },
+          "zero_elevation": {
+            "real": -0.0002549580368598221,
+            "imag": -0.00040566873202078273,
+            "magnitude_native": 0.00047913538869380544,
+            "magnitude_display": 0.027452435587515273,
+            "phase_deg": -122.14887947856158
+          },
+          "drawing_magnitude": 0.026561171463866825,
+          "zero_elevation_over_drawing": 1.033555151167218,
+          "absolute_complex_change": 8.69327539742424e-05,
+          "relative_complex_change": 0.15357384835434673,
+          "relative_magnitude_change": 0.15356799180357833
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "bank",
+          "level_flight": {
+            "real": 6.470028028505656e-05,
+            "imag": -2.0217023678637518e-05,
+            "magnitude_native": 6.778535472642647e-05,
+            "magnitude_display": 0.003883814738621404,
+            "phase_deg": -17.352561214788683
+          },
+          "zero_elevation": {
+            "real": 5.419516698881964e-05,
+            "imag": -2.1063100712190396e-05,
+            "magnitude_native": 5.814439213335988e-05,
+            "magnitude_display": 0.003331428271595186,
+            "phase_deg": -21.23875219942137
+          },
+          "drawing_magnitude": 0.006065143627638054,
+          "zero_elevation_over_drawing": 0.5492744238428765,
+          "absolute_complex_change": 1.0539129551982901e-05,
+          "relative_complex_change": 0.1554779730004742,
+          "relative_magnitude_change": 0.14222781059384224
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.0012697453959043792,
+            "imag": -0.00017699409076963785,
+            "magnitude_native": 0.0012820219493393003,
+            "magnitude_display": 0.07345444694027654,
+            "phase_deg": -7.935518411971628
+          },
+          "zero_elevation": {
+            "real": 0.0011337974977606447,
+            "imag": -0.000142999610961797,
+            "magnitude_native": 0.0011427797927262822,
+            "magnitude_display": 0.06547645903605098,
+            "phase_deg": -7.18844386235557
+          },
+          "drawing_magnitude": 0.033986189632675384,
+          "zero_elevation_over_drawing": 1.926560751402972,
+          "absolute_complex_change": 0.00014013370639180607,
+          "relative_complex_change": 0.10930679187203077,
+          "relative_magnitude_change": 0.10861136713359514
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": -0.00023966695298584096,
+            "imag": -0.0003306249364195979,
+            "magnitude_native": 0.0004083541317728773,
+            "magnitude_display": 0.023396968297314944,
+            "phase_deg": -125.9380081234545
+          },
+          "zero_elevation": {
+            "real": -0.000178839953076599,
+            "imag": -0.00029309289065217593,
+            "magnitude_native": 0.00034334701304553165,
+            "magnitude_display": 0.01967233475593218,
+            "phase_deg": -121.39078278008739
+          },
+          "drawing_magnitude": 0.036852674648257276,
+          "zero_elevation_over_drawing": 0.5338102307009205,
+          "absolute_complex_change": 7.14743197060789e-05,
+          "relative_complex_change": 0.1750302351436283,
+          "relative_magnitude_change": 0.15919299859931874
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -0.00028743461651447753,
+            "imag": -0.0004477598521969283,
+            "magnitude_native": 0.0005320785130131076,
+            "magnitude_display": 0.03048585316524772,
+            "phase_deg": -122.69799740454064
+          },
+          "zero_elevation": {
+            "real": -0.00024633217780396495,
+            "imag": -0.00037956990628272883,
+            "magnitude_native": 0.00045249624924094536,
+            "magnitude_display": 0.02592612532700595,
+            "phase_deg": -122.9826477795071
+          },
+          "drawing_magnitude": 0.025177661683563467,
+          "zero_elevation_over_drawing": 1.029727289724093,
+          "absolute_complex_change": 7.961959050216782e-05,
+          "relative_complex_change": 0.14963880058093307,
+          "relative_magnitude_change": 0.14956864790779814
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "bank",
+          "level_flight": {
+            "real": 4.675775715033076e-05,
+            "imag": -2.368580113856998e-05,
+            "magnitude_native": 5.2414740572716666e-05,
+            "magnitude_display": 0.0030031434190897844,
+            "phase_deg": -26.865136660902927
+          },
+          "zero_elevation": {
+            "real": 4.030419872820923e-05,
+            "imag": -2.459288928265701e-05,
+            "magnitude_native": 4.721481376000554e-05,
+            "magnitude_display": 0.0027052095589445227,
+            "phase_deg": -31.390782780087385
+          },
+          "drawing_magnitude": 0.005073831673180363,
+          "zero_elevation_over_drawing": 0.5331689605005859,
+          "absolute_complex_change": 6.516995105789095e-06,
+          "relative_complex_change": 0.12433515905221083,
+          "relative_magnitude_change": 0.0992073366364773
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.0009207441812199157,
+            "imag": -0.0014981743263128987,
+            "magnitude_native": 0.0017584925815235734,
+            "magnitude_display": 0.10075420322636561,
+            "phase_deg": -58.42605325517206
+          },
+          "zero_elevation": {
+            "real": 0.0007499451692195051,
+            "imag": -0.0008702628709279329,
+            "magnitude_native": 0.001148814702792143,
+            "magnitude_display": 0.06582223391256582,
+            "phase_deg": -49.24702631307407
+          },
+          "drawing_magnitude": 0.10894950570485253,
+          "zero_elevation_over_drawing": 0.604153580016051,
+          "absolute_complex_change": 0.0006507265925901463,
+          "relative_complex_change": 0.37004796006949947,
+          "relative_magnitude_change": 0.3467048340933006
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": 4.806060114703806e-05,
+            "imag": -1.1955093007188612e-05,
+            "magnitude_native": 4.952520198267954e-05,
+            "magnitude_display": 0.0028375850531404748,
+            "phase_deg": -13.968837606415745
+          },
+          "zero_elevation": {
+            "real": 6.321128084913915e-05,
+            "imag": 1.6155126637557967e-05,
+            "magnitude_native": 6.524303904068449e-05,
+            "magnitude_display": 0.0037381507796384805,
+            "phase_deg": 14.336399123572322
+          },
+          "drawing_magnitude": 0.006011748538580131,
+          "zero_elevation_over_drawing": 0.6218075748925729,
+          "absolute_complex_change": 3.1933173094942426e-05,
+          "relative_complex_change": 0.6447863272947463,
+          "relative_magnitude_change": 0.317370478640389
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -5.5862870828771155e-05,
+            "imag": -1.9267459174657078e-05,
+            "magnitude_native": 5.9092261086195106e-05,
+            "magnitude_display": 0.0033857371621241294,
+            "phase_deg": -160.97036053398114
+          },
+          "zero_elevation": {
+            "real": -4.098460670293322e-05,
+            "imag": -2.1365779670388038e-05,
+            "magnitude_native": 4.621941721309006e-05,
+            "magnitude_display": 0.0026481775378643696,
+            "phase_deg": -152.4664145813164
+          },
+          "drawing_magnitude": 0.002474007287705741,
+          "zero_elevation_over_drawing": 1.0704000554178417,
+          "absolute_complex_change": 1.5025501399321113e-05,
+          "relative_complex_change": 0.25427189826776336,
+          "relative_magnitude_change": 0.21784314284958628
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "bank",
+          "level_flight": {
+            "real": 2.1889286184982194e-06,
+            "imag": 2.319186860322752e-06,
+            "magnitude_native": 3.1890494179260106e-06,
+            "magnitude_display": 0.00018271907230581224,
+            "phase_deg": 46.65505334187402
+          },
+          "zero_elevation": {
+            "real": -3.864483724472339e-07,
+            "imag": 1.5120832632573774e-06,
+            "magnitude_native": 1.560685150691899e-06,
+            "magnitude_display": 8.942067228338469e-05,
+            "phase_deg": 104.33639912357233
+          },
+          "drawing_magnitude": 0.00014455567401899853,
+          "zero_elevation_over_drawing": 0.6185898470621941,
+          "absolute_complex_change": 2.6988854851377304e-06,
+          "relative_complex_change": 0.8462977933069921,
+          "relative_magnitude_change": 0.5106111740009077
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": 0.001226385255947445,
+            "imag": -0.009890272036071956,
+            "magnitude_native": 0.009966017346137434,
+            "magnitude_display": 0.5710107324878442,
+            "phase_deg": -82.93145324512665
+          },
+          "zero_elevation": {
+            "real": 0.0009642662421671153,
+            "imag": -0.008408586121490811,
+            "magnitude_native": 0.00846369481658637,
+            "magnitude_display": 0.48493399207715043,
+            "phase_deg": -83.45810414607357
+          },
+          "drawing_magnitude": 0.4863748455309722,
+          "zero_elevation_over_drawing": 0.997037565846464,
+          "absolute_complex_change": 0.0015046925024247769,
+          "relative_complex_change": 0.15098232826254873,
+          "relative_magnitude_change": 0.15074452284927276
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": 0.00044594142854760104,
+            "imag": -0.0013574936904883247,
+            "magnitude_native": 0.0014288641913809328,
+            "magnitude_display": 0.08186788766350059,
+            "phase_deg": -71.81446715456778
+          },
+          "zero_elevation": {
+            "real": 0.00035276509399614783,
+            "imag": -0.0011595375723553849,
+            "magnitude_native": 0.0012120109707613748,
+            "magnitude_display": 0.0694431133481806,
+            "phase_deg": -73.07871197021306
+          },
+          "drawing_magnitude": 0.06588665080689478,
+          "zero_elevation_over_drawing": 1.0539784994036099,
+          "absolute_complex_change": 0.00021878860579725528,
+          "relative_complex_change": 0.15312064443703777,
+          "relative_magnitude_change": 0.15176615239407676
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -0.00025126706808113964,
+            "imag": 0.00021500650093024665,
+            "magnitude_native": 0.00033070067273043187,
+            "magnitude_display": 0.01894775282959082,
+            "phase_deg": 139.4467552254052
+          },
+          "zero_elevation": {
+            "real": -0.0002090555139494622,
+            "imag": 0.0001856442951914003,
+            "magnitude_native": 0.0002795854292515716,
+            "magnitude_display": 0.016019065109468524,
+            "phase_deg": 138.39446402001548
+          },
+          "drawing_magnitude": 0.015591693103122384,
+          "zero_elevation_over_drawing": 1.0274102372025624,
+          "absolute_complex_change": 5.1419397391080685e-05,
+          "relative_complex_change": 0.15548621950640787,
+          "relative_magnitude_change": 0.15456649379279142
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "bank",
+          "level_flight": {
+            "real": 3.365358810447795e-05,
+            "imag": 9.135490083517127e-06,
+            "magnitude_native": 3.487149511236792e-05,
+            "magnitude_display": 0.0019979894952497604,
+            "phase_deg": 15.187335320305802
+          },
+          "zero_elevation": {
+            "real": 2.07273141722917e-05,
+            "imag": 6.305852528282857e-06,
+            "magnitude_native": 2.1665302418967886e-05,
+            "magnitude_display": 0.0012413303904814331,
+            "phase_deg": 16.921288029786943
+          },
+          "drawing_magnitude": 0.001175657681556838,
+          "zero_elevation_over_drawing": 1.0558604004846288,
+          "absolute_complex_change": 1.3232362089359176e-05,
+          "relative_complex_change": 0.3794607041286864,
+          "relative_magnitude_change": 0.3787102517642318
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "yaw_rate",
+          "level_flight": {
+            "real": -0.0007940146913686895,
+            "imag": -0.003557597756248706,
+            "magnitude_native": 0.0036451284099980816,
+            "magnitude_display": 0.20885047367612244,
+            "phase_deg": -102.58155188643278
+          },
+          "zero_elevation": {
+            "real": -0.0006308357370504917,
+            "imag": -0.0027138691541626183,
+            "magnitude_native": 0.0027862231628237107,
+            "magnitude_display": 0.1596388280113902,
+            "phase_deg": -103.08595183772698
+          },
+          "drawing_magnitude": 0.17186802869914472,
+          "zero_elevation_over_drawing": 0.9288454008560152,
+          "absolute_complex_change": 0.0008593633254395514,
+          "relative_complex_change": 0.235756667195163,
+          "relative_magnitude_change": 0.23563099857292077
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "roll_rate",
+          "level_flight": {
+            "real": 9.894698306013889e-05,
+            "imag": -0.0004670826348447752,
+            "magnitude_native": 0.0004774481052745324,
+            "magnitude_display": 0.027355761368748528,
+            "phase_deg": -78.03926373219879
+          },
+          "zero_elevation": {
+            "real": 8.37773374798063e-05,
+            "imag": -0.00035134898936219853,
+            "magnitude_native": 0.00036119905121836026,
+            "magnitude_display": 0.0206951811989417,
+            "phase_deg": -76.5885501155497
+          },
+          "drawing_magnitude": 0.021600412474530345,
+          "zero_elevation_over_drawing": 0.9580919449266986,
+          "absolute_complex_change": 0.00011672358306580397,
+          "relative_complex_change": 0.24447386381120514,
+          "relative_magnitude_change": 0.24347997776497407
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "sideslip",
+          "level_flight": {
+            "real": -9.264187297891515e-05,
+            "imag": 7.781109230982193e-05,
+            "magnitude_native": 0.00012098381179103705,
+            "magnitude_display": 0.006931861805031508,
+            "phase_deg": 139.97267109148274
+          },
+          "zero_elevation": {
+            "real": -7.40756011606584e-05,
+            "imag": 5.8425096202070606e-05,
+            "magnitude_native": 9.434344997684863e-05,
+            "magnitude_display": 0.005405481508377031,
+            "phase_deg": 141.73635933818682
+          },
+          "drawing_magnitude": 0.0060850548608917705,
+          "zero_elevation_over_drawing": 0.8883209160722098,
+          "absolute_complex_change": 2.6842564972802877e-05,
+          "relative_complex_change": 0.22186906310379187,
+          "relative_magnitude_change": 0.22019773901818857
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "bank",
+          "level_flight": {
+            "real": 1.0440389203046214e-05,
+            "imag": 9.037574008141366e-07,
+            "magnitude_native": 1.0479432434564874e-05,
+            "magnitude_display": 0.0006004272501930725,
+            "phase_deg": 4.947394672952203
+          },
+          "zero_elevation": {
+            "real": 5.591892840733565e-06,
+            "imag": 1.3333577378989083e-06,
+            "magnitude_native": 5.748661444150473e-06,
+            "magnitude_display": 0.0003293740385994029,
+            "phase_deg": 13.411449884450318
+          },
+          "drawing_magnitude": 0.00034421753728236775,
+          "zero_elevation_over_drawing": 0.9568775641120562,
+          "absolute_complex_change": 4.867491492029785e-06,
+          "relative_complex_change": 0.4644804499120655,
+          "relative_magnitude_change": 0.45143389395886035
+        }
+      ],
+      "plan_pin": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "limitations": [
+        "Zero elevation is a prospective hypothesis motivated by a graphic bank/roll magnitude relation, not a recovered original operating point or fitted target.",
+        "Replacing flight_path=0 by attitude.elevation=0 changes the trim, gravity components, flow angles, deformation, control/thrust settings and possibly flight path. It is not an isolated coordinate transformation.",
+        "Same literal Dae,16 panels,6.7m/s,fixedPGMach.1,Earth gravity,stall/lag/body-factor/jet defaults and free dynamic frame. No level-flight target remains.",
+        "The exact C16 physical packet and coordinates are initial guesses only. A fresh trim and fresh full A/M/F3 column are required. The source snapshot differs only in documented equilibrium progress instrumentation.",
+        "Type0 power.1 is signed native thrust setting, not watts. Negative thrust is reported as a braking conditional point; positive-propulsion or human-power feasibility is not asserted. No actuator travel bounds are declared by the literal model.",
+        "Original trim/rank,geometry,clipping,jet-domain and harmonic gates stay active. Failure is retained; no retry, clipping, alternate target, changed tolerance or frequency adaptation.",
+        "Exactly seven previously declared frequencies, no full203 sweep, mesh refinement, aircraft stability or convergence claim.",
+        "Four raw outputs use this case actual V/W,alpha,beta,Euler attitude and nativeF3; output degrees are display-only. No physical output stencils.",
+        "Reference magnitudes and prior C16 responses are descriptive comparisons only; a closer result does not establish matched-reference or full-aircraft validation.",
+        "Single native timing is not a controlled performance comparison."
+      ]
+    },
+    "summary.json": {
+      "status": "PASS_ZERO_ELEVATION_DIAGNOSTIC",
+      "passed": 45,
+      "total": 45,
+      "resolved": 7,
+      "fresh_full_residual": 1.3200320111966415e-10,
+      "source_owned_total_network_nfev": 4047,
+      "operations": {
+        "FrequencyAnalysis_constructions": 1,
+        "make_system_calls": 1,
+        "full_linearizations": 1,
+        "input_partials_calls": 1,
+        "harmonic_calls": 7,
+        "extra_base_residual_calls": 1,
+        "physical_output_stencil_calls": 0,
+        "initial_state_API_arguments": 1,
+        "input_residuals_captured": 5,
+        "retries": 0
+      },
+      "trim_comparison": [
+        {
+          "variable": "alpha",
+          "level_flight": 3.039546933866092,
+          "zero_elevation": 3.592664238560595,
+          "signed_change": 0.5531173046945028
+        },
+        {
+          "variable": "attitude.bank",
+          "level_flight": 0.0066393329278260325,
+          "zero_elevation": 0.007483506397445892,
+          "signed_change": 0.0008441734696198596
+        },
+        {
+          "variable": "power.1",
+          "level_flight": 6.168696269114552,
+          "zero_elevation": -8.955640895382293,
+          "signed_change": -15.124337164496845
+        },
+        {
+          "variable": "beta",
+          "level_flight": 0.017411535491707545,
+          "zero_elevation": 0.016337489830425406,
+          "signed_change": -0.0010740456612821393
+        },
+        {
+          "variable": "control.2",
+          "level_flight": -10.089958923921024,
+          "zero_elevation": -9.877566585162588,
+          "signed_change": 0.21239233875843588
+        },
+        {
+          "variable": "control.3",
+          "level_flight": 0.10504381357313247,
+          "zero_elevation": 0.10603141879087408,
+          "signed_change": 0.000987605217741605
+        },
+        {
+          "variable": "attitude.elevation",
+          "level_flight": 3.039548928276554,
+          "zero_elevation": -0.0,
+          "signed_change": -3.039548928276554
+        }
+      ],
+      "resulting_flight_path_deg": -3.59266619970187,
+      "feasibility": {
+        "signed_type0_setting": -8.955640895382293,
+        "engine_output": [
+          {
+            "thrust": -8.955640895382293,
+            "torque": -0.0,
+            "delta_velocity": -1.891266692126693,
+            "viscous_power": null,
+            "inviscid_power": null,
+            "requested_power": -8.955640895382293,
+            "power_clipped": false,
+            "minimum_power": null,
+            "index": 1,
+            "type": 0,
+            "beam": 4,
+            "t": -6.5,
+            "position": [
+              -6.512742041727602,
+              -0.00023640875639779365,
+              -0.050584650638779476
+            ],
+            "axes": [
+              [
+                0.9999797208549788,
+                -3.1400241684591696e-05,
+                -0.0063684293843743415
+              ],
+              [
+                3.145345935792846e-05,
+                0.9999999994712566,
+                8.256327816823771e-06
+              ],
+              [
+                0.006368429121756386,
+                -8.456469520369886e-06,
+                0.9999797213138922
+              ]
+            ],
+            "force": [
+              8.955459282641819,
+              0.00028168588692710896,
+              0.05703336428214504
+            ],
+            "moment": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axial_velocity": 21.899143882920463,
+            "radius": 5.5,
+            "jet_enabled": true
+          }
+        ],
+        "controls": {
+          "control.2": -9.877566585162588,
+          "control.3": 0.10603141879087408
+        },
+        "controls_finite": true,
+        "negative_required_thrust": true,
+        "any_power_clipped": false,
+        "interpretation": "Type0 power.1 is a native thrust setting (dFdPe=1), not watts. Negative thrust is a braking conditional point; positive-propulsion Daedalus feasibility is not established. No control travel or human-power limits are supplied by the literal model. All source jet-domain and clipping guards remain active."
+      },
+      "response_rows": [
+        {
+          "frequency_Hz": 0.1,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.0016159717670671831,
+          "imag": 0.0004682897866928032,
+          "magnitude_display": 0.09639766010196259,
+          "phase_deg": 16.160972291981906,
+          "level_flight_magnitude_display": 0.12169745210776972,
+          "drawing_magnitude_display": 0.11823821391655272,
+          "new_over_drawing": 0.8152834596266464,
+          "relative_complex_change_vs_level": 0.21067945928119097
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.0012867894591799744,
+          "imag": -0.0003772333032506956,
+          "magnitude_display": 0.07683045881449228,
+          "phase_deg": -16.33894899604018,
+          "level_flight_magnitude_display": 0.09317033085238156,
+          "drawing_magnitude_display": 0.09249758622135526,
+          "new_over_drawing": 0.8306212297327403,
+          "relative_complex_change_vs_level": 0.180255343010255
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": 0.006536792656639141,
+          "imag": -0.004353773183573213,
+          "magnitude_display": 0.4499998966393133,
+          "phase_deg": -33.665250156782655,
+          "level_flight_magnitude_display": 0.5410973074935586,
+          "drawing_magnitude_display": 0.5257898663073604,
+          "new_over_drawing": 0.8558550201807377,
+          "relative_complex_change_vs_level": 0.18056736325332082
+        },
+        {
+          "frequency_Hz": 0.1,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 0.0006003854491123216,
+          "imag": 0.0020479890314703962,
+          "magnitude_display": 0.1222794730034473,
+          "phase_deg": 73.66105100395983,
+          "level_flight_magnitude_display": 0.15746607757522213,
+          "drawing_magnitude_display": 0.14654228016455387,
+          "new_over_drawing": 0.8344313522768882,
+          "relative_complex_change_vs_level": 0.23332470468147917
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.001098860322396886,
+          "imag": -0.0003030381624925127,
+          "magnitude_display": 0.06531030615615344,
+          "phase_deg": -15.417523242392594,
+          "level_flight_magnitude_display": 0.07494049032389631,
+          "drawing_magnitude_display": 0.05874611013586934,
+          "new_over_drawing": 1.111738394339681,
+          "relative_complex_change_vs_level": 0.1390637311732343
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": -6.216876385674356e-05,
+          "imag": -0.0004812248301486239,
+          "magnitude_display": 0.027801285085249927,
+          "phase_deg": -97.36119042692631,
+          "level_flight_magnitude_display": 0.03347493822176921,
+          "drawing_magnitude_display": 0.04991064654942679,
+          "new_over_drawing": 0.5570211369175144,
+          "relative_complex_change_vs_level": 0.1802419753427346
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -0.0002723450551748312,
+          "imag": -0.0004582350403135521,
+          "magnitude_display": 0.030541992439405228,
+          "phase_deg": -120.72449151129993,
+          "level_flight_magnitude_display": 0.0364102348812527,
+          "drawing_magnitude_display": 0.030685134898640335,
+          "new_over_drawing": 0.9953351204187977,
+          "relative_complex_change_vs_level": 0.16141878077855729
+        },
+        {
+          "frequency_Hz": 1.0,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 7.658931045671124e-05,
+          "imag": -9.8944660737135e-06,
+          "magnitude_display": 0.0044247119456245106,
+          "phase_deg": -7.361190426926306,
+          "level_flight_magnitude_display": 0.005446286369120248,
+          "drawing_magnitude_display": 0.007934518588757003,
+          "new_over_drawing": 0.5576534853537564,
+          "relative_complex_change_vs_level": 0.1925487412983664
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.001111560166584517,
+          "imag": -0.00020225556772998955,
+          "magnitude_display": 0.06473341267050946,
+          "phase_deg": -10.312516245589972,
+          "level_flight_magnitude_display": 0.07301745614383942,
+          "drawing_magnitude_display": 0.039143031013880246,
+          "new_over_drawing": 1.653765970436852,
+          "relative_complex_change_vs_level": 0.11718765875896117
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": -0.00014511161403733328,
+          "imag": -0.0003733708660576685,
+          "magnitude_display": 0.02295146095280234,
+          "phase_deg": -111.23875219942137,
+          "level_flight_magnitude_display": 0.027385631250756142,
+          "drawing_magnitude_display": 0.0417701339461291,
+          "new_over_drawing": 0.5494706093689529,
+          "relative_complex_change_vs_level": 0.17537978288483935
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -0.0002549580368598221,
+          "imag": -0.00040566873202078273,
+          "magnitude_display": 0.027452435587515273,
+          "phase_deg": -122.14887947856158,
+          "level_flight_magnitude_display": 0.032433125545442164,
+          "drawing_magnitude_display": 0.026561171463866825,
+          "new_over_drawing": 1.033555151167218,
+          "relative_complex_change_vs_level": 0.15357384835434673
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 5.419516698881964e-05,
+          "imag": -2.1063100712190396e-05,
+          "magnitude_display": 0.003331428271595186,
+          "phase_deg": -21.23875219942137,
+          "level_flight_magnitude_display": 0.003883814738621404,
+          "drawing_magnitude_display": 0.006065143627638054,
+          "new_over_drawing": 0.5492744238428765,
+          "relative_complex_change_vs_level": 0.1554779730004742
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.0011337974977606447,
+          "imag": -0.000142999610961797,
+          "magnitude_display": 0.06547645903605098,
+          "phase_deg": -7.18844386235557,
+          "level_flight_magnitude_display": 0.07345444694027654,
+          "drawing_magnitude_display": 0.033986189632675384,
+          "new_over_drawing": 1.926560751402972,
+          "relative_complex_change_vs_level": 0.10930679187203077
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": -0.000178839953076599,
+          "imag": -0.00029309289065217593,
+          "magnitude_display": 0.01967233475593218,
+          "phase_deg": -121.39078278008739,
+          "level_flight_magnitude_display": 0.023396968297314944,
+          "drawing_magnitude_display": 0.036852674648257276,
+          "new_over_drawing": 0.5338102307009205,
+          "relative_complex_change_vs_level": 0.1750302351436283
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -0.00024633217780396495,
+          "imag": -0.00037956990628272883,
+          "magnitude_display": 0.02592612532700595,
+          "phase_deg": -122.9826477795071,
+          "level_flight_magnitude_display": 0.03048585316524772,
+          "drawing_magnitude_display": 0.025177661683563467,
+          "new_over_drawing": 1.029727289724093,
+          "relative_complex_change_vs_level": 0.14963880058093307
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 4.030419872820923e-05,
+          "imag": -2.459288928265701e-05,
+          "magnitude_display": 0.0027052095589445227,
+          "phase_deg": -31.390782780087385,
+          "level_flight_magnitude_display": 0.0030031434190897844,
+          "drawing_magnitude_display": 0.005073831673180363,
+          "new_over_drawing": 0.5331689605005859,
+          "relative_complex_change_vs_level": 0.12433515905221083
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.0007499451692195051,
+          "imag": -0.0008702628709279329,
+          "magnitude_display": 0.06582223391256582,
+          "phase_deg": -49.24702631307407,
+          "level_flight_magnitude_display": 0.10075420322636561,
+          "drawing_magnitude_display": 0.10894950570485253,
+          "new_over_drawing": 0.604153580016051,
+          "relative_complex_change_vs_level": 0.37004796006949947
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 6.321128084913915e-05,
+          "imag": 1.6155126637557967e-05,
+          "magnitude_display": 0.0037381507796384805,
+          "phase_deg": 14.336399123572322,
+          "level_flight_magnitude_display": 0.0028375850531404748,
+          "drawing_magnitude_display": 0.006011748538580131,
+          "new_over_drawing": 0.6218075748925729,
+          "relative_complex_change_vs_level": 0.6447863272947463
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -4.098460670293322e-05,
+          "imag": -2.1365779670388038e-05,
+          "magnitude_display": 0.0026481775378643696,
+          "phase_deg": -152.4664145813164,
+          "level_flight_magnitude_display": 0.0033857371621241294,
+          "drawing_magnitude_display": 0.002474007287705741,
+          "new_over_drawing": 1.0704000554178417,
+          "relative_complex_change_vs_level": 0.25427189826776336
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": -3.864483724472339e-07,
+          "imag": 1.5120832632573774e-06,
+          "magnitude_display": 8.942067228338469e-05,
+          "phase_deg": 104.33639912357233,
+          "level_flight_magnitude_display": 0.00018271907230581224,
+          "drawing_magnitude_display": 0.00014455567401899853,
+          "new_over_drawing": 0.6185898470621941,
+          "relative_complex_change_vs_level": 0.8462977933069921
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.0009642662421671153,
+          "imag": -0.008408586121490811,
+          "magnitude_display": 0.48493399207715043,
+          "phase_deg": -83.45810414607357,
+          "level_flight_magnitude_display": 0.5710107324878442,
+          "drawing_magnitude_display": 0.4863748455309722,
+          "new_over_drawing": 0.997037565846464,
+          "relative_complex_change_vs_level": 0.15098232826254873
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 0.00035276509399614783,
+          "imag": -0.0011595375723553849,
+          "magnitude_display": 0.0694431133481806,
+          "phase_deg": -73.07871197021306,
+          "level_flight_magnitude_display": 0.08186788766350059,
+          "drawing_magnitude_display": 0.06588665080689478,
+          "new_over_drawing": 1.0539784994036099,
+          "relative_complex_change_vs_level": 0.15312064443703777
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -0.0002090555139494622,
+          "imag": 0.0001856442951914003,
+          "magnitude_display": 0.016019065109468524,
+          "phase_deg": 138.39446402001548,
+          "level_flight_magnitude_display": 0.01894775282959082,
+          "drawing_magnitude_display": 0.015591693103122384,
+          "new_over_drawing": 1.0274102372025624,
+          "relative_complex_change_vs_level": 0.15548621950640787
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 2.07273141722917e-05,
+          "imag": 6.305852528282857e-06,
+          "magnitude_display": 0.0012413303904814331,
+          "phase_deg": 16.921288029786943,
+          "level_flight_magnitude_display": 0.0019979894952497604,
+          "drawing_magnitude_display": 0.001175657681556838,
+          "new_over_drawing": 1.0558604004846288,
+          "relative_complex_change_vs_level": 0.3794607041286864
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "yaw_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": -0.0006308357370504917,
+          "imag": -0.0027138691541626183,
+          "magnitude_display": 0.1596388280113902,
+          "phase_deg": -103.08595183772698,
+          "level_flight_magnitude_display": 0.20885047367612244,
+          "drawing_magnitude_display": 0.17186802869914472,
+          "new_over_drawing": 0.9288454008560152,
+          "relative_complex_change_vs_level": 0.235756667195163
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "roll_rate",
+          "native_unit": "rad/s per nativeF3",
+          "real": 8.37773374798063e-05,
+          "imag": -0.00035134898936219853,
+          "magnitude_display": 0.0206951811989417,
+          "phase_deg": -76.5885501155497,
+          "level_flight_magnitude_display": 0.027355761368748528,
+          "drawing_magnitude_display": 0.021600412474530345,
+          "new_over_drawing": 0.9580919449266986,
+          "relative_complex_change_vs_level": 0.24447386381120514
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "sideslip",
+          "native_unit": "rad per nativeF3",
+          "real": -7.40756011606584e-05,
+          "imag": 5.8425096202070606e-05,
+          "magnitude_display": 0.005405481508377031,
+          "phase_deg": 141.73635933818682,
+          "level_flight_magnitude_display": 0.006931861805031508,
+          "drawing_magnitude_display": 0.0060850548608917705,
+          "new_over_drawing": 0.8883209160722098,
+          "relative_complex_change_vs_level": 0.22186906310379187
+        },
+        {
+          "frequency_Hz": 10.0,
+          "channel": "bank",
+          "native_unit": "rad per nativeF3",
+          "real": 5.591892840733565e-06,
+          "imag": 1.3333577378989083e-06,
+          "magnitude_display": 0.0003293740385994029,
+          "phase_deg": 13.411449884450318,
+          "level_flight_magnitude_display": 0.0006004272501930725,
+          "drawing_magnitude_display": 0.00034421753728236775,
+          "new_over_drawing": 0.9568775641120562,
+          "relative_complex_change_vs_level": 0.4644804499120655
+        }
+      ],
+      "reported_harmonic_gates": {
+        "maximum_scaled_residual": 1.9581426221966782e-16,
+        "maximum_backward_error": 3.698749977962863e-18,
+        "minimum_reciprocal_condition": 1.562384652771471e-08
+      },
+      "bank_identity_maximum_absolute_defect": 2.168404344971009e-19,
+      "zero_elevation_bank_roll_maximum_absolute_defect": 2.168404344971009e-19,
+      "interpretation": [
+        "The prescribed zero-Euler-elevation hypothesis changes the full trim; it is not a coordinate transformation.",
+        "The new trim requires negative type0 thrust and is a conditional braking solution, not evidence of feasible positive-propulsion Daedalus flight.",
+        "At1Hz sideslip is close to the drawing, but roll and bank are about56percent of the drawn magnitudes. At the drawing yaw minimum1.15738Hz, yaw remains about1.93times the drawing.",
+        "The hypothesis does not resolve all four response discrepancies or identify the unknown original operating point. Seven fixed points do not establish a curve minimum, mesh convergence or reference parity."
+      ],
+      "comparison_csv_pin": {
+        "bytes": 5872,
+        "sha256": "0cfb309fb2743878baeea1a5e86330cea865493857cffae19a07c951305e8fe2"
+      },
+      "report_pin": {
+        "bytes": 29990,
+        "sha256": "d67ef757faa41397836e8153d18421486f85ee87e5cd4a49c605d2d357ea450f"
+      },
+      "plan_pin": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "peer_review_pin": {
+        "bytes": 3375,
+        "sha256": "61173c4f9f0a4924b3dba267672f4824351201de1aebb08cc1c8b08b2eee8e28"
+      },
+      "timing": {
+        "status": "STARTED",
+        "trim_seconds": 154.0989755599876,
+        "trim_boundary_source_nfev": 3815,
+        "linearization_seconds": 20.963055667001754,
+        "linearization_source_nfev": 223,
+        "construction_seconds": 175.6369303939864,
+        "fresh_base_nfev": 1,
+        "input_stencil_seconds": 0.21480812499066815,
+        "input_stencil_nfev": 5,
+        "harmonic_seconds": 2.177660054003354,
+        "harmonic_nfev": 0
+      },
+      "supervisor_elapsed_seconds": 190.00333225398208,
+      "limits": [
+        "Zero elevation is a prospective hypothesis motivated by a graphic bank/roll magnitude relation, not a recovered original operating point or fitted target.",
+        "Replacing flight_path=0 by attitude.elevation=0 changes the trim, gravity components, flow angles, deformation, control/thrust settings and possibly flight path. It is not an isolated coordinate transformation.",
+        "Same literal Dae,16 panels,6.7m/s,fixedPGMach.1,Earth gravity,stall/lag/body-factor/jet defaults and free dynamic frame. No level-flight target remains.",
+        "The exact C16 physical packet and coordinates are initial guesses only. A fresh trim and fresh full A/M/F3 column are required. The source snapshot differs only in documented equilibrium progress instrumentation.",
+        "Type0 power.1 is signed native thrust setting, not watts. Negative thrust is reported as a braking conditional point; positive-propulsion or human-power feasibility is not asserted. No actuator travel bounds are declared by the literal model.",
+        "Original trim/rank,geometry,clipping,jet-domain and harmonic gates stay active. Failure is retained; no retry, clipping, alternate target, changed tolerance or frequency adaptation.",
+        "Exactly seven previously declared frequencies, no full203 sweep, mesh refinement, aircraft stability or convergence claim.",
+        "Four raw outputs use this case actual V/W,alpha,beta,Euler attitude and nativeF3; output degrees are display-only. No physical output stencils.",
+        "Reference magnitudes and prior C16 responses are descriptive comparisons only; a closer result does not establish matched-reference or full-aircraft validation.",
+        "Single native timing is not a controlled performance comparison."
+      ],
+      "reduction_scope": "Saved JSON scalar reductions only; no further physical calls, matrix products, factorizations or solves."
+    },
+    "session-closeout.json": {
+      "status": "TERMINAL_REAPED",
+      "exit_code": 0,
+      "reaped": true,
+      "owned_session_id": 53919,
+      "launch_chunk": "f6b90c",
+      "terminal_chunk": "85c489",
+      "supervisor_pid": 1314,
+      "child_pid": 1486,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "timed_out": false,
+      "elapsed_seconds": 190.00333225398208,
+      "attempts": 1,
+      "retries": 0,
+      "report_pin": {
+        "bytes": 29990,
+        "sha256": "d67ef757faa41397836e8153d18421486f85ee87e5cd4a49c605d2d357ea450f"
+      },
+      "summary_pin": {
+        "bytes": 21752,
+        "sha256": "7fbcbbeb66a33e107ad8558f52fbeb0e3dc813ee0892174eef58117534a4814b"
+      },
+      "plan_pin": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "process_closeout_pin": {
+        "bytes": 916,
+        "sha256": "0e5cf195aa29bde16ffe927a9574ae7459f0acda0eb4634b62d14dbb7f152b42"
+      },
+      "peer_review_pin": {
+        "bytes": 3375,
+        "sha256": "61173c4f9f0a4924b3dba267672f4824351201de1aebb08cc1c8b08b2eee8e28"
+      },
+      "operations": {
+        "FrequencyAnalysis_constructions": 1,
+        "make_system_calls": 1,
+        "full_linearizations": 1,
+        "input_partials_calls": 1,
+        "harmonic_calls": 7,
+        "extra_base_residual_calls": 1,
+        "physical_output_stencil_calls": 0,
+        "initial_state_API_arguments": 1,
+        "input_residuals_captured": 5,
+        "retries": 0
+      },
+      "closed_utc": "2026-10-25T03:07:32.084478+00:00"
+    },
+    "process-closeout.json": {
+      "supervisor_pid": 1314,
+      "child_pid": 1486,
+      "command": [
+        "/home/userland/aswing/.venv/bin/python",
+        "-I",
+        "-B",
+        "/tmp/openswing-daedalus-zero-elevation-20261025/run.py"
+      ],
+      "started_utc": "2026-10-25T03:02:27.158391+00:00",
+      "wall_cap_seconds": 300,
+      "plan_pin": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "exit_code": 0,
+      "reaped": true,
+      "timed_out": false,
+      "elapsed_seconds": 190.00333225398208,
+      "terminal_utc": "2026-10-25T03:06:47.595348+00:00",
+      "stdout_pin": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_pin": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "report_pin": {
+        "bytes": 29990,
+        "sha256": "d67ef757faa41397836e8153d18421486f85ee87e5cd4a49c605d2d357ea450f"
+      }
+    },
+    "review/source-review.json": {
+      "status": "PASS_SOURCE_REVIEW_NO_BLOCKER",
+      "counts": {
+        "passed": 14,
+        "total": 14
+      },
+      "scope": "Source/document review and stdlib pins only; no numerical imports, physical calls, matrix products or solves. No study source edits.",
+      "checks": [
+        "All137 final pins match;108 isolated modules equal ROOT/public/kernel; sole C16 source delta is progress-only equilibrium_state instrumentation.",
+        "Seven static rows replace flight_path=0 by supported direct attitude.elevation=0 and preserve the other six force/moment balances.",
+        "C16 physical packet is an initial guess for a fresh native correction, not a reused accepted equilibrium or scaled operator.",
+        "Normal release creates six acceleration/net-load rows and free Euler dynamics; base elevation is not dynamically clamped.",
+        "Fixed6.7m/s, literal16mesh, Mach.1, Earth gravity and original defaults checked; resulting flightpath explicitly reported.",
+        "Original native rank/domain/geometry gates retained; fresh residual and allseven normalized targets<=1e\u22128, elevation<=1e\u22127deg, steady zero-rate base required.",
+        "One constructor/trim/A-M is observed pass-through; constructor caches and optional structure preparation disclosed, harmonic loop uses full sparse path.",
+        "One nativeF3 stencil saves its5 original full residuals and actual input scale; unchanged clipping/domain checks and no extra response multiplier.",
+        "Seven frozen frequencies use original rcond>=1e\u221212,scaled<=1e\u22127,backward<=1e\u22129; poles retained as explicit gaps.",
+        "Yaw/roll use W; bank is actual frame+9 Euler state; beta uses actualV and finite alpha/beta/speed with zero velocity reference guarded.",
+        "Full complex ASW bank identity checked; separate zero-elevation defect recorded; reference magnitude comparisons have no fit or physical acceptance gate.",
+        "Signed type0 thrust/control/clipping outputs retained without clipping; negative thrust explicitly denotes a braking conditional point.",
+        "Raw trim, A/M, fresh residual,5input vectors and each harmonic state retained before downstream gates; failure traces/counts preserved.",
+        "Single -I -B single-thread child,300s external cap, exclusive launch guard,no retry,process-group cleanup/reap."
+      ],
+      "plan_pin": {
+        "bytes": 39896,
+        "sha256": "1c4d95f96dc1e612e3db2366194203910f6fa9e1508b3ffb6a784ac64cfdbd8d"
+      },
+      "runner_pin": {
+        "bytes": 20044,
+        "sha256": "31f6cf6eeb7958343f0e98ffca7b8795496e84f066120c5fb72c9aa60671becf"
+      },
+      "supervisor_pin": {
+        "bytes": 2777,
+        "sha256": "0b48badd9f5c17b1877f2f903a70e04051c9d6cb16cebdd4025325ecb152ab60"
+      },
+      "prepare_pin": {
+        "bytes": 9400,
+        "sha256": "76a52836c3cbc77edebb9f17fec886af8f83b2305b45c8013ae2629bc826b6cb"
+      },
+      "frozen_pin_count": 137,
+      "source_count": 108,
+      "source_equal_current_root_and_public_kernel": true,
+      "prior_C16_changed_modules": [
+        "equilibrium_state.py"
+      ],
+      "prelaunch_no_execution_observed": true,
+      "retained_review_checker_failure": {
+        "bytes": 358,
+        "sha256": "1fdcbf6070971fd2fda7c10cc7d7cc563f5f87132502ac8ede4905051f5feea8"
+      },
+      "interpretation": "Separately declared zero-elevation retrim, potentially descending/negative thrust. Graphic magnitudes motivate but do not identify original trim. No Bode validation claim; parent owns conditional launch authorization."
+    },
+    "results/checks.json": [
+      {
+        "name": "single-thread environment",
+        "passed": true
+      },
+      {
+        "name": "all108 isolated production origins",
+        "passed": true
+      },
+      {
+        "name": "exact declared replacement trim",
+        "passed": true
+      },
+      {
+        "name": "C16 physical seed only",
+        "passed": true
+      },
+      {
+        "name": "initial request retains C16 physical guesses",
+        "passed": true
+      },
+      {
+        "name": "saved seed unmodified",
+        "passed": true
+      },
+      {
+        "name": "original literal16 dimensions",
+        "passed": true
+      },
+      {
+        "name": "fresh full residual original gate",
+        "passed": true,
+        "maximum": 1.3200320111966415e-10
+      },
+      {
+        "name": "source-owned steady base gate",
+        "passed": true
+      },
+      {
+        "name": "zero elevation prescribed instead of flight path",
+        "passed": true,
+        "elevation_deg": -0.0,
+        "resulting_flight_path_deg": -3.59266619970187
+      },
+      {
+        "name": "fixed speed and original defaults",
+        "passed": true
+      },
+      {
+        "name": "speed reconstruction roundoff",
+        "passed": true
+      },
+      {
+        "name": "zero prescribed rates and accelerations",
+        "passed": true
+      },
+      {
+        "name": "Earth gravity and heading gauge",
+        "passed": true
+      },
+      {
+        "name": "six dynamic load rows released",
+        "passed": true
+      },
+      {
+        "name": "native F3 input and finite stencil scale",
+        "passed": true
+      },
+      {
+        "name": "sparse full A/M",
+        "passed": true
+      },
+      {
+        "name": "literal zero velocity-reference point",
+        "passed": true
+      },
+      {
+        "name": "all seven trim targets",
+        "passed": true
+      },
+      {
+        "name": "exact seven predeclared frequencies",
+        "passed": true
+      },
+      {
+        "name": "one frequency-independent native F3 column",
+        "passed": true
+      },
+      {
+        "name": "raw frame coordinates/scales",
+        "passed": true
+      },
+      {
+        "name": "original harmonic gates 0",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 0",
+        "passed": true,
+        "maximum_absolute_difference": 5.421010862427522e-20
+      },
+      {
+        "name": "original harmonic gates 1",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 1",
+        "passed": true,
+        "maximum_absolute_difference": 0.0
+      },
+      {
+        "name": "original harmonic gates 2",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 2",
+        "passed": true,
+        "maximum_absolute_difference": 6.06087439757635e-20
+      },
+      {
+        "name": "original harmonic gates 3",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 3",
+        "passed": true,
+        "maximum_absolute_difference": 2.710505431213761e-20
+      },
+      {
+        "name": "original harmonic gates 4",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 4",
+        "passed": true,
+        "maximum_absolute_difference": 0.0
+      },
+      {
+        "name": "original harmonic gates 5",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 5",
+        "passed": true,
+        "maximum_absolute_difference": 2.168404344971009e-19
+      },
+      {
+        "name": "original harmonic gates 6",
+        "passed": true
+      },
+      {
+        "name": "full bank-rate identity 6",
+        "passed": true,
+        "maximum_absolute_difference": 5.421010862427522e-20
+      },
+      {
+        "name": "baseline output labels/order",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 0",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 1",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 2",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 3",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 4",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 5",
+        "passed": true
+      },
+      {
+        "name": "exact previous frequency 6",
+        "passed": true
+      },
+      {
+        "name": "exact completed numerical scope",
+        "passed": true
+      }
+    ],
+    "results/constraint-report.json": {
+      "requested_trim": [
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "actual": 3.1911868980660785e-11,
+          "normalized_residual": 1.1650372690740179e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "actual": -4.030943737435774e-14,
+          "normalized_residual": -1.47161536872039e-17
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "actual": -8.584088734969741e-12,
+          "normalized_residual": -3.1338757699647296e-15
+        },
+        {
+          "variable": "beta",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "actual": 2.235767914646078e-11,
+          "normalized_residual": 7.062096734466491e-17
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "actual": -7.236137244959195e-10,
+          "normalized_residual": -2.2856711053511643e-15
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "actual": -2.431384968034668e-13,
+          "normalized_residual": -7.679990275603655e-19
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "attitude.elevation",
+          "target": 0.0,
+          "actual": -0.0,
+          "normalized_residual": -0.0
+        }
+      ],
+      "source_saved_trim_rows": [
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "beta",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "attitude.elevation",
+          "target": 0.0,
+          "weight": 1.0,
+          "preferred": 0.0,
+          "expression": null,
+          "residual_scale": null,
+          "unit": null
+        }
+      ],
+      "source_dynamic_rows": [
+        {
+          "variable": "acceleration.x",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -8.584088734969741e-12,
+          "normalized_residual": -3.1338757699647296e-15
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -4.030943737435774e-14,
+          "normalized_residual": -1.47161536872039e-17
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.1911868980660785e-11,
+          "normalized_residual": 1.1650372690740179e-14
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.235767914646078e-11,
+          "normalized_residual": 7.062096734466491e-17
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -7.236137244959195e-10,
+          "normalized_residual": -2.2856711053511643e-15
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.431384968034668e-13,
+          "normalized_residual": -7.679990275603655e-19
+        }
+      ],
+      "note": "Six loads use source-reported physical balances after dynamic release; elevation uses the final solved operating value. No extra residual evaluation."
+    },
+    "results/recovery.json": {
+      "frame_start": 2203,
+      "V": 60.98644770517502,
+      "W": 0.527658212781417,
+      "speed": 21.981627296587927,
+      "beta_gradient": [
+        1.2946385033775084e-05,
+        0.0454925354640128,
+        8.128533918816592e-07
+      ],
+      "base_attitude_deg": [
+        0.007483506397445891,
+        0.0,
+        0.0
+      ],
+      "equations": {
+        "yaw": "W*z[frame_start+5] rad/s",
+        "roll": "W*z[frame_start+3] rad/s",
+        "bank": "z[frame_start+9] rad, ASW Euler bank perturbation",
+        "velocity": "Uhat=V*z[frame_start:frame_start+3]; V is recorded coordinate scale, not airspeed",
+        "beta_general": "v=-U-Omega cross r_velocity; beta=-asin(v_y/|v|). Differentiate at saved base. Literal r_velocity=0.",
+        "beta_specialized": "betahat=[cos(alpha0)sin(beta0)*Uhat_x+cos(beta0)*Uhat_y+sin(alpha0)sin(beta0)*Uhat_z]/speed0",
+        "bank_identity": "i*2*pi*f*bank=-Omega_x+sin(phi0)*tan(theta0)*Omega_y-cos(phi0)*tan(theta0)*Omega_z; saved base rates zero"
+      }
+    },
+    "results/samples.json": [
+      {
+        "frequency_Hz": 0.1,
+        "omega_rad_s": 0.6283185307179586,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.0016159717670671831,
+            "imag": 0.0004682897866928032,
+            "magnitude_native": 0.00168245655999762,
+            "magnitude_display": 0.09639766010196259,
+            "phase_deg": 16.160972291981906
+          },
+          "roll_rate": {
+            "real": 0.0012867894591799744,
+            "imag": -0.0003772333032506956,
+            "magnitude_native": 0.0013409444721307897,
+            "magnitude_display": 0.07683045881449228,
+            "phase_deg": -16.33894899604018
+          },
+          "sideslip": {
+            "real": 0.006536792656639141,
+            "imag": -0.004353773183573213,
+            "magnitude_native": 0.007853979829990183,
+            "magnitude_display": 0.4499998966393133,
+            "phase_deg": -33.665250156782655
+          },
+          "bank": {
+            "real": 0.0006003854491123216,
+            "imag": 0.0020479890314703962,
+            "magnitude_native": 0.002134179411513675,
+            "magnitude_display": 0.1222794730034473,
+            "phase_deg": 73.66105100395983
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 1.562384652771471e-08,
+          "backward_errors": [
+            3.698749977962863e-18
+          ],
+          "scaled_residuals": [
+            1.3679527761234333e-17
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 5.421010862427522e-20,
+        "zero_elevation_bank_roll_defect": 5.421010862427522e-20
+      },
+      {
+        "frequency_Hz": 1.0,
+        "omega_rad_s": 6.283185307179586,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.001098860322396886,
+            "imag": -0.0003030381624925127,
+            "magnitude_native": 0.0011398798779103992,
+            "magnitude_display": 0.06531030615615344,
+            "phase_deg": -15.417523242392594
+          },
+          "roll_rate": {
+            "real": -6.216876385674356e-05,
+            "imag": -0.0004812248301486239,
+            "magnitude_native": 0.00048522396102320363,
+            "magnitude_display": 0.027801285085249927,
+            "phase_deg": -97.36119042692631
+          },
+          "sideslip": {
+            "real": -0.0002723450551748312,
+            "imag": -0.0004582350403135521,
+            "magnitude_native": 0.000533058328186836,
+            "magnitude_display": 0.030541992439405228,
+            "phase_deg": -120.72449151129993
+          },
+          "bank": {
+            "real": 7.658931045671124e-05,
+            "imag": -9.8944660737135e-06,
+            "magnitude_native": 7.722579190347202e-05,
+            "magnitude_display": 0.0044247119456245106,
+            "phase_deg": -7.361190426926306
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 1.7422098305782266e-08,
+          "backward_errors": [
+            3.3177119639851336e-19
+          ],
+          "scaled_residuals": [
+            7.046018551027516e-18
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 0.0,
+        "zero_elevation_bank_roll_defect": 0.0
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "omega_rad_s": 6.889375691649668,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.001111560166584517,
+            "imag": -0.00020225556772998955,
+            "magnitude_native": 0.0011298111871526054,
+            "magnitude_display": 0.06473341267050946,
+            "phase_deg": -10.312516245589972
+          },
+          "roll_rate": {
+            "real": -0.00014511161403733328,
+            "imag": -0.0003733708660576685,
+            "magnitude_native": 0.00040057856176931565,
+            "magnitude_display": 0.02295146095280234,
+            "phase_deg": -111.23875219942137
+          },
+          "sideslip": {
+            "real": -0.0002549580368598221,
+            "imag": -0.00040566873202078273,
+            "magnitude_native": 0.00047913538869380544,
+            "magnitude_display": 0.027452435587515273,
+            "phase_deg": -122.14887947856158
+          },
+          "bank": {
+            "real": 5.419516698881964e-05,
+            "imag": -2.1063100712190396e-05,
+            "magnitude_native": 5.814439213335988e-05,
+            "magnitude_display": 0.003331428271595186,
+            "phase_deg": -21.23875219942137
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 1.734962629564549e-08,
+          "backward_errors": [
+            3.0074032440670113e-19
+          ],
+          "scaled_residuals": [
+            7.273045407182852e-18
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 6.06087439757635e-20,
+        "zero_elevation_bank_roll_defect": 6.06087439757635e-20
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "omega_rad_s": 7.272018794583749,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.0011337974977606447,
+            "imag": -0.000142999610961797,
+            "magnitude_native": 0.0011427797927262822,
+            "magnitude_display": 0.06547645903605098,
+            "phase_deg": -7.18844386235557
+          },
+          "roll_rate": {
+            "real": -0.000178839953076599,
+            "imag": -0.00029309289065217593,
+            "magnitude_native": 0.00034334701304553165,
+            "magnitude_display": 0.01967233475593218,
+            "phase_deg": -121.39078278008739
+          },
+          "sideslip": {
+            "real": -0.00024633217780396495,
+            "imag": -0.00037956990628272883,
+            "magnitude_native": 0.00045249624924094536,
+            "magnitude_display": 0.02592612532700595,
+            "phase_deg": -122.9826477795071
+          },
+          "bank": {
+            "real": 4.030419872820923e-05,
+            "imag": -2.459288928265701e-05,
+            "magnitude_native": 4.721481376000554e-05,
+            "magnitude_display": 0.0027052095589445227,
+            "phase_deg": -31.390782780087385
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 1.73329287953983e-08,
+          "backward_errors": [
+            3.7604676605518937e-19
+          ],
+          "scaled_residuals": [
+            6.6079839292492786e-18
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 2.710505431213761e-20,
+        "zero_elevation_bank_roll_defect": 2.710505431213761e-20
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "omega_rad_s": 41.80410059758708,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.0007499451692195051,
+            "imag": -0.0008702628709279329,
+            "magnitude_native": 0.001148814702792143,
+            "magnitude_display": 0.06582223391256582,
+            "phase_deg": -49.24702631307407
+          },
+          "roll_rate": {
+            "real": 6.321128084913915e-05,
+            "imag": 1.6155126637557967e-05,
+            "magnitude_native": 6.524303904068449e-05,
+            "magnitude_display": 0.0037381507796384805,
+            "phase_deg": 14.336399123572322
+          },
+          "sideslip": {
+            "real": -4.098460670293322e-05,
+            "imag": -2.1365779670388038e-05,
+            "magnitude_native": 4.621941721309006e-05,
+            "magnitude_display": 0.0026481775378643696,
+            "phase_deg": -152.4664145813164
+          },
+          "bank": {
+            "real": -3.864483724472339e-07,
+            "imag": 1.5120832632573774e-06,
+            "magnitude_native": 1.560685150691899e-06,
+            "magnitude_display": 8.942067228338469e-05,
+            "phase_deg": 104.33639912357233
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 2.909739571716043e-08,
+          "backward_errors": [
+            2.927013387308851e-20
+          ],
+          "scaled_residuals": [
+            1.6972544961097395e-17
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 0.0,
+        "zero_elevation_bank_roll_defect": 0.0
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "omega_rad_s": 55.942490315771636,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": 0.0009642662421671153,
+            "imag": -0.008408586121490811,
+            "magnitude_native": 0.00846369481658637,
+            "magnitude_display": 0.48493399207715043,
+            "phase_deg": -83.45810414607357
+          },
+          "roll_rate": {
+            "real": 0.00035276509399614783,
+            "imag": -0.0011595375723553849,
+            "magnitude_native": 0.0012120109707613748,
+            "magnitude_display": 0.0694431133481806,
+            "phase_deg": -73.07871197021306
+          },
+          "sideslip": {
+            "real": -0.0002090555139494622,
+            "imag": 0.0001856442951914003,
+            "magnitude_native": 0.0002795854292515716,
+            "magnitude_display": 0.016019065109468524,
+            "phase_deg": 138.39446402001548
+          },
+          "bank": {
+            "real": 2.07273141722917e-05,
+            "imag": 6.305852528282857e-06,
+            "magnitude_native": 2.1665302418967886e-05,
+            "magnitude_display": 0.0012413303904814331,
+            "phase_deg": 16.921288029786943
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 2.3431240368465933e-08,
+          "backward_errors": [
+            2.813176722152565e-19
+          ],
+          "scaled_residuals": [
+            1.9581426221966782e-16
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 2.168404344971009e-19,
+        "zero_elevation_bank_roll_defect": 2.168404344971009e-19
+      },
+      {
+        "frequency_Hz": 10.0,
+        "omega_rad_s": 62.83185307179586,
+        "available": true,
+        "outputs": {
+          "yaw_rate": {
+            "real": -0.0006308357370504917,
+            "imag": -0.0027138691541626183,
+            "magnitude_native": 0.0027862231628237107,
+            "magnitude_display": 0.1596388280113902,
+            "phase_deg": -103.08595183772698
+          },
+          "roll_rate": {
+            "real": 8.37773374798063e-05,
+            "imag": -0.00035134898936219853,
+            "magnitude_native": 0.00036119905121836026,
+            "magnitude_display": 0.0206951811989417,
+            "phase_deg": -76.5885501155497
+          },
+          "sideslip": {
+            "real": -7.40756011606584e-05,
+            "imag": 5.8425096202070606e-05,
+            "magnitude_native": 9.434344997684863e-05,
+            "magnitude_display": 0.005405481508377031,
+            "phase_deg": 141.73635933818682
+          },
+          "bank": {
+            "real": 5.591892840733565e-06,
+            "imag": 1.3333577378989083e-06,
+            "magnitude_native": 5.748661444150473e-06,
+            "magnitude_display": 0.0003293740385994029,
+            "phase_deg": 13.411449884450318
+          }
+        },
+        "diagnostics": {
+          "reciprocal_condition": 3.5995572524408907e-08,
+          "backward_errors": [
+            1.392254454544651e-19
+          ],
+          "scaled_residuals": [
+            6.378542697177748e-17
+          ],
+          "factor_dimension": 2215,
+          "beam_equations_eliminated": 0
+        },
+        "bank_identity_absolute_defect": 5.421010862427522e-20,
+        "zero_elevation_bank_roll_defect": 5.421010862427522e-20
+      }
+    ],
+    "source-transition.json": {
+      "baseline": "C16 frozen source",
+      "changed_modules": [
+        "equilibrium_state.py"
+      ],
+      "unchanged_modules": 107,
+      "changes": {
+        "equilibrium_state.py": {
+          "prior": {
+            "bytes": 17862,
+            "sha256": "cc46fa6dd4e0c691ad6546836da7540e63c2c3371d76ca9a7e4901279e6cdc7c"
+          },
+          "current": {
+            "bytes": 18913,
+            "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+          }
+        }
+      },
+      "interpretation": "Only equilibrium progress instrumentation differs from C16; retain prior source and published progress-change evidence. No physics algorithm or tolerance is intentionally changed.",
+      "published_evidence": "/home/userland/aswing/docs/validation/equilibrium-progress.json"
+    },
+    "review/saved/report.json": {
+      "status": "PASS_SAVED_AUDIT",
+      "passed": 391,
+      "total": 391,
+      "checks": [
+        {
+          "name": "owner terminal and reaped",
+          "passed": true
+        },
+        {
+          "name": "physical child terminal and reaped",
+          "passed": true
+        },
+        {
+          "name": "terminal report pin",
+          "passed": true
+        },
+        {
+          "name": "all frozen dependencies unchanged",
+          "passed": true,
+          "count": 137
+        },
+        {
+          "name": "reported plan pin",
+          "passed": true
+        },
+        {
+          "name": "exact seven-row target replacement",
+          "passed": true
+        },
+        {
+          "name": "old six load targets retained",
+          "passed": true
+        },
+        {
+          "name": "physical seed only",
+          "passed": true
+        },
+        {
+          "name": "all original reported gates passed",
+          "passed": true
+        },
+        {
+          "name": "exact operation scope",
+          "passed": true
+        },
+        {
+          "name": "all declared fixed settings retained",
+          "passed": true
+        },
+        {
+          "name": "zero elevation and released free frame",
+          "passed": true
+        },
+        {
+          "name": "all base rates and accelerations zero",
+          "passed": true
+        },
+        {
+          "name": "kinematically steady source gate",
+          "passed": true
+        },
+        {
+          "name": "saved fresh residual directly reduced",
+          "passed": true
+        },
+        {
+          "name": "fresh residual report",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "seven saved normalized trim residuals",
+          "passed": true
+        },
+        {
+          "name": "trim normalized residual 0",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 1",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 2",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 3",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 4",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 5",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "trim normalized residual 6",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "feasibility preserves source engine fields",
+          "passed": true
+        },
+        {
+          "name": "type0 setting equals signed thrust 1",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "literal engine remains type0 without clipping",
+          "passed": true
+        },
+        {
+          "name": "saved proportional-jet forward branch margins",
+          "passed": true
+        },
+        {
+          "name": "signed-thrust label honest",
+          "passed": true
+        },
+        {
+          "name": "saved state dimensions and frequency grid",
+          "passed": true
+        },
+        {
+          "name": "saved recovered layout",
+          "passed": true
+        },
+        {
+          "name": "prior C16 four-output labels",
+          "passed": true
+        },
+        {
+          "name": "seven frozen samples and explicit gaps",
+          "passed": true
+        },
+        {
+          "name": "all resolved four-output comparison rows present",
+          "passed": true
+        },
+        {
+          "name": "original reported harmonic gates 0",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 0",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 0",
+          "passed": true
+        },
+        {
+          "name": "raw state output 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 0 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 0 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 0 sideslip",
+          "passed": true,
+          "absolute_difference": 8.673617379884035e-19
+        },
+        {
+          "name": "degrees output 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 0 sideslip",
+          "passed": true,
+          "absolute_difference": 8.673617379884035e-19
+        },
+        {
+          "name": "sample magnitude 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 0 sideslip",
+          "passed": true,
+          "absolute_difference": 8.673617379884035e-19
+        },
+        {
+          "name": "absolute change 0 sideslip",
+          "passed": true,
+          "absolute_difference": 6.505213034913027e-19
+        },
+        {
+          "name": "relative complex change 0 sideslip",
+          "passed": true,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        {
+          "name": "relative magnitude change 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 0 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 0 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 1",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 1",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 1",
+          "passed": true
+        },
+        {
+          "name": "raw state output 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 1 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 1 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 1 sideslip",
+          "passed": true,
+          "absolute_difference": 5.421010862427522e-20
+        },
+        {
+          "name": "degrees output 1 sideslip",
+          "passed": true,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        {
+          "name": "sample complex 1 sideslip",
+          "passed": true,
+          "absolute_difference": 5.421010862427522e-20
+        },
+        {
+          "name": "sample magnitude 1 sideslip",
+          "passed": true,
+          "absolute_difference": 1.0408340855860843e-17
+        },
+        {
+          "name": "sample phase 1 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 1 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 1 sideslip",
+          "passed": true,
+          "absolute_difference": 5.421010862427522e-20
+        },
+        {
+          "name": "absolute change 1 sideslip",
+          "passed": true,
+          "absolute_difference": 4.0657581468206416e-20
+        },
+        {
+          "name": "relative complex change 1 sideslip",
+          "passed": true,
+          "absolute_difference": 8.326672684688674e-17
+        },
+        {
+          "name": "relative magnitude change 1 sideslip",
+          "passed": true,
+          "absolute_difference": 1.6653345369377348e-16
+        },
+        {
+          "name": "independent log-polyline interpolation 1 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 1 sideslip",
+          "passed": true,
+          "absolute_difference": 3.3306690738754696e-16
+        },
+        {
+          "name": "raw state output 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 1 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 2",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 2",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 2",
+          "passed": true
+        },
+        {
+          "name": "raw state output 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 2 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 2 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 2 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 2 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 3",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 3",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 3",
+          "passed": true
+        },
+        {
+          "name": "raw state output 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 3 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 3 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 3 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 3 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 4",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 4",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 4",
+          "passed": true
+        },
+        {
+          "name": "raw state output 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 4 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 4 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 4 sideslip",
+          "passed": true,
+          "absolute_difference": 7.576092996970438e-21
+        },
+        {
+          "name": "degrees output 4 sideslip",
+          "passed": true,
+          "absolute_difference": 4.84869951806108e-19
+        },
+        {
+          "name": "sample complex 4 sideslip",
+          "passed": true,
+          "absolute_difference": 7.576092996970438e-21
+        },
+        {
+          "name": "sample magnitude 4 sideslip",
+          "passed": true,
+          "absolute_difference": 4.336808689942018e-19
+        },
+        {
+          "name": "sample phase 4 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 4 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 4 sideslip",
+          "passed": true,
+          "absolute_difference": 7.576092996970438e-21
+        },
+        {
+          "name": "absolute change 4 sideslip",
+          "passed": true,
+          "absolute_difference": 6.776263578034403e-21
+        },
+        {
+          "name": "relative complex change 4 sideslip",
+          "passed": true,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "name": "relative magnitude change 4 sideslip",
+          "passed": true,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "name": "independent log-polyline interpolation 4 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 4 sideslip",
+          "passed": true,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "name": "raw state output 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 4 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 5",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 5",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 5",
+          "passed": true
+        },
+        {
+          "name": "raw state output 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 5 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 5 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 5 sideslip",
+          "passed": true,
+          "absolute_difference": 2.710505431213761e-20
+        },
+        {
+          "name": "degrees output 5 sideslip",
+          "passed": true,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        {
+          "name": "sample complex 5 sideslip",
+          "passed": true,
+          "absolute_difference": 2.710505431213761e-20
+        },
+        {
+          "name": "sample magnitude 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 5 sideslip",
+          "passed": true,
+          "absolute_difference": 2.710505431213761e-20
+        },
+        {
+          "name": "absolute change 5 sideslip",
+          "passed": true,
+          "absolute_difference": 2.710505431213761e-20
+        },
+        {
+          "name": "relative complex change 5 sideslip",
+          "passed": true,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        {
+          "name": "relative magnitude change 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 5 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 5 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "original reported harmonic gates 6",
+          "passed": true
+        },
+        {
+          "name": "independent bank identity 6",
+          "passed": true
+        },
+        {
+          "name": "exact prior frequency 6",
+          "passed": true
+        },
+        {
+          "name": "raw state output 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 6 yaw_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 6 roll_rate",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 6 sideslip",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "raw state output 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "degrees output 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample complex 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample magnitude 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "sample phase 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "prior comparison 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "new comparison 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "absolute change 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative complex change 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "relative magnitude change 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "independent log-polyline interpolation 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "drawing magnitude ratio 6 bank",
+          "passed": true,
+          "absolute_difference": 0.0
+        }
+      ],
+      "error": null,
+      "details": {
+        "fresh_residual": 1.3200320111966415e-10,
+        "flight_path_deg": -3.59266619970187,
+        "elevation_deg": -0.0,
+        "engine_margins": [
+          {
+            "thrust": -8.955640895382293,
+            "axial_velocity": 21.899143882920463,
+            "delta_velocity": -1.891266692126693,
+            "axial_radicand": 400.3151496818856,
+            "downstream_convection": 20.00787719079377
+          }
+        ],
+        "largest_output_recovery_difference": 8.673617379884035e-19,
+        "largest_bank_identity_defect": 2.168404344971009e-19,
+        "at_one_Hz": [
+          {
+            "frequency_Hz": 1.0,
+            "channel": "yaw_rate",
+            "level_flight": {
+              "real": 0.0012390558538273057,
+              "imag": -0.00041892183467929573,
+              "magnitude_native": 0.0013079582992109422,
+              "magnitude_display": 0.07494049032389631,
+              "phase_deg": -18.680272827252143
+            },
+            "zero_elevation": {
+              "real": 0.001098860322396886,
+              "imag": -0.0003030381624925127,
+              "magnitude_native": 0.0011398798779103992,
+              "magnitude_display": 0.06531030615615344,
+              "phase_deg": -15.417523242392594
+            },
+            "drawing_magnitude": 0.05874611013586934,
+            "zero_elevation_over_drawing": 1.111738394339681,
+            "absolute_complex_change": 0.00018188956130727124,
+            "relative_complex_change": 0.1390637311732343,
+            "relative_magnitude_change": 0.1285044189879298
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "roll_rate",
+            "level_flight": {
+              "real": -0.00011365429903445328,
+              "imag": -0.000573086639140952,
+              "magnitude_native": 0.0005842478888715685,
+              "magnitude_display": 0.03347493822176921,
+              "phase_deg": -101.21732452363557
+            },
+            "zero_elevation": {
+              "real": -6.216876385674356e-05,
+              "imag": -0.0004812248301486239,
+              "magnitude_native": 0.00048522396102320363,
+              "magnitude_display": 0.027801285085249927,
+              "phase_deg": -97.36119042692631
+            },
+            "drawing_magnitude": 0.04991064654942679,
+            "zero_elevation_over_drawing": 0.5570211369175144,
+            "absolute_complex_change": 0.00010530599358003397,
+            "relative_complex_change": 0.1802419753427346,
+            "relative_magnitude_change": 0.16948957751413052
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "sideslip",
+            "level_flight": {
+              "real": -0.000329998862897508,
+              "imag": -0.0005430779402254705,
+              "magnitude_native": 0.0006354784801023462,
+              "magnitude_display": 0.0364102348812527,
+              "phase_deg": -121.28476927856691
+            },
+            "zero_elevation": {
+              "real": -0.0002723450551748312,
+              "imag": -0.0004582350403135521,
+              "magnitude_native": 0.000533058328186836,
+              "magnitude_display": 0.030541992439405228,
+              "phase_deg": -120.72449151129993
+            },
+            "drawing_magnitude": 0.030685134898640335,
+            "zero_elevation_over_drawing": 0.9953351204187977,
+            "absolute_complex_change": 0.00010257816146913139,
+            "relative_complex_change": 0.16141878077855729,
+            "relative_magnitude_change": 0.16117013419402504
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "bank",
+            "level_flight": {
+              "real": 9.474993505318592e-05,
+              "imag": -7.617246226155142e-06,
+              "magnitude_native": 9.505562914763556e-05,
+              "magnitude_display": 0.005446286369120248,
+              "phase_deg": -4.596303437800787
+            },
+            "zero_elevation": {
+              "real": 7.658931045671124e-05,
+              "imag": -9.8944660737135e-06,
+              "magnitude_native": 7.722579190347202e-05,
+              "magnitude_display": 0.0044247119456245106,
+              "phase_deg": -7.361190426926306
+            },
+            "drawing_magnitude": 0.007934518588757003,
+            "zero_elevation_over_drawing": 0.5576534853537564,
+            "absolute_complex_change": 1.8302841745701538e-05,
+            "relative_complex_change": 0.1925487412983664,
+            "relative_magnitude_change": 0.18757266038890924
+          }
+        ],
+        "trim_comparison": [
+          {
+            "variable": "alpha",
+            "level_flight": 3.039546933866092,
+            "zero_elevation": 3.592664238560595,
+            "signed_change": 0.5531173046945028
+          },
+          {
+            "variable": "attitude.bank",
+            "level_flight": 0.0066393329278260325,
+            "zero_elevation": 0.007483506397445892,
+            "signed_change": 0.0008441734696198596
+          },
+          {
+            "variable": "power.1",
+            "level_flight": 6.168696269114552,
+            "zero_elevation": -8.955640895382293,
+            "signed_change": -15.124337164496845
+          },
+          {
+            "variable": "beta",
+            "level_flight": 0.017411535491707545,
+            "zero_elevation": 0.016337489830425406,
+            "signed_change": -0.0010740456612821393
+          },
+          {
+            "variable": "control.2",
+            "level_flight": -10.089958923921024,
+            "zero_elevation": -9.877566585162588,
+            "signed_change": 0.21239233875843588
+          },
+          {
+            "variable": "control.3",
+            "level_flight": 0.10504381357313247,
+            "zero_elevation": 0.10603141879087408,
+            "signed_change": 0.000987605217741605
+          },
+          {
+            "variable": "attitude.elevation",
+            "level_flight": 3.039548928276554,
+            "zero_elevation": -0.0,
+            "signed_change": -3.039548928276554
+          }
+        ],
+        "original_gates": "Condition/rank and harmonic residual estimates are source-reported; no matrix products or rank/condition estimates repeated.",
+        "interpretation": "Changed physical trim, not isolated coordinates. Reference operating point remains unidentified; any closer magnitudes are descriptive. Negative type0 thrust denotes a braking conditional point, not positive-propulsion feasibility."
+      },
+      "scope": "Saved scalar/vector reductions only; no production imports, physical calls, matrix products, condition estimates, factorizations or solves.",
+      "source_pin": {
+        "bytes": 13597,
+        "sha256": "c59e343e1ec6b45824ed13d993495f875e4c83993e8c7ee9c6b0a14e06376441"
+      }
+    },
+    "review/saved/summary.json": {
+      "status": "PASS_SAVED_AUDIT",
+      "passed": 391,
+      "total": 391,
+      "report_pin": {
+        "bytes": 50274,
+        "sha256": "a8cb3d22c7ad7c853550f7f1efd42b77825b1a1f9357deb80b924c64b4fcf7ca"
+      },
+      "audit_source_pin": {
+        "bytes": 13597,
+        "sha256": "c59e343e1ec6b45824ed13d993495f875e4c83993e8c7ee9c6b0a14e06376441"
+      },
+      "physical_report_pin": {
+        "bytes": 29990,
+        "sha256": "d67ef757faa41397836e8153d18421486f85ee87e5cd4a49c605d2d357ea450f"
+      },
+      "physical_owner_closeout_pin": {
+        "bytes": 1376,
+        "sha256": "585bb6ba8811c2d024dcdce267bbdb6343583a846828df50a6ba790fdaa7ab4b"
+      },
+      "details": {
+        "fresh_residual": 1.3200320111966415e-10,
+        "flight_path_deg": -3.59266619970187,
+        "elevation_deg": -0.0,
+        "engine_margins": [
+          {
+            "thrust": -8.955640895382293,
+            "axial_velocity": 21.899143882920463,
+            "delta_velocity": -1.891266692126693,
+            "axial_radicand": 400.3151496818856,
+            "downstream_convection": 20.00787719079377
+          }
+        ],
+        "largest_output_recovery_difference": 8.673617379884035e-19,
+        "largest_bank_identity_defect": 2.168404344971009e-19,
+        "at_one_Hz": [
+          {
+            "frequency_Hz": 1.0,
+            "channel": "yaw_rate",
+            "level_flight": {
+              "real": 0.0012390558538273057,
+              "imag": -0.00041892183467929573,
+              "magnitude_native": 0.0013079582992109422,
+              "magnitude_display": 0.07494049032389631,
+              "phase_deg": -18.680272827252143
+            },
+            "zero_elevation": {
+              "real": 0.001098860322396886,
+              "imag": -0.0003030381624925127,
+              "magnitude_native": 0.0011398798779103992,
+              "magnitude_display": 0.06531030615615344,
+              "phase_deg": -15.417523242392594
+            },
+            "drawing_magnitude": 0.05874611013586934,
+            "zero_elevation_over_drawing": 1.111738394339681,
+            "absolute_complex_change": 0.00018188956130727124,
+            "relative_complex_change": 0.1390637311732343,
+            "relative_magnitude_change": 0.1285044189879298
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "roll_rate",
+            "level_flight": {
+              "real": -0.00011365429903445328,
+              "imag": -0.000573086639140952,
+              "magnitude_native": 0.0005842478888715685,
+              "magnitude_display": 0.03347493822176921,
+              "phase_deg": -101.21732452363557
+            },
+            "zero_elevation": {
+              "real": -6.216876385674356e-05,
+              "imag": -0.0004812248301486239,
+              "magnitude_native": 0.00048522396102320363,
+              "magnitude_display": 0.027801285085249927,
+              "phase_deg": -97.36119042692631
+            },
+            "drawing_magnitude": 0.04991064654942679,
+            "zero_elevation_over_drawing": 0.5570211369175144,
+            "absolute_complex_change": 0.00010530599358003397,
+            "relative_complex_change": 0.1802419753427346,
+            "relative_magnitude_change": 0.16948957751413052
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "sideslip",
+            "level_flight": {
+              "real": -0.000329998862897508,
+              "imag": -0.0005430779402254705,
+              "magnitude_native": 0.0006354784801023462,
+              "magnitude_display": 0.0364102348812527,
+              "phase_deg": -121.28476927856691
+            },
+            "zero_elevation": {
+              "real": -0.0002723450551748312,
+              "imag": -0.0004582350403135521,
+              "magnitude_native": 0.000533058328186836,
+              "magnitude_display": 0.030541992439405228,
+              "phase_deg": -120.72449151129993
+            },
+            "drawing_magnitude": 0.030685134898640335,
+            "zero_elevation_over_drawing": 0.9953351204187977,
+            "absolute_complex_change": 0.00010257816146913139,
+            "relative_complex_change": 0.16141878077855729,
+            "relative_magnitude_change": 0.16117013419402504
+          },
+          {
+            "frequency_Hz": 1.0,
+            "channel": "bank",
+            "level_flight": {
+              "real": 9.474993505318592e-05,
+              "imag": -7.617246226155142e-06,
+              "magnitude_native": 9.505562914763556e-05,
+              "magnitude_display": 0.005446286369120248,
+              "phase_deg": -4.596303437800787
+            },
+            "zero_elevation": {
+              "real": 7.658931045671124e-05,
+              "imag": -9.8944660737135e-06,
+              "magnitude_native": 7.722579190347202e-05,
+              "magnitude_display": 0.0044247119456245106,
+              "phase_deg": -7.361190426926306
+            },
+            "drawing_magnitude": 0.007934518588757003,
+            "zero_elevation_over_drawing": 0.5576534853537564,
+            "absolute_complex_change": 1.8302841745701538e-05,
+            "relative_complex_change": 0.1925487412983664,
+            "relative_magnitude_change": 0.18757266038890924
+          }
+        ],
+        "trim_comparison": [
+          {
+            "variable": "alpha",
+            "level_flight": 3.039546933866092,
+            "zero_elevation": 3.592664238560595,
+            "signed_change": 0.5531173046945028
+          },
+          {
+            "variable": "attitude.bank",
+            "level_flight": 0.0066393329278260325,
+            "zero_elevation": 0.007483506397445892,
+            "signed_change": 0.0008441734696198596
+          },
+          {
+            "variable": "power.1",
+            "level_flight": 6.168696269114552,
+            "zero_elevation": -8.955640895382293,
+            "signed_change": -15.124337164496845
+          },
+          {
+            "variable": "beta",
+            "level_flight": 0.017411535491707545,
+            "zero_elevation": 0.016337489830425406,
+            "signed_change": -0.0010740456612821393
+          },
+          {
+            "variable": "control.2",
+            "level_flight": -10.089958923921024,
+            "zero_elevation": -9.877566585162588,
+            "signed_change": 0.21239233875843588
+          },
+          {
+            "variable": "control.3",
+            "level_flight": 0.10504381357313247,
+            "zero_elevation": 0.10603141879087408,
+            "signed_change": 0.000987605217741605
+          },
+          {
+            "variable": "attitude.elevation",
+            "level_flight": 3.039548928276554,
+            "zero_elevation": -0.0,
+            "signed_change": -3.039548928276554
+          }
+        ],
+        "original_gates": "Condition/rank and harmonic residual estimates are source-reported; no matrix products or rank/condition estimates repeated.",
+        "interpretation": "Changed physical trim, not isolated coordinates. Reference operating point remains unidentified; any closer magnitudes are descriptive. Negative type0 thrust denotes a braking conditional point, not positive-propulsion feasibility."
+      },
+      "seven_point_ratios": [
+        {
+          "frequency_Hz": 0.1,
+          "zero_over_drawing": {
+            "yaw_rate": 0.8152834596266464,
+            "roll_rate": 0.8306212297327403,
+            "sideslip": 0.8558550201807377,
+            "bank": 0.8344313522768882
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 1.0292565159488825,
+            "roll_rate": 1.0072731047209855,
+            "sideslip": 1.029113229765539,
+            "bank": 1.074543656604782
+          }
+        },
+        {
+          "frequency_Hz": 1.0,
+          "zero_over_drawing": {
+            "yaw_rate": 1.111738394339681,
+            "roll_rate": 0.5570211369175144,
+            "sideslip": 0.9953351204187977,
+            "bank": 0.5576534853537564
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 1.2756672765323906,
+            "roll_rate": 0.6706973468800648,
+            "sideslip": 1.1865756823792242,
+            "bank": 0.6864041350709654
+          }
+        },
+        {
+          "frequency_Hz": 1.09647819614319,
+          "zero_over_drawing": {
+            "yaw_rate": 1.653765970436852,
+            "roll_rate": 0.5494706093689529,
+            "sideslip": 1.033555151167218,
+            "bank": 0.5492744238428765
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 1.8654011774905013,
+            "roll_rate": 0.655627087192858,
+            "sideslip": 1.2210728577827752,
+            "bank": 0.6403500027474001
+          }
+        },
+        {
+          "frequency_Hz": 1.15737773741517,
+          "zero_over_drawing": {
+            "yaw_rate": 1.926560751402972,
+            "roll_rate": 0.5338102307009205,
+            "sideslip": 1.029727289724093,
+            "bank": 0.5331689605005859
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 2.161302803702806,
+            "roll_rate": 0.634878432044046,
+            "sideslip": 1.2108294069718777,
+            "bank": 0.5918886578291557
+          }
+        },
+        {
+          "frequency_Hz": 6.65332925161684,
+          "zero_over_drawing": {
+            "yaw_rate": 0.604153580016051,
+            "roll_rate": 0.6218075748925729,
+            "sideslip": 1.0704000554178417,
+            "bank": 0.6185898470621941
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 0.9247788925202814,
+            "roll_rate": 0.47200661087708473,
+            "sideslip": 1.368523520100006,
+            "bank": 1.2640048448170773
+          }
+        },
+        {
+          "frequency_Hz": 8.90352386262554,
+          "zero_over_drawing": {
+            "yaw_rate": 0.997037565846464,
+            "roll_rate": 1.0539784994036099,
+            "sideslip": 1.0274102372025624,
+            "bank": 1.0558604004846288
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 1.1740137010261613,
+            "roll_rate": 1.2425565218581947,
+            "sideslip": 1.2152466511668547,
+            "bank": 1.6994653516863585
+          }
+        },
+        {
+          "frequency_Hz": 10.0,
+          "zero_over_drawing": {
+            "yaw_rate": 0.9288454008560152,
+            "roll_rate": 0.9580919449266986,
+            "sideslip": 0.8883209160722098,
+            "bank": 0.9568775641120562
+          },
+          "level_flight_over_drawing": {
+            "yaw_rate": 1.2151793166937148,
+            "roll_rate": 1.2664462496262272,
+            "sideslip": 1.1391617600002437,
+            "bank": 1.744324983943312
+          }
+        }
+      ],
+      "source_reported_harmonic_gates": {
+        "max_scaled_residual": 1.9581426221966782e-16,
+        "max_backward_error": 3.698749977962863e-18,
+        "min_reciprocal_condition": 1.562384652771471e-08
+      },
+      "interpretation": [
+        "Replacing level flight by zero elevation produces a different descending equilibrium: flightpath\u22123.592666deg and signed type0 thrust\u22128.955641lb. Source momentum/convection guards pass without clipping, but this is a braking conditional model point; positive-propulsion feasibility is not established.",
+        "At1Hz yaw and sideslip magnitudes move closer to the drawing, while roll and bank move farther away. At the fixed published yaw-minimum frequency1.15737773741517Hz the new yaw remains approximately1.9266times the drawing. These seven predeclared samples do not locate a new continuous minimum.",
+        "The zero-elevation bank-rate identity holds. That kinematic agreement does not identify the original reference trim or resolve the coupled-response discrepancy."
+      ],
+      "scope": "Independent saved-state/scalar comparison and source-reported gate/lifecycle verification only. No new production imports, physical calls, matrix products, factorizations or solves."
+    },
+    "review/saved/process-closeout.json": {
+      "status": "exited",
+      "child_pid": 9981,
+      "exit_code": 0,
+      "reaped": true,
+      "elapsed_seconds": 3.3651379450166132,
+      "cap_seconds": 30,
+      "timed_out": false,
+      "source_pin": {
+        "bytes": 13597,
+        "sha256": "c59e343e1ec6b45824ed13d993495f875e4c83993e8c7ee9c6b0a14e06376441"
+      },
+      "plan_pin": {
+        "bytes": 589,
+        "sha256": "cfd6ea1e7ddd366bf6efd28c51b9229487291637ce1da888ee5ff91facc385ef"
+      },
+      "stdout_pin": {
+        "bytes": 4680,
+        "sha256": "86937ef4ff9dc57305d263bddf882b420f766b032e6e857ba2c68e98b3c9187a"
+      },
+      "stderr_pin": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "operations": "Saved scalar reductions only; no production imports, physical calls, matrix products, factorizations or solves.",
+      "report_pin": {
+        "bytes": 50274,
+        "sha256": "a8cb3d22c7ad7c853550f7f1efd42b77825b1a1f9357deb80b924c64b4fcf7ca"
+      }
+    },
+    "review/saved/session-closeout.json": {
+      "status": "TERMINAL_REAPED",
+      "exit_code": 0,
+      "reaped": true,
+      "owned_session_id": 40522,
+      "launch_chunk": "b20d57",
+      "terminal_chunk": "5c036e",
+      "audit_child_pid": 9981,
+      "audit_child_exit_code": 0,
+      "audit_child_reaped": true,
+      "wall_seconds": 3.3651379450166132,
+      "cap_seconds": 30,
+      "report_pin": {
+        "bytes": 50274,
+        "sha256": "a8cb3d22c7ad7c853550f7f1efd42b77825b1a1f9357deb80b924c64b4fcf7ca"
+      },
+      "summary_pin": {
+        "bytes": 10785,
+        "sha256": "152a8cef2e232e8d8e9d387402748588696d0d9fdac9a0c1cf584f21521b4a35"
+      },
+      "process_closeout_pin": {
+        "bytes": 908,
+        "sha256": "e1079fb27147e31116e7c2059abf7b98e0f8dcc9e05a8d7f822d3b4912c375fe"
+      },
+      "plan_pin": {
+        "bytes": 589,
+        "sha256": "cfd6ea1e7ddd366bf6efd28c51b9229487291637ce1da888ee5ff91facc385ef"
+      },
+      "physical_lifecycle_pin": {
+        "bytes": 1376,
+        "sha256": "585bb6ba8811c2d024dcdce267bbdb6343583a846828df50a6ba790fdaa7ab4b"
+      },
+      "operations": {
+        "physical_calls": 0,
+        "production_imports": 0,
+        "matrix_products": 0,
+        "factorizations": 0,
+        "solves": 0,
+        "saved_states": 7,
+        "four_output_comparisons": 28
+      },
+      "closed_utc": "2026-10-25T03:08:55.548053+00:00"
+    }
+  },
+  "pins": {
+    "report.json": {
+      "bytes": 29990,
+      "sha256": "d67ef757faa41397836e8153d18421486f85ee87e5cd4a49c605d2d357ea450f"
+    },
+    "summary.json": {
+      "bytes": 21752,
+      "sha256": "7fbcbbeb66a33e107ad8558f52fbeb0e3dc813ee0892174eef58117534a4814b"
+    },
+    "session-closeout.json": {
+      "bytes": 1376,
+      "sha256": "585bb6ba8811c2d024dcdce267bbdb6343583a846828df50a6ba790fdaa7ab4b"
+    },
+    "process-closeout.json": {
+      "bytes": 916,
+      "sha256": "0e5cf195aa29bde16ffe927a9574ae7459f0acda0eb4634b62d14dbb7f152b42"
+    },
+    "review/source-review.json": {
+      "bytes": 3375,
+      "sha256": "61173c4f9f0a4924b3dba267672f4824351201de1aebb08cc1c8b08b2eee8e28"
+    },
+    "results/checks.json": {
+      "bytes": 3758,
+      "sha256": "7cdb72e24e3670dd6a37c6c0fb7a8b9ff15f07dc65e530150d475a760f84172b"
+    },
+    "results/constraint-report.json": {
+      "bytes": 4410,
+      "sha256": "43e0e430ffad133042417c6338ea2a41cc25a2c9fb78662c7a3a6f2d031d6d38"
+    },
+    "results/recovery.json": {
+      "bytes": 926,
+      "sha256": "a0867736811fc452322a66483359daf9f33ae48781f77aace1e9ab9e1a39ae17"
+    },
+    "results/samples.json": {
+      "bytes": 10623,
+      "sha256": "0386710056ebffb0ed5292d30923d8d5bc7deb3c55e95926881ee75aef0cc064"
+    },
+    "source-transition.json": {
+      "bytes": 742,
+      "sha256": "e9aa4d36f59e642447ea1f350bd7c30e4c51396c023ac2ebaf66fdf40b22c76f"
+    },
+    "review/saved/report.json": {
+      "bytes": 50274,
+      "sha256": "a8cb3d22c7ad7c853550f7f1efd42b77825b1a1f9357deb80b924c64b4fcf7ca"
+    },
+    "review/saved/summary.json": {
+      "bytes": 10785,
+      "sha256": "152a8cef2e232e8d8e9d387402748588696d0d9fdac9a0c1cf584f21521b4a35"
+    },
+    "review/saved/process-closeout.json": {
+      "bytes": 908,
+      "sha256": "e1079fb27147e31116e7c2059abf7b98e0f8dcc9e05a8d7f822d3b4912c375fe"
+    },
+    "review/saved/session-closeout.json": {
+      "bytes": 1193,
+      "sha256": "7efdb7cb1c3764f5f55025b30e86f7e5abc7c0f5248da0302af75cea06e84413"
+    }
+  },
+  "evidence_archive": {
+    "path": "daedalus-zero-elevation-20261025-evidence.zip",
+    "bytes": 4535126,
+    "sha256": "27f5e47cdb33d8db33afeabd20e2c1577e41e9fac746a617eef24ddf30f558fe",
+    "replay_portable": false
+  }
+}

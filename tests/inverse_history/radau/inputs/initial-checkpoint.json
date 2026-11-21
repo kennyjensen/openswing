@@ -1,0 +1,1321 @@
+{
+  "format": "openswing-time-checkpoint",
+  "version": 1,
+  "context": {
+    "identity": {
+      "model_sha256": "d19728c2551968d3436b5a3935fd0d54e28aed8d63454b4a9253cc329cdbf90e",
+      "nodes": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2928932188134524,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999999,
+          0.0
+        ],
+        [
+          0.0,
+          1.7071067811865475,
+          0.0
+        ],
+        [
+          0.0,
+          2.0,
+          0.0
+        ]
+      ],
+      "elements": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "stations": {
+        "1": [
+          [
+            0.0,
+            0.2928932188134524,
+            0.9999999999999999,
+            1.7071067811865475,
+            2.0
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ]
+      },
+      "constraints": [
+        {
+          "kind": "ground",
+          "type": 0,
+          "a": 0,
+          "b": null
+        }
+      ],
+      "circulation_count": 0
+    },
+    "setup": {
+      "panels": 4,
+      "condition": {
+        "speed": 10,
+        "alpha": 0.0,
+        "beta": 0.0,
+        "density": null,
+        "mach": 0.0,
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "controls": {},
+        "powers": {},
+        "body_added_mass_factor": 1.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ground_effect": 0,
+        "ground_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "stall": true,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "altitude_m": 0.0,
+        "gravity_magnitude": null,
+        "load_factor": 1.0,
+        "gust": null,
+        "sensor_flow": "full",
+        "time": 0.0,
+        "circulation_modes": {},
+        "aero_lag": true,
+        "wake_core_ratio": 0.25,
+        "freeze_influences": false
+      },
+      "motion": {
+        "rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "gravity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh_loads": [],
+      "loads": [],
+      "strut_mode": "bilateral",
+      "frame": "free",
+      "load_targets": {
+        "force.x": 0.0,
+        "force.y": 0.0,
+        "force.z": 0.0,
+        "moment.x": 0.0,
+        "moment.y": 0.0,
+        "moment.z": 0.0
+      },
+      "actuator_constraints": [
+        {
+          "variable": "power.1",
+          "quantity": "position_earth.x",
+          "target": 0.0
+        }
+      ],
+      "controller": null,
+      "forcing": "time RX\n-1 10.133333333333333333333333333333\n0 0\n1 -9.866666666666666666666666666667\n"
+    },
+    "feedback": null,
+    "forcing_offsets": {
+      "RX": 0.0
+    },
+    "method": {
+      "order": 5,
+      "maximum_step": 0.02,
+      "tolerance": 1e-08,
+      "position_history": {
+        "version": 1,
+        "policy": "earth-origin-position-defect-radau-v1",
+        "signature": "f37869eb9838551779259d21fc3c8a274e207b39e09e761b9aa6a0ac9662c09a",
+        "definition": {
+          "policy": "earth-origin-position-defect-bdf-v1",
+          "version": 1,
+          "rows": [
+            [
+              "power.1",
+              "position_earth.x",
+              0.0
+            ]
+          ],
+          "mask": [
+            true,
+            false,
+            false
+          ],
+          "forcing": "time RX\n-1 10.133333333333333333333333333333\n0 0\n1 -9.866666666666666666666666666667\n",
+          "channels": [
+            {
+              "name": "RX",
+              "quantity": "position_earth.x",
+              "relative": false,
+              "offset": 0.0,
+              "factor": 1.0,
+              "unit": "input L",
+              "times": [
+                -1.0,
+                0.0,
+                1.0
+              ],
+              "values": [
+                10.133333333333333,
+                0.0,
+                -9.866666666666667
+              ]
+            }
+          ],
+          "interpolation": "piecewise natural cubic",
+          "derivative_time_unit": "input T",
+          "support": "first-left unspecified; exact-end physical interior; end-right jet zero"
+        }
+      }
+    }
+  },
+  "state": {
+    "time": 0.0,
+    "network": {
+      "positions": [
+        [
+          3.429814613931999e-28,
+          2.6639702017213805e-19,
+          -7.4644865837599e-20
+        ],
+        [
+          -2.750069938447814e-19,
+          0.2928932188134524,
+          -7.941182618648665e-19
+        ],
+        [
+          1.4638990180858466e-18,
+          0.9999999999999999,
+          -1.2504764340817632e-19
+        ],
+        [
+          3.4081381982279023e-19,
+          1.7071067811865475,
+          6.225252681359209e-19
+        ],
+        [
+          5.166157123591828e-19,
+          2.0,
+          1.2702220801573746e-18
+        ]
+      ],
+      "rotations": [
+        [
+          1.691479125162609e-19,
+          1.7478247792997755e-19,
+          4.1795633039893765e-21
+        ],
+        [
+          3.949191246458867e-19,
+          1.8197048483447673e-18,
+          -2.9456774869866883e-19
+        ],
+        [
+          -4.183322566271829e-19,
+          -1.753233951512189e-18,
+          -3.355387106420231e-19
+        ],
+        [
+          -5.295857593075996e-19,
+          3.162548445321206e-19,
+          -5.145340623487845e-19
+        ],
+        [
+          -6.739159347854802e-19,
+          2.288299359371387e-18,
+          6.855702919552774e-20
+        ]
+      ],
+      "internal_force": [
+        [
+          1.54290364605919e-15,
+          1.9841617905314984e-18,
+          2.1871042793848747e-15
+        ],
+        [
+          1.7725838633112166e-16,
+          3.469893875428771e-16,
+          7.804095299565435e-16
+        ],
+        [
+          -6.80814033780198e-16,
+          6.20873744382828e-16,
+          9.546177778302991e-16
+        ],
+        [
+          -1.1019174509751205e-16,
+          1.2975944509564706e-16,
+          2.6552365197863385e-16
+        ]
+      ],
+      "internal_moment": [
+        [
+          4.240565622672358e-15,
+          1.801080064546112e-15,
+          2.106408820535546e-15
+        ],
+        [
+          3.6963457576145085e-15,
+          2.5798439968396245e-16,
+          -1.458204952514067e-15
+        ],
+        [
+          1.3712974635231598e-15,
+          -1.7365522450021721e-15,
+          -1.380554257014775e-15
+        ],
+        [
+          7.724577459972801e-16,
+          -1.6619167613001638e-15,
+          -5.467281873650414e-16
+        ]
+      ],
+      "reactions": [
+        8.3169789139637745e-16,
+        -2.9137698375429042e-15,
+        -1.1649926787803837e-16,
+        3.3970546300547168e-15,
+        1.2959415765367681e-15,
+        -2.1657712972208437e-15
+      ],
+      "circulation": [],
+      "operating_values": {
+        "rates.x": 0.0,
+        "rates.y": 0.0,
+        "rates.z": 0.0,
+        "acceleration.x": 0.3999999998979802,
+        "acceleration.y": 1.3806742193110185e-17,
+        "acceleration.z": -6.184933931679303e-18,
+        "angular_acceleration.x": 6.982577068341324e-18,
+        "angular_acceleration.y": 5.893423630633003e-18,
+        "angular_acceleration.z": 1.102518209485208e-17,
+        "speed": 10.0,
+        "alpha": 0.0,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 0.0,
+        "attitude.elevation": 0.0,
+        "attitude.heading": 0.0,
+        "power.1": 0.399999999897979
+      }
+    },
+    "local_velocity": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "local_rates": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "velocity_origin_body": [
+      -10.0,
+      0.0,
+      0.0
+    ],
+    "rates_body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_earth": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "body_to_earth": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "feedback": [],
+    "commands": {
+      "RX": 0.0
+    },
+    "position_history": {
+      "time": 0.0,
+      "side": "right",
+      "signature": "f37869eb9838551779259d21fc3c8a274e207b39e09e761b9aa6a0ac9662c09a",
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rate": [
+        -9.999999999999998,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.399999999999995,
+        0.0,
+        0.0
+      ],
+      "branch": "table",
+      "intervals": [
+        [
+          "position_earth.x",
+          [
+            0.0,
+            1.0
+          ]
+        ]
+      ]
+    }
+  },
+  "older": null,
+  "options": {
+    "condition": {
+      "speed": 10.0,
+      "alpha": -0.0,
+      "beta": 0.0,
+      "density": null,
+      "mach": 0.0,
+      "rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "angular_acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "controls": {},
+      "powers": {},
+      "body_added_mass_factor": 1.0,
+      "position_earth": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attitude": [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "ground_effect": 0,
+      "ground_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "stall": true,
+      "stall_factor": 40.0,
+      "stall_width": 0.05,
+      "altitude_m": 0.0,
+      "gravity_magnitude": null,
+      "load_factor": 1.0,
+      "gust": null,
+      "sensor_flow": "full",
+      "time": 0.0,
+      "circulation_modes": {},
+      "aero_lag": true,
+      "wake_core_ratio": 0.25,
+      "freeze_influences": false
+    },
+    "motion": {
+      "rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "angular_acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "local_acceleration": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "local_rate_derivative": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "circulation_rate": [],
+    "gravity": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "operating_targets": {
+      "position_earth.x": 0.0
+    }
+  },
+  "next_step": 0.02,
+  "forcing_side": "right",
+  "validation_loads": [],
+  "accepted_method": {
+    "version": 1,
+    "producer_policy": "openswing-time-acceptance-v1",
+    "kind": "initial",
+    "scheme": "openswing-cached-initial-physical-v1",
+    "validation_level": "physical_only",
+    "accepted_inputs": {
+      "identity": {
+        "model_sha256": "d19728c2551968d3436b5a3935fd0d54e28aed8d63454b4a9253cc329cdbf90e",
+        "nodes": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2928932188134524,
+            0.0
+          ],
+          [
+            0.0,
+            0.9999999999999999,
+            0.0
+          ],
+          [
+            0.0,
+            1.7071067811865475,
+            0.0
+          ],
+          [
+            0.0,
+            2.0,
+            0.0
+          ]
+        ],
+        "elements": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "stations": {
+          "1": [
+            [
+              0.0,
+              0.2928932188134524,
+              0.9999999999999999,
+              1.7071067811865475,
+              2.0
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          ]
+        },
+        "constraints": [
+          {
+            "kind": "ground",
+            "type": 0,
+            "a": 0,
+            "b": null
+          }
+        ],
+        "circulation_count": 0
+      },
+      "setup": {
+        "panels": 4,
+        "condition": {
+          "speed": 10,
+          "alpha": 0.0,
+          "beta": 0.0,
+          "density": null,
+          "mach": 0.0,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {},
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "motion": {
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mesh_loads": [],
+        "loads": [],
+        "strut_mode": "bilateral",
+        "frame": "free",
+        "load_targets": {
+          "force.x": 0.0,
+          "force.y": 0.0,
+          "force.z": 0.0,
+          "moment.x": 0.0,
+          "moment.y": 0.0,
+          "moment.z": 0.0
+        },
+        "actuator_constraints": [
+          {
+            "variable": "power.1",
+            "quantity": "position_earth.x",
+            "target": 0.0
+          }
+        ],
+        "controller": null,
+        "forcing": "time RX\n-1 10.133333333333333333333333333333\n0 0\n1 -9.866666666666666666666666666667\n"
+      },
+      "feedback": null,
+      "forcing_offsets": {
+        "RX": 0.0
+      },
+      "method": {
+        "order": 0,
+        "maximum_step": 0.0,
+        "tolerance": 1e-08,
+        "position_history": {
+          "version": 1,
+          "policy": "original-continuous-dae-v1",
+          "signature": "f37869eb9838551779259d21fc3c8a274e207b39e09e761b9aa6a0ac9662c09a",
+          "definition": {
+            "policy": "earth-origin-position-defect-bdf-v1",
+            "version": 1,
+            "rows": [
+              [
+                "power.1",
+                "position_earth.x",
+                0.0
+              ]
+            ],
+            "mask": [
+              true,
+              false,
+              false
+            ],
+            "forcing": "time RX\n-1 10.133333333333333333333333333333\n0 0\n1 -9.866666666666666666666666666667\n",
+            "channels": [
+              {
+                "name": "RX",
+                "quantity": "position_earth.x",
+                "relative": false,
+                "offset": 0.0,
+                "factor": 1.0,
+                "unit": "input L",
+                "times": [
+                  -1.0,
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  10.133333333333333,
+                  0.0,
+                  -9.866666666666667
+                ]
+              }
+            ],
+            "interpolation": "piecewise natural cubic",
+            "derivative_time_unit": "input T",
+            "support": "first-left unspecified; exact-end physical interior; end-right jet zero"
+          }
+        }
+      },
+      "input_policy": "physical_time_forcing"
+    },
+    "layout": {
+      "chart": "scaled-local-so3-and-body-frame-v1",
+      "size": 109,
+      "network_size": 67,
+      "node_count": 5,
+      "circulation_coefficients": 0,
+      "circulation_start": 60,
+      "operating_start": 60,
+      "local_velocity_start": 67,
+      "frame_start": 97,
+      "feedback_start": 109,
+      "feedback_count": 0,
+      "feedback_size": 0,
+      "ordered_blocks": [
+        "network",
+        "local_velocity",
+        "local_angular_velocity",
+        "origin_body_velocity",
+        "body_angular_velocity",
+        "earth_position",
+        "frame_rotation_increment",
+        "feedback"
+      ],
+      "scales": {
+        "length": 2.0,
+        "velocity": 10,
+        "rate": 5.0,
+        "acceleration": 50.0,
+        "force": 122.50000000000001,
+        "circulation": 10.0,
+        "operating": {
+          "rates.x": 5.0,
+          "rates.y": 5.0,
+          "rates.z": 5.0,
+          "acceleration.x": 9.80665,
+          "acceleration.y": 9.80665,
+          "acceleration.z": 9.80665,
+          "angular_acceleration.x": 4.903325,
+          "angular_acceleration.y": 4.903325,
+          "angular_acceleration.z": 4.903325,
+          "speed": 10,
+          "alpha": 10.0,
+          "beta": 10.0,
+          "position_earth.x": 2.0,
+          "position_earth.y": 2.0,
+          "position_earth.z": 2.0,
+          "attitude.bank": 10.0,
+          "attitude.elevation": 10.0,
+          "attitude.heading": 10.0,
+          "power.1": 122.50000000000001
+        },
+        "feedback": []
+      }
+    },
+    "end_time": 0.0,
+    "endpoint_side": "right",
+    "tolerance": 1e-08,
+    "endpoint": {
+      "state": {
+        "time": 0.0,
+        "network": {
+          "positions": [
+            [
+              3.429814613931999e-28,
+              2.6639702017213805e-19,
+              -7.4644865837599e-20
+            ],
+            [
+              -2.750069938447814e-19,
+              0.2928932188134524,
+              -7.941182618648665e-19
+            ],
+            [
+              1.4638990180858466e-18,
+              0.9999999999999999,
+              -1.2504764340817632e-19
+            ],
+            [
+              3.4081381982279023e-19,
+              1.7071067811865475,
+              6.225252681359209e-19
+            ],
+            [
+              5.166157123591828e-19,
+              2.0,
+              1.2702220801573746e-18
+            ]
+          ],
+          "rotations": [
+            [
+              1.691479125162609e-19,
+              1.7478247792997755e-19,
+              4.1795633039893765e-21
+            ],
+            [
+              3.949191246458867e-19,
+              1.8197048483447673e-18,
+              -2.9456774869866883e-19
+            ],
+            [
+              -4.183322566271829e-19,
+              -1.753233951512189e-18,
+              -3.355387106420231e-19
+            ],
+            [
+              -5.295857593075996e-19,
+              3.162548445321206e-19,
+              -5.145340623487845e-19
+            ],
+            [
+              -6.739159347854802e-19,
+              2.288299359371387e-18,
+              6.855702919552774e-20
+            ]
+          ],
+          "internal_force": [
+            [
+              1.54290364605919e-15,
+              1.9841617905314984e-18,
+              2.1871042793848747e-15
+            ],
+            [
+              1.7725838633112166e-16,
+              3.469893875428771e-16,
+              7.804095299565435e-16
+            ],
+            [
+              -6.80814033780198e-16,
+              6.20873744382828e-16,
+              9.546177778302991e-16
+            ],
+            [
+              -1.1019174509751205e-16,
+              1.2975944509564706e-16,
+              2.6552365197863385e-16
+            ]
+          ],
+          "internal_moment": [
+            [
+              4.240565622672358e-15,
+              1.801080064546112e-15,
+              2.106408820535546e-15
+            ],
+            [
+              3.6963457576145085e-15,
+              2.5798439968396245e-16,
+              -1.458204952514067e-15
+            ],
+            [
+              1.3712974635231598e-15,
+              -1.7365522450021721e-15,
+              -1.380554257014775e-15
+            ],
+            [
+              7.724577459972801e-16,
+              -1.6619167613001638e-15,
+              -5.467281873650414e-16
+            ]
+          ],
+          "reactions": [
+            8.3169789139637745e-16,
+            -2.9137698375429042e-15,
+            -1.1649926787803837e-16,
+            3.3970546300547168e-15,
+            1.2959415765367681e-15,
+            -2.1657712972208437e-15
+          ],
+          "circulation": [],
+          "operating_values": {
+            "rates.x": 0.0,
+            "rates.y": 0.0,
+            "rates.z": 0.0,
+            "acceleration.x": 0.3999999998979802,
+            "acceleration.y": 1.3806742193110185e-17,
+            "acceleration.z": -6.184933931679303e-18,
+            "angular_acceleration.x": 6.982577068341324e-18,
+            "angular_acceleration.y": 5.893423630633003e-18,
+            "angular_acceleration.z": 1.102518209485208e-17,
+            "speed": 10.0,
+            "alpha": 0.0,
+            "beta": 0.0,
+            "position_earth.x": 0.0,
+            "position_earth.y": 0.0,
+            "position_earth.z": 0.0,
+            "attitude.bank": 0.0,
+            "attitude.elevation": 0.0,
+            "attitude.heading": 0.0,
+            "power.1": 0.399999999897979
+          }
+        },
+        "local_velocity": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "local_rates": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "velocity_origin_body": [
+          -10.0,
+          0.0,
+          0.0
+        ],
+        "rates_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "body_to_earth": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "feedback": [],
+        "commands": {
+          "RX": 0.0
+        },
+        "position_history": {
+          "time": 0.0,
+          "side": "right",
+          "signature": "f37869eb9838551779259d21fc3c8a274e207b39e09e761b9aa6a0ac9662c09a",
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rate": [
+            -9.999999999999998,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.399999999999995,
+            0.0,
+            0.0
+          ],
+          "branch": "table",
+          "intervals": [
+            [
+              "position_earth.x",
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          ]
+        }
+      },
+      "options": {
+        "condition": {
+          "speed": 10.0,
+          "alpha": -0.0,
+          "beta": 0.0,
+          "density": null,
+          "mach": 0.0,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {},
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "motion": {
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "local_acceleration": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "local_rate_derivative": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "circulation_rate": [],
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "operating_targets": {
+          "position_earth.x": 0.0
+        }
+      }
+    },
+    "selection": {
+      "mode": "initial_snapshot"
+    },
+    "phase": "cold_inverse_history",
+    "continuous_certificate": false,
+    "limitation": "Initial cached physical state/options only; no authenticated continuous rates, hidden constraints or derivative-array certificate are captured here."
+  }
+}

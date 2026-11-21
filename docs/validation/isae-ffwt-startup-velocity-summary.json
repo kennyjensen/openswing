@@ -1,0 +1,103 @@
+{
+  "status": "PASS_BOUNDED_SAVED_VELOCITY_DIAGNOSIS",
+  "numerical_checks_passed": 3670,
+  "numerical_checks_total": 3670,
+  "preparation_checks_passed": 564,
+  "field_maximum_errors": {
+    "bound": 3.6982793802959105e-13,
+    "trailing": 1.279254457541692e-12,
+    "factored_total": 1.1928880964774068e-12,
+    "dense_total": 7.350877193806466e-13,
+    "saved_relative_velocity": 0.0
+  },
+  "hinge_endpoint_geometry": [
+    {
+      "case": "coarse",
+      "center_source": 0,
+      "tip_source": 181,
+      "center_hinge_bound_endpoint": [
+        -0.019425796612789037,
+        -0.36400000000000005,
+        -0.0016995369835793343
+      ],
+      "tip_hinge_bound_endpoint": [
+        -0.019426513210482197,
+        -0.36400000000000005,
+        -0.0016995996777537947
+      ],
+      "bound_endpoint_gap_m": [
+        -7.165976931601536e-07,
+        0.0,
+        -6.26941744604273e-08
+      ],
+      "gap_norm_m": 7.193349799319703e-07,
+      "along_wind_m": -7.193349799319703e-07,
+      "transverse_gap_m": 8.49741933152051e-20,
+      "gamma_center": 0.30196952796266247,
+      "gamma_tip": 0.3017739541159733,
+      "gamma_tip_minus_center": -0.00019557384668916766,
+      "separate_exact_endpoint_groups": true
+    },
+    {
+      "case": "fine",
+      "center_source": 0,
+      "tip_source": 357,
+      "center_hinge_bound_endpoint": [
+        -0.019425796612789037,
+        -0.36400000000000005,
+        -0.0016995369835793343
+      ],
+      "tip_hinge_bound_endpoint": [
+        -0.019426513889368766,
+        -0.36400000000000005,
+        -0.001699599737148673
+      ],
+      "bound_endpoint_gap_m": [
+        -7.172765797286429e-07,
+        0.0,
+        -6.275356933876583e-08
+      ],
+      "gap_norm_m": 7.20016459736842e-07,
+      "along_wind_m": -7.200164597368421e-07,
+      "transverse_gap_m": 1.3847431438876318e-19,
+      "gamma_center": 0.30189604035307066,
+      "gamma_tip": 0.30184077938206527,
+      "gamma_tip_minus_center": -5.5260971005388626e-05,
+      "separate_exact_endpoint_groups": true
+    }
+  ],
+  "findings": [
+    "All selected production bound and trailing coefficients agree with the independent 80-digit direct endpoint integral under the frozen gates.",
+    "Both factored and dense horseshoe sums reproduce the same field; all six relative velocities agree with saved results. No arithmetic, grouping or own-bound-mask defect is exposed.",
+    "Fine hinge-adjacent force points lie much closer to the opposite bound filament and the separately retained hinge wake origins; the strong local velocities and cancellation persist in high precision.",
+    "This supports a finite-grid zero-core hinge-geometry/quadrature sensitivity, not proof that current geometry/force quadrature reproduces historical ASWING. Both saved states also differ in circulation and hinge pose."
+  ],
+  "next_step": "Preserve the existing failed reference and root-moment mesh gates. Before changing a kernel or adding any core, compare the documented/source-recoverable treatment of the shared hinge, bound-endpoint placement and force quadrature. A separately predeclared original-condition frozen-influence counterpart may discriminate the remaining historical K/F alternative, but a closer result would not prove its historical setting.",
+  "excluded_claims": [
+    "No new equilibrium or residual evaluation.",
+    "No source/property/core/circulation/receiver modification.",
+    "No ASWING parity, original mesh identity, experimental acceptance or globally mesh-converged result."
+  ],
+  "report": {
+    "path": "/tmp/openswing-ffwt-startup-20261026/hinge-velocity-review/report.json",
+    "bytes": 701990,
+    "sha256": "31738a2087afc3dd9b9cffbc63b7db97f662a6a6025608cd320fbcca97a3e8db"
+  },
+  "coefficients": {
+    "path": "/tmp/openswing-ffwt-startup-20261026/hinge-velocity-review/coefficients.json",
+    "bytes": 4056374,
+    "sha256": "1b2fc97dd34053182909fceffb0ffb3e3a1d1ccd367da4e1293f5a2810903fda"
+  },
+  "operations": {
+    "production_import_statements": 2,
+    "FactoredInfluence_constructions": 2,
+    "FactoredInfluence_apply": 2,
+    "horseshoe_velocity_calls": 2,
+    "model_constructions": 0,
+    "network_constructions": 0,
+    "residual_evaluations": 0,
+    "equilibrium_solves": 0,
+    "oracle_finite_coefficients": 1796,
+    "oracle_ray_coefficients": 1814
+  }
+}

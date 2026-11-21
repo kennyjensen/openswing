@@ -1,0 +1,282 @@
+{
+  "status": "PASS_DISPLAY_ONLY_BODE_AXES_AND_UNITS",
+  "recorded_utc": "2026-10-24T22:19:17.459337+00:00",
+  "javascript_tests": {
+    "distinct_passed": 39,
+    "axes": 9,
+    "comparison": 18,
+    "overlays": 12,
+    "comparison_receipt": {
+      "status": "PASS_FOCUSED_COMPARISON_TESTS",
+      "scope": "Receipt of completed retained Node test output; no tests rerun while preparing this receipt.",
+      "command": "timeout --signal=TERM --kill-after=5s 60s node --test tests/frequency-comparison.test.mjs tests/frequency-overlays.test.mjs",
+      "final_run": {
+        "session_id": 57581,
+        "launch_chunk": "612029",
+        "terminal_chunk": "a9105f",
+        "exit_code": 0,
+        "reaped": true,
+        "cap_seconds": 60,
+        "counts": {
+          "tests": 30,
+          "passed": 30,
+          "failed": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "node_reported_duration_ms": 581.947995
+      },
+      "retained_prior_run": {
+        "session_id": 71016,
+        "launch_chunk": "bf5c79",
+        "terminal_chunk": "fd7559",
+        "exit_code": 1,
+        "reaped": true,
+        "counts": {
+          "tests": 30,
+          "passed": 29,
+          "failed": 1
+        },
+        "failure": "Nearly constant physical gain was expanded to full plot height by shared linear-axis padding.",
+        "correction": "Shared helper owner restored relative-amplitude padding floor; comparison regression preserved and now explicitly selects gainLog=false. No physical work."
+      },
+      "owned_file_pins": {
+        "web/frequency-comparison.js": {
+          "bytes": 13517,
+          "sha256": "95eb5ac77ea283c64954e849a1057b6f0292a334449be1b75033bdc2e39722b8"
+        },
+        "tests/frequency-comparison.test.mjs": {
+          "bytes": 14968,
+          "sha256": "8e2536861d6f309443fb7f935ce68103748f5adee559c01bcdac1972a987ff61"
+        }
+      },
+      "receipt_time_dependency_pins": {
+        "web/frequency-axes.js": {
+          "bytes": 5684,
+          "sha256": "902e04bf00a6bf1c64cc4663f5f4b81794b0fc5b974ad0f8c45a073912a12478"
+        },
+        "web/frequency-data.js": {
+          "bytes": 7026,
+          "sha256": "657000bbf7e9c1004ce4988ae09b3d298796bb6f9339eb0b0824bdb236ec1767"
+        },
+        "tests/frequency-overlays.test.mjs": {
+          "bytes": 9315,
+          "sha256": "f768d71f863c2c99835cd9b05682022566e97f4f2686a3d217fc95867038b64e"
+        }
+      },
+      "coverage": [
+        "Default logarithmic magnitude; decade labels and lighter2..9 minor grids on both axes.",
+        "Linear magnitude and dB retain linear gain; phase remains linear.",
+        "Zero magnitude is a gap only for logarithmic gain, with clear caption and preserved linear zero.",
+        "Display-only cycles/radians and degrees/radians, including compatible external traces.",
+        "Original CSV data and selected sample indices preserved.",
+        "Prior phase/gust/initial-state/broken-loop/extreme-overlay regressions."
+      ],
+      "quick_source_review": {
+        "files": {
+          "web/frequency-results.js": {
+            "bytes": 34571,
+            "sha256": "5ec3b1172d6cface63a88c6e37e4338f17fdd90d6404a0d0ce9486ba705364aa"
+          },
+          "web/frequency-data.js": {
+            "bytes": 7026,
+            "sha256": "657000bbf7e9c1004ce4988ae09b3d298796bb6f9339eb0b0824bdb236ec1767"
+          }
+        },
+        "conclusion": "No integration, units or ordinary-data gap blocker. Main magnitude/db display scaling and unchanged phase/CSV follow the same shared unit helper.",
+        "minor_edge_case": "Main valid() tests raw positive omega but not the converted cycles value. At positive subnormal omega, conversion may underflow to0 and log position becomesNaN. Suggested guard on converted frequency; no effect on current physical grids. Parent notified; no edit/test by reviewer."
+      },
+      "operations": {
+        "physical_calls": 0,
+        "matrix_products": 0,
+        "linear_solves": 0,
+        "browser_runs": 0,
+        "additional_test_runs_for_receipt": 0
+      }
+    }
+  },
+  "browser": {
+    "status": "PASS_FOCUSED_BODE_DISPLAY_COVERAGE",
+    "distinct_tests_passed": 5,
+    "latest_revision_tests": 3,
+    "earlier_unrepeated_tests": 2,
+    "first_attempt": {
+      "status": "FAIL_RETAINED",
+      "counts": {
+        "passed": 4,
+        "total": 5
+      },
+      "report_pin": {
+        "bytes": 1223,
+        "sha256": "ac8292cc2d9f68bc559df2b5aa34d9d7c1c37d5e59484ceb3564b7885865283f"
+      },
+      "closeout_pin": {
+        "bytes": 1285,
+        "sha256": "2968cbbfd7c0fc7758f10b2f152c219c73fe625e142903ac5461e6f7afa010c5"
+      },
+      "failure": "Preset readiness still Loading numerical libraries stage 2/3 at custom 20 s timeout; retained. Normal repository expectation is 60 s."
+    },
+    "focused_revision": {
+      "status": "PASS_FOCUSED_BROWSER",
+      "counts": {
+        "passed": 3,
+        "total": 3
+      },
+      "report_pin": {
+        "bytes": 756,
+        "sha256": "3e4607bd94ebdebc2e9db864e9326a9a6da202462136e3709e82d2ac0cb7cc5e"
+      },
+      "closeout_pin": {
+        "bytes": 719,
+        "sha256": "58046df7dc0d879ee575c404dd4534bb20d7a2d7247bd0f2c9e05a1fe9f6d3bc"
+      },
+      "changes": [
+        "Production converted-frequency underflow guard and mobile plot styling supplied by root",
+        "Fixture production plot-color initialization",
+        "Positive MIN_VALUE display conversion branch",
+        "Normal 60 s expect timeout; three selected tests only"
+      ]
+    },
+    "unrepeated_prior_passes": [
+      "Zero/missing sample gaps and linear zero rendering",
+      "Saved actual Daedalus fixed/free rendering, constraints and raw CSV identity"
+    ],
+    "coverage": [
+      "Default logarithmic magnitude and frequency with decade/minor grids; linear phase ordinate",
+      "Display cycles/radians and degrees/radians: independent pixel-coordinate checks of 2*pi and 180/pi",
+      "Linear and dB display switching",
+      "Raw results and CSV remain unchanged",
+      "Zero/missing samples split curves; zero gain can be shown linearly",
+      "Comparison SVG export shares display units, axis scales and ticks",
+      "Desktop/mobile screenshots with actual production CSS and plot colors",
+      "Free-flight preset preserves input/grid and intercepted request; no automatic solve",
+      "MIN_VALUE native angular frequency omits underflowed cycle point, restores radians point, no nonfinite SVG coordinates"
+    ],
+    "visual_review": "Both final screenshots inspected: colored curves and decade/minor grids visible; compact mobile main charts; comparison scroll stays within its container.",
+    "screenshots": {
+      "test-results/frequency-axes-comparison--93b39-units-on-desktop-and-mobile/frequency-axes-desktop.png": {
+        "bytes": 257738,
+        "sha256": "8376acf8f15cc8d9740ff12f9f458c3e9c5ee3803b8f44dcf140082552f5f59b"
+      },
+      "test-results/frequency-axes-comparison--93b39-units-on-desktop-and-mobile/frequency-axes-mobile.png": {
+        "bytes": 172687,
+        "sha256": "65be8d28a2fa74e92acd5f6e7e2a50df49720e0bd382e44f481060ba50d062c3"
+      }
+    },
+    "frequency_solves": 0,
+    "scope": "Saved/synthetic display fixtures plus one intercepted frequency request. Full-app startup may perform read-only model inspection/distribution; no new physical frequency response.",
+    "user_port8085_untouched": true,
+    "no_pending_writes": true
+  },
+  "display": {
+    "magnitude": "Logarithmic by default; linear and dB available.",
+    "phase": "Linear vertical axis.",
+    "ticks": "Decimal decade labels and minor2..9 gridlines; bounded thinning only for extreme ranges.",
+    "frequency_default": "cycles/input T; Hz when T is seconds; solver inputs remain angular.",
+    "angular_default": "degrees; radians optional.",
+    "zeros": "Gaps on logarithmic gain, explicit in linear magnitude and raw CSV; no floor.",
+    "data": "Saved results, CSV, sample details, geometry and input settings remain native and unchanged.",
+    "mobile": "Larger main tick labels and compact plots; comparison chart scrolls within its container."
+  },
+  "scope": "Rendering and unit display only. Browser uses saved responses and synthetic display coordinates, no new aircraft solve.",
+  "limitations": [
+    "Physical Drela discrepancy remains after proper unit conversion.",
+    "No matched operating point or cruise-speed mesh convergence established.",
+    "Initial browser startup failed custom20s expectation while loading libraries; normal60s retry passed.",
+    "Four earlier browser passes retained; only changed conversion/mobile and failed preset tests rerun. Five distinct tests have passing evidence across two runs."
+  ],
+  "all_owned_processes_terminal_reaped": true,
+  "evidence_pins": [
+    {
+      "path": "/home/userland/aswing/web/frequency-axes.js",
+      "bytes": 5684,
+      "sha256": "902e04bf00a6bf1c64cc4663f5f4b81794b0fc5b974ad0f8c45a073912a12478"
+    },
+    {
+      "path": "/home/userland/aswing/web/frequency-results.js",
+      "bytes": 34585,
+      "sha256": "c9366859360d263e5ac5182679e8eebea2a1dad673edbce6c71a26eee88ca583"
+    },
+    {
+      "path": "/home/userland/aswing/web/frequency-comparison.js",
+      "bytes": 13517,
+      "sha256": "95eb5ac77ea283c64954e849a1057b6f0292a334449be1b75033bdc2e39722b8"
+    },
+    {
+      "path": "/home/userland/aswing/web/frequency-data.js",
+      "bytes": 7026,
+      "sha256": "657000bbf7e9c1004ce4988ae09b3d298796bb6f9339eb0b0824bdb236ec1767"
+    },
+    {
+      "path": "/home/userland/aswing/web/style.css",
+      "bytes": 30906,
+      "sha256": "74b3da2d748735e87862d36428ac06dbfde0c85795ce42108d4f4ed57ef77012"
+    },
+    {
+      "path": "/home/userland/aswing/tests/frequency-axes.test.mjs",
+      "bytes": 5696,
+      "sha256": "47cb657483e899ef8864c08ac3a819bd733594338b3bb9bd052a827fbd1570be"
+    },
+    {
+      "path": "/home/userland/aswing/tests/frequency-comparison.test.mjs",
+      "bytes": 14968,
+      "sha256": "8e2536861d6f309443fb7f935ce68103748f5adee559c01bcdac1972a987ff61"
+    },
+    {
+      "path": "/home/userland/aswing/tests/frequency-overlays.test.mjs",
+      "bytes": 9315,
+      "sha256": "f768d71f863c2c99835cd9b05682022566e97f4f2686a3d217fc95867038b64e"
+    },
+    {
+      "path": "/home/userland/aswing/tests/browser/frequency-axes.spec.js",
+      "bytes": 14606,
+      "sha256": "e84c3b204aeee33ff7623f7a313ebd4240b0a9142e2a6885b215f45d25068d09"
+    },
+    {
+      "path": "/home/userland/aswing/tests/browser/frequency-frame.spec.js",
+      "bytes": 7329,
+      "sha256": "c983664ab3ff42248c54d0c9dc1838c1ae7aa937928dd03300d63e38579b6140"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/bode-log-axes.md",
+      "bytes": 2411,
+      "sha256": "89a441c17b111503d530e340a3a4f52557f246fa3d9173ec48fbfed80b6cf9a3"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-20261024/test-2.log",
+      "bytes": 944,
+      "sha256": "77bc8d5554f07f47155299b51af5ce4a7b6470d7a36e9ff05a69ccb1e707c27c"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-20261024/comparison-tests.json",
+      "bytes": 3507,
+      "sha256": "35638fb3e8da3f6657766a20d57072b03075bdd65d23dbddb6fb0563a4795726"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-browser-20261024/final-report.json",
+      "bytes": 3207,
+      "sha256": "14ede1bae2eead1862ea6fee6e7e1c1b79a78f5744d7cde91ca0be6212e5b385"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-browser-20261024/report.json",
+      "bytes": 1223,
+      "sha256": "ac8292cc2d9f68bc559df2b5aa34d9d7c1c37d5e59484ceb3564b7885865283f"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-browser-20261024/session-closeout.json",
+      "bytes": 1285,
+      "sha256": "2968cbbfd7c0fc7758f10b2f152c219c73fe625e142903ac5461e6f7afa010c5"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-browser-20261024/r2/report.json",
+      "bytes": 756,
+      "sha256": "3e4607bd94ebdebc2e9db864e9326a9a6da202462136e3709e82d2ac0cb7cc5e"
+    },
+    {
+      "path": "/tmp/openswing-frequency-axes-browser-20261024/r2/session-closeout.json",
+      "bytes": 719,
+      "sha256": "58046df7dc0d879ee575c404dd4534bb20d7a2d7247bd0f2c9e05a1fe9f6d3bc"
+    }
+  ]
+}

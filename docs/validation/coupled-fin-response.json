@@ -1,0 +1,1131 @@
+{
+  "schema": 1,
+  "date": "2026-10-25",
+  "status": "PASS_SCOPED_COMPONENT_COMPARISON",
+  "full_goal_complete": false,
+  "daedalus_reference_match": false,
+  "log_axes_previously_complete": true,
+  "production_physics_changed": false,
+  "browser_build_performed": false,
+  "all_owned_scientific_processes_terminal_reaped": true,
+  "broad_requirements_partial": 40,
+  "isae": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0
+  },
+  "scope": {
+    "meshes": [
+      4,
+      8
+    ],
+    "frequencies_Hz": [
+      0.7,
+      1.0,
+      1.3
+    ],
+    "lag": [
+      false,
+      true
+    ],
+    "two_inputs": [
+      "section incidence rad",
+      "carrier root yaw torque Nm"
+    ],
+    "case_count": 12,
+    "physical_tolerance": {
+      "atol": 2e-07,
+      "rtol": 2e-08
+    },
+    "separate_discrete_manufactured_equilibria": true,
+    "mesh_convergence_claim": false
+  },
+  "highlights": {
+    "max_physical_gate_fraction": 0.1842326524344947,
+    "max_physical_global_balance": 3.684657e-08,
+    "max_selected_native_coordinate_difference": 7.304816467163462e-09,
+    "max_native_scaled_harmonic_residual": 7.404281624470957e-15,
+    "min_native_reciprocal_condition": 5.691453158304147e-05
+  },
+  "stages": {
+    "reference": {
+      "stage": "/tmp/openswing-coupled-fin-20261025",
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-20261025/session-closeout.json",
+        "bytes": 495,
+        "sha256": "66a39d586eac6473d38775a6d5db0d23fd88d5a670e7856d6b1003dbbfc26971"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-20261025/report.json",
+        "bytes": 452239,
+        "sha256": "fc80f038225ad275282c339193a7fc94da94d98298b5bc1337bccdbdcbe665c5"
+      },
+      "status": "FAIL_RETAINED",
+      "passed": 2233,
+      "total": 2233,
+      "error": {
+        "type": "ValueError",
+        "message": "Circulation modes must map lifting-beam indices to integer counts; zero selects pointwise values.",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-coupled-fin-20261025/run.py\", line 222, in <module>\n    mark(f'n{n}-production-prepare');prepared=adapter.prepare(F,n,manufactures[n],lag=False)\n                                              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-20261025/production-prep/adapter.py\", line 85, in prepare\n    network=StaticNetwork(model,panels,condition,[0.,0.,0.],loads,\n                          operating_constraints=free_flight_constraints())\n  File \"/tmp/openswing-coupled-fin-20261025/source/openswing/network.py\", line 170, in __init__\n    self.circulation_basis = CirculationBasis(self.meshes if condition is not None else [], None if condition is None else condition.circulation_modes)\n                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-20261025/source/openswing/circulation.py\", line 28, in __init__\n    requested = mode_settings(modes)\n  File \"/tmp/openswing-coupled-fin-20261025/source/openswing/circulation.py\", line 12, in mode_settings\n    if not isinstance(modes, dict):raise ValueError('Circulation modes must map lifting-beam indices to integer counts; zero selects pointwise values.')\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Circulation modes must map lifting-beam indices to integer counts; zero selects pointwise values.\n",
+        "phase": "n4-production-prepare"
+      },
+      "operations": {
+        "network_residuals": 0,
+        "production_base_correctors": 0,
+        "production_pencils": 0,
+        "production_harmonic_calls": 0,
+        "production_input_partials": 0,
+        "production_output_snapshots": 0,
+        "reference_base_solves": 4,
+        "reference_harmonic_solves": 0,
+        "reference_evaluations": 552,
+        "reference_manufacture_evaluations": 2,
+        "reference_fields": 180,
+        "reference_field_sets": 60,
+        "reference_operator_products": 4,
+        "production_mass_load_evaluations": 0,
+        "reference_base_solve_attempts": 4,
+        "reference_harmonic_solve_attempts": 0
+      },
+      "elapsed_seconds": 50.66061946601258
+    },
+    "adapter_geometry_failure": {
+      "stage": "/tmp/openswing-coupled-fin-r2-20261025",
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-r2-20261025/session-closeout.json",
+        "bytes": 495,
+        "sha256": "4804fbc006e972ecab26b1a29c9344715b351d66ab01e42c2ce14c4a7c1bc49d"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-r2-20261025/report.json",
+        "bytes": 41992,
+        "sha256": "1de9df839f8dead026d6f4d8b40fed7d549d5d1770bc6c7bcaee69fcb599a5c1"
+      },
+      "status": "FAIL_RETAINED",
+      "passed": 238,
+      "total": 238,
+      "error": {
+        "type": "AnalysisError",
+        "message": "Warm equilibrium correction failed: Local section-normal Mach reaches unity; the subsonic model is invalid. Maximum M_perp=65.4832 at beam 2, t=-1.847759, body force point [1.177162, 0.1289865, 1.993417] (input L). Normal relative speed=22283.54; sound speed=340.294 (input L/T).",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/equilibrium_state.py\", line 282, in correct\n    values,iteration_factor,iterations,builds=newton(function,x,tolerance,**hooks)\n                                              ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/time_integration.py\", line 439, in newton\n    jac[:, j] = (function(trial)-residual)/h\n                 ~~~~~~~~^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/equilibrium_state.py\", line 247, in <lambda>\n    function=lambda v:n.residual(v,1.,**residual_options)\n                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/run.py\", line 130, in counted_residual\n    try:value=original_residual(self,x,*args,**kwargs);return value\n              ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/network.py\", line 451, in residual\n    fext, mext, aero, masses, element_moments, element_forces = self.external(r, Q, meshes, gamma, condition, motion,(operating_unknowns.tobytes(),repr(condition)),\n                                                                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        local_motion=local_motion,circulation_rate=circulation_rate,gravity=gravity,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        _loads_only=not detail and acceleration_load_constraints(self))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/network.py\", line 327, in external\n    self.aero_cached = evaluate_aerodynamics(self.model, condition, meshes, gamma, point_positions,\n                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                            positions, Q[ids],local_motion=local_motion,circulation_rate=circulation_rate,circulation_basis=self.circulation_basis,\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n                                            sensor_positions=[r[j]+Q[j]@(row[3:6]-self.rj[j])\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                                for row in self.model.records.get('sensor', []) for j in [self.node(*row[1:3])]])\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/aero.py\", line 564, in evaluate_aerodynamics\n    raise AnalysisError(\"Local section-normal Mach reaches unity; the subsonic model is invalid. \"\n    ...<5 lines>...\n                     sound_speed=float(air['sound_speed']), speed_unit='input L/T', position_unit='input L'))\nopenswing.aero.AnalysisError: Local section-normal Mach reaches unity; the subsonic model is invalid. Maximum M_perp=65.4832 at beam 2, t=-1.847759, body force point [1.177162, 0.1289865, 1.993417] (input L). Normal relative speed=22283.54; sound speed=340.294 (input L/T).\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/tmp/openswing-coupled-fin-r2-20261025/run.py\", line 209, in <module>\n    base_system,steps,fresh=adapter.build_system(prepared,progress=lambda stage,done,total:print(json.dumps(dict(phase=phase,stage=stage,done=done,total=total)),flush=True))\n                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/production-prep/adapter.py\", line 108, in build_system\n    system,steps=make_system(prepared['model'],prepared['condition'],prepared['panels'],\n                 ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        frame='free',gravity=[0.,0.,0.],loads=prepared['loads'],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        initial_state=deepcopy(prepared['initial_state']),tolerance=1e-9,progress=progress)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/linear_dynamics.py\", line 891, in make_system\n    x, steps = equilibrate(n, tolerance, continuation_steps,initial_state=initial_state,progress=progress, **options)\n               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/network.py\", line 725, in equilibrate\n    return _equilibrate_full(network, tolerance, continuation_steps,\n                            initial_state=initial_state, progress=progress,\n                            **residual_options)\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/network.py\", line 748, in _equilibrate_full\n    return correct(network,initial_state,tolerance,residual_options,progress=progress)\n  File \"/tmp/openswing-coupled-fin-r2-20261025/source/openswing/equilibrium_state.py\", line 313, in correct\n    raise AnalysisError(f'Warm equilibrium correction failed: {exc}') from exc\nopenswing.aero.AnalysisError: Warm equilibrium correction failed: Local section-normal Mach reaches unity; the subsonic model is invalid. Maximum M_perp=65.4832 at beam 2, t=-1.847759, body force point [1.177162, 0.1289865, 1.993417] (input L). Normal relative speed=22283.54; sound speed=340.294 (input L/T).\n",
+        "phase": "n4-production-equilibrium"
+      },
+      "operations": {
+        "network_residuals": 32,
+        "production_base_correctors": 1,
+        "production_pencils": 0,
+        "production_harmonic_calls": 0,
+        "production_input_partials": 0,
+        "production_output_snapshots": 0,
+        "reference_base_solves": 0,
+        "reference_harmonic_solves": 0,
+        "reference_evaluations": 0,
+        "reference_manufacture_evaluations": 0,
+        "reference_fields": 0,
+        "reference_field_sets": 0,
+        "reference_operator_products": 0,
+        "production_mass_load_evaluations": 32,
+        "reference_base_solve_attempts": 0,
+        "reference_harmonic_solve_attempts": 0
+      },
+      "elapsed_seconds": 8.957863522984553
+    },
+    "coupled_response": {
+      "stage": "/tmp/openswing-coupled-fin-r3-20261025",
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-r3-20261025/session-closeout.json",
+        "bytes": 496,
+        "sha256": "93ee8a0555088106a5bd08505a0f353a961f123e4e591a5540b11da56118337a"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-r3-20261025/report.json",
+        "bytes": 341233,
+        "sha256": "a2359297e9996c7b17df68d09f5ed9cb1f638329da11e28f7c175030372d6cf6"
+      },
+      "status": "PASS_INDEPENDENT_COUPLED_FIN",
+      "passed": 1654,
+      "total": 1654,
+      "error": null,
+      "operations": {
+        "network_residuals": 4304,
+        "production_base_correctors": 2,
+        "production_pencils": 4,
+        "production_harmonic_calls": 12,
+        "production_input_partials": 4,
+        "production_output_snapshots": 100,
+        "reference_base_solves": 0,
+        "reference_harmonic_solves": 24,
+        "reference_evaluations": 0,
+        "reference_manufacture_evaluations": 0,
+        "reference_fields": 0,
+        "reference_field_sets": 0,
+        "reference_operator_products": 48,
+        "production_mass_load_evaluations": 4262,
+        "reference_base_solve_attempts": 0,
+        "reference_harmonic_solve_attempts": 24
+      },
+      "elapsed_seconds": 70.64633237197995
+    },
+    "regression": {
+      "stage": "/tmp/openswing-coupled-fin-regression-20261025",
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-regression-20261025/session-closeout.json",
+        "bytes": 372,
+        "sha256": "ee89f6fafb86b8f6d541701e606206a6afef5a0e79eed3ca0d4d9067c6462d5d"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-regression-20261025/test-summary.json",
+        "bytes": 2420,
+        "sha256": "51a6e75d077c9f8aa8f709dad96bc9b4ab3650176fefb095d8be150e57a51103"
+      },
+      "status": "PASS_TWO_REGRESSIONS",
+      "passed": 2,
+      "total": null,
+      "error": null,
+      "operations": null,
+      "elapsed_seconds": 24.52379540898255
+    }
+  },
+  "saved_data_audits": {
+    "reference": {
+      "summary": {
+        "path": "/tmp/openswing-coupled-fin-20261025/saved-review/summary.json",
+        "bytes": 3628,
+        "sha256": "1969209980aa1db0dd0b3ac075667fffd33db713df64ac09f24654089e23cbd7"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-20261025/saved-review/report.json",
+        "bytes": 7713518,
+        "sha256": "2ff335756b744cba77b8659946d7b097862a59ec7e4baf8796f620f21107aeb1"
+      },
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-20261025/saved-review/session-closeout.json",
+        "bytes": 1108,
+        "sha256": "5df0cd5bcbf9c47ad735354a50c768a534cfcf26668e0b7cb6fc6be04eae410a"
+      },
+      "results": {
+        "status": "PASS_RETAINED_REFERENCE_PREPARATION_AUDIT",
+        "error": null,
+        "passed": 49848,
+        "total": 49848,
+        "operations": {
+          "saved_base_products": 4,
+          "raw_derivative_packets": 544,
+          "physical_calls": 0,
+          "reference_imports": 0,
+          "production_imports": 0,
+          "field_evaluations": 0,
+          "solves": 0,
+          "factorizations": 0
+        },
+        "maxima": {
+          "span_moments": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "name": "n8 strip span moments"
+          },
+          "apparent_gram": {
+            "maximum_absolute": 2.220446049250313e-16,
+            "maximum_gate_ratio": 0.005236459059625303,
+            "name": "n8 saved apparent Gram"
+          },
+          "mass_symmetry": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "name": "n8 mass symmetry"
+          },
+          "base_residual_replay": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "name": "n8q32 saved base residual replay"
+          },
+          "base_equation": {
+            "maximum_absolute": 4.440892098500626e-16,
+            "maximum_gate_ratio": 4.440892098500626e-06,
+            "name": "n8q32 original base equation"
+          },
+          "real_mass": {
+            "maximum_absolute": 5.551115123125783e-17,
+            "maximum_gate_ratio": 2.2537856776784225e-06,
+            "name": "n8q32 real mass identity"
+          },
+          "quadrature_gamma": {
+            "maximum_absolute": 4.440892098500626e-16,
+            "maximum_gate_ratio": 1.6414656627238608e-05,
+            "name": "n8 quadrature gamma"
+          },
+          "quadrature_fields": {
+            "maximum_absolute": 2.4868995751603507e-14,
+            "maximum_gate_ratio": 0.00010283689568571696,
+            "name": "n8 quadrature cp"
+          },
+          "steady_reference": {
+            "maximum_absolute": 1.0658141036401503e-14,
+            "maximum_gate_ratio": 0.00010658141036401503,
+            "name": "n8-q16-lag1 complete steady reference residual"
+          },
+          "raw_derivative_recovery": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "name": "reference-probes/n8-q32-lag1-eps1e-28-control-00 output generalized_aerodynamic_load"
+          },
+          "family_closure": {
+            "maximum_absolute": 2.938735877055719e-39,
+            "maximum_gate_ratio": 1.5083333002340938e-26,
+            "name": "reference-probes/n8-q16-lag1-eps1e-24-v-05 aerodynamic family closure"
+          },
+          "acceleration_mass": {
+            "maximum_absolute": 8.881784197001252e-16,
+            "maximum_gate_ratio": 1.0273749158078315e-05,
+            "name": "n8-q32-lag1-eps1e-24 mass block"
+          },
+          "epsilon_residual": {
+            "maximum_absolute": 3.552713678800501e-15,
+            "maximum_gate_ratio": 0.00016315149864318105,
+            "name": "n4-q32-lag1 epsilon residual q"
+          },
+          "epsilon_outputs": {
+            "maximum_absolute": 3.552713678800501e-15,
+            "maximum_gate_ratio": 0.00016315149864318105,
+            "name": "n4-q32-lag1 epsilon output hinge_reaction_on_fin_body/q"
+          }
+        },
+        "elapsed_seconds": 17.426731862011366,
+        "limitations": [
+          "Original production API/setup failure is retained; no native physical response or coupled harmonic comparison completed.",
+          "Audit independently reduces four saved base equations, raw complex-step derivatives, mass Gram/block identities and output sums.",
+          "Stored rcond and mass definiteness gates are checked as recorded; no SVD/eigenvalue computation is repeated.",
+          "No original-ASWING, aircraft, experimental or mesh-convergence validation claim."
+        ],
+        "report_pin": {
+          "bytes": 7713518,
+          "sha256": "2ff335756b744cba77b8659946d7b097862a59ec7e4baf8796f620f21107aeb1"
+        },
+        "execution_pin": {
+          "bytes": 510,
+          "sha256": "31884b242aa8bfbda7a455960ca1e6d877416334a5daa31aab303e65f43bf58a"
+        },
+        "read_pin_count": 1293
+      }
+    },
+    "coupled_response": {
+      "summary": {
+        "path": "/tmp/openswing-coupled-fin-r3-20261025/saved-review/summary.json",
+        "bytes": 4555,
+        "sha256": "136a37923e1218e732f519531363d3d17f00523bbbb24b7e19e0b3f201cd6776"
+      },
+      "report": {
+        "path": "/tmp/openswing-coupled-fin-r3-20261025/saved-review/report.json",
+        "bytes": 4036270,
+        "sha256": "a52ab8bd894f6e31464dc94c240f7d81491e2a3c6f6387fa67ec651a91dd7637"
+      },
+      "closeout": {
+        "path": "/tmp/openswing-coupled-fin-r3-20261025/saved-review/session-closeout.json",
+        "bytes": 1348,
+        "sha256": "c83f11d6040e41af131dce9af2285e5860ffde927e1dfac1f2c89dbcc6cf9c49"
+      },
+      "results": {
+        "status": "PASS_SAVED_COUPLED_FIN_CONTINUATION_AUDIT",
+        "error": null,
+        "passed": 28304,
+        "total": 28304,
+        "operations": {
+          "reference_products": 48,
+          "native_products": 24,
+          "raw_snapshots": 100,
+          "reference_preparation_replays": 0,
+          "physical_evaluations": 0,
+          "model_imports": 0,
+          "solves": 0,
+          "factorizations": 0
+        },
+        "maxima": {
+          "geometry": {
+            "maximum_absolute": 6.661338147750939e-16,
+            "maximum_gate_ratio": 1.11873804984854e-05,
+            "label": "n8 rm"
+          },
+          "fresh_base": {
+            "maximum_absolute": 9.409915223716967e-12,
+            "maximum_gate_ratio": 0.0009409915223716966,
+            "label": "n8 fresh full residual"
+          },
+          "accepted_pose": {
+            "maximum_absolute": 3.331367681713715e-10,
+            "maximum_gate_ratio": 0.016656838408568575,
+            "label": "n4 accepted position"
+          },
+          "accepted_gamma": {
+            "maximum_absolute": 3.8607472774288e-10,
+            "maximum_gate_ratio": 0.019303736387144,
+            "label": "n4 accepted circulation"
+          },
+          "raw_output_aggregation": {
+            "maximum_absolute": 1.7763568394002505e-15,
+            "maximum_gate_ratio": 0.006335878784506475,
+            "label": "n4-lag0-f0.7-input0-part0-sign+1 raw aero_wrenches_earth"
+          },
+          "base_physical_output": {
+            "maximum_absolute": 9.261494682277771e-09,
+            "maximum_gate_ratio": 0.02254202509388149,
+            "label": "n4-lag0 base outputs aero_wrenches_earth"
+          },
+          "reference_equation_replay": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "label": "n4-lag0-f0.7-q16 saved signed residual"
+          },
+          "reference_output_recovery": {
+            "maximum_absolute": 8.54049480118089e-14,
+            "maximum_gate_ratio": 0.01873724526839818,
+            "label": "n8-lag1-f1-q32 recovery generalized_aerodynamic_load"
+          },
+          "quadrature_state": {
+            "maximum_absolute": 6.90740759619916e-14,
+            "maximum_gate_ratio": 0.00016946106840088124,
+            "label": "n4-lag0-f1 quadrature state"
+          },
+          "quadrature_output": {
+            "maximum_absolute": 9.75134157060538e-13,
+            "maximum_gate_ratio": 0.014235409224798172,
+            "label": "n4-lag0-f1 quadrature outputs aero_wrenches_earth"
+          },
+          "native_diagnostic_replay": {
+            "maximum_absolute": 4.622231866529366e-33,
+            "maximum_gate_ratio": 2.311115933264683e-19,
+            "label": "n8-lag0-f0.7 backward diagnostics"
+          },
+          "centered_output_replay": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "label": "n4-lag0-f0.7 stencil0 frame_position_earth"
+          },
+          "stacked_output_replay": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "label": "n4-lag0-f0.7 saved stacked outputs frame_position_earth"
+          },
+          "full_physical_output": {
+            "maximum_absolute": 1.1201123281132805e-07,
+            "maximum_gate_ratio": 0.1842326524344947,
+            "label": "n4-lag0-f1 physical comparison aero_wrenches_earth"
+          },
+          "physical_balance": {
+            "maximum_absolute": 3.684657017987511e-08,
+            "maximum_gate_ratio": 0.18423285089937555,
+            "label": "n4-lag1-f1 native physical balance"
+          },
+          "coordinate_map_replay": {
+            "maximum_absolute": 0.0,
+            "maximum_gate_ratio": 0.0,
+            "label": "n4-lag0-f0.7 coordinate map replay0"
+          },
+          "selected_native_coordinates": {
+            "maximum_absolute": 7.304816467163462e-09,
+            "maximum_gate_ratio": 0.01695107067927747,
+            "label": "n4-lag0-f1 selected physical coordinates0"
+          }
+        },
+        "plan_pin": {
+          "bytes": 149543,
+          "sha256": "ee3c2154cb24068c8f3cdbb0a82ca38215527b5d5380f73629b62b65f4b2fa55"
+        },
+        "elapsed_seconds": 6.373057687014807,
+        "limitations": [
+          "No new physical residual, field, model/reference import, factorization or solve. The accepted four-base/544-packet reference-preparation audit is referenced, not repeated.",
+          "Reference and native conditioning values are checked as recorded diagnostics; no SVD, inverse or condition estimator is repeated.",
+          "72 saved operator products include augmented reference output-recovery rows; three-component physical vector rotations are scalar arithmetic.",
+          "No original ASWING executable, aircraft parity, or cross-mesh convergence claim. Each mesh has its own declared manufactured equilibrium.",
+          "Raw packet aggregation verifies public force/moment, mass, reaction and direct kinematic mappings; it does not independently reevaluate the load laws or nonlinear SO3 logarithms."
+        ],
+        "report_pin": {
+          "bytes": 4036270,
+          "sha256": "a52ab8bd894f6e31464dc94c240f7d81491e2a3c6f6387fa67ec651a91dd7637"
+        }
+      }
+    }
+  },
+  "regression": {
+    "passed": 2,
+    "failures": 0,
+    "cases": [
+      {
+        "name": "test_loaded_free_carrier_fin_matches_independent_response[lag-off]",
+        "seconds": "9.645",
+        "properties": {
+          "maximum_physical_output_gate_fraction": "0.16222418531296612",
+          "native_harmonic_diagnostics": "{\"reciprocal_condition\": 0.00011001134783781666, \"backward_errors\": [9.008654604533147e-18, 8.65203034212678e-18], \"scaled_residuals\": [7.404281624470957e-15, 5.561740990057111e-17], \"factor_dimension\": 202, \"beam_equations_eliminated\": 0}",
+          "case_native_residuals": "841",
+          "shared_setup_native_residuals": "207",
+          "case_base_correctors": "0",
+          "shared_setup_base_correctors": "1",
+          "case_pencils": "1",
+          "shared_setup_pencils": "0",
+          "case_native_harmonics": "1",
+          "shared_setup_native_harmonics": "0",
+          "case_input_partials": "1",
+          "shared_setup_input_partials": "0",
+          "case_output_snapshots": "9",
+          "shared_setup_output_snapshots": "0",
+          "case_reference_base_solves": "0",
+          "shared_setup_reference_base_solves": "1",
+          "case_reference_harmonics": "1",
+          "shared_setup_reference_harmonics": "0"
+        }
+      },
+      {
+        "name": "test_loaded_free_carrier_fin_matches_independent_response[lag-on]",
+        "seconds": "7.734",
+        "properties": {
+          "maximum_physical_output_gate_fraction": "0.1842326524344947",
+          "native_harmonic_diagnostics": "{\"reciprocal_condition\": 0.0001356550690041059, \"backward_errors\": [6.882469561284245e-18, 7.562557342541293e-18], \"scaled_residuals\": [2.1501815457372555e-15, 4.1140237558086314e-17], \"factor_dimension\": 202, \"beam_equations_eliminated\": 0}",
+          "case_native_residuals": "841",
+          "shared_setup_native_residuals": "207",
+          "case_base_correctors": "0",
+          "shared_setup_base_correctors": "1",
+          "case_pencils": "1",
+          "shared_setup_pencils": "0",
+          "case_native_harmonics": "1",
+          "shared_setup_native_harmonics": "0",
+          "case_input_partials": "1",
+          "shared_setup_input_partials": "0",
+          "case_output_snapshots": "9",
+          "shared_setup_output_snapshots": "0",
+          "case_reference_base_solves": "0",
+          "shared_setup_reference_base_solves": "1",
+          "case_reference_harmonics": "1",
+          "shared_setup_reference_harmonics": "0"
+        }
+      }
+    ]
+  },
+  "source": {
+    "root_public_frozen_identical": true,
+    "modules": [
+      {
+        "name": "__init__.py",
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      {
+        "name": "aero.py",
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      {
+        "name": "applied_load_outputs.py",
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      {
+        "name": "asw.py",
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      {
+        "name": "asw_edit.py",
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      {
+        "name": "atmosphere.py",
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      {
+        "name": "beam_matching.py",
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      {
+        "name": "body_shoulders.py",
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      {
+        "name": "bridge.py",
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      {
+        "name": "circulation.py",
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      {
+        "name": "circulation_polish.py",
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      {
+        "name": "circulation_solve.py",
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      {
+        "name": "circulation_tangent.py",
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      {
+        "name": "control_allocation.py",
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      {
+        "name": "control_expressions.py",
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      {
+        "name": "control_tables.py",
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      {
+        "name": "custom_constraints.py",
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      {
+        "name": "damping.py",
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      {
+        "name": "derivative_cache.py",
+        "bytes": 5250,
+        "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+      },
+      {
+        "name": "derivative_circulation.py",
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      {
+        "name": "derivatives.py",
+        "bytes": 24933,
+        "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+      },
+      {
+        "name": "descriptor_mass.py",
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      {
+        "name": "discretization.py",
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      {
+        "name": "distribution_curve.py",
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      {
+        "name": "dynamic_inertia.py",
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      {
+        "name": "equilibrium_state.py",
+        "bytes": 18913,
+        "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+      },
+      {
+        "name": "equilibrium_tangent.py",
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      {
+        "name": "factored_influence.py",
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      {
+        "name": "feedback.py",
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      {
+        "name": "field_products.py",
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      {
+        "name": "flow_survey.py",
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      {
+        "name": "forcing.py",
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      {
+        "name": "frequency_response.py",
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      {
+        "name": "frequency_sweep.py",
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      {
+        "name": "frozen_influence.py",
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      {
+        "name": "geometry.py",
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      {
+        "name": "geometry_field_partials.py",
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      {
+        "name": "geometry_partials.py",
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      {
+        "name": "geometry_stencil.py",
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      {
+        "name": "geometry_tangent.py",
+        "bytes": 38257,
+        "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+      },
+      {
+        "name": "ground.py",
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      {
+        "name": "gust.py",
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      {
+        "name": "gust_file.py",
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      {
+        "name": "gust_tangent.py",
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      {
+        "name": "harmonic_structure.py",
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      {
+        "name": "hinge_history.py",
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      {
+        "name": "inertia.py",
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      {
+        "name": "initial_diagnostics.py",
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      {
+        "name": "initial_response.py",
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      {
+        "name": "joints.py",
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      {
+        "name": "kinematics.py",
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      {
+        "name": "legacy_hinge_state.py",
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      {
+        "name": "linear_dynamics.py",
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      {
+        "name": "local_geometry_matrix.py",
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      {
+        "name": "local_motion.py",
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      {
+        "name": "local_rate_tangent.py",
+        "bytes": 7672,
+        "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+      },
+      {
+        "name": "mechanical_tangent.py",
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      {
+        "name": "network.py",
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      {
+        "name": "newton_structure.py",
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      {
+        "name": "nonlinear_initial.py",
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      {
+        "name": "operating.py",
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      {
+        "name": "output_derivatives.py",
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      {
+        "name": "output_fields.py",
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      {
+        "name": "position_history_checkpoint.py",
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      {
+        "name": "position_history_lift.py",
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      {
+        "name": "position_history_radau.py",
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      {
+        "name": "power_tangent.py",
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      {
+        "name": "propulsion.py",
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      {
+        "name": "quiescent.py",
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      {
+        "name": "radau_tangent.py",
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      {
+        "name": "radau_time.py",
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      {
+        "name": "recovery.py",
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      {
+        "name": "reduced_model.py",
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      {
+        "name": "reference_flow.py",
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      {
+        "name": "rigid_initial_rank.py",
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      {
+        "name": "rom_file.py",
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      {
+        "name": "rom_initial.py",
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      {
+        "name": "rom_outputs.py",
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      {
+        "name": "root_diagnostics.py",
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      {
+        "name": "seeded_corrector.py",
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      {
+        "name": "sensors.py",
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      {
+        "name": "sparse_rank.py",
+        "bytes": 9144,
+        "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+      },
+      {
+        "name": "stability.py",
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      {
+        "name": "steady_feedback.py",
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      {
+        "name": "structural_geometry.py",
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      {
+        "name": "structural_outputs.py",
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      {
+        "name": "structure.py",
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      {
+        "name": "structured_static.py",
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      {
+        "name": "structured_time.py",
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      {
+        "name": "struts.py",
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      {
+        "name": "support_outputs.py",
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      {
+        "name": "tangent_influences.py",
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      {
+        "name": "time_acceptance.py",
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      {
+        "name": "time_acceptance_validation.py",
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      {
+        "name": "time_accuracy.py",
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      {
+        "name": "time_cold_initial.py",
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      {
+        "name": "time_history.py",
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      {
+        "name": "time_initialization.py",
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      {
+        "name": "time_input_transition.py",
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      {
+        "name": "time_integration.py",
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      {
+        "name": "time_saved_history.py",
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      {
+        "name": "time_state.py",
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      {
+        "name": "time_transition_initial.py",
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      {
+        "name": "trefftz.py",
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      {
+        "name": "vector_ops.py",
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      {
+        "name": "volume.py",
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      {
+        "name": "volume_tangent.py",
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      {
+        "name": "vortex_tangent.py",
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      }
+    ]
+  },
+  "repository_files": [
+    {
+      "path": "/home/userland/aswing/scripts/coupled_fin_aero_reference.py",
+      "bytes": 20352,
+      "sha256": "a7a3bbbe818faa993706e4f6af298010ff68c11f634e403a8e945a8faad915b6"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/coupled_fin_reference.py",
+      "bytes": 10695,
+      "sha256": "6b451bf6780be3832d09a8549d82834b9c07d042195eeb03dc85978a3ca9e1b6"
+    },
+    {
+      "path": "/home/userland/aswing/tests/coupled_fin_adapter.py",
+      "bytes": 16069,
+      "sha256": "232a5869aee25d42c633267ae516c3f6857ee6614c57d805a32ec20236247ec2"
+    },
+    {
+      "path": "/home/userland/aswing/tests/coupled_fin_outputs.py",
+      "bytes": 3406,
+      "sha256": "ed85953ed6986a17bcb7662cb0dcaae34eda34737a20f62b1bb4dd9277e1d814"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_coupled_fin_response.py",
+      "bytes": 10533,
+      "sha256": "f27e44f4fa7a9738488fedd7e528609ebc37eeb35e73ce7536de5c0a30bc903f"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/coupled-fin-fixture.json",
+      "bytes": 5941,
+      "sha256": "cf190ae34255ddf4abd1718224df8d0ea901f62f31d88ba4d57ba6a0be3a3ab9"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/coupled-fin-response.md",
+      "bytes": 7296,
+      "sha256": "d6dbea1fd5b2a9154e2f5a3330a0d2efc31bb7e69c6761562613922643b1c50a"
+    }
+  ],
+  "limitations": [
+    "Loaded rigid bodies and one torsional hinge; no distributed elastic deformation",
+    "No original ASWING executable comparison",
+    "Published Daedalus operating point and near-1 Hz mismatch unresolved",
+    "Higher-frequency aircraft mesh convergence and nonlinear rudder-step validation unresolved"
+  ],
+  "archive": {
+    "path": "/home/userland/aswing/docs/validation/coupled-fin-response-20261025-evidence.zip",
+    "bytes": 23870922,
+    "sha256": "c23d33bd256b5bccad55f459f57188673d5aeae483e09272cb6c7cd86e23e2a2",
+    "logical_files": 2402,
+    "unique_blobs": 1129,
+    "zip_members": 1136,
+    "packaging_checks": {
+      "passed": 6068,
+      "total": 6068
+    },
+    "fresh_restoration_passed": true,
+    "retained_setup_failures": true,
+    "all_processes_terminal_reaped": true,
+    "package_receipt": {
+      "path": "/tmp/openswing-coupled-fin-publication-20261025/packaging/package-receipt.json",
+      "bytes": 998,
+      "sha256": "45014597144537c2933408082085ae4d46d69b9ab5c42325b10e7b7b2c6d912b"
+    },
+    "restoration_receipt": {
+      "path": "/tmp/openswing-coupled-fin-publication-20261025/packaging/restoration-report.json",
+      "bytes": 542,
+      "sha256": "7f783b1cbdcead9ba14bc298ab005dd0756fce08c2b52239ee33a8c1f19389ad"
+    },
+    "closeout": {
+      "path": "/tmp/openswing-coupled-fin-publication-20261025/packaging/packaging-session-closeout.json",
+      "bytes": 3739,
+      "sha256": "2055d6491588ffb607f370b7625ca28f59d0b473f6b903bbc91f856bfd95c040"
+    },
+    "external_primary_documents": 5,
+    "scientific_evaluations_during_packaging": 0
+  },
+  "publication_review": {
+    "receipt": {
+      "path": "/tmp/openswing-coupled-fin-publication-20261025/review/publication-review.json",
+      "bytes": 49065,
+      "sha256": "a05ac2820a419abcad52c458dda6f7c0de766088bda86b7c2ae9aa77de97aacc"
+    },
+    "requested_wording_clarification_applied": "structural damping",
+    "final_archive_links_and_pins_verified": true
+  }
+}

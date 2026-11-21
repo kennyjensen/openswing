@@ -1,0 +1,848 @@
+{
+  "status": "PASS_SAME_WASM_EXACT_CACHE_AND_FULL_JACOBIAN_COMPARISON",
+  "equilibrium_solve_calls": 0,
+  "explicit_full_jacobian_calls": 2,
+  "source_order": [
+    "baseline",
+    "candidate"
+  ],
+  "phases": [
+    {
+      "name": "all_input_pins_checked",
+      "elapsed_seconds": 0.09380000000000166,
+      "files": 214
+    },
+    {
+      "name": "baseline_source_imports",
+      "elapsed_seconds": 3.5228,
+      "count": 103
+    },
+    {
+      "name": "baseline_cache_controls_complete",
+      "elapsed_seconds": 6.632500000000004,
+      "retained_cases": 18
+    },
+    {
+      "name": "baseline_full_jacobian_started",
+      "elapsed_seconds": 6.935300000000002,
+      "shape": [
+        2428,
+        2428
+      ],
+      "residual": 8.403379002753685e-13
+    },
+    {
+      "name": "baseline_full_jacobian_complete",
+      "elapsed_seconds": 63.1482,
+      "seconds": 55.2905,
+      "matrix_sha256": "95a1bb25c3061cb34848edd7016b5dbb8e8749b9e210fbc0898da939ced01df8"
+    },
+    {
+      "name": "candidate_source_imports",
+      "elapsed_seconds": 63.97760000000001,
+      "count": 103
+    },
+    {
+      "name": "candidate_cache_controls_complete",
+      "elapsed_seconds": 66.346,
+      "retained_cases": 18
+    },
+    {
+      "name": "candidate_full_jacobian_started",
+      "elapsed_seconds": 66.5839,
+      "shape": [
+        2428,
+        2428
+      ],
+      "residual": 8.403379002753685e-13
+    },
+    {
+      "name": "candidate_full_jacobian_complete",
+      "elapsed_seconds": 115.18450000000001,
+      "seconds": 47.739900000000006,
+      "matrix_sha256": "95a1bb25c3061cb34848edd7016b5dbb8e8749b9e210fbc0898da939ced01df8"
+    }
+  ],
+  "runs": {
+    "baseline": {
+      "imports": {
+        "__init__.py": "/home/pyodide/baseline/openswing/__init__.py",
+        "aero.py": "/home/pyodide/baseline/openswing/aero.py",
+        "applied_load_outputs.py": "/home/pyodide/baseline/openswing/applied_load_outputs.py",
+        "asw.py": "/home/pyodide/baseline/openswing/asw.py",
+        "asw_edit.py": "/home/pyodide/baseline/openswing/asw_edit.py",
+        "atmosphere.py": "/home/pyodide/baseline/openswing/atmosphere.py",
+        "beam_matching.py": "/home/pyodide/baseline/openswing/beam_matching.py",
+        "body_shoulders.py": "/home/pyodide/baseline/openswing/body_shoulders.py",
+        "bridge.py": "/home/pyodide/baseline/openswing/bridge.py",
+        "circulation.py": "/home/pyodide/baseline/openswing/circulation.py",
+        "circulation_solve.py": "/home/pyodide/baseline/openswing/circulation_solve.py",
+        "circulation_tangent.py": "/home/pyodide/baseline/openswing/circulation_tangent.py",
+        "control_allocation.py": "/home/pyodide/baseline/openswing/control_allocation.py",
+        "control_expressions.py": "/home/pyodide/baseline/openswing/control_expressions.py",
+        "control_tables.py": "/home/pyodide/baseline/openswing/control_tables.py",
+        "custom_constraints.py": "/home/pyodide/baseline/openswing/custom_constraints.py",
+        "damping.py": "/home/pyodide/baseline/openswing/damping.py",
+        "derivatives.py": "/home/pyodide/baseline/openswing/derivatives.py",
+        "descriptor_mass.py": "/home/pyodide/baseline/openswing/descriptor_mass.py",
+        "discretization.py": "/home/pyodide/baseline/openswing/discretization.py",
+        "distribution_curve.py": "/home/pyodide/baseline/openswing/distribution_curve.py",
+        "dynamic_inertia.py": "/home/pyodide/baseline/openswing/dynamic_inertia.py",
+        "equilibrium_state.py": "/home/pyodide/baseline/openswing/equilibrium_state.py",
+        "equilibrium_tangent.py": "/home/pyodide/baseline/openswing/equilibrium_tangent.py",
+        "feedback.py": "/home/pyodide/baseline/openswing/feedback.py",
+        "field_products.py": "/home/pyodide/baseline/openswing/field_products.py",
+        "flow_survey.py": "/home/pyodide/baseline/openswing/flow_survey.py",
+        "forcing.py": "/home/pyodide/baseline/openswing/forcing.py",
+        "frequency_response.py": "/home/pyodide/baseline/openswing/frequency_response.py",
+        "frequency_sweep.py": "/home/pyodide/baseline/openswing/frequency_sweep.py",
+        "frozen_influence.py": "/home/pyodide/baseline/openswing/frozen_influence.py",
+        "geometry.py": "/home/pyodide/baseline/openswing/geometry.py",
+        "geometry_field_partials.py": "/home/pyodide/baseline/openswing/geometry_field_partials.py",
+        "geometry_partials.py": "/home/pyodide/baseline/openswing/geometry_partials.py",
+        "geometry_stencil.py": "/home/pyodide/baseline/openswing/geometry_stencil.py",
+        "geometry_tangent.py": "/home/pyodide/baseline/openswing/geometry_tangent.py",
+        "ground.py": "/home/pyodide/baseline/openswing/ground.py",
+        "gust.py": "/home/pyodide/baseline/openswing/gust.py",
+        "gust_file.py": "/home/pyodide/baseline/openswing/gust_file.py",
+        "gust_tangent.py": "/home/pyodide/baseline/openswing/gust_tangent.py",
+        "harmonic_structure.py": "/home/pyodide/baseline/openswing/harmonic_structure.py",
+        "hinge_history.py": "/home/pyodide/baseline/openswing/hinge_history.py",
+        "inertia.py": "/home/pyodide/baseline/openswing/inertia.py",
+        "initial_diagnostics.py": "/home/pyodide/baseline/openswing/initial_diagnostics.py",
+        "initial_response.py": "/home/pyodide/baseline/openswing/initial_response.py",
+        "joints.py": "/home/pyodide/baseline/openswing/joints.py",
+        "kinematics.py": "/home/pyodide/baseline/openswing/kinematics.py",
+        "legacy_hinge_state.py": "/home/pyodide/baseline/openswing/legacy_hinge_state.py",
+        "linear_dynamics.py": "/home/pyodide/baseline/openswing/linear_dynamics.py",
+        "local_geometry_matrix.py": "/home/pyodide/baseline/openswing/local_geometry_matrix.py",
+        "local_motion.py": "/home/pyodide/baseline/openswing/local_motion.py",
+        "local_rate_tangent.py": "/home/pyodide/baseline/openswing/local_rate_tangent.py",
+        "mechanical_tangent.py": "/home/pyodide/baseline/openswing/mechanical_tangent.py",
+        "network.py": "/home/pyodide/baseline/openswing/network.py",
+        "newton_structure.py": "/home/pyodide/baseline/openswing/newton_structure.py",
+        "nonlinear_initial.py": "/home/pyodide/baseline/openswing/nonlinear_initial.py",
+        "operating.py": "/home/pyodide/baseline/openswing/operating.py",
+        "output_derivatives.py": "/home/pyodide/baseline/openswing/output_derivatives.py",
+        "output_fields.py": "/home/pyodide/baseline/openswing/output_fields.py",
+        "position_history_checkpoint.py": "/home/pyodide/baseline/openswing/position_history_checkpoint.py",
+        "position_history_lift.py": "/home/pyodide/baseline/openswing/position_history_lift.py",
+        "position_history_radau.py": "/home/pyodide/baseline/openswing/position_history_radau.py",
+        "power_tangent.py": "/home/pyodide/baseline/openswing/power_tangent.py",
+        "propulsion.py": "/home/pyodide/baseline/openswing/propulsion.py",
+        "quiescent.py": "/home/pyodide/baseline/openswing/quiescent.py",
+        "radau_tangent.py": "/home/pyodide/baseline/openswing/radau_tangent.py",
+        "radau_time.py": "/home/pyodide/baseline/openswing/radau_time.py",
+        "recovery.py": "/home/pyodide/baseline/openswing/recovery.py",
+        "reduced_model.py": "/home/pyodide/baseline/openswing/reduced_model.py",
+        "reference_flow.py": "/home/pyodide/baseline/openswing/reference_flow.py",
+        "rigid_initial_rank.py": "/home/pyodide/baseline/openswing/rigid_initial_rank.py",
+        "rom_file.py": "/home/pyodide/baseline/openswing/rom_file.py",
+        "rom_initial.py": "/home/pyodide/baseline/openswing/rom_initial.py",
+        "rom_outputs.py": "/home/pyodide/baseline/openswing/rom_outputs.py",
+        "root_diagnostics.py": "/home/pyodide/baseline/openswing/root_diagnostics.py",
+        "sensors.py": "/home/pyodide/baseline/openswing/sensors.py",
+        "sparse_rank.py": "/home/pyodide/baseline/openswing/sparse_rank.py",
+        "stability.py": "/home/pyodide/baseline/openswing/stability.py",
+        "steady_feedback.py": "/home/pyodide/baseline/openswing/steady_feedback.py",
+        "structural_geometry.py": "/home/pyodide/baseline/openswing/structural_geometry.py",
+        "structural_outputs.py": "/home/pyodide/baseline/openswing/structural_outputs.py",
+        "structure.py": "/home/pyodide/baseline/openswing/structure.py",
+        "structured_static.py": "/home/pyodide/baseline/openswing/structured_static.py",
+        "structured_time.py": "/home/pyodide/baseline/openswing/structured_time.py",
+        "struts.py": "/home/pyodide/baseline/openswing/struts.py",
+        "support_outputs.py": "/home/pyodide/baseline/openswing/support_outputs.py",
+        "tangent_influences.py": "/home/pyodide/baseline/openswing/tangent_influences.py",
+        "time_acceptance.py": "/home/pyodide/baseline/openswing/time_acceptance.py",
+        "time_acceptance_validation.py": "/home/pyodide/baseline/openswing/time_acceptance_validation.py",
+        "time_accuracy.py": "/home/pyodide/baseline/openswing/time_accuracy.py",
+        "time_cold_initial.py": "/home/pyodide/baseline/openswing/time_cold_initial.py",
+        "time_history.py": "/home/pyodide/baseline/openswing/time_history.py",
+        "time_initialization.py": "/home/pyodide/baseline/openswing/time_initialization.py",
+        "time_input_transition.py": "/home/pyodide/baseline/openswing/time_input_transition.py",
+        "time_integration.py": "/home/pyodide/baseline/openswing/time_integration.py",
+        "time_saved_history.py": "/home/pyodide/baseline/openswing/time_saved_history.py",
+        "time_state.py": "/home/pyodide/baseline/openswing/time_state.py",
+        "time_transition_initial.py": "/home/pyodide/baseline/openswing/time_transition_initial.py",
+        "trefftz.py": "/home/pyodide/baseline/openswing/trefftz.py",
+        "vector_ops.py": "/home/pyodide/baseline/openswing/vector_ops.py",
+        "volume.py": "/home/pyodide/baseline/openswing/volume.py",
+        "volume_tangent.py": "/home/pyodide/baseline/openswing/volume_tangent.py",
+        "vortex_tangent.py": "/home/pyodide/baseline/openswing/vortex_tangent.py"
+      },
+      "cache_cases": [
+        {
+          "kind": "cp",
+          "change": "base",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "unchanged",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "receiver",
+          "matrix_sha256": "1216456b0b494b62b1fad00b60caaf135b8942fe80b5b4fc82b8a26c41e97f66",
+          "velocity_sha256": "8f7842d904553c8770cf220beb83cc835fad948b80558c527411e2c86ed4381b",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "source",
+          "matrix_sha256": "fb5a2aeae5d9e101ff4ec5959841030751ee61e28713352458157e41a5ced44c",
+          "velocity_sha256": "e2b3b27bc0a42c210df7e37eb85e6178d44f04122d13bc3554e112b09e50e2af",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "both",
+          "matrix_sha256": "04ecc32c68b0f242a16de9134db7c1681f4155b7e755db946f6a66b25415f5af",
+          "velocity_sha256": "47ed23bac67dd4d1562a1ab27d4f832520f36a86e8af97e5dca3b27a3a366c88",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "core",
+          "matrix_sha256": "fc597e7c09e751f8f179cb1f37a7190e9eda543ab2f3515a0b251fea66a6c023",
+          "velocity_sha256": "f08cbf7533dcc3bed0e56e3c42e0b3143a966e7a337dc99406c5901ce723ddb9",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "mask",
+          "matrix_sha256": "a1555a1eff549c4125ae366bcf48964e5ea8ebe837b4f49a8d9543f2d801252d",
+          "velocity_sha256": "2891e7592cc5cf554bbc196c6419429cfb656c6d03923ef7780b85ae8e226904",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "all",
+          "matrix_sha256": "802e5d8d022cef6cf7ca29986bf9472382d767d8b065a597985ec8b70401d2ca",
+          "velocity_sha256": "b15f58e9451f25e8890acc9880024f4dcbf3b6683023966030e8e0236dcceef7",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "cp",
+          "change": "base_again",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "base",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "unchanged",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "receiver",
+          "matrix_sha256": "7bdb79e32c5eb59bc160ffa2c8e82bcd2b1dabe1af40ba61cff328fd0ef384a5",
+          "velocity_sha256": "76af53912c927f90d1ed499d9642c167bb056012446df96942166d0cf6de8934",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "source",
+          "matrix_sha256": "1d91d0a81050b4241e66a15aeb3b012aa6f903a1467a0073c2f6fee4487fb9b9",
+          "velocity_sha256": "f676bfdce61ccdf55de483626e724f73d89a443f00dc72ea18dae5c4f51a41e3",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "both",
+          "matrix_sha256": "98183bb758e2c0e7131bf48e9c91a511e3a0f454f116d380c7d25a3c75ba4548",
+          "velocity_sha256": "44f2c5029108cc199e56809dd6008dba469a938213e3a353015af8353fbd9209",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "core",
+          "matrix_sha256": "efde87d695f4a28fe58c483a5b55800b5133d9275278e00854f436ca4a14d646",
+          "velocity_sha256": "196e621b2a708897493365ee5237293df79a58d77ad36556b628ea6974b38b11",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "mask",
+          "matrix_sha256": "8e0b23284f123d82b54839b2f005ad08412af132f463a88f9b2d1c5f4750f55a",
+          "velocity_sha256": "2caf1d7ce77570fab2a4ccf0ec81248df5fc79673a82721316264b0d4140d27d",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "all",
+          "matrix_sha256": "0ffd005f4d6250ebf1aae06789597bdbfed554e72333848ade5408b2c8fc541b",
+          "velocity_sha256": "7964e93f8124a86c696af03788c2487ed0de2d8e249636c30915c6eb23e3925d",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        },
+        {
+          "kind": "hv",
+          "change": "base_again",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": null
+        }
+      ],
+      "timings": [
+        {
+          "kind": "cp",
+          "change": "unchanged",
+          "repetitions_per_batch": 50,
+          "seconds_per_call": [
+            0.0026660000000001106,
+            0.0025860000000000128,
+            0.0025780000000000312
+          ],
+          "median_seconds_per_call": 0.0025860000000000128
+        },
+        {
+          "kind": "cp",
+          "change": "receiver",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.003250000000000123,
+            0.0032916666666663965,
+            0.003266666666666751
+          ],
+          "median_seconds_per_call": 0.003266666666666751
+        },
+        {
+          "kind": "cp",
+          "change": "source",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.003633333333333747,
+            0.0036333333333331552,
+            0.0035333333333333883
+          ],
+          "median_seconds_per_call": 0.0036333333333331552
+        },
+        {
+          "kind": "cp",
+          "change": "both",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.004033333333333407,
+            0.0040083333333331694,
+            0.004050000000000035
+          ],
+          "median_seconds_per_call": 0.004033333333333407
+        },
+        {
+          "kind": "hv",
+          "change": "unchanged",
+          "repetitions_per_batch": 50,
+          "seconds_per_call": [
+            0.0028520000000000325,
+            0.002897999999999996,
+            0.0026619999999999778
+          ],
+          "median_seconds_per_call": 0.0028520000000000325
+        },
+        {
+          "kind": "hv",
+          "change": "receiver",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.003258333333333141,
+            0.003283333333333379,
+            0.003274999999999769
+          ],
+          "median_seconds_per_call": 0.003274999999999769
+        },
+        {
+          "kind": "hv",
+          "change": "source",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.0036000000000004917,
+            0.0035833333333332718,
+            0.003558333333333034
+          ],
+          "median_seconds_per_call": 0.0035833333333332718
+        },
+        {
+          "kind": "hv",
+          "change": "both",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.004150000000000394,
+            0.00416666666666643,
+            0.00416666666666643
+          ],
+          "median_seconds_per_call": 0.00416666666666643
+        }
+      ],
+      "full_jacobian": {
+        "shape": [
+          2428,
+          2428
+        ],
+        "seconds": 55.2905,
+        "matrix_sha256": "95a1bb25c3061cb34848edd7016b5dbb8e8749b9e210fbc0898da939ced01df8",
+        "residual_sha256": "ae11bbbeb657578c5d6fb693292897c4eaa50f4b44a68dc8499c3a65dfbc9ad8",
+        "max_residual": 8.403379002753685e-13,
+        "unchanged_1e_12_gate": true,
+        "state_and_charts_bitwise_unchanged": true,
+        "final_residual_bitwise_unchanged": true,
+        "cache_discarded": true,
+        "baseline_matrix_bitwise_equal": null
+      },
+      "existing_controls": {
+        "changed_pair_matrix_comparisons": 192,
+        "changed_global_cases": 6,
+        "includes_ground_flags": [
+          0,
+          1,
+          -1
+        ],
+        "includes_oblique_pg": true,
+        "returned_output_ownership": true
+      }
+    },
+    "candidate": {
+      "imports": {
+        "__init__.py": "/home/pyodide/candidate/openswing/__init__.py",
+        "aero.py": "/home/pyodide/candidate/openswing/aero.py",
+        "applied_load_outputs.py": "/home/pyodide/candidate/openswing/applied_load_outputs.py",
+        "asw.py": "/home/pyodide/candidate/openswing/asw.py",
+        "asw_edit.py": "/home/pyodide/candidate/openswing/asw_edit.py",
+        "atmosphere.py": "/home/pyodide/candidate/openswing/atmosphere.py",
+        "beam_matching.py": "/home/pyodide/candidate/openswing/beam_matching.py",
+        "body_shoulders.py": "/home/pyodide/candidate/openswing/body_shoulders.py",
+        "bridge.py": "/home/pyodide/candidate/openswing/bridge.py",
+        "circulation.py": "/home/pyodide/candidate/openswing/circulation.py",
+        "circulation_solve.py": "/home/pyodide/candidate/openswing/circulation_solve.py",
+        "circulation_tangent.py": "/home/pyodide/candidate/openswing/circulation_tangent.py",
+        "control_allocation.py": "/home/pyodide/candidate/openswing/control_allocation.py",
+        "control_expressions.py": "/home/pyodide/candidate/openswing/control_expressions.py",
+        "control_tables.py": "/home/pyodide/candidate/openswing/control_tables.py",
+        "custom_constraints.py": "/home/pyodide/candidate/openswing/custom_constraints.py",
+        "damping.py": "/home/pyodide/candidate/openswing/damping.py",
+        "derivatives.py": "/home/pyodide/candidate/openswing/derivatives.py",
+        "descriptor_mass.py": "/home/pyodide/candidate/openswing/descriptor_mass.py",
+        "discretization.py": "/home/pyodide/candidate/openswing/discretization.py",
+        "distribution_curve.py": "/home/pyodide/candidate/openswing/distribution_curve.py",
+        "dynamic_inertia.py": "/home/pyodide/candidate/openswing/dynamic_inertia.py",
+        "equilibrium_state.py": "/home/pyodide/candidate/openswing/equilibrium_state.py",
+        "equilibrium_tangent.py": "/home/pyodide/candidate/openswing/equilibrium_tangent.py",
+        "feedback.py": "/home/pyodide/candidate/openswing/feedback.py",
+        "field_products.py": "/home/pyodide/candidate/openswing/field_products.py",
+        "flow_survey.py": "/home/pyodide/candidate/openswing/flow_survey.py",
+        "forcing.py": "/home/pyodide/candidate/openswing/forcing.py",
+        "frequency_response.py": "/home/pyodide/candidate/openswing/frequency_response.py",
+        "frequency_sweep.py": "/home/pyodide/candidate/openswing/frequency_sweep.py",
+        "frozen_influence.py": "/home/pyodide/candidate/openswing/frozen_influence.py",
+        "geometry.py": "/home/pyodide/candidate/openswing/geometry.py",
+        "geometry_field_partials.py": "/home/pyodide/candidate/openswing/geometry_field_partials.py",
+        "geometry_partials.py": "/home/pyodide/candidate/openswing/geometry_partials.py",
+        "geometry_stencil.py": "/home/pyodide/candidate/openswing/geometry_stencil.py",
+        "geometry_tangent.py": "/home/pyodide/candidate/openswing/geometry_tangent.py",
+        "ground.py": "/home/pyodide/candidate/openswing/ground.py",
+        "gust.py": "/home/pyodide/candidate/openswing/gust.py",
+        "gust_file.py": "/home/pyodide/candidate/openswing/gust_file.py",
+        "gust_tangent.py": "/home/pyodide/candidate/openswing/gust_tangent.py",
+        "harmonic_structure.py": "/home/pyodide/candidate/openswing/harmonic_structure.py",
+        "hinge_history.py": "/home/pyodide/candidate/openswing/hinge_history.py",
+        "inertia.py": "/home/pyodide/candidate/openswing/inertia.py",
+        "initial_diagnostics.py": "/home/pyodide/candidate/openswing/initial_diagnostics.py",
+        "initial_response.py": "/home/pyodide/candidate/openswing/initial_response.py",
+        "joints.py": "/home/pyodide/candidate/openswing/joints.py",
+        "kinematics.py": "/home/pyodide/candidate/openswing/kinematics.py",
+        "legacy_hinge_state.py": "/home/pyodide/candidate/openswing/legacy_hinge_state.py",
+        "linear_dynamics.py": "/home/pyodide/candidate/openswing/linear_dynamics.py",
+        "local_geometry_matrix.py": "/home/pyodide/candidate/openswing/local_geometry_matrix.py",
+        "local_motion.py": "/home/pyodide/candidate/openswing/local_motion.py",
+        "local_rate_tangent.py": "/home/pyodide/candidate/openswing/local_rate_tangent.py",
+        "mechanical_tangent.py": "/home/pyodide/candidate/openswing/mechanical_tangent.py",
+        "network.py": "/home/pyodide/candidate/openswing/network.py",
+        "newton_structure.py": "/home/pyodide/candidate/openswing/newton_structure.py",
+        "nonlinear_initial.py": "/home/pyodide/candidate/openswing/nonlinear_initial.py",
+        "operating.py": "/home/pyodide/candidate/openswing/operating.py",
+        "output_derivatives.py": "/home/pyodide/candidate/openswing/output_derivatives.py",
+        "output_fields.py": "/home/pyodide/candidate/openswing/output_fields.py",
+        "position_history_checkpoint.py": "/home/pyodide/candidate/openswing/position_history_checkpoint.py",
+        "position_history_lift.py": "/home/pyodide/candidate/openswing/position_history_lift.py",
+        "position_history_radau.py": "/home/pyodide/candidate/openswing/position_history_radau.py",
+        "power_tangent.py": "/home/pyodide/candidate/openswing/power_tangent.py",
+        "propulsion.py": "/home/pyodide/candidate/openswing/propulsion.py",
+        "quiescent.py": "/home/pyodide/candidate/openswing/quiescent.py",
+        "radau_tangent.py": "/home/pyodide/candidate/openswing/radau_tangent.py",
+        "radau_time.py": "/home/pyodide/candidate/openswing/radau_time.py",
+        "recovery.py": "/home/pyodide/candidate/openswing/recovery.py",
+        "reduced_model.py": "/home/pyodide/candidate/openswing/reduced_model.py",
+        "reference_flow.py": "/home/pyodide/candidate/openswing/reference_flow.py",
+        "rigid_initial_rank.py": "/home/pyodide/candidate/openswing/rigid_initial_rank.py",
+        "rom_file.py": "/home/pyodide/candidate/openswing/rom_file.py",
+        "rom_initial.py": "/home/pyodide/candidate/openswing/rom_initial.py",
+        "rom_outputs.py": "/home/pyodide/candidate/openswing/rom_outputs.py",
+        "root_diagnostics.py": "/home/pyodide/candidate/openswing/root_diagnostics.py",
+        "sensors.py": "/home/pyodide/candidate/openswing/sensors.py",
+        "sparse_rank.py": "/home/pyodide/candidate/openswing/sparse_rank.py",
+        "stability.py": "/home/pyodide/candidate/openswing/stability.py",
+        "steady_feedback.py": "/home/pyodide/candidate/openswing/steady_feedback.py",
+        "structural_geometry.py": "/home/pyodide/candidate/openswing/structural_geometry.py",
+        "structural_outputs.py": "/home/pyodide/candidate/openswing/structural_outputs.py",
+        "structure.py": "/home/pyodide/candidate/openswing/structure.py",
+        "structured_static.py": "/home/pyodide/candidate/openswing/structured_static.py",
+        "structured_time.py": "/home/pyodide/candidate/openswing/structured_time.py",
+        "struts.py": "/home/pyodide/candidate/openswing/struts.py",
+        "support_outputs.py": "/home/pyodide/candidate/openswing/support_outputs.py",
+        "tangent_influences.py": "/home/pyodide/candidate/openswing/tangent_influences.py",
+        "time_acceptance.py": "/home/pyodide/candidate/openswing/time_acceptance.py",
+        "time_acceptance_validation.py": "/home/pyodide/candidate/openswing/time_acceptance_validation.py",
+        "time_accuracy.py": "/home/pyodide/candidate/openswing/time_accuracy.py",
+        "time_cold_initial.py": "/home/pyodide/candidate/openswing/time_cold_initial.py",
+        "time_history.py": "/home/pyodide/candidate/openswing/time_history.py",
+        "time_initialization.py": "/home/pyodide/candidate/openswing/time_initialization.py",
+        "time_input_transition.py": "/home/pyodide/candidate/openswing/time_input_transition.py",
+        "time_integration.py": "/home/pyodide/candidate/openswing/time_integration.py",
+        "time_saved_history.py": "/home/pyodide/candidate/openswing/time_saved_history.py",
+        "time_state.py": "/home/pyodide/candidate/openswing/time_state.py",
+        "time_transition_initial.py": "/home/pyodide/candidate/openswing/time_transition_initial.py",
+        "trefftz.py": "/home/pyodide/candidate/openswing/trefftz.py",
+        "vector_ops.py": "/home/pyodide/candidate/openswing/vector_ops.py",
+        "volume.py": "/home/pyodide/candidate/openswing/volume.py",
+        "volume_tangent.py": "/home/pyodide/candidate/openswing/volume_tangent.py",
+        "vortex_tangent.py": "/home/pyodide/candidate/openswing/vortex_tangent.py"
+      },
+      "cache_cases": [
+        {
+          "kind": "cp",
+          "change": "base",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "unchanged",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 0,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "receiver",
+          "matrix_sha256": "1216456b0b494b62b1fad00b60caaf135b8942fe80b5b4fc82b8a26c41e97f66",
+          "velocity_sha256": "8f7842d904553c8770cf220beb83cc835fad948b80558c527411e2c86ed4381b",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "source",
+          "matrix_sha256": "fb5a2aeae5d9e101ff4ec5959841030751ee61e28713352458157e41a5ced44c",
+          "velocity_sha256": "e2b3b27bc0a42c210df7e37eb85e6178d44f04122d13bc3554e112b09e50e2af",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "both",
+          "matrix_sha256": "04ecc32c68b0f242a16de9134db7c1681f4155b7e755db946f6a66b25415f5af",
+          "velocity_sha256": "47ed23bac67dd4d1562a1ab27d4f832520f36a86e8af97e5dca3b27a3a366c88",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "core",
+          "matrix_sha256": "fc597e7c09e751f8f179cb1f37a7190e9eda543ab2f3515a0b251fea66a6c023",
+          "velocity_sha256": "f08cbf7533dcc3bed0e56e3c42e0b3143a966e7a337dc99406c5901ce723ddb9",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "mask",
+          "matrix_sha256": "a1555a1eff549c4125ae366bcf48964e5ea8ebe837b4f49a8d9543f2d801252d",
+          "velocity_sha256": "2891e7592cc5cf554bbc196c6419429cfb656c6d03923ef7780b85ae8e226904",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "all",
+          "matrix_sha256": "802e5d8d022cef6cf7ca29986bf9472382d767d8b065a597985ec8b70401d2ca",
+          "velocity_sha256": "b15f58e9451f25e8890acc9880024f4dcbf3b6683023966030e8e0236dcceef7",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "cp",
+          "change": "base_again",
+          "matrix_sha256": "1e8bc66ebc05ae50f3d6dea917432f746e2fa05eb74399e6cd4c71b8253b814b",
+          "velocity_sha256": "7b650a17adc01f91fa954d31ee2e823d5309f60da19e2606741b19a604b3af19",
+          "relative_pg_calls": 0,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "base",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "unchanged",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 0,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "receiver",
+          "matrix_sha256": "7bdb79e32c5eb59bc160ffa2c8e82bcd2b1dabe1af40ba61cff328fd0ef384a5",
+          "velocity_sha256": "76af53912c927f90d1ed499d9642c167bb056012446df96942166d0cf6de8934",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "source",
+          "matrix_sha256": "1d91d0a81050b4241e66a15aeb3b012aa6f903a1467a0073c2f6fee4487fb9b9",
+          "velocity_sha256": "f676bfdce61ccdf55de483626e724f73d89a443f00dc72ea18dae5c4f51a41e3",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "both",
+          "matrix_sha256": "98183bb758e2c0e7131bf48e9c91a511e3a0f454f116d380c7d25a3c75ba4548",
+          "velocity_sha256": "44f2c5029108cc199e56809dd6008dba469a938213e3a353015af8353fbd9209",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "core",
+          "matrix_sha256": "efde87d695f4a28fe58c483a5b55800b5133d9275278e00854f436ca4a14d646",
+          "velocity_sha256": "196e621b2a708897493365ee5237293df79a58d77ad36556b628ea6974b38b11",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "mask",
+          "matrix_sha256": "8e0b23284f123d82b54839b2f005ad08412af132f463a88f9b2d1c5f4750f55a",
+          "velocity_sha256": "2caf1d7ce77570fab2a4ccf0ec81248df5fc79673a82721316264b0d4140d27d",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "all",
+          "matrix_sha256": "0ffd005f4d6250ebf1aae06789597bdbfed554e72333848ade5408b2c8fc541b",
+          "velocity_sha256": "7964e93f8124a86c696af03788c2487ed0de2d8e249636c30915c6eb23e3925d",
+          "relative_pg_calls": 1,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        },
+        {
+          "kind": "hv",
+          "change": "base_again",
+          "matrix_sha256": "92d8d890c1beec8995a6d202aab9dcb22f6b9fbd53361f72fb1b1cfbb3eb9616",
+          "velocity_sha256": "bf280bf7e63d0d49a6f97b0d25ebd6e533861cf343c27e7c97d39fa1147414f0",
+          "relative_pg_calls": 0,
+          "direct_bitwise_equal": true,
+          "baseline_bitwise_equal": true
+        }
+      ],
+      "timings": [
+        {
+          "kind": "cp",
+          "change": "unchanged",
+          "repetitions_per_batch": 50,
+          "seconds_per_call": [
+            0.0002639999999999532,
+            0.00024000000000000909,
+            0.00022999999999996136
+          ],
+          "median_seconds_per_call": 0.00024000000000000909
+        },
+        {
+          "kind": "cp",
+          "change": "receiver",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.003458333333333267,
+            0.003400000000000366,
+            0.003541666666665814
+          ],
+          "median_seconds_per_call": 0.003458333333333267
+        },
+        {
+          "kind": "cp",
+          "change": "source",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.004091666666666309,
+            0.003908333333333995,
+            0.0038916666666667745
+          ],
+          "median_seconds_per_call": 0.003908333333333995
+        },
+        {
+          "kind": "cp",
+          "change": "both",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.00416666666666643,
+            0.004291666666667027,
+            0.004191666666666076
+          ],
+          "median_seconds_per_call": 0.004191666666666076
+        },
+        {
+          "kind": "hv",
+          "change": "unchanged",
+          "repetitions_per_batch": 50,
+          "seconds_per_call": [
+            0.0003440000000000509,
+            0.0003559999999998809,
+            0.0003319999999999368
+          ],
+          "median_seconds_per_call": 0.0003440000000000509
+        },
+        {
+          "kind": "hv",
+          "change": "receiver",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.003283333333333379,
+            0.0033916666666655715,
+            0.003275000000000953
+          ],
+          "median_seconds_per_call": 0.003283333333333379
+        },
+        {
+          "kind": "hv",
+          "change": "source",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.0036083333333335097,
+            0.0036166666666671197,
+            0.0036999999999996667
+          ],
+          "median_seconds_per_call": 0.0036166666666671197
+        },
+        {
+          "kind": "hv",
+          "change": "both",
+          "repetitions_per_batch": 12,
+          "seconds_per_call": [
+            0.004316666666666673,
+            0.004474999999999341,
+            0.004483333333332951
+          ],
+          "median_seconds_per_call": 0.004474999999999341
+        }
+      ],
+      "full_jacobian": {
+        "shape": [
+          2428,
+          2428
+        ],
+        "seconds": 47.739900000000006,
+        "matrix_sha256": "95a1bb25c3061cb34848edd7016b5dbb8e8749b9e210fbc0898da939ced01df8",
+        "residual_sha256": "ae11bbbeb657578c5d6fb693292897c4eaa50f4b44a68dc8499c3a65dfbc9ad8",
+        "max_residual": 8.403379002753685e-13,
+        "unchanged_1e_12_gate": true,
+        "state_and_charts_bitwise_unchanged": true,
+        "final_residual_bitwise_unchanged": true,
+        "cache_discarded": true,
+        "baseline_matrix_bitwise_equal": true
+      },
+      "existing_controls": {
+        "changed_pair_matrix_comparisons": 192,
+        "changed_global_cases": 6,
+        "includes_ground_flags": [
+          0,
+          1,
+          -1
+        ],
+        "includes_oblique_pg": true,
+        "returned_output_ownership": true
+      }
+    }
+  },
+  "cross_runtime_matrix_equality_claimed": false,
+  "manifest_sha256": "b1b8e291d407e1052407c30a3c963f5af3dac075c0a3507a274245637f009e01",
+  "inputs_sha256": "a6c73881e13e808ad9a964025095ccf84aa61a8929dd45829cda68d93f9587eb",
+  "timing_caveat": "One process, baseline then candidate; fixed bounded batches and one full Jacobian each. Timings include machine/JIT/order variability; no universal speed or accuracy threshold is asserted.",
+  "accuracy_acceptance_established": false,
+  "elapsed_seconds": 115.2062
+}

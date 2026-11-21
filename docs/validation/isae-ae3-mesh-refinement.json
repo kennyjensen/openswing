@@ -1,0 +1,2248 @@
+{
+  "format": "openswing-isae-ae3-mesh-refinement",
+  "version": 1,
+  "status": "REFINEMENT_WITH_FAILURES_RETAINED",
+  "scientific_status": "Numerical mesh/centered-control evidence only; experimental validation remains pending.",
+  "experimental_validation": false,
+  "coverage": {
+    "AE3": "pending",
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0
+  },
+  "counts": {
+    "planned_cases": 7,
+    "completed_cases": 7,
+    "process_outcomes": {
+      "PASS_EXECUTION": 7
+    },
+    "actual_new_equilibrium_solves": 6,
+    "maximum_new_equilibrium_solves": 6,
+    "actual_new_derivative_calls": 3,
+    "maximum_new_derivative_calls": 3,
+    "reused_n128_derivative_results": 1,
+    "mesh_computed": 2,
+    "mesh_passes": 0,
+    "mesh_failures": 2,
+    "mesh_unavailable": 0,
+    "finite_computed": 2,
+    "finite_passes": 2,
+    "finite_failures": 0,
+    "finite_unavailable": 0,
+    "retained_original_32_to64_mesh_failures": 6,
+    "retained_original_64_to128_mesh_failures": 2,
+    "retained_original_step1e_5_finite_failures": 2
+  },
+  "common_full_API_step": 2.5e-06,
+  "conditions": {
+    "alpha": 0.0,
+    "beta": 0.0,
+    "density": 1.2256,
+    "mach": 0.0,
+    "controls": {
+      "1": 0.0
+    },
+    "freeze_influences": true,
+    "ground_effect": 0,
+    "stall": true,
+    "circulation_modes": {},
+    "rates": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "angular_acceleration": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "attitude": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_earth": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "response": "fixed_acceleration",
+  "basis": "standard",
+  "axes": "stability",
+  "gates": {
+    "fresh_physical_residual": 1e-08,
+    "derivative_linear_residual": 1e-08,
+    "mesh_control_derivative_relative": 0.01,
+    "mesh_formula": "abs(D256-D128)/max(abs(D256),1e-30) <= 0.01, both full API step2.5e-6",
+    "centered_resolve_absolute": 1e-09,
+    "centered_resolve_relative": 1e-05,
+    "centered_formula": "abs((Cl(+h)-Cl(-h))/(2*h)-D256) <= 1e-9+1e-5*abs(D256), h=.05 and .025, highest-q20O-05 only",
+    "scalar": "Native stability Cl per literal file-flap setting. No primary area/sign or radian conversion inside either gate.",
+    "p": "Descriptive only; no acceptance gate.",
+    "experimental_acceptance": null
+  },
+  "rank_threshold": 1e-10,
+  "mesh_rows": [
+    {
+      "observation_id": "20O-04",
+      "step": 2.5e-06,
+      "coarse_panels": 128,
+      "fine_panels": 256,
+      "Cl_control128": -0.0006384073342707355,
+      "Cl_control256": -0.0006471955091744016,
+      "relative_change": 0.01357885643377965,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p128": -0.8139903357626285,
+      "Cl_p256": -0.8140831441615445,
+      "p_relative_change_report_only": 0.00011400358744879561,
+      "q_Pa": 1434.5048782092563,
+      "q_psf": 29.960257290972457,
+      "common_full_API_step": 2.5e-06,
+      "outcome": "FAIL"
+    },
+    {
+      "observation_id": "20O-05",
+      "step": 2.5e-06,
+      "coarse_panels": 128,
+      "fine_panels": 256,
+      "Cl_control128": -0.00021099846717677857,
+      "Cl_control256": -0.00022114579792849553,
+      "relative_change": 0.04588525238448329,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p128": -0.945280260903555,
+      "Cl_p256": -0.9454259905193448,
+      "p_relative_change_report_only": 0.0001541417490646668,
+      "q_Pa": 1677.5468827199024,
+      "q_psf": 35.036295092072535,
+      "common_full_API_step": 2.5e-06,
+      "outcome": "FAIL"
+    }
+  ],
+  "finite_rows": [
+    {
+      "observation_id": "20O-05",
+      "panels": 256,
+      "h": 0.05,
+      "centered_native_Cl_F1": -0.00022114771583807622,
+      "implicit_native_Cl_F1": -0.00022114579792849553,
+      "absolute_difference": 1.9179095806897816e-09,
+      "acceptance_limit": 3.211457979284956e-09,
+      "pass_gate": true,
+      "outcome": "PASS"
+    },
+    {
+      "observation_id": "20O-05",
+      "panels": 256,
+      "h": 0.025,
+      "centered_native_Cl_F1": -0.0002211477425570195,
+      "implicit_native_Cl_F1": -0.00022114579792849553,
+      "absolute_difference": 1.9446285239640287e-09,
+      "acceptance_limit": 3.211457979284956e-09,
+      "pass_gate": true,
+      "outcome": "PASS"
+    }
+  ],
+  "retained_original_32_to64_failures": [
+    {
+      "observation_id": "20O-04",
+      "Cl_control32": -0.0006375519985054725,
+      "Cl_control64": -0.0006307429277299191,
+      "relative_change": 0.010795318466842925,
+      "initial_symmetric_denominator_relative_change": 0.01068002420432366,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -0.8109071515646115,
+      "Cl_p64": -0.8138490226203523,
+      "p_relative_change_report_only": 0.0036147626574138895
+    },
+    {
+      "observation_id": "20O-05",
+      "Cl_control32": -0.00021383858135200692,
+      "Cl_control64": -0.00020231160398235056,
+      "relative_change": 0.056976353025513835,
+      "initial_symmetric_denominator_relative_change": 0.0539050404130834,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -0.9407595861530498,
+      "Cl_p64": -0.9450193919959725,
+      "p_relative_change_report_only": 0.00450763855112604
+    },
+    {
+      "observation_id": "40O-03",
+      "Cl_control32": -0.0035149720208230662,
+      "Cl_control64": -0.003554498546285688,
+      "relative_change": 0.011120141124807952,
+      "initial_symmetric_denominator_relative_change": 0.011120141124807952,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -0.7131553925946321,
+      "Cl_p64": -0.7140625968022818,
+      "p_relative_change_report_only": 0.001270482744387279
+    },
+    {
+      "observation_id": "40O-04",
+      "Cl_control32": -0.0030321928059777086,
+      "Cl_control64": -0.003077286722029714,
+      "relative_change": 0.014653790863615877,
+      "initial_symmetric_denominator_relative_change": 0.014653790863615877,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -0.8107673765466707,
+      "Cl_p64": -0.8119625284553303,
+      "p_relative_change_report_only": 0.001471929881953103
+    },
+    {
+      "observation_id": "40O-05",
+      "Cl_control32": -0.0023797089684823676,
+      "Cl_control64": -0.0024319670928240784,
+      "relative_change": 0.02148800635333723,
+      "initial_symmetric_denominator_relative_change": 0.02148800635333723,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -0.9411401877397373,
+      "Cl_p64": -0.942782444889352,
+      "p_relative_change_report_only": 0.0017419258902381088
+    },
+    {
+      "observation_id": "40O-06",
+      "Cl_control32": -0.001494201674652582,
+      "Cl_control64": -0.0015555636154244933,
+      "relative_change": 0.03944675753756715,
+      "initial_symmetric_denominator_relative_change": 0.03944675753756715,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p32": -1.116279847927862,
+      "Cl_p64": -1.1186353967443912,
+      "p_relative_change_report_only": 0.002105734203820713
+    }
+  ],
+  "retained_original_64_to128_failures": [
+    {
+      "observation_id": "20O-04",
+      "Cl_control64": -0.0006307429277299191,
+      "Cl_control128": -0.0006384040641565399,
+      "relative_change": 0.012000450587266568,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p64": -0.8138490226203523,
+      "Cl_p128": -0.8139891490920131,
+      "p_relative_change_report_only": 0.00017214783737246089
+    },
+    {
+      "observation_id": "20O-05",
+      "Cl_control64": -0.00020231160398235056,
+      "Cl_control128": -0.0002109950279207334,
+      "relative_change": 0.04115463773698502,
+      "gate": 0.01,
+      "pass_gate": false,
+      "Cl_p64": -0.9450193919959725,
+      "Cl_p128": -0.94527837571799,
+      "p_relative_change_report_only": 0.0002739761414945937
+    }
+  ],
+  "retained_original_step1e_5_finite_failures": [
+    {
+      "observation_id": "20O-05",
+      "h": 0.05,
+      "base_status": "pass",
+      "plus_status": "pass",
+      "minus_status": "pass",
+      "centered_native_Cl_F1": -0.00021099868207671217,
+      "implicit_native_Cl_F1": -0.0002109950279207334,
+      "absolute_difference": 3.6541559787816105e-09,
+      "acceptance_limit": 3.109950279207334e-09,
+      "relative_difference": 1.7318682884576807e-05,
+      "pass_gate": false
+    },
+    {
+      "observation_id": "20O-05",
+      "h": 0.025,
+      "base_status": "pass",
+      "plus_status": "pass",
+      "minus_status": "pass",
+      "centered_native_Cl_F1": -0.0002109986928631703,
+      "implicit_native_Cl_F1": -0.0002109950279207334,
+      "absolute_difference": 3.6649424369069542e-09,
+      "acceptance_limit": 3.109950279207334e-09,
+      "relative_difference": 1.7369804743853016e-05,
+      "pass_gate": false
+    }
+  ],
+  "separate_step_study_status": "SELECTED_SMALLER_STEP_NUMERICAL_CONSISTENCY_DEMONSTRATED",
+  "step_study_does_not_replace_original_failures": true,
+  "residual_maxima": {
+    "fresh_equation": 4.8606119468414845e-12,
+    "fresh_linear": 2.604583215770617e-13
+  },
+  "total_child_monotonic_seconds": 504.38770538396784,
+  "independent_review": {
+    "status": "PASS_INDEPENDENT_SAVED_OUTPUT_AUDIT",
+    "pin": {
+      "bytes": 50471,
+      "sha256": "cda446210d71cc864c3f5d46b8d1dd1d3c70c09071de94423894a21c603da2d7"
+    }
+  },
+  "additional_control_break_diagnostic": null,
+  "timing": [
+    {
+      "id": "20O-04-n128-step2p5e-6",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 24.649434576014755,
+      "process_wall_seconds": 24.649442195892334,
+      "case_monotonic_seconds": 23.50542759700329,
+      "case_wall_seconds": 23.505411624908447,
+      "derivative_seconds": 18.62463256699266,
+      "derivative_wall_seconds": 18.624634265899658,
+      "phase_seconds": {
+        "centered_J_and_scaling": 15.769363683997653,
+        "rank_and_optional_sparse_factor": 2.1746329960005824,
+        "centered_input_columns": 0.022283724014414474,
+        "physical_RHS_solve_and_full_residual": 0.2083841410058085
+      },
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-04-n256",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 79.7250239669811,
+      "process_wall_seconds": 79.72502708435059,
+      "case_monotonic_seconds": 78.58043448699755,
+      "case_wall_seconds": 78.58042240142822,
+      "derivative_seconds": 72.90815724301501,
+      "derivative_wall_seconds": 72.90816044807434,
+      "phase_seconds": {
+        "centered_J_and_scaling": 49.95204279900645,
+        "rank_and_optional_sparse_factor": 18.89659998897696,
+        "centered_input_columns": 0.060867682012030855,
+        "physical_RHS_solve_and_full_residual": 2.0607920329784974
+      },
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-05-n256",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 93.5107404619921,
+      "process_wall_seconds": 93.51075410842896,
+      "case_monotonic_seconds": 92.33539538300829,
+      "case_wall_seconds": 92.33538246154785,
+      "derivative_seconds": 86.05722376398626,
+      "derivative_wall_seconds": 86.0572259426117,
+      "phase_seconds": {
+        "centered_J_and_scaling": 61.75425361498492,
+        "rank_and_optional_sparse_factor": 20.84181707300013,
+        "centered_input_columns": 0.05533549399115145,
+        "physical_RHS_solve_and_full_residual": 1.7331419280089904
+      },
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-05-n256-plus005",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 78.45974175198353,
+      "process_wall_seconds": 78.45975542068481,
+      "case_monotonic_seconds": 77.08488805399975,
+      "case_wall_seconds": 77.08487629890442,
+      "derivative_seconds": null,
+      "derivative_wall_seconds": null,
+      "phase_seconds": null,
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-05-n256-minus005",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 74.0672198740067,
+      "process_wall_seconds": 74.06721663475037,
+      "case_monotonic_seconds": 73.01559357100632,
+      "case_wall_seconds": 73.01557850837708,
+      "derivative_seconds": null,
+      "derivative_wall_seconds": null,
+      "phase_seconds": null,
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-05-n256-plus0025",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 75.95320693298709,
+      "process_wall_seconds": 75.95320320129395,
+      "case_monotonic_seconds": 74.72104221797781,
+      "case_wall_seconds": 74.72102475166321,
+      "derivative_seconds": null,
+      "derivative_wall_seconds": null,
+      "phase_seconds": null,
+      "cap_seconds": 600
+    },
+    {
+      "id": "20O-05-n256-minus0025",
+      "lifecycle_status": "PASS_EXECUTION",
+      "process_monotonic_seconds": 78.02233782000258,
+      "process_wall_seconds": 78.02233839035034,
+      "case_monotonic_seconds": 76.72294672499993,
+      "case_wall_seconds": 76.72293019294739,
+      "derivative_seconds": null,
+      "derivative_wall_seconds": null,
+      "phase_seconds": null,
+      "cap_seconds": 600
+    }
+  ],
+  "timing_scope": "Single planned native executions under uncontrolled shared-host load; both clocks retained. Not browser timings, a controlled optimization benchmark, or a general speed estimate.",
+  "provenance": {
+    "reused_comparator": {
+      "observation_id": "20O-05",
+      "panels": 128,
+      "step": 2.5e-06,
+      "directory": "inputs/reused-20O-05-n128-step2p5e-6",
+      "state_directory": "inputs/20O-05-n128",
+      "external_directory": "/tmp/openswing-ae3-derivative-step-20261024/results/step-2p5e-6",
+      "original_state_directory": "/tmp/openswing-isae-ae3-20261016/aero-26/refinement-128/results/20O-05-n128",
+      "reruns": 0
+    },
+    "execution": {
+      "status": "ALL_TERMINAL",
+      "pid": 20100,
+      "cases": [
+        {
+          "id": "20O-04-n128-step2p5e-6",
+          "pid": 20123,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 24.649434576014755,
+          "wall_seconds": 24.649442195892334
+        },
+        {
+          "id": "20O-04-n256",
+          "pid": 20284,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 79.7250239669811,
+          "wall_seconds": 79.72502708435059
+        },
+        {
+          "id": "20O-05-n256",
+          "pid": 20663,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 93.5107404619921,
+          "wall_seconds": 93.51075410842896
+        },
+        {
+          "id": "20O-05-n256-plus005",
+          "pid": 21117,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 78.45974175198353,
+          "wall_seconds": 78.45975542068481
+        },
+        {
+          "id": "20O-05-n256-minus005",
+          "pid": 21453,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 74.0672198740067,
+          "wall_seconds": 74.06721663475037
+        },
+        {
+          "id": "20O-05-n256-plus0025",
+          "pid": 21845,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 75.95320693298709,
+          "wall_seconds": 75.95320320129395
+        },
+        {
+          "id": "20O-05-n256-minus0025",
+          "pid": 22576,
+          "status": "PASS_EXECUTION",
+          "reaped": true,
+          "exit_code": 0,
+          "monotonic_seconds": 78.02233782000258,
+          "wall_seconds": 78.02233839035034
+        }
+      ],
+      "monotonic_seconds": 504.9060764789756,
+      "wall_seconds": 504.9060776233673
+    },
+    "reduction": {
+      "status": "REFINEMENT_WITH_FAILURES_RETAINED",
+      "experimental_validation": false,
+      "plan_pin": {
+        "bytes": 93219,
+        "sha256": "bccf2fdda733e0b312ef126f28947fb9e6d64dcd25d2a3f7727fc378fda920e1"
+      },
+      "source_contract_pin": {
+        "bytes": 35515,
+        "sha256": "8cd20a81308eaaa8a613a8039a1e96cd655b5ad3101e8983f7757ef246637d8c"
+      },
+      "source_report_pin": {
+        "bytes": 56822,
+        "sha256": "1b991be660d18cd01fc0617a648566fb5615175dc47ea86aa197546be9937a5a"
+      },
+      "step": 2.5e-06,
+      "mesh_formula": "abs(Cl_F256-Cl_F128)/max(abs(Cl_F256),1e-30)",
+      "finite_formula": "abs(D_h-D_implicit256) <= 1e-9+1e-5*abs(D_implicit256)",
+      "statuses": {
+        "20O-04-n128-step2p5e-6": {
+          "id": "20O-04-n128-step2p5e-6",
+          "observation_id": "20O-04",
+          "model": "Straight_20O.asw",
+          "mode": "restored_derivative",
+          "panels": 128,
+          "control": 0.0,
+          "q_Pa": 1434.5048782092563,
+          "speed_m_s": 48.38287110537072,
+          "derivative_step": 2.5e-06,
+          "maximum_seconds": 600,
+          "source_state": "inputs/20O-04-n128/state.json",
+          "source_unknowns": "inputs/20O-04-n128/unknowns.npz",
+          "status": "pass",
+          "pid": 20123,
+          "started_epoch": 1792822366.4420114,
+          "equilibrium_solves": 0,
+          "derivative_calls": 1,
+          "system_size": 1702,
+          "actual_elements": 130,
+          "actual_nodes": 131,
+          "restored_unknowns_exact": true,
+          "derivative_seconds": 18.62463256699266,
+          "derivative_wall_seconds": 18.624634265899658,
+          "Cl_control": -0.0006384073342707355,
+          "Cl_p": -0.8139903357626285,
+          "primary_Cl_delta": 0.0006356377403801105,
+          "derivative_residual": 3.424901446905863e-14,
+          "fresh_linear_residual": 3.424901446905863e-14,
+          "fresh_post_residual": 0.0,
+          "reciprocal_condition": 6.427683493133014e-06,
+          "parameter_steps": [
+            {
+              "name": "control.1",
+              "unit": "file flap setting",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 2.5e-06
+            },
+            {
+              "name": "p",
+              "unit": "p b/(2 V0)",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 8.518692520698711e-07
+            }
+          ],
+          "phase_seconds": {
+            "centered_J_and_scaling": 15.769363683997653,
+            "rank_and_optional_sparse_factor": 2.1746329960005824,
+            "centered_input_columns": 0.022283724014414474,
+            "physical_RHS_solve_and_full_residual": 0.2083841410058085
+          },
+          "cache": {
+            "eligible": true,
+            "enabled": true,
+            "fallback_reasons": [],
+            "ownership": "derivative-owned shallow network copy; no original-network attributes are assigned",
+            "scope": "unchanged complete centered state and parameter probes; original dense SVD/LU",
+            "lagged_iteration_fields_introduced": false,
+            "counters": {
+              "steady_geometry_calls": 3408,
+              "steady_geometry_computes": 1573,
+              "material_calls": 68160,
+              "material_computes": 17,
+              "factored_pair_calls": 0,
+              "factored_pair_kernel_calls": 0,
+              "vortex_calls": 0,
+              "volume_pair_calls": 0,
+              "steady_geometry_hits": 1835,
+              "material_hits": 68143
+            },
+            "local_geometry": false,
+            "maximum_tangent_bytes": 26000,
+            "maximum_static_bytes": 178232,
+            "tangent_storage_budget_bytes": 67108864,
+            "static_storage_budget_bytes": 16777216,
+            "storage_budget_note": "Existing array-payload accounting excludes material-key bytes and Python object/header overhead. Inherited NetworkMotion has a separate 16 MiB retained-map budget plus surface storage; these counters are not a whole-operation memory bound.",
+            "tangent_storage_within_budget": true,
+            "static_storage_within_budget": true,
+            "material_entries": 17,
+            "pair_entries": 0,
+            "factored_pair_entries": 0,
+            "owner_restored": true,
+            "iteration_fields_unchanged": true,
+            "tangent_load_owner_unchanged": true,
+            "aero_cache_invalidated": true
+          },
+          "residual": 0.0,
+          "native_Cl": -0.0,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py",
+            "openswing.derivative_cache": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivative_cache.py"
+          },
+          "wall_seconds": 23.505411624908447,
+          "monotonic_seconds": 23.50542759700329,
+          "supervisor_outcome": {
+            "id": "20O-04-n128-step2p5e-6",
+            "pid": 20123,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 24.649434576014755,
+            "wall_seconds": 24.649442195892334
+          }
+        },
+        "20O-04-n256": {
+          "id": "20O-04-n256",
+          "observation_id": "20O-04",
+          "model": "Straight_20O.asw",
+          "mode": "base",
+          "panels": 256,
+          "control": 0.0,
+          "q_Pa": 1434.5048782092563,
+          "speed_m_s": 48.38287110537072,
+          "derivative_step": 2.5e-06,
+          "maximum_seconds": 600,
+          "status": "pass",
+          "pid": 20284,
+          "started_epoch": 1792822391.0582414,
+          "equilibrium_solves": 1,
+          "derivative_calls": 1,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "derivative_seconds": 72.90815724301501,
+          "derivative_wall_seconds": 72.90816044807434,
+          "Cl_control": -0.0006471955091744016,
+          "Cl_p": -0.8140831441615445,
+          "primary_Cl_delta": 0.0006443877896636336,
+          "derivative_residual": 2.604583215770617e-13,
+          "fresh_linear_residual": 2.604583215770617e-13,
+          "fresh_post_residual": 0.0,
+          "reciprocal_condition": 1.955045269261604e-06,
+          "parameter_steps": [
+            {
+              "name": "control.1",
+              "unit": "file flap setting",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 2.5e-06
+            },
+            {
+              "name": "p",
+              "unit": "p b/(2 V0)",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 8.522773297341364e-07
+            }
+          ],
+          "phase_seconds": {
+            "centered_J_and_scaling": 49.95204279900645,
+            "rank_and_optional_sparse_factor": 18.89659998897696,
+            "centered_input_columns": 0.060867682012030855,
+            "physical_RHS_solve_and_full_residual": 2.0607920329784974
+          },
+          "cache": {
+            "eligible": true,
+            "enabled": true,
+            "fallback_reasons": [],
+            "ownership": "derivative-owned shallow network copy; no original-network attributes are assigned",
+            "scope": "unchanged complete centered state and parameter probes; original dense SVD/LU",
+            "lagged_iteration_fields_introduced": false,
+            "counters": {
+              "steady_geometry_calls": 6736,
+              "steady_geometry_computes": 3109,
+              "material_calls": 134720,
+              "material_computes": 17,
+              "factored_pair_calls": 0,
+              "factored_pair_kernel_calls": 0,
+              "vortex_calls": 0,
+              "volume_pair_calls": 0,
+              "steady_geometry_hits": 3627,
+              "material_hits": 134703
+            },
+            "local_geometry": false,
+            "maximum_tangent_bytes": 51600,
+            "maximum_static_bytes": 353336,
+            "tangent_storage_budget_bytes": 67108864,
+            "static_storage_budget_bytes": 16777216,
+            "storage_budget_note": "Existing array-payload accounting excludes material-key bytes and Python object/header overhead. Inherited NetworkMotion has a separate 16 MiB retained-map budget plus surface storage; these counters are not a whole-operation memory bound.",
+            "tangent_storage_within_budget": true,
+            "static_storage_within_budget": true,
+            "material_entries": 17,
+            "pair_entries": 0,
+            "factored_pair_entries": 0,
+            "owner_restored": true,
+            "iteration_fields_unchanged": true,
+            "tangent_load_owner_unchanged": true,
+            "aero_cache_invalidated": true
+          },
+          "residual": 0.0,
+          "native_Cl": -0.0,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.circulation_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation_tangent.py",
+            "openswing.rigid_initial_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rigid_initial_rank.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py",
+            "openswing.derivative_cache": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivative_cache.py"
+          },
+          "wall_seconds": 78.58042240142822,
+          "monotonic_seconds": 78.58043448699755,
+          "supervisor_outcome": {
+            "id": "20O-04-n256",
+            "pid": 20284,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 79.7250239669811,
+            "wall_seconds": 79.72502708435059
+          }
+        },
+        "20O-05-n256": {
+          "id": "20O-05-n256",
+          "observation_id": "20O-05",
+          "model": "Straight_20O.asw",
+          "mode": "base",
+          "panels": 256,
+          "control": 0.0,
+          "q_Pa": 1677.5468827199024,
+          "speed_m_s": 52.32123117428077,
+          "derivative_step": 2.5e-06,
+          "maximum_seconds": 600,
+          "status": "pass",
+          "pid": 20663,
+          "started_epoch": 1792822470.9209843,
+          "equilibrium_solves": 1,
+          "derivative_calls": 1,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "derivative_seconds": 86.05722376398626,
+          "derivative_wall_seconds": 86.0572259426117,
+          "Cl_control": -0.00022114579792849553,
+          "Cl_p": -0.9454259905193448,
+          "primary_Cl_delta": 0.00022018640410890572,
+          "derivative_residual": 1.4732659536775827e-13,
+          "fresh_linear_residual": 1.4732659536775827e-13,
+          "fresh_post_residual": 0.0,
+          "reciprocal_condition": 1.407572543994869e-06,
+          "parameter_steps": [
+            {
+              "name": "control.1",
+              "unit": "file flap setting",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 2.5e-06
+            },
+            {
+              "name": "p",
+              "unit": "p b/(2 V0)",
+              "scale": 1.0,
+              "step": 2.5e-06,
+              "output_step": 6.255258475402899e-07
+            }
+          ],
+          "phase_seconds": {
+            "centered_J_and_scaling": 61.75425361498492,
+            "rank_and_optional_sparse_factor": 20.84181707300013,
+            "centered_input_columns": 0.05533549399115145,
+            "physical_RHS_solve_and_full_residual": 1.7331419280089904
+          },
+          "cache": {
+            "eligible": true,
+            "enabled": true,
+            "fallback_reasons": [],
+            "ownership": "derivative-owned shallow network copy; no original-network attributes are assigned",
+            "scope": "unchanged complete centered state and parameter probes; original dense SVD/LU",
+            "lagged_iteration_fields_introduced": false,
+            "counters": {
+              "steady_geometry_calls": 6736,
+              "steady_geometry_computes": 3109,
+              "material_calls": 134720,
+              "material_computes": 17,
+              "factored_pair_calls": 0,
+              "factored_pair_kernel_calls": 0,
+              "vortex_calls": 0,
+              "volume_pair_calls": 0,
+              "steady_geometry_hits": 3627,
+              "material_hits": 134703
+            },
+            "local_geometry": false,
+            "maximum_tangent_bytes": 51600,
+            "maximum_static_bytes": 353336,
+            "tangent_storage_budget_bytes": 67108864,
+            "static_storage_budget_bytes": 16777216,
+            "storage_budget_note": "Existing array-payload accounting excludes material-key bytes and Python object/header overhead. Inherited NetworkMotion has a separate 16 MiB retained-map budget plus surface storage; these counters are not a whole-operation memory bound.",
+            "tangent_storage_within_budget": true,
+            "static_storage_within_budget": true,
+            "material_entries": 17,
+            "pair_entries": 0,
+            "factored_pair_entries": 0,
+            "owner_restored": true,
+            "iteration_fields_unchanged": true,
+            "tangent_load_owner_unchanged": true,
+            "aero_cache_invalidated": true
+          },
+          "residual": 0.0,
+          "native_Cl": -0.0,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.circulation_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation_tangent.py",
+            "openswing.rigid_initial_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rigid_initial_rank.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py",
+            "openswing.derivative_cache": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivative_cache.py"
+          },
+          "wall_seconds": 92.33538246154785,
+          "monotonic_seconds": 92.33539538300829,
+          "supervisor_outcome": {
+            "id": "20O-05-n256",
+            "pid": 20663,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 93.5107404619921,
+            "wall_seconds": 93.51075410842896
+          }
+        },
+        "20O-05-n256-plus005": {
+          "id": "20O-05-n256-plus005",
+          "observation_id": "20O-05",
+          "model": "Straight_20O.asw",
+          "mode": "finite",
+          "panels": 256,
+          "control": 0.05,
+          "q_Pa": 1677.5468827199024,
+          "speed_m_s": 52.32123117428077,
+          "derivative_step": null,
+          "maximum_seconds": 600,
+          "initial_state": "20O-05-n256",
+          "status": "pass",
+          "pid": 21117,
+          "started_epoch": 1792822564.7383096,
+          "equilibrium_solves": 1,
+          "derivative_calls": 0,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "residual": 4.860611939218188e-12,
+          "native_Cl": -1.105738579309392e-05,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.forcing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/forcing.py",
+            "openswing.time_integration": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_integration.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py"
+          },
+          "wall_seconds": 77.08487629890442,
+          "monotonic_seconds": 77.08488805399975,
+          "supervisor_outcome": {
+            "id": "20O-05-n256-plus005",
+            "pid": 21117,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 78.45974175198353,
+            "wall_seconds": 78.45975542068481
+          }
+        },
+        "20O-05-n256-minus005": {
+          "id": "20O-05-n256-minus005",
+          "observation_id": "20O-05",
+          "model": "Straight_20O.asw",
+          "mode": "finite",
+          "panels": 256,
+          "control": -0.05,
+          "q_Pa": 1677.5468827199024,
+          "speed_m_s": 52.32123117428077,
+          "derivative_step": null,
+          "maximum_seconds": 600,
+          "initial_state": "20O-05-n256",
+          "status": "pass",
+          "pid": 21453,
+          "started_epoch": 1792822643.0144007,
+          "equilibrium_solves": 1,
+          "derivative_calls": 0,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "residual": 4.8606119468414845e-12,
+          "native_Cl": 1.1057385790713704e-05,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.forcing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/forcing.py",
+            "openswing.time_integration": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_integration.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py"
+          },
+          "wall_seconds": 73.01557850837708,
+          "monotonic_seconds": 73.01559357100632,
+          "supervisor_outcome": {
+            "id": "20O-05-n256-minus005",
+            "pid": 21453,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 74.0672198740067,
+            "wall_seconds": 74.06721663475037
+          }
+        },
+        "20O-05-n256-plus0025": {
+          "id": "20O-05-n256-plus0025",
+          "observation_id": "20O-05",
+          "model": "Straight_20O.asw",
+          "mode": "finite",
+          "panels": 256,
+          "control": 0.025,
+          "q_Pa": 1677.5468827199024,
+          "speed_m_s": 52.32123117428077,
+          "derivative_step": null,
+          "maximum_seconds": 600,
+          "initial_state": "20O-05-n256",
+          "status": "pass",
+          "pid": 21845,
+          "started_epoch": 1792822717.2825732,
+          "equilibrium_solves": 1,
+          "derivative_calls": 0,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "residual": 9.584951363726983e-13,
+          "native_Cl": -5.52869356422307e-06,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.forcing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/forcing.py",
+            "openswing.time_integration": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_integration.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py"
+          },
+          "wall_seconds": 74.72102475166321,
+          "monotonic_seconds": 74.72104221797781,
+          "supervisor_outcome": {
+            "id": "20O-05-n256-plus0025",
+            "pid": 21845,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 75.95320693298709,
+            "wall_seconds": 75.95320320129395
+          }
+        },
+        "20O-05-n256-minus0025": {
+          "id": "20O-05-n256-minus0025",
+          "observation_id": "20O-05",
+          "model": "Straight_20O.asw",
+          "mode": "finite",
+          "panels": 256,
+          "control": -0.025,
+          "q_Pa": 1677.5468827199024,
+          "speed_m_s": 52.32123117428077,
+          "derivative_step": null,
+          "maximum_seconds": 600,
+          "initial_state": "20O-05-n256",
+          "status": "pass",
+          "pid": 22576,
+          "started_epoch": 1792822793.3987162,
+          "equilibrium_solves": 1,
+          "derivative_calls": 0,
+          "system_size": 3366,
+          "actual_elements": 258,
+          "actual_nodes": 259,
+          "residual": 9.584951287494017e-13,
+          "native_Cl": 5.5286935636279036e-06,
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+          "imported_modules": {
+            "openswing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py",
+            "openswing.asw": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py",
+            "openswing.vector_ops": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py",
+            "openswing.discretization": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py",
+            "openswing.geometry": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py",
+            "openswing.structure": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py",
+            "openswing.inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py",
+            "openswing.propulsion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py",
+            "openswing.body_shoulders": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py",
+            "openswing.volume": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py",
+            "openswing.ground": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py",
+            "openswing.atmosphere": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py",
+            "openswing.kinematics": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py",
+            "openswing.gust": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py",
+            "openswing.reference_flow": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py",
+            "openswing.trefftz": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py",
+            "openswing.circulation": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py",
+            "openswing.frozen_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py",
+            "openswing.factored_influence": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py",
+            "openswing.aero": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py",
+            "openswing.time_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py",
+            "openswing.operating": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py",
+            "openswing.struts": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py",
+            "openswing.joints": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py",
+            "openswing.recovery": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py",
+            "openswing.local_motion": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py",
+            "openswing.dynamic_inertia": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py",
+            "openswing.network": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py",
+            "openswing.equilibrium_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py",
+            "openswing.derivatives": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py",
+            "openswing.sensors": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py",
+            "openswing.asw_edit": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py",
+            "openswing.sparse_rank": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py",
+            "openswing.tangent_influences": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py",
+            "openswing.structured_static": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py",
+            "openswing.forcing": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/forcing.py",
+            "openswing.time_integration": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_integration.py",
+            "openswing.hinge_history": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py",
+            "openswing.mechanical_tangent": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py",
+            "openswing.time_state": "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py"
+          },
+          "wall_seconds": 76.72293019294739,
+          "monotonic_seconds": 76.72294672499993,
+          "supervisor_outcome": {
+            "id": "20O-05-n256-minus0025",
+            "pid": 22576,
+            "status": "PASS_EXECUTION",
+            "reaped": true,
+            "exit_code": 0,
+            "monotonic_seconds": 78.02233782000258,
+            "wall_seconds": 78.02233839035034
+          }
+        }
+      },
+      "actual_calls": {
+        "equilibrium_solves": 6,
+        "derivative_calls": 3
+      },
+      "derivatives": {
+        "20O-04": {
+          "coarse": {
+            "control": -0.0006384073342707355,
+            "p": -0.8139903357626285,
+            "step": 2.5e-06,
+            "reciprocal_condition": 6.427683493133014e-06,
+            "system_size": 1702,
+            "residual_check": {
+              "fresh_linear_residuals": [
+                1.0061396160665481e-16,
+                3.424901446905863e-14
+              ],
+              "saved_linear_residuals": [
+                1.0061396160665481e-16,
+                3.424901446905863e-14
+              ],
+              "maximum_saved_residual_array_difference_diagnostic_only": 0.0
+            },
+            "source_directory": "/tmp/openswing-isae-ae3-mesh-20261024/results/20O-04-n128-step2p5e-6",
+            "derivative_pin": {
+              "bytes": 434482,
+              "sha256": "c441b346ac834175e592c2dc16384bc198fb43afeba96236ba1e54e320dc1a9e"
+            }
+          },
+          "fine": {
+            "control": -0.0006471955091744016,
+            "p": -0.8140831441615445,
+            "step": 2.5e-06,
+            "reciprocal_condition": 1.955045269261604e-06,
+            "system_size": 3366,
+            "residual_check": {
+              "fresh_linear_residuals": [
+                1.1102230246251565e-15,
+                2.604583215770617e-13
+              ],
+              "saved_linear_residuals": [
+                1.1102230246251565e-15,
+                2.604583215770617e-13
+              ],
+              "maximum_saved_residual_array_difference_diagnostic_only": 0.0
+            },
+            "source_directory": "/tmp/openswing-isae-ae3-mesh-20261024/results/20O-04-n256",
+            "derivative_pin": {
+              "bytes": 851140,
+              "sha256": "ce7d9ab64d930ce4015f462477ffde2edcc879367682faf294f612c2030afcd0"
+            }
+          }
+        },
+        "20O-05": {
+          "coarse": {
+            "control": -0.00021099846717677857,
+            "p": -0.945280260903555,
+            "step": 2.5e-06,
+            "reciprocal_condition": 4.639486788944644e-06,
+            "system_size": 1702,
+            "residual_check": {
+              "fresh_linear_residuals": [
+                8.326672684688674e-17,
+                5.484501741648273e-14
+              ],
+              "saved_linear_residuals": [
+                8.326672684688674e-17,
+                5.484501741648273e-14
+              ],
+              "maximum_saved_residual_array_difference_diagnostic_only": 0.0
+            },
+            "source_directory": "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6",
+            "derivative_pin": {
+              "bytes": 434538,
+              "sha256": "50bd1fddde837407f1516c89d583913e2de77be4a9b07eed0efe57bcf21062e7"
+            }
+          },
+          "fine": {
+            "control": -0.00022114579792849553,
+            "p": -0.9454259905193448,
+            "step": 2.5e-06,
+            "reciprocal_condition": 1.407572543994869e-06,
+            "system_size": 3366,
+            "residual_check": {
+              "fresh_linear_residuals": [
+                2.393918396847994e-16,
+                1.4732659536775827e-13
+              ],
+              "saved_linear_residuals": [
+                2.393918396847994e-16,
+                1.4732659536775827e-13
+              ],
+              "maximum_saved_residual_array_difference_diagnostic_only": 0.0
+            },
+            "source_directory": "/tmp/openswing-isae-ae3-mesh-20261024/results/20O-05-n256",
+            "derivative_pin": {
+              "bytes": 851339,
+              "sha256": "d654752c7828593510beb583910248c400480cfc6e6de2650970c7bdec420377"
+            }
+          }
+        }
+      },
+      "mesh_checks": [
+        {
+          "observation_id": "20O-04",
+          "step": 2.5e-06,
+          "coarse_panels": 128,
+          "fine_panels": 256,
+          "Cl_control128": -0.0006384073342707355,
+          "Cl_control256": -0.0006471955091744016,
+          "relative_change": 0.01357885643377965,
+          "gate": 0.01,
+          "pass_gate": false,
+          "Cl_p128": -0.8139903357626285,
+          "Cl_p256": -0.8140831441615445,
+          "p_relative_change_report_only": 0.00011400358744879561
+        },
+        {
+          "observation_id": "20O-05",
+          "step": 2.5e-06,
+          "coarse_panels": 128,
+          "fine_panels": 256,
+          "Cl_control128": -0.00021099846717677857,
+          "Cl_control256": -0.00022114579792849553,
+          "relative_change": 0.04588525238448329,
+          "gate": 0.01,
+          "pass_gate": false,
+          "Cl_p128": -0.945280260903555,
+          "Cl_p256": -0.9454259905193448,
+          "p_relative_change_report_only": 0.0001541417490646668
+        }
+      ],
+      "finite_checks": [
+        {
+          "observation_id": "20O-05",
+          "panels": 256,
+          "h": 0.05,
+          "centered_native_Cl_F1": -0.00022114771583807622,
+          "implicit_native_Cl_F1": -0.00022114579792849553,
+          "absolute_difference": 1.9179095806897816e-09,
+          "acceptance_limit": 3.211457979284956e-09,
+          "pass_gate": true
+        },
+        {
+          "observation_id": "20O-05",
+          "panels": 256,
+          "h": 0.025,
+          "centered_native_Cl_F1": -0.0002211477425570195,
+          "implicit_native_Cl_F1": -0.00022114579792849553,
+          "absolute_difference": 1.9446285239640287e-09,
+          "acceptance_limit": 3.211457979284956e-09,
+          "pass_gate": true
+        }
+      ],
+      "conditional_comparisons": [
+        {
+          "observation_id": "20O-04",
+          "q_Pa": 1434.5048782092563,
+          "q_psf": 29.960257290972457,
+          "native_Cl_control": -0.0006471955091744016,
+          "primary_normalized_conditional_Cl_delta": 0.0006443877896636336,
+          "experimental_Cl_per_degree": 0.0011993487787142888,
+          "conditional_absolute_difference": -0.0005549609890506552,
+          "conditional_relative_difference": -0.4627186010441247,
+          "experimental_acceptance": false
+        },
+        {
+          "observation_id": "20O-05",
+          "q_Pa": 1677.5468827199024,
+          "q_psf": 35.036295092072535,
+          "native_Cl_control": -0.00022114579792849553,
+          "primary_normalized_conditional_Cl_delta": 0.00022018640410890572,
+          "experimental_Cl_per_degree": 0.0008906560389723921,
+          "conditional_absolute_difference": -0.0006704696348634864,
+          "conditional_relative_difference": -0.7527817760457234,
+          "experimental_acceptance": false
+        }
+      ],
+      "retained_original_mesh_failures": [
+        {
+          "observation_id": "20O-04",
+          "Cl_control64": -0.0006307429277299191,
+          "Cl_control128": -0.0006384040641565399,
+          "relative_change": 0.012000450587266568,
+          "gate": 0.01,
+          "pass_gate": false,
+          "Cl_p64": -0.8138490226203523,
+          "Cl_p128": -0.8139891490920131,
+          "p_relative_change_report_only": 0.00017214783737246089
+        },
+        {
+          "observation_id": "20O-05",
+          "Cl_control64": -0.00020231160398235056,
+          "Cl_control128": -0.0002109950279207334,
+          "relative_change": 0.04115463773698502,
+          "gate": 0.01,
+          "pass_gate": false,
+          "Cl_p64": -0.9450193919959725,
+          "Cl_p128": -0.94527837571799,
+          "p_relative_change_report_only": 0.0002739761414945937
+        }
+      ],
+      "retained_original_finite_failures": [
+        {
+          "observation_id": "20O-05",
+          "h": 0.05,
+          "base_status": "pass",
+          "plus_status": "pass",
+          "minus_status": "pass",
+          "centered_native_Cl_F1": -0.00021099868207671217,
+          "implicit_native_Cl_F1": -0.0002109950279207334,
+          "absolute_difference": 3.6541559787816105e-09,
+          "acceptance_limit": 3.109950279207334e-09,
+          "relative_difference": 1.7318682884576807e-05,
+          "pass_gate": false
+        },
+        {
+          "observation_id": "20O-05",
+          "h": 0.025,
+          "base_status": "pass",
+          "plus_status": "pass",
+          "minus_status": "pass",
+          "centered_native_Cl_F1": -0.0002109986928631703,
+          "implicit_native_Cl_F1": -0.0002109950279207334,
+          "absolute_difference": 3.6649424369069542e-09,
+          "acceptance_limit": 3.109950279207334e-09,
+          "relative_difference": 1.7369804743853016e-05,
+          "pass_gate": false
+        }
+      ],
+      "failures": [
+        {
+          "kind": "mesh_control_derivative",
+          "observation_id": "20O-04"
+        },
+        {
+          "kind": "mesh_control_derivative",
+          "observation_id": "20O-05"
+        }
+      ],
+      "counts": {
+        "planned_cases": 7,
+        "completed_cases": 7,
+        "mesh_checks": 2,
+        "mesh_passes": 0,
+        "finite_checks": 2,
+        "finite_passes": 2
+      },
+      "coverage_unchanged": {
+        "partial": 17,
+        "pending": 24,
+        "fully_validated": 0
+      },
+      "qualifications": [
+        "Same literal model and pressure coordinates; no fitting of stiffness, aerodynamic coefficients or measurements.",
+        "Both mesh endpoints use the same complete derivative API step, including state/input and output stencils.",
+        "Saved20O-05 n128 smaller-step derivative is reused; no prior equilibrium is repeated.",
+        "The p column is descriptive. No new p acceptance gate or experimental acceptance is inferred.",
+        "Adjacent mesh agreement is not a continuum error bound; finite experimental amplitudes and conventions remain unresolved.",
+        "Original failures remain in their original reports and are quoted here; no automatic further refinement."
+      ]
+    }
+  },
+  "qualifications": [
+    "Same literal model and pressure coordinates; no fitting of stiffness, aerodynamic coefficients or measurements.",
+    "Both mesh endpoints use the same complete derivative API step, including state/input and output stencils.",
+    "Saved20O-05 n128 smaller-step derivative is reused; no prior equilibrium is repeated.",
+    "The p column is descriptive. No new p acceptance gate or experimental acceptance is inferred.",
+    "Adjacent mesh agreement is not a continuum error bound; finite experimental amplitudes and conventions remain unresolved.",
+    "Original failures remain in their original reports and are quoted here; no automatic further refinement.",
+    "The full API step changes state/input probes and directional output stencils together; it is not a pure-J perturbation.",
+    "No experimental finite-amplitude/incidence/sign or section/stiffness discrepancy is resolved by a numerical gate pass.",
+    "No new p acceptance gate, n512 computation, pressure endpoint or reversal calculation is included.",
+    "This documentation generator runs no solves and changes no frozen physical evidence."
+  ],
+  "document_paths": {
+    "root_markdown": "docs/validation/isae-ae3-mesh-refinement.md",
+    "root_json": "docs/validation/isae-ae3-mesh-refinement.json",
+    "evidence_archive": "isae-ae3-mesh-refinement-20261024-evidence.zip",
+    "archive_packaging_owner": "ROOT; this summarizer does not package or assert archive integrity."
+  },
+  "input_pins": {
+    "/tmp/openswing-isae-ae3-mesh-20261024/execution.json": {
+      "bytes": 1757,
+      "sha256": "f8f9a8f0643c8d05615aa1c1bcccd1ba13be537ce4694379376846f4464a4219"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/report.json": {
+      "bytes": 55249,
+      "sha256": "d46f571e0fbbacaaaaad28e73b6d513c39ca54db493ed032e1b0a3ca6eb7a6ae"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/independent-postrun-review.json": {
+      "bytes": 50471,
+      "sha256": "cda446210d71cc864c3f5d46b8d1dd1d3c70c09071de94423894a21c603da2d7"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/plan.json": {
+      "bytes": 93219,
+      "sha256": "bccf2fdda733e0b312ef126f28947fb9e6d64dcd25d2a3f7727fc378fda920e1"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/__init__.py": {
+      "bytes": 100,
+      "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/aero.py": {
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/applied_load_outputs.py": {
+      "bytes": 6251,
+      "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw.py": {
+      "bytes": 18778,
+      "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/asw_edit.py": {
+      "bytes": 10879,
+      "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/atmosphere.py": {
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/beam_matching.py": {
+      "bytes": 3051,
+      "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/body_shoulders.py": {
+      "bytes": 3343,
+      "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/bridge.py": {
+      "bytes": 12029,
+      "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation.py": {
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation_polish.py": {
+      "bytes": 5095,
+      "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation_solve.py": {
+      "bytes": 7012,
+      "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/circulation_tangent.py": {
+      "bytes": 16610,
+      "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/control_allocation.py": {
+      "bytes": 8411,
+      "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/control_expressions.py": {
+      "bytes": 5757,
+      "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/control_tables.py": {
+      "bytes": 3801,
+      "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/custom_constraints.py": {
+      "bytes": 9749,
+      "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/damping.py": {
+      "bytes": 1635,
+      "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivative_cache.py": {
+      "bytes": 5250,
+      "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/derivatives.py": {
+      "bytes": 23909,
+      "sha256": "b39d0b5457b57c651457a345a42df06023d4c508d9b09b2471c985f06b0aec49"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/descriptor_mass.py": {
+      "bytes": 10869,
+      "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/discretization.py": {
+      "bytes": 4802,
+      "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/distribution_curve.py": {
+      "bytes": 8796,
+      "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/dynamic_inertia.py": {
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_state.py": {
+      "bytes": 16158,
+      "sha256": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/equilibrium_tangent.py": {
+      "bytes": 4704,
+      "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/factored_influence.py": {
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/feedback.py": {
+      "bytes": 24602,
+      "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/field_products.py": {
+      "bytes": 792,
+      "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/flow_survey.py": {
+      "bytes": 9512,
+      "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/forcing.py": {
+      "bytes": 21844,
+      "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frequency_response.py": {
+      "bytes": 46509,
+      "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frequency_sweep.py": {
+      "bytes": 4776,
+      "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/frozen_influence.py": {
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry.py": {
+      "bytes": 11506,
+      "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry_field_partials.py": {
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry_partials.py": {
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry_stencil.py": {
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/geometry_tangent.py": {
+      "bytes": 38029,
+      "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/ground.py": {
+      "bytes": 4871,
+      "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust.py": {
+      "bytes": 10381,
+      "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust_file.py": {
+      "bytes": 4716,
+      "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/gust_tangent.py": {
+      "bytes": 5382,
+      "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/harmonic_structure.py": {
+      "bytes": 11685,
+      "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/hinge_history.py": {
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/inertia.py": {
+      "bytes": 11357,
+      "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/initial_diagnostics.py": {
+      "bytes": 7346,
+      "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/initial_response.py": {
+      "bytes": 12115,
+      "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/joints.py": {
+      "bytes": 2686,
+      "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/kinematics.py": {
+      "bytes": 2561,
+      "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/legacy_hinge_state.py": {
+      "bytes": 6540,
+      "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/linear_dynamics.py": {
+      "bytes": 72981,
+      "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_geometry_matrix.py": {
+      "bytes": 8878,
+      "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_motion.py": {
+      "bytes": 13165,
+      "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/local_rate_tangent.py": {
+      "bytes": 6125,
+      "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/mechanical_tangent.py": {
+      "bytes": 6197,
+      "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/network.py": {
+      "bytes": 61858,
+      "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/newton_structure.py": {
+      "bytes": 4108,
+      "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/nonlinear_initial.py": {
+      "bytes": 23838,
+      "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/operating.py": {
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/output_derivatives.py": {
+      "bytes": 2159,
+      "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/output_fields.py": {
+      "bytes": 11902,
+      "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/position_history_checkpoint.py": {
+      "bytes": 9373,
+      "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/position_history_lift.py": {
+      "bytes": 10301,
+      "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/position_history_radau.py": {
+      "bytes": 3301,
+      "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/power_tangent.py": {
+      "bytes": 5710,
+      "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/propulsion.py": {
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/quiescent.py": {
+      "bytes": 5490,
+      "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/radau_tangent.py": {
+      "bytes": 4159,
+      "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/radau_time.py": {
+      "bytes": 3880,
+      "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/recovery.py": {
+      "bytes": 7213,
+      "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reduced_model.py": {
+      "bytes": 17492,
+      "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/reference_flow.py": {
+      "bytes": 3892,
+      "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rigid_initial_rank.py": {
+      "bytes": 7327,
+      "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rom_file.py": {
+      "bytes": 21226,
+      "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rom_initial.py": {
+      "bytes": 6195,
+      "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/rom_outputs.py": {
+      "bytes": 11136,
+      "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/root_diagnostics.py": {
+      "bytes": 4331,
+      "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sensors.py": {
+      "bytes": 10501,
+      "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/sparse_rank.py": {
+      "bytes": 3362,
+      "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/stability.py": {
+      "bytes": 23781,
+      "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/steady_feedback.py": {
+      "bytes": 8132,
+      "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structural_geometry.py": {
+      "bytes": 5810,
+      "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structural_outputs.py": {
+      "bytes": 7538,
+      "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structure.py": {
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_static.py": {
+      "bytes": 39701,
+      "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/structured_time.py": {
+      "bytes": 9364,
+      "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/struts.py": {
+      "bytes": 1477,
+      "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/support_outputs.py": {
+      "bytes": 6436,
+      "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/tangent_influences.py": {
+      "bytes": 15650,
+      "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_acceptance.py": {
+      "bytes": 5788,
+      "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_acceptance_validation.py": {
+      "bytes": 21446,
+      "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_accuracy.py": {
+      "bytes": 17505,
+      "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_cold_initial.py": {
+      "bytes": 10150,
+      "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_history.py": {
+      "bytes": 12251,
+      "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_initialization.py": {
+      "bytes": 9446,
+      "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_input_transition.py": {
+      "bytes": 2954,
+      "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_integration.py": {
+      "bytes": 46536,
+      "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_saved_history.py": {
+      "bytes": 12034,
+      "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_state.py": {
+      "bytes": 18892,
+      "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/time_transition_initial.py": {
+      "bytes": 6461,
+      "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/trefftz.py": {
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vector_ops.py": {
+      "bytes": 1749,
+      "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume.py": {
+      "bytes": 9165,
+      "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/volume_tangent.py": {
+      "bytes": 12795,
+      "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/source/openswing/vortex_tangent.py": {
+      "bytes": 26804,
+      "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/condition.json": {
+      "bytes": 483,
+      "sha256": "b543a0e68a1158a50142633abf95cfef7fea29dafbece8020e0e1873deb7ebd6"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/derivatives.json": {
+      "bytes": 434376,
+      "sha256": "7228a09b903f9b969c6947d66f05d77ecbbc66a723ef6a3179a790ebab3fe6f5"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/fresh-residual.npz": {
+      "bytes": 489,
+      "sha256": "57c408c319e9a65511d4553a4b27681415fd0c3d4dbfa795783f224b8d0fb71d"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/observables.json": {
+      "bytes": 244,
+      "sha256": "5b021c77d0a487b0748032ccef71d9c50e4aee8dbd6e97a78f2179f4764d3d0e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/progress.jsonl": {
+      "bytes": 3498,
+      "sha256": "561b9f39e320bb12c817de162e9b78ca2342b51e1b391626983553b9483a883e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/result.json": {
+      "bytes": 543493,
+      "sha256": "03c42302eec42a61e47d1a9e4b7f7534e4983fc97701636af024e33c113ded0c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/spec.json": {
+      "bytes": 204,
+      "sha256": "38c0bfc06f090d0ff76191d6e39ee305ed4baa4a741b2b5bd1115b95e15323ba"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/state.json": {
+      "bytes": 55024,
+      "sha256": "f880fa4f9a46d47ba20303456eba2a7af8e816da8ae5659145805b7dec012e1d"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/status.json": {
+      "bytes": 635,
+      "sha256": "f3b4cb97b015288fb4a2e02fcc42df6e83f7381d4a677c29d786108c2be8f8a4"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/supervisor-outcome.json": {
+      "bytes": 220,
+      "sha256": "6c09003760fc5fa68075c5679f82bcda6cd154fcb2408ceda15eabcca097c93e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/unknowns.npz": {
+      "bytes": 257,
+      "sha256": "997ea4a1c26c58bc3e47bd1abfd54b421d5a957464b7b23f159fa3cdd8bcb2a0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-04-n128/verification.json": {
+      "bytes": 389,
+      "sha256": "73ca2a3839e16c963fddbfd4019e19a5b01d0df6a41e30f9ffcb7dcf669be0cd"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/condition.json": {
+      "bytes": 483,
+      "sha256": "6a4e644293e856449231947f77ad28d0325635ddd768c48b339a381bfb96035c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/derivatives.json": {
+      "bytes": 434544,
+      "sha256": "2ce629821470c38d0362f343a6a74ed6b167622713078149b89e01f205109ddf"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/fresh-residual.npz": {
+      "bytes": 489,
+      "sha256": "57c408c319e9a65511d4553a4b27681415fd0c3d4dbfa795783f224b8d0fb71d"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/observables.json": {
+      "bytes": 244,
+      "sha256": "5b021c77d0a487b0748032ccef71d9c50e4aee8dbd6e97a78f2179f4764d3d0e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/progress.jsonl": {
+      "bytes": 3494,
+      "sha256": "8576ecc9e2192cbacc73cea14c729c60784e5cce9d27a22f8ecdae943d1e1fbf"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/result.json": {
+      "bytes": 543101,
+      "sha256": "e0b771a4f08e1199283c87e1c188d2d6556a2d0cf1c52822dd4f63d6624c2860"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/spec.json": {
+      "bytes": 204,
+      "sha256": "0250629ad2073dfcffa9c40ebed4264c224d6d1484d1a613527fd86543ca9952"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/state.json": {
+      "bytes": 55024,
+      "sha256": "2229035f3f9739e9416a3ed7d41a18d0292d5a84f664ff226abb49f04b6f3d57"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/status.json": {
+      "bytes": 633,
+      "sha256": "9408b283a3b942cad1583a3597c4b1d8959a896b9cafdd7cee365b2fee26068c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/supervisor-outcome.json": {
+      "bytes": 222,
+      "sha256": "2e10d35a8616901b53873f6e8a6a71954858271cb17a4364f97e650f5f16a580"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/unknowns.npz": {
+      "bytes": 257,
+      "sha256": "997ea4a1c26c58bc3e47bd1abfd54b421d5a957464b7b23f159fa3cdd8bcb2a0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/20O-05-n128/verification.json": {
+      "bytes": 390,
+      "sha256": "5e788767efd65f6b381ba640984b219b2341e5f45cf0d8d92c32cb7d206a48e3"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/Straight_20O.asw": {
+      "bytes": 5220,
+      "sha256": "fbe1ede2e3241f74be581dcebb470b71fb661ce891cdf7db00413020d3b73513"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/step-closeout.json": {
+      "bytes": 12023,
+      "sha256": "35bdfc7a20d848feed97d0b57973526550968185f9a1205b231616ea1c172dc2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/step-plan.json": {
+      "bytes": 96686,
+      "sha256": "acc93d3b095225c6e38882d1384ca093375bbcb98b6bf9e45142c0f208399186"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/step-report.json": {
+      "bytes": 37461,
+      "sha256": "003d22a663beeaaf5123f7d42f467bbbedd6132e31d47e71d25747a2b4077a94"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/step-study.json": {
+      "bytes": 14284,
+      "sha256": "1b5c3146e231532621f2b71df3f94324aeb66741a6b74c8004de6e982bcd69b0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-contract.json": {
+      "bytes": 58268,
+      "sha256": "d660898872a7a6e49c01b98cc2c3536beeb459490eb4eeaf1f2cd8acf86898c0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-cost-observation.json": {
+      "bytes": 4211,
+      "sha256": "b8d6f91b89862e866f1d062c61f6e00b57e361c3c3c25220b1599a6db62040fc"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-erratum.json": {
+      "bytes": 1821,
+      "sha256": "52fd47064a1717915489872bd10473e451a16683185b19ae1074de904e6d81f7"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-native-closeout.json": {
+      "bytes": 3212,
+      "sha256": "4e593dc5d1f4a9c1a313d587cf1e6a89a0cdc14732b7b642ca481fcacd4b3abd"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-original-gate-report.json": {
+      "bytes": 162683,
+      "sha256": "a1015d29599f45daeae678311c8bf13c7a4e82676a4b6b0e26ce0916b73d5b91"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-refinement-contract.json": {
+      "bytes": 35515,
+      "sha256": "8cd20a81308eaaa8a613a8039a1e96cd655b5ad3101e8983f7757ef246637d8c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/provenance/w26-refinement-report.json": {
+      "bytes": 56822,
+      "sha256": "1b991be660d18cd01fc0617a648566fb5615175dc47ea86aa197546be9937a5a"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/audit.json": {
+      "bytes": 1845,
+      "sha256": "1ede9fea4f1e7b85d3feae79869610c2c785bdcf2ba36182df2989e4e315be2d"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/condition.json": {
+      "bytes": 483,
+      "sha256": "05d35e75dcd60dd9a232c26a7d046110e613e7afe40332ead7efd6eb26e288c0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/derivatives.json": {
+      "bytes": 434538,
+      "sha256": "50bd1fddde837407f1516c89d583913e2de77be4a9b07eed0efe57bcf21062e7"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/fresh-state.json": {
+      "bytes": 55024,
+      "sha256": "4152baa3212c46902a912d929af1f3cbd421ddf539d760e8d31ae12da1c165be"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/full-linearization.npz": {
+      "bytes": 752194,
+      "sha256": "bd3b16ed8bc738d363c3756266c4264ea2082c8b00a8eb715a93f87f8c7972e8"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/post-base.npz": {
+      "bytes": 497,
+      "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/restored-base.npz": {
+      "bytes": 497,
+      "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/reused-20O-05-n128-step2p5e-6/status.json": {
+      "bytes": 6931,
+      "sha256": "86273347d20f4ba85e5be67df5b30e39da15f1252e6aae46251f0f1d9084f398"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus0025/condition.json": {
+      "bytes": 486,
+      "sha256": "0c4e58040476ac1906e7b2721d663dfe0cf260c2667a44b8cbb4a9694bf867e5"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus0025/observables.json": {
+      "bytes": 299,
+      "sha256": "313addce1eae7d6d8b227cb05c34f672f6551e135da3f9be2a5a85bdb511c435"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus0025/result.json": {
+      "bytes": 685831,
+      "sha256": "56a8c46ca66bb303738443476520333d2190b4f9ca83d44cedd16d926b009d58"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus0025/status.json": {
+      "bytes": 553,
+      "sha256": "a5236e5f5cab0544e8d2e8a3b17f1b68d70be1e5accee531c5a597e400ec3648"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus0025/verification.json": {
+      "bytes": 613,
+      "sha256": "4c192fd8db592846ec218902efd8bb091aa9e6c79cffdc856953922c39bd124b"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus005/condition.json": {
+      "bytes": 485,
+      "sha256": "855301bbf834b4f313c0c31b5e3d98f29da2d700fe879a33d3d131b905746278"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus005/observables.json": {
+      "bytes": 299,
+      "sha256": "a48b6c05b0c16d32405c38389965b5a231d161ae3083e9dea29cb4828b80d617"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus005/result.json": {
+      "bytes": 685494,
+      "sha256": "7894261cd00157419f047c5ad4d8c0373ef40381c24d9a89557a3ed434de41b4"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus005/status.json": {
+      "bytes": 555,
+      "sha256": "ac789c2d6992b513fbafd7f821c5f8cd00310a99bdadf8690273f2047bbade74"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-minus005/verification.json": {
+      "bytes": 614,
+      "sha256": "ac523bb77bdb3337aeb7b01a5704773f2fd9b2eff183c818dd067abbdacd800c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus0025/condition.json": {
+      "bytes": 485,
+      "sha256": "a359590c789bcb7ddb1fbd2d620c51355b7bbf68b6ae53d26306be38581b07a7"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus0025/observables.json": {
+      "bytes": 299,
+      "sha256": "42d55b99a85ea1306a3990d26fa72481f7d76eb78827ddc081e867de766d27fd"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus0025/result.json": {
+      "bytes": 686685,
+      "sha256": "778b665f24b8e133ac0b7ec20c301ca4413f87ffe0f709ad414962f5e2761eea"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus0025/status.json": {
+      "bytes": 551,
+      "sha256": "055f16fdbd96e3d0830f60fae587653d7a6363bcfd262c6fddd15512a61b065c"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus0025/verification.json": {
+      "bytes": 607,
+      "sha256": "49ea180652b40fc1fa0eb0679701b0b73483a26258325f93ee65ffbb7b4c834f"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus005/condition.json": {
+      "bytes": 484,
+      "sha256": "b7e113cb46c1cd28c9b81a136f179c8c933b64fce9c1b28fc144c669538f20e5"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus005/observables.json": {
+      "bytes": 298,
+      "sha256": "6ac7d6ef051c074709d67796646272a21bc41682aacbc7218939356ca435fd98"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus005/result.json": {
+      "bytes": 686570,
+      "sha256": "e32a51d7f775b2fda6e78659d3911e083efea2eadadc78b427bd19f88499583e"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus005/status.json": {
+      "bytes": 552,
+      "sha256": "e2638daf11af36391da544964065a418aeaf346f44afab4ed1fea29193d6dc37"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/inputs/saved-sentinel128-plus005/verification.json": {
+      "bytes": 610,
+      "sha256": "ef85fb416ed764e7bcc5daf20ee80fb6224e075e09b7c01361d20e12645783c2"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/prepare.py": {
+      "bytes": 11169,
+      "sha256": "7207d904ab25d5952b949212e83bd97fb1dd86ccf91da619e992d96885aa8ef9"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/run_case.py": {
+      "bytes": 8666,
+      "sha256": "a495d0b8c52774c83cf951b5d8eefd3ff5ebdde871b4d29f9cac2edecc648632"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/supervise.py": {
+      "bytes": 3205,
+      "sha256": "615b7bc3962303a767fd39f7046750617453d1deb5842c5da1bd79d424e7182a"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/reduce_saved.py": {
+      "bytes": 10672,
+      "sha256": "50bfcde7ffda71967d95d6ab6d8791324967c85251348bb5cf75ef64bdc3f7d0"
+    },
+    "/tmp/openswing-isae-ae3-mesh-20261024/summarize_saved.py": {
+      "bytes": 14889,
+      "sha256": "798598117528c2b304b418ccd3e8db42d5bae0140c178760b9c5dd0618a9b25f"
+    }
+  }
+}

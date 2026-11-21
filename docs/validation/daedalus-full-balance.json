@@ -1,0 +1,168 @@
+{
+  "status": "PASS_SELECTED_COMPLETE_HARMONIC_BALANCE_GOAL_INCOMPLETE",
+  "date": "2026-10-25",
+  "goal_complete": false,
+  "daedalus_matched": false,
+  "main_kernel_changed": false,
+  "scope": "Actual stationary corrected C16 Daedalus base plus four raw real/imaginary rudder-response directions; all 2044 rows independently composed, including reuse of prior independent compatibility matrix.",
+  "physical_state": {
+    "nodes": 108,
+    "elements": 103,
+    "lifting_panels": 82,
+    "descriptor_size": 2044,
+    "speed_m_s": 6.7,
+    "pg_mach": 0.1,
+    "body_added_mass_factor": 1
+  },
+  "frequencies_Hz": [
+    1.0,
+    1.15737773741517
+  ],
+  "row_coverage": {
+    "compatibility": 618,
+    "nodal_balance": 648,
+    "rigid_constraints": 30,
+    "circulation": 82,
+    "free_frame_balance": 6,
+    "kinematics": 660
+  },
+  "gates": {
+    "comparison_atol": 2e-07,
+    "comparison_rtol": 2e-07,
+    "chart_atol": 2e-12,
+    "chart_rtol": 2e-12,
+    "invariant_atol": 2e-10,
+    "invariant_rtol": 2e-10,
+    "native_widths": [
+      0.001,
+      0.0005
+    ],
+    "vortex_quadrature": [
+      16,
+      32
+    ],
+    "mass_quadrature": [
+      8,
+      16
+    ],
+    "complex_widths": [
+      1e-24,
+      1e-20
+    ]
+  },
+  "counts": {
+    "given_external_load_assembly_checks": 2466,
+    "complete_composition_checks": 3823,
+    "complete_composition_scalars": 700110,
+    "complete_independent_evaluations": 18,
+    "reused_native_packets": 33,
+    "material_export_arrays": 50,
+    "material_export_checks": 60,
+    "saved_result_review_checks": 5163,
+    "saved_result_review_scalars": 1043729,
+    "portable_tests": 5,
+    "portable_array_comparisons": 19,
+    "portable_expected_scalars": 18136,
+    "portable_native_residual_calls": 17,
+    "new_study_native_residuals": 0,
+    "new_trim_solves": 0,
+    "new_linearizations": 0,
+    "new_harmonic_solves": 0,
+    "inner_circulation_solves": 0
+  },
+  "complete_row_closure": [
+    {
+      "direction": "f0-part0",
+      "max_residual": 1.0894256741711875e-11,
+      "max_operator_difference": 1.0894281027840539e-11
+    },
+    {
+      "direction": "f0-part1",
+      "max_residual": 2.3967328341113926e-13,
+      "max_operator_difference": 2.3967482839923505e-13
+    },
+    {
+      "direction": "f1-part0",
+      "max_residual": 1.0894252023446749e-11,
+      "max_operator_difference": 1.0894245084552845e-11
+    },
+    {
+      "direction": "f1-part1",
+      "max_residual": 2.5665871784156834e-13,
+      "max_operator_difference": 2.566632579381656e-13
+    }
+  ],
+  "portable_maximum_absolute_differences": {
+    "external_force": 6.237638986057725e-11,
+    "external_moment": 1.756735440710394e-10,
+    "selected_residual": 6.957469198276148e-12,
+    "complete_residual": 1.9560727619433624e-11
+  },
+  "unchanged_bode_discrepancy": {
+    "source": "daedalus-shell-mesh.md",
+    "yaw_at_1Hz_percent_high": 28.1,
+    "yaw_at_reference_dip_ratio": 2.1715407782,
+    "roll_at_1Hz_percent_low": 32.7,
+    "new_sweep": false
+  },
+  "retained_failures": [
+    {
+      "stage": "composed-attempt1",
+      "cause": "Four direction provenance comparisons omitted the prior archive infinity-norm normalization.",
+      "resolution": "Saved-only exact normalized equality; all physical outputs unchanged and all 3819 original physical/other comparisons preserved. Original fail report retained."
+    },
+    {
+      "stage": "composed-review/reviewer-attempt1",
+      "cause": "Review reconstruction initially used the wrong saved-pencil mass sign.",
+      "resolution": "Corrected reviewer to documented AZ-MZdot+B; original failure retained; production and independent physics unchanged."
+    }
+  ],
+  "limitations": [
+    "Material interpolation, topology and loaded base are declared inputs.",
+    "First-order stationary-base comparison only; not a finite-motion integrator.",
+    "No historical ASWING executable match, new aircraft solution or complete tangent equality is established.",
+    "Parsed material interpolation and original ASWING spline endpoints remain unverified at actual-file level.",
+    "Actual case has zero intrinsic point/distributed centroid tensors, point spin and additional D mass properties; no new nonzero coverage of these laws.",
+    "Body apparent mass factor remains1; published factor2 convention and finite-radius end closure qualifications unchanged.",
+    "Historical Bode operating point and higher-frequency convergence unresolved."
+  ],
+  "reproduction": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/test_daedalus_full_balance.py",
+  "evidence": {
+    "assembly": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/assembly/results/report.json",
+      "bytes": 615570,
+      "sha256": "408874e8a0fd2680fc03e9e08cee4dea1a423150467d79fbcc0206131d564425"
+    },
+    "composition": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/composed-accepted/report.json",
+      "bytes": 7065,
+      "sha256": "1e1c1e69b228b58934f5e90cef7418ee27839d1eae17dedd9eae2f5eb3642dd1"
+    },
+    "correction": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/composed-accepted/correction.json",
+      "bytes": 1768,
+      "sha256": "0d26286500b5fc61c3f915e4cd90d0d48a866683e897afb5cfb24489160a55f9"
+    },
+    "saved_review": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/composed-review/report.json",
+      "bytes": 27715,
+      "sha256": "11830c0847323a85a3c3c931fab912bf0b5cc962e6cfa3848ba67de21776a2ee"
+    },
+    "native_regressions": {
+      "path": "/tmp/openswing-daedalus-full-balance-regression-20261025/report.json",
+      "bytes": 25194,
+      "sha256": "9465d99f978ca50004adbbeb05a677d58f4d4d3d7da2de8d36a27cc60c304ffd"
+    },
+    "original_native_consistency": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/harmonic-residual/report.json",
+      "bytes": 3471,
+      "sha256": "ec607776ebe12597c0f3e2e9179af67ba2df6dc44c4942141860443ec23b8c2a"
+    },
+    "material_export": {
+      "path": "/tmp/openswing-daedalus-full-balance-20261025/material/report.json",
+      "bytes": 4906,
+      "sha256": "08a0fb23ff99cdbaa0d63cd0ae25a177d7583f8f3f775da94cde51429a80175c"
+    }
+  },
+  "archive": "daedalus-full-balance-20261025-evidence.zip"
+}

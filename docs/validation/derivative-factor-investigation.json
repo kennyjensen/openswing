@@ -1,0 +1,4095 @@
+{
+  "format": "openswing-derivative-factor-investigation",
+  "status": "ISOLATED_INVESTIGATION_COMPLETE_NOT_PROMOTED",
+  "closeout": {
+    "all_frozen_pins_match": true,
+    "original_artifact_policy": "Earlier manifests and pre-execution status records remain immutable dated snapshots. This closeout and the separately generated artifact-pins.json describe terminal evidence.",
+    "paired": {
+      "equilibrium_resolves": 0,
+      "exact_J_entries": 2896804,
+      "exact_J_equal": true,
+      "fresh_full_linear_residuals": {
+        "baseline": {
+          "max_residual": 6.23945339839338e-14,
+          "normalized_full_Jdx_plus_Rp_residual": [
+            1.457167719820518e-16,
+            6.23945339839338e-14
+          ],
+          "pass_gate": true
+        },
+        "candidate": {
+          "max_residual": 4.984901380566953e-14,
+          "normalized_full_Jdx_plus_Rp_residual": [
+            1.0755285551056204e-16,
+            4.984901380566953e-14
+          ],
+          "pass_gate": true
+        }
+      },
+      "full_physical_outputs": {
+        "exact_values": 1915,
+        "failures": [],
+        "maximum_absolute_difference": 9.675510088610314e-10,
+        "maximum_tolerance_ratio": 0.04837755039531912,
+        "numeric_values": 13342,
+        "pass": true,
+        "worst_path": "full_derivative_output.matrices.fluid_wrench[2][1]"
+      },
+      "report_pin": {
+        "bytes": 45092,
+        "sha256": "5970071fad44aa52c404101c8dfb5fbbd41e5318653bcc401d3f2a829ca47706"
+      },
+      "status": "PASS_SELECTED_PAIRED_BENCHMARK",
+      "timing": {
+        "baseline": {
+          "centered_J_and_scaling_seconds": 45.99040222298936,
+          "centered_J_share": 0.9301789029106362,
+          "derivative_monotonic_seconds": 49.44253420399036,
+          "derivative_wall_seconds": 89.62809753417969,
+          "rank_factor_solve_residual_seconds": 2.972097631980432
+        },
+        "candidate": {
+          "centered_J_and_scaling_seconds": 39.055286905000685,
+          "centered_J_share": 0.9767328806774034,
+          "derivative_monotonic_seconds": 39.98563750399626,
+          "derivative_wall_seconds": 59.24632692337036,
+          "rank_factor_solve_residual_seconds": 0.18296536500565708
+        },
+        "caveat": "One sequential pair under other concurrent work; total 1.2365x monotonic improvement is not an isolated factorization speedup. J assembly code is identical yet varied by 6.94 s. Both wall and monotonic clocks are retained and disagree substantially.",
+        "counterfactual": "Eliminating the entire baseline rank/factor/solve phase would save about 2.97 of 49.44 s (6.0%). Factorization alone cannot remove the dominant assembly cost.",
+        "factor_related_phase_reduction_seconds": 2.789132266974775
+      }
+    },
+    "process_lifecycle": {
+      "all_owned_children_reaped": true,
+      "live_owned_handles": [],
+      "other_agents_sessions_not_polled": [
+        62363
+      ],
+      "paired": {
+        "cases": [
+          {
+            "exit_code": 0,
+            "id": "baseline",
+            "monotonic_seconds": 59.01718858699314,
+            "pid": 23584,
+            "reaped": true,
+            "status": "PASS_EXECUTION",
+            "wall_seconds": 111.4169671535492
+          },
+          {
+            "exit_code": 0,
+            "id": "candidate",
+            "monotonic_seconds": 47.833971389976796,
+            "pid": 24887,
+            "reaped": true,
+            "status": "PASS_EXECUTION",
+            "wall_seconds": 67.09465503692627
+          }
+        ],
+        "monotonic_seconds": 106.97599792099209,
+        "pid": 23538,
+        "status": "ALL_EXECUTIONS_TERMINAL",
+        "wall_seconds": 178.6364529132843
+      },
+      "paired_supervisor_session": 7321,
+      "synthetic": {
+        "exit_code": 1,
+        "monotonic_seconds": 4.174373180983821,
+        "pid": 29856,
+        "reaped": true,
+        "status": "FAIL_RETAINED",
+        "supervisor_pid": 29840,
+        "wall_seconds": 4.1743693351745605
+      },
+      "synthetic_supervisor_session": 86210
+    },
+    "production_files_edited": 0,
+    "production_promotion": false,
+    "remaining": [
+      "Dominant centered J assembly has not been optimized or benchmarked in a new revision.",
+      "Helper malformed string API issue remains in preserved prototype.",
+      "Candidate-specific free-flight/feedback/branch and actual WASM coverage remains required.",
+      "Exact-rcond null currently breaks web/main.js numeric formatting; UI/serialization tests need explicit lower-bound semantics.",
+      "One selected paired case is not general validation and does not resolve the aero26 physical mesh/experimental limitations."
+    ],
+    "status": "ISOLATED_INVESTIGATION_COMPLETE_NOT_PROMOTED",
+    "structured_assessment_pin": {
+      "bytes": 29389,
+      "sha256": "4b8e748770d948d96ff06e2313e720540c622f958ee516129b3df0a2cef65bc7"
+    },
+    "synthetic": {
+      "cases": 26,
+      "checks": 85,
+      "classification": "The only failed check is string matrix -> TypeError rather than AnalysisError. Numeric production derivative assembly cannot create this input, but the helper API needs controlled validation before promotion.",
+      "failed_cases": [
+        "malformed_string"
+      ],
+      "report_pin": {
+        "bytes": 41586,
+        "sha256": "5aaa2862f31a38cfbba7480359827bb97cf85d7ecd8922cd56e997dafa6494ec"
+      },
+      "status": "FAILURES_RETAINED"
+    },
+    "verification": [
+      {
+        "checked": 228,
+        "field": "pins",
+        "manifest": "benchmark-plan.json",
+        "mismatches": []
+      },
+      {
+        "checked": 110,
+        "field": "pins",
+        "manifest": "synthetic-controls/plan.json",
+        "mismatches": []
+      },
+      {
+        "checked": 105,
+        "field": "original_source_pins",
+        "manifest": "candidate-manifest.json",
+        "mismatches": []
+      },
+      {
+        "checked": 106,
+        "field": "candidate_source_pins",
+        "manifest": "candidate-manifest.json",
+        "mismatches": []
+      }
+    ]
+  },
+  "benchmark": {
+    "atol": 2e-08,
+    "derivative_monotonic_speedup": 1.2365073383924154,
+    "derivative_wall_speedup": 1.512804289962234,
+    "exact_entry_comparisons": {
+      "column_norms": {
+        "array_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "numeric_entries": 1702,
+        "shape": [
+          1702
+        ]
+      },
+      "input_partials": {
+        "array_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "numeric_entries": 3404,
+        "shape": [
+          1702,
+          2
+        ]
+      },
+      "jacobian": {
+        "array_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "numeric_entries": 2896804,
+        "shape": [
+          1702,
+          1702
+        ]
+      },
+      "scaled_jacobian": {
+        "array_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "numeric_entries": 2896804,
+        "shape": [
+          1702,
+          1702
+        ]
+      }
+    },
+    "excluded_output_diagnostics": [
+      "residual_evaluations",
+      "column_scaled_reciprocal_condition",
+      "column_scaled_reciprocal_condition_lower_bound",
+      "derivative_linear_solver"
+    ],
+    "execution": {
+      "cases": [
+        {
+          "exit_code": 0,
+          "id": "baseline",
+          "monotonic_seconds": 59.01718858699314,
+          "pid": 23584,
+          "reaped": true,
+          "status": "PASS_EXECUTION",
+          "wall_seconds": 111.4169671535492
+        },
+        {
+          "exit_code": 0,
+          "id": "candidate",
+          "monotonic_seconds": 47.833971389976796,
+          "pid": 24887,
+          "reaped": true,
+          "status": "PASS_EXECUTION",
+          "wall_seconds": 67.09465503692627
+        }
+      ],
+      "monotonic_seconds": 106.97599792099209,
+      "pid": 23538,
+      "status": "ALL_EXECUTIONS_TERMINAL",
+      "wall_seconds": 178.6364529132843
+    },
+    "fresh_linear_residuals": {
+      "baseline": {
+        "max_residual": 6.23945339839338e-14,
+        "normalized_full_Jdx_plus_Rp_residual": [
+          1.457167719820518e-16,
+          6.23945339839338e-14
+        ],
+        "pass_gate": true
+      },
+      "candidate": {
+        "max_residual": 4.984901380566953e-14,
+        "normalized_full_Jdx_plus_Rp_residual": [
+          1.0755285551056204e-16,
+          4.984901380566953e-14
+        ],
+        "pass_gate": true
+      }
+    },
+    "full_output_comparison": {
+      "exact_values": 1915,
+      "failures": [],
+      "maximum_absolute_difference": 9.675510088610314e-10,
+      "maximum_tolerance_ratio": 0.04837755039531912,
+      "numeric_values": 13342,
+      "pass": true,
+      "worst_path": "full_derivative_output.matrices.fluid_wrench[2][1]"
+    },
+    "input_pins": {
+      "baseline-instrumentation.patch": {
+        "bytes": 4776,
+        "sha256": "2c5cafbe1ed08686c427f426f6ddc042c0b4bca13b2dcbba8bc19fafd5a94c80"
+      },
+      "baseline-source/openswing/__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "baseline-source/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "baseline-source/openswing/applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "baseline-source/openswing/asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "baseline-source/openswing/asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "baseline-source/openswing/atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "baseline-source/openswing/beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "baseline-source/openswing/body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "baseline-source/openswing/bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "baseline-source/openswing/circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "baseline-source/openswing/circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "baseline-source/openswing/circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "baseline-source/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "baseline-source/openswing/control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "baseline-source/openswing/control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "baseline-source/openswing/control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "baseline-source/openswing/custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "baseline-source/openswing/damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "baseline-source/openswing/derivatives.py": {
+        "bytes": 23464,
+        "sha256": "3320df421f6ce6c3dad29e6a38cc4eff4510c2c3f49b70e5c55d61c81ab50ef7"
+      },
+      "baseline-source/openswing/descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "baseline-source/openswing/discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "baseline-source/openswing/distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "baseline-source/openswing/dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "baseline-source/openswing/equilibrium_state.py": {
+        "bytes": 16158,
+        "sha256": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab"
+      },
+      "baseline-source/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "baseline-source/openswing/factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "baseline-source/openswing/feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "baseline-source/openswing/field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "baseline-source/openswing/flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "baseline-source/openswing/forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "baseline-source/openswing/frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "baseline-source/openswing/frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "baseline-source/openswing/frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "baseline-source/openswing/geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "baseline-source/openswing/geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "baseline-source/openswing/geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "baseline-source/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "baseline-source/openswing/geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "baseline-source/openswing/ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "baseline-source/openswing/gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "baseline-source/openswing/gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "baseline-source/openswing/gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "baseline-source/openswing/harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "baseline-source/openswing/hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "baseline-source/openswing/inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "baseline-source/openswing/initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "baseline-source/openswing/initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "baseline-source/openswing/joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "baseline-source/openswing/kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "baseline-source/openswing/legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "baseline-source/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "baseline-source/openswing/local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "baseline-source/openswing/local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "baseline-source/openswing/local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "baseline-source/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "baseline-source/openswing/network.py": {
+        "bytes": 61858,
+        "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+      },
+      "baseline-source/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "baseline-source/openswing/nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "baseline-source/openswing/operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "baseline-source/openswing/output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "baseline-source/openswing/output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "baseline-source/openswing/position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "baseline-source/openswing/position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "baseline-source/openswing/position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "baseline-source/openswing/power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "baseline-source/openswing/propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "baseline-source/openswing/quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "baseline-source/openswing/radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "baseline-source/openswing/radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "baseline-source/openswing/recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "baseline-source/openswing/reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "baseline-source/openswing/reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "baseline-source/openswing/rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "baseline-source/openswing/rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "baseline-source/openswing/rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "baseline-source/openswing/rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "baseline-source/openswing/root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "baseline-source/openswing/sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "baseline-source/openswing/sparse_rank.py": {
+        "bytes": 3362,
+        "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+      },
+      "baseline-source/openswing/stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "baseline-source/openswing/steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "baseline-source/openswing/structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "baseline-source/openswing/structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "baseline-source/openswing/structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "baseline-source/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "baseline-source/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "baseline-source/openswing/struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "baseline-source/openswing/support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "baseline-source/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "baseline-source/openswing/time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "baseline-source/openswing/time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "baseline-source/openswing/time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "baseline-source/openswing/time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "baseline-source/openswing/time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "baseline-source/openswing/time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "baseline-source/openswing/time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "baseline-source/openswing/time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "baseline-source/openswing/time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "baseline-source/openswing/time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "baseline-source/openswing/time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "baseline-source/openswing/trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "baseline-source/openswing/vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "baseline-source/openswing/volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "baseline-source/openswing/volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "baseline-source/openswing/vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "baseline.log": {
+        "bytes": 973,
+        "sha256": "5a107860da4abae057aeb975900d4e3c7a18b27b2fae9b6221fc56236182b9a7"
+      },
+      "benchmark-execution.json": {
+        "bytes": 599,
+        "sha256": "3a734e0cbbf01346e919e56be7f47ad0e20fb34caa1ebd96493cd513e33a3392"
+      },
+      "benchmark-plan.json": {
+        "bytes": 49630,
+        "sha256": "e7e460c98413c8f1a40a4658e3a8aaa380bce768e6f935327e01b4ac4a12af0a"
+      },
+      "benchmark-results/baseline/audit.json": {
+        "bytes": 367,
+        "sha256": "354ba1bc2352ef805509a1e2f3fe2a5853550b52cb52154455af136c3c26dac4"
+      },
+      "benchmark-results/baseline/derivatives.json": {
+        "bytes": 434544,
+        "sha256": "1e271ced5239146370fb5748b43d7189f75699404ddec146b19ffff9aac3ec70"
+      },
+      "benchmark-results/baseline/full-linearization.npz": {
+        "bytes": 752344,
+        "sha256": "b30893533f0e48c9c5ad5268d1cf001220fc30ea469549b90b1238fae1008797"
+      },
+      "benchmark-results/baseline/restored-base.npz": {
+        "bytes": 497,
+        "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+      },
+      "benchmark-results/baseline/status.json": {
+        "bytes": 1039,
+        "sha256": "5919a7e204f5a9527974def108c600091f2c13755664eff490c85b014b473fd0"
+      },
+      "benchmark-results/candidate/audit.json": {
+        "bytes": 1046,
+        "sha256": "a944822f2b468a34e6361aabaf01743300b252dd73cb5d756134d94f49877c3c"
+      },
+      "benchmark-results/candidate/derivatives.json": {
+        "bytes": 435306,
+        "sha256": "a57d82e1a39daa33b02f1581f366abd7efb93f4f3a1777c959f53bc0d4e5575d"
+      },
+      "benchmark-results/candidate/full-linearization.npz": {
+        "bytes": 751773,
+        "sha256": "21eab4d861775d67e5a469be5cf961d6cba2059218d5cdfc42c477a7cb0e563c"
+      },
+      "benchmark-results/candidate/restored-base.npz": {
+        "bytes": 497,
+        "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+      },
+      "benchmark-results/candidate/status.json": {
+        "bytes": 1713,
+        "sha256": "fcec66e0be0b6d0107b23b310c5f214d81a89dd0e87e64734c8591f725827d14"
+      },
+      "build_candidate.py": {
+        "bytes": 7163,
+        "sha256": "7a72e254732be91b6ce93c64a8de47c4e695bcaee9be4d965cb2398d1465b5eb"
+      },
+      "candidate-manifest.json": {
+        "bytes": 35722,
+        "sha256": "0e3020b49f65ed2f539f2cb586d6c6ba0ee35b668cb64564b9f5c3d256c1fedd"
+      },
+      "candidate.log": {
+        "bytes": 1579,
+        "sha256": "ce81f40b824a6600a4fc57f2efcedabb6658087a920c9ec4d491bf9416e7108a"
+      },
+      "candidate.patch": {
+        "bytes": 6382,
+        "sha256": "8c549bb4b050445f1c3318a7d3f6cfd3a1f2ff690e08bb080a579f2cda7fe64a"
+      },
+      "derivative_factor.py": {
+        "bytes": 5434,
+        "sha256": "224d7e888ddaac689b0170d86b3ffa5f5113306fd941fea4983d211c99d68b01"
+      },
+      "investigation.json": {
+        "bytes": 14206,
+        "sha256": "fde4e68c309ceeef8a20ba918d4aaa2f916147997a902658df24cd049e76ae28"
+      },
+      "prepare_baseline.py": {
+        "bytes": 3372,
+        "sha256": "4e6c0541b6ec5398a9adce199b36cdfd5cbefde8c97178b30f9acacd03201451"
+      },
+      "reduce_benchmark.py": {
+        "bytes": 6220,
+        "sha256": "f3ec52007b74be3413971688c1663703452adbd10ee8ee7f6a7430c1230cd4b9"
+      },
+      "run_benchmark.py": {
+        "bytes": 3876,
+        "sha256": "519e850f15c0449b41b42f0a2ce5d9b18b9dbc42a123a6be815e6ec448d0806b"
+      },
+      "source/openswing/__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "source/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "source/openswing/applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "source/openswing/asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "source/openswing/asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "source/openswing/atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "source/openswing/beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "source/openswing/body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "source/openswing/bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "source/openswing/circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "source/openswing/circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "source/openswing/circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "source/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "source/openswing/control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "source/openswing/control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "source/openswing/control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "source/openswing/custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "source/openswing/damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "source/openswing/derivative_factor.py": {
+        "bytes": 5434,
+        "sha256": "224d7e888ddaac689b0170d86b3ffa5f5113306fd941fea4983d211c99d68b01"
+      },
+      "source/openswing/derivatives.py": {
+        "bytes": 24671,
+        "sha256": "56bd66403f7e7959a77285afe1505ac67d43e14f5e07e4c47b3913ba5fc39f88"
+      },
+      "source/openswing/descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "source/openswing/discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "source/openswing/distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "source/openswing/dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "source/openswing/equilibrium_state.py": {
+        "bytes": 16158,
+        "sha256": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab"
+      },
+      "source/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "source/openswing/factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "source/openswing/feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "source/openswing/field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "source/openswing/flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "source/openswing/forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "source/openswing/frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "source/openswing/frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "source/openswing/frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "source/openswing/geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "source/openswing/geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "source/openswing/geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "source/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "source/openswing/geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "source/openswing/ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "source/openswing/gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "source/openswing/gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "source/openswing/gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "source/openswing/harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "source/openswing/hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "source/openswing/inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "source/openswing/initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "source/openswing/initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "source/openswing/joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "source/openswing/kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "source/openswing/legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "source/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "source/openswing/local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "source/openswing/local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "source/openswing/local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "source/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "source/openswing/network.py": {
+        "bytes": 61858,
+        "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+      },
+      "source/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "source/openswing/nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "source/openswing/operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "source/openswing/output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "source/openswing/output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "source/openswing/position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "source/openswing/position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "source/openswing/position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "source/openswing/power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "source/openswing/propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "source/openswing/quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "source/openswing/radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "source/openswing/radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "source/openswing/recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "source/openswing/reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "source/openswing/reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "source/openswing/rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "source/openswing/rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "source/openswing/rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "source/openswing/rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "source/openswing/root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "source/openswing/sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "source/openswing/sparse_rank.py": {
+        "bytes": 3362,
+        "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+      },
+      "source/openswing/stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "source/openswing/steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "source/openswing/structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "source/openswing/structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "source/openswing/structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "source/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "source/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "source/openswing/struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "source/openswing/support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "source/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "source/openswing/time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "source/openswing/time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "source/openswing/time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "source/openswing/time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "source/openswing/time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "source/openswing/time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "source/openswing/time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "source/openswing/time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "source/openswing/time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "source/openswing/time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "source/openswing/time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "source/openswing/trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "source/openswing/vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "source/openswing/volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "source/openswing/volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "source/openswing/vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "supervise_benchmark.py": {
+        "bytes": 2103,
+        "sha256": "457dad489094ffea985b41a805fb4390fbc71f1376da6c4061bcdddbb690efaa"
+      }
+    },
+    "limitations": [
+      "One selected128-panel locked straight-wing zero-control state and two parameter columns only. No general correctness, free-flight/feedback coverage, WASM portability, or release claim.",
+      "Baseline/candidate run sequentially once each with BLAS/OMP thread1. Other authorized jobs may overlap and the host wall clock can jump; keep both clocks and phase measurements. No repeats solely to improve timing.",
+      "The centered residual assembly is unchanged and still scales with all state columns. This prototype targets dense rank/factor costs; it does not implement structured residual-Jacobian assembly.",
+      "Automatic fast-path promotion still requires threshold/fallback/malformed/scaling and all supported physical-path coverage plus certificate-aware UI rendering."
+    ],
+    "no_equilibrium_resolves": true,
+    "original_output_comparison": {
+      "exact_values": 1915,
+      "failures": [],
+      "maximum_absolute_difference": 0.0,
+      "maximum_tolerance_ratio": 0.0,
+      "numeric_values": 13342,
+      "pass": true,
+      "worst_path": null
+    },
+    "outcomes": {
+      "baseline": {
+        "derivative_seconds": 49.44253420399036,
+        "derivative_wall_seconds": 89.62809753417969,
+        "equilibrium_solves": 0,
+        "factor": null,
+        "fresh_base_residual": 0.0,
+        "lower_bound": null,
+        "maximum_linear_residual": 6.206146707654625e-14,
+        "mode": "baseline",
+        "numpy": "2.5.3",
+        "output_phase_seconds": 0.16865393202169798,
+        "phase_seconds": {
+          "centered_J_and_scaling": 45.99040222298936,
+          "centered_input_columns": 0.03547247397364117,
+          "physical_RHS_solve_and_full_residual": 0.2074506249919068,
+          "rank_and_optional_sparse_factor": 2.7646470069885254
+        },
+        "pid": 23584,
+        "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+        "reciprocal_condition": 4.639498903917114e-06,
+        "residual_evaluations": 3414,
+        "scipy": "1.18.1",
+        "source": "/tmp/openswing-isae-ae3-20261016/aero-26/refinement-128/results/20O-05-n128",
+        "started_epoch": 1792817004.6886683,
+        "status": "PASS_EXECUTION",
+        "system_size": 1702,
+        "total_monotonic_seconds": 57.227146032993915,
+        "total_wall_seconds": 106.9204478263855
+      },
+      "candidate": {
+        "derivative_seconds": 39.98563750399626,
+        "derivative_wall_seconds": 59.24632692337036,
+        "equilibrium_solves": 0,
+        "factor": {
+          "column_scaled_reciprocal_condition": null,
+          "dense_factorizations": 0,
+          "fallback_reasons": [],
+          "inverse_batch_columns": 64,
+          "inverse_frobenius_norm": 171499.14459218868,
+          "inverse_residual_frobenius_norm": 4.9819265734879714e-11,
+          "inverse_residual_roundoff_allowance": 2.139102354123793e-05,
+          "method": "exact-entry sparse LU with conservative rank certificate",
+          "rank_check": "sparse inverse-norm certificate",
+          "rank_threshold": 1e-10,
+          "reciprocal_condition_lower_bound": 1.41334756106232e-07,
+          "size": 1702,
+          "sparse_factorizations": 1,
+          "stored_nonzeros": 42229,
+          "svd_evaluations": 0,
+          "total_entries": 2896804
+        },
+        "fresh_base_residual": 0.0,
+        "lower_bound": 1.41334756106232e-07,
+        "maximum_linear_residual": 4.984901380566953e-14,
+        "mode": "candidate",
+        "numpy": "2.5.3",
+        "output_phase_seconds": 0.16633635500329547,
+        "phase_seconds": {
+          "centered_J_and_scaling": 39.055286905000685,
+          "centered_input_columns": 0.031712395983049646,
+          "physical_RHS_solve_and_full_residual": 0.003945808013668284,
+          "rank_and_optional_sparse_factor": 0.1790195569919888
+        },
+        "pid": 24887,
+        "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+        "reciprocal_condition": null,
+        "residual_evaluations": 3414,
+        "scipy": "1.18.1",
+        "source": "/tmp/openswing-isae-ae3-20261016/aero-26/refinement-128/results/20O-05-n128",
+        "started_epoch": 1792817114.1606407,
+        "status": "PASS_EXECUTION",
+        "system_size": 1702,
+        "total_monotonic_seconds": 45.410960764013,
+        "total_wall_seconds": 64.67166471481323
+      }
+    },
+    "production_promotion": false,
+    "response_comparisons": {
+      "full_linear_residual": {
+        "exact_values": 0,
+        "failures": [],
+        "maximum_absolute_difference": 7.038813976123492e-14,
+        "maximum_tolerance_ratio": 3.519406988061532e-06,
+        "numeric_values": 3404,
+        "pass": true,
+        "worst_path": "full_linear_residual[1698][1]"
+      },
+      "linear_residuals": {
+        "exact_values": 0,
+        "failures": [],
+        "maximum_absolute_difference": 1.2212453270876722e-14,
+        "maximum_tolerance_ratio": 6.106226635437982e-07,
+        "numeric_values": 2,
+        "pass": true,
+        "worst_path": "linear_residuals[1]"
+      },
+      "state_response": {
+        "exact_values": 0,
+        "failures": [],
+        "maximum_absolute_difference": 5.3863580262714095e-12,
+        "maximum_tolerance_ratio": 0.00015564698427007284,
+        "numeric_values": 3404,
+        "pass": true,
+        "worst_path": "state_response[1568][1]"
+      }
+    },
+    "rtol": 2e-08,
+    "source_case": "/tmp/openswing-isae-ae3-20261016/aero-26/refinement-128/results/20O-05-n128",
+    "status": "PASS_SELECTED_PAIRED_BENCHMARK"
+  },
+  "synthetic_controls": {
+    "cases": [
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 3,
+          "physical": 2
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "bound_not_above_exact_rcond": true,
+          "dense_response_agreement": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "repeated_rhs_same_factor": true
+        },
+        "exact_svd_rcond": 0.33265886391580923,
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 0,
+            "fallback_reasons": [],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 6.57470791378014,
+            "inverse_residual_frobenius_norm": 2.4829075391966406e-16,
+            "inverse_residual_roundoff_allowance": 3.5871644775573745e-11,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.006429124389996425,
+            "size": 129,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 257,
+            "svd_evaluations": 0,
+            "total_entries": 16641
+          }
+        ],
+        "id": "well_conditioned_multi_rhs",
+        "kind": "helper",
+        "observed": "accept",
+        "returned_exact_rcond": null,
+        "returned_lower_bound": 0.006429124389996425,
+        "seconds": 0.007779584004310891,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "bound_not_above_exact_rcond": true,
+          "dense_response_agreement": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true
+        },
+        "exact_svd_rcond": 0.001794643572259634,
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 0,
+            "fallback_reasons": [],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 65.01538279515087,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 3.970877325006756e-12,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.0013438420556722973,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 5,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "nonnormal",
+        "kind": "helper",
+        "observed": "accept",
+        "returned_exact_rcond": null,
+        "returned_lower_bound": 0.0013438420556722973,
+        "seconds": 0.0010434640280436724,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "bound_not_above_exact_rcond": true,
+          "dense_response_agreement": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true
+        },
+        "exact_svd_rcond": 0.5,
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 0,
+            "fallback_reasons": [],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.118033988749895,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 1.2434497875801755e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.39999999999999497,
+            "size": 2,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 3,
+            "svd_evaluations": 0,
+            "total_entries": 4
+          }
+        ],
+        "id": "tiny_nonzero_retained",
+        "kind": "helper",
+        "observed": "accept",
+        "returned_exact_rcond": null,
+        "returned_lower_bound": 0.39999999999999497,
+        "seconds": 0.0007157290237955749,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "dense_factorizations": 0,
+            "fallback_reasons": [
+              "structural matching inconclusive for full numerical rank",
+              "lower bound does not certify original threshold; use full SVD"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_threshold": 1e-10,
+            "size": 3,
+            "sparse_factorizations": 0,
+            "stored_nonzeros": 2,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "singular_structural",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.005335677007678896,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n                                  ~~~~~~~~~~~~~~~~~^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 85, in check_rank\n    if not np.isfinite(reciprocal) or reciprocal<RANK_THRESHOLD:raise AnalysisError(RANK_MESSAGE)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nopenswing.aero.AnalysisError: Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "dense_factorizations": 0,
+            "fallback_reasons": [
+              "sparse factorization failed: Factor is exactly singular",
+              "lower bound does not certify original threshold; use full SVD"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_threshold": 1e-10,
+            "size": 2,
+            "sparse_factorizations": 0,
+            "stored_nonzeros": 4,
+            "svd_evaluations": 1,
+            "total_entries": 4
+          }
+        ],
+        "id": "singular_numeric",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0029579429829027504,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n                                  ~~~~~~~~~~~~~~~~~^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 85, in check_rank\n    if not np.isfinite(reciprocal) or reciprocal<RANK_THRESHOLD:raise AnalysisError(RANK_MESSAGE)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nopenswing.aero.AnalysisError: Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "dense_factorizations": 0,
+            "fallback_reasons": [
+              "lower bound does not certify original threshold; use full SVD"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 10101010101.010101,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 0.00012431273932887117,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 5.7150571222414945e-11,
+            "size": 4,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 4,
+            "svd_evaluations": 1,
+            "total_entries": 16
+          }
+        ],
+        "id": "threshold_below",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.002376771008130163,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n                                  ~~~~~~~~~~~~~~~~~^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 85, in check_rank\n    if not np.isfinite(reciprocal) or reciprocal<RANK_THRESHOLD:raise AnalysisError(RANK_MESSAGE)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nopenswing.aero.AnalysisError: Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "bound_not_above_exact_rcond": true,
+          "dense_response_agreement": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "inconclusive_uses_original_svd_and_dense_lu": true
+        },
+        "exact_svd_rcond": 1e-10,
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 1e-10,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 10000000000.0,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 0.0001230696119356535,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 5.772792149160457e-11,
+            "size": 4,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 4,
+            "svd_evaluations": 1,
+            "total_entries": 16
+          }
+        ],
+        "id": "threshold_exact",
+        "kind": "helper",
+        "observed": "accept",
+        "returned_exact_rcond": 1e-10,
+        "returned_lower_bound": 5.772792149160457e-11,
+        "seconds": 0.0012223429803270847,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "bound_not_above_exact_rcond": true,
+          "dense_response_agreement": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "inconclusive_uses_original_svd_and_dense_lu": true
+        },
+        "exact_svd_rcond": 1.01e-10,
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 1.01e-10,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 9900990099.009901,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 0.00012185110092645996,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 5.830527176079419e-11,
+            "size": 4,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 4,
+            "svd_evaluations": 1,
+            "total_entries": 16
+          }
+        ],
+        "id": "threshold_above_inconclusive",
+        "kind": "helper",
+        "observed": "accept",
+        "returned_exact_rcond": 1.01e-10,
+        "returned_lower_bound": 5.830527176079419e-11,
+        "seconds": 0.0011133069929201156,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 0,
+            "fallback_reasons": [],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.1203889830673488e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.32738752198666854,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "highly_scaled_columns",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 5.551115123125783e-17,
+        "observed": "accept",
+        "seconds": 0.000796667009126395,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 0,
+            "fallback_reasons": [],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 11.666666666666666,
+            "inverse_residual_frobenius_norm": 0.0,
+            "inverse_residual_roundoff_allowance": 2.859188593211e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.22908106449635723,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 3,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "column_norm_floor",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 5.551115123125783e-17,
+        "observed": "accept",
+        "seconds": 0.0007056510075926781,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "dense_factorizations": 0,
+            "fallback_reasons": [
+              "structural matching inconclusive for full numerical rank",
+              "lower bound does not certify original threshold; use full SVD"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_threshold": 1e-10,
+            "size": 3,
+            "sparse_factorizations": 0,
+            "stored_nonzeros": 4,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "zero_column",
+        "kind": "pipeline",
+        "observed": "reject",
+        "seconds": 0.004340754996519536,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 121, in run\n    dx,norms,scaled,errors,factor=pipeline(a,rhs)\n                                  ~~~~~~~~^^^^^^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/extracted_pipeline.py\", line 10, in synthetic_pipeline\n    reciprocal_condition,reciprocal_bound=sparse_factor.check_rank()\n                                          ~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 85, in check_rank\n    if not np.isfinite(reciprocal) or reciprocal<RANK_THRESHOLD:raise AnalysisError(RANK_MESSAGE)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nopenswing.aero.AnalysisError: Coupled derivative tangent is singular or too ill-conditioned; inspect constraints and proximity to a static instability.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Derivative tangent must be a finite nonempty square matrix.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_empty",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0031586980039719492,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 25, in __init__\n    raise AnalysisError('Derivative tangent must be a finite nonempty square matrix.')\nopenswing.aero.AnalysisError: Derivative tangent must be a finite nonempty square matrix.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Derivative tangent must be a finite nonempty square matrix.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_vector",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0018239589990116656,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 25, in __init__\n    raise AnalysisError('Derivative tangent must be a finite nonempty square matrix.')\nopenswing.aero.AnalysisError: Derivative tangent must be a finite nonempty square matrix.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Derivative tangent must be a finite nonempty square matrix.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_nonsquare",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0022308070037979633,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 25, in __init__\n    raise AnalysisError('Derivative tangent must be a finite nonempty square matrix.')\nopenswing.aero.AnalysisError: Derivative tangent must be a finite nonempty square matrix.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Derivative tangent must be a finite nonempty square matrix.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_complex",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0028397919959388673,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 25, in __init__\n    raise AnalysisError('Derivative tangent must be a finite nonempty square matrix.')\nopenswing.aero.AnalysisError: Derivative tangent must be a finite nonempty square matrix.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": true,
+          "expected_reject": true
+        },
+        "exception": "Derivative tangent must be a finite nonempty square matrix.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_nonfinite",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.0018042440060526133,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 25, in __init__\n    raise AnalysisError('Derivative tangent must be a finite nonempty square matrix.')\nopenswing.aero.AnalysisError: Derivative tangent must be a finite nonempty square matrix.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 0,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "controlled_domain_error": false,
+          "expected_reject": true
+        },
+        "exception": "ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''",
+        "exception_type": "TypeError",
+        "expected": "reject",
+        "factor_reports": [],
+        "id": "malformed_string",
+        "kind": "helper",
+        "observed": "reject",
+        "seconds": 0.002048879978246987,
+        "status": "FAIL_RETAINED",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 126, in run\n    factor=factory(a);rcond,bound=factor.check_rank()\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 91, in factory\n    obj=real_class(matrix);observed.append(obj);return obj\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 24, in __init__\n    if self.scaled.ndim!=2 or self.scaled.shape[0]!=self.scaled.shape[1] or not len(self.scaled) or np.iscomplexobj(self.scaled) or not np.all(np.isfinite(self.scaled)):\n                                                                                                                                               ~~~~~~~~~~~^^^^^^^^^^^^^\nTypeError: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 0,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fallback_uses_original_svd_and_dense_lu": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 0.7924732112505434,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "sparse factorization failed: injected sparse factor failure",
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "size": 3,
+            "sparse_factorizations": 0,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "sparse_factor_runtime_error",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0010573700128588825,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fallback_uses_original_svd_and_dense_lu": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 0.7924732112505434,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "inverse-column solve failed: injected inverse solve failure",
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "inverse_solve_runtime_error",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0007582810067106038,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fallback_uses_original_svd_and_dense_lu": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 0.7924732112505434,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "nonfinite inverse columns",
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "inverse_nonfinite",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0006998169992584735,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 0
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fallback_uses_original_svd_and_dense_lu": true,
+          "fresh_full_residual_gate": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": 0.7924732112505434,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "lower bound does not certify original threshold; use full SVD",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 0.0,
+            "inverse_residual_frobenius_norm": 1.7320508075688772,
+            "inverse_residual_roundoff_allowance": 5.329070518200751e-15,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "full-Jacobian SVD",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.0,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 1,
+            "total_entries": 9
+          }
+        ],
+        "id": "inverse_corrupt",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0010726310138124973,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "physical_fallback_uses_one_dense_lu": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "sparse physical RHS solve failed: injected physical RHS failure",
+              "sparse LU unavailable"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.5752324113862354e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.3273875219866685,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "physical_solve_runtime_error",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0008046089787967503,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "physical_fallback_uses_one_dense_lu": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "original full Jdx+Rp residual failed; retry original dense LU"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.5752324113862354e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.3273875219866685,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "physical_nonfinite_residual_fallback",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0008213539840653539,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "all_stored_entries_preserved": true,
+          "expected_accept": true,
+          "fresh_full_residual_gate": true,
+          "physical_fallback_uses_one_dense_lu": true
+        },
+        "expected": "accept",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "original full Jdx+Rp residual failed; retry original dense LU"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.5752324113862354e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.3273875219866685,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "physical_corrupt_residual_fallback",
+        "kind": "pipeline",
+        "maximum_normalized_full_residual": 1.1102230246251565e-16,
+        "observed": "accept",
+        "seconds": 0.0008317449828609824,
+        "status": "PASS",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "expected_reject": true,
+          "original_residual_failure_message": true
+        },
+        "exception": "Coupled derivative linear solve failed its residual check.",
+        "exception_type": "AnalysisError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "original full Jdx+Rp residual failed; retry original dense LU"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.5752324113862354e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.3273875219866685,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "dense_fallback_corrupt_rejected",
+        "kind": "pipeline",
+        "observed": "reject",
+        "seconds": 0.004646952991606668,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 121, in run\n    dx,norms,scaled,errors,factor=pipeline(a,rhs)\n                                  ~~~~~~~~^^^^^^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/extracted_pipeline.py\", line 29, in synthetic_pipeline\n    raise AnalysisError('Coupled derivative linear solve failed its residual check.')\nopenswing.aero.AnalysisError: Coupled derivative linear solve failed its residual check.\n",
+        "warnings": []
+      },
+      {
+        "calls": {
+          "factor": 1,
+          "inverse": 1,
+          "physical": 1
+        },
+        "checks": {
+          "expected_reject": true
+        },
+        "exception": "injected dense solve failure",
+        "exception_type": "RuntimeError",
+        "expected": "reject",
+        "factor_reports": [
+          {
+            "column_scaled_reciprocal_condition": null,
+            "dense_factorizations": 1,
+            "fallback_reasons": [
+              "original full Jdx+Rp residual failed; retry original dense LU"
+            ],
+            "inverse_batch_columns": 64,
+            "inverse_frobenius_norm": 1.763507251852816,
+            "inverse_residual_frobenius_norm": 1.5752324113862354e-16,
+            "inverse_residual_roundoff_allowance": 2.160663200210373e-14,
+            "method": "exact-entry sparse LU with conservative rank certificate",
+            "rank_check": "sparse inverse-norm certificate",
+            "rank_threshold": 1e-10,
+            "reciprocal_condition_lower_bound": 0.3273875219866685,
+            "size": 3,
+            "sparse_factorizations": 1,
+            "stored_nonzeros": 7,
+            "svd_evaluations": 0,
+            "total_entries": 9
+          }
+        ],
+        "id": "dense_fallback_failure_rejected",
+        "kind": "pipeline",
+        "observed": "reject",
+        "seconds": 0.003728151001268998,
+        "status": "PASS",
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 121, in run\n    dx,norms,scaled,errors,factor=pipeline(a,rhs)\n                                  ~~~~~~~~^^^^^^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/extracted_pipeline.py\", line 25, in synthetic_pipeline\n    dx=sparse_factor.solve_dense(-partials,reason='original full Jdx+Rp residual failed; retry original dense LU')/norms[:,None]\n       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/source/openswing/derivative_factor.py\", line 104, in solve_dense\n    return lu_solve(self.dense_factor,rhs)\n  File \"/tmp/openswing-ae3-derivative-performance-20261024/synthetic-controls/run_controls.py\", line 111, in bad_dense\n    if name=='dense_fallback_failure_rejected':raise RuntimeError('injected dense solve failure')\n                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: injected dense solve failure\n",
+        "warnings": []
+      }
+    ],
+    "failures": [
+      "malformed_string"
+    ],
+    "limitations": [
+      "Synthetic matrix tests do not cover free-flight, feedback, branch detection, UI or actual WASM.",
+      "The residual fallback block is extracted verbatim from the frozen derivative source; no physical residual is evaluated.",
+      "Threshold controls directly exercise the helper on already scaled matrices; scaling controls separately exercise the exact derivative scaling block."
+    ],
+    "physical_solves": 0,
+    "status": "FAILURES_RETAINED",
+    "total_cases": 26,
+    "total_checks": 85
+  },
+  "structured_tangent_assessment": {
+    "conclusion": "The remaining cost is complete centered Jacobian assembly. Existing iteration matrices are not interchangeable with this Jacobian. Exact reuse of unchanged computations and conservative coloring of complete original centered residual probes are the preferred next isolated implementation.",
+    "concrete_next_implementation": [
+      {
+        "change": "In a new isolated revision, place the unchanged original centered J loop in a bounded TangentInfluences context on the derivative-owned copy of the network. Begin with ordinary exact pair/material/whole-geometry reuse; enable local_geometry only behind its existing shape/dependency gates and separate equality checks.",
+        "expected_benefit": "Unmeasured. Targets repeated setup within 3414 residual evaluations without reducing sample count. Existing aero/mass caches already avoid some repeated work, so do not assume all assembly time disappears.",
+        "invariants": [
+          "Keep every original +/- state and parameter sample, step, full row and branch check.",
+          "Never set IterationFields to a lagged geometry phase.",
+          "Keep output contractions and the original rank/residual gates unchanged.",
+          "Save/restore prior cache ownership with try/finally; invalidate aero cache on entry/exit; retain no across-state cache.",
+          "Budget exhaustion must recompute with the original operation, not drop physical entries."
+        ],
+        "name": "Own an exact tangent-computation cache around the existing derivative probes",
+        "order": 1,
+        "scope": "Start with mounted fixed-acceleration, no feedback. Free-flight and feedback retain the original assembler until exact pairs and branch tests cover their condition/controller changes."
+      },
+      {
+        "change": "Use the existing structural_column_rows/coloring mechanical subgraph for columns 6*nn through gamma_start, with gates excluding controllers/custom targets and sprung hinges until separately proved. Evaluate full checked residuals at the original signed perturbations for each disjoint group, then recover every declared row with the original (plus-minus)/(2*h_j) arithmetic.",
+        "expected_benefit": "Potential reduction of many internal-force/reaction residual calls to a small number of disjoint groups; cost and exact equality are unmeasured in the derivative call path.",
+        "invariants": [
+          "Circulation and geometry columns remain individual in this first grouping revision.",
+          "Do not replace centered numerical entries with analytic mechanical blocks under an entry-equality contract.",
+          "Do not compute (plus-minus)/2/h_j if that changes original division order.",
+          "Prove every omitted row is exactly unchanged, including attachment force couples, constraints and controller/custom readouts; full-array audits must detect any hidden nonzero.",
+          "Unsupported supports, branch context or malformed layout use original individual columns."
+        ],
+        "name": "Color only proven local mechanical/reaction columns while retaining complete centered residual probes",
+        "order": 2
+      },
+      {
+        "change": "After the mechanical path is verified, prove full residual support for a deliberately narrow mounted K/F configuration before grouping geometry columns. A suitable first scope is fixed acceleration, no feedback/custom equations, all lifting beams, pointwise circulation, no engines/jets, no bodies/volume coupling, no sprung hinge/strut branch, and no unsupported loads. Ordinary attached point masses require explicit local support accounting.",
+        "expected_benefit": "This targets the large geometry-column count, but support proof and full entry-for-entry equality are prerequisites; no speed or eligibility claim is made yet.",
+        "invariants": [
+          "Use physical full residuals, not the lagged IterationFields local partial.",
+          "K/F freezes influence coefficients only: current normals, receiver kinematics, load transfer and structural geometry still vary.",
+          "structural_column_rows documents support after lagging and cannot simply be asserted to be complete for full geometry.",
+          "Audit force/moment transfers, point mass/inertia loads, local section values and circulation residual projection for each support; handle any global row conservatively.",
+          "Keep p/control parameter columns individual and use the original condition perturbations.",
+          "Current-influence, free-flight, feedback, engine/body and unsupported branch cases automatically use complete original columns."
+        ],
+        "name": "A separate supported frozen-influence geometry grouping path",
+        "order": 3
+      },
+      {
+        "change": "If exact original-column reuse cannot deliver enough benefit, adapt the complete linear_dynamics/geometry_tangent components into the derivative state chart with explicit supported-case gating. That requires an approved numerical-equivalence contract, not relabeling a different stencil as identical.",
+        "invariants": [
+          "Map absolute/spatial rotation columns correctly and reconstruct all released trim/free-flight/controller rows.",
+          "Compare full raw matrices, all parameter partials, complete states and outputs; retain step-refinement studies and all branch checks.",
+          "No use of an iteration matrix or stale Newton factor as an exact derivative tangent.",
+          "Preserve the existing centered path as the automatic fallback for unsupported or unresolved cases."
+        ],
+        "name": "Treat a complete analytic/refined tangent adaptation as a distinct numerical-method change",
+        "order": 4
+      }
+    ],
+    "existing_tests": {
+      "test_derivative_sections.py": {
+        "functions": [
+          {
+            "line": 20,
+            "name": "test_axial_torque_derivatives_match_independent_section_balance"
+          },
+          {
+            "line": 42,
+            "name": "test_missing_shell_data_remain_null_instead_of_zero"
+          },
+          {
+            "line": 52,
+            "name": "test_large_deformation_local_strain_stress_derivatives_match_resolved_equilibria"
+          },
+          {
+            "line": 71,
+            "name": "test_partial_shell_stress_availability_keeps_element_alignment"
+          },
+          {
+            "line": 82,
+            "name": "test_consistent_length_units_preserve_physical_strain_stress_sensitivity"
+          }
+        ],
+        "pin": {
+          "bytes": 5772,
+          "sha256": "cdd6514eb2aec0042f966a9b34f70302e7f2260a70ba4f906dcd47515054a1f1"
+        }
+      },
+      "test_derivatives.py": {
+        "functions": [
+          {
+            "line": 20,
+            "name": "test_rigid_limit_velocity_scaling_and_independent_lifting_line_derivatives"
+          },
+          {
+            "line": 44,
+            "name": "test_flexible_position_rotation_circulation_and_load_response_matches_resolved_states"
+          },
+          {
+            "line": 65,
+            "name": "test_free_flight_body_response_matches_analytic_drag_thrust_and_gyroscopic_derivatives"
+          },
+          {
+            "line": 92,
+            "name": "test_free_flight_wing_acceleration_response_uses_real_plus_apparent_mass"
+          },
+          {
+            "line": 104,
+            "name": "test_body_origin_state_basis_preserves_origin_velocity_with_separate_references"
+          },
+          {
+            "line": 121,
+            "name": "test_full_flight_trim_releases_controls_and_state_for_free_flight_derivatives"
+          },
+          {
+            "line": 140,
+            "name": "test_output_axes_and_step_refinement"
+          },
+          {
+            "line": 155,
+            "name": "test_invalid_derivative_requests_fail_explicitly"
+          },
+          {
+            "line": 160,
+            "name": "test_wire_transition_is_not_reported_as_a_unique_derivative"
+          },
+          {
+            "line": 166,
+            "name": "test_engine_clipping_transition_is_detected"
+          },
+          {
+            "line": 174,
+            "name": "test_bridge_derivatives_are_finite_and_reject_rigid_mode"
+          }
+        ],
+        "pin": {
+          "bytes": 10946,
+          "sha256": "c5883eafb899b7b93eba299a9dbcccbdcb891112b72daea7104dc5ec189754fe"
+        }
+      },
+      "test_direct_geometry_matrix.py": {
+        "functions": [
+          {
+            "line": 32,
+            "name": "test_complete_geometry_columns_match_refined_full_residual"
+          },
+          {
+            "line": 59,
+            "name": "test_spatial_gust_driven_jet_geometry_in_both_influence_modes"
+          },
+          {
+            "line": 66,
+            "name": "test_steady_chart_including_continuation_and_frame_loads"
+          },
+          {
+            "line": 82,
+            "name": "test_large_rotations_and_cached_pair_path_keep_complete_columns"
+          },
+          {
+            "line": 106,
+            "name": "test_unavailable_composition_restores_original_complete_matrix"
+          }
+        ],
+        "pin": {
+          "bytes": 7664,
+          "sha256": "1b62fb97e0c3741d666a0ed29e716c3b95c084289b3630ac98d641a4317ec7c7"
+        }
+      },
+      "test_equilibrium_tangent.py": {
+        "functions": [
+          {
+            "line": 18,
+            "name": "test_warm_equilibrium_block_is_reused_without_changing_full_pencil"
+          },
+          {
+            "line": 63,
+            "name": "test_matrix_ownership_step_and_physical_changes_invalidate_reuse"
+          },
+          {
+            "line": 86,
+            "name": "test_changed_difference_step_rebuilds_every_equilibrium_column"
+          },
+          {
+            "line": 97,
+            "name": "test_absolute_rotation_rank_map_uses_spatial_derivatives_at_large_rotation"
+          },
+          {
+            "line": 118,
+            "name": "test_saved_unloaded_mechanism_cannot_bypass_final_rank_check"
+          }
+        ],
+        "pin": {
+          "bytes": 6609,
+          "sha256": "07731a3801955d306c112b0b98e8dc0222f729ee600d5a1db9b74640db915373"
+        }
+      },
+      "test_feedback_derivatives.py": {
+        "functions": [
+          {
+            "line": 26,
+            "name": "test_independent_spring_command_bias_and_integral_equilibrium_derivatives"
+          },
+          {
+            "line": 44,
+            "name": "test_custom_lag_equilibrium_state_response_matches_independent_dc_and_full_descriptor"
+          },
+          {
+            "line": 58,
+            "name": "test_nonlinear_implicit_controller_derivative_matches_cubic_spring_formula"
+          },
+          {
+            "line": 71,
+            "name": "test_speed_schedule_derivative_keeps_nonzero_command_error_and_gain_slope"
+          },
+          {
+            "line": 81,
+            "name": "test_default_measurement_command_remains_fixed_when_flight_input_changes"
+          },
+          {
+            "line": 91,
+            "name": "test_offset_sensor_velocity_feedback_respects_the_selected_rate_reference"
+          },
+          {
+            "line": 102,
+            "name": "test_free_flight_acceleration_feedback_uses_closed_loop_effective_inertia"
+          },
+          {
+            "line": 115,
+            "name": "test_fourier_wing_closed_loop_flight_derivative_matches_fresh_nonlinear_solutions"
+          },
+          {
+            "line": 131,
+            "name": "test_trimmed_bias_stays_at_solved_value_and_original_target_is_released"
+          },
+          {
+            "line": 142,
+            "name": "test_linearization_does_not_mutate_network_controller_or_physical_base"
+          },
+          {
+            "line": 155,
+            "name": "test_complete_controller_residual_requires_a_unique_local_tangent"
+          },
+          {
+            "line": 164,
+            "name": "test_nonzero_feedback_at_gain_slope_break_and_actual_actuator_inputs_are_rejected"
+          },
+          {
+            "line": 173,
+            "name": "test_released_trim_with_unconstrained_integral_state_has_no_unique_steady_derivative"
+          }
+        ],
+        "pin": {
+          "bytes": 11007,
+          "sha256": "8aafcb9485c02a772a3751612c85a60687c288a7cbd4cae1a83d37509565bd7e"
+        }
+      },
+      "test_geometry_field_partials.py": {
+        "functions": [
+          {
+            "line": 16,
+            "name": "test_complete_field_jacobians_match_original_physical_stencils"
+          }
+        ],
+        "pin": {
+          "bytes": 1886,
+          "sha256": "fa87ffe2c7e730d4cad5ca0bde9d6c833d981fcc0b78d2620ebb31a3cb5a0bc7"
+        }
+      },
+      "test_geometry_stencil.py": {
+        "functions": [
+          {
+            "line": 49,
+            "name": "test_all_grouped_samples_match_individual_fields"
+          },
+          {
+            "line": 70,
+            "name": "test_absolute_chart_and_forward_stencil_match_each_sample"
+          },
+          {
+            "line": 80,
+            "name": "test_budget_layout_and_declared_dependency_guards"
+          },
+          {
+            "line": 108,
+            "name": "test_complete_pencil_and_output_fields_equal_individual_geometry"
+          },
+          {
+            "line": 132,
+            "name": "test_nonzero_local_motion_and_signed_zero_keep_individual_fields"
+          },
+          {
+            "line": 146,
+            "name": "test_failed_group_preparation_releases_reserved_budget_and_context"
+          }
+        ],
+        "pin": {
+          "bytes": 9033,
+          "sha256": "9cb45ebf1dab22007c31f72e7c486ea57e3d9ec4f59211f967aa51be6b79802a"
+        }
+      },
+      "test_geometry_tangent.py": {
+        "functions": [
+          {
+            "line": 32,
+            "name": "test_complete_geometry_columns_match_refined_full_residual"
+          },
+          {
+            "line": 58,
+            "name": "test_field_only_evaluation_matches_original_queries"
+          },
+          {
+            "line": 75,
+            "name": "test_full_dae_circulation_stencil_preserves_composed_finite_step_terms"
+          },
+          {
+            "line": 103,
+            "name": "test_spatial_gust_driven_jet_geometry_in_both_influence_modes"
+          },
+          {
+            "line": 110,
+            "name": "test_steady_chart_including_continuation_and_frame_loads"
+          },
+          {
+            "line": 125,
+            "name": "test_large_rotations_and_cached_pair_path_keep_complete_columns"
+          },
+          {
+            "line": 145,
+            "name": "test_full_newton_correction_preserves_forward_order_and_refines_to_physical_columns"
+          },
+          {
+            "line": 172,
+            "name": "test_newton_geometry_assembly_preserves_converged_physical_base"
+          },
+          {
+            "line": 187,
+            "name": "test_failed_local_partial_restores_full_load_cache"
+          },
+          {
+            "line": 202,
+            "name": "test_unavailable_field_derivative_restores_full_dynamic_stencils"
+          },
+          {
+            "line": 219,
+            "name": "test_jet_disk_crossing_refuses_split_geometry_columns"
+          }
+        ],
+        "pin": {
+          "bytes": 13196,
+          "sha256": "b8c670a97ddfbdde940c6d599b7f2218f8c49d22b648fa6d13f026abbe2146b1"
+        }
+      },
+      "test_mechanical_groups.py": {
+        "functions": [
+          {
+            "line": 27,
+            "name": "test_reaction_columns_have_only_the_declared_physical_support"
+          },
+          {
+            "line": 62,
+            "name": "test_complete_operators_equal_individual_reaction_probes"
+          },
+          {
+            "line": 91,
+            "name": "test_hinge_context_uses_direct_mechanical_columns"
+          },
+          {
+            "line": 100,
+            "name": "test_controller_context_retains_individual_reaction_columns"
+          }
+        ],
+        "pin": {
+          "bytes": 5475,
+          "sha256": "202ed4ad9223d7ca7506b145949538ac278859cf59baf780f3b36ea4451e9be6"
+        }
+      },
+      "test_mounted_geometry_reuse.py": {
+        "functions": [
+          {
+            "line": 16,
+            "name": "test_explicit_geometry_enables_complete_first_order_columns"
+          },
+          {
+            "line": 55,
+            "name": "test_explicit_false_overrides_frequency_flag_and_keeps_original_stencil"
+          },
+          {
+            "line": 82,
+            "name": "test_geometry_context_restores_previous_owners_after_success_or_failure"
+          },
+          {
+            "line": 125,
+            "name": "test_unavailable_geometry_retains_complete_original_matrix"
+          },
+          {
+            "line": 143,
+            "name": "test_mounted_full_retry_matches_explicit_physical_stencil_equilibrium"
+          }
+        ],
+        "pin": {
+          "bytes": 9737,
+          "sha256": "821ea6029fa614e2dcc31041cbd3fb51b36f1e6e50fa281c238419b9dce1ef5f"
+        }
+      },
+      "test_newton_geometry_composition.py": {
+        "functions": [
+          {
+            "line": 18,
+            "name": "test_newton_columns_match_refined_complete_physical_residual"
+          },
+          {
+            "line": 39,
+            "name": "test_unavailable_composition_retains_original_complete_newton_fallback"
+          },
+          {
+            "line": 70,
+            "name": "test_refinement_of_local_partial_keeps_exact_shared_field_columns"
+          }
+        ],
+        "pin": {
+          "bytes": 4874,
+          "sha256": "ce4edf99ff5d04f938b5047d0da881eddc38a3038726f8ecdb7ffa3879482806"
+        }
+      },
+      "test_steady_geometry_reuse.py": {
+        "functions": [
+          {
+            "line": 17,
+            "name": "test_structured_tangent_is_exact_with_geometry_recomputation"
+          },
+          {
+            "line": 33,
+            "name": "test_full_physical_tangent_is_exact_with_geometry_recomputation"
+          },
+          {
+            "line": 47,
+            "name": "test_steady_geometry_invalidates_actual_state_and_obeys_its_budget"
+          },
+          {
+            "line": 61,
+            "name": "test_fixed_setup_reuses_only_base_circulation_geometry"
+          }
+        ],
+        "pin": {
+          "bytes": 4063,
+          "sha256": "71ad038c51941581d6b83373e15bb4f49ab3adaca2de3fb31402aae8b2048cb7"
+        }
+      },
+      "test_structural_geometry.py": {
+        "functions": [
+          {
+            "line": 24,
+            "name": "test_structural_geometry_against_complete_unloaded_residual"
+          },
+          {
+            "line": 52,
+            "name": "test_shared_structural_and_flow_columns_preserve_complete_physics"
+          },
+          {
+            "line": 80,
+            "name": "test_unsupported_hinge_and_storage_retain_original_geometry"
+          }
+        ],
+        "pin": {
+          "bytes": 5132,
+          "sha256": "70f24fd97ae27588c6fe3a9f31860c0e7bb25aa4b479e59d48982a61f46fe914"
+        }
+      },
+      "test_tangent_influences.py": {
+        "functions": [
+          {
+            "line": 14,
+            "name": "test_identical_pairs_skip_relative_transform_and_own_output"
+          },
+          {
+            "line": 38,
+            "name": "test_every_changed_pair_matches_full_kernel_exactly"
+          },
+          {
+            "line": 63,
+            "name": "test_changed_global_state_does_not_reuse_stale_values"
+          },
+          {
+            "line": 87,
+            "name": "test_complete_coupled_tangent_matches_full_recomputation"
+          },
+          {
+            "line": 106,
+            "name": "test_failed_tangent_discards_cache"
+          },
+          {
+            "line": 119,
+            "name": "test_rank_load_cache_retains_exact_first_load_tangent"
+          },
+          {
+            "line": 143,
+            "name": "test_elastic_motion_tangent_matches_original_columns"
+          }
+        ],
+        "pin": {
+          "bytes": 8164,
+          "sha256": "d526e252b07f1fdfa600995b8076279a2b779eb74c88965faf00a7c80f49fda9"
+        }
+      }
+    },
+    "measured_evidence": {
+      "baseline": {
+        "centered_J_and_scaling_seconds": 45.99040222298936,
+        "centered_J_share": 0.9301789029106362,
+        "derivative_monotonic_seconds": 49.44253420399036,
+        "derivative_wall_seconds": 89.62809753417969,
+        "rank_factor_solve_residual_seconds": 2.972097631980432
+      },
+      "candidate": {
+        "centered_J_and_scaling_seconds": 39.055286905000685,
+        "centered_J_share": 0.9767328806774034,
+        "derivative_monotonic_seconds": 39.98563750399626,
+        "derivative_wall_seconds": 59.24632692337036,
+        "rank_factor_solve_residual_seconds": 0.18296536500565708
+      },
+      "caveat": "One sequential pair under other concurrent work; total 1.2365x monotonic improvement is not an isolated factorization speedup. J assembly code is identical yet varied by 6.94 s. Both wall and monotonic clocks are retained and disagree substantially.",
+      "counterfactual": "Eliminating the entire baseline rank/factor/solve phase would save about 2.97 of 49.44 s (6.0%). Factorization alone cannot remove the dominant assembly cost.",
+      "factor_related_phase_reduction_seconds": 2.789132266974775
+    },
+    "mechanisms": [
+      {
+        "api": "structured_static.jacobian",
+        "differences": [
+          "IterationFields captures and holds nonlocal geometry/jet fields for local geometry probes.",
+          "Uses fixed forward difference step 1e-6; original derivative uses centered step*max(1,abs(x[j])).",
+          "Direct mechanics/circulation derivatives need not equal the original finite stencil entry-for-entry.",
+          "A successful nonlinear residual gate validates the converged state, not equivalence of this iteration matrix to the complete derivative tangent."
+        ],
+        "drop_in": false,
+        "location": "openswing/structured_static.py:214",
+        "role": "Approximate sparse Newton iteration matrix"
+      },
+      {
+        "api": "structured_time.jacobian",
+        "differences": [
+          "Module and linearization context explicitly lag nonlocal aerodynamic geometry/jet fields in local Newton columns.",
+          "Frame/border probes restore full fields, but that does not restore missing local geometry derivatives.",
+          "Uses forward differences; feedback/inverse-actuator/Radau paths remain separate.",
+          "This is not the complete frequency-response physical tangent."
+        ],
+        "drop_in": false,
+        "location": "openswing/structured_time.py:71",
+        "role": "Approximate BDF Newton iteration matrix with a local/border factorization"
+      },
+      {
+        "api": "StaticNetwork.jacobian(_direct_geometry=True)",
+        "differences": [
+          "Unlike structured_static, reconstructs the moving nonlocal geometry fields through geometry_tangent.",
+          "Caller still hardcodes forward step 1e-6 and direct mechanical/circulation blocks.",
+          "State layout is the network current operating constraint layout, whereas derivative setup releases trim variables and optionally introduces six free-flight accelerations/controllers.",
+          "Physical completeness alone does not establish original centered numerical-column equality."
+        ],
+        "drop_in": false,
+        "location": "openswing/network.py:563",
+        "role": "Complete mounted full-correction assembly using moving-field chain rule"
+      },
+      {
+        "api": "linear_dynamics.linearize(sparse=True)",
+        "differences": [
+          "Explicitly avoids the lagged Newton context; complete moving induced fields and branch checks are retained.",
+          "Geometry defaults to spatial rotation increments; equilibrium derivatives perturb absolute network rotation coordinates.",
+          "Uses fourth-order residual differences, refined field differences, direct mechanics/circulation/local-rate derivatives and compatible section rows.",
+          "Includes dynamic state/rate, frame and controller equations that are absent or different in the derivative problem.",
+          "Retained equilibrium_tangent ownership/chart/step matching is for this dynamic operator, not a reusable factor from an arbitrary saved equilibrium."
+        ],
+        "drop_in": false,
+        "location": "openswing/linear_dynamics.py:189",
+        "role": "Complete descriptor A/M tangent used by modes and Bode"
+      },
+      {
+        "api": "geometry_tangent.geometry_columns",
+        "differences": [
+          "Only difference_order 1 and 4 are currently accepted; no original two-point centered mode exists.",
+          "Local frozen-field partials are combined with full moving-field chain-rule terms; substituting only local partials would omit physical coupling.",
+          "Even adding a two-point stencil does not automatically equal a finite difference of the complete nonlinear residual: chain-rule/direct derivatives and finite differences have distinct truncation/roundoff.",
+          "Direct geometry uses analytic partials; fallback geometry has refinement and storage budgets. Full-entry paired comparisons and step-refinement evidence are mandatory for any adaptation."
+        ],
+        "drop_in": false,
+        "location": "openswing/geometry_tangent.py:436",
+        "role": "Complete local plus moving-field geometry reconstruction"
+      },
+      {
+        "api": "TangentInfluences and GeometryStencil",
+        "differences": [
+          "TangentInfluences already has bounded material, exact geometry-state, local-row and exact pair caches.",
+          "Current derivative assembler does not establish its own TangentInfluences context, unlike network and dynamic tangent builders.",
+          "GeometryStencil reconstructs individual geometry samples before any nonlocal field evaluation; it does not authorize grouping full residuals with incomplete supports.",
+          "Reusing caches still needs entry-for-entry derivative-pair validation, condition invalidation, failure cleanup and budget controls in this specific call path."
+        ],
+        "drop_in": false,
+        "location": "openswing/tangent_influences.py:10; openswing/geometry_stencil.py:48",
+        "role": "Useful exact-computation reuse primitives, not a replacement Jacobian"
+      }
+    ],
+    "no_source_changes": true,
+    "proposed_validation_before_any_promotion": [
+      "Freeze each new isolated revision and plan; preserve current candidate, paired report and synthetic failure.",
+      "Synthetic helper API correction for string/object inputs gets a targeted regression in the new revision; do not overwrite the 25/26 outcome.",
+      "Force fast path and fallback in existing rigid/flexible, structural-output, free-flight and feedback derivative tests; do not rely on tests that only exercise default dense mode.",
+      "Compare complete raw J/scales/partials entry-for-entry for the exact-cache/coloring proposal; compare all physical arrays at 2e-8 absolute plus 2e-8 relative and recompute original full Jdx+Rp residual <=1e-8.",
+      "Exercise moved geometry, rates, Mach/ground, controls, Fourier circulation, body/engine layouts, applied/point loads, large rotations, hinge/wire/engine branch transitions, interrupted calls and exhausted caches.",
+      "Use a saved-equilibrium restore only in any next authorized paired physical benchmark; one baseline/candidate pair, bounded/reaped children, no timing-only retries.",
+      "Run the final chosen code in actual local Pyodide; native synthetic factor success is not WASM coverage.",
+      "Handle nullable exact-rcond in web/main.js and tests explicitly: render a labeled lower bound and preserve legacy exact-rcond assertions where dense SVD is used. Do not substitute the bound under the old exact label.",
+      "After coverage, intended production policy is an automatic supported fast path with exact original fallback; isolated opt-in is not the final user-facing design."
+    ],
+    "source_pins": {
+      "/home/userland/aswing/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "/home/userland/aswing/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "/home/userland/aswing/openswing/derivatives.py": {
+        "bytes": 22412,
+        "sha256": "06eb1aa657b24254bb653d3013393c2129c247329fb1ec9ad0756b7da5f12321"
+      },
+      "/home/userland/aswing/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "/home/userland/aswing/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "/home/userland/aswing/openswing/geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "/home/userland/aswing/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "/home/userland/aswing/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "/home/userland/aswing/openswing/network.py": {
+        "bytes": 61858,
+        "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+      },
+      "/home/userland/aswing/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "/home/userland/aswing/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "/home/userland/aswing/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "/home/userland/aswing/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      }
+    },
+    "status": "SOURCE_ONLY_ASSESSMENT_COMPLETE_NO_NEW_PHYSICAL_RUNS",
+    "test_inventory_note": "Source inventory only. No tests or physical solves were launched by this assessment script; prior paired run and separate synthetic controls have their own frozen plans/lifecycle evidence."
+  },
+  "terminal_artifact_manifest": {
+    "excludes": [
+      "artifact-pins.json itself"
+    ],
+    "files": {
+      "assess_structure.py": {
+        "bytes": 19552,
+        "sha256": "660abb4051898680b22ed1913b910267136be264b7c55702d6a5cc8cbc78644b"
+      },
+      "baseline-instrumentation.patch": {
+        "bytes": 4776,
+        "sha256": "2c5cafbe1ed08686c427f426f6ddc042c0b4bca13b2dcbba8bc19fafd5a94c80"
+      },
+      "baseline-source/openswing/__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "baseline-source/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "baseline-source/openswing/applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "baseline-source/openswing/asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "baseline-source/openswing/asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "baseline-source/openswing/atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "baseline-source/openswing/beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "baseline-source/openswing/body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "baseline-source/openswing/bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "baseline-source/openswing/circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "baseline-source/openswing/circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "baseline-source/openswing/circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "baseline-source/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "baseline-source/openswing/control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "baseline-source/openswing/control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "baseline-source/openswing/control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "baseline-source/openswing/custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "baseline-source/openswing/damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "baseline-source/openswing/derivatives.py": {
+        "bytes": 23464,
+        "sha256": "3320df421f6ce6c3dad29e6a38cc4eff4510c2c3f49b70e5c55d61c81ab50ef7"
+      },
+      "baseline-source/openswing/descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "baseline-source/openswing/discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "baseline-source/openswing/distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "baseline-source/openswing/dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "baseline-source/openswing/equilibrium_state.py": {
+        "bytes": 16158,
+        "sha256": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab"
+      },
+      "baseline-source/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "baseline-source/openswing/factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "baseline-source/openswing/feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "baseline-source/openswing/field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "baseline-source/openswing/flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "baseline-source/openswing/forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "baseline-source/openswing/frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "baseline-source/openswing/frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "baseline-source/openswing/frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "baseline-source/openswing/geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "baseline-source/openswing/geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "baseline-source/openswing/geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "baseline-source/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "baseline-source/openswing/geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "baseline-source/openswing/ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "baseline-source/openswing/gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "baseline-source/openswing/gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "baseline-source/openswing/gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "baseline-source/openswing/harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "baseline-source/openswing/hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "baseline-source/openswing/inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "baseline-source/openswing/initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "baseline-source/openswing/initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "baseline-source/openswing/joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "baseline-source/openswing/kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "baseline-source/openswing/legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "baseline-source/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "baseline-source/openswing/local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "baseline-source/openswing/local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "baseline-source/openswing/local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "baseline-source/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "baseline-source/openswing/network.py": {
+        "bytes": 61858,
+        "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+      },
+      "baseline-source/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "baseline-source/openswing/nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "baseline-source/openswing/operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "baseline-source/openswing/output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "baseline-source/openswing/output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "baseline-source/openswing/position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "baseline-source/openswing/position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "baseline-source/openswing/position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "baseline-source/openswing/power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "baseline-source/openswing/propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "baseline-source/openswing/quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "baseline-source/openswing/radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "baseline-source/openswing/radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "baseline-source/openswing/recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "baseline-source/openswing/reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "baseline-source/openswing/reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "baseline-source/openswing/rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "baseline-source/openswing/rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "baseline-source/openswing/rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "baseline-source/openswing/rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "baseline-source/openswing/root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "baseline-source/openswing/sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "baseline-source/openswing/sparse_rank.py": {
+        "bytes": 3362,
+        "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+      },
+      "baseline-source/openswing/stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "baseline-source/openswing/steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "baseline-source/openswing/structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "baseline-source/openswing/structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "baseline-source/openswing/structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "baseline-source/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "baseline-source/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "baseline-source/openswing/struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "baseline-source/openswing/support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "baseline-source/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "baseline-source/openswing/time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "baseline-source/openswing/time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "baseline-source/openswing/time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "baseline-source/openswing/time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "baseline-source/openswing/time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "baseline-source/openswing/time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "baseline-source/openswing/time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "baseline-source/openswing/time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "baseline-source/openswing/time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "baseline-source/openswing/time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "baseline-source/openswing/time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "baseline-source/openswing/trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "baseline-source/openswing/vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "baseline-source/openswing/volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "baseline-source/openswing/volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "baseline-source/openswing/vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "baseline.log": {
+        "bytes": 973,
+        "sha256": "5a107860da4abae057aeb975900d4e3c7a18b27b2fae9b6221fc56236182b9a7"
+      },
+      "benchmark-execution.json": {
+        "bytes": 599,
+        "sha256": "3a734e0cbbf01346e919e56be7f47ad0e20fb34caa1ebd96493cd513e33a3392"
+      },
+      "benchmark-plan.json": {
+        "bytes": 49630,
+        "sha256": "e7e460c98413c8f1a40a4658e3a8aaa380bce768e6f935327e01b4ac4a12af0a"
+      },
+      "benchmark-report.json": {
+        "bytes": 45092,
+        "sha256": "5970071fad44aa52c404101c8dfb5fbbd41e5318653bcc401d3f2a829ca47706"
+      },
+      "benchmark-results/baseline/audit.json": {
+        "bytes": 367,
+        "sha256": "354ba1bc2352ef805509a1e2f3fe2a5853550b52cb52154455af136c3c26dac4"
+      },
+      "benchmark-results/baseline/derivatives.json": {
+        "bytes": 434544,
+        "sha256": "1e271ced5239146370fb5748b43d7189f75699404ddec146b19ffff9aac3ec70"
+      },
+      "benchmark-results/baseline/full-linearization.npz": {
+        "bytes": 752344,
+        "sha256": "b30893533f0e48c9c5ad5268d1cf001220fc30ea469549b90b1238fae1008797"
+      },
+      "benchmark-results/baseline/restored-base.npz": {
+        "bytes": 497,
+        "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+      },
+      "benchmark-results/baseline/status.json": {
+        "bytes": 1039,
+        "sha256": "5919a7e204f5a9527974def108c600091f2c13755664eff490c85b014b473fd0"
+      },
+      "benchmark-results/candidate/audit.json": {
+        "bytes": 1046,
+        "sha256": "a944822f2b468a34e6361aabaf01743300b252dd73cb5d756134d94f49877c3c"
+      },
+      "benchmark-results/candidate/derivatives.json": {
+        "bytes": 435306,
+        "sha256": "a57d82e1a39daa33b02f1581f366abd7efb93f4f3a1777c959f53bc0d4e5575d"
+      },
+      "benchmark-results/candidate/full-linearization.npz": {
+        "bytes": 751773,
+        "sha256": "21eab4d861775d67e5a469be5cf961d6cba2059218d5cdfc42c477a7cb0e563c"
+      },
+      "benchmark-results/candidate/restored-base.npz": {
+        "bytes": 497,
+        "sha256": "dc55a58f1954e80a6b4c6e321238211d194592f43e59b6a527820344a7c7a873"
+      },
+      "benchmark-results/candidate/status.json": {
+        "bytes": 1713,
+        "sha256": "fcec66e0be0b6d0107b23b310c5f214d81a89dd0e87e64734c8591f725827d14"
+      },
+      "build_candidate.py": {
+        "bytes": 7163,
+        "sha256": "7a72e254732be91b6ce93c64a8de47c4e695bcaee9be4d965cb2398d1465b5eb"
+      },
+      "candidate-manifest.json": {
+        "bytes": 35722,
+        "sha256": "0e3020b49f65ed2f539f2cb586d6c6ba0ee35b668cb64564b9f5c3d256c1fedd"
+      },
+      "candidate.log": {
+        "bytes": 1579,
+        "sha256": "ce81f40b824a6600a4fc57f2efcedabb6658087a920c9ec4d491bf9416e7108a"
+      },
+      "candidate.patch": {
+        "bytes": 6382,
+        "sha256": "8c549bb4b050445f1c3318a7d3f6cfd3a1f2ff690e08bb080a579f2cda7fe64a"
+      },
+      "closeout.json": {
+        "bytes": 5615,
+        "sha256": "70d4ef23fb4bb96a518373a5d84e61f9e4ccae5131016c8b2631268f94af4df0"
+      },
+      "derivative_factor.py": {
+        "bytes": 5434,
+        "sha256": "224d7e888ddaac689b0170d86b3ffa5f5113306fd941fea4983d211c99d68b01"
+      },
+      "investigation.json": {
+        "bytes": 14206,
+        "sha256": "fde4e68c309ceeef8a20ba918d4aaa2f916147997a902658df24cd049e76ae28"
+      },
+      "investigation.md": {
+        "bytes": 5124,
+        "sha256": "3d7a17d1000189b7a51c6be6b1e0f92e24a3cfb05d91aef6f44e1f2ff702f5d0"
+      },
+      "prepare_baseline.py": {
+        "bytes": 3372,
+        "sha256": "4e6c0541b6ec5398a9adce199b36cdfd5cbefde8c97178b30f9acacd03201451"
+      },
+      "reduce_benchmark.py": {
+        "bytes": 6220,
+        "sha256": "f3ec52007b74be3413971688c1663703452adbd10ee8ee7f6a7430c1230cd4b9"
+      },
+      "run_benchmark.py": {
+        "bytes": 3876,
+        "sha256": "519e850f15c0449b41b42f0a2ce5d9b18b9dbc42a123a6be815e6ec448d0806b"
+      },
+      "source/openswing/__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "source/openswing/aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "source/openswing/applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "source/openswing/asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "source/openswing/asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "source/openswing/atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "source/openswing/beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "source/openswing/body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "source/openswing/bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "source/openswing/circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "source/openswing/circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "source/openswing/circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "source/openswing/circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "source/openswing/control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "source/openswing/control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "source/openswing/control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "source/openswing/custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "source/openswing/damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "source/openswing/derivative_factor.py": {
+        "bytes": 5434,
+        "sha256": "224d7e888ddaac689b0170d86b3ffa5f5113306fd941fea4983d211c99d68b01"
+      },
+      "source/openswing/derivatives.py": {
+        "bytes": 24671,
+        "sha256": "56bd66403f7e7959a77285afe1505ac67d43e14f5e07e4c47b3913ba5fc39f88"
+      },
+      "source/openswing/descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "source/openswing/discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "source/openswing/distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "source/openswing/dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "source/openswing/equilibrium_state.py": {
+        "bytes": 16158,
+        "sha256": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab"
+      },
+      "source/openswing/equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "source/openswing/factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "source/openswing/feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "source/openswing/field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "source/openswing/flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "source/openswing/forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "source/openswing/frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "source/openswing/frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "source/openswing/frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "source/openswing/geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "source/openswing/geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "source/openswing/geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "source/openswing/geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "source/openswing/geometry_tangent.py": {
+        "bytes": 38029,
+        "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+      },
+      "source/openswing/ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "source/openswing/gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "source/openswing/gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "source/openswing/gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "source/openswing/harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "source/openswing/hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "source/openswing/inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "source/openswing/initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "source/openswing/initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "source/openswing/joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "source/openswing/kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "source/openswing/legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "source/openswing/linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "source/openswing/local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "source/openswing/local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "source/openswing/local_rate_tangent.py": {
+        "bytes": 6125,
+        "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+      },
+      "source/openswing/mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "source/openswing/network.py": {
+        "bytes": 61858,
+        "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+      },
+      "source/openswing/newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "source/openswing/nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "source/openswing/operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "source/openswing/output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "source/openswing/output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "source/openswing/position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "source/openswing/position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "source/openswing/position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "source/openswing/power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "source/openswing/propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "source/openswing/quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "source/openswing/radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "source/openswing/radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "source/openswing/recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "source/openswing/reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "source/openswing/reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "source/openswing/rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "source/openswing/rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "source/openswing/rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "source/openswing/rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "source/openswing/root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "source/openswing/sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "source/openswing/sparse_rank.py": {
+        "bytes": 3362,
+        "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+      },
+      "source/openswing/stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "source/openswing/steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "source/openswing/structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "source/openswing/structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "source/openswing/structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "source/openswing/structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "source/openswing/structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "source/openswing/struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "source/openswing/support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "source/openswing/tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "source/openswing/time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "source/openswing/time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "source/openswing/time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "source/openswing/time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "source/openswing/time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "source/openswing/time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "source/openswing/time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "source/openswing/time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "source/openswing/time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "source/openswing/time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "source/openswing/time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "source/openswing/trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "source/openswing/vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "source/openswing/volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "source/openswing/volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "source/openswing/vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "structured-tangent-assessment.json": {
+        "bytes": 29389,
+        "sha256": "4b8e748770d948d96ff06e2313e720540c622f958ee516129b3df0a2cef65bc7"
+      },
+      "supervise_benchmark.py": {
+        "bytes": 2103,
+        "sha256": "457dad489094ffea985b41a805fb4390fbc71f1376da6c4061bcdddbb690efaa"
+      },
+      "synthetic-controls/child.log": {
+        "bytes": 105,
+        "sha256": "267025b1010e698babaf47b9e8e98c850904cb4131bf20f3f2a77781c0d6dad9"
+      },
+      "synthetic-controls/execution.json": {
+        "bytes": 191,
+        "sha256": "f94a874131d40bde1e8e02e11d0bec1b68876ceba89f54c7c246552cf4d0c513"
+      },
+      "synthetic-controls/extracted_pipeline.py": {
+        "bytes": 1894,
+        "sha256": "d2f213b2fc1f345caa1a5a9e5d95b58b3fc1b62a31f9ea4ae130109f400315d3"
+      },
+      "synthetic-controls/freeze.py": {
+        "bytes": 1957,
+        "sha256": "6605ed9d6510fee1a558f6638d23260db09baf01c088e45f8c005e89aadbc830"
+      },
+      "synthetic-controls/plan.json": {
+        "bytes": 25892,
+        "sha256": "ef6d803677678718db690987545afb9af434dfddaedf360ef96ad7a8bed51f35"
+      },
+      "synthetic-controls/report.json": {
+        "bytes": 41586,
+        "sha256": "5aaa2862f31a38cfbba7480359827bb97cf85d7ecd8922cd56e997dafa6494ec"
+      },
+      "synthetic-controls/results/column_norm_floor.npz": {
+        "bytes": 1322,
+        "sha256": "24d7e1f809a84de5a64d6cd4535bbb5616f771f2f89252017d088ea932ef2e41"
+      },
+      "synthetic-controls/results/dense_fallback_corrupt_rejected.npz": {
+        "bytes": 465,
+        "sha256": "c076c41f767eb53fef09a99043f2d97eda980ef001a99561581b70ce8bbbfeac"
+      },
+      "synthetic-controls/results/dense_fallback_failure_rejected.npz": {
+        "bytes": 465,
+        "sha256": "c076c41f767eb53fef09a99043f2d97eda980ef001a99561581b70ce8bbbfeac"
+      },
+      "synthetic-controls/results/highly_scaled_columns.npz": {
+        "bytes": 1424,
+        "sha256": "17ecbf965f8810b5ca907b87d19553ef86076dfdfb9a4d71840ef4150d058070"
+      },
+      "synthetic-controls/results/inverse_corrupt.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/inverse_nonfinite.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/inverse_solve_runtime_error.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/malformed_complex.npz": {
+        "bytes": 440,
+        "sha256": "54266d1a7c779110836d11e29097b553bd6bbd0f8ef40f02990b596d3401994d"
+      },
+      "synthetic-controls/results/malformed_empty.npz": {
+        "bytes": 412,
+        "sha256": "abaecc8fbe2dc53156be70da7738ed7396beaa43ea664bb6b3e160bfcc2b7abf"
+      },
+      "synthetic-controls/results/malformed_nonfinite.npz": {
+        "bytes": 439,
+        "sha256": "72e0a1e16a6255e366bb9675774afff4b8a21421b76ebfe548b206cc5c96812b"
+      },
+      "synthetic-controls/results/malformed_nonsquare.npz": {
+        "bytes": 436,
+        "sha256": "1ae7413d2a75ac0c61c9c57d9521e3ea3126235e1b31a6c96fd25642b1b54416"
+      },
+      "synthetic-controls/results/malformed_string.npz": {
+        "bytes": 450,
+        "sha256": "9bf4907ff4ff24c9f2b68216ec407b4b7d2d95b3d223cfcd8889cc44565c7388"
+      },
+      "synthetic-controls/results/malformed_vector.npz": {
+        "bytes": 435,
+        "sha256": "2858ef7b7699aabd296a30952d8769826e6b0e022506fb32c57db1f75efb2cd4"
+      },
+      "synthetic-controls/results/nonnormal.npz": {
+        "bytes": 885,
+        "sha256": "30f048655f4367dbc32e9704cc623aa50f0c587c7b4fb7b076aec838c601b86e"
+      },
+      "synthetic-controls/results/physical_corrupt_residual_fallback.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/physical_nonfinite_residual_fallback.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/physical_solve_runtime_error.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/singular_numeric.npz": {
+        "bytes": 436,
+        "sha256": "ecc19e30b58eea4d9bdf5d8ae408814d8dcf11783934713f75fa484820ba96e5"
+      },
+      "synthetic-controls/results/singular_structural.npz": {
+        "bytes": 444,
+        "sha256": "216c93318071c3e7d9303adcc21b6d6c68e4e428d50a9a9203ddfa96a1937aae"
+      },
+      "synthetic-controls/results/sparse_factor_runtime_error.npz": {
+        "bytes": 1397,
+        "sha256": "effae4aba289b186d76027ffa9618d95974ef9fc5b4da242e94b9ae83b955a52"
+      },
+      "synthetic-controls/results/threshold_above_inconclusive.npz": {
+        "bytes": 909,
+        "sha256": "b5f27d012c6d64737ae9ba8f1a0dbf0bee08c36f433e359e4553b7fc8f4ae40f"
+      },
+      "synthetic-controls/results/threshold_below.npz": {
+        "bytes": 468,
+        "sha256": "f24af687a875f257d4ce250a0d1babd727187e22360053b713a23194716ea955"
+      },
+      "synthetic-controls/results/threshold_exact.npz": {
+        "bytes": 906,
+        "sha256": "6f6fdbe784e680066418d01621a8decfccc33abbf59ce1e80a6ef4a6493e7055"
+      },
+      "synthetic-controls/results/tiny_nonzero_retained.npz": {
+        "bytes": 856,
+        "sha256": "bb33dc9fd0f646cca4afb69ddaafc90450775fd0166a1c1be1e7b18ab48850b2"
+      },
+      "synthetic-controls/results/well_conditioned_multi_rhs.npz": {
+        "bytes": 6094,
+        "sha256": "9526a5ea8d01502152b8aca9fadef709cfbf23aef841a8d63e0d5d6fc8bdf583"
+      },
+      "synthetic-controls/results/zero_column.npz": {
+        "bytes": 457,
+        "sha256": "ee3b19ec9990a44a90a61fd287401ed388c2a3d91b186703752de124fd1e162c"
+      },
+      "synthetic-controls/run_controls.py": {
+        "bytes": 10704,
+        "sha256": "97252c1dd5f3305b4ade51e9842a87eee9ee5011d748f50503bd2f2c4aeb9e4c"
+      },
+      "synthetic-controls/supervise.py": {
+        "bytes": 1564,
+        "sha256": "9a2aff956f12b351ddb78744e52b6e8e2ec9dd54ff87322008831081ab2b9db6"
+      }
+    },
+    "source_promotion": false,
+    "status": "TERMINAL_SNAPSHOT"
+  },
+  "source_manifest_sha256": "34d9fefc90beb508ee4fb6dfc5ac2c7054edb2b0defffe072bdae252d3415c80"
+}

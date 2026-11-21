@@ -1,0 +1,188 @@
+{
+  "format": "openswing-renderer-diagnostics",
+  "version": 1,
+  "recorded_at": "2026-10-10T13:54:31.128758+00:00",
+  "graphics_acceptance": "incomplete",
+  "main_changes": [],
+  "new_numerical_runs": 0,
+  "attempts": [
+    {
+      "name": "original_continuous",
+      "directory": "original/run-01",
+      "runner": "original/run-01/runner.mjs",
+      "status": "failed",
+      "started_at": "2026-10-10T13:43:38.056Z",
+      "ended_at": "2026-10-10T13:43:55.230Z",
+      "maximum_gpu_rss_kib": 1118408,
+      "resource_observations": 8,
+      "limits": {
+        "gpu_rss_kib": 1048576,
+        "minimum_host_available_kib": 2097152,
+        "wall_seconds": 100
+      },
+      "error": "Error: Probe resource limit reached; bounded diagnostic stopped\n    at resources (file:///tmp/openswing-renderer-memory-probe-20261010/run-probe.mjs:25:134)\n    at async file:///tmp/openswing-renderer-memory-probe-20261010/run-probe.mjs:41:131",
+      "recorded_processes_absent_at_closeout": {
+        "16880": true,
+        "16940": true,
+        "16950": true,
+        "16952": true,
+        "17012": true,
+        "17013": true
+      },
+      "variants": [
+        {
+          "variant": "baseline",
+          "status": "running",
+          "complete_samples": 7,
+          "first_frame": 9,
+          "last_frame": 79,
+          "initial_idle_frame_growth": null,
+          "final_idle_frame_growth": null,
+          "page_errors": []
+        }
+      ]
+    },
+    {
+      "name": "candidate_static",
+      "directory": "original/run-02",
+      "runner": "original/run-probe.mjs",
+      "status": "passed",
+      "started_at": "2026-10-10T13:44:21.566Z",
+      "ended_at": "2026-10-10T13:44:49.025Z",
+      "maximum_gpu_rss_kib": 231932,
+      "resource_observations": 16,
+      "limits": {
+        "gpu_rss_kib": 1048576,
+        "minimum_host_available_kib": 2097152,
+        "wall_seconds": 100
+      },
+      "error": null,
+      "recorded_processes_absent_at_closeout": {
+        "17676": true,
+        "17732": true,
+        "17758": true,
+        "17772": true,
+        "17857": true,
+        "17860": true
+      },
+      "variants": [
+        {
+          "variant": "candidate",
+          "status": "passed",
+          "complete_samples": 16,
+          "first_frame": 2,
+          "last_frame": 6,
+          "initial_idle_frame_growth": 0,
+          "final_idle_frame_growth": 0,
+          "page_errors": []
+        }
+      ]
+    },
+    {
+      "name": "candidate_interactions",
+      "directory": "interaction/run-01",
+      "runner": "interaction/run-interactions.mjs",
+      "status": "failed",
+      "started_at": "2026-10-10T13:48:03.618Z",
+      "ended_at": "2026-10-10T13:48:20.909Z",
+      "maximum_gpu_rss_kib": 1069288,
+      "resource_observations": 28,
+      "limits": {
+        "wall_seconds": 100,
+        "gpu_rss_kib": 1048576,
+        "minimum_host_available_kib": 2097152
+      },
+      "error": "page.waitForFunction: Browser closed\n    at settled (/tmp/openswing-viewer-review-20261010/run-interactions.mjs:47:15)\n    at async file:///tmp/openswing-viewer-review-20261010/run-interactions.mjs:57:172",
+      "recorded_processes_absent_at_closeout": {
+        "20267": true,
+        "20296": true,
+        "20303": true,
+        "20305": true,
+        "20370": true,
+        "20390": true
+      },
+      "completed_checks": [
+        "initial-idle",
+        "top-fit",
+        "front-fit"
+      ],
+      "variants": []
+    },
+    {
+      "name": "original_compositing_enabled",
+      "directory": "compositing/run-01",
+      "runner": "compositing/run-probe.mjs",
+      "status": "failed",
+      "started_at": "2026-10-10T13:50:00.698Z",
+      "ended_at": "2026-10-10T13:50:19.832Z",
+      "maximum_gpu_rss_kib": null,
+      "resource_observations": 0,
+      "limits": {
+        "gpu_rss_kib": 1048576,
+        "minimum_host_available_kib": 2097152,
+        "wall_seconds": 100
+      },
+      "error": "page.waitForFunction: Timeout 15000ms exceeded.\n    at /tmp/openswing-renderer-compositing-probe-20261010/run-probe.mjs:43:75",
+      "recorded_processes_absent_at_closeout": {},
+      "variants": [
+        {
+          "variant": "baseline",
+          "status": "running",
+          "complete_samples": 0,
+          "first_frame": null,
+          "last_frame": null,
+          "initial_idle_frame_growth": null,
+          "final_idle_frame_growth": null,
+          "page_errors": [
+            "THREE.WebGLRenderer: Error creating WebGL context."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "original_gl_finish",
+      "directory": "finish/run-01",
+      "runner": "finish/run-probe.mjs",
+      "status": "failed",
+      "started_at": "2026-10-10T13:52:00.014Z",
+      "ended_at": "2026-10-10T13:52:13.957Z",
+      "maximum_gpu_rss_kib": 1108764,
+      "resource_observations": 8,
+      "limits": {
+        "gpu_rss_kib": 1048576,
+        "minimum_host_available_kib": 2097152,
+        "wall_seconds": 100
+      },
+      "error": "Error: Probe resource limit reached; bounded diagnostic stopped\n    at resources (file:///tmp/openswing-renderer-finish-probe-20261010/run-probe.mjs:25:134)\n    at async file:///tmp/openswing-renderer-finish-probe-20261010/run-probe.mjs:44:131",
+      "recorded_processes_absent_at_closeout": {
+        "22202": true,
+        "22249": true,
+        "22251": true,
+        "22252": true,
+        "22307": true,
+        "22309": true
+      },
+      "variants": [
+        {
+          "variant": "baseline",
+          "status": "running",
+          "complete_samples": 7,
+          "first_frame": 8,
+          "last_frame": 80,
+          "initial_idle_frame_growth": null,
+          "final_idle_frame_growth": null,
+          "page_errors": []
+        }
+      ]
+    }
+  ],
+  "conclusion": "Candidate static idle workflow passed, but orbit/damping still reached GPU ceiling. Removing disable-gpu-compositing prevented WebGL initialization. Adding gl.finish() to original continuous render loop did not stop excessive GPU RSS growth. Driver/allocation cause remains unresolved.",
+  "candidate_pure_sha256": "be001bee2452c91dcb07bfbdaa032bbf1714c53ea1117b5ed97c4cb2b7a39709",
+  "warnings": [
+    "Prepared interaction assertions after orbit/damping were not reached.",
+    "No claim of OOM cause, renderer lifecycle repair, long-duration animation stability or experimental/numerical validation.",
+    "Graphics runs stopped after gl.finish resource failure; no retry or relaxed guard."
+  ],
+  "archive": "renderer-diagnostics-records.zip",
+  "archive_sha256": "5185be4c288fedfde7ee3b9253fe95bcb68c92b64087fe010424e37b9f8be5f2"
+}

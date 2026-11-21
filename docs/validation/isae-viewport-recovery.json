@@ -1,0 +1,384 @@
+{
+  "schema": "openswing-isae-viewport-recovery-v1",
+  "date": "2026-10-25",
+  "status": "PASS_RENDER_RECOVERY_NO_NEW_PHYSICS",
+  "scope": "Viewer resilience and saved-result display only; zero new physics in all rendering checks. This is not experimental validation and does not change the numerical Pazy results.",
+  "reproduced_issue": {
+    "report_pin": {
+      "path": "/tmp/openswing-isae-wall-render-20261025/attempt-2/report.json",
+      "bytes": 49564,
+      "sha256": "068552c0c0e124956477a1c2b4ce0fc402b87453a949b0a1e93dd492eda48436"
+    },
+    "status": "DIAGNOSIS_COMPLETED_NO_PHYSICS",
+    "context_loss_time_ms": 2484.699999999255,
+    "drawing_buffer_after_loss": [
+      0,
+      0
+    ],
+    "css_canvas_dimensions": [
+      907,
+      700
+    ],
+    "remained_lost_after": [
+      "Fit",
+      "mobile Plots hide/show",
+      "desktop return"
+    ],
+    "saved_result_unchanged": true,
+    "physics_calls": 0,
+    "interpretation": "A naturally lost WebGL context left the old renderer attached. Canvas layout remained nonzero. The old viewer waited for context restoration; fitting/resizing did not recover rendering. This diagnoses the retained reproduction, not all possible blank pages."
+  },
+  "retained_failed_diagnostic": {
+    "report_pin": {
+      "path": "/tmp/openswing-isae-wall-render-20261025/attempt-1/report.json",
+      "bytes": 4831,
+      "sha256": "2dd73e2b20aa769fec1f5a81695da26ebfb2e502acf05be60ef55a6b4082b0c9"
+    },
+    "status": "FAIL_RETAINED",
+    "reason": "Diagnostic server omitted .mjs MIME; browser numerical runtime never reached ready. Corrected only in diagnostic server before the reproduction. No physics ran."
+  },
+  "implementation": {
+    "changed_files": [
+      "web/viewer.js",
+      "web/software-viewer.js",
+      "web/main.js"
+    ],
+    "behavior": [
+      "Stable viewer facade retains latest beams, attachments and ground geometry.",
+      "Context loss switches once to the existing Canvas2D projection, preserving last named view and grid visibility.",
+      "Initial WebGL failure and partial backend setup failure use the same software path.",
+      "Old renderer resources, controls, RAF, ResizeObserver and registered events are released; stale events cannot resurrect the old canvas.",
+      "Software resize skips zero dimensions while hidden; updates remain available after mobile tab/reparent changes."
+    ],
+    "geometry_or_calculation_changes": false,
+    "source_pins": {
+      "web/viewer.js": {
+        "bytes": 9150,
+        "sha256": "70eaf9e48a83b4b5b4c80589a55d320ac2ee0333bc58daaf47104616c8ea4174"
+      },
+      "web/software-viewer.js": {
+        "bytes": 5391,
+        "sha256": "76bfd5f9dfb3f3f303a82070362848e3e4eed7159ed25df3900afc2302104614"
+      },
+      "web/main.js": {
+        "bytes": 131639,
+        "sha256": "a494c76bad74efcead75450fe476c6fdfb826fe05905c929cb4d4a05412a1c85"
+      },
+      "tests/browser/viewer-recovery.spec.js": {
+        "bytes": 12517,
+        "sha256": "41506af2962e89a9c35d0f16184c262b4a8ef0755fce9b0f3efa9b4091bc62e6"
+      },
+      "web/responsive-workbench.js": {
+        "bytes": 6753,
+        "sha256": "b7702a320250abd6b820d98fab4f928d8b26bae03163662e8edbfe55ec3375e9"
+      },
+      "web/ground-grid.js": {
+        "bytes": 779,
+        "sha256": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc"
+      },
+      "web/plot-colors.js": {
+        "bytes": 1011,
+        "sha256": "04028f8c1174fb391e79ce7be426d6e0e081242fb6eae23d0b865b7eb0992ba3"
+      }
+    },
+    "before_source_pin": {
+      "path": "/tmp/openswing-viewer-recovery-20261025/before.json",
+      "bytes": 892,
+      "sha256": "8f9723aa0e9295a2ed8a29928e4ab51afc0207c2fc1cd99b005b5b220ffddd5c"
+    }
+  },
+  "focused_regression": {
+    "test_file": "tests/browser/viewer-recovery.spec.js",
+    "final_cases_passed": 4,
+    "unique_cases": 4,
+    "all_retained_test_executions_passed": 7,
+    "failed_test_executions": 0,
+    "cases": [
+      "Live WebGL context loss: cached beams/attachments/ground, view preset/grid, changed fit:false scene, pixel output, orbit/zoom/fit controls, stale events, observer and facade disposal.",
+      "Live WebGL context loss while mobile Plots hidden: latest scene, actual responsive-workbench tab/reparent/desktop return.",
+      "Initial WebGL context creation failure: live software rendering API.",
+      "Partial WebGL setup failure: staged resource cleanup before software recovery."
+    ],
+    "test_inputs": "Frozen synthetic display geometry; not additional physical solutions.",
+    "worker_attempts": 0,
+    "physics_calls": 0,
+    "renderer": "ANGLE (Mesa, Vulkan 1.4.335 (llvmpipe (LLVM 21.1.8 128 bits) (0x00000000)), llvmpipe)",
+    "receipt_pin": {
+      "path": "/tmp/openswing-viewer-recovery-20261025/receipt.json",
+      "bytes": 5858,
+      "sha256": "ca6e78e9ebe5bb2e18c0795d7d4e6323ca002c5583031659520c67a93cc1c807"
+    },
+    "attempt_receipts": [
+      {
+        "pin": {
+          "path": "/tmp/openswing-viewer-recovery-20261025/attempt-1/execution.json",
+          "bytes": 809,
+          "sha256": "aeec8084089bb5ef04f7b83778bdb88c1b84b484c5f21985af0fd584cef75ea4"
+        },
+        "execution": {
+          "status": "PASS",
+          "test_count": 3,
+          "reported_duration": "1.2m",
+          "session_id": 29704,
+          "launch_chunk": "38c688",
+          "terminal_chunk": "f8bae8",
+          "exit_code": 0,
+          "reaped": true,
+          "source_pins_unchanged": true,
+          "physics_calls": 0,
+          "worker_attempts": 0,
+          "command": "VK_ICD_FILENAMES=/tmp/aswing-webgl-mesa/lvp.json LD_LIBRARY_PATH=/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu LP_NUM_THREADS=1 OPENSWING_WEBGL_DRIVER=mesa OPENSWING_CHROMIUM_EXECUTABLE=/tmp/aswing-chromium/chrome-linux/chrome ./node_modules/.bin/playwright test tests/browser/viewer-recovery.spec.js --output=/tmp/openswing-viewer-recovery-20261025/attempt-1/results --reporter=line",
+          "scope": "Vite source-only rendering fixture; no build, no numerical code."
+        }
+      },
+      {
+        "pin": {
+          "path": "/tmp/openswing-viewer-recovery-20261025/attempt-2/execution.json",
+          "bytes": 874,
+          "sha256": "46c8cb8b6cda6d7ac5bd7a151fc14170fb5ef410210f0903467e27baa5ce3d29"
+        },
+        "execution": {
+          "status": "PASS",
+          "test_count": 4,
+          "reported_duration": "1.5m",
+          "session_id": 74437,
+          "launch_chunk": "b7b194",
+          "terminal_chunk": "749011",
+          "exit_code": 0,
+          "reaped": true,
+          "source_pins_unchanged": true,
+          "physics_calls": 0,
+          "worker_attempts": 0,
+          "command": "VK_ICD_FILENAMES=/tmp/aswing-webgl-mesa/lvp.json LD_LIBRARY_PATH=/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu LP_NUM_THREADS=1 OPENSWING_WEBGL_DRIVER=mesa OPENSWING_CHROMIUM_EXECUTABLE=/tmp/aswing-chromium/chrome-linux/chrome ./node_modules/.bin/playwright test tests/browser/viewer-recovery.spec.js --output=/tmp/openswing-viewer-recovery-20261025/attempt-2/results --reporter=line",
+          "scope": "Vite source-only rendering fixture; actual Mesa WebGL2 forced context loss, actual responsive workbench, no build/numerical code."
+        }
+      }
+    ]
+  },
+  "saved_dataset": {
+    "kind": "Previously computed OpenSwing derived primary-property Pazy half-wing result, not measured experimental geometry.",
+    "project_pin": {
+      "path": "/tmp/openswing-isae-wall-render-20261025/saved-project.json",
+      "bytes": 338077,
+      "sha256": "6c872b19019ffbb3eb393d43cf493eb5af0475455220415ceac4f54f67835056"
+    },
+    "project_preparation_pin": {
+      "path": "/tmp/openswing-isae-wall-render-20261025/prepare-project.mjs",
+      "bytes": 1703,
+      "sha256": "fd2d20ef91ea400e9e6e1a7b255acfaecfbd29a8cc291438e6adcb108a546146"
+    },
+    "solution_checksum": "a5ca4016458cca7e1d8bb9aeffe9942727cceb08b0d47c44dd8589c756597303",
+    "source_asw_sha256": "8e6aa1c355d77d97083c79af78b3a34221d48471b8dc0f69672bc64f0113501c",
+    "browser_result_pin": {
+      "path": "/tmp/openswing-wall-root-20261025/browser-attempt-2/mounted-half.json",
+      "bytes": 230992,
+      "sha256": "13cc2b6a604b9a0eb49624181624c85a5981b7e92757c326d4a287fadc1dda0c"
+    },
+    "native_report_pin": {
+      "path": "/tmp/openswing-wall-root-20261025/pazy-half-30-final.json",
+      "bytes": 236221,
+      "sha256": "e017b3928e07cd29105711d3dec95bba0db75a38bfc426574581bb1fcaece796"
+    },
+    "primary_dataset_provenance": {
+      "isae_revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+      "isae_case": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection",
+      "primary_repository": "https://github.com/UM-A2SRL/AePW3-LDWG",
+      "primary_revision": "396710a19a80004c65c767e9955fe60d59565c39",
+      "primary_model": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam",
+      "primary_ae_case": "03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic",
+      "primary_ae_files_downloaded_here": "/tmp/openswing-isae-ae1-20261025/primary-source"
+    },
+    "model_description": "Skin-on Technion primary section properties and CONM2-audited inertia mapping, with declared K12 projection and literal ISAE NACA0018 section defaults. Derived reconstruction, not the literal ISAE model.",
+    "condition": {
+      "alpha": 5.0,
+      "speed": 30.0,
+      "rho": 1.23,
+      "mach": 0.0,
+      "gravity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ground_effect": 1
+    },
+    "mesh_intervals": 30,
+    "wall_normal_body": [
+      0,
+      1,
+      0
+    ],
+    "measurement_data_used_in_rendering_checks": false,
+    "prior_numerical_report": "docs/validation/isae-ae1-wall-root.md",
+    "source_readiness_report": "docs/validation/isae-ae1-source-readiness.json",
+    "published_project_pin": {
+      "path": "examples/pazy-isae-wall-half-project.json",
+      "bytes": 338077,
+      "sha256": "6c872b19019ffbb3eb393d43cf493eb5af0475455220415ceac4f54f67835056"
+    }
+  },
+  "built_app_integrations": [
+    {
+      "driver": "mesa",
+      "status": "PASS_RENDER_RECOVERY_NO_PHYSICS",
+      "report_pin": {
+        "path": "/tmp/openswing-isae-wall-render-20261025/verify-mesa/report.json",
+        "bytes": 59391,
+        "sha256": "b2fe83fa913b64d2da41477aa265f8297e1659c2af60ed3fc24e85088cef29d1"
+      },
+      "duration_seconds": 34.342314765999994,
+      "runtime_ready_seconds": 21.656570459,
+      "actual_forced_context_loss": true,
+      "initial_renderer": "webgl",
+      "final_renderer": "canvas2d",
+      "context_events": [
+        {
+          "name": "webglcontextlost",
+          "time": 26599.900000002235,
+          "message": ""
+        }
+      ],
+      "pixel_checks": [
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 45819
+        },
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 79640
+        },
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 45819
+        },
+        {
+          "width": 390,
+          "height": 362,
+          "colored": 9448
+        }
+      ],
+      "saved_result_byte_identical": true,
+      "export_pin": {
+        "path": "/tmp/openswing-isae-wall-render-20261025/verify-mesa/reexported-result.json",
+        "bytes": 230992,
+        "sha256": "13cc2b6a604b9a0eb49624181624c85a5981b7e92757c326d4a287fadc1dda0c"
+      },
+      "requests": [
+        "inspect",
+        "distribution",
+        "inspect",
+        "distribution"
+      ],
+      "physics_calls": 0,
+      "page_errors": [],
+      "scope": "Built application using sealed previously computed Pazy result through project import/load/export; no equilibrium or other numerical analysis requests."
+    },
+    {
+      "driver": "swiftshader",
+      "status": "PASS_RENDER_RECOVERY_NO_PHYSICS",
+      "report_pin": {
+        "path": "/tmp/openswing-isae-wall-render-20261025/verify-swiftshader/report.json",
+        "bytes": 49686,
+        "sha256": "cbe79d94f4c856798824a8331212acff803e38cbea7d2d42a74084cab70b6058"
+      },
+      "duration_seconds": 34.827037708999995,
+      "runtime_ready_seconds": 22.568998195,
+      "actual_forced_context_loss": false,
+      "initial_renderer": "canvas2d",
+      "final_renderer": "canvas2d",
+      "context_events": [],
+      "pixel_checks": [
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 45819
+        },
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 79640
+        },
+        {
+          "width": 907,
+          "height": 700,
+          "colored": 45819
+        },
+        {
+          "width": 390,
+          "height": 362,
+          "colored": 9448
+        }
+      ],
+      "saved_result_byte_identical": true,
+      "export_pin": {
+        "path": "/tmp/openswing-isae-wall-render-20261025/verify-swiftshader/reexported-result.json",
+        "bytes": 230992,
+        "sha256": "13cc2b6a604b9a0eb49624181624c85a5981b7e92757c326d4a287fadc1dda0c"
+      },
+      "requests": [
+        "inspect",
+        "distribution",
+        "inspect",
+        "distribution"
+      ],
+      "physics_calls": 0,
+      "page_errors": [],
+      "scope": "Built application using sealed previously computed Pazy result through project import/load/export; no equilibrium or other numerical analysis requests."
+    }
+  ],
+  "frontend_build_pin": {
+    "path": "/tmp/openswing-isae-wall-render-20261025/build.json",
+    "bytes": 1837,
+    "sha256": "fe9b0eee60fe7bdd79609cda75685533be2826bc17a236ad4081bb6df3ddf590"
+  },
+  "integration_harness_pin": {
+    "path": "/tmp/openswing-isae-wall-render-20261025/verify.mjs",
+    "bytes": 11381,
+    "sha256": "4e253e461110cc349b0fdbee23362f1f1e7f64dc5f1a79338e5060db99e2e9ea"
+  },
+  "graphics_environment": {
+    "mesa": {
+      "VK_ICD_FILENAMES": "/tmp/aswing-webgl-mesa/lvp.json",
+      "LD_LIBRARY_PATH": "/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu",
+      "LP_NUM_THREADS": "1",
+      "flags": [
+        "--no-sandbox",
+        "--use-gl=angle",
+        "--use-angle=vulkan",
+        "--use-vulkan=native",
+        "--ignore-gpu-blocklist",
+        "--enable-features=Vulkan",
+        "--disable-gpu-compositing"
+      ]
+    },
+    "swiftshader": "Recorded startup OES_packed_depth_stencil/WebGL2 creation failure; software fallback succeeds. This run does not establish a functioning SwiftShader WebGL backend."
+  },
+  "limits": [
+    "Recovery resets manual orbit/zoom to the last named view; arbitrary camera pose is not transferred between projections.",
+    "Software projection uses the same saved aircraft data but does not reproduce every GPU shading detail.",
+    "Software-driver Chromium and responsive layout coverage do not establish every physical GPU, browser or mobile device.",
+    "Graphics warnings and a local 404 remain in retained console logs; no page errors were observed.",
+    "No new aerodynamic or structural solves, validation points, mesh study, solver accuracy improvement or experimental agreement are claimed."
+  ],
+  "owner_sessions": {
+    "mesa": {
+      "session_id": 7863,
+      "terminal_chunk": "cd9d36",
+      "exit_code": 0,
+      "reaped": true
+    },
+    "swiftshader": {
+      "session_id": 87436,
+      "launch_chunk": "b2a853",
+      "terminal_chunk": "259188",
+      "exit_code": 0,
+      "reaped": true
+    }
+  },
+  "all_owned_test_and_integration_sessions_terminal_and_reaped": true,
+  "evidence_archive": "docs/validation/isae-ae1-literal-and-viewer-20261025-evidence.zip",
+  "evidence_archive_receipt": "docs/validation/isae-ae1-literal-and-viewer-archive.json",
+  "evidence_archive_note": "Root publishes the bounded archive separately after the conditional literal pilot audit. Rendering and conditional literal pilot evidence have separate scopes; archive status is established only by its own receipt."
+}

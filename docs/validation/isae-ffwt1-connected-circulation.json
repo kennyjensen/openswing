@@ -1,0 +1,1028 @@
+{
+  "checks": {
+    "endpoint_saved_arithmetic": 108,
+    "independent_field_comparison_failures": 4,
+    "independent_field_comparisons": 357,
+    "independent_operator": 105,
+    "native_saved_arithmetic": 967
+  },
+  "conclusions": [
+    "All twelve connected cases pass native and independent projected gates. Their local infinity defects remain0.112\u20130.153; these are not pointwise solutions or physically validated cases.",
+    "At each mesh, increasing K reduces weighted local residual and Gamma discrepancy against matched pointwise, while maximum local residual increases. Do not summarize this as uniform local convergence.",
+    "At fixed K, the recorded integrated loads change less between successive mesh refinements; only three meshes and one pose are tested, so no continuum order or limit is established.",
+    "Native pointwise controls all pass; independent fine/finer pointwise replays fail strict residual gates and four arithmetic residual comparisons. Force/load agreement does not erase those failures or certify the matched references.",
+    "Global-material basis and global-midpoint sampling differ from M13. Prior pointwise comparisons quantify the sample-location effect but do not isolate every cross-study improvement to basis alone.",
+    "The recorded endpoint decomposition shows large opposing own/adjacent-beam contributions, not disappearance of singular individual contributions. Their cancellation does not prove a continuum limit."
+  ],
+  "coverage": {
+    "changed": false,
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "endpoint_decomposition": {
+    "cases": 6,
+    "caution": "Large opposing beam contributions require cancellation. Producer local residual diagnostics and strict projected outcomes are preserved without reclassification.",
+    "checks": 108,
+    "maximum_saved_velocity_component_difference": 6.150580045272136e-12,
+    "reviewer_scope": "Recorded sibling report incorporated without rerunning its scalar decomposition.",
+    "scope": "Six selected returned fixed-pose states with new globally matched midpoint geometry. Arithmetic agreement does not imply pointwise convergence, hinge equilibrium, a refinement limit, original-ASWING grouping or physical validation.",
+    "sequences": [
+      {
+        "beam_cancellation_ratio": [
+          7740.00788819822,
+          31732.567870673713,
+          129445.20934546817
+        ],
+        "ids": [
+          "coarse-k16",
+          "fine-k16",
+          "finer-k16"
+        ],
+        "main_own_w": [
+          -464.99523088200374,
+          -1870.6229805741116,
+          -7496.814925060646
+        ],
+        "modes": 16,
+        "port_cross_w": [
+          465.1105704776517,
+          1870.7360339500449,
+          7496.925897564401
+        ],
+        "successive_port_magnitude_ratios": [
+          4.022131838519315,
+          4.007473936199699
+        ],
+        "total_w": [
+          0.12016920969704889,
+          0.11790296579091762,
+          0.11583082724160668
+        ]
+      },
+      {
+        "beam_cancellation_ratio": [
+          2464.403445333026,
+          10191.32104066778,
+          41768.27296074482
+        ],
+        "ids": [
+          "coarse-k64",
+          "fine-k64",
+          "finer-k64"
+        ],
+        "main_own_w": [
+          -464.928714777057,
+          -1875.7244635400712,
+          -7523.456668608905
+        ],
+        "modes": 64,
+        "port_cross_w": [
+          465.30145735094226,
+          1876.0878526634124,
+          7523.812164897015
+        ],
+        "successive_port_magnitude_ratios": [
+          4.031983616265399,
+          4.010373050609403
+        ],
+        "total_w": [
+          0.3774685918036488,
+          0.3681384435395871,
+          0.36025606343415634
+        ]
+      }
+    ],
+    "status": "PASS_SAVED_CONNECTED_FIELD_DECOMPOSITION"
+  },
+  "failed_independent_ids": [
+    "fine-pointwise",
+    "finer-pointwise"
+  ],
+  "independent_comparison_groups": {
+    "fields_and_loads": {
+      "checks": 120,
+      "failed": 0,
+      "max_abs_error": 1.6934498248133423e-10,
+      "max_error_over_component_bound": 0.635260912462308,
+      "tolerance": {
+        "atol": 2e-10,
+        "rtol": 2e-11
+      }
+    },
+    "geometry": {
+      "checks": 117,
+      "failed": 0,
+      "max_abs_error": 2.2898349882893854e-16,
+      "max_error_over_component_bound": 0.038976242178512206,
+      "tolerance": {
+        "atol": 5e-15,
+        "rtol": 5e-14
+      }
+    },
+    "normalized_residual": {
+      "checks": 45,
+      "failed": 4,
+      "max_abs_error": 1.5007596143854412e-11,
+      "max_error_over_component_bound": 7.503798071923601,
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    "representation": {
+      "checks": 75,
+      "failed": 0,
+      "max_abs_error": 2.1949109196839345e-13,
+      "max_error_over_component_bound": 0.007584395554090197,
+      "tolerance": {
+        "atol": 2e-11,
+        "rtol": 2e-11
+      }
+    }
+  },
+  "independent_comparison_tolerances": {
+    "fields_and_loads": {
+      "atol": 2e-10,
+      "rtol": 2e-11
+    },
+    "geometry": {
+      "atol": 5e-15,
+      "rtol": 5e-14
+    },
+    "normalized_residual": {
+      "atol": 2e-12,
+      "rtol": 2e-11
+    },
+    "representation": {
+      "atol": 2e-11,
+      "rtol": 2e-11
+    }
+  },
+  "independent_counts": {
+    "connected_passes": 12,
+    "declared_passes": 13,
+    "pointwise_failures": 2,
+    "pointwise_passes": 1,
+    "prescribed_field_replays": 15,
+    "returned_failures": 2
+  },
+  "independent_residual_failure_panels": [
+    {
+      "id": "fine-pointwise",
+      "independent_worst_panel": 202,
+      "native_worst_panel": 0,
+      "selected_panels": [
+        {
+          "beam": 1,
+          "independent_dimensional_residual_m_s": 2.2993163904978797e-12,
+          "independent_material_t": -0.3639775478923475,
+          "independent_normalized_residual": 1.0451438138626726e-13,
+          "native_dimensional_residual_m_s": 2.4796162844363534e-12,
+          "native_material_t": -0.3639775478923475,
+          "native_normalized_residual": 1.1270983111074334e-13,
+          "panel": 0,
+          "signed_independent_minus_native": -8.195449724476083e-15,
+          "t0": -0.364,
+          "t1": -0.36395509422332445
+        },
+        {
+          "beam": 2,
+          "independent_dimensional_residual_m_s": 5.502323591330058e-11,
+          "independent_material_t": 0.364026213832317,
+          "independent_normalized_residual": 2.501056177877299e-12,
+          "native_dimensional_residual_m_s": -9.631612456380279e-13,
+          "native_material_t": 0.36402621383231704,
+          "native_normalized_residual": -4.378005661991036e-14,
+          "panel": 202,
+          "signed_independent_minus_native": 2.5448362344972093e-12,
+          "t0": 0.364,
+          "t1": 0.36405242553563083
+        }
+      ],
+      "worst_residual_comparison_panel": 202
+    },
+    {
+      "id": "finer-pointwise",
+      "independent_worst_panel": 401,
+      "native_worst_panel": 402,
+      "selected_panels": [
+        {
+          "beam": 1,
+          "independent_dimensional_residual_m_s": 3.312241120755847e-10,
+          "independent_material_t": 0.36399438674015344,
+          "independent_normalized_residual": 1.505564145798112e-11,
+          "native_dimensional_residual_m_s": 1.0569969107875749e-12,
+          "native_material_t": 0.36399438674015344,
+          "native_normalized_residual": 4.804531412670795e-14,
+          "panel": 401,
+          "signed_independent_minus_native": 1.5007596143854412e-11,
+          "t0": 0.3639887733827035,
+          "t1": 0.364
+        },
+        {
+          "beam": 2,
+          "independent_dimensional_residual_m_s": 1.4460476110804421e-11,
+          "independent_material_t": 0.36400655389014225,
+          "independent_normalized_residual": 6.572943686729282e-13,
+          "native_dimensional_residual_m_s": -7.851901312298792e-12,
+          "native_material_t": 0.36400655389014225,
+          "native_normalized_residual": -3.5690460510449057e-13,
+          "panel": 402,
+          "signed_independent_minus_native": 1.0141989737774188e-12,
+          "t0": 0.364,
+          "t1": 0.36401310764721956
+        }
+      ],
+      "worst_residual_comparison_panel": 401
+    }
+  ],
+  "mesh_refinement_sequences": [
+    {
+      "Gamma_error_against_matched_pointwise": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Lift_N": [
+        17.70437931417705,
+        17.7092276947571,
+        17.711849229206976
+      ],
+      "ids": [
+        "coarse-pointwise",
+        "fine-pointwise",
+        "finer-pointwise"
+      ],
+      "independent_accepted": [
+        true,
+        false,
+        false
+      ],
+      "local_R_inf": [
+        5.129625245127634e-14,
+        1.1270983111074334e-13,
+        3.5690460510449057e-13
+      ],
+      "local_theta_L2": [
+        3.4911968213135175e-15,
+        4.4687666731912745e-15,
+        8.315459896358297e-15
+      ],
+      "modes": 0,
+      "successive_Lift_changes_N": [
+        0.0048483805800501045,
+        0.0026215344498758952
+      ]
+    },
+    {
+      "Gamma_error_against_matched_pointwise": [
+        0.031649050183203846,
+        0.03117327747559156,
+        0.03091418667664821
+      ],
+      "Lift_N": [
+        17.624937608942062,
+        17.631573183522754,
+        17.633375019732497
+      ],
+      "ids": [
+        "coarse-k8",
+        "fine-k8",
+        "finer-k8"
+      ],
+      "independent_accepted": [
+        true,
+        true,
+        true
+      ],
+      "local_R_inf": [
+        0.11244041541437433,
+        0.11229068307286888,
+        0.1122223346629798
+      ],
+      "local_theta_L2": [
+        0.030326823372626176,
+        0.02970596829130906,
+        0.029369775844935306
+      ],
+      "modes": 8,
+      "successive_Lift_changes_N": [
+        0.006635574580691639,
+        0.0018018362097436125
+      ]
+    },
+    {
+      "Gamma_error_against_matched_pointwise": [
+        0.011935990926215438,
+        0.011537478391709759,
+        0.01132762144747085
+      ],
+      "Lift_N": [
+        17.709763834030863,
+        17.714131615795853,
+        17.716006505314457
+      ],
+      "ids": [
+        "coarse-k16",
+        "fine-k16",
+        "finer-k16"
+      ],
+      "independent_accepted": [
+        true,
+        true,
+        true
+      ],
+      "local_R_inf": [
+        0.12159120395715309,
+        0.12135959205529939,
+        0.12115240090048811
+      ],
+      "local_theta_L2": [
+        0.02142103022223954,
+        0.020530556825104906,
+        0.020021735367775476
+      ],
+      "modes": 16,
+      "successive_Lift_changes_N": [
+        0.0043677817649907524,
+        0.0018748895186035952
+      ]
+    },
+    {
+      "Gamma_error_against_matched_pointwise": [
+        0.004434222613715107,
+        0.004197029119520086,
+        0.004058877436752025
+      ],
+      "Lift_N": [
+        17.71020945521049,
+        17.716063520292863,
+        17.717963974309036
+      ],
+      "ids": [
+        "coarse-k32",
+        "fine-k32",
+        "finer-k32"
+      ],
+      "independent_accepted": [
+        true,
+        true,
+        true
+      ],
+      "local_R_inf": [
+        0.13664088364662677,
+        0.13642933748934277,
+        0.1362019153688275
+      ],
+      "local_theta_L2": [
+        0.016300657505527952,
+        0.015199199027569874,
+        0.014552095440102981
+      ],
+      "modes": 32,
+      "successive_Lift_changes_N": [
+        0.0058540650823744045,
+        0.0019004540161731143
+      ]
+    },
+    {
+      "Gamma_error_against_matched_pointwise": [
+        0.0016409825029568546,
+        0.001486096223240396,
+        0.001397978754540632
+      ],
+      "Lift_N": [
+        17.708296146853147,
+        17.713262848110727,
+        17.71516668528209
+      ],
+      "ids": [
+        "coarse-k64",
+        "fine-k64",
+        "finer-k64"
+      ],
+      "independent_accepted": [
+        true,
+        true,
+        true
+      ],
+      "local_R_inf": [
+        0.1525733618890858,
+        0.15192565648071446,
+        0.15134007510825934
+      ],
+      "local_theta_L2": [
+        0.012577489512932458,
+        0.01138461076235448,
+        0.010610916502993275
+      ],
+      "modes": 64,
+      "successive_Lift_changes_N": [
+        0.004966701257579587,
+        0.0019038371713619995
+      ]
+    }
+  ],
+  "native_counts": {
+    "attempts": 15,
+    "declared_passes": 15,
+    "events": 30,
+    "outer_hinge_solves": 0,
+    "returns": 15,
+    "supplied_Gamma_evaluations": 0
+  },
+  "remaining_limits": [
+    "Original ASWING coordinate grouping/defaults unresolved.",
+    "No independence claim for native equations or source parser; independent aerodynamic replay is separately scoped.",
+    "No MP cause diagnosis of the two new pointwise discrepancies.",
+    "No hinge balance, root moments, sensor-flow comparison, dynamics or experimental pass."
+  ],
+  "rows": [
+    {
+      "Lift_N": 17.70437931417705,
+      "actual_panels": [
+        102,
+        41,
+        41
+      ],
+      "connected_weighted_sampling_condition": null,
+      "continuous_seam_Gamma": null,
+      "id": "coarse-pointwise",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 8.226139791835371e-14,
+      "independent_projected_R_inf": 8.226139791835371e-14,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.0,
+        "Gamma_max_abs": 0.0,
+        "force_max_abs": 0.0,
+        "moment_max_abs": 0.0,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "coarse-pointwise",
+      "matched_pointwise_independent_accepted": true,
+      "maximum_normal_Mach": 0.0650228933284515,
+      "mesh": "coarse",
+      "modes": 0,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 5.129625245127634e-14,
+      "native_local_theta_L2": 3.4911968213135175e-15,
+      "native_projected_R_inf": 5.129625245127634e-14
+    },
+    {
+      "Lift_N": 17.624937608942062,
+      "actual_panels": [
+        102,
+        41,
+        41
+      ],
+      "connected_weighted_sampling_condition": 1.0002359349061178,
+      "continuous_seam_Gamma": [
+        0.518351819217455,
+        0.5183483219585642
+      ],
+      "id": "coarse-k8",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.11244041541437708,
+      "independent_projected_R_inf": 6.246720822518564e-16,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.031649050183203846,
+        "Gamma_max_abs": 0.0774421391760306,
+        "force_max_abs": 0.07816495276890256,
+        "moment_max_abs": 0.0014628225975748532,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "coarse-pointwise",
+      "matched_pointwise_independent_accepted": true,
+      "maximum_normal_Mach": 0.06477796345830542,
+      "mesh": "coarse",
+      "modes": 8,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.11244041541437433,
+      "native_local_theta_L2": 0.030326823372626176,
+      "native_projected_R_inf": 9.353521119224758e-17
+    },
+    {
+      "Lift_N": 17.709763834030863,
+      "actual_panels": [
+        102,
+        41,
+        41
+      ],
+      "connected_weighted_sampling_condition": 1.0006640504881326,
+      "continuous_seam_Gamma": [
+        0.5283305558211554,
+        0.5283259287976028
+      ],
+      "id": "coarse-k16",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.12159120395722786,
+      "independent_projected_R_inf": 6.877922401959271e-16,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.011935990926215438,
+        "Gamma_max_abs": 0.0349199752835464,
+        "force_max_abs": 0.037895154241018414,
+        "moment_max_abs": 0.00014341933686756736,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "coarse-pointwise",
+      "matched_pointwise_independent_accepted": true,
+      "maximum_normal_Mach": 0.06489357967308665,
+      "mesh": "coarse",
+      "modes": 16,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.12159120395715309,
+      "native_local_theta_L2": 0.02142103022223954,
+      "native_projected_R_inf": 1.0877034909800793e-16
+    },
+    {
+      "Lift_N": 17.71020945521049,
+      "actual_panels": [
+        102,
+        41,
+        41
+      ],
+      "connected_weighted_sampling_condition": 1.002824711702476,
+      "continuous_seam_Gamma": [
+        0.5304956963957481,
+        0.5304909048958938
+      ],
+      "id": "coarse-k32",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.13664088364660498,
+      "independent_projected_R_inf": 9.264713469758185e-16,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.004434222613715107,
+        "Gamma_max_abs": 0.0190196816482322,
+        "force_max_abs": 0.02247422408046118,
+        "moment_max_abs": 0.0001257481610542066,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "coarse-pointwise",
+      "matched_pointwise_independent_accepted": true,
+      "maximum_normal_Mach": 0.0650152274080393,
+      "mesh": "coarse",
+      "modes": 32,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.13664088364662677,
+      "native_local_theta_L2": 0.016300657505527952,
+      "native_projected_R_inf": 9.436362253398462e-16
+    },
+    {
+      "Lift_N": 17.708296146853147,
+      "actual_panels": [
+        102,
+        41,
+        41
+      ],
+      "connected_weighted_sampling_condition": 1.0215435205832721,
+      "continuous_seam_Gamma": [
+        0.530248633363292,
+        0.5302441137977528
+      ],
+      "id": "coarse-k64",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.15257336188907542,
+      "independent_projected_R_inf": 1.724198974435883e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.0016409825029568546,
+        "Gamma_max_abs": 0.010617381006707172,
+        "force_max_abs": 0.013493512481599357,
+        "moment_max_abs": 7.806769508417188e-05,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "coarse-pointwise",
+      "matched_pointwise_independent_accepted": true,
+      "maximum_normal_Mach": 0.06509396187255374,
+      "mesh": "coarse",
+      "modes": 64,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.1525733618890858,
+      "native_local_theta_L2": 0.012577489512932458,
+      "native_projected_R_inf": 1.6665006736879007e-15
+    },
+    {
+      "Lift_N": 17.7092276947571,
+      "actual_panels": [
+        202,
+        81,
+        81
+      ],
+      "connected_weighted_sampling_condition": null,
+      "continuous_seam_Gamma": null,
+      "id": "fine-pointwise",
+      "independent_arithmetic_comparisons_passed": false,
+      "independent_declared_gates_passed": false,
+      "independent_local_R_inf": 2.501056177877299e-12,
+      "independent_projected_R_inf": 2.501056177877299e-12,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.0,
+        "Gamma_max_abs": 0.0,
+        "force_max_abs": 0.0,
+        "moment_max_abs": 0.0,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "fine-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06502376610601396,
+      "mesh": "fine",
+      "modes": 0,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 1.1270983111074334e-13,
+      "native_local_theta_L2": 4.4687666731912745e-15,
+      "native_projected_R_inf": 1.1270983111074334e-13
+    },
+    {
+      "Lift_N": 17.631573183522754,
+      "actual_panels": [
+        202,
+        81,
+        81
+      ],
+      "connected_weighted_sampling_condition": 1.0000566471842296,
+      "continuous_seam_Gamma": [
+        0.5189794351208451,
+        0.5189758508641771
+      ],
+      "id": "fine-k8",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.11229068307291587,
+      "independent_projected_R_inf": 2.088080894916263e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.03117327747559156,
+        "Gamma_max_abs": 0.0761961700576288,
+        "force_max_abs": 0.07473638706875851,
+        "moment_max_abs": 0.0014361896440750477,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "fine-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06483961291546472,
+      "mesh": "fine",
+      "modes": 8,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.11229068307286888,
+      "native_local_theta_L2": 0.02970596829130906,
+      "native_projected_R_inf": 2.0381096762529892e-16
+    },
+    {
+      "Lift_N": 17.714131615795853,
+      "actual_panels": [
+        202,
+        81,
+        81
+      ],
+      "connected_weighted_sampling_condition": 1.0001348448328515,
+      "continuous_seam_Gamma": [
+        0.5288466531119903,
+        0.5288418955006418
+      ],
+      "id": "fine-k16",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.12135959205526298,
+      "independent_projected_R_inf": 3.987636090006046e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.011537478391709759,
+        "Gamma_max_abs": 0.03381617976639073,
+        "force_max_abs": 0.034677990967471484,
+        "moment_max_abs": 0.00012875457562411263,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "fine-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06489254281430851,
+      "mesh": "fine",
+      "modes": 16,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.12135959205529939,
+      "native_local_theta_L2": 0.020530556825104906,
+      "native_projected_R_inf": 1.4204425641534814e-16
+    },
+    {
+      "Lift_N": 17.716063520292863,
+      "actual_panels": [
+        202,
+        81,
+        81
+      ],
+      "connected_weighted_sampling_condition": 1.0003698723451497,
+      "continuous_seam_Gamma": [
+        0.5310885310284257,
+        0.5310835209458864
+      ],
+      "id": "fine-k32",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.13642933748844854,
+      "independent_projected_R_inf": 7.48999276359134e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.004197029119520086,
+        "Gamma_max_abs": 0.01786731389380386,
+        "force_max_abs": 0.01900644955419528,
+        "moment_max_abs": 0.00013882691259953228,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "fine-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06500934527401941,
+      "mesh": "fine",
+      "modes": 32,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.13642933748934277,
+      "native_local_theta_L2": 0.015199199027569874,
+      "native_projected_R_inf": 5.435446764175678e-16
+    },
+    {
+      "Lift_N": 17.713262848110727,
+      "actual_panels": [
+        202,
+        81,
+        81
+      ],
+      "connected_weighted_sampling_condition": 1.0021113909018917,
+      "continuous_seam_Gamma": [
+        0.5308750317920854,
+        0.5308702354050331
+      ],
+      "id": "fine-k64",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.15192565647974607,
+      "independent_projected_R_inf": 9.662075248894683e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.001486096223240396,
+        "Gamma_max_abs": 0.009627263849035672,
+        "force_max_abs": 0.010653859800062726,
+        "moment_max_abs": 7.728613594065736e-05,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "fine-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06508678172127028,
+      "mesh": "fine",
+      "modes": 64,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.15192565648071446,
+      "native_local_theta_L2": 0.01138461076235448,
+      "native_projected_R_inf": 1.852180235772997e-15
+    },
+    {
+      "Lift_N": 17.711849229206976,
+      "actual_panels": [
+        402,
+        161,
+        161
+      ],
+      "connected_weighted_sampling_condition": null,
+      "continuous_seam_Gamma": null,
+      "id": "finer-pointwise",
+      "independent_arithmetic_comparisons_passed": false,
+      "independent_declared_gates_passed": false,
+      "independent_local_R_inf": 1.505564145798112e-11,
+      "independent_projected_R_inf": 1.505564145798112e-11,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.0,
+        "Gamma_max_abs": 0.0,
+        "force_max_abs": 0.0,
+        "moment_max_abs": 0.0,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "finer-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06502414024420715,
+      "mesh": "finer",
+      "modes": 0,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 3.5690460510449057e-13,
+      "native_local_theta_L2": 8.315459896358297e-15,
+      "native_projected_R_inf": 3.5690460510449057e-13
+    },
+    {
+      "Lift_N": 17.633375019732497,
+      "actual_panels": [
+        402,
+        161,
+        161
+      ],
+      "connected_weighted_sampling_condition": 1.0000140420261587,
+      "continuous_seam_Gamma": [
+        0.5191863675917053,
+        0.5191827554588844
+      ],
+      "id": "finer-k8",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.11222233466527659,
+      "independent_projected_R_inf": 1.2335299171120137e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.03091418667664821,
+        "Gamma_max_abs": 0.07563553748283813,
+        "force_max_abs": 0.07331112834427378,
+        "moment_max_abs": 0.0014524477622689935,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "finer-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.064803386156615,
+      "mesh": "finer",
+      "modes": 8,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.1122223346629798,
+      "native_local_theta_L2": 0.029369775844935306,
+      "native_projected_R_inf": 1.5961943262805547e-16
+    },
+    {
+      "Lift_N": 17.716006505314457,
+      "actual_panels": [
+        402,
+        161,
+        161
+      ],
+      "connected_weighted_sampling_condition": 1.000032490509739,
+      "continuous_seam_Gamma": [
+        0.5291185625878767,
+        0.5291137416365189
+      ],
+      "id": "finer-k16",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.12115240090249625,
+      "independent_projected_R_inf": 2.919246453177607e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.01132762144747085,
+        "Gamma_max_abs": 0.03323487850967877,
+        "force_max_abs": 0.032978024298872644,
+        "moment_max_abs": 0.0001133844232864556,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "finer-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06489154797999541,
+      "mesh": "finer",
+      "modes": 16,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.12115240090048811,
+      "native_local_theta_L2": 0.020021735367775476,
+      "native_projected_R_inf": 2.3947716888219595e-16
+    },
+    {
+      "Lift_N": 17.717963974309036,
+      "actual_panels": [
+        402,
+        161,
+        161
+      ],
+      "connected_weighted_sampling_condition": 1.0000819747650778,
+      "continuous_seam_Gamma": [
+        0.5313385181113184,
+        0.5313334106439809
+      ],
+      "id": "finer-k32",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.13620191536710255,
+      "independent_projected_R_inf": 5.054158395410717e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.004058877436752025,
+        "Gamma_max_abs": 0.017197790590420148,
+        "force_max_abs": 0.017366293034651648,
+        "moment_max_abs": 0.0001248294071575784,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "finer-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06500627565972521,
+      "mesh": "finer",
+      "modes": 32,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.1362019153688275,
+      "native_local_theta_L2": 0.014552095440102981,
+      "native_projected_R_inf": 8.756216719217365e-16
+    },
+    {
+      "Lift_N": 17.71516668528209,
+      "actual_panels": [
+        402,
+        161,
+        161
+      ],
+      "connected_weighted_sampling_condition": 1.0003635857788653,
+      "continuous_seam_Gamma": [
+        0.5311687322776351,
+        0.5311638020430202
+      ],
+      "id": "finer-k64",
+      "independent_arithmetic_comparisons_passed": true,
+      "independent_declared_gates_passed": true,
+      "independent_local_R_inf": 0.15134007510754682,
+      "independent_projected_R_inf": 9.020476189127637e-15,
+      "matched_pointwise": {
+        "Gamma_global_theta_L2": 0.001397978754540632,
+        "Gamma_max_abs": 0.009024509758418398,
+        "force_max_abs": 0.009229656018292065,
+        "moment_max_abs": 6.37113242661358e-05,
+        "reference_accepted": true
+      },
+      "matched_pointwise_id": "finer-pointwise",
+      "matched_pointwise_independent_accepted": false,
+      "maximum_normal_Mach": 0.06508111035406483,
+      "mesh": "finer",
+      "modes": 64,
+      "native_declared_gates_passed": true,
+      "native_local_R_inf": 0.15134007510825934,
+      "native_local_theta_L2": 0.010610916502993275,
+      "native_projected_R_inf": 1.656732046779225e-15
+    }
+  ],
+  "scientific_scope": {
+    "additional_operating_poses": 0,
+    "independent_nonlinear_solves": 0,
+    "new_browser_runs": 0,
+    "new_native_own_circulation_calls": 15,
+    "new_outer_hinge_solves": 0
+  },
+  "scope": "One fixed previously computed row11 pose. Connected global-material coordinate and matched global-midpoint geometry. No outer hinge root, fit, production change or physical validation.",
+  "secondary_sampling_change": [
+    {
+      "mesh": "coarse",
+      "new_global_midpoint_Lift_N": 17.70437931417705,
+      "new_minus_prior_Lift_N": -0.010162229744462792,
+      "prior_local_midpoint_Lift_N": 17.714541543921513,
+      "scope": "Secondary sampling-change comparison only; new matched pointwise is the primary within-study reference."
+    },
+    {
+      "mesh": "fine",
+      "new_global_midpoint_Lift_N": 17.7092276947571,
+      "new_minus_prior_Lift_N": -0.0053047253066083044,
+      "prior_local_midpoint_Lift_N": 17.71453242006371,
+      "scope": "Secondary sampling-change comparison only; new matched pointwise is the primary within-study reference."
+    }
+  ],
+  "source_pins": {
+    "archive-curve-08/frozen/report.json": {
+      "bytes": 364636,
+      "sha256": "4de1ed3caff2c86a4dd4fff8ac99b1cb607ca366a356f78bd792e4bab76859b8"
+    },
+    "circulation-refinement-13/results/report.json": {
+      "bytes": 253585,
+      "sha256": "642cd6cfc1fc3eabc1e74a589d95d9724aadc711d0f2f8d3bdb839674a55f783"
+    },
+    "connected-circulation-14/contract.json": {
+      "bytes": 4800,
+      "sha256": "22934dfac24fcd857c5e046e2ad9e887557858dab0417fc88c57282dc943a519"
+    },
+    "connected-circulation-14/endpoint-decomposition/report.json": {
+      "bytes": 30325,
+      "sha256": "bae87f8e5dca82e1b8fb6748b04905f6d90276b93cb892ff73437f38ec0233a0"
+    },
+    "connected-circulation-14/independent/closeout.json": {
+      "bytes": 1573,
+      "sha256": "48fbc6afdad34c9f02c3f7fba47972ba35edf7edecf58db8352e04a24f14b73d"
+    },
+    "connected-circulation-14/independent/operator-report.json": {
+      "bytes": 41278,
+      "sha256": "c8303c687023132bdc0c1f40131d027a5d6efec0dc55604a333cdff422ec6ac8"
+    },
+    "connected-circulation-14/independent/report.json": {
+      "bytes": 248824,
+      "sha256": "b6379ecd91becac527e704e381f2cfdaba509752affe514b5889a1f5dafa0998"
+    },
+    "connected-circulation-14/independent/summary.json": {
+      "bytes": 44453,
+      "sha256": "7fbe15f9dbad036e52c716fefba78ee3efda778aa653797166d506e64977a2c8"
+    },
+    "connected-circulation-14/results/report.json": {
+      "bytes": 186850,
+      "sha256": "a8b0efb4cfdb16a2bb515e41545529ef28ed1c4405086c4ff4d7d85972b4db8e"
+    },
+    "connected-circulation-14/review/native-saved-review.json": {
+      "bytes": 141703,
+      "sha256": "2721e0d3dc95f1ede2818e320883c4fbf3f4a8dbbb5e83f58bfd740ab3f34c0b"
+    },
+    "connected-circulation-14/source-scope/report.json": {
+      "bytes": 20355,
+      "sha256": "309623fc337a1528f6402ac0a848a7d521be766b07fedc52c0fdefba3c8e7f9d"
+    }
+  },
+  "status": "COMPLETED_RECORDED_CONNECTED_STUDY_WITH_TWO_INDEPENDENT_POINTWISE_FAILURES_RETAINED",
+  "summary_builder_sha256": "869b0090ed8ba51241dcef73070acc51fd4918923606daf47346dc8541e513bb",
+  "summary_scientific_evaluations": 0,
+  "timing": {
+    "independent_field_replay_seconds": 6.704464302005363,
+    "native_loop_seconds": 30.16464043900487,
+    "scope": "Separate recorded execution scopes, not a solver/browser speed comparison. Native loop includes basis/geometry setup and output writes."
+  },
+  "uncomputed_observables": [
+    "hinge torque balance",
+    "sensors",
+    "root traces",
+    "experimental agreement"
+  ]
+}

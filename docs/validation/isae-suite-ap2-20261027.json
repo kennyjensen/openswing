@@ -1,0 +1,2535 @@
+{
+  "status": "BOUNDED_COVERAGE_EXPANSION_COMPLETE_FULL_ISAE_VALIDATION_INCOMPLETE",
+  "date": "2026-10-27",
+  "acceptance": "Original archived tested ASWING calculations; experiments are not required.",
+  "registry": {
+    "families": 41,
+    "original_models": 279,
+    "registered_adapters": 12,
+    "registered_families": 22,
+    "families_with_executable_scope": 20,
+    "families_without_adapters": 19,
+    "registered_jobs": 3742,
+    "required_output_slots": 63861
+  },
+  "additions": {
+    "family": "AP-2",
+    "original_position_cells": 117,
+    "series_shapes": [
+      [
+        4,
+        13
+      ],
+      [
+        5,
+        13
+      ]
+    ],
+    "meshes": [
+      150,
+      300
+    ],
+    "literal_endpoint_inputs": 2,
+    "reconstructed_engine_only_inputs": 115,
+    "paired_endpoint_coefficients": 4,
+    "unpaired_text_coefficients": 6,
+    "distinct_scalar_records": 127,
+    "jobs": 237,
+    "scalar_slots": 248
+  },
+  "batch": {
+    "jobs_planned": 237,
+    "jobs_finished": 237,
+    "seconds": 688.2281418010007,
+    "status_counts": {
+      "computed": 234,
+      "unsupported": 3
+    },
+    "output_accounting": {
+      "required": 248,
+      "finished_required": 248,
+      "unrun": 0,
+      "reported": 248,
+      "finite": 242,
+      "unavailable": 6,
+      "numerically_valid": 242,
+      "passed": 0,
+      "missing": 0
+    },
+    "started_processes": 234,
+    "all_started_processes_reaped": true,
+    "physical_checks_per_computed_state": 25,
+    "physical_checks_passed": 5850,
+    "cold_solves": 234,
+    "fresh_residuals": 234,
+    "retries": 0,
+    "production_kernel_unchanged_during_batch": true,
+    "kernel_modules": 123,
+    "runner_terminal_exit_code": 1,
+    "terminal_chunk": "a45a05"
+  },
+  "precision": {
+    "MAT_ratio": "Exact binary64 storage identity; unrecovered original coefficient printing precision, not physical accuracy threshold.",
+    "native_coefficients": "Unchanged original printed half-last-place.",
+    "storage_identity_slots": 234,
+    "native_coefficient_slots": 8,
+    "blocked_native_slots": 6
+  },
+  "model_and_exporter_qualifications": [
+    "All 117 stored MAT ratio cells are retained on both declared meshes; the three unpaired exports remain blocked.",
+    "Original files are unchanged. Intermediate inputs reconstruct only the two Engine rows using the archived generator and five-significant-digit tokens; original-byte provenance is not claimed for generated states.",
+    "APROPOS1 retains Cdp=.0045 and APROPOS retains Cdp=.005. No geometry, stiffness, mass, aerodynamic property or coefficient is fitted.",
+    "The command scripts select CL/CD and name the retained CSV outputs. Their indexing conflicts with the commented MATLAB Var11/Var17 producer; complete exporter history is not recovered.",
+    "MAT ratio equality uses its stored binary64 value, tolerance zero. This is storage identity, not recovered ASWING coefficient printing precision or a physical accuracy threshold.",
+    "The two endpoint coefficient pairs have their own native half-last-place precision. Their MAT ratios are algebraically dependent evidence, not independent validations.",
+    "Nominal 150/300 intervals reconstruct the original NODE I150 command; exact historical nodes, atmosphere/PG, K/F, core and continuation are unknown.",
+    "Coordinates from experimental files supply the documented input grid only; experimental force or ratio values are not acceptance targets.",
+    "Mounted cold states use literal density, zero Mach, fixed influences disabled and core ratio .25; historical setup is conditional.",
+    "Lift and drag coefficients use distributed aerodynamic forces and literal reference area; engine thrust remains in total forces and moments.",
+    "Computed jobs and scalar equality cannot establish an entire family pass. Mesh changes are descriptive, without a new acceptance gate.",
+    "Exact R5.92 OPER exporter formula is not proven; the current distributed aerodynamic projection is declared explicitly. No source supports changing to CDi+CDp to improve agreement."
+  ],
+  "endpoints_finer_mesh": [
+    {
+      "job": "AP-2-APROPOS1-z04-y13-m300",
+      "outputs": [
+        {
+          "name": "CL_CD_ratio",
+          "expected": 14.864877013808975,
+          "predicted": 17.655138695233767,
+          "tolerance": 0.0,
+          "relative_error": 0.18770835970137736
+        },
+        {
+          "name": "CL",
+          "expected": 0.165345,
+          "predicted": 0.16374336975012752,
+          "tolerance": 5e-07,
+          "relative_error": -0.00968659620715762
+        },
+        {
+          "name": "CD",
+          "expected": 0.0111232,
+          "predicted": 0.009274544515151964,
+          "tolerance": 5e-08,
+          "relative_error": -0.1661981700273335
+        }
+      ]
+    },
+    {
+      "job": "AP-2-APROPOS4-z05-y13-m300",
+      "outputs": [
+        {
+          "name": "CL_CD_ratio",
+          "expected": 28.729062859582534,
+          "predicted": 28.71409055956046,
+          "tolerance": 0.0,
+          "relative_error": -0.0005211551833504789
+        },
+        {
+          "name": "CL",
+          "expected": 0.551779,
+          "predicted": 0.5543794323114235,
+          "tolerance": 5e-07,
+          "relative_error": 0.004712814933920072
+        },
+        {
+          "name": "CD",
+          "expected": 0.0192063,
+          "predicted": 0.019306877616809662,
+          "tolerance": 5e-08,
+          "relative_error": 0.005236699250228486
+        }
+      ]
+    }
+  ],
+  "mesh_diagnostics": [
+    {
+      "coordinate_id": "APROPOS1-z01-y01",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y01-m150",
+        "AP-2-APROPOS1-z01-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.426028329208759,
+          "fine": 14.436417704991257,
+          "abs_change": 0.010389375782498433,
+          "relative_change": 0.0007196643928435517
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y02",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y02-m150",
+        "AP-2-APROPOS1-z01-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.42413755188046,
+          "fine": 14.433482742654911,
+          "abs_change": 0.00934519077445195,
+          "relative_change": 0.0006474660995599033
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y03",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y03-m150",
+        "AP-2-APROPOS1-z01-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.442106497370487,
+          "fine": 14.436228182436395,
+          "abs_change": 0.005878314934092188,
+          "relative_change": 0.00040719188279691684
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y04",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y04-m150",
+        "AP-2-APROPOS1-z01-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.442045251118286,
+          "fine": 14.436301760490764,
+          "abs_change": 0.0057434906275215525,
+          "relative_change": 0.00039785055222663215
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y05",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y05-m150",
+        "AP-2-APROPOS1-z01-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.432745713108291,
+          "fine": 14.435904814017457,
+          "abs_change": 0.003159100909165602,
+          "relative_change": 0.00021883636321140554
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y06",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y06-m150",
+        "AP-2-APROPOS1-z01-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.435755842996373,
+          "fine": 14.436457778732555,
+          "abs_change": 0.0007019357361812695,
+          "relative_change": 4.862243542978697e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y07",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y07-m150",
+        "AP-2-APROPOS1-z01-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.435676531551717,
+          "fine": 14.435727691207392,
+          "abs_change": 5.1159655674481996e-05,
+          "relative_change": 3.54396098131185e-06
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y08",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y08-m150",
+        "AP-2-APROPOS1-z01-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.434353766726186,
+          "fine": 14.435850699010391,
+          "abs_change": 0.0014969322842048882,
+          "relative_change": 0.00010369546730678686
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y09",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y09-m150",
+        "AP-2-APROPOS1-z01-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.435443746855467,
+          "fine": 14.435470656258943,
+          "abs_change": 2.6909403475272597e-05,
+          "relative_change": 1.8641168075531502e-06
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y10",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y10-m150",
+        "AP-2-APROPOS1-z01-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.434426734311284,
+          "fine": 14.435423128165606,
+          "abs_change": 0.000996393854322264,
+          "relative_change": 6.902422225353096e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y11",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y11-m150",
+        "AP-2-APROPOS1-z01-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.435109007735521,
+          "fine": 14.435061679906957,
+          "abs_change": 4.7327828564647234e-05,
+          "relative_change": 3.2786717240374337e-06
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y12",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y12-m150",
+        "AP-2-APROPOS1-z01-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.435468039603848,
+          "fine": 14.435502152542343,
+          "abs_change": 3.411293849531205e-05,
+          "relative_change": 2.3631279421273313e-06
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z01-y13",
+      "jobs": [
+        "AP-2-APROPOS1-z01-y13-m150",
+        "AP-2-APROPOS1-z01-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.442862019559387,
+          "fine": 14.442209706586889,
+          "abs_change": 0.0006523129724982368,
+          "relative_change": 4.516711678827971e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y01",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y01-m150",
+        "AP-2-APROPOS1-z02-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.059542054681033,
+          "fine": 15.040580778734894,
+          "abs_change": 0.018961275946139722,
+          "relative_change": 0.001260674453007034
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y02",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y02-m150",
+        "AP-2-APROPOS1-z02-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.621503177794958,
+          "fine": 15.158602987233499,
+          "abs_change": 0.46290019056145937,
+          "relative_change": 0.03053712739566513
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y03",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y03-m150",
+        "AP-2-APROPOS1-z02-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.249007561560973,
+          "fine": 15.25987221907712,
+          "abs_change": 0.010864657516147957,
+          "relative_change": 0.000711975654852831
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y04",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y04-m150",
+        "AP-2-APROPOS1-z02-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.579337098602892,
+          "fine": 15.366128591421772,
+          "abs_change": 0.21320850718112005,
+          "relative_change": 0.013875226014973277
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y05",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y05-m150",
+        "AP-2-APROPOS1-z02-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.806559265213648,
+          "fine": 15.462226031729271,
+          "abs_change": 0.3443332334843774,
+          "relative_change": 0.022269318323104845
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y06",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y06-m150",
+        "AP-2-APROPOS1-z02-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.225959639674645,
+          "fine": 15.807753712314287,
+          "abs_change": 0.5817940726396422,
+          "relative_change": 0.03680434824755796
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y07",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y07-m150",
+        "AP-2-APROPOS1-z02-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.817233938329478,
+          "fine": 15.849738762239827,
+          "abs_change": 0.032504823910349145,
+          "relative_change": 0.002050811334997403
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y08",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y08-m150",
+        "AP-2-APROPOS1-z02-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.633967879669047,
+          "fine": 15.999902806805155,
+          "abs_change": 0.6340650728638924,
+          "relative_change": 0.039629307785182845
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y09",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y09-m150",
+        "AP-2-APROPOS1-z02-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.518528971917885,
+          "fine": 16.484762443108714,
+          "abs_change": 0.03376652880917064,
+          "relative_change": 0.002048347916793086
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y10",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y10-m150",
+        "AP-2-APROPOS1-z02-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.051897019333126,
+          "fine": 17.169479246820963,
+          "abs_change": 0.11758222748783709,
+          "relative_change": 0.006848328117441778
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y11",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y11-m150",
+        "AP-2-APROPOS1-z02-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 18.515979159108433,
+          "fine": 18.403836276316543,
+          "abs_change": 0.11214288279188978,
+          "relative_change": 0.00609345144719657
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y12",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y12-m150",
+        "AP-2-APROPOS1-z02-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 18.54902712281432,
+          "fine": 18.54864706249089,
+          "abs_change": 0.0003800603234296318,
+          "relative_change": 2.0489921564047143e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z02-y13",
+      "jobs": [
+        "AP-2-APROPOS1-z02-y13-m150",
+        "AP-2-APROPOS1-z02-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.951512295787367,
+          "fine": 18.144637689808487,
+          "abs_change": 0.19312539402111994,
+          "relative_change": 0.010643662183984801
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y01",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y01-m150",
+        "AP-2-APROPOS1-z03-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.83272243059879,
+          "fine": 16.70994490215394,
+          "abs_change": 0.12277752844484979,
+          "relative_change": 0.007347572308812555
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y02",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y02-m150",
+        "AP-2-APROPOS1-z03-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.267006568424993,
+          "fine": 16.819826518551583,
+          "abs_change": 0.5528199501265902,
+          "relative_change": 0.03286716123479944
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y03",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y03-m150",
+        "AP-2-APROPOS1-z03-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.047221592799183,
+          "fine": 16.944984352702054,
+          "abs_change": 0.10223724009712853,
+          "relative_change": 0.006033480938613304
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y04",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y04-m150",
+        "AP-2-APROPOS1-z03-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.80326464915368,
+          "fine": 16.854625952084096,
+          "abs_change": 0.05136130293041674,
+          "relative_change": 0.0030473119413288344
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y05",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y05-m150",
+        "AP-2-APROPOS1-z03-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.883607203125045,
+          "fine": 17.76498737974399,
+          "abs_change": 0.11861982338105648,
+          "relative_change": 0.006677169020469403
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y06",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y06-m150",
+        "AP-2-APROPOS1-z03-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 18.32711543749202,
+          "fine": 17.658230427854722,
+          "abs_change": 0.6688850096372967,
+          "relative_change": 0.03787950397238976
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y07",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y07-m150",
+        "AP-2-APROPOS1-z03-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.668751631715608,
+          "fine": 18.13584600081345,
+          "abs_change": 0.4670943690978433,
+          "relative_change": 0.025755311832538312
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y08",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y08-m150",
+        "AP-2-APROPOS1-z03-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 18.679850575616133,
+          "fine": 18.766157038492945,
+          "abs_change": 0.08630646287681287,
+          "relative_change": 0.004599048313396395
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y09",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y09-m150",
+        "AP-2-APROPOS1-z03-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 18.942459481015817,
+          "fine": 19.569432845614156,
+          "abs_change": 0.6269733645983386,
+          "relative_change": 0.032038402417924654
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y10",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y10-m150",
+        "AP-2-APROPOS1-z03-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 21.395292005514232,
+          "fine": 20.762257226663838,
+          "abs_change": 0.6330347788503943,
+          "relative_change": 0.03048968962957564
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y11",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y11-m150",
+        "AP-2-APROPOS1-z03-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 22.429614130456297,
+          "fine": 22.434322259598098,
+          "abs_change": 0.004708129141800299,
+          "relative_change": 0.00020986277576475553
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y12",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y12-m150",
+        "AP-2-APROPOS1-z03-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 23.266656200866958,
+          "fine": 23.0802151262106,
+          "abs_change": 0.18644107465635784,
+          "relative_change": 0.008077960869811376
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z03-y13",
+      "jobs": [
+        "AP-2-APROPOS1-z03-y13-m150",
+        "AP-2-APROPOS1-z03-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 21.87500890587663,
+          "fine": 22.28664635945437,
+          "abs_change": 0.4116374535777396,
+          "relative_change": 0.018470138886693292
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y01",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y01-m150",
+        "AP-2-APROPOS1-z04-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 14.98368070840586,
+          "fine": 15.26912047939804,
+          "abs_change": 0.28543977099218054,
+          "relative_change": 0.01869392355488399
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y02",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y02-m150",
+        "AP-2-APROPOS1-z04-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.5345367434308,
+          "fine": 15.007581791490072,
+          "abs_change": 0.5269549519407288,
+          "relative_change": 0.03511258237749765
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y03",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y03-m150",
+        "AP-2-APROPOS1-z04-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.420735563394723,
+          "fine": 15.008799996590497,
+          "abs_change": 0.4119355668042264,
+          "relative_change": 0.027446269315188725
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y04",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y04-m150",
+        "AP-2-APROPOS1-z04-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.635338725971724,
+          "fine": 15.138232720122975,
+          "abs_change": 0.49710600584874953,
+          "relative_change": 0.03283778331587912
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y05",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y05-m150",
+        "AP-2-APROPOS1-z04-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.027852672314006,
+          "fine": 15.506488359329362,
+          "abs_change": 0.4786356870153554,
+          "relative_change": 0.030866800781969947
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y06",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y06-m150",
+        "AP-2-APROPOS1-z04-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.297710358000215,
+          "fine": 15.39635547708065,
+          "abs_change": 0.0986451190804356,
+          "relative_change": 0.006407043486835627
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y07",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y07-m150",
+        "AP-2-APROPOS1-z04-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.11954264722255,
+          "fine": 15.460212501646192,
+          "abs_change": 0.6593301455763569,
+          "relative_change": 0.04264690058472042
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y08",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y08-m150",
+        "AP-2-APROPOS1-z04-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 15.466938476300369,
+          "fine": 15.931699586875249,
+          "abs_change": 0.4647611105748801,
+          "relative_change": 0.029172098559889784
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y09",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y09-m150",
+        "AP-2-APROPOS1-z04-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.46735097919244,
+          "fine": 16.07232562391662,
+          "abs_change": 0.39502535527581983,
+          "relative_change": 0.024577983579924335
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y10",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y10-m150",
+        "AP-2-APROPOS1-z04-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 16.910990467073468,
+          "fine": 16.852100085447145,
+          "abs_change": 0.05889038162632332,
+          "relative_change": 0.003494542598710228
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y11",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y11-m150",
+        "AP-2-APROPOS1-z04-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.807393070745093,
+          "fine": 17.81148456131737,
+          "abs_change": 0.004091490572278644,
+          "relative_change": 0.00022971081148196162
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y12",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y12-m150",
+        "AP-2-APROPOS1-z04-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.95549806207213,
+          "fine": 17.99506531288366,
+          "abs_change": 0.039567250811529675,
+          "relative_change": 0.0021987833955346243
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS1-z04-y13",
+      "jobs": [
+        "AP-2-APROPOS1-z04-y13-m150",
+        "AP-2-APROPOS1-z04-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 17.673253154770176,
+          "fine": 17.655138695233767,
+          "abs_change": 0.018114459536409555,
+          "relative_change": 0.0010260162692066412
+        },
+        "CL": {
+          "coarse": 0.16393355358334138,
+          "fine": 0.16374336975012752,
+          "abs_change": 0.00019018383321386945,
+          "relative_change": 0.001161475017303541
+        },
+        "CD": {
+          "coarse": 0.009275799545659436,
+          "fine": 0.009274544515151964,
+          "abs_change": 1.255030507471902e-06,
+          "relative_change": 0.00013531990767002517
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y01",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y01-m150",
+        "AP-2-APROPOS4-z01-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.508635869857745,
+          "fine": 28.421287167472684,
+          "abs_change": 0.08734870238506076,
+          "relative_change": 0.003073354907198881
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y02",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y02-m150",
+        "AP-2-APROPOS4-z01-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.45473935338662,
+          "fine": 28.46076333877234,
+          "abs_change": 0.006023985385720465,
+          "relative_change": 0.00021165930491800754
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y03",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y03-m150",
+        "AP-2-APROPOS4-z01-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.379057554436308,
+          "fine": 28.399878362711213,
+          "abs_change": 0.02082080827490529,
+          "relative_change": 0.0007331301919321888
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y04",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y04-m150",
+        "AP-2-APROPOS4-z01-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.54388823222183,
+          "fine": 28.413013943467444,
+          "abs_change": 0.13087428875438434,
+          "relative_change": 0.0046061388987025855
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y05",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y05-m150",
+        "AP-2-APROPOS4-z01-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.330107139814157,
+          "fine": 28.435089156928587,
+          "abs_change": 0.10498201711443045,
+          "relative_change": 0.0036919883224227623
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y06",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y06-m150",
+        "AP-2-APROPOS4-z01-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.43915578693965,
+          "fine": 28.49219694869025,
+          "abs_change": 0.05304116175059903,
+          "relative_change": 0.0018616030854383542
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y07",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y07-m150",
+        "AP-2-APROPOS4-z01-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.409654781174307,
+          "fine": 28.486279674797476,
+          "abs_change": 0.07662489362316904,
+          "relative_change": 0.0026898877107831318
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y08",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y08-m150",
+        "AP-2-APROPOS4-z01-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.39372658727059,
+          "fine": 28.535547655742764,
+          "abs_change": 0.14182106847217568,
+          "relative_change": 0.004969978855255447
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y09",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y09-m150",
+        "AP-2-APROPOS4-z01-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.48999599074505,
+          "fine": 28.56335012677104,
+          "abs_change": 0.07335413602599061,
+          "relative_change": 0.0025681208856953843
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y10",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y10-m150",
+        "AP-2-APROPOS4-z01-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.63853924268541,
+          "fine": 28.60834196322843,
+          "abs_change": 0.030197279456981363,
+          "relative_change": 0.0010555410549760369
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y11",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y11-m150",
+        "AP-2-APROPOS4-z01-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.65647694682605,
+          "fine": 28.687250914156035,
+          "abs_change": 0.03077396732998494,
+          "relative_change": 0.0010727402016342804
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y12",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y12-m150",
+        "AP-2-APROPOS4-z01-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.911968851564623,
+          "fine": 28.920780010858913,
+          "abs_change": 0.008811159294289439,
+          "relative_change": 0.00030466534066443245
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z01-y13",
+      "jobs": [
+        "AP-2-APROPOS4-z01-y13-m150",
+        "AP-2-APROPOS4-z01-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.923187483408576,
+          "fine": 28.92212211763075,
+          "abs_change": 0.0010653657778263437,
+          "relative_change": 3.683567109955957e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y01",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y01-m150",
+        "AP-2-APROPOS4-z02-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.85393295838271,
+          "fine": 29.130776540568853,
+          "abs_change": 0.7231564178138576,
+          "relative_change": 0.024824481311260513
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y02",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y02-m150",
+        "AP-2-APROPOS4-z02-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.991076070614803,
+          "fine": 29.33022943170623,
+          "abs_change": 0.3391533610914266,
+          "relative_change": 0.011563269966268962
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y03",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y03-m150",
+        "AP-2-APROPOS4-z02-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.042595426633884,
+          "fine": 29.553222221447307,
+          "abs_change": 0.5106267948134224,
+          "relative_change": 0.017278210510759513
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y04",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y04-m150",
+        "AP-2-APROPOS4-z02-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.069655958812852,
+          "fine": 29.686504898266165,
+          "abs_change": 0.6168489394533125,
+          "relative_change": 0.020778766027432873
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y05",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y05-m150",
+        "AP-2-APROPOS4-z02-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.357299506443788,
+          "fine": 29.445464622098303,
+          "abs_change": 0.08816511565451535,
+          "relative_change": 0.002994183205665873
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y06",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y06-m150",
+        "AP-2-APROPOS4-z02-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.98111228635203,
+          "fine": 29.90183361213021,
+          "abs_change": 0.07927867422181833,
+          "relative_change": 0.0026512980859360255
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y07",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y07-m150",
+        "AP-2-APROPOS4-z02-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.62983668428681,
+          "fine": 30.036586024405736,
+          "abs_change": 0.5932506598810754,
+          "relative_change": 0.019750935056302314
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y08",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y08-m150",
+        "AP-2-APROPOS4-z02-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.435263532605617,
+          "fine": 30.427613590288043,
+          "abs_change": 0.007649942317573988,
+          "relative_change": 0.0002514144691260216
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y09",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y09-m150",
+        "AP-2-APROPOS4-z02-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.545661642085946,
+          "fine": 30.879876372628825,
+          "abs_change": 0.33421473054287887,
+          "relative_change": 0.010823059215325056
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y10",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y10-m150",
+        "AP-2-APROPOS4-z02-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 31.353932529980707,
+          "fine": 31.780779054568455,
+          "abs_change": 0.42684652458774863,
+          "relative_change": 0.013430964793369025
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y11",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y11-m150",
+        "AP-2-APROPOS4-z02-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 32.59043859088776,
+          "fine": 32.58748575973865,
+          "abs_change": 0.0029528311491091586,
+          "relative_change": 9.061242622029274e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y12",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y12-m150",
+        "AP-2-APROPOS4-z02-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 32.815625984527706,
+          "fine": 32.8147661392784,
+          "abs_change": 0.0008598452493089326,
+          "relative_change": 2.6202997932681312e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z02-y13",
+      "jobs": [
+        "AP-2-APROPOS4-z02-y13-m150",
+        "AP-2-APROPOS4-z02-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 32.23995898183833,
+          "fine": 32.23710021588892,
+          "abs_change": 0.00285876594940504,
+          "relative_change": 8.867937656489401e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y01",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y01-m150",
+        "AP-2-APROPOS4-z03-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.583022409647374,
+          "fine": 30.3380342570564,
+          "abs_change": 0.7550118474090262,
+          "relative_change": 0.024886643643808794
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y02",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y02-m150",
+        "AP-2-APROPOS4-z03-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.292379672703785,
+          "fine": 29.982499757830613,
+          "abs_change": 0.30987991487317146,
+          "relative_change": 0.010335359538933683
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y03",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y03-m150",
+        "AP-2-APROPOS4-z03-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.170582990938907,
+          "fine": 30.18041552360427,
+          "abs_change": 0.009832532665363658,
+          "relative_change": 0.00032579182541981835
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y04",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y04-m150",
+        "AP-2-APROPOS4-z03-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.492241342527116,
+          "fine": 30.475160982131797,
+          "abs_change": 0.017080360395318905,
+          "relative_change": 0.0005604682582426215
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y05",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y05-m150",
+        "AP-2-APROPOS4-z03-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.90516305599378,
+          "fine": 30.8739318427169,
+          "abs_change": 0.031231213276878833,
+          "relative_change": 0.0010115722686693115
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y06",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y06-m150",
+        "AP-2-APROPOS4-z03-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 31.699667920410853,
+          "fine": 31.135691839507828,
+          "abs_change": 0.563976080903025,
+          "relative_change": 0.018113491224479562
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y07",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y07-m150",
+        "AP-2-APROPOS4-z03-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 31.142847255606707,
+          "fine": 31.650653555686574,
+          "abs_change": 0.5078063000798672,
+          "relative_change": 0.01604410155974903
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y08",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y08-m150",
+        "AP-2-APROPOS4-z03-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 32.14832104795259,
+          "fine": 32.22805641170836,
+          "abs_change": 0.07973536375576629,
+          "relative_change": 0.002474097808976115
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y09",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y09-m150",
+        "AP-2-APROPOS4-z03-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 32.25218698488269,
+          "fine": 32.8512845506932,
+          "abs_change": 0.59909756581051,
+          "relative_change": 0.018236655704772686
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y10",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y10-m150",
+        "AP-2-APROPOS4-z03-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 33.55052737241238,
+          "fine": 34.10606743133985,
+          "abs_change": 0.5555400589274697,
+          "relative_change": 0.016288599090054794
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y11",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y11-m150",
+        "AP-2-APROPOS4-z03-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 35.17303283119082,
+          "fine": 35.00893496028748,
+          "abs_change": 0.1640978709033334,
+          "relative_change": 0.0046873139982544
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y12",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y12-m150",
+        "AP-2-APROPOS4-z03-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 35.32487478684621,
+          "fine": 35.320003745943595,
+          "abs_change": 0.004871040902614254,
+          "relative_change": 0.0001379116757079529
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z03-y13",
+      "jobs": [
+        "AP-2-APROPOS4-z03-y13-m150",
+        "AP-2-APROPOS4-z03-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 34.372989652189304,
+          "fine": 34.7348029110403,
+          "abs_change": 0.3618132588509937,
+          "relative_change": 0.010416447727590043
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y01",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y01-m150",
+        "AP-2-APROPOS4-z04-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.359119740873624,
+          "fine": 28.542699298926824,
+          "abs_change": 0.18357955805320003,
+          "relative_change": 0.006431751816132626
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y02",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y02-m150",
+        "AP-2-APROPOS4-z04-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.54104681695174,
+          "fine": 28.68926611897334,
+          "abs_change": 0.14821930202159805,
+          "relative_change": 0.005166367846669135
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y03",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y03-m150",
+        "AP-2-APROPOS4-z04-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.301460578973252,
+          "fine": 28.7806624951156,
+          "abs_change": 0.47920191614234753,
+          "relative_change": 0.016650135007270018
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y04",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y04-m150",
+        "AP-2-APROPOS4-z04-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.513804427722715,
+          "fine": 28.680682108202365,
+          "abs_change": 0.1668776804796508,
+          "relative_change": 0.005818469722933318
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y05",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y05-m150",
+        "AP-2-APROPOS4-z04-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.119794147109257,
+          "fine": 28.828514059610217,
+          "abs_change": 0.29128008749903955,
+          "relative_change": 0.010103888355006594
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y06",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y06-m150",
+        "AP-2-APROPOS4-z04-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.171666751245823,
+          "fine": 29.038478944029674,
+          "abs_change": 0.13318780721614942,
+          "relative_change": 0.004586597234409653
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y07",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y07-m150",
+        "AP-2-APROPOS4-z04-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.014900477967362,
+          "fine": 29.257534555219934,
+          "abs_change": 0.24263407725257125,
+          "relative_change": 0.008293045909067622
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y08",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y08-m150",
+        "AP-2-APROPOS4-z04-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.560078377492804,
+          "fine": 29.209730880153447,
+          "abs_change": 0.35034749733935655,
+          "relative_change": 0.011994204903044833
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y09",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y09-m150",
+        "AP-2-APROPOS4-z04-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 29.60931216746969,
+          "fine": 29.555484672382757,
+          "abs_change": 0.05382749508693152,
+          "relative_change": 0.00182123540464992
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y10",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y10-m150",
+        "AP-2-APROPOS4-z04-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.083277434295066,
+          "fine": 30.086987836788012,
+          "abs_change": 0.0037104024929455193,
+          "relative_change": 0.00012332249785432922
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y11",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y11-m150",
+        "AP-2-APROPOS4-z04-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.820717382458724,
+          "fine": 30.788903524323537,
+          "abs_change": 0.031813858135187445,
+          "relative_change": 0.0010332897405733914
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y12",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y12-m150",
+        "AP-2-APROPOS4-z04-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.92359032237197,
+          "fine": 30.922919685083958,
+          "abs_change": 0.0006706372880138645,
+          "relative_change": 2.168738575928697e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z04-y13",
+      "jobs": [
+        "AP-2-APROPOS4-z04-y13-m150",
+        "AP-2-APROPOS4-z04-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 30.662161236718966,
+          "fine": 30.660787511711415,
+          "abs_change": 0.001373725007550064,
+          "relative_change": 4.480397012064175e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y01",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y01-m150",
+        "AP-2-APROPOS4-z05-y01-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.71280262405844,
+          "fine": 28.713899199888935,
+          "abs_change": 0.001096575830494828,
+          "relative_change": 3.8189722087589886e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y02",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y02-m150",
+        "AP-2-APROPOS4-z05-y02-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.71317789414828,
+          "fine": 28.713759393258027,
+          "abs_change": 0.0005814991097459199,
+          "relative_change": 2.0251583980412384e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y03",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y03-m150",
+        "AP-2-APROPOS4-z05-y03-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713562576680236,
+          "fine": 28.713940199274138,
+          "abs_change": 0.00037762259390206054,
+          "relative_change": 1.3151193855018424e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y04",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y04-m150",
+        "AP-2-APROPOS4-z05-y04-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.712896208599602,
+          "fine": 28.713798130632686,
+          "abs_change": 0.0009019220330834798,
+          "relative_change": 3.141075342872471e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y05",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y05-m150",
+        "AP-2-APROPOS4-z05-y05-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713020478884758,
+          "fine": 28.713777332752954,
+          "abs_change": 0.000756853868196572,
+          "relative_change": 2.6358561586157152e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y06",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y06-m150",
+        "AP-2-APROPOS4-z05-y06-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713038620743408,
+          "fine": 28.713801151894728,
+          "abs_change": 0.0007625311513201893,
+          "relative_change": 2.655625938504044e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y07",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y07-m150",
+        "AP-2-APROPOS4-z05-y07-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713278815164497,
+          "fine": 28.713832178730936,
+          "abs_change": 0.0005533635664392023,
+          "relative_change": 1.9271672377088444e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y08",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y08-m150",
+        "AP-2-APROPOS4-z05-y08-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713240961012392,
+          "fine": 28.713897077330916,
+          "abs_change": 0.0006561163185239138,
+          "relative_change": 2.2850131305997657e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y09",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y09-m150",
+        "AP-2-APROPOS4-z05-y09-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713499001819628,
+          "fine": 28.713924225191526,
+          "abs_change": 0.0004252233718986531,
+          "relative_change": 1.4808960578282533e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y10",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y10-m150",
+        "AP-2-APROPOS4-z05-y10-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.713685928956743,
+          "fine": 28.713995013439533,
+          "abs_change": 0.0003090844827902117,
+          "relative_change": 1.0764245192824798e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y11",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y11-m150",
+        "AP-2-APROPOS4-z05-y11-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.714005844793807,
+          "fine": 28.7141135441691,
+          "abs_change": 0.00010769937529175877,
+          "relative_change": 3.7507470020306096e-06
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y12",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y12-m150",
+        "AP-2-APROPOS4-z05-y12-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.71463800517642,
+          "fine": 28.71424856825114,
+          "abs_change": 0.0003894369252783747,
+          "relative_change": 1.3562497529848946e-05
+        }
+      }
+    },
+    {
+      "coordinate_id": "APROPOS4-z05-y13",
+      "jobs": [
+        "AP-2-APROPOS4-z05-y13-m150",
+        "AP-2-APROPOS4-z05-y13-m300"
+      ],
+      "passed": null,
+      "acceptance_gate": null,
+      "scope": "Descriptive change at the same source-generated position; no family pass or new mesh gate.",
+      "status": "COMPARED",
+      "channels": {
+        "CL_CD_ratio": {
+          "coarse": 28.715145842286677,
+          "fine": 28.71409055956046,
+          "abs_change": 0.0010552827262166886,
+          "relative_change": 3.6751389497353533e-05
+        },
+        "CL": {
+          "coarse": 0.5544099309468,
+          "fine": 0.5543794323114235,
+          "abs_change": 3.049863537651909e-05,
+          "relative_change": 5.501400953740007e-05
+        },
+        "CD": {
+          "coarse": 0.01930723019802189,
+          "fine": 0.019306877616809662,
+          "abs_change": 3.5258121222625505e-07,
+          "relative_change": 1.826194888806245e-05
+        }
+      }
+    }
+  ],
+  "plot_statistics": {
+    "APROPOS1": {
+      "original_cells": 52,
+      "valid_pairs": 52,
+      "rmse": 5.924560799879644,
+      "maximum_absolute_error": 11.343297789175717
+    },
+    "APROPOS4": {
+      "original_cells": 65,
+      "valid_pairs": 65,
+      "rmse": 5.881857878333263,
+      "maximum_absolute_error": 12.713515048604894
+    }
+  },
+  "tests": {
+    "ap2_adapter": {
+      "passed": 18,
+      "seconds": 14.07,
+      "terminal_exit_code": 0,
+      "terminal_chunk": "a78e42",
+      "source": {
+        "path": "tests/test_isae_suite_ap2.py",
+        "bytes": 6596,
+        "sha256": "d01cf57501bc74535789704cc161f2f08acb12318b7b2e6cbe97464bceb775bc"
+      }
+    },
+    "runner_summary": {
+      "passed": 254,
+      "receipt": {
+        "path": "docs/validation/isae-suite-ap2-20261027/integration-receipt.json",
+        "bytes": 27606,
+        "sha256": "8e2ec646645a372bca57026e3bc3fc5a29b65d393b3ccfc7842b85e502075110"
+      }
+    },
+    "null_point_native": {
+      "passed": 152,
+      "evidence": "docs/validation/source-null-point-objects-20261027.md"
+    },
+    "null_point_WASM": {
+      "groups_passed": 6,
+      "standalone_equilibrium_solves": 0,
+      "evidence": "docs/validation/source-null-point-objects-20261027.md"
+    }
+  },
+  "next_scope": {
+    "family": "AE-1",
+    "status": "STAGED_UNREGISTERED_ONE_DIRECT_PILOT",
+    "positive_source_rows": 98,
+    "initial_unknown_rows": 2,
+    "channels": 6,
+    "meshes": [
+      40,
+      80
+    ],
+    "jobs": 200,
+    "scalar_slots": 1200,
+    "source_only_tests_passed": 43,
+    "source_only_test_seconds": 33.39,
+    "receipt": "docs/validation/isae-suite-ap2-20261027/ae1-staging/receipt.json",
+    "runtime_evidence": "One direct first-positive-row m40 pilot; complete registered sweeps not run.",
+    "independent_review": "Read-only review found no immediate runtime blocker; source math, conditions, gravity, sensor transforms and restoration inspected.",
+    "pilot": {
+      "id": "AE-1-a05-row002-m40",
+      "seconds": 10.011912742000277,
+      "status": "computed",
+      "physical_checks_passed": 29,
+      "finite_scalars": 6,
+      "printed_precision_matches": 2,
+      "operations": {
+        "cold_solves": 1,
+        "fresh_residuals": 1,
+        "retries": 0
+      },
+      "terminal_exit_code": 0,
+      "terminal_chunk": "c4be9e",
+      "result": "docs/validation/isae-suite-ap2-20261027/ae1-staging/ae1-pilot-result.json"
+    }
+  },
+  "provenance": [
+    {
+      "path": "artifacts/isae/ap2-20261027/plan.json",
+      "bytes": 13938640,
+      "sha256": "7f377d5ed6634956f8fc614478e23ff64d81f9f9e44663733590f13a56e44bf6"
+    },
+    {
+      "path": "artifacts/isae/ap2-20261027/report.json",
+      "bytes": 42399874,
+      "sha256": "c32e197d5d228f21dc667afaf929b7e807926966400667907fa1a1460089a677"
+    },
+    {
+      "path": "artifacts/isae/default-plan-ap2-20261027/plan.json",
+      "bytes": 83179349,
+      "sha256": "da10edb6cd326303cefa36c1ee55ae551507887774478e047e6b333dc7e77492"
+    },
+    {
+      "path": "docs/validation/isae-ap2-reference.json",
+      "bytes": 213126,
+      "sha256": "16244f64b1544dd88cd4faf809e25a4399dc18a24e4860948d6f01142d02a617"
+    },
+    {
+      "path": "docs/validation/isae-ap2-position-sweeps-20261027.json",
+      "bytes": 1868,
+      "sha256": "df1311987dc80440bbadcca105d18e0ae3b3e103ed102ab1cf0bab03c734afa0"
+    },
+    {
+      "path": "scripts/isae_suite_ap2.py",
+      "bytes": 28520,
+      "sha256": "6cb644c41c509f18d3c150fff55fe1ee4bccbadb359bf958c5e46594019c850b"
+    },
+    {
+      "path": "scripts/run-isae-suite.py",
+      "bytes": 32061,
+      "sha256": "52a01ee292b7b5aa9141123fe0d4f5c2db5b48d5d384566f2f16c58207e7482a"
+    },
+    {
+      "path": "scripts/summarize-isae-suite.py",
+      "bytes": 71185,
+      "sha256": "fc9663da39b9edd269c82cee61d5469345e95a3282f1046264dcad15e1d30c96"
+    }
+  ],
+  "independent_summary": {
+    "status": "RECORDED_WITH_OPEN_COMPARISONS",
+    "terminal_exit_code": 0,
+    "terminal_chunk": "2ca87e",
+    "evidence": {
+      "path": "artifacts/isae/ap2-summary-20261027/summary.json",
+      "bytes": 213643,
+      "sha256": "fe16b4bb0a6b4f3f269facf57fb26ecb7aa7d3e2b07d47fb17b03c82fa4fcd6a"
+    },
+    "audit": {
+      "path": "docs/validation/isae-suite-ap2-20261027/independent-audit.json",
+      "bytes": 70993,
+      "sha256": "1be3a7da47a899f889d7b6cf7b5406a51b4bc7e235cb41c418774f6deda0782a"
+    },
+    "qualification": "Selected AP2 batch; missing_adapters in a selected summary is not the global registry count."
+  },
+  "summary_performance_followup": {
+    "observation": "Repeated source validation reads at least535.9MB/33996 files; summary-local verified canonical contexts with fresh final unique-source checks planned for next integration.",
+    "weakening_provenance_allowed": false
+  }
+}

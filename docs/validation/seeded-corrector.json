@@ -1,0 +1,845 @@
+{
+  "status": "INTEGRATED_AND_VERIFIED",
+  "date": "2026-10-24",
+  "production_source_installed": true,
+  "production_integration_complete": true,
+  "scope": {
+    "path": "Eligible mounted saved-state equilibrium correction only",
+    "candidate_module_count": 108,
+    "iteration_method": "Existing complete sparse Newton matrix and exact beam elimination; all rows and unknowns retained",
+    "new_lagged_iteration_fields": false,
+    "final_tangent": "Original dense full tangent",
+    "rank_gate": 1e-10,
+    "physical_residual_gate": 1e-08,
+    "default_derivative_step_unchanged": true,
+    "exclusions": [
+      "Non-native or method-overridden StaticNetwork",
+      "Unmounted or absent aerodynamic condition",
+      "Operating unknowns/constraints, custom targets or allocation",
+      "Feedback/controller seed",
+      "Hinges/type-3 constraints, engines, struts or wires",
+      "Residual overrides or custom final tangent",
+      "Existing frequency geometry mode, IterationFields, tangent/load owner or residual-function factorization builder"
+    ],
+    "fallback": "Original dense Newton recovery remains for supported structured build, factor, direction or line-search failures; MemoryError and interruption propagate.",
+    "native_study_newton_tolerance": 1e-09,
+    "application_default_newton_tolerance": 1e-08
+  },
+  "tests": {
+    "selected_regressions": {
+      "candidate_unique_after_repair": 126,
+      "first_attempt_progress_pass_marks": 83,
+      "first_attempt_per_test_reports_available": false,
+      "remaining_flush_recorded_passes": 40,
+      "replacement_tests_per_source": 3,
+      "baseline_replacement_passes": 3,
+      "first_attempt_timeout_and_failure_retained": true,
+      "evidence_limit": "First frozen recorder buffered detailed reports until pytest returned. It did not return before cap; q progress marks provide order/count evidence, not retained per-test assertions. Follow-up recorder flushes every phase. No old test is weakened."
+    },
+    "controls": {
+      "passed": 43,
+      "total": 43,
+      "original_pytest_exit_code": 0,
+      "original_wrapper_exit_code": 1,
+      "original_wrapper_failure_retained": true,
+      "saved_only_count_review_checks": {
+        "passed": 33,
+        "total": 33
+      },
+      "cause": "Recorder sampled session.testscollected in pytest_collection_finish; this installed pytest assigns len(items) only after that hook. XML and43unique call/setup/teardown reports independently confirm all assertions passed.",
+      "rerun": false
+    },
+    "small_native_pairs": {
+      "passed": 2,
+      "numeric_values": 4949,
+      "checks": {
+        "passed": 458,
+        "total": 458
+      },
+      "original_invalid_mirrored_mesh_setup_failure_retained": true
+    },
+    "wasm": {
+      "status": "PASS_ACTUAL_WASM_BOUNDED_VALIDATION",
+      "checks": {
+        "passed": 33,
+        "total": 33
+      },
+      "numeric_field_comparisons": 2236,
+      "scope": "Node-hosted Pyodide small fixture with eligible path and injected fallback; separate from application browser check"
+    },
+    "installed_source": {
+      "status": "PASS",
+      "placeholder": false,
+      "counts": {
+        "passed": 46,
+        "total": 46
+      },
+      "scope": "43 controls plus3 repaired hinge guard tests; these reruns are not added to the historical unique count.",
+      "source_manifest_pin": {
+        "bytes": 33626,
+        "sha256": "b152d71d7c6f15116950c2306b7d4b1412fbcbc1d310f42460d55682abaf7a41"
+      },
+      "native_execution_pin": {
+        "bytes": 659,
+        "sha256": "a528c287fd8b69e84cee2f54f80ad094d2ce6d8adef223402b4b5c1269e81f42"
+      },
+      "junit_pin": {
+        "bytes": 7024,
+        "sha256": "063750ff58d31d14fbc3d401b5fa89b46f5c34786d6e32c883fd98d0faacb4df"
+      }
+    },
+    "application_browser": {
+      "status": "PASS_TARGETED_BROWSER_SEEDED_CORRECTOR",
+      "placeholder": false,
+      "checks": {
+        "passed": 38,
+        "total": 38
+      },
+      "numeric_values": 2238,
+      "worker_module_count": 108,
+      "offline_requests": 0,
+      "receipt_pin": {
+        "bytes": 23433,
+        "sha256": "4a9e2ec190e051b71fab93b6b4ebf60d2957de12e0f1d98acf0f7069c88f9214"
+      },
+      "scope": "Original isolated candidate test app; final installed-source browser replay is separate.",
+      "limitations": [
+        "Warm offline operation after initial loading; WebGL2 disabled and SVG fallback exercised.",
+        "UI full snapshot residuals checked; no additional fresh-network residual call in this browser test.",
+        "Two selected mounted UI analyses; no performance, experimental validation, release or deployment claim.",
+        "Direct saved baseline used Newton1e-9; actual UI remains default1e-8, with unchanged physical parity gates.",
+        "Only exact declared gravity/mode configuration fields adapted in expected copies; raw artifacts retained."
+      ]
+    },
+    "installed_application_browser": {
+      "status": "PASS_TARGETED_BROWSER_SEEDED_CORRECTOR",
+      "placeholder": false,
+      "checks": {
+        "passed": 38,
+        "total": 38
+      },
+      "numeric_values": 2238,
+      "worker_module_count": 108,
+      "receipt_pin": {
+        "bytes": 23474,
+        "sha256": "a7da3aef08813d586d228b4c9270a8fcf96b4ec2711c25c90cd9f202bcd0716a"
+      },
+      "limitations": [
+        "Warm offline operation after initial loading; WebGL2 disabled and SVG fallback exercised.",
+        "UI full snapshot residuals checked; no additional fresh-network residual call in this browser test.",
+        "Two selected mounted UI analyses; no performance, experimental validation, release or deployment claim.",
+        "Direct saved baseline used Newton1e-9; actual UI remains default1e-8, with unchanged physical parity gates.",
+        "Only exact declared gravity/mode configuration fields adapted in expected copies; raw artifacts retained."
+      ]
+    },
+    "durable_wasm_regression": {
+      "status": "PASS_SEEDED_CORRECTOR_WASM",
+      "placeholder": false,
+      "checks": {
+        "passed": 27,
+        "total": 27
+      },
+      "operations": {
+        "network_constructions": 4,
+        "equilibrium_calls": 2,
+        "fresh_residual_calls": 2,
+        "result_evaluations": 2,
+        "injected_unavailable_calls": 1,
+        "derivative_calls": 0
+      },
+      "numeric_values": 2240,
+      "receipt_pin": {
+        "bytes": 179774,
+        "sha256": "fb42e733619aaf9c3eaee2ad484b4597dfcb23c962bf8cfc58ebc35e9a7d9450"
+      },
+      "execution_pin": {
+        "bytes": 325,
+        "sha256": "19815c68b116ee90b31076e84952704bb7f62f3852faa521cea03e9525cac2a9"
+      }
+    }
+  },
+  "large": {
+    "case": "20O-05-320-plus005",
+    "unknowns": 4172,
+    "nodes": 321,
+    "elements": 320,
+    "new_equilibrium_calls": 1,
+    "new_derivative_calls": 0,
+    "network_constructions": 2,
+    "numeric_values_compared": 49176,
+    "excluded_result_fields": [
+      "evaluations"
+    ],
+    "numeric_atol": 2e-08,
+    "numeric_rtol": 2e-08,
+    "maximum_absolute_numeric_difference": 1.3303261876834336e-14,
+    "native_Cl": {
+      "candidate": -1.1756502778071025e-05,
+      "baseline": -1.1756502778070283e-05,
+      "error": 7.420008617947671e-19,
+      "limit": 3.3513016903714935e-11,
+      "pass_": true,
+      "moment_source": "distributed_aero_moment[0]",
+      "dynamic_pressure_area": 310.3461733031819,
+      "reference_span": 1.2192
+    },
+    "fresh_full_residual": {
+      "maximum_absolute": 1.424312739385853e-11,
+      "limit": 1e-08,
+      "pass_": true
+    },
+    "source_owned_original_corrector_residual": {
+      "value": 1.424312739385853e-11,
+      "limit": 1e-08,
+      "pass_": true,
+      "independently_recomputed": false
+    },
+    "rank_evidence": "Source-owned final dense full-Jacobian SVD diagnostics; no stored spectrum and no independent rank refactorization.",
+    "source_owned_dense_rcond": 7.418987018225375e-08,
+    "candidate_equilibrium_residual_calls": 4498,
+    "baseline_equilibrium_residual_calls": 6423,
+    "residual_call_reduction_fraction": 0.29970418807410865,
+    "equilibrium_seconds": 102.68813127602334,
+    "final_dense_rank_seconds": 56.59487743899808,
+    "maximum_resident_set_kib": 544140,
+    "independent_audit_checks": {
+      "passed": 460,
+      "total": 460
+    },
+    "audit_prepared_after_launch_before_outcome_read": true,
+    "iteration_builds": 1,
+    "direction_calls": 2,
+    "dense_iteration_builds": 0,
+    "factor_wrappers_before_final_tangent": 0,
+    "controlled_wall_time_speedup_claim": false,
+    "total_peak_memory_improvement_claim": false
+  },
+  "failures_retained": {
+    "global_mesh": [
+      {
+        "observation_id": "20O-04",
+        "coarse_id": "20O-04-coarse",
+        "fine_id": "20O-04-fine",
+        "status": "FAIL",
+        "coarse_derivative": -0.0006642245865368195,
+        "fine_derivative": -0.0006507075477168842,
+        "relative_change": 0.020772832384320903,
+        "limit": 0.01,
+        "coarse_p": -0.8137789551087253,
+        "fine_p": -0.8140240903722965
+      },
+      {
+        "observation_id": "20O-05",
+        "coarse_id": "20O-05-coarse",
+        "fine_id": "20O-05-fine-reused",
+        "status": "FAIL",
+        "coarse_derivative": -0.0002414142308418781,
+        "fine_derivative": -0.00022531851051219313,
+        "relative_change": 0.07143541066864076,
+        "limit": 0.01,
+        "coarse_p": -0.944983949616963,
+        "fine_p": -0.9453432604343455
+      }
+    ],
+    "regional_mesh": [
+      {
+        "id": "patch-coarse",
+        "axis": "shared_intervals",
+        "coarse_id": "20O-05-coarse",
+        "fine_id": "20O-05-coarse-split-shared",
+        "status": "FAIL",
+        "coarse_intervals": 160,
+        "fine_intervals": 194,
+        "coarse_derivative": -0.0002414142308418781,
+        "fine_derivative": -0.00025008921826107083,
+        "signed_change": -8.674987419192735e-06,
+        "absolute_change": 8.674987419192735e-06,
+        "relative_change": 0.034687570617845755,
+        "limit": 0.01
+      },
+      {
+        "id": "patch-fine",
+        "axis": "shared_intervals",
+        "coarse_id": "20O-05-fine-reused",
+        "fine_id": "20O-05-fine-split-shared",
+        "status": "FAIL",
+        "coarse_intervals": 286,
+        "fine_intervals": 320,
+        "coarse_derivative": -0.00022531851051219313,
+        "fine_derivative": -0.00023513016903714936,
+        "signed_change": -9.811658524956223e-06,
+        "absolute_change": 9.811658524956223e-06,
+        "relative_change": 0.041728624468457855,
+        "limit": 0.01
+      },
+      {
+        "id": "outside-refined-patch",
+        "axis": "outside_shared_intervals",
+        "coarse_id": "20O-05-coarse-split-shared",
+        "fine_id": "20O-05-fine-split-shared",
+        "status": "FAIL",
+        "coarse_intervals": 194,
+        "fine_intervals": 320,
+        "coarse_derivative": -0.00025008921826107083,
+        "fine_derivative": -0.00023513016903714936,
+        "signed_change": 1.4959049223921478e-05,
+        "absolute_change": 1.4959049223921478e-05,
+        "relative_change": 0.06362028864768104,
+        "limit": 0.01
+      }
+    ],
+    "threshold": 0.01,
+    "coverage": {
+      "partial": 17,
+      "pending": 24,
+      "fully_validated": 0,
+      "AE_3": "pending"
+    },
+    "original_aswing_executable_available": false
+  },
+  "release": {
+    "isolated_test_app_built": true,
+    "isolated_test_kernel_modules": 108,
+    "local_public_kernel": {
+      "status": "UPDATED_VERIFIED",
+      "module_count": 108
+    },
+    "final_source_isolated_app_built": true,
+    "hosted_release_updated": false,
+    "raw_download_distributions_updated": false,
+    "pyodide_runtime_binaries_updated": false
+  },
+  "remaining": [
+    "Address the unchanged dense final tangent/rank cost and total-memory limit before larger full-mesh studies, retaining the existing acceptance criteria.",
+    "Resolve five retained mesh failures and match experimental setup and observables; no original ASWING reference executable is available.",
+    "Complete remaining ASWING functionality and browser validation in the requirements ledger. Hosted and downloadable releases have not been rebuilt by this change."
+  ],
+  "limitations": [
+    "One large candidate sample and an existing audited reference; timings are uncontrolled observations.",
+    "First regression timeout preserved83 progress pass marks without per-test detailed reports.",
+    "Controls pytest passed43 tests but its original recorder exited1; saved-only correction preserves that failure.",
+    "Original/corrector residual and dense-rank evidence are source-owned scalars; independent audit norms only the saved fresh full vector.",
+    "This optimization does not establish continuum convergence, experimental agreement, or full project completion."
+  ],
+  "input_pins": {
+    "/tmp/openswing-seeded-corrector-validation-20261024/large/report.json": {
+      "bytes": 1614007,
+      "sha256": "04ad8238cafd8ec1a4c5753cfaf1583682a79740ded948b8fab6e1729d10d3b3"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/large/audit/independent-review.json": {
+      "bytes": 102394,
+      "sha256": "d2d1b010e30ea5077dd937f8d168f5f51e20243058c1c7d9d8824fd00c38a6fe"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/large/audit/session-closeout.json": {
+      "bytes": 1424,
+      "sha256": "c76841273f5c3704e3c55c1caef7c07942eb2bf34adc21fd030b46bf50bb1f38"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/regressions/combined-report.json": {
+      "bytes": 2631,
+      "sha256": "7178b541b023042176320079d4a5f3ffcafad55a4ee989a94c1c8354974cb7ec"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/controls/completed-test-review.json": {
+      "bytes": 39727,
+      "sha256": "c9fc4d31391c2fbd8796b9ce7ac4ab8e199531dacd31a5cea1790f35d8c7db50"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/test-repair/report.json": {
+      "bytes": 37778,
+      "sha256": "705e78914148b6de1118be3122e39dbf236494aad924f98c3f6684b8e226b25b"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/paired/combined-report.json": {
+      "bytes": 68356,
+      "sha256": "45839b8e2cc7e0eeb16aa0afd10e5356a1890597131ea87afd9af4d75439eb5e"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/wasm/summary.json": {
+      "bytes": 6196,
+      "sha256": "e98513e830b63b2678dff0f85b22815bb2bc3be87b6be68bb116e4c67fa76cbc"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/app-build-closeout.json": {
+      "bytes": 160,
+      "sha256": "680233dacb863933a72afc075b7665844800be5f9f4d7d826a9f00b1253e002e"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration-prep/report.json": {
+      "bytes": 9672,
+      "sha256": "4926c972396adae25ea3c931191a32a79f273b172554f6e71a2a01f4794c1c5d"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/browser/summary.json": {
+      "bytes": 23433,
+      "sha256": "4a9e2ec190e051b71fab93b6b4ebf60d2957de12e0f1d98acf0f7069c88f9214"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/installed.json": {
+      "bytes": 33626,
+      "sha256": "b152d71d7c6f15116950c2306b7d4b1412fbcbc1d310f42460d55682abaf7a41"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/native-execution.json": {
+      "bytes": 659,
+      "sha256": "a528c287fd8b69e84cee2f54f80ad094d2ce6d8adef223402b4b5c1269e81f42"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/app-inputs.json": {
+      "bytes": 10151,
+      "sha256": "da87f34d342ad8e72a494ae639f02479829bdc7aaacf7b788280ab7ec6ee9dff"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/app/dist/kernel/manifest.json": {
+      "bytes": 2259,
+      "sha256": "f5885bc945ff22957008b0ea819445304ee681e76b7dc55b82514a9681c2ee21"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/native.xml": {
+      "bytes": 7024,
+      "sha256": "063750ff58d31d14fbc3d401b5fa89b46f5c34786d6e32c883fd98d0faacb4df"
+    },
+    "/tmp/openswing-ae3-320-finite-control-20261024/plan.json": {
+      "bytes": 58155,
+      "sha256": "ee148ec790e24226ba47fe31ad53629f11a5fa9ef0cc59af3f20089c977234aa"
+    },
+    "/tmp/openswing-ae3-320-finite-control-20261024/review/measurement/independent-postrun-review.json": {
+      "bytes": 172694,
+      "sha256": "d6ab90ba7fad48d6758749d0b6a0d90430058d40109adaa71aa5250c2d0be432"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/browser/summary.json": {
+      "bytes": 23474,
+      "sha256": "a7da3aef08813d586d228b4c9270a8fcf96b4ec2711c25c90cd9f202bcd0716a"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/wasm-results.json": {
+      "bytes": 179774,
+      "sha256": "fb42e733619aaf9c3eaee2ad484b4597dfcb23c962bf8cfc58ebc35e9a7d9450"
+    },
+    "/tmp/openswing-seeded-corrector-validation-20261024/integration/wasm-execution.json": {
+      "bytes": 325,
+      "sha256": "19815c68b116ee90b31076e84952704bb7f62f3852faa521cea03e9525cac2a9"
+    }
+  },
+  "full_goal_complete": false,
+  "source_modules": {
+    "__init__.py": {
+      "bytes": 100,
+      "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+    },
+    "asw.py": {
+      "bytes": 18778,
+      "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+    },
+    "geometry.py": {
+      "bytes": 11506,
+      "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+    },
+    "aero.py": {
+      "bytes": 62023,
+      "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+    },
+    "structure.py": {
+      "bytes": 7489,
+      "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+    },
+    "bridge.py": {
+      "bytes": 12029,
+      "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+    },
+    "network.py": {
+      "bytes": 61858,
+      "sha256": "a5675b511a40db0aed6e727b315077efc2f63164754f5ada2a1f6df7666dc492"
+    },
+    "inertia.py": {
+      "bytes": 11357,
+      "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+    },
+    "operating.py": {
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    "struts.py": {
+      "bytes": 1477,
+      "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+    },
+    "propulsion.py": {
+      "bytes": 9272,
+      "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+    },
+    "volume.py": {
+      "bytes": 9165,
+      "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+    },
+    "ground.py": {
+      "bytes": 4871,
+      "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+    },
+    "joints.py": {
+      "bytes": 2686,
+      "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+    },
+    "atmosphere.py": {
+      "bytes": 4215,
+      "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+    },
+    "kinematics.py": {
+      "bytes": 2561,
+      "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+    },
+    "derivatives.py": {
+      "bytes": 24933,
+      "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+    },
+    "recovery.py": {
+      "bytes": 7213,
+      "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+    },
+    "local_motion.py": {
+      "bytes": 13165,
+      "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+    },
+    "dynamic_inertia.py": {
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    "damping.py": {
+      "bytes": 1635,
+      "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+    },
+    "time_integration.py": {
+      "bytes": 46536,
+      "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+    },
+    "forcing.py": {
+      "bytes": 21844,
+      "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+    },
+    "gust.py": {
+      "bytes": 10381,
+      "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+    },
+    "linear_dynamics.py": {
+      "bytes": 72981,
+      "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+    },
+    "frequency_response.py": {
+      "bytes": 46509,
+      "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+    },
+    "sensors.py": {
+      "bytes": 10501,
+      "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+    },
+    "feedback.py": {
+      "bytes": 24602,
+      "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+    },
+    "control_tables.py": {
+      "bytes": 3801,
+      "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+    },
+    "steady_feedback.py": {
+      "bytes": 8132,
+      "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+    },
+    "control_expressions.py": {
+      "bytes": 5757,
+      "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+    },
+    "reduced_model.py": {
+      "bytes": 17492,
+      "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+    },
+    "rom_file.py": {
+      "bytes": 21226,
+      "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+    },
+    "stability.py": {
+      "bytes": 23781,
+      "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+    },
+    "equilibrium_state.py": {
+      "bytes": 17445,
+      "sha256": "63a3e2a78032b9d8e607ea24b6bfc052d18ad61638e9b0cd0d3c8cecc4f1b544"
+    },
+    "time_state.py": {
+      "bytes": 18892,
+      "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+    },
+    "time_initialization.py": {
+      "bytes": 9446,
+      "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+    },
+    "asw_edit.py": {
+      "bytes": 10879,
+      "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+    },
+    "trefftz.py": {
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    },
+    "circulation.py": {
+      "bytes": 5613,
+      "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+    },
+    "discretization.py": {
+      "bytes": 4802,
+      "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+    },
+    "initial_response.py": {
+      "bytes": 12115,
+      "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+    },
+    "descriptor_mass.py": {
+      "bytes": 10869,
+      "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+    },
+    "rom_initial.py": {
+      "bytes": 6195,
+      "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+    },
+    "nonlinear_initial.py": {
+      "bytes": 23838,
+      "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+    },
+    "radau_time.py": {
+      "bytes": 3880,
+      "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+    },
+    "flow_survey.py": {
+      "bytes": 9512,
+      "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+    },
+    "body_shoulders.py": {
+      "bytes": 3343,
+      "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+    },
+    "frequency_sweep.py": {
+      "bytes": 4776,
+      "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+    },
+    "reference_flow.py": {
+      "bytes": 3892,
+      "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+    },
+    "control_allocation.py": {
+      "bytes": 8411,
+      "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+    },
+    "custom_constraints.py": {
+      "bytes": 9749,
+      "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+    },
+    "distribution_curve.py": {
+      "bytes": 8796,
+      "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+    },
+    "circulation_solve.py": {
+      "bytes": 7012,
+      "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+    },
+    "gust_file.py": {
+      "bytes": 4716,
+      "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+    },
+    "frozen_influence.py": {
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    "rom_outputs.py": {
+      "bytes": 11136,
+      "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+    },
+    "time_accuracy.py": {
+      "bytes": 17505,
+      "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+    },
+    "root_diagnostics.py": {
+      "bytes": 4331,
+      "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+    },
+    "vector_ops.py": {
+      "bytes": 1749,
+      "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+    },
+    "initial_diagnostics.py": {
+      "bytes": 7346,
+      "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+    },
+    "position_history_checkpoint.py": {
+      "bytes": 9373,
+      "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+    },
+    "position_history_lift.py": {
+      "bytes": 10301,
+      "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+    },
+    "time_acceptance.py": {
+      "bytes": 5788,
+      "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+    },
+    "time_acceptance_validation.py": {
+      "bytes": 21446,
+      "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+    },
+    "time_cold_initial.py": {
+      "bytes": 10150,
+      "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+    },
+    "time_history.py": {
+      "bytes": 12251,
+      "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+    },
+    "time_saved_history.py": {
+      "bytes": 12034,
+      "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+    },
+    "time_transition_initial.py": {
+      "bytes": 6461,
+      "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+    },
+    "time_input_transition.py": {
+      "bytes": 2954,
+      "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+    },
+    "position_history_radau.py": {
+      "bytes": 3301,
+      "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+    },
+    "tangent_influences.py": {
+      "bytes": 15650,
+      "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+    },
+    "structured_static.py": {
+      "bytes": 39701,
+      "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+    },
+    "circulation_tangent.py": {
+      "bytes": 16610,
+      "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+    },
+    "structured_time.py": {
+      "bytes": 9364,
+      "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+    },
+    "sparse_rank.py": {
+      "bytes": 3362,
+      "sha256": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee"
+    },
+    "geometry_tangent.py": {
+      "bytes": 38029,
+      "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+    },
+    "equilibrium_tangent.py": {
+      "bytes": 4704,
+      "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+    },
+    "harmonic_structure.py": {
+      "bytes": 11685,
+      "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+    },
+    "output_fields.py": {
+      "bytes": 11902,
+      "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+    },
+    "output_derivatives.py": {
+      "bytes": 2159,
+      "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+    },
+    "vortex_tangent.py": {
+      "bytes": 26804,
+      "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+    },
+    "volume_tangent.py": {
+      "bytes": 12795,
+      "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+    },
+    "geometry_stencil.py": {
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    "support_outputs.py": {
+      "bytes": 6436,
+      "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+    },
+    "mechanical_tangent.py": {
+      "bytes": 6197,
+      "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+    },
+    "structural_outputs.py": {
+      "bytes": 7538,
+      "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+    },
+    "field_products.py": {
+      "bytes": 792,
+      "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+    },
+    "newton_structure.py": {
+      "bytes": 4108,
+      "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+    },
+    "geometry_field_partials.py": {
+      "bytes": 9598,
+      "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+    },
+    "geometry_partials.py": {
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    "gust_tangent.py": {
+      "bytes": 5382,
+      "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+    },
+    "local_rate_tangent.py": {
+      "bytes": 6125,
+      "sha256": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4"
+    },
+    "power_tangent.py": {
+      "bytes": 5710,
+      "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+    },
+    "applied_load_outputs.py": {
+      "bytes": 6251,
+      "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+    },
+    "structural_geometry.py": {
+      "bytes": 5810,
+      "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+    },
+    "local_geometry_matrix.py": {
+      "bytes": 8878,
+      "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+    },
+    "quiescent.py": {
+      "bytes": 5490,
+      "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+    },
+    "hinge_history.py": {
+      "bytes": 1989,
+      "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+    },
+    "legacy_hinge_state.py": {
+      "bytes": 6540,
+      "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+    },
+    "radau_tangent.py": {
+      "bytes": 4159,
+      "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+    },
+    "rigid_initial_rank.py": {
+      "bytes": 7327,
+      "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+    },
+    "beam_matching.py": {
+      "bytes": 3051,
+      "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+    },
+    "circulation_polish.py": {
+      "bytes": 5095,
+      "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+    },
+    "factored_influence.py": {
+      "bytes": 15112,
+      "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+    },
+    "derivative_cache.py": {
+      "bytes": 5250,
+      "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+    },
+    "derivative_circulation.py": {
+      "bytes": 5832,
+      "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+    },
+    "seeded_corrector.py": {
+      "bytes": 8018,
+      "sha256": "18f7e8d4d65a3bb2ab49c558d164f8279f34d419d240005d73a4865a63854b8f"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+...............................................FFF                       [100%]
+=================================== FAILURES ===================================
+_______ test_axes_do_not_change_mechanics_or_beam_frame_section_outputs ________
+
+    configurations = [with_sensor(model(), '1 1 1 .4 1.2 -.3 '+directions)
+                      for directions in ('1 0 0 0 0 1', '1 1 1 1 1 1')]
+    results = [solve_static(m, panels=4, gravity=[0, 0, 0], loads=[dict(beam=1, t=2, force=[1, 2, 3])])
+>              for m in configurations]
+
+tests/test_sensor_availability.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openswing/network.py:998: in solve_static
+    network = StaticNetwork(model, panels, condition, gravity, loads, motion, operating_constraints, strut_mode,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openswing.network.StaticNetwork object at 0x777c038590>
+model = Model(name='Network verification', source='Name\nNetwork verification\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n...d are unavailable; independent position, motion and speed outputs remain available.'], beam_interpolation='natural-v1')
+panels = 4, condition = None, gravity = [0, 0, 0]
+loads = [{'beam': 1, 't': 2, 'force': [1, 2, 3]}], motion = None
+operating_constraints = (), strut_mode = 'bilateral'
+allow_signed_point_weights = False, allow_signed_distributed_weights = False
+quiescent_density = None, mesh_recipe = 'accurate-arc-v2'
+
+    def __init__(self, model, panels, condition, gravity, loads, motion=None, operating_constraints=(), strut_mode="bilateral", *, allow_signed_point_weights=False, allow_signed_distributed_weights=False, quiescent_density=None, mesh_recipe=CURRENT_MESH_RECIPE):
+        from .sensors import validate_sensors
+        validate_sensors(model)
+        self.model, self.condition = model, condition
+        self.mesh_recipe = checked_recipe(mesh_recipe)
+        self.quiescent_density = None
+        if quiescent_density is not None:
+            from .quiescent import density_value, validate_model, stationary
+            self.quiescent_density = density_value(quiescent_density)
+            validate_model(model)
+            stationary(Motion() if motion is None else motion)
+            if condition is not None or operating_constraints or allow_signed_point_weights or allow_signed_distributed_weights:
+                raise AnalysisError('Quiescent network requires no FlightCondition, operating constraints or signed weights.')
+        self.panels = panels = normalize_discretization(panels, model)
+        self.loads = list(loads)
+        if model.diagnostics:
+>           raise AnalysisError("Resolve unrecognized input before structural analysis.")
+E           openswing.aero.AnalysisError: Resolve unrecognized input before structural analysis.
+
+openswing/network.py:62: AnalysisError
+_____ test_complex_speed_and_v_axis_angles_survive_missing_transverse_axes _____
+
+    configuration = with_sensor(oscillator(.02), '1 1 2 0 2 0 1 0 0 1 0 0')
+    condition = FlightCondition(speed=10, alpha=0, mach=0, sensor_flow='kinematic')
+    system, _ = make_system(configuration, condition, 4, gravity=[0, 0, 0])
+>   direction = np.zeros(system.size, dtype=complex)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_sensor_availability.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openswing/linear_dynamics.py:966: in make_system
+    n = network_class(model, panels, condition, gravity, loads, motion, constraints, strut_mode,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openswing.network.StaticNetwork object at 0x777c55e660>
+model = Model(name='Network verification', source='Name\nNetwork verification\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n...d are unavailable; independent position, motion and speed outputs remain available.'], beam_interpolation='natural-v1')
+panels = 4
+condition = FlightCondition(speed=10, alpha=0, beta=0.0, density=None, mach=0, rates=(0.0, 0.0, 0.0), acceleration=(0.0, 0.0, 0.0)... sensor_flow='kinematic', time=0.0, circulation_modes={}, aero_lag=True, wake_core_ratio=0.25, freeze_influences=False)
+gravity = [0, 0, 0], loads = (), motion = None, operating_constraints = []
+strut_mode = 'bilateral', allow_signed_point_weights = False
+allow_signed_distributed_weights = False, quiescent_density = None
+mesh_recipe = 'accurate-arc-v2'
+
+    def __init__(self, model, panels, condition, gravity, loads, motion=None, operating_constraints=(), strut_mode="bilateral", *, allow_signed_point_weights=False, allow_signed_distributed_weights=False, quiescent_density=None, mesh_recipe=CURRENT_MESH_RECIPE):
+        from .sensors import validate_sensors
+        validate_sensors(model)
+        self.model, self.condition = model, condition
+        self.mesh_recipe = checked_recipe(mesh_recipe)
+        self.quiescent_density = None
+        if quiescent_density is not None:
+            from .quiescent import density_value, validate_model, stationary
+            self.quiescent_density = density_value(quiescent_density)
+            validate_model(model)
+            stationary(Motion() if motion is None else motion)
+            if condition is not None or operating_constraints or allow_signed_point_weights or allow_signed_distributed_weights:
+                raise AnalysisError('Quiescent network requires no FlightCondition, operating constraints or signed weights.')
+        self.panels = panels = normalize_discretization(panels, model)
+        self.loads = list(loads)
+        if model.diagnostics:
+>           raise AnalysisError("Resolve unrecognized input before structural analysis.")
+E           openswing.aero.AnalysisError: Resolve unrecognized input before structural analysis.
+
+openswing/network.py:62: AnalysisError
+___ test_feedback_and_custom_trim_accept_position_but_reject_undefined_axes ____
+
+    from test_custom_constraints import setup, target, solve
+    configuration, condition = setup()
+    original = deepcopy(configuration.records['sensor'])
+    for sensor in configuration.records['sensor']:
+        sensor[6:] = [1, 0, 0, 1, 0, 0]
+    result = solve(configuration, condition, [target(value=.01)])
+    assert result['operating_values']['power.1'] == pytest.approx(5, abs=2e-7)
+    assert result['sensors'][1]['displacement_body'][1] == pytest.approx(.01, abs=1e-9)
+    for name in ('alpha', 'acceleration_sensor.y'):
+        with pytest.raises(AnalysisError, match='undefined'):
+            solve(configuration, condition, [target(f'sensor("2.{name}")')])
+    control = dict(commands={'RY[2]': 2.}, outputs=[dict(actuator='E1', terms=[dict(input='RY[2]', gain=-200)])])
+    system, _ = make_system(configuration, condition, 4, gravity=[0, 0, 0], controller=control)
+    assert system.base_report()['feedback']['measurements']['RY[2]'] == pytest.approx(2)
+    for selected in ('A[2]', 'Ay[2]', 'Ex[2]'):
+        bad = deepcopy(control); bad['outputs'][0]['terms'][0]['input'] = selected
+        with pytest.raises(AnalysisError, match='undefined'):
+>           make_system(configuration, condition, 4, gravity=[0, 0, 0], controller=bad)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: Regex pattern did not match.
+E             Expected regex: 'undefined'
+E             Actual message: 'Controller commands/integrals must contain finite values for selected measurements.'
+
+tests/test_sensor_availability.py:183: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_sensor_availability.py::test_axes_do_not_change_mechanics_or_beam_frame_section_outputs
+FAILED tests/test_sensor_availability.py::test_complex_speed_and_v_axis_angles_survive_missing_transverse_axes
+FAILED tests/test_sensor_availability.py::test_feedback_and_custom_trim_accept_position_but_reject_undefined_axes
+3 failed, 47 passed in 26.46s

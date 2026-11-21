@@ -1,0 +1,890 @@
+{
+  "description": "Independent heave/pitch plus empirical circulation-lag benchmark; not ASWING executable or experimental parity.",
+  "references": [
+    "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf"
+  ],
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "scripts/verify-modes.py": "bf5038303358006de30f7d4673af414959bfc3da427640b3d18876b0c611dab0",
+    "scripts/modal-benchmark.py": "f2d42dba7a0fbb7f6ba4cf1454d57059c3d6c5edb17fb932d36a4da406eb7085",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "4f99bc6b2ec18f042d3dfc3b850e1cfcb5c06bc72a618c896780c5a4fa614fec",
+    "openswing/asw.py": "34d8976e9a6884e2c02b89d8336f0ee6844255d1559250e0af2bfb7092127a0a",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "2b692fcf63dc760027263e248ef3a9b91d95e5806377c28ce128636c484bdb15",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "9c1823306fe644437f166ab00ba783268b4772dd891d98239ce0f978d78c7595",
+    "openswing/dynamic_inertia.py": "b1cddb73927953de87701f81bb4d126b475c9aef870b2cece8fee461b6fc934b",
+    "openswing/forcing.py": "eea8256b55254c38216670c5ee4d61f626b10f560f8cce36d1565e7de453b2d3",
+    "openswing/geometry.py": "49cc7e4183555b127c420b965cb9e59113e315c9493bf595da9aac46b6a555da",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "07c18e1b42e283d56722a6262de74582f4225148344350d72b5ace3e06e86a28",
+    "openswing/local_motion.py": "9bebb2afe18389d5fd05adbc6b7fe18606541593a12a446014316ee96ca67b98",
+    "openswing/network.py": "a79c66db76c0be4137ebc8ff2b00399d94e9fd97239d82a8a668a9c48b33bf07",
+    "openswing/operating.py": "80a8fe7b71056ea7a9b2546cba944532e20c6b4a09d6a4b288562a6bf375b3c3",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_integration.py": "1006f428314ed8c7c4ecdb4a07d075cae3d2b37624db3d54ce2632a12434233e",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031"
+  },
+  "independent_two_dimensional_flutter_speed": 48.62879488998448,
+  "cases": [
+    {
+      "span": 40,
+      "speed": 40,
+      "panels": 4,
+      "difference_step": 1e-06,
+      "rank_tolerance": 1e-09,
+      "requested_rank_tolerance": 1e-09,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n40 1 40\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-115453.53001942491 -57.29577951308232\n115453.53001942491 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 7548.082401099955 0 0 0 0 0 377.40412005499775 377.40412005499775 377.40412005499775\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 307876.08005179977\n1 0 0 1 307876.08005179977\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n20.0 0 20.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -14.700971690817926,
+          0.0
+        ],
+        [
+          -21.830944317732534,
+          0.0
+        ],
+        [
+          -4.066254023354644,
+          -23.436475232795072
+        ],
+        [
+          -4.066254023354644,
+          23.436475232795075
+        ],
+        [
+          -24.792293166259526,
+          0.0
+        ],
+        [
+          -25.139474419658665,
+          0.0
+        ],
+        [
+          -3.535096365638119,
+          44.38452182808602
+        ],
+        [
+          -3.5350963656381196,
+          -44.38452182808602
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -13.035835154034027,
+          0.0
+        ],
+        [
+          -3.888325155789703,
+          23.942423120316736
+        ],
+        [
+          -3.8883251557897025,
+          -23.942423120316732
+        ],
+        [
+          -3.9227615961979465,
+          44.155604098119724
+        ],
+        [
+          -3.9227615961979474,
+          -44.15560409811973
+        ]
+      ],
+      "root_absolute_errors": [
+        1.6651365367838995,
+        0.5363226144780521,
+        0.5363226144780522,
+        0.4502084606911859,
+        0.45020846069118264
+      ],
+      "maximum_2d_root_error": 1.6651365367838995,
+      "maximum_right_backward_error": 1.347323501644406e-16,
+      "maximum_left_backward_error": 1.0977439277374758e-16,
+      "diagnostics": {
+        "full_dimension": 184,
+        "finite_dimension": 8,
+        "eliminated_dimension": 176,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 8,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 1e-09,
+        "time_scale": 0.9996876464081228,
+        "finite_mass_reciprocal_condition": 7.413142360752616e-06,
+        "right_reduction": [
+          {
+            "dimension": 184,
+            "derivative_rank": 78,
+            "constraints": 106,
+            "smallest_derivative": 4.299491868367175e-08,
+            "largest_discarded_derivative": 9.992007221626409e-17,
+            "threshold": 1.548761932234525e-09,
+            "constraint_threshold": 1.5996970893053207e-07,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 78,
+            "derivative_rank": 20,
+            "constraints": 58,
+            "smallest_derivative": 4.299491868368327e-08,
+            "largest_discarded_derivative": 2.6062785981485857e-15,
+            "threshold": 1.548761932234525e-09,
+            "constraint_threshold": 1.4760075250054512e-07,
+            "largest_discarded_constraint": 7.635361169357887e-10
+          },
+          {
+            "dimension": 20,
+            "derivative_rank": 8,
+            "constraints": 12,
+            "smallest_derivative": 6.396030211678967e-06,
+            "largest_discarded_derivative": 2.3263782068184355e-12,
+            "threshold": 1.548761932234525e-09,
+            "constraint_threshold": 1.548761932234525e-09,
+            "largest_discarded_constraint": 5.5711283977077456e-14
+          },
+          {
+            "dimension": 8,
+            "derivative_rank": 8,
+            "constraints": 0,
+            "smallest_derivative": 6.395500699508966e-06,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 1.548761932234525e-09,
+            "constraint_threshold": 1.548761932234525e-09,
+            "largest_discarded_constraint": 1.268628542105158e-13
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      }
+    },
+    {
+      "span": 40,
+      "speed": 50,
+      "panels": 4,
+      "difference_step": 1e-06,
+      "rank_tolerance": 1e-09,
+      "requested_rank_tolerance": 1e-09,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n40 1 40\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-115453.53001942491 -57.29577951308232\n115453.53001942491 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 7548.082401099955 0 0 0 0 0 377.40412005499775 377.40412005499775 377.40412005499775\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 307876.08005179977\n1 0 0 1 307876.08005179977\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n20.0 0 20.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -12.40099344773662,
+          0.0
+        ],
+        [
+          -27.288680397167074,
+          0.0
+        ],
+        [
+          -30.91841592693801,
+          0.0
+        ],
+        [
+          -31.424343024573815,
+          0.0
+        ],
+        [
+          0.7729081765757558,
+          32.44995145290822
+        ],
+        [
+          0.7729081765757558,
+          -32.44995145290822
+        ],
+        [
+          -13.298182011151557,
+          32.04605481041162
+        ],
+        [
+          -13.298182011151557,
+          -32.046054810411604
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -14.287915925848727,
+          33.60160738617484
+        ],
+        [
+          -14.287915925848727,
+          -33.60160738617484
+        ],
+        [
+          1.5655325021947228,
+          31.603532204662862
+        ],
+        [
+          1.565532502194723,
+          -31.60353220466286
+        ],
+        [
+          -10.377743975203545,
+          0.0
+        ]
+      ],
+      "root_absolute_errors": [
+        1.8437236880469323,
+        1.8437236880469445,
+        1.1596028912361183,
+        1.159602891236121,
+        2.0232494725330756
+      ],
+      "maximum_2d_root_error": 2.0232494725330756,
+      "maximum_right_backward_error": 8.076754241496612e-15,
+      "maximum_left_backward_error": 1.1296396783636187e-16,
+      "diagnostics": {
+        "full_dimension": 184,
+        "finite_dimension": 8,
+        "eliminated_dimension": 176,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 8,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 1e-09,
+        "time_scale": 1.2496095580101536,
+        "finite_mass_reciprocal_condition": 7.402569499691951e-06,
+        "right_reduction": [
+          {
+            "dimension": 184,
+            "derivative_rank": 78,
+            "constraints": 106,
+            "smallest_derivative": 4.299491868368585e-08,
+            "largest_discarded_derivative": 9.992007221626409e-17,
+            "threshold": 1.5486202478378176e-09,
+            "constraint_threshold": 1.5995507452397104e-07,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 78,
+            "derivative_rank": 20,
+            "constraints": 58,
+            "smallest_derivative": 4.299491868368332e-08,
+            "largest_discarded_derivative": 3.746456970150923e-15,
+            "threshold": 1.5486202478378176e-09,
+            "constraint_threshold": 1.4793282954156753e-07,
+            "largest_discarded_constraint": 8.290758126951919e-11
+          },
+          {
+            "dimension": 20,
+            "derivative_rank": 8,
+            "constraints": 12,
+            "smallest_derivative": 6.396030211679096e-06,
+            "largest_discarded_derivative": 1.0107111950339932e-10,
+            "threshold": 1.5486202478378176e-09,
+            "constraint_threshold": 1.5486202478378176e-09,
+            "largest_discarded_constraint": 1.9053011357880617e-13
+          },
+          {
+            "dimension": 8,
+            "derivative_rank": 8,
+            "constraints": 0,
+            "smallest_derivative": 6.395500699509079e-06,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 1.5486202478378176e-09,
+            "constraint_threshold": 1.5486202478378176e-09,
+            "largest_discarded_constraint": 4.385815688572119e-12
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      }
+    },
+    {
+      "span": 80,
+      "speed": 50,
+      "panels": 4,
+      "difference_step": 1e-06,
+      "rank_tolerance": 1e-10,
+      "requested_rank_tolerance": 1e-10,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n80 1 80\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-230907.06003884983 -57.29577951308232\n230907.06003884983 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 15096.16480219991 0 0 0 0 0 754.8082401099955 754.8082401099955 754.8082401099955\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 615752.1601035995\n1 0 0 1 615752.1601035995\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n40.0 0 40.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -11.360303673822324,
+          0.0
+        ],
+        [
+          -26.121798117767852,
+          0.0
+        ],
+        [
+          -27.724262687686267,
+          0.0
+        ],
+        [
+          -28.031175191516645,
+          0.0
+        ],
+        [
+          1.1930093856036121,
+          -31.998450230169095
+        ],
+        [
+          1.1930093856036117,
+          31.998450230169098
+        ],
+        [
+          -13.853011106868372,
+          32.86530827910578
+        ],
+        [
+          -13.853011106868369,
+          -32.86530827910578
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -14.287915925848727,
+          33.60160738617484
+        ],
+        [
+          -14.287915925848727,
+          -33.60160738617484
+        ],
+        [
+          1.5655325021947228,
+          31.603532204662862
+        ],
+        [
+          1.565532502194723,
+          -31.60353220466286
+        ],
+        [
+          -10.377743975203545,
+          0.0
+        ]
+      ],
+      "root_absolute_errors": [
+        0.8551482775770691,
+        0.8551482775770709,
+        0.5428938379319649,
+        0.5428938379319648,
+        0.982559698618779
+      ],
+      "maximum_2d_root_error": 0.982559698618779,
+      "maximum_right_backward_error": 1.2178183062422659e-15,
+      "maximum_left_backward_error": 1.0287134198818674e-16,
+      "diagnostics": {
+        "full_dimension": 184,
+        "finite_dimension": 8,
+        "eliminated_dimension": 176,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 8,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 1e-10,
+        "time_scale": 0.6249511775963009,
+        "finite_mass_reciprocal_condition": 9.257260602295965e-07,
+        "right_reduction": [
+          {
+            "dimension": 184,
+            "derivative_rank": 78,
+            "constraints": 106,
+            "smallest_derivative": 5.378182952536773e-09,
+            "largest_discarded_derivative": 9.992007221626408e-17,
+            "threshold": 1.5485493831104375e-10,
+            "constraint_threshold": 1.2786736301615501e-06,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 78,
+            "derivative_rank": 20,
+            "constraints": 58,
+            "smallest_derivative": 5.378182952536976e-09,
+            "largest_discarded_derivative": 3.4019807629642943e-15,
+            "threshold": 1.5485493831104375e-10,
+            "constraint_threshold": 1.1871904825789545e-06,
+            "largest_discarded_constraint": 1.168114811294144e-09
+          },
+          {
+            "dimension": 20,
+            "derivative_rank": 8,
+            "constraints": 12,
+            "smallest_derivative": 8.00072823081928e-07,
+            "largest_discarded_derivative": 3.66544130277889e-11,
+            "threshold": 1.5485493831104375e-10,
+            "constraint_threshold": 7.568341906171062e-09,
+            "largest_discarded_constraint": 5.937489765461278e-14
+          },
+          {
+            "dimension": 8,
+            "derivative_rank": 8,
+            "constraints": 0,
+            "smallest_derivative": 8.000562547288792e-07,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 1.5485493831104375e-10,
+            "constraint_threshold": 5.80312058296867e-09,
+            "largest_discarded_constraint": 1.510398043398325e-12
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      }
+    },
+    {
+      "span": 160,
+      "speed": 50,
+      "panels": 4,
+      "difference_step": 1e-06,
+      "rank_tolerance": 1e-11,
+      "requested_rank_tolerance": 1e-11,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n160 1 160\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-461814.12007769966 -57.29577951308232\n461814.12007769966 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 30192.32960439982 0 0 0 0 0 1509.616480219991 1509.616480219991 1509.616480219991\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 1231504.320207199\n1 0 0 1 1231504.320207199\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n80.0 0 80.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -10.860840465805975,
+          0.0
+        ],
+        [
+          -25.555165028985233,
+          0.0
+        ],
+        [
+          -26.305069502759014,
+          0.0
+        ],
+        [
+          -26.469017981382542,
+          0.0
+        ],
+        [
+          1.3856039306648205,
+          -31.794302496621224
+        ],
+        [
+          1.3856039306648207,
+          31.794302496621235
+        ],
+        [
+          -14.084753860551992,
+          33.24494025319752
+        ],
+        [
+          -14.084753860551988,
+          -33.24494025319752
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -14.287915925848727,
+          33.60160738617484
+        ],
+        [
+          -14.287915925848727,
+          -33.60160738617484
+        ],
+        [
+          1.5655325021947228,
+          31.603532204662862
+        ],
+        [
+          1.565532502194723,
+          -31.60353220466286
+        ],
+        [
+          -10.377743975203545,
+          0.0
+        ]
+      ],
+      "root_absolute_errors": [
+        0.41047078887771954,
+        0.41047078887772137,
+        0.26223576252424813,
+        0.2622357625242433,
+        0.48309649060242954
+      ],
+      "maximum_2d_root_error": 0.48309649060242954,
+      "maximum_right_backward_error": 4.109661247129689e-17,
+      "maximum_left_backward_error": 3.8013812410235754e-16,
+      "diagnostics": {
+        "full_dimension": 184,
+        "finite_dimension": 8,
+        "eliminated_dimension": 176,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 8,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 1e-11,
+        "time_scale": 0.3124938966631831,
+        "finite_mass_reciprocal_condition": 1.1571135769086257e-07,
+        "right_reduction": [
+          {
+            "dimension": 184,
+            "derivative_rank": 78,
+            "constraints": 106,
+            "smallest_derivative": 6.723922684179493e-10,
+            "largest_discarded_derivative": 9.992007221626409e-17,
+            "threshold": 1.5485290676826786e-11,
+            "constraint_threshold": 1.0227438392697278e-05,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 78,
+            "derivative_rank": 20,
+            "constraints": 58,
+            "smallest_derivative": 6.723922684187237e-10,
+            "largest_discarded_derivative": 2.0257141421562736e-15,
+            "threshold": 1.5485290676826786e-11,
+            "constraint_threshold": 9.510158228104803e-06,
+            "largest_discarded_constraint": 1.332696856753166e-08
+          },
+          {
+            "dimension": 20,
+            "derivative_rank": 9,
+            "constraints": 11,
+            "smallest_derivative": 2.6313494580728626e-11,
+            "largest_discarded_derivative": 1.7156624636462736e-15,
+            "threshold": 1.5485290676826786e-11,
+            "constraint_threshold": 0.0002301745740734803,
+            "largest_discarded_constraint": 3.382263016055617e-06
+          },
+          {
+            "dimension": 9,
+            "derivative_rank": 8,
+            "constraints": 1,
+            "smallest_derivative": 1.0002638038377299e-07,
+            "largest_discarded_derivative": 1.1604827073542552e-15,
+            "threshold": 1.5485290676826786e-11,
+            "constraint_threshold": 4.646547132975139e-08,
+            "largest_discarded_constraint": 2.545339063676965e-13
+          },
+          {
+            "dimension": 8,
+            "derivative_rank": 8,
+            "constraints": 0,
+            "smallest_derivative": 1.0002638038181645e-07,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 1.5485290676826786e-11,
+            "constraint_threshold": 4.6465449099340746e-08,
+            "largest_discarded_constraint": 2.7644785511849056e-13
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      }
+    },
+    {
+      "span": 160,
+      "speed": 50,
+      "panels": 4,
+      "difference_step": 2e-06,
+      "rank_tolerance": 3e-12,
+      "requested_rank_tolerance": 3e-12,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n160 1 160\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-461814.12007769966 -57.29577951308232\n461814.12007769966 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 30192.32960439982 0 0 0 0 0 1509.616480219991 1509.616480219991 1509.616480219991\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 1231504.320207199\n1 0 0 1 1231504.320207199\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n80.0 0 80.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -10.86084046581533,
+          0.0
+        ],
+        [
+          -25.555165028985183,
+          0.0
+        ],
+        [
+          -26.30506950275908,
+          0.0
+        ],
+        [
+          -26.469017981382535,
+          0.0
+        ],
+        [
+          1.385603930651396,
+          31.794302496639432
+        ],
+        [
+          1.385603930651396,
+          -31.794302496639435
+        ],
+        [
+          -14.084753860514992,
+          -33.244940253192446
+        ],
+        [
+          -14.084753860514997,
+          33.244940253192446
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -14.287915925848727,
+          33.60160738617484
+        ],
+        [
+          -14.287915925848727,
+          -33.60160738617484
+        ],
+        [
+          1.5655325021947228,
+          31.603532204662862
+        ],
+        [
+          1.565532502194723,
+          -31.60353220466286
+        ],
+        [
+          -10.377743975203545,
+          0.0
+        ]
+      ],
+      "root_absolute_errors": [
+        0.4104707889004382,
+        0.4104707889004409,
+        0.26223576254669706,
+        0.26223576254670244,
+        0.4830964906117856
+      ],
+      "maximum_2d_root_error": 0.4830964906117856,
+      "maximum_right_backward_error": 6.981040414848434e-17,
+      "maximum_left_backward_error": 9.230065075588214e-16,
+      "diagnostics": {
+        "full_dimension": 184,
+        "finite_dimension": 8,
+        "eliminated_dimension": 176,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 8,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 3e-12,
+        "time_scale": 0.3124938966631831,
+        "finite_mass_reciprocal_condition": 1.1571135769086042e-07,
+        "right_reduction": [
+          {
+            "dimension": 184,
+            "derivative_rank": 78,
+            "constraints": 106,
+            "smallest_derivative": 6.723922684169238e-10,
+            "largest_discarded_derivative": 9.992007221626409e-17,
+            "threshold": 4.645587203048043e-12,
+            "constraint_threshold": 1.0227438392712893e-05,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 78,
+            "derivative_rank": 20,
+            "constraints": 58,
+            "smallest_derivative": 6.723922684184405e-10,
+            "largest_discarded_derivative": 2.544208037581183e-15,
+            "threshold": 4.645587203048043e-12,
+            "constraint_threshold": 9.5101582281088e-06,
+            "largest_discarded_constraint": 1.4600454181773582e-08
+          },
+          {
+            "dimension": 20,
+            "derivative_rank": 8,
+            "constraints": 12,
+            "smallest_derivative": 1.0002689830788487e-07,
+            "largest_discarded_derivative": 2.4178041897196613e-12,
+            "threshold": 4.645587203048043e-12,
+            "constraint_threshold": 6.055068696485189e-08,
+            "largest_discarded_constraint": 2.9513278758241824e-13
+          },
+          {
+            "dimension": 8,
+            "derivative_rank": 8,
+            "constraints": 0,
+            "smallest_derivative": 1.0002638038181654e-07,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 4.645587203048043e-12,
+            "constraint_threshold": 4.646544909934294e-08,
+            "largest_discarded_constraint": 3.1004548523761816e-13
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      },
+      "maximum_step_rank_refinement_difference": 3.734241212496973e-11
+    },
+    {
+      "span": 40,
+      "speed": 50,
+      "panels": 8,
+      "difference_step": 1e-06,
+      "rank_tolerance": 1e-10,
+      "requested_rank_tolerance": 1e-10,
+      "rank_refinement_attempts": [],
+      "source": "! Original OpenSwing heave/pitch verification example.\nName\nHeave and pitch research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n40 1 40\nEnd\nGround\n1 0 0\nEnd\nJoint\n1 2 1 0 3\nEnd\nJangle\n1 0 1 0\n-115453.53001942491 -57.29577951308232\n115453.53001942491 57.29577951308232\nEnd\nWeight\n2 0 0.1 0 1 7548.082401099955 0 0 0 0 0 377.40412005499775 377.40412005499775 377.40412005499775\nEnd\nBeam 1\nMassless heave spring\nt x y z EA\n0 0 0 0 307876.08005179977\n1 0 0 1 307876.08005179977\nEnd\nBeam 2\nRigid symmetric wing\nt x y z chord Xax Cdf dCLda CLmax CLmin\n0 0 0 1 1 0.4 0 6.283185307179586 100 -100\n20.0 0 20.0 1 1 0.4 0 6.283185307179586 100 -100\nEnd\n",
+      "eigenvalues": [
+        [
+          -12.572690453797877,
+          0.0
+        ],
+        [
+          -27.790861466293713,
+          0.0
+        ],
+        [
+          -29.06978283169379,
+          0.0
+        ],
+        [
+          -30.105201904286588,
+          0.0
+        ],
+        [
+          -32.082661966181945,
+          0.0
+        ],
+        [
+          -32.208485820804434,
+          0.0
+        ],
+        [
+          0.4577850992408295,
+          32.56908460968416
+        ],
+        [
+          0.45778509924082955,
+          -32.56908460968416
+        ],
+        [
+          -12.75911094528145,
+          -31.916561775755095
+        ],
+        [
+          -12.759110945281451,
+          31.916561775755103
+        ],
+        [
+          -56.32984117586574,
+          0.0
+        ],
+        [
+          -56.387342603239055,
+          0.0
+        ]
+      ],
+      "two_dimensional_roots": [
+        [
+          -14.287915925848727,
+          33.60160738617484
+        ],
+        [
+          -14.287915925848727,
+          -33.60160738617484
+        ],
+        [
+          1.5655325021947228,
+          31.603532204662862
+        ],
+        [
+          1.565532502194723,
+          -31.60353220466286
+        ],
+        [
+          -10.377743975203545,
+          0.0
+        ]
+      ],
+      "root_absolute_errors": [
+        2.2752194131120933,
+        2.2752194131121,
+        1.4694882631697028,
+        1.4694882631697053,
+        2.194946478594332
+      ],
+      "maximum_2d_root_error": 2.2752194131121,
+      "maximum_right_backward_error": 1.9013758066165268e-16,
+      "maximum_left_backward_error": 2.1783863911552696e-16,
+      "diagnostics": {
+        "full_dimension": 332,
+        "finite_dimension": 12,
+        "eliminated_dimension": 320,
+        "method": "dense",
+        "requested_method": "dense",
+        "requested_count": 12,
+        "shift": [
+          -0.01,
+          0.0
+        ],
+        "rank_tolerance": 1e-10,
+        "time_scale": 1.2496095580101536,
+        "finite_mass_reciprocal_condition": 5.496926011058254e-06,
+        "right_reduction": [
+          {
+            "dimension": 332,
+            "derivative_rank": 138,
+            "constraints": 194,
+            "smallest_derivative": 6.410565141545968e-09,
+            "largest_discarded_derivative": 2.4759007075645956e-16,
+            "threshold": 1.5491476694072556e-10,
+            "constraint_threshold": 1.0731655466529213e-06,
+            "largest_discarded_constraint": 0.0
+          },
+          {
+            "dimension": 138,
+            "derivative_rank": 32,
+            "constraints": 106,
+            "smallest_derivative": 6.41056514153812e-09,
+            "largest_discarded_derivative": 3.412209666478883e-15,
+            "threshold": 1.5491476694072556e-10,
+            "constraint_threshold": 1.0315757165897395e-06,
+            "largest_discarded_constraint": 3.63492130796188e-08
+          },
+          {
+            "dimension": 32,
+            "derivative_rank": 13,
+            "constraints": 19,
+            "smallest_derivative": 5.358628597877001e-10,
+            "largest_discarded_derivative": 1.3881156559027521e-11,
+            "threshold": 1.5491476694072556e-10,
+            "constraint_threshold": 1.1560258642080834e-05,
+            "largest_discarded_constraint": 2.780645050308331e-07
+          },
+          {
+            "dimension": 13,
+            "derivative_rank": 12,
+            "constraints": 1,
+            "smallest_derivative": 4.746610367245631e-06,
+            "largest_discarded_derivative": 2.0922944441924008e-15,
+            "threshold": 1.5491476694072556e-10,
+            "constraint_threshold": 9.676974878262559e-10,
+            "largest_discarded_constraint": 9.152581890601437e-14
+          },
+          {
+            "dimension": 12,
+            "derivative_rank": 12,
+            "constraints": 0,
+            "smallest_derivative": 4.746610364478318e-06,
+            "largest_discarded_derivative": 0.0,
+            "threshold": 1.5491476694072556e-10,
+            "constraint_threshold": 9.676964678424392e-10,
+            "largest_discarded_constraint": 9.231622619537617e-14
+          }
+        ],
+        "left_recovery": "Matched full-pencil generalized Schur vectors, with checked null-space fallback and repeated-pole pairing"
+      }
+    }
+  ],
+  "limitations": [
+    "The 2D reference uses the published empirical lag, not Theodorsen aerodynamics or measured flutter.",
+    "Finite-span lag poles remain; only four structural and the collective lag pole have 2D counterparts.",
+    "Narrow supports with large span create weak inertias. Rank and tangent refinement are essential.",
+    "Automated full-model root tracking/flutter onset, sensors, closed-loop modes and ROMs remain pending."
+  ]
+}

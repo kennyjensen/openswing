@@ -1,0 +1,1599 @@
+{
+  "status": "BOUNDED_KERNEL_AND_GEOMETRY_PRECISION_DIAGNOSIS_COMPLETE",
+  "production_changed": false,
+  "new_equilibrium_solve": false,
+  "acceptance_threshold_changed": false,
+  "physical_settings_changed": false,
+  "experimental_acceptance_established": false,
+  "source_pins_sha256": "5279a3e01075505e0dbbc90597a9f9a7dafd010f13c75c9382752c34ef9b4371",
+  "module_count": 103,
+  "cases": [
+    {
+      "checkpoint": "00493",
+      "capture": {
+        "status": "EXACT_ROUNDED_INPUT_CAPTURE",
+        "checkpoint_sha256": "7d6793326ff6dfaede01dd3ec705cecffdaccff874555402bcfb2794b37c7bbf",
+        "state_sha256": "f47aff6ae3aed313b17f605e6aca81ea70b887bfb2a1ced152475214dfb7cf32",
+        "kernel_inputs_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "factor": 0.002772827599741824,
+        "condition": {
+          "speed": 22.0,
+          "alpha": 0.0,
+          "beta": 0.0,
+          "density": null,
+          "mach": null,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {
+            "1": 0.0
+          },
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "gravity_override": null,
+        "ground_flag": 0,
+        "engine_count": 0,
+        "frozen_influences": false,
+        "circulation_basis": {
+          "lifting_panels": 184,
+          "independent_unknowns": 184,
+          "beams": [
+            {
+              "beam": 1,
+              "representation": "pointwise",
+              "panels": 102,
+              "unknowns": 102,
+              "panel_start": 0,
+              "coefficient_start": 0,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            },
+            {
+              "beam": 2,
+              "representation": "pointwise",
+              "panels": 41,
+              "unknowns": 41,
+              "panel_start": 102,
+              "coefficient_start": 102,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            },
+            {
+              "beam": 3,
+              "representation": "pointwise",
+              "panels": 41,
+              "unknowns": 41,
+              "panel_start": 143,
+              "coefficient_start": 143,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            }
+          ],
+          "convention": "Material arc coordinate s in [-L/2,L/2]; theta=acos(2*arc/L-1), decreasing pi to zero. Gamma=sum A_k sin(k theta). Weighted residual=(2/pi) sum R_i sin(k theta_i) delta_theta_i.",
+          "scope": "Fourier modes are per logical lifting beam; refine mode count and structural intervals independently. Local flow defects need not vanish in a truncated series."
+        },
+        "size": 184,
+        "gamma_start": 2244,
+        "source_core_policy": "max(.25*chord,ds); zero for each target/source pair sharing physical beam index",
+        "hv_exclude_bound": "identity mask; tails retained",
+        "native_max": 1.3310968489060377e-12,
+        "native_limiting_row": 2346,
+        "modules": {
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c",
+          "linear_dynamics.py": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "steady_feedback.py": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "equilibrium_state.py": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab",
+          "time_state.py": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75",
+          "time_initialization.py": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_saved_history.py": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "tangent_influences.py": "789d432d63c75c275de95fece44d34fee0f47d9edf1838f90a85a7b76784cac5",
+          "structured_static.py": "be26035674747840a95b0c6fc3ab68478e19069ed4b489d95793103be1189dfe",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "sparse_rank.py": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "asw.py": "12437883a9d6da3c0fc99eb420ec839303068c49f401283b27a9503dc20a70fb",
+          "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+          "aero.py": "f84a8e1b0d72f3b9db5342dd13fd55eca4732ba82b24168d7fe990313c951fb8",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "network.py": "5c5b6c518d21e786ec636412558b26ade3e9859e6783ff7cec8f65f1e2577e0d",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "bridge.py": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "derivatives.py": "06eb1aa657b24254bb653d3013393c2129c247329fb1ec9ad0756b7da5f12321",
+          "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+          "radau_time.py": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2",
+          "flow_survey.py": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "frozen_influence.py": "4ea36dcceafe853e12ba47b4d31fda0f17635bb5c4b9b4ada2a10b1fc67d6203",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "output_fields.py": "f441a12f0b9f8c0f02cf0e56472a69ab4e568c58490182baa5e29740f90b0eac",
+          "geometry_tangent.py": "c465a9118d5a46b40db7abd1f80da0433373811587be070e45cd9de6c4f128ab",
+          "equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+          "circulation_tangent.py": "a7df91d9a80192e995096b8e3256a2168e09b55217761858a85990b2a05dbe7c",
+          "structured_time.py": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "vortex_tangent.py": "c2fc407d2d2183a341546f38c1e7bc099fc61e2dd74ed232ff148abd3a09ce0b",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "geometry_partials.py": "9d760de5c11c03349e715cc02e3902ed2a4773916d433db83e7a674495eeb66e",
+          "local_rate_tangent.py": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "legacy_hinge_state.py": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+        },
+        "runner_sha256": "e5d3418059e965297c9537f7c650930713ef56aed7fb3c1a8f813a4d689f610c",
+        "pg": [
+          [
+            1.0020974223683459,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "wind": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "source_core_min": 0.0195,
+        "source_core_max": 0.0195,
+        "physical_surfaces": [
+          1
+        ]
+      },
+      "longdouble": {
+        "status": "LONGDOUBLE_KERNEL_DIAGNOSTIC_COMPLETE",
+        "input_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "runner_sha256": "0ec7e4e1f392ab8cc458a1c5fe200889ee1d396b22a8a57882b7743448184bec",
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "mantissa_bits": 112,
+        "records": [
+          {
+            "variant": "high_precision_pg_transform",
+            "seconds": 0.33603849000064656,
+            "original_float_max": 7.356135902434537e-13,
+            "extended_max": 6.997756605435091e-13,
+            "original_float_peak": 2427,
+            "extended_peak": 2427,
+            "max_vcp_change": 9.769481735256448e-13,
+            "max_vhv_change": 1.8033805758110625e-11,
+            "rows": [
+              {
+                "panel": 102,
+                "row": 2346,
+                "beam": 2,
+                "t": 0.36405242553563083,
+                "native": -1.3310968489060377e-12,
+                "kernel_replaced_original_float_algebra": -4.0117404348000657e-13,
+                "fully_extended_algebra": -4.2587740011598806e-13
+              },
+              {
+                "panel": 183,
+                "row": 2427,
+                "beam": 3,
+                "t": -0.36405242553563083,
+                "native": 9.346866714953317e-13,
+                "kernel_replaced_original_float_algebra": 7.356135902434537e-13,
+                "fully_extended_algebra": 6.997756605435091e-13
+              }
+            ]
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "seconds": 0.304719923005905,
+            "original_float_max": 1.3080042099938345e-12,
+            "extended_max": 1.3351064076232389e-12,
+            "original_float_peak": 2346,
+            "extended_peak": 2346,
+            "max_vcp_change": 9.769478377306e-13,
+            "max_vhv_change": 2.503083283368852e-13,
+            "rows": [
+              {
+                "panel": 102,
+                "row": 2346,
+                "beam": 2,
+                "t": 0.36405242553563083,
+                "native": -1.3310968489060377e-12,
+                "kernel_replaced_original_float_algebra": -1.3080042099938345e-12,
+                "fully_extended_algebra": -1.3351064076232389e-12
+              },
+              {
+                "panel": 183,
+                "row": 2427,
+                "beam": 3,
+                "t": -0.36405242553563083,
+                "native": 9.346866714953317e-13,
+                "kernel_replaced_original_float_algebra": 9.42478418540883e-13,
+                "fully_extended_algebra": 9.166362622241485e-13
+              }
+            ]
+          }
+        ],
+        "scope": "Same already-rounded geometry, PG matrix, normal/span vectors, gamma and source-core radii. Identical principal-value guards and bound exclusion. No upstream geometry reevaluation or equilibrium solve."
+      },
+      "mp80": {
+        "status": "MP80_SELECTED_ROWS_COMPLETE",
+        "digits": 80,
+        "panels": [
+          0,
+          101,
+          102,
+          103,
+          142,
+          143,
+          182,
+          183
+        ],
+        "rows": [
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 0,
+            "row": 2244,
+            "native_residual": -1.2118588960612958e-13,
+            "mp80_residual": "-0.0000000000001055495752803094129325409418688581310426517963368579789855840194891298702058252573",
+            "longdouble_residual": -1.0554957528030941e-13,
+            "mp80_minus_longdouble": -1.8178759423634312e-32,
+            "max_vcp_mp_minus_ld": 9.860761315262648e-32,
+            "max_vhv_mp_minus_ld": 3.944304526105059e-31,
+            "seconds": 0.10183677099121269
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 101,
+            "row": 2345,
+            "native_residual": 4.887353148448752e-13,
+            "mp80_residual": "0.0000000000003373391182539783728245148256450970876437637361633552101728372082341727944690406469",
+            "longdouble_residual": 3.3733911825397835e-13,
+            "mp80_minus_longdouble": -3.527547900546591e-33,
+            "max_vcp_mp_minus_ld": 4.930380657631324e-32,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.10662799399869982
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 102,
+            "row": 2346,
+            "native_residual": -1.3310968489060377e-12,
+            "mp80_residual": "-0.0000000000004258774001159880856908087479325848676578519506434897255729717908650333243758307661",
+            "longdouble_residual": -4.2587740011598806e-13,
+            "mp80_minus_longdouble": 2.3348035281155038e-32,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 3.944304526105059e-31,
+            "seconds": 0.11394856800325215
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 103,
+            "row": 2347,
+            "native_residual": -5.722275234408824e-15,
+            "mp80_residual": "-0.00000000000001137786008283811230627421350382071518729831366974053651985459484545198487438086696",
+            "longdouble_residual": -1.1377860082838112e-14,
+            "mp80_minus_longdouble": -1.7190385353057152e-33,
+            "max_vcp_mp_minus_ld": 9.860761315262648e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.10782658899552189
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 142,
+            "row": 2386,
+            "native_residual": -1.1429588657190648e-13,
+            "mp80_residual": "-0.0000000000001144855685224790981046947162121902691382505828248460991752705011696520280048322819",
+            "longdouble_residual": -1.144855685224791e-13,
+            "mp80_minus_longdouble": 4.335211358816005e-34,
+            "max_vcp_mp_minus_ld": 7.888609052210118e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.10811525999451987
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 143,
+            "row": 2387,
+            "native_residual": -2.2033761847741704e-13,
+            "mp80_residual": "-0.0000000000002209072596564377613570058141448603216958602787755157441288145878558997824406640533",
+            "longdouble_residual": -2.2090725965643775e-13,
+            "mp80_minus_longdouble": 1.596575238977778e-35,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.10748867200163659
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 182,
+            "row": 2426,
+            "native_residual": 1.1243185369994658e-14,
+            "mp80_residual": "0.00000000000001297852579436710766177078954657523573926761919524804740127600156918491516738538132",
+            "longdouble_residual": 1.2978525794367108e-14,
+            "mp80_minus_longdouble": -5.179039875767844e-34,
+            "max_vcp_mp_minus_ld": 4.930380657631324e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.11279046900745016
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 183,
+            "row": 2427,
+            "native_residual": 9.346866714953317e-13,
+            "mp80_residual": "0.000000000000699775660543509137127710625635720391219262136919560833582582943955935968880700534",
+            "longdouble_residual": 6.997756605435091e-13,
+            "mp80_minus_longdouble": 1.9676804432714378e-32,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.10740296900621615
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 0,
+            "row": 2244,
+            "native_residual": -1.2118588960612958e-13,
+            "mp80_residual": "-0.0000000000001311460063830643298513664609508229001695443672777031554258712396669081848237737055",
+            "longdouble_residual": -1.3114600638306432e-13,
+            "mp80_minus_longdouble": 1.2414668033199028e-35,
+            "max_vcp_mp_minus_ld": 1.1832913578315177e-30,
+            "max_vhv_mp_minus_ld": 3.944304526105059e-31,
+            "seconds": 0.10045085899764672
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 101,
+            "row": 2345,
+            "native_residual": 4.887353148448752e-13,
+            "mp80_residual": "0.0000000000004972943692826464882771075540571410384340056506193783523258297005338871240877056109",
+            "longdouble_residual": 4.972943692826464e-13,
+            "mp80_minus_longdouble": 1.3241148742855021e-33,
+            "max_vcp_mp_minus_ld": 2.465190328815662e-32,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.10287864600832108
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 102,
+            "row": 2346,
+            "native_residual": -1.3310968489060377e-12,
+            "mp80_residual": "-0.000000000001335106407623238947682263447595041446792310850095509137648506945133243353234616376",
+            "longdouble_residual": -1.3351064076232389e-12,
+            "mp80_minus_longdouble": 1.3247784517334918e-32,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.12078914100129623
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 103,
+            "row": 2347,
+            "native_residual": -5.722275234408824e-15,
+            "mp80_residual": "-0.00000000000001137955448568183929618205901624216646439655486802433857276628979700010082748486242",
+            "longdouble_residual": -1.137955448568184e-14,
+            "mp80_minus_longdouble": 1.2830215775848908e-33,
+            "max_vcp_mp_minus_ld": 1.9721522630525295e-31,
+            "max_vhv_mp_minus_ld": 2.465190328815662e-32,
+            "seconds": 0.11914057299145497
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 142,
+            "row": 2386,
+            "native_residual": -1.1429588657190648e-13,
+            "mp80_residual": "-0.0000000000001144854505343732938731331179093364028120988542930392215802281929286956180190139726",
+            "longdouble_residual": -1.144854505343733e-13,
+            "mp80_minus_longdouble": -1.9190254541914474e-34,
+            "max_vcp_mp_minus_ld": 2.465190328815662e-32,
+            "max_vhv_mp_minus_ld": 4.930380657631324e-32,
+            "seconds": 0.11112820399284828
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 143,
+            "row": 2387,
+            "native_residual": -2.2033761847741704e-13,
+            "mp80_residual": "-0.0000000000002209072985555528169745992777551768233564280798199553485422523331393069551527803666",
+            "longdouble_residual": -2.2090729855555282e-13,
+            "mp80_minus_longdouble": 2.4004972571789384e-34,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.11446044300100766
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 182,
+            "row": 2426,
+            "native_residual": 1.1243185369994658e-14,
+            "mp80_residual": "0.00000000000001297743429866601838476207658295354700165798566951338267364892076299349352049741023",
+            "longdouble_residual": 1.2977434298666019e-14,
+            "mp80_minus_longdouble": 1.047647734905229e-33,
+            "max_vcp_mp_minus_ld": 9.860761315262648e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.1122915629966883
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 183,
+            "row": 2427,
+            "native_residual": 9.346866714953317e-13,
+            "mp80_residual": "0.0000000000009166362622241485713793745713405895493800467471682604432693173122050140593892445687",
+            "longdouble_residual": 9.166362622241485e-13,
+            "mp80_minus_longdouble": -2.861120260513137e-32,
+            "max_vcp_mp_minus_ld": 9.860761315262648e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.1127829430042766
+          }
+        ],
+        "controls": [
+          {
+            "name": "symmetric finite segment",
+            "error": "1.3177747429038154030435717564087523759637451727960634437597203781385180363712199e-82"
+          },
+          {
+            "name": "transverse semi-infinite",
+            "error": "0.0"
+          },
+          {
+            "name": "finite segment quadrature 2",
+            "error": "2.512008103660398112051808660654184216680889235642495939666966970826550006832638e-82"
+          },
+          {
+            "name": "finite segment quadrature -.7",
+            "error": "9.8833105717786155228267881730656428197280887959704758281979028360388852727841496e-83"
+          },
+          {
+            "name": "principal-value cutoff",
+            "value": "zero"
+          }
+        ],
+        "input_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "runner_sha256": "dae8f6dfbc740e5878b0e53f5065f2334ee84a67d1e22e56487fe9d9f699adac",
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "wheel_sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+        "longdouble_all_rows_sha256": "151b1a003e1517133eff0252aae47e363f3fca0350cac153fcc8ec7cd820167b",
+        "scope": "80-digit endpoints and kernels on exact binary float input values. Both limiting rows and six spanwise controls, each with all184 sources. Full184-row propagation is independently available in longdouble; MP80 is not a full184-target computation."
+      },
+      "relative_pg": {
+        "status": "RELATIVE_PG_ARITHMETIC_CONTROL",
+        "runner_sha256": "caaf6633b94adb325d503a4814b856333c2d5d1d90ed8ca98d252a88b3b2d71a",
+        "helper_sha256": "dcdfd57c5e686b7a07680d6443c12efc577559f07b6aabcf0be930baaee99e73",
+        "input_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "influence_metrics": [
+          {
+            "field": "vcp",
+            "native_error_vs_longdouble": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.872412011609975e-12,
+              "max_gamma_weighted_velocity_error": 1.1596275967641935e-13
+            },
+            "relative_pg_error_vs_longdouble": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.857615359983698e-12,
+              "max_gamma_weighted_velocity_error": 1.15862183096536e-13
+            },
+            "worst_native_index": [
+              0,
+              0,
+              2
+            ],
+            "worst_relative_index": [
+              0,
+              0,
+              2
+            ]
+          },
+          {
+            "field": "vhv",
+            "native_error_vs_longdouble": {
+              "max_absolute": 1.8033805758110625e-11,
+              "euclidean_norm": 3.9035667924880163e-11,
+              "max_gamma_weighted_velocity_error": 3.57429011924454e-12
+            },
+            "relative_pg_error_vs_longdouble": {
+              "max_absolute": 4.82027642857748e-13,
+              "euclidean_norm": 9.542920863767143e-13,
+              "max_gamma_weighted_velocity_error": 6.27818338593445e-14
+            },
+            "worst_native_index": [
+              101,
+              102,
+              2
+            ],
+            "worst_relative_index": [
+              143,
+              143,
+              2
+            ]
+          }
+        ],
+        "original_float_circulation_max": 7.37632177560954e-13,
+        "original_float_circulation_peak": 2427,
+        "rows": [
+          {
+            "row": 2346,
+            "native": -1.3310968489060377e-12,
+            "relative_pg": -4.0517084636865713e-13,
+            "longdouble_physical_coordinates": -4.2587740011598806e-13
+          },
+          {
+            "row": 2427,
+            "native": 9.346866714953317e-13,
+            "relative_pg": 7.37632177560954e-13,
+            "longdouble_physical_coordinates": 6.997756605435091e-13
+          }
+        ],
+        "scope": "Same rounded physical coordinates, source core/mask, native finite/semi-infinite kernels and original float64 circulation algebra. Only subtract-before-PG ordering changes. Residual movement alone is not an accuracy acceptance."
+      },
+      "relative_pg_error_comparison": {
+        "status": "RELATIVE_PG_VS_MP80_COMPARISON",
+        "checkpoint": "00493",
+        "panels": [
+          0,
+          101,
+          102,
+          103,
+          142,
+          143,
+          182,
+          183
+        ],
+        "sources_per_target": 184,
+        "fields": [
+          {
+            "field": "vcp",
+            "native": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.7796131539908029e-12,
+              "gamma_weighted_max": 1.1596275967641935e-13
+            },
+            "relative_pg": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.778851624599051e-12,
+              "gamma_weighted_max": 1.15862183096536e-13
+            },
+            "max_error_reduction_factor": 1.0,
+            "norm_error_reduction_factor": 1.0004281016928118,
+            "gamma_weighted_reduction_factor": 1.000868070816511
+          },
+          {
+            "field": "vhv",
+            "native": {
+              "max_absolute": 1.8033805758110625e-11,
+              "euclidean_norm": 3.8744931202414976e-11,
+              "gamma_weighted_max": 3.57429011924454e-12
+            },
+            "relative_pg": {
+              "max_absolute": 4.82027642857748e-13,
+              "euclidean_norm": 9.197398788651537e-13,
+              "gamma_weighted_max": 6.27818338593445e-14
+            },
+            "max_error_reduction_factor": 37.41238915510207,
+            "norm_error_reduction_factor": 42.12596636586148,
+            "gamma_weighted_reduction_factor": 56.931916440228996
+          }
+        ],
+        "source_inputs_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "mp80_values_sha256": "f4a3672587ac246e890d7904db4d4fa68f47789028792c724fce9af21a0a2c67",
+        "relative_pg_values_sha256": "4505363fba132c059e4df94824595a89322a7bb81c851329781e2667b5f80e08",
+        "runner_sha256": "242f029a6affbb10d237d99cba568a0f1621c33ec53d07bd68e7d1b0a942029e",
+        "caveat": "80-digit reference values are converted to113-bit longdouble for difference accumulation; measured errors are vastly larger than that conversion scale. Scope is both limiting rows plus six controls, all184 source columns; full184-target longdouble comparisons are separately retained. No residual acceptance inferred."
+      },
+      "upstream_geometry": {
+        "status": "UPSTREAM_GEOMETRY_RESIDUAL_DIAGNOSTIC",
+        "runner_sha256": "8da55b414ce587dded658f208cdd3cc8d546cf51c8bf15ac23e26673effbdc5b",
+        "geometry_sources": {
+          "check.py": "9351e5ebcba791eb10effec211eda642296523cf3c82091865d02f37e7afc39b",
+          "00493/geometry.npz": "3ed04c55dd84db4b3bdb581651a49ebe97b0972efb255153684762b23e520e79",
+          "00842/geometry.npz": "cfe4c6602c349fac529842b91825ce92fdcc31949ba2cf9990924148c124170a",
+          "mp-validation.json": "c1f5934856fee98a4756fcdefac0ee9aea23d3646b8ee66f2594660cedc7b808"
+        },
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "input_sha256": "2cf75ac3fd7bf336836b53276324355e9b3b6c84a168db74e81974762579a336",
+        "records": [
+          {
+            "variant": "extended_native_orientation",
+            "max_circulation_residual": 2.225327417050077e-12,
+            "limiting_row": 2427,
+            "row2346": 5.181576611745211e-13,
+            "row2427": 2.225327417050077e-12
+          },
+          {
+            "variant": "extended_full_orientation",
+            "max_circulation_residual": 2.4443193111306674e-12,
+            "limiting_row": 2346,
+            "row2346": 2.4443193111306674e-12,
+            "row2427": 2.0842993279669696e-12
+          },
+          {
+            "variant": "local_102",
+            "max_circulation_residual": 1.0735640605456778e-12,
+            "limiting_row": 2244,
+            "row2346": 2.441601439920014e-13,
+            "row2427": 7.454999911588892e-13
+          },
+          {
+            "variant": "local_183",
+            "max_circulation_residual": 4.104741448328241e-12,
+            "limiting_row": 2427,
+            "row2346": -4.072899881908133e-13,
+            "row2427": 4.104741448328241e-12
+          },
+          {
+            "variant": "local_extended_102",
+            "max_circulation_residual": 2.225327417050077e-12,
+            "limiting_row": 2427,
+            "row2346": 5.181576611745211e-13,
+            "row2427": 2.225327417050077e-12
+          },
+          {
+            "variant": "local_extended_183",
+            "max_circulation_residual": 2.225327417050077e-12,
+            "limiting_row": 2427,
+            "row2346": 5.181576611745211e-13,
+            "row2427": 2.225327417050077e-12
+          },
+          {
+            "variant": "local_full_extended_102",
+            "max_circulation_residual": 2.4443193111306674e-12,
+            "limiting_row": 2346,
+            "row2346": 2.4443193111306674e-12,
+            "row2427": 2.0842993279669696e-12
+          },
+          {
+            "variant": "local_full_extended_183",
+            "max_circulation_residual": 2.4443193111306674e-12,
+            "limiting_row": 2346,
+            "row2346": 2.4443193111306674e-12,
+            "row2427": 2.0842993279669696e-12
+          }
+        ],
+        "core_radii": "Exact capturedoriginalsource_core retained; reconstructed ds never changescore selection.",
+        "free_velocity": "Exact uniform22*[1,0,0] checked forcp/hv; unchanged.",
+        "scope": "Independently reconstructed geometry from the same stored double state; source properties, circulation and all physical settings remain fixed. All kernels and residual algebra in113-bit longdouble. Common-anchor variants are gauges for comparison, not changed physical locations. No nonlinear solve or accepted-equilibrium claim."
+      },
+      "extended_gauge_residual_differences": {
+        "extended_102": 1.294168895575295e-29,
+        "extended_183": 4.2130592956172776e-30,
+        "full_extended_102": 1.292327006210299e-29,
+        "full_extended_183": 4.210117875338577e-30
+      }
+    },
+    {
+      "checkpoint": "00842",
+      "capture": {
+        "status": "EXACT_ROUNDED_INPUT_CAPTURE",
+        "checkpoint_sha256": "5226778e105dbf5d94c3cbe9646fdd04ae518e79e760554952a1ebaea3545d95",
+        "state_sha256": "7312c10dd258015e034a87dd93b267080768a0c2a1d33e91d38448d8d6037482",
+        "kernel_inputs_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "factor": 0.0009730466260187014,
+        "condition": {
+          "speed": 22.0,
+          "alpha": 0.0,
+          "beta": 0.0,
+          "density": null,
+          "mach": null,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {
+            "1": 0.0
+          },
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "gravity_override": null,
+        "ground_flag": 0,
+        "engine_count": 0,
+        "frozen_influences": false,
+        "circulation_basis": {
+          "lifting_panels": 184,
+          "independent_unknowns": 184,
+          "beams": [
+            {
+              "beam": 1,
+              "representation": "pointwise",
+              "panels": 102,
+              "unknowns": 102,
+              "panel_start": 0,
+              "coefficient_start": 0,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            },
+            {
+              "beam": 2,
+              "representation": "pointwise",
+              "panels": 41,
+              "unknowns": 41,
+              "panel_start": 102,
+              "coefficient_start": 102,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            },
+            {
+              "beam": 3,
+              "representation": "pointwise",
+              "panels": 41,
+              "unknowns": 41,
+              "panel_start": 143,
+              "coefficient_start": 143,
+              "theta_midpoint": [],
+              "theta_width": [],
+              "sampling_condition": 1.0
+            }
+          ],
+          "convention": "Material arc coordinate s in [-L/2,L/2]; theta=acos(2*arc/L-1), decreasing pi to zero. Gamma=sum A_k sin(k theta). Weighted residual=(2/pi) sum R_i sin(k theta_i) delta_theta_i.",
+          "scope": "Fourier modes are per logical lifting beam; refine mode count and structural intervals independently. Local flow defects need not vanish in a truncated series."
+        },
+        "size": 184,
+        "gamma_start": 2244,
+        "source_core_policy": "max(.25*chord,ds); zero for each target/source pair sharing physical beam index",
+        "hv_exclude_bound": "identity mask; tails retained",
+        "native_max": 1.1548741760882628e-12,
+        "native_limiting_row": 2427,
+        "modules": {
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c",
+          "linear_dynamics.py": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "steady_feedback.py": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "equilibrium_state.py": "c03ef98c40d52366a321997fa5220cb7ffc3c8e8812dbf4381c3999ce5d839ab",
+          "time_state.py": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75",
+          "time_initialization.py": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_saved_history.py": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "tangent_influences.py": "789d432d63c75c275de95fece44d34fee0f47d9edf1838f90a85a7b76784cac5",
+          "structured_static.py": "be26035674747840a95b0c6fc3ab68478e19069ed4b489d95793103be1189dfe",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "sparse_rank.py": "d50959f5829da30c15c8fd8f7bd8f6b0bad3df3d309550f753a92223209011ee",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "asw.py": "12437883a9d6da3c0fc99eb420ec839303068c49f401283b27a9503dc20a70fb",
+          "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+          "aero.py": "f84a8e1b0d72f3b9db5342dd13fd55eca4732ba82b24168d7fe990313c951fb8",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "network.py": "5c5b6c518d21e786ec636412558b26ade3e9859e6783ff7cec8f65f1e2577e0d",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "bridge.py": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "derivatives.py": "06eb1aa657b24254bb653d3013393c2129c247329fb1ec9ad0756b7da5f12321",
+          "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+          "radau_time.py": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2",
+          "flow_survey.py": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "frozen_influence.py": "4ea36dcceafe853e12ba47b4d31fda0f17635bb5c4b9b4ada2a10b1fc67d6203",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "output_fields.py": "f441a12f0b9f8c0f02cf0e56472a69ab4e568c58490182baa5e29740f90b0eac",
+          "geometry_tangent.py": "c465a9118d5a46b40db7abd1f80da0433373811587be070e45cd9de6c4f128ab",
+          "equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+          "circulation_tangent.py": "a7df91d9a80192e995096b8e3256a2168e09b55217761858a85990b2a05dbe7c",
+          "structured_time.py": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "vortex_tangent.py": "c2fc407d2d2183a341546f38c1e7bc099fc61e2dd74ed232ff148abd3a09ce0b",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "geometry_partials.py": "9d760de5c11c03349e715cc02e3902ed2a4773916d433db83e7a674495eeb66e",
+          "local_rate_tangent.py": "bb3c2f245f843fff693edcbdc1e589bbb0d063aa8cf7a83c5e9b372372d084d4",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "legacy_hinge_state.py": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+        },
+        "runner_sha256": "e5d3418059e965297c9537f7c650930713ef56aed7fb3c1a8f813a4d689f610c",
+        "pg": [
+          [
+            1.0020974223683459,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "wind": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "source_core_min": 0.0195,
+        "source_core_max": 0.0195,
+        "physical_surfaces": [
+          1
+        ]
+      },
+      "longdouble": {
+        "status": "LONGDOUBLE_KERNEL_DIAGNOSTIC_COMPLETE",
+        "input_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "runner_sha256": "0ec7e4e1f392ab8cc458a1c5fe200889ee1d396b22a8a57882b7743448184bec",
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "mantissa_bits": 112,
+        "records": [
+          {
+            "variant": "high_precision_pg_transform",
+            "seconds": 0.3082440099969972,
+            "original_float_max": 1.4723575893847076e-12,
+            "extended_max": 1.4496163227846216e-12,
+            "original_float_peak": 2427,
+            "extended_peak": 2427,
+            "max_vcp_change": 9.769481735256448e-13,
+            "max_vhv_change": 5.1242744447936955e-11,
+            "rows": [
+              {
+                "panel": 102,
+                "row": 2346,
+                "beam": 2,
+                "t": 0.36405242553563083,
+                "native": 1.0649259252204502e-12,
+                "kernel_replaced_original_float_algebra": -1.6721977338172358e-13,
+                "fully_extended_algebra": -1.670736388928452e-13
+              },
+              {
+                "panel": 183,
+                "row": 2427,
+                "beam": 3,
+                "t": -0.36405242553563083,
+                "native": 1.1548741760882628e-12,
+                "kernel_replaced_original_float_algebra": 1.4723575893847076e-12,
+                "fully_extended_algebra": 1.4496163227846216e-12
+              }
+            ]
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "seconds": 0.30625348999456037,
+            "original_float_max": 1.1441756633055113e-12,
+            "extended_max": 1.1329338260802489e-12,
+            "original_float_peak": 2427,
+            "extended_peak": 2427,
+            "max_vcp_change": 9.769478377306e-13,
+            "max_vhv_change": 3.5330044854768645e-13,
+            "rows": [
+              {
+                "panel": 102,
+                "row": 2346,
+                "beam": 2,
+                "t": 0.36405242553563083,
+                "native": 1.0649259252204502e-12,
+                "kernel_replaced_original_float_algebra": 1.0620595312295997e-12,
+                "fully_extended_algebra": 1.0680458696987397e-12
+              },
+              {
+                "panel": 183,
+                "row": 2427,
+                "beam": 3,
+                "t": -0.36405242553563083,
+                "native": 1.1548741760882628e-12,
+                "kernel_replaced_original_float_algebra": 1.1441756633055113e-12,
+                "fully_extended_algebra": 1.1329338260802489e-12
+              }
+            ]
+          }
+        ],
+        "scope": "Same already-rounded geometry, PG matrix, normal/span vectors, gamma and source-core radii. Identical principal-value guards and bound exclusion. No upstream geometry reevaluation or equilibrium solve."
+      },
+      "mp80": {
+        "status": "MP80_SELECTED_ROWS_COMPLETE",
+        "digits": 80,
+        "panels": [
+          0,
+          101,
+          102,
+          103,
+          142,
+          143,
+          182,
+          183
+        ],
+        "rows": [
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 0,
+            "row": 2244,
+            "native_residual": -3.7566919272339045e-13,
+            "mp80_residual": "-0.0000000000004518402362484991654618889259702487656784365858197834850307163632882162221090301233",
+            "longdouble_residual": -4.5184023624849917e-13,
+            "mp80_minus_longdouble": 4.917213720864232e-33,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 3.944304526105059e-31,
+            "seconds": 0.12254635500721633
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 101,
+            "row": 2345,
+            "native_residual": -4.311298792717108e-13,
+            "mp80_residual": "-0.0000000000003813691585579001327568717794317677457315080693025004445533298619483691415683681364",
+            "longdouble_residual": -3.8136915855790014e-13,
+            "mp80_minus_longdouble": -4.881158119913497e-33,
+            "max_vcp_mp_minus_ld": 2.465190328815662e-32,
+            "max_vhv_mp_minus_ld": 4.930380657631324e-32,
+            "seconds": 0.1161308070004452
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 102,
+            "row": 2346,
+            "native_residual": 1.0649259252204502e-12,
+            "mp80_residual": "-0.0000000000001670736388928451895697140977907690784887765090632441968564605857644248273080003728",
+            "longdouble_residual": -1.670736388928452e-13,
+            "mp80_minus_longdouble": -1.5667956643384054e-32,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 5.9164567891575885e-31,
+            "seconds": 0.11977898499753792
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 103,
+            "row": 2347,
+            "native_residual": -1.627955872947909e-15,
+            "mp80_residual": "0.0000000000000004655544833386508284058414244871096147591219117938223035581360956995132973154618211",
+            "longdouble_residual": 4.655544833386509e-16,
+            "mp80_minus_longdouble": -4.556157912210307e-34,
+            "max_vcp_mp_minus_ld": 4.930380657631324e-32,
+            "max_vhv_mp_minus_ld": 3.697785493223493e-32,
+            "seconds": 0.1172030469897436
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 142,
+            "row": 2386,
+            "native_residual": -1.0334084780260245e-14,
+            "mp80_residual": "-0.00000000000001095821724085763647504799787306987625603560192754911267184106545181717239826162426",
+            "longdouble_residual": -1.0958217240857636e-14,
+            "mp80_minus_longdouble": -1.4524015826626516e-34,
+            "max_vcp_mp_minus_ld": 9.860761315262648e-32,
+            "max_vhv_mp_minus_ld": 4.930380657631324e-32,
+            "seconds": 0.1150160939869238
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 143,
+            "row": 2387,
+            "native_residual": 2.1159367651169254e-15,
+            "mp80_residual": "0.000000000000002488745117304535169724581781397561196020563156186377584017120221884529492892273796",
+            "longdouble_residual": 2.488745117304535e-15,
+            "mp80_minus_longdouble": -1.7641060344978609e-34,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 4.930380657631324e-32,
+            "seconds": 0.11677611999039073
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 182,
+            "row": 2426,
+            "native_residual": -1.0961620684804388e-15,
+            "mp80_residual": "0.0000000000000007295604478969735770145332693537838774116782633015115784828953829103241534549079332",
+            "longdouble_residual": 7.295604478969735e-16,
+            "mp80_minus_longdouble": 2.3127262246013654e-33,
+            "max_vcp_mp_minus_ld": 1.9721522630525295e-31,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.12208109299535863
+          },
+          {
+            "variant": "high_precision_pg_transform",
+            "panel": 183,
+            "row": 2427,
+            "native_residual": 1.1548741760882628e-12,
+            "mp80_residual": "0.000000000001449616322784621650713577378378627253522518252307467262755058533173133300672988531",
+            "longdouble_residual": 1.4496163227846216e-12,
+            "mp80_minus_longdouble": -1.1001110205692774e-32,
+            "max_vcp_mp_minus_ld": 7.888609052210118e-31,
+            "max_vhv_mp_minus_ld": 4.930380657631324e-32,
+            "seconds": 0.1307824479881674
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 0,
+            "row": 2244,
+            "native_residual": -3.7566919272339045e-13,
+            "mp80_residual": "-0.0000000000003733376873579019241576520769532449796254379515735837148492248903263518689873140089",
+            "longdouble_residual": -3.733376873579019e-13,
+            "mp80_minus_longdouble": -9.035149087558209e-33,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 3.944304526105059e-31,
+            "seconds": 0.11748625000473112
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 101,
+            "row": 2345,
+            "native_residual": -4.311298792717108e-13,
+            "mp80_residual": "-0.0000000000004480125438488095267458585210632960626953409579549346907747090979419177962579112573",
+            "longdouble_residual": -4.4801254384880954e-13,
+            "mp80_minus_longdouble": -1.3338219580747185e-33,
+            "max_vcp_mp_minus_ld": 4.930380657631324e-32,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.11385953199351206
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 102,
+            "row": 2346,
+            "native_residual": 1.0649259252204502e-12,
+            "mp80_residual": "0.000000000001068045869698739700672420816101994976651882754283658883349604414954579414657844846",
+            "longdouble_residual": 1.0680458696987397e-12,
+            "mp80_minus_longdouble": 4.139608877201535e-33,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.1209616139967693
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 103,
+            "row": 2347,
+            "native_residual": -1.627955872947909e-15,
+            "mp80_residual": "0.000000000000000464279474416714187576196802029735437447857342599130751459088496081584283486052",
+            "longdouble_residual": 4.642794744167142e-16,
+            "mp80_minus_longdouble": -1.6459899005824965e-34,
+            "max_vcp_mp_minus_ld": 4.930380657631324e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.1182429430045886
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 142,
+            "row": 2386,
+            "native_residual": -1.0334084780260245e-14,
+            "mp80_residual": "-0.00000000000001095834000935878895940520667109445151834296614591020383684098346524556334903671436",
+            "longdouble_residual": -1.0958340009358789e-14,
+            "mp80_minus_longdouble": -8.81652650115149e-35,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.232595164407831e-32,
+            "seconds": 0.11386533800396137
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 143,
+            "row": 2387,
+            "native_residual": 2.1159367651169254e-15,
+            "mp80_residual": "0.000000000000002488406986656068335471430381999415352316516716264729116903462374064685213817942209",
+            "longdouble_residual": 2.4884069866560682e-15,
+            "mp80_minus_longdouble": -8.095661729535286e-35,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.11375187600788195
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 182,
+            "row": 2426,
+            "native_residual": -1.0961620684804388e-15,
+            "mp80_residual": "0.0000000000000007289544556850062762486711475184080188311137021470354442166646023285990571089894896",
+            "longdouble_residual": 7.289544556850063e-16,
+            "mp80_minus_longdouble": 2.805286842534347e-33,
+            "max_vcp_mp_minus_ld": 6.162975822039155e-32,
+            "max_vhv_mp_minus_ld": 9.860761315262648e-32,
+            "seconds": 0.1137604950054083
+          },
+          {
+            "variant": "rounded_pg_coordinates",
+            "panel": 183,
+            "row": 2427,
+            "native_residual": 1.1548741760882628e-12,
+            "mp80_residual": "0.000000000001132933826080248989340765218766491920698848680702240905078637353009762776225801946",
+            "longdouble_residual": 1.1329338260802489e-12,
+            "mp80_minus_longdouble": 9.425375971548471e-33,
+            "max_vcp_mp_minus_ld": 3.944304526105059e-31,
+            "max_vhv_mp_minus_ld": 1.9721522630525295e-31,
+            "seconds": 0.11340283900790382
+          }
+        ],
+        "controls": [
+          {
+            "name": "symmetric finite segment",
+            "error": "1.3177747429038154030435717564087523759637451727960634437597203781385180363712199e-82"
+          },
+          {
+            "name": "transverse semi-infinite",
+            "error": "0.0"
+          },
+          {
+            "name": "finite segment quadrature 2",
+            "error": "2.512008103660398112051808660654184216680889235642495939666966970826550006832638e-82"
+          },
+          {
+            "name": "finite segment quadrature -.7",
+            "error": "9.8833105717786155228267881730656428197280887959704758281979028360388852727841496e-83"
+          },
+          {
+            "name": "principal-value cutoff",
+            "value": "zero"
+          }
+        ],
+        "input_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "runner_sha256": "dae8f6dfbc740e5878b0e53f5065f2334ee84a67d1e22e56487fe9d9f699adac",
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "wheel_sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+        "longdouble_all_rows_sha256": "b9754aca43fae257228814644565c82714f0036534cba15d97a35440270b6a96",
+        "scope": "80-digit endpoints and kernels on exact binary float input values. Both limiting rows and six spanwise controls, each with all184 sources. Full184-row propagation is independently available in longdouble; MP80 is not a full184-target computation."
+      },
+      "relative_pg": {
+        "status": "RELATIVE_PG_ARITHMETIC_CONTROL",
+        "runner_sha256": "caaf6633b94adb325d503a4814b856333c2d5d1d90ed8ca98d252a88b3b2d71a",
+        "helper_sha256": "dcdfd57c5e686b7a07680d6443c12efc577559f07b6aabcf0be930baaee99e73",
+        "input_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "influence_metrics": [
+          {
+            "field": "vcp",
+            "native_error_vs_longdouble": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.8469884256358287e-12,
+              "max_gamma_weighted_velocity_error": 1.4478937224865905e-13
+            },
+            "relative_pg_error_vs_longdouble": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.8317118811302286e-12,
+              "max_gamma_weighted_velocity_error": 9.496050475359226e-14
+            },
+            "worst_native_index": [
+              0,
+              0,
+              2
+            ],
+            "worst_relative_index": [
+              0,
+              0,
+              2
+            ]
+          },
+          {
+            "field": "vhv",
+            "native_error_vs_longdouble": {
+              "max_absolute": 5.1242744447936955e-11,
+              "euclidean_norm": 7.57155321591498e-11,
+              "max_gamma_weighted_velocity_error": 5.107262616151077e-12
+            },
+            "relative_pg_error_vs_longdouble": {
+              "max_absolute": 2.357635375482084e-13,
+              "euclidean_norm": 5.962471507604028e-13,
+              "max_gamma_weighted_velocity_error": 4.8926750463136045e-14
+            },
+            "worst_native_index": [
+              102,
+              102,
+              2
+            ],
+            "worst_relative_index": [
+              183,
+              0,
+              2
+            ]
+          }
+        ],
+        "original_float_circulation_max": 1.4793015297569085e-12,
+        "original_float_circulation_peak": 2427,
+        "rows": [
+          {
+            "row": 2346,
+            "native": 1.0649259252204502e-12,
+            "relative_pg": -1.6419189240547316e-13,
+            "longdouble_physical_coordinates": -1.670736388928452e-13
+          },
+          {
+            "row": 2427,
+            "native": 1.1548741760882628e-12,
+            "relative_pg": 1.4793015297569085e-12,
+            "longdouble_physical_coordinates": 1.4496163227846216e-12
+          }
+        ],
+        "scope": "Same rounded physical coordinates, source core/mask, native finite/semi-infinite kernels and original float64 circulation algebra. Only subtract-before-PG ordering changes. Residual movement alone is not an accuracy acceptance."
+      },
+      "relative_pg_error_comparison": {
+        "status": "RELATIVE_PG_VS_MP80_COMPARISON",
+        "checkpoint": "00842",
+        "panels": [
+          0,
+          101,
+          102,
+          103,
+          142,
+          143,
+          182,
+          183
+        ],
+        "sources_per_target": 184,
+        "fields": [
+          {
+            "field": "vcp",
+            "native": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.7637784091741542e-12,
+              "gamma_weighted_max": 1.4478937224865905e-13
+            },
+            "relative_pg": {
+              "max_absolute": 9.769481735256448e-13,
+              "euclidean_norm": 1.7481950665630645e-12,
+              "gamma_weighted_max": 9.496050475359226e-14
+            },
+            "max_error_reduction_factor": 1.0,
+            "norm_error_reduction_factor": 1.008913960981326,
+            "gamma_weighted_reduction_factor": 1.5247325466978607
+          },
+          {
+            "field": "vhv",
+            "native": {
+              "max_absolute": 5.1242744447936955e-11,
+              "euclidean_norm": 7.539267889159235e-11,
+              "gamma_weighted_max": 5.107262616151077e-12
+            },
+            "relative_pg": {
+              "max_absolute": 2.357635375482084e-13,
+              "euclidean_norm": 5.240520945390852e-13,
+              "gamma_weighted_max": 4.8926750463136045e-14
+            },
+            "max_error_reduction_factor": 217.34804703402858,
+            "norm_error_reduction_factor": 143.86485556918112,
+            "gamma_weighted_reduction_factor": 104.38589458335586
+          }
+        ],
+        "source_inputs_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "mp80_values_sha256": "7af8d76847c7d8a1d57aa131fc3394d8430b073110f23dd2e0e6934c3bbb22f5",
+        "relative_pg_values_sha256": "9c937972d262346a112dd4a54fbded4c8a59ddc5e785ca5e8cd3f175316f6cb9",
+        "runner_sha256": "242f029a6affbb10d237d99cba568a0f1621c33ec53d07bd68e7d1b0a942029e",
+        "caveat": "80-digit reference values are converted to113-bit longdouble for difference accumulation; measured errors are vastly larger than that conversion scale. Scope is both limiting rows plus six controls, all184 source columns; full184-target longdouble comparisons are separately retained. No residual acceptance inferred."
+      },
+      "upstream_geometry": {
+        "status": "UPSTREAM_GEOMETRY_RESIDUAL_DIAGNOSTIC",
+        "runner_sha256": "8da55b414ce587dded658f208cdd3cc8d546cf51c8bf15ac23e26673effbdc5b",
+        "geometry_sources": {
+          "check.py": "9351e5ebcba791eb10effec211eda642296523cf3c82091865d02f37e7afc39b",
+          "00493/geometry.npz": "3ed04c55dd84db4b3bdb581651a49ebe97b0972efb255153684762b23e520e79",
+          "00842/geometry.npz": "cfe4c6602c349fac529842b91825ce92fdcc31949ba2cf9990924148c124170a",
+          "mp-validation.json": "c1f5934856fee98a4756fcdefac0ee9aea23d3646b8ee66f2594660cedc7b808"
+        },
+        "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+        "input_sha256": "cbef41e4615f2848f24ca75a9f3c618580b506b9629eadf0a7bb8cacec767230",
+        "records": [
+          {
+            "variant": "extended_native_orientation",
+            "max_circulation_residual": 5.0666669413797595e-12,
+            "limiting_row": 2346,
+            "row2346": -5.0666669413797595e-12,
+            "row2427": -2.9206156049039475e-12
+          },
+          {
+            "variant": "extended_full_orientation",
+            "max_circulation_residual": 4.568350877537751e-12,
+            "limiting_row": 2346,
+            "row2346": -4.568350877537751e-12,
+            "row2427": -3.485748332634243e-12
+          },
+          {
+            "variant": "local_102",
+            "max_circulation_residual": 1.4092966147904817e-11,
+            "limiting_row": 2427,
+            "row2346": -4.364538496936803e-12,
+            "row2427": -1.4092966147904817e-11
+          },
+          {
+            "variant": "local_183",
+            "max_circulation_residual": 1.0753366815297733e-11,
+            "limiting_row": 2346,
+            "row2346": -1.0753366815297733e-11,
+            "row2427": -2.0212389093089114e-12
+          },
+          {
+            "variant": "local_extended_102",
+            "max_circulation_residual": 5.0666669413797595e-12,
+            "limiting_row": 2346,
+            "row2346": -5.0666669413797595e-12,
+            "row2427": -2.9206156049039475e-12
+          },
+          {
+            "variant": "local_extended_183",
+            "max_circulation_residual": 5.0666669413797595e-12,
+            "limiting_row": 2346,
+            "row2346": -5.0666669413797595e-12,
+            "row2427": -2.9206156049039475e-12
+          },
+          {
+            "variant": "local_full_extended_102",
+            "max_circulation_residual": 4.568350877537751e-12,
+            "limiting_row": 2346,
+            "row2346": -4.568350877537751e-12,
+            "row2427": -3.485748332634243e-12
+          },
+          {
+            "variant": "local_full_extended_183",
+            "max_circulation_residual": 4.568350877537751e-12,
+            "limiting_row": 2346,
+            "row2346": -4.568350877537751e-12,
+            "row2427": -3.485748332634243e-12
+          }
+        ],
+        "core_radii": "Exact capturedoriginalsource_core retained; reconstructed ds never changescore selection.",
+        "free_velocity": "Exact uniform22*[1,0,0] checked forcp/hv; unchanged.",
+        "scope": "Independently reconstructed geometry from the same stored double state; source properties, circulation and all physical settings remain fixed. All kernels and residual algebra in113-bit longdouble. Common-anchor variants are gauges for comparison, not changed physical locations. No nonlinear solve or accepted-equilibrium claim."
+      },
+      "extended_gauge_residual_differences": {
+        "extended_102": 5.337455715749434e-29,
+        "extended_183": 1.2440421916591071e-29,
+        "full_extended_102": 5.335372209718688e-29,
+        "full_extended_183": 1.2461362027622773e-29
+      }
+    }
+  ],
+  "mp80_status": {
+    "status": "COMPLETE",
+    "seconds": 4.36614112299867,
+    "reports": [
+      {
+        "checkpoint": "00493",
+        "sha256": "44d9d3775f66a35c932f3973662ec715597f83a4b498f7355547cce3bd463c02"
+      },
+      {
+        "checkpoint": "00842",
+        "sha256": "3d0eb00e7a408171d2234d93c8fa7f6c486e0abab2b9351b3b5393fba3fd77ed"
+      }
+    ],
+    "controls": [
+      {
+        "name": "symmetric finite segment",
+        "error": "1.3177747429038154030435717564087523759637451727960634437597203781385180363712199e-82"
+      },
+      {
+        "name": "transverse semi-infinite",
+        "error": "0.0"
+      },
+      {
+        "name": "finite segment quadrature 2",
+        "error": "2.512008103660398112051808660654184216680889235642495939666966970826550006832638e-82"
+      },
+      {
+        "name": "finite segment quadrature -.7",
+        "error": "9.8833105717786155228267881730656428197280887959704758281979028360388852727841496e-83"
+      },
+      {
+        "name": "principal-value cutoff",
+        "value": "zero"
+      }
+    ],
+    "runner_sha256": "dae8f6dfbc740e5878b0e53f5065f2334ee84a67d1e22e56487fe9d9f699adac",
+    "kernel_sha256": "316ba60ead1ae0b32adf5c9f7deed74002e73876c2ed4b6b6807369815691155",
+    "mpmath_version": "1.3.0",
+    "wheel_sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"
+  },
+  "numerical_environment": {
+    "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "longdouble_mantissa_bits": 112,
+    "mpmath_version": "1.3.0",
+    "mpmath_wheel_sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"
+  },
+  "controls": {
+    "native_capture": "Both full original residual vectors and captured native cp/hv influence arrays reproduce bit-for-bit.",
+    "longdouble": "All 184 targets and 184 sources for cp and hv, each saved checkpoint.",
+    "mp80": "Eight target rows including both limiting rows and six spanwise controls; all 184 sources for each. Independent endpoint-cosine kernels, analytic and quadrature controls, principal-value zero guard. This is not all 184 targets.",
+    "relative_pg": "Same native float64 finite/semi-infinite kernels; only relative displacement before PG transformation. Same core/mask and original float64 circulation algebra.",
+    "upstream": "Independent MP-checked reconstructed geometry from the same stored state; captured core radii and all properties preserved."
+  },
+  "conclusions": [
+    "Rounding absolute coordinates during PG preparation is a material contributor to hv influence error. Holding already-PG-rounded coordinates fixed leaves the near-gate residual; higher precision before that rounding changes it substantially.",
+    "The requested float64 subtract-before-PG form reduces maximum hv coefficient error against 80-digit reference by 37.4x and 217.3x for the two saved cases. Gamma-weighted hv error improves 56.9x and 104.4x. The largest cp error is unchanged; no every-entry improvement is claimed.",
+    "The residual of the fixed saved state moves in both directions under improved arithmetic. This does not establish a converged equilibrium or justify changing any acceptance threshold.",
+    "Earlier geometry realization is another material precision layer: extended full geometry/orientation yields circulation maxima 2.4443e-12 and 4.5684e-12 at these same stored states. A local float64 anchor is not a universal repair, despite improving some near-anchor coordinates.",
+    "Evidence supports a principled, algebraically identical relative-PG arithmetic candidate. General source/tangent/cache/ground regression and any later nonlinear replay are separate work; this report changes no production code."
+  ],
+  "limitations": [
+    "Source and state inputs are already float64. Extended arithmetic cannot recover source values beyond their stored precision.",
+    "No influence geometry, wake/core model, stiffness, mass, density, gravity, tolerance or measured target was fitted.",
+    "No new equilibrium, stability result or experimental comparison is produced."
+  ]
+}

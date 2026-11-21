@@ -1,0 +1,55 @@
+! Original OpenSwing coupled wing/body/point-volume verification example.
+Name
+Wing and slender fuselage
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+12 1 12
+0 0 0
+End
+Ground
+2 0 0
+End
+Joint
+2 1 0 0 0
+End
+Weight
+! An aerodynamic pod below the wing, separate from the body volume.
+2 0 -.5 0 -.75 196.133 .03 .06
+End
+Beam 1
+Flexible wing
+t x y z chord Xax
+0 0 0 0 1 .25
+6 0 6 0 1 .25
+t EIcc EInn GJ EA mg
+0 80000 900000 35000 12000000 12
+6 30000 400000 15000 8000000 6
+t Cdf
+0 .008
+6 .008
+End
+Beam 2
+Fuselage
+t x y z radius
+-2 -2 0 -.2 0
+-1.5 -1.5 0 -.2 .15
+-1 -1 0 -.2 .24
+0 0 0 -.2 .3
+1 1 0 -.2 .24
+1.5 1.5 0 -.2 .15
+2 2 0 -.2 0
+t EIcc EInn GJ EA mg
+-2 200000 200000 180000 20000000 10
+2 200000 200000 180000 20000000 10
+t Cdf Cdp
+-2 .01 .7
+2 .01 .7
+End

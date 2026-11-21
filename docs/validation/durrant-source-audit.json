@@ -1,0 +1,146 @@
+{
+  "scope": "Read-only source/setup audit; no numerical kernel or study configuration changed. Does not validate flutter or resolve the discrepancy.",
+  "source_hashes": {
+    ".reference/durrant/thesis.pdf": "286c2d5b8fff0d6cdf42a21c89b1207a0fc1fbcc94383b27953ad299a0d9e07a",
+    ".reference/durrant/thesis.txt": "7c403e97cffa523313638ace03643299db7683f7a83a9ede2c6d5dcea62c1f02",
+    "docs/validation/durrant-reference.json": "1ebf5135ec844dd62f0b4a1344f16f8c2a15f4608aa1cbca98e67d7bef686564",
+    "docs/validation/durrant-low-speed-reference.json": "e4283b238572996bd6bead742b0e68069a2a8ac81272489b850a7ee240e463cb",
+    "scripts/verify-durrant-structure.py": "fa263e30a859e12b092225d7350cb366abb249c9f7f5afe98e96c567bc072fde",
+    "scripts/verify-durrant-low-speed.py": "bb85b28519a77b525f002495effbfd22ac1f98f920af78f09fdb1fd27b4af2c4"
+  },
+  "visually_inspected_pages_1_based": [
+    42,
+    65,
+    74,
+    77,
+    78,
+    90,
+    91
+  ],
+  "page_images_sha256": {
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-042.png": "892bf25b5625e8019ae81625380b04fbbe87e82f8f2d195b4e52c9be443cd598",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-065.png": "88b9c62a148d7040db1afe9de4ffb33b44a56c7682d7b19b84e0b8d82cc646a1",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-074.png": "481ea0b58158bf6f74ebe7b108bc5de25914288bc245540c055021ec963683c1",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-077.png": "d6f6e613253f573a47d3b576fce2f97e36e52c5cad4abc020c26d91b3c017e23",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-078.png": "63ad5859f21f03726a094f63f9611e7918e470fc234e17602fa4cb4669035cfc",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-090.png": "ea49a764311a45619a7c9582d4a64386d54dab642755a6d1d085dec2f229f659",
+    "/tmp/openswing-durrant-source-audit-pages-20261009/page-091.png": "e4797a1df219c830d90f3da5340ce0c1d1921f8246da38c120f7098f663d9e29"
+  },
+  "independent_mass_properties_check": {
+    "25": {
+      "mass_kg": 0.0730971402345742,
+      "cg_from_LE_m": 0.03433420702090305,
+      "cg_normal_m": 0.0037920096606327966,
+      "integral_section_centroid_inertia_kg_m2": 5.155634472208057e-05,
+      "section_centroid_spread_inertia_kg_m2": 9.455880814891912e-07,
+      "whole_centroid_inertia_kg_m2": 5.250193280356976e-05,
+      "table_2_21_whole_centroid_inertia_kg_m2": 5.251e-05,
+      "relative_inertia_error": -0.00015363162121950769,
+      "if_distributed_inertia_were_reference_axis_whole_CG_kg_m2": 4.266141603750322e-05,
+      "mean_chordwise_CG_minus_reference_axis_m": 0.01067197702090305,
+      "if_distributed_inertia_were_chordline_axis_whole_CG_kg_m2": 4.218014305386952e-05,
+      "alternate_reference_axis_definition": "Literal elastic axis from Table 3.7: Cea=0, Nea=0.001 m. Subtract M*((mean Ccg-Cea)^2+(mean Ncg-Nea)^2). The prior alternative subtracted the chordline normal offset mean Ncg instead.",
+      "printed_mass_kg": 0.0731,
+      "relative_mass_difference": -3.912127805472121e-05,
+      "alternate_relative_inertia_difference": -0.18755635045699448
+    },
+    "75": {
+      "mass_kg": 0.0724994064252932,
+      "cg_from_LE_m": 0.04070153073957513,
+      "cg_normal_m": 0.0036820256418635617,
+      "integral_section_centroid_inertia_kg_m2": 6.40886527281999e-05,
+      "section_centroid_spread_inertia_kg_m2": 3.997961876771384e-08,
+      "whole_centroid_inertia_kg_m2": 6.412863234696761e-05,
+      "table_2_21_whole_centroid_inertia_kg_m2": 6.411e-05,
+      "relative_inertia_error": 0.00029063089951053556,
+      "if_distributed_inertia_were_reference_axis_whole_CG_kg_m2": 6.216922514734592e-05,
+      "mean_chordwise_CG_minus_reference_axis_m": 0.004391106739575128,
+      "if_distributed_inertia_were_chordline_axis_whole_CG_kg_m2": 6.170783520681558e-05,
+      "alternate_reference_axis_definition": "Literal elastic axis from Table 3.7: Cea=0, Nea=0.001 m. Subtract M*((mean Ccg-Cea)^2+(mean Ncg-Nea)^2). The prior alternative subtracted the chordline normal offset mean Ncg instead.",
+      "printed_mass_kg": 0.0726,
+      "relative_mass_difference": -0.0013855864284679775,
+      "alternate_relative_inertia_difference": -0.03027257608257794
+    }
+  },
+  "findings": [
+    {
+      "status": "supported",
+      "finding": "Distributed mgcc/mgnn are strongly supported as section-centroid inertias: the whole-CG results differ from Table 2.21 by -0.01536% / +0.02906%. The literal EA alternative at Nea=0.001 m gives 4.266141603750322e-5 / 6.216922514734592e-5 kg m^2 (-18.7556% / -3.0273%). This supports the convention, but does not prove the exact original ASWING input.",
+      "source": "Tables2.9/2.20/2.21/3.5/3.6; printed45/52/64/65; thesis.txt2943-2950,3323-3346,4004-4043."
+    },
+    {
+      "status": "supported",
+      "finding": "Weighted Ncg agrees with Table2.9 normal CG relative to chordline, despite section3.9 prose saying both CG coordinates are referenced to EA. Tables support retaining Ncg literally rather than adding Nea.",
+      "source": "Printed45/64/65; thesis.txt2943-2950,4007-4010,4046-4070."
+    },
+    {
+      "status": "supported",
+      "finding": "Representation 2 uses alpha_A=-alpha_L0, supporting section alpha=+4 degrees for zero-lift incidence=-4 degrees. For the reconstruction frame span +z, chord +x, normal -y, positive geometric incidence maps to body beta. The thesis confirms physical turntable incidence but does not document the original computational body beta or provide its .pnt input; that software-coordinate mapping remains unverified.",
+      "source": "Fig2.13 printed29/PDF42; Fig3.3 printed61/PDF74; Table3.11 printed67/PDF80; thesis.txt3696-3705,3808-3823,4180-4190."
+    },
+    {
+      "status": "supported",
+      "finding": "Destruction-test wings were uninstrumented and accelerometers were removed for active wind-tunnel tests. Main study exclusion of tip accelerometers is supported for experiment; appendix instrumented model does not identify the computational Table4.5 setup.",
+      "source": "Section2.2.13 printed29-30/PDF42-43; thesis.txt2153-2188."
+    },
+    {
+      "status": "source_prose_conflict",
+      "finding": "Claim of greater75%static unbalance conflicts with chordwise CG-minus-EA from Tables2.20/2.21:25%=10.64mm,75%=4.39mm. This does not justify modifying data;75%EA is farther aft of aerodynamic centre, a distinct effect.",
+      "source": "Printed52 and75-76; thesis.txt3323-3346,4522-4539,4590-4598."
+    },
+    {
+      "status": "supported_qualitative_only",
+      "finding": "Section 4.2 and Figure 4.10 explicitly cover cases 1-4 at physical incidence 4.17 degrees; Case 4 is solid. The 25% plotted torsion branch starts near 35.1 Hz, crosses near 21 Hz and stays unstable over the shown path; the 75% crossing is near 19.5 Hz. This supports the qualitative Case 4 comparison with the reconstructed unstable pocket. These approximate visual frequencies are not digitized values or validation tolerances; the precisely tabulated Case 4 speeds are 33.21 and 24.58 m/s. Original body beta remains undocumented.",
+      "source": "Fig4.10 printed78/PDF91, root-locus discussion printed75-76/PDF88-89; thesis.txt4510-4540."
+    },
+    {
+      "status": "source_table_inconsistency",
+      "finding": "Exact integration of Table 3.6 gives 75% mass 0.07249940642529322 kg, versus Table 2.21 0.0726 kg (-0.1385586%). Retain this discrepancy; do not scale mass to remove it. The corresponding 25% discrepancy is -0.0039121%.",
+      "source": "Tables 2.21, 3.5, 3.6; independently reproduced by verify-source-mass.py."
+    }
+  ],
+  "next_discriminating_check": {
+    "priority": "Use current saved finite-speed points to compare low-speed mode drift and root-locus shape with source, then independently verify finite-frequency section/strip aerodynamic force and moment transfer at k\u22480.19-0.34. Keep both bending and torsion input channels; include lag, circulation-rate lift and apparent mass and their pitch-axis transfer.",
+    "why": "Whole-wing mass/inertia and zero-speed root fingerprints support reconstruction; discrepancy emerges with finite-speed aerodynamic stiffness/damping. A no-stall, Cm=alpha=0 analogue can isolate loaded-equilibrium/stall feedback, but must be labelled an explicit interpretation of the source flat-plate case because the printed CLmin=+5 entry is inconsistent.",
+    "not_supported": "Do not fit density, stiffness, CG or aerodynamic coefficients; do not replace main tables with appendix solely to match boundaries; do not treat ARPACK-truncated root loci as proof of complete stability."
+  },
+  "revision": {
+    "description": "Correct the alternate inertia axis to literal Nea=0.001 m; retain the prior chordline-axis hypothesis explicitly and qualify source/setup certainty.",
+    "previous_report": {
+      "path": "/tmp/openswing-durrant-source-audit-20261009/before-correction/openswing-durrant-source-audit-20261009.json",
+      "sha256": "b5b2247e03922fe6d61200e9ec88c17440b97222811dd9a26ea0a887e56f813f"
+    },
+    "independent_reproduction": {
+      "script": "/tmp/openswing-durrant-source-audit-20261009/verify-source-mass.py",
+      "script_sha256": "188971a20c9dec45c1445a29b09b83d48e7cfd0534cea64a88ad728f3de127f8",
+      "original_result": "/tmp/openswing-durrant-source-audit-20261009/mass-check.json",
+      "replay_result": "/tmp/openswing-durrant-source-audit-20261009/mass-replay/mass-check.json",
+      "replay_identical": true
+    },
+    "corrections": {
+      "25": {
+        "previous_chordline_alternative_kg_m2": 4.218014305386952e-05,
+        "literal_EA_alternative_kg_m2": 4.266141603750322e-05,
+        "centroidal_result_kg_m2": 5.250193280356976e-05,
+        "mass_kg": 0.0730971402345742,
+        "printed_mass_kg": 0.0731,
+        "relative_mass_difference": -3.912127805472121e-05
+      },
+      "75": {
+        "previous_chordline_alternative_kg_m2": 6.170783520681558e-05,
+        "literal_EA_alternative_kg_m2": 6.216922514734592e-05,
+        "centroidal_result_kg_m2": 6.412863234696761e-05,
+        "mass_kg": 0.07249940642529322,
+        "printed_mass_kg": 0.0726,
+        "relative_mass_difference": -0.0013855864284679775
+      }
+    }
+  },
+  "unsteady_audit_scope": {
+    "report": "/tmp/openswing-unsteady-implementation-audit-20261009.md",
+    "reproduced_apparent_load_cases": 48,
+    "maximum_absolute_component_difference": 3.469446951953614e-18,
+    "interpretation": "The 48 direct production checks cover apparent force/moment and frame transport only. Lag and circulatory/rate expressions were inspected algebraically. No full-section production transfer, flutter or finite-angle validation follows from those 48 checks.",
+    "caveat": "Steady equations 155-157 use wind-aligned virtual vortex/control points; unsteady equations 29-31 use true quarter-chord motion. The difference vanishes at zero-incidence linearization but survives a finite-incidence tangent. This is an unresolved interpretation, not a demonstrated correction."
+  }
+}

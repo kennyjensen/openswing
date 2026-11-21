@@ -1,0 +1,139 @@
+{
+  "status": "CONFIRMED_LITERAL_SCALING_ROUNDOFF",
+  "scope": "Parsing and required-station arithmetic only; no mesh construction, residual or physical solve.",
+  "production_changes": false,
+  "rows": [
+    {
+      "variant": "7d",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b48.asw",
+      "source_sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107",
+      "domain": [
+        0.0001,
+        1.2192
+      ],
+      "attachments": [
+        {
+          "t": 0.0001,
+          "kind": "endpoint"
+        },
+        {
+          "t": 1.2192,
+          "kind": "endpoint"
+        },
+        {
+          "t": 0.0001,
+          "kind": "ground 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 2"
+        }
+      ],
+      "near_coincident_pairs": [
+        {
+          "left": 1.2191999999999998,
+          "right": 1.2192,
+          "difference": 2.220446049250313e-16,
+          "left_hex": "0x1.381d7dbf487fcp+0",
+          "right_hex": "0x1.381d7dbf487fdp+0"
+        }
+      ],
+      "exact_decimal_product": "48 * 0.0254 = 1.2192",
+      "distance_ulps": 1
+    },
+    {
+      "variant": "7e",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b48.asw",
+      "source_sha256": "678e4e06043ddb317778c43c6e196c296469019dd8d26840d88ca23ec49b3ddc",
+      "domain": [
+        0.0001,
+        1.2192
+      ],
+      "attachments": [
+        {
+          "t": 0.0001,
+          "kind": "endpoint"
+        },
+        {
+          "t": 1.2192,
+          "kind": "endpoint"
+        },
+        {
+          "t": 0.0001,
+          "kind": "ground 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 2"
+        }
+      ],
+      "near_coincident_pairs": [
+        {
+          "left": 1.2191999999999998,
+          "right": 1.2192,
+          "difference": 2.220446049250313e-16,
+          "left_hex": "0x1.381d7dbf487fcp+0",
+          "right_hex": "0x1.381d7dbf487fdp+0"
+        }
+      ],
+      "exact_decimal_product": "48 * 0.0254 = 1.2192",
+      "distance_ulps": 1
+    },
+    {
+      "variant": "7f",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b48.asw",
+      "source_sha256": "222f1fc61097af0e17cd11455c3ef9ad83353c929c6777b2e4abd76e06d15865",
+      "domain": [
+        0.0001,
+        1.2192
+      ],
+      "attachments": [
+        {
+          "t": 0.0001,
+          "kind": "endpoint"
+        },
+        {
+          "t": 1.2192,
+          "kind": "endpoint"
+        },
+        {
+          "t": 0.0001,
+          "kind": "ground 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 1"
+        },
+        {
+          "t": 1.2191999999999998,
+          "kind": "weight 2"
+        }
+      ],
+      "near_coincident_pairs": [
+        {
+          "left": 1.2191999999999998,
+          "right": 1.2192,
+          "difference": 2.220446049250313e-16,
+          "left_hex": "0x1.381d7dbf487fcp+0",
+          "right_hex": "0x1.381d7dbf487fdp+0"
+        }
+      ],
+      "exact_decimal_product": "48 * 0.0254 = 1.2192",
+      "distance_ulps": 1
+    }
+  ],
+  "kernels": {
+    "asw.py": "8dfd00a3fe7def618e6527d59d62d0aa3178c9a9b83c15a41624afc61c8ad781",
+    "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+    "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131"
+  },
+  "conclusion": "Equivalent decimal tip stations differ by one binary64 ulp after scaling. Both survive exact unique(required), so the existing close-node guard rejects the mesh. No source/model edit or tolerance change was applied."
+}

@@ -1,0 +1,708 @@
+{
+  "jobs": {
+    "native": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_time_accuracy.py"
+        ],
+        "wrapper_pid": 6416,
+        "started": 1791304059.6252234,
+        "pid": 6442,
+        "exit_code": 1,
+        "ended": 1791306954.4162538
+      },
+      "log_sha256": "9ed68eda3311b682b0a2bb4041e9b05ac67b853624ba4aaae54a1c04efa2c3d4",
+      "log": ".............F...                                                        [100%]\n=================================== FAILURES ===================================\n____ test_refinement_is_invariant_to_consistent_length_time_and_force_units ____\n\nspring_study = {1: [{'analysis': 'time_response', 'converged': True, 'frame_mode': 'prescribed', 'method': 'BDF1', ...}, {'analysis':..., {'analysis': 'time_response', 'converged': True, 'frame_mode': 'prescribed', 'method': 'Radau IIA (3 stages)', ...}]}\n\n    def test_refinement_is_invariant_to_consistent_length_time_and_force_units(spring_study):\n        units=(.3048,2.,4.4482216152605);scaled=released(2,2.5e-6,units);base=spring_study[2][1]\n>       assert physical_error(scaled)==pytest.approx(physical_error(base),rel=3e-5,abs=2e-8)\nE       assert np.float64(2283.1207349081365) == 0.00270483929...6475 \u00b1 8.1e-08\nE         \nE         comparison failed\nE         Obtained: 2283.1207349081365\nE         Expected: 0.0027048392992146475 \u00b1 8.1e-08\n\ntests/test_time_accuracy.py:101: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_time_accuracy.py::test_refinement_is_invariant_to_consistent_length_time_and_force_units\n1 failed, 16 passed in 763.95s (0:12:43)\n"
+    },
+    "units-final": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_time_accuracy.py",
+          "-k",
+          "invariant_to_consistent"
+        ],
+        "wrapper_pid": 24747,
+        "started": 1791308667.3792994,
+        "pid": 24770,
+        "exit_code": 0,
+        "ended": 1791308750.9207814
+      },
+      "log_sha256": "4510efc89013aca7ad4b9d32cc911ce512171c143d90e4655e45e81124882d53",
+      "log": ".                                                                        [100%]\n1 passed, 16 deselected in 80.31s (0:01:20)\n"
+    },
+    "regression": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_time_integration.py",
+          "tests/test_time_state.py",
+          "tests/test_time_initialization.py",
+          "tests/test_time_constraints.py",
+          "tests/test_radau_time.py",
+          "tests/test_forcing.py"
+        ],
+        "wrapper_pid": 7354,
+        "started": 1791304270.1694968,
+        "pid": 7380,
+        "exit_code": 0,
+        "ended": 1791306323.9620094
+      },
+      "log_sha256": "d1bfd17bf0d3e0f2630f8758561279fc8de6f6c324b0dec4c1b25a2f490ebb5c",
+      "log": "........................................................................ [ 75%]\n........................                                                 [100%]\n96 passed in 553.82s (0:09:13)\n"
+    },
+    "study-probe": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-time-accuracy.py",
+          "--kind",
+          "gust",
+          "--limit",
+          "1"
+        ],
+        "wrapper_pid": 11845,
+        "started": 1791305155.4176316,
+        "pid": 11877,
+        "exit_code": 0,
+        "ended": 1791306955.1337116
+      },
+      "log_sha256": "2babe0e4b00d2f093ddd01373f589da9b2a3c19838179f4758b55a117f6017c5",
+      "log": "Computing {'kind': 'gust', 'atol': 1e-08, 'rtol': 0.0001, 'restart': False}\nResult {'kind': 'gust', 'atol': 1e-08, 'rtol': 0.0001, 'restart': False} 3.607575060937751e-07 5\n"
+    },
+    "unit-probe": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/probe-openswing-time-accuracy-units.py"
+        ],
+        "wrapper_pid": 16970,
+        "started": 1791306399.4389877,
+        "pid": 17002,
+        "exit_code": 0,
+        "ended": 1791306548.9336689
+      },
+      "log_sha256": "dff4f4c0aa34006d55165c748a024c14a9deaef2cedef0d7e6002acef5ceb749",
+      "log": "{\"units\": [1.0, 1.0, 1.0], \"accepted\": 1, \"accuracy\": {\"rtol\": 0.0025, \"atol\": 2.5e-06, \"minimum_step\": 4.57763671875e-08, \"method\": \"one full step versus two half steps\", \"attempts\": 1, \"rejected_accuracy_steps\": 0, \"rejected_nonlinear_steps\": 0, \"maximum_accepted_ratio\": 0.4787221185605168, \"scales\": {\"length\": 2.0, \"velocity\": 4.428690551393267, \"rate\": 2.2143452756966333, \"force\": 19.6133, \"circulation\": 1.0}, \"norm\": \"Maximum weighted physical vector/scalar discrepancy, including algebraic loads and endpoint rates; rotations use relative SO(3) angles.\"}, \"endpoint_accuracy\": {\"maximum_ratio\": 0.4787221185605168, \"limiting_quantity\": \"node_velocity\", \"group_ratios\": {\"node_displacement\": 0.10861396717406879, \"node_velocity\": 0.4787221185605168, \"node_rotation_rate\": 1.45772625309998e-29, \"section_force\": 0.18816406551097356, \"section_moment\": 1.4962849683266298e-18, \"constraint_reaction\": 0.18816406556843446, \"earth_position\": 0.0, \"earth_velocity\": 0.0, \"earth_rotation_rate\": 0.0, \"local_acceleration\": 0.18816406554332313, \"local_angular_acceleration\": 1.1183962785359689e-26, \"reference_acceleration\": 0.0, \"frame_angular_acceleration\": 0.0, \"node_rotation\": 9.404858940467355e-34, \"frame_orientation\": 0.0}, \"trial_step\": 0.003, \"internal_steps\": 2, \"midpoint_time\": 0.0015, \"comparison_order\": 1, \"accepted\": \"two half steps; no extrapolation\"}, \"q\": 0.0019966615418387512, \"v\": -0.0014816372865434043, \"force\": 0.9835143980538389, \"support\": -0.9835143980538869}\n{\"units\": [0.3048, 2.0, 4.4482216152605], \"accepted\": 1, \"accuracy\": {\"rtol\": 0.0025, \"atol\": 2.5e-06, \"minimum_step\": 2.288818359375e-08, \"method\": \"one full step versus two half steps\", \"attempts\": 1, \"rejected_accuracy_steps\": 0, \"rejected_nonlinear_steps\": 0, \"maximum_accepted_ratio\": 0.4787221185525035, \"scales\": {\"length\": 6.561679790026246, \"velocity\": 29.05964928735739, \"rate\": 4.428690551393267, \"force\": 4.409245243697551, \"circulation\": 1.0}, \"norm\": \"Maximum weighted physical vector/scalar discrepancy, including algebraic loads and endpoint rates; rotations use relative SO(3) angles.\"}, \"endpoint_accuracy\": {\"maximum_ratio\": 0.4787221185525035, \"limiting_quantity\": \"node_velocity\", \"group_ratios\": {\"node_displacement\": 0.10861396708054952, \"node_velocity\": 0.4787221185525035, \"node_rotation_rate\": 2.0520326199410588e-29, \"section_force\": 0.18816406548236145, \"section_moment\": 1.6335741261120255e-19, \"constraint_reaction\": 0.18816406552496187, \"earth_position\": 0.0, \"earth_velocity\": 0.0, \"earth_rotation_rate\": 0.0, \"local_acceleration\": 0.1881640654767733, \"local_angular_acceleration\": 1.6160449202588215e-26, \"reference_acceleration\": 0.0, \"frame_angular_acceleration\": 0.0, \"node_rotation\": 9.114180430902994e-34, \"frame_orientation\": 0.0}, \"trial_step\": 0.0015, \"internal_steps\": 2, \"midpoint_time\": 0.00075, \"comparison_order\": 1, \"accepted\": \"two half steps; no extrapolation\"}, \"q\": 0.001996661541837863, \"v\": -0.0014816372865432386, \"force\": 0.983514398053618, \"support\": -0.9835143980536181}\n"
+    },
+    "study-recovered": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-time-accuracy.py"
+        ],
+        "wrapper_pid": 24771,
+        "started": 1791308668.5039656,
+        "pid": 24772,
+        "exit_code": 0,
+        "ended": 1791311838.826468
+      },
+      "log_sha256": "d8010e2841c0231220ae093f76b0e18a87dc6b61198088cd4decd23441e1dbaa",
+      "log": "Cached {'kind': 'spring', 'order': 2, 'atol': 1e-05, 'rtol': 0.01, 'restart': False}\nResult {'kind': 'spring', 'order': 2, 'atol': 1e-05, 'rtol': 0.01, 'restart': False} 0.005794976481442721 11\nCached {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True}\nResult {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True} 0.0027048392992146475 15\nCached {'kind': 'spring', 'order': 5, 'atol': 1e-08, 'rtol': 1e-05, 'restart': False}\nResult {'kind': 'spring', 'order': 5, 'atol': 1e-08, 'rtol': 1e-05, 'restart': False} 8.990752242699074e-08 6\nComputing {'kind': 'spring', 'order': 5, 'atol': 2.5e-09, 'rtol': 2.5e-06, 'restart': False}\nResult {'kind': 'spring', 'order': 5, 'atol': 2.5e-09, 'rtol': 2.5e-06, 'restart': False} 1.783772707319997e-08 9\nComputing {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'units': [0.3048, 2.0, 4.4482216152605]}\nResult {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'units': [0.3048, 2.0, 4.4482216152605]} 0.0027048393021769793 15\nComputing {'kind': 'controller', 'atol': 1e-05, 'rtol': 0.01, 'restart': False}\nResult {'kind': 'controller', 'atol': 1e-05, 'rtol': 0.01, 'restart': False} 0.004663375866953756 13\nComputing {'kind': 'controller', 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True}\nResult {'kind': 'controller', 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True} 0.0018807141064395294 19\nCached {'kind': 'gust', 'atol': 1e-08, 'rtol': 0.0001, 'restart': False}\nResult {'kind': 'gust', 'atol': 1e-08, 'rtol': 0.0001, 'restart': False} 3.607575060937751e-07 5\nComputing {'kind': 'gust', 'atol': 2.5e-09, 'rtol': 2.5e-05, 'restart': True}\nResult {'kind': 'gust', 'atol': 2.5e-09, 'rtol': 2.5e-05, 'restart': True} 2.628521341933728e-07 5\nComputing {'kind': 'gust', 'atol': 1.25e-09, 'rtol': 2.5e-05, 'amplitude': 0.01}\nResult {'kind': 'gust', 'atol': 1.25e-09, 'rtol': 2.5e-05, 'amplitude': 0.01} 2.877064920584061e-07 5\nWrote docs/validation/time-accuracy.json\n"
+    },
+    "poststudy": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "/tmp/continue-openswing-time-accuracy-validation.py"
+        ],
+        "wrapper_pid": 24748,
+        "started": 1791308667.3029423,
+        "pid": 24768,
+        "exit_code": 0,
+        "ended": 1791317300.1389437
+      },
+      "log_sha256": "913d71e43454bd2cb630257aa3dd3d0856f4422212f97b77f66ca75935ab0918",
+      "log": "Running study-recovered\nPassed study-recovered\nRunning plot\nPassed plot\nRunning wasm\nPassed wasm\n"
+    },
+    "js": {
+      "status": {
+        "command": [
+          "node",
+          "--test",
+          "tests/projects.test.mjs",
+          "tests/solutions.test.mjs",
+          "tests/distribution-history.test.mjs",
+          "tests/loading-data.test.mjs"
+        ],
+        "wrapper_pid": 12774,
+        "started": 1791305394.840231,
+        "pid": 12858,
+        "exit_code": 0,
+        "ended": 1791305433.9410796
+      },
+      "log_sha256": "ba1817f33c244c13eba3a6894c45631e9373854ea245d33ead757cde1bb1d5ef",
+      "log": "\u2714 signed sampled extrema retain earliest tied snapshot and event side without mutating states (15.268177ms)\n\u2714 envelopes describe sampled analytic waves, not a continuous-time bound (1.952526ms)\n\u2714 null, absent, nonfinite and nonnumeric values remain gaps, including all-missing stations (1.637761ms)\n\u2714 coincident stations remain distinct and incompatible material grids are rejected (2.647708ms)\n\u2714 aerodynamic density uses each state\u2019s current length and preserves force impulses separately (1.292396ms)\n\u2714 snapshot-specific physical stress conversion does not turn missing metadata into zero (0.954375ms)\n\u2714 history tables include every state and beam with raw quantities, ordinals and event metadata (4.42763ms)\n\u2714 local Mach is dimensionless while raw velocity follows the input time and length units (1.521224ms)\n\u2714 older archives and body sections leave missing surface airflow as gaps (1.025651ms)\n\u2714 airflow histories retain missing samples and export physical sample locations and units (4.993698ms)\n\u2714 derived section outputs retain raw load units and convert only the displayed incidence measure (0.525469ms)\n\u2714 portable projects retain literal model text, applied mesh and independent named configurations (8.097917ms)\n\u2714 update, rename, select and deletion produce new projects without mutating prior records (9.193385ms)\n\u2714 loaded equilibrium and all nested setup data are copied without shared ownership (0.32474ms)\n\u2714 ambiguous identities, missing selected cases and unknown or future formats are rejected (1.653646ms)\n\u2714 invalid physical input packets fail before JSON can silently replace values (2.484322ms)\n\u2714 deep or non-JSON equilibrium payloads are rejected while benign names stay plain data (0.525521ms)\n\u2714 version-1 projects upgrade without inventing computed solutions (2.084557ms)\n\u2714 saved values, inputs and provenance survive portable projects independently of case edits (34.342812ms)\n\u2714 checksums detect numerical, request, context and view corruption before display (16.346796ms)\n\u2714 nonfinite data, incompatible kinds, incomplete histories, duplicate records and missing provenance fail (5.008933ms)\n\u2714 portable frequency results preserve all samples and gaps while dropping only the live worker handle (0.434453ms)\n\u2714 the numerical fingerprint is checked independently of the solution checksum (13.509531ms)\n\u2714 branching a time history retains old numerical origins without relabeling them as the new kernel (0.575572ms)\n\u2139 tests 24\n\u2139 suites 0\n\u2139 pass 24\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 850.37823\n"
+    },
+    "build": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "wrapper_pid": 12296,
+        "started": 1791305301.063435,
+        "pid": 12421,
+        "exit_code": 0,
+        "ended": 1791305447.594406
+      },
+      "log_sha256": "4676c8f9a8bca639b8fb18889c944c633ebdac764a23daa0ef389a5af025a111",
+      "log": "\n> openswing@0.1.0 build\n> node scripts/prepare.mjs && vite build && python3 scripts/package-local.py\n\nRuntime package verified: numpy 2.4.6 (2.8 MiB)\nRuntime package verified: scipy 1.18.0 (13.4 MiB)\nPackaged 592 source files\nvite v8.3.2 building client environment for production...\ntransforming...\n\u2713 43 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.68 kB \u2502 gzip:   0.40 kB\ndist/assets/worker-C4x75HWL.js    1.99 kB\ndist/assets/index--NdoYADC.css   29.34 kB \u2502 gzip:   6.88 kB\ndist/assets/index-Dmm5FTW7.js   906.17 kB \u2502 gzip: 246.65 kB\n\n\u2713 built in 1m\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\nPackaged dist/openswing-local.zip (48.3 MiB)\n"
+    },
+    "browser": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/time-accuracy.spec.js",
+          "--workers=1",
+          "--reporter=/tmp/openswing-test-reporter.cjs"
+        ],
+        "wrapper_pid": 13373,
+        "started": 1791305480.4340534,
+        "pid": 13404,
+        "exit_code": 0,
+        "ended": 1791307027.9085937
+      },
+      "log_sha256": "e0541fad502440865ebb0e4989fc0f50d1cc0b27dfded0bed7a20e6fa436aa74",
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/time-accuracy.spec.js --workers=1 --reporter=/tmp/openswing-test-reporter.cjs\n\nRunning 1 browser tests\npassed: offline temporal refinement checks a released spring, retains checkpoint policy and restores archives (301.9s)\n{\"status\":\"passed\",\"counts\":{\"passed\":1}}\n"
+    },
+    "build-history": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "wrapper_pid": 19459,
+        "started": 1791307170.6889124,
+        "pid": 19585,
+        "exit_code": 0,
+        "ended": 1791307558.049662
+      },
+      "log_sha256": "2dda149b062c537c17732878380000462d3fee12a4f5358f697e1fbecd9a9ecb",
+      "log": "\n> openswing@0.1.0 build\n> node scripts/prepare.mjs && vite build && python3 scripts/package-local.py\n\nRuntime package verified: numpy 2.4.6 (2.8 MiB)\nRuntime package verified: scipy 1.18.0 (13.4 MiB)\nPackaged 594 source files\nvite v8.3.2 building client environment for production...\ntransforming...\n\u2713 43 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.68 kB \u2502 gzip:   0.40 kB\ndist/assets/worker-C4x75HWL.js    1.99 kB\ndist/assets/index--NdoYADC.css   29.34 kB \u2502 gzip:   6.88 kB\ndist/assets/index-DvaA0tMU.js   906.47 kB \u2502 gzip: 246.75 kB\n\n\u2713 built in 1m 57s\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\nPackaged dist/openswing-local.zip (48.3 MiB)\n"
+    },
+    "browser-history": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/time-accuracy.spec.js",
+          "tests/browser/time.spec.js",
+          "tests/browser/time-checkpoint.spec.js",
+          "tests/browser/time-launch.spec.js",
+          "tests/browser/projects.spec.js",
+          "tests/browser/solutions.spec.js",
+          "--grep",
+          "offline temporal|Earth playback|time workbench|software playback|offline checkpoints|offline saved PI|saved vacuum modal|time archives|legacy projects|saved projects restore",
+          "--workers=1",
+          "--reporter=/tmp/openswing-test-reporter.cjs"
+        ],
+        "wrapper_pid": 21208,
+        "started": 1791308140.9957156,
+        "pid": 21227,
+        "exit_code": 0,
+        "ended": 1791310686.6639812
+      },
+      "log_sha256": "97eb774191b8c7a3b043964c0569774003123f199cff35074f584737f3498891",
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/time-accuracy.spec.js tests/browser/time.spec.js tests/browser/time-checkpoint.spec.js tests/browser/time-launch.spec.js tests/browser/projects.spec.js tests/browser/solutions.spec.js --grep offline temporal|Earth playback|time workbench|software playback|offline checkpoints|offline saved PI|saved vacuum modal|time archives|legacy projects|saved projects restore --workers=1 --reporter=/tmp/openswing-test-reporter.cjs\n\nRunning 10 browser tests\npassed: saved projects restore exact editable cases, loaded trim and analytical Bode response after reload (102.6s)\npassed: time archives retain full physical snapshots, selected view and restart checkpoints (38.3s)\npassed: legacy projects migrate and corrupted durable archive reads or undo leave the valid workspace intact (54.1s)\npassed: offline temporal refinement checks a released spring, retains checkpoint policy and restores archives (187.3s)\npassed: offline checkpoints append or branch physical time history, retain BDF and controller offsets, and import standalone segments (74.3s)\npassed: offline saved PI trim launches unchanged, switches forcing after snapshot zero and continues from a checkpoint (91.2s)\npassed: a saved vacuum modal base launches and renders structural time states without invented aerodynamic data (28.3s)\npassed: Earth playback transforms geometry, pylons and the physical image plane without mutating snapshots (0.0s)\npassed: time workbench solves flap-forced free flight, scrubs actual states and exports full history offline (79.8s)\npassed: software playback, invalid forcing, cancellation and kernel restart (59.2s)\n{\"status\":\"passed\",\"counts\":{\"passed\":10}}\n"
+    },
+    "browser-migration": {
+      "status": {
+        "command": [
+          "npm",
+          "run",
+          "test:browser",
+          "--",
+          "tests/browser/solutions.spec.js",
+          "--grep",
+          "legacy projects migrate",
+          "--workers=1",
+          "--output=/tmp/openswing-time-accuracy-migration-results",
+          "--reporter=/tmp/openswing-test-reporter.cjs"
+        ],
+        "wrapper_pid": 7883,
+        "started": 1791311039.7198403,
+        "pid": 7955,
+        "exit_code": 0,
+        "ended": 1791311753.6637287
+      },
+      "log_sha256": "997e8a16cb6d0bf190c1d31cc11392e443c9fc6b0eb3936b35db53aa6b8d77cf",
+      "log": "\n> openswing@0.1.0 test:browser\n> playwright test tests/browser/solutions.spec.js --grep legacy projects migrate --workers=1 --output=/tmp/openswing-time-accuracy-migration-results --reporter=/tmp/openswing-test-reporter.cjs\n\nRunning 1 browser tests\npassed: legacy projects migrate and corrupted durable archive reads or undo leave the valid workspace intact (59.6s)\n{\"status\":\"passed\",\"counts\":{\"passed\":1}}\n"
+    },
+    "wasm": {
+      "status": {
+        "command": [
+          "node",
+          "scripts/test-time-accuracy-wasm.mjs"
+        ],
+        "wrapper_pid": 11051,
+        "started": 1791311850.9830735,
+        "pid": 11052,
+        "exit_code": 0,
+        "ended": 1791317299.9410887
+      },
+      "log_sha256": "99bc299a6b56680565331cf02bf28fba77fd337f0f90d79ab700cfd1c8726a05",
+      "log": "Loading numpy, scipy\nLoaded numpy, scipy\nTemporal accuracy WASM {\"kind\":\"spring\",\"order\":2,\"atol\":0.0000025,\"rtol\":0.0025,\"restart\":true} 8.084791196856785e-13\nTemporal accuracy WASM {\"kind\":\"spring\",\"order\":5,\"atol\":1e-8,\"rtol\":0.00001,\"restart\":false} 1.1040057756872557e-12\nTemporal accuracy WASM {\"kind\":\"spring\",\"order\":2,\"atol\":0.0000025,\"rtol\":0.0025,\"units\":[0.3048,2,4.4482216152605]} 2.886579864025407e-12\nTemporal accuracy WASM {\"kind\":\"controller\",\"atol\":0.0000025,\"rtol\":0.0025,\"restart\":true} 9.624072245735882e-14\nTemporal accuracy WASM {\"kind\":\"gust\",\"atol\":2.5e-9,\"rtol\":0.000025,\"restart\":true} 7.201624491659236e-16\nTemporal accuracy WASM {\"kind\":\"gust\",\"atol\":1.25e-9,\"rtol\":0.000025,\"amplitude\":0.01} 4.1152139952338486e-16\nTemporal accuracy packaged replay passed.\n"
+    },
+    "plot": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/plot-time-accuracy.py"
+        ],
+        "wrapper_pid": 11016,
+        "started": 1791311839.2339258,
+        "pid": 11017,
+        "exit_code": 0,
+        "ended": 1791311850.1503267
+      },
+      "log_sha256": "eac674820631bc2567578c511e2743371b47890042ab1207d43187e4d6e1f3f3",
+      "log": "docs/validation/time-accuracy.svg\ndocs/validation/time-accuracy.pdf\ndocs/validation/time-accuracy.png\n"
+    },
+    "units-fixed": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_time_accuracy.py",
+          "-k",
+          "invariant_to_consistent"
+        ],
+        "wrapper_pid": 18604,
+        "started": 1791307039.6854923,
+        "pid": 18632
+      },
+      "supervisor_exit_code": 143,
+      "child_exit_code": null,
+      "log_sha256": "40ef9b01e034a30a2109acd752bb1e23d190993135bbc803096e31b1286487d4",
+      "log": ".                                                                        [100%]\n1 passed, 16 deselected in 139.22s (0:02:19)\n"
+    },
+    "study": {
+      "status": {
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-time-accuracy.py"
+        ],
+        "wrapper_pid": 18611,
+        "started": 1791307039.4879375,
+        "pid": 18629
+      },
+      "supervisor_exit_code": 143,
+      "child_exit_code": null,
+      "log_sha256": "501296b9c1a83ff5212451a43223cbb1713b2140b8b1461bbe90d9f062e9cd0c",
+      "log": "Computing {'kind': 'spring', 'order': 2, 'atol': 1e-05, 'rtol': 0.01, 'restart': False}\nResult {'kind': 'spring', 'order': 2, 'atol': 1e-05, 'rtol': 0.01, 'restart': False} 0.005794976481442721 11\nComputing {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True}\nResult {'kind': 'spring', 'order': 2, 'atol': 2.5e-06, 'rtol': 0.0025, 'restart': True} 0.0027048392992146475 15\nComputing {'kind': 'spring', 'order': 5, 'atol': 1e-08, 'rtol': 1e-05, 'restart': False}\nResult {'kind': 'spring', 'order': 5, 'atol': 1e-08, 'rtol': 1e-05, 'restart': False} 8.990752242699074e-08 6\nComputing {'kind': 'spring', 'order': 5, 'atol': 2.5e-09, 'rtol': 2.5e-06, 'restart': False}\n"
+    }
+  },
+  "source_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/aero.py": "3dc051109c489b9f4e38d371becd01b8bfd667619aacc096ddd5c2b48e44708b",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+    "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+    "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+    "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe",
+    "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+    "web/main.js": "a5b32cf24503dcc8321fb0cc746c661d10cea44fd9565e7d3399c1d71ebc6cd9",
+    "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+    "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+    "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+    "web/time-results.js": "e0e15c6d473b5b9c6a20bdd58156263d1cdd2226d76371da8b4d5b91730e130b",
+    "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+    "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+    "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+    "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+    "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+    "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+    "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+    "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+    "web/equilibrium-state.js": "08a99355ea285d163a7251644a4ff4b3d9ca3f62dbd72eb6ba027f256e7c5a0d",
+    "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+    "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+    "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+    "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+    "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+    "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+    "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+    "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+    "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+    "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+    "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+    "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+    "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+    "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+    "web/case-settings.js": "dd9f6676ead79245dd79f50772b2eed3c464aceeebdf8abcea6e0276d03591fc",
+    "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+    "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+    "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+    "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+    "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+    "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+    "web/style.css": "9eb2e51f9b9d33d1f04340baf6e784fa7c715a60d816e9af280d93057e6c581e",
+    "index.html": "1cb1278afe826c389c818272c4d71287269b52cde5fad8fea2ea422a6f6502a7",
+    "package.json": "7c55459cc7fd5b694a5ab7560b3907f0daa49c9a8da730321facd0274d9a1710",
+    "package-lock.json": "10dede454f2863bfe2e66bbeb5b7c5f8f80239dabe6355a759f4d26ca00128b7",
+    "scripts/verify-time-accuracy.py": "02a75cc95faa8ed95ea22d9bcb2bf84f3d1aac361484260910523bc0eb02d3b9",
+    "scripts/test-time-accuracy-wasm.mjs": "919a21aa8b42d9af7e6f6b69ce38136c289ee6aa780474cec25807c85cb378ef",
+    "scripts/plot-time-accuracy.py": "e7faecee5373cb902e1d4732ba1d78ba273e0f1d92ab140770171878ab15cbb0",
+    "tests/test_time_accuracy.py": "e0d3d3bb48f616b66d10d9226e515b469d09e4aea5fd98532a3670e676015499",
+    "tests/browser/time-accuracy.spec.js": "2def84ef49ea7f3ba9a5e9f12554373b6570e2d4844b60fac5a9039de56ab796",
+    "tests/browser/solutions.spec.js": "9238d0e1355735c2dc2fc51c06e91558dbe80df559591df13751008883837fba"
+  },
+  "tested_assets_sha256": {
+    "dist/index.html": "4955a5e3ba2da8524df1c62ab23416fc8ec74de414dbff2953c451e981b9442d",
+    "dist/assets/index-DvaA0tMU.js": "70172df123a927793ceb94609e5d6d8f42684ad571c687cc94368416846136a5",
+    "dist/assets/index--NdoYADC.css": "add1d94f3cae289f66941e084f03681fe1b030bb99702d62b3f7e1ec00cbadb8",
+    "dist/assets/worker-C4x75HWL.js": "0dd7aa6a9de67e6ed17ad52c1d7835e102579dfd70fde2a9307b1c0e0cfaf8e8"
+  },
+  "native_distinct_targeted_tests": 113,
+  "native_new_tests": 17,
+  "native_regression_tests": 96,
+  "javascript_tests": 24,
+  "full_javascript_tests": 50,
+  "full_javascript_record": "docs/validation/javascript-regression-20261006.json",
+  "final_browser_workflows": 10,
+  "final_browser_runs": 11,
+  "native_cases": 10,
+  "wasm_cases": 6,
+  "additional_webgl_workflows": 1,
+  "renderer_record": "docs/validation/browser-renderer-20261006.json",
+  "renderer_screenshots_sha256": {
+    "docs/validation/browser-renderer-jig.png": "dec8c72a52e4e9e01233fd058ebc31ed5ae723a0a622ff0d2247ec647450cad5",
+    "docs/validation/browser-renderer-deformed.png": "42504be10f0a8ec709e27d9f28c7c2b432b2455bd67d5c1ec5f8d73980b70405",
+    "docs/validation/browser-renderer-top.png": "6be11aa5a321b0dbd649bfe90bc58e809a12bcd21941ce38c82a5c190683770d",
+    "docs/validation/browser-renderer-mobile.png": "1dfc9db7c3e4f71b0f311a082496e7d749597368699eb6838397375ccc563069"
+  },
+  "native_comparisons": [
+    {
+      "spec": {
+        "kind": "spring",
+        "order": 2,
+        "atol": 1e-05,
+        "rtol": 0.01,
+        "restart": false
+      },
+      "maximum_scaled_error": 0.005794976481442721,
+      "accepted_steps": 11,
+      "accuracy_retries": 4
+    },
+    {
+      "spec": {
+        "kind": "spring",
+        "order": 2,
+        "atol": 2.5e-06,
+        "rtol": 0.0025,
+        "restart": true
+      },
+      "maximum_scaled_error": 0.0027048392992146475,
+      "accepted_steps": 15,
+      "accuracy_retries": 5
+    },
+    {
+      "spec": {
+        "kind": "spring",
+        "order": 5,
+        "atol": 1e-08,
+        "rtol": 1e-05,
+        "restart": false
+      },
+      "maximum_scaled_error": 8.990752242699074e-08,
+      "accepted_steps": 6,
+      "accuracy_retries": 2
+    },
+    {
+      "spec": {
+        "kind": "spring",
+        "order": 5,
+        "atol": 2.5e-09,
+        "rtol": 2.5e-06,
+        "restart": false
+      },
+      "maximum_scaled_error": 1.783772707319997e-08,
+      "accepted_steps": 9,
+      "accuracy_retries": 2
+    },
+    {
+      "spec": {
+        "kind": "spring",
+        "order": 2,
+        "atol": 2.5e-06,
+        "rtol": 0.0025,
+        "units": [
+          0.3048,
+          2.0,
+          4.4482216152605
+        ]
+      },
+      "maximum_scaled_error": 0.0027048393021769793,
+      "accepted_steps": 15,
+      "accuracy_retries": 5
+    },
+    {
+      "spec": {
+        "kind": "controller",
+        "atol": 1e-05,
+        "rtol": 0.01,
+        "restart": false
+      },
+      "maximum_scaled_error": 0.004663375866953756,
+      "accepted_steps": 13,
+      "accuracy_retries": 3
+    },
+    {
+      "spec": {
+        "kind": "controller",
+        "atol": 2.5e-06,
+        "rtol": 0.0025,
+        "restart": true
+      },
+      "maximum_scaled_error": 0.0018807141064395294,
+      "accepted_steps": 19,
+      "accuracy_retries": 3
+    },
+    {
+      "spec": {
+        "kind": "gust",
+        "atol": 1e-08,
+        "rtol": 0.0001,
+        "restart": false
+      },
+      "maximum_scaled_error": 3.607575060937751e-07,
+      "accepted_steps": 5,
+      "accuracy_retries": 1
+    },
+    {
+      "spec": {
+        "kind": "gust",
+        "atol": 2.5e-09,
+        "rtol": 2.5e-05,
+        "restart": true
+      },
+      "maximum_scaled_error": 2.628521341933728e-07,
+      "accepted_steps": 5,
+      "accuracy_retries": 1
+    },
+    {
+      "spec": {
+        "kind": "gust",
+        "atol": 1.25e-09,
+        "rtol": 2.5e-05,
+        "amplitude": 0.01
+      },
+      "maximum_scaled_error": 2.877064920584061e-07,
+      "accepted_steps": 5,
+      "accuracy_retries": 1
+    }
+  ],
+  "wasm_endpoint_values_compared": 39,
+  "wasm_maximum_scaled_native_endpoint_difference": 2.886579864025407e-12,
+  "interrupted_jobs": {
+    "supervisor_exit_code": 143,
+    "observed": 1791308666.4737897,
+    "processes_absent": [
+      18604,
+      18632,
+      18611,
+      18629
+    ],
+    "unit_log_result": "1 passed, 16 deselected; no child exit record",
+    "study_cached_cases": 3,
+    "reason": "Supervisor ended; no reason supplied by tool. Preserve original logs and incomplete status files."
+  },
+  "initial_source_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/aero.py": "3dc051109c489b9f4e38d371becd01b8bfd667619aacc096ddd5c2b48e44708b",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+    "openswing/network.py": "e756685eae4269193a26098e91e5df16eddddc782035ed0ce39536d0477c3024",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/time_integration.py": "b71e0b8a4ad1fadaf18529d4efc8c1d0d3346682108bae19acb4129e23439e83",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/time_state.py": "df0b6768354e7c2cdbe99c72738018f6ea96bbd402737dde62af3098df0aa144",
+    "openswing/time_initialization.py": "2a84a3e95bfacf43af6369f52ac6c34fa8d086e45cecd32cd0e8af9f0abe6253",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/time_accuracy.py": "66a0cf06df9a93b54b496887776ba74c9e3a6cb9f65dc46ac19b5ea1e1a2d140",
+    "web/worker.js": "48381640b95b19863d2838c48b4720d8357bd838cf8dd809c412e454660e3dfe",
+    "web/viewer.js": "a1bbc3edf7abcf2846ce035c4da61cfb4189e49143ddff3a62ab6773dd18f8b7",
+    "web/main.js": "c9fc364b8a18d1757e087468b85a110c07d4e9cd6399a2759de163d5dad0e669",
+    "web/software-viewer.js": "50fa40731f6527d26e4ac86659d47b5601dec02628da21039f466b0939afe7c3",
+    "web/ground-grid.js": "a9618f5d35784fc450cae9bea42836bfeebce21af0dcee063048f8d884bce6cc",
+    "web/structure-results.js": "9f2516e4c72db4f6bd22eb20abba07e137d6282bef057109e32a1cf5dd2ee420",
+    "web/time-results.js": "6f40d169fefb0712552fb744025cddad50d4bb4a050c8b70326172099077f4f9",
+    "web/gust-settings.js": "ef4b3dbab453c054495739181607d1078c9e6d8f93982e053f35296d21b0b61f",
+    "web/mode-results.js": "0e428e75f9281d8b77f94abee03c95d966d85089806c3132959de45d001a8c62",
+    "web/frequency-results.js": "d445ef4efc11ffbb365fb9f53f558510ab7416ba69486e31032ef284bc999993",
+    "web/sensor-results.js": "d2a9992933fd9f111334520412341ea51a7c2b08abaf322870665afb1e345816",
+    "web/feedback-results.js": "356a9137bdad66e7869820f6476483a5e94dc35118f876b170c23c1b1183e3d9",
+    "web/rom-results.js": "c511422b4f07786b60b2a30d722855b10e2b7cf04786854152230dcffac8a13e",
+    "web/rom-file.js": "58d23005a6cca3d1279e532fc8321a25c1c61c599c70e9815cbb32f06cefd83a",
+    "web/stability-results.js": "7d39917a1ade9747df0bcf8ba4c7a4ecb53e28266dcfeea2bb26216759af2127",
+    "web/equilibrium-state.js": "08a99355ea285d163a7251644a4ff4b3d9ca3f62dbd72eb6ba027f256e7c5a0d",
+    "web/time-checkpoint.js": "e478743da675e3d64d3de2d92a9992b638137780ebf85c342111a656eefcb2c5",
+    "web/distribution-editor.js": "2e2a8f63a1945100ff72cb312c3df6ed674c91ce70fa91676e471e4e0c5b76e7",
+    "web/dynamic-frame.js": "53ac76ec2ee06dc899982da80ede419b9c3fbd1c78d930bfe95f5c8c38f5b44b",
+    "web/node-editor.js": "6a031e78e5d9b4effe617d262e1bf4a3d3d62aaad31f9d83a7e46e01f445c893",
+    "web/rom-initial.js": "2885440bdfb13770a83516e7af9bfd38148d1cc4a772d0d32073118815ff798d",
+    "web/time-initial.js": "fe51fb37559ce99a80f3d6500c64ade16a2935a7881b00eca0bdf11fbc8e8a01",
+    "web/flow-results.js": "08c61cf3b90a34298c0751ee83b38446dba74852514a7b6572a820fff2297979",
+    "web/frequency-data.js": "b50a4e9c52cdc9b1a6279e5156b70a0c30ab8c366bf51171ebe2a77c89474288",
+    "web/frequency-comparison.js": "a76f787ef93de43ff56d59545f5f2a448e259b2794897cf86f46cf1cd8a2e220",
+    "web/control-allocation.js": "12d8e1c4cf4591525f9961aada5651ac8720c2ca358e53e1b537b62ddea1747b",
+    "web/custom-constraints.js": "32ef6631a914310b945f2dbfb87bf4de3a1b58dd7cee3abd0a8ec2f54c7824f6",
+    "web/frequency-overlay-data.js": "b12fa0f92b3165a825c1e452156fc0c345d6ebc25230bd402f1a0abd45d48610",
+    "web/frequency-overlays.js": "cde3f93ddfb08d0215ee11bdeb7ce75a01e3da56791beb948cb971fc09875d16",
+    "web/project-data.js": "13e52306a179b744c0345abfa4c3c05c01f5f570f0ed01f8c1538161445d7b12",
+    "web/case-settings.js": "dd9f6676ead79245dd79f50772b2eed3c464aceeebdf8abcea6e0276d03591fc",
+    "web/project-settings.js": "bbf49c010268e1d6b16af8e0980ce4a71550887f7d3f1ffa75ba77a6ad861ab5",
+    "web/solution-data.js": "6d2d5a6f94791580d927fd9fa3ea49aec1897ec86e8df5363e466e917693f7fc",
+    "web/distribution-history.js": "cc78c2b4ce1cfe9bff02d3d753c43b7733980f589f2fc67f5808ffafaa77eb56",
+    "web/loading-data.js": "369d9168563bcf93884cd24162a3e47fcfea8cb3c81b1da6fc5a01c2247d8438",
+    "web/rom-outputs.js": "0b927fde6b4880ac39cf3057472812925b4aad79edade07bf5c87cbd308e098a",
+    "web/time-accuracy.js": "6c1c6dd51da95ef1612b6bb45e1df2976ff659cce001b8592c221ef6f5127591",
+    "web/style.css": "9eb2e51f9b9d33d1f04340baf6e784fa7c715a60d816e9af280d93057e6c581e",
+    "tests/test_time_accuracy.py": "e2f21970624357f116125bc1d723e23a6ebb22ec92b92cf729e89c7d50ee6c06"
+  },
+  "retained_failures": "The new native unit-change test evaluated converted output using default SI conversion factors. Its assertion failed while 16 other new tests passed. Supplying the actual conversion factors corrected the test without changing its tolerances or production equations. The first corrected run printed a pass but lost its supervisor before recording child exit. The independent study supervisor also ended after three cached cases. After confirming all affected processes were gone, the unit test passed again with recorded exit zero and the source-matched study resumed from its cached cases. Original incomplete status files and logs remain retained. An independent one-step probe confirmed matching scaled discrepancies and physical forces. The initial browser workflow passed; subsequent review corrected combined internal-step totals and retained diagnostic plots when continuation disables the check, covered by the final browser run.",
+  "artifacts_sha256": {
+    "docs/validation/time-accuracy.json": "aa363eaae6fc4c7b6fc6562fe01c0f29289deb16664fe682a61a9617a2f468d5",
+    "docs/validation/time-accuracy.md": "7f0a1411e0e294bd5656f3f987d8913bdc4fa041d7734638ee722146a93e80ae",
+    "docs/validation/time-accuracy.pdf": "fdb35a59cccddc62f72de8e2c60a08fe72ce95bfd50fc40b8b23068a56d912bc",
+    "docs/validation/time-accuracy.png": "ad6b61b2851f2d479dbefa0e49e5d5343d390ecf5a3b081ee50f7d972e36e0bb",
+    "docs/validation/time-accuracy.svg": "3a6fc46930b717c1abe12cecd8c2376e7da35d2c114228b00cf559d20527b0aa",
+    "docs/validation/time-accuracy-wasm.json": "0419699c550896aca01ddeb53a1d79e828243f62aa4099fbe0e67f61773ab64e",
+    "README.md": "0c8ad4e65f61fb29a0a22951788a69f528dc5ceece1a81c81b5f1a87e91aa447",
+    "docs/STATUS.md": "2a456955d77aca41bda7d2bad2ff64c6c52734aa6b09bff9ab5bd82d09054226",
+    "docs/REQUIREMENTS.md": "d043d1344bc3f4c469c1c88b38c932aa8108858b197d752c9118df3305197cbe",
+    "docs/NUMERICS.md": "b8ec18bb82e94401eb25a5a5a610b321167848940f70208d202851cbd91b50cf",
+    "docs/validation/sa2.md": "b51a11ecacd4859695e000bbc16ad22a815fd196afdf05fceb7918c32c70cee1",
+    "docs/validation/javascript-regression-20261006.json": "e042e3a222c115f789d7484d68573aafa031a2d4110ff7471008466e8d388434",
+    "docs/validation/browser-renderer-20261006.json": "6d09445fb4e45e719cf7fd747359a7294441ea23e4aace9d68ab36749a11d07c",
+    "docs/validation/weber-planform.json": "d8d14eaa61fea6c92692827e0b20915565c541f4cd7f78afd0993df0b4dcbd86",
+    "docs/validation/weber-planform.pdf": "0d9e567c1e07e5a9769e8ef93e404c7f22abd8c28318092a3110ade6bfaed5bc",
+    "docs/validation/weber-planform.png": "480c807ecb3f5d90ae7382114b6c1756e199c3ef212c9d4ddb05d064a7280359",
+    "docs/validation/weber-planform.svg": "68cc6ed012c80e9a1e543909509027472c2dae2d56cab5a16b007821c9b62cc4",
+    "docs/validation/weber-planform-checks.json": "13306f47a07e236519dc8605e5378b60c66bfbe969c38caa3829026025486969"
+  },
+  "screenshots_sha256": {
+    "test-results/time-accuracy.png": "ea76234c1ccd5524c04086312f60b8924708f01a5cae5c70584cd8f93520c323",
+    "test-results/time-accuracy-mobile.png": "8812e5b60400653f72b1125a737e8507e18da67f2a8a1ac2a26d9f184cecb706",
+    "test-results/time-accuracy-values.json": "b6b2f60b696d1de6b203fd77c3f824e12e4ed0d55ed6437ea40383e0d5806951"
+  },
+  "scope": "Optional temporal discrepancy checks, physical checkpoint history, mixed checked/fixed browser histories, independent mechanical/controller/finite-wing comparisons and native/WASM portability. The indicator is not a global error bound. All ASWING feature/compatibility/aircraft validation requirements and final public release remain incomplete. No hosted deployment."
+}

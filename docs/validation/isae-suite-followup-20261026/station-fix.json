@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "source_frozen": true,
+  "scope": "Exact lexical Weight attachment equivalence; geometry/model construction, serialization, identity and local motion only.",
+  "physical_equilibrium_solves": 0,
+  "aerodynamic_evaluations": 0,
+  "rule": "Use the existing beam endpoint or physical-break binary64 value only when original decimal station * multiplier + adder equals that boundary exactly as a rational number. No distance threshold or node guard change.",
+  "implementation": {
+    "parser": "Exact private source provenance accompanies unchanged binary64 raw records and distribution arrays.",
+    "consumers": "Mandatory stations, attachment drawing, wall-root exact keys, network analysis Weight copies and local Weight motion share the resolved station.",
+    "serialization": "Lossless source and original rows remain unchanged. Canonical output changes only copied Weight station fields; alias-bearing editor copies canonicalize before replacing distributions.",
+    "invalidation": "Changed/replaced Weight rows or distribution station arrays cannot reuse stale provenance. Invalid domain edits retain the original validator error.",
+    "compatibility": "All no-alias paths retain original record objects and arithmetic; frozen v0/v1 mesh identity fixtures pass. Previously rejected duplicate-node meshes gain no permission to reuse a different saved topology. Canonical source has a distinct source hash."
+  },
+  "limitations": [
+    "Only Weight attachment records are canonicalized; Ground, Joint, Sensor, Strut, Engine and arbitrary user-load station formats remain outside this change.",
+    "Already rounded equal binary64 inputs keep the existing behavior, even when their source decimal values differ.",
+    "Conflicting existing beam representations decline certification; no general beam-knot canonicalization is attempted.",
+    "No archived ST4 frequency solve or ASWING reference-match claim is made by this validation."
+  ],
+  "tests": {
+    "passed": 138,
+    "new_focused": 33,
+    "deselected_physical_solve_tests": 2,
+    "elapsed_seconds": 12.94,
+    "original_models": [
+      {
+        "variant": "7d",
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7d/7d_b48.asw",
+          "bytes": 1452,
+          "sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107"
+        },
+        "intervals": 32,
+        "literal_source_unchanged": true,
+        "raw_records_unchanged": true
+      },
+      {
+        "variant": "7e",
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7e/7e_b48.asw",
+          "bytes": 1445,
+          "sha256": "678e4e06043ddb317778c43c6e196c296469019dd8d26840d88ca23ec49b3ddc"
+        },
+        "intervals": 32,
+        "literal_source_unchanged": true,
+        "raw_records_unchanged": true
+      },
+      {
+        "variant": "7f",
+        "source": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7f/7f_b48.asw",
+          "bytes": 1446,
+          "sha256": "222f1fc61097af0e17cd11455c3ef9ad83353c929c6777b2e4abd76e06d15865"
+        },
+        "intervals": 32,
+        "literal_source_unchanged": true,
+        "raw_records_unchanged": true
+      }
+    ]
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 28001,
+      "sha256": "e3b352c4427c028f12a1b004340e9904f5d1fa7bf02dc779adb5cc91cc981947"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw_edit.py",
+      "bytes": 12706,
+      "sha256": "390e87047bc3ca225bb12047a3b35da49d67355b6be7a829df9c06c2ca13f3c2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5635,
+      "sha256": "9ccc248fcdf69b1a6094f536856723d2ef7993e20316ac631f1152d32abeb48b"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 12809,
+      "sha256": "e67ae63d85b2071f2bd92f0a0e47f69e3c6e4843ccb0c38c02d3499a8ed56776"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/wall_root.py",
+      "bytes": 9768,
+      "sha256": "ce02ed286f59f5210921402da081b3e522e6d8977add21efa891108af292729f"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 65642,
+      "sha256": "4dd5c89320b7d8266d7bad6982acdebf2e3d869bc3b9f7889ae81bd7de351588"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_motion.py",
+      "bytes": 13211,
+      "sha256": "3468ee1102fc898473ca73cf9834d7a28e1b1ff2bff1c4827302bf47810d8484"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_station_equivalence.py",
+      "bytes": 12541,
+      "sha256": "13eb4f75a3f5f70afc058f134167a4f53ee15e2bb2acf8a1e6384da0b5247741"
+    }
+  ],
+  "source_diff": {
+    "path": "/tmp/openswing-isae-st4-station-fix-20261026/change.diff",
+    "bytes": 15758,
+    "sha256": "8a24e7eb37f2527ae5ffaf3561361bf17caed5756ece6f8a5c44380ae5feada0"
+  },
+  "baseline_report_unchanged": {
+    "path": "/home/userland/aswing/docs/validation/isae-suite-current.json",
+    "bytes": 283571,
+    "sha256": "53d61addb0edfa0ac0f05c9a3b9a3f47f958a442224379444fef0aed6d29ad50"
+  },
+  "kernel_count": 122,
+  "kernel_changes_from_authoritative_baseline": [
+    "openswing/asw.py",
+    "openswing/asw_edit.py",
+    "openswing/discretization.py",
+    "openswing/geometry.py",
+    "openswing/local_motion.py",
+    "openswing/network.py",
+    "openswing/rigid_initial_rank.py",
+    "openswing/structured_static.py",
+    "openswing/wall_root.py"
+  ],
+  "other_authorized_root_changes": [
+    "openswing/rigid_initial_rank.py",
+    "openswing/structured_static.py"
+  ],
+  "owners": [
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/focused-first.log",
+        "bytes": 3023,
+        "sha256": "260fa9d4393dea21786b4e6384c229065da073ba66848fd22617a80484d8eb25"
+      },
+      "owner_session": 29936,
+      "terminal_chunk": "585296",
+      "exit_code": 1,
+      "terminal": true,
+      "reaped": true,
+      "note": "Test input already rounded to endpoint; changed test and explicitly retained binary behavior."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/focused-second.log",
+        "bytes": 3095,
+        "sha256": "3eb35a5dade3c1e8e9bdbdb77482083f4af77a3c7acb7e2121232ebab31f151e"
+      },
+      "owner_session": 24479,
+      "terminal_chunk": "1c260d",
+      "exit_code": 1,
+      "terminal": true,
+      "reaped": true,
+      "note": "Test used the existing base-node endpoint snap; moved close-node regression into the interior."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/focused-third.log",
+        "bytes": 4320,
+        "sha256": "c1ae532da4861e936552aaed2cd8de081d3890f3a4de2471800359662ba89a37"
+      },
+      "owner_session": 74540,
+      "terminal_chunk": "0ef2f3",
+      "exit_code": 1,
+      "terminal": true,
+      "reaped": true,
+      "note": "Found editor provenance loss; resolved aliases into the independent edit copy before replacement."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/focused-final.log",
+        "bytes": 16783,
+        "sha256": "6ec2a11cc053de70ba21c7bab441d1dee6ecf0565194aea81786df7633d332dc"
+      },
+      "owner_session": 23451,
+      "terminal_chunk": "650159",
+      "exit_code": 1,
+      "terminal": true,
+      "reaped": true,
+      "note": "Found missing-domain invalid-edit error; resolver now declines certification and preserves the existing validator error."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/focused-final2.log",
+        "bytes": 14567,
+        "sha256": "7713e0732ceeb5fc2a3febd4f66b969cf28932a99746943877aa94efad0855f5"
+      },
+      "owner_session": 17853,
+      "terminal_chunk": "f5ff8e",
+      "exit_code": 0,
+      "terminal": true,
+      "reaped": true,
+      "note": "132 geometry/parser/editor/legacy identity checks passed before consumer extensions."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/with-wall-root.log",
+        "bytes": 3975,
+        "sha256": "ae6ab8559b4b052da5b66bea18bcdd1dd33ff5ba4fb0a140fa5aebe66b288fb7"
+      },
+      "owner_session": 63247,
+      "terminal_chunk": "3b1e74",
+      "exit_code": 0,
+      "terminal": true,
+      "reaped": true,
+      "note": "30 focused checks passed after exact-key wall-root extension."
+    },
+    {
+      "log": {
+        "path": "/tmp/openswing-isae-st4-station-fix-20261026/final-validation.log",
+        "bytes": 15401,
+        "sha256": "45a5916c1a71b8437b1710944f0e4c6388ffab5433e8694036a86a8919f2fefe"
+      },
+      "owner_session": 41637,
+      "terminal_chunk": "c6b6e6",
+      "exit_code": 0,
+      "terminal": true,
+      "reaped": true,
+      "note": "138 final checks passed; two tests requiring physical solves explicitly deselected."
+    }
+  ]
+}

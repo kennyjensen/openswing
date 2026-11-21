@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {quiescentCondition,isQuiescentResult,hasQuiescentEquilibrium} from '../web/quiescent-settings.js';
+const pose=[3,2,1],attitude=[15,8,7];
+const value=quiescentCondition({density:1.1,position_earth:pose,attitude,gravity_magnitude:0,speed:80,alpha:25,controls:{1:20},rates:[1,2,3],ground_effect:1});
+assert.deepEqual(value,{speed:0,density:1.1,position_earth:pose,attitude,gravity_magnitude:0});
+pose[0]=99;assert.equal(value.position_earth[0],3);
+for(const density of [0,-1,NaN,Infinity,'1.1',true,null])assert.throws(()=>quiescentCondition({density,position_earth:[0,0,0],attitude:[0,0,0]}),/positive finite/);
+assert.throws(()=>quiescentCondition({density:1,position_earth:[0,0],attitude:[0,0,0]}),/three finite/);
+assert.throws(()=>quiescentCondition({density:1,position_earth:[0,0,0],attitude:[0,0,NaN]}),/three finite/);
+assert.throws(()=>quiescentCondition({density:1,position_earth:[0,0,0],attitude:[0,0,0],gravity_magnitude:-1}),/nonnegative finite/);
+assert.equal(isQuiescentResult({fluid:{kind:'quiescent'}}),true);
+assert.equal(isQuiescentResult({base:{fluid:{kind:'quiescent'}}}),true);
+assert.equal(hasQuiescentEquilibrium({identity:{quiescent_density:1.1}}),true);
+assert.equal(hasQuiescentEquilibrium({launch:{quiescent_density:1.1}}),true);
+assert.equal(hasQuiescentEquilibrium({identity:{condition:null},launch:{condition:null}}),false);
+console.log('PASS: exact-zero condition allowlist, finite inputs, immutable pose, quiescent result/checkpoint detection');

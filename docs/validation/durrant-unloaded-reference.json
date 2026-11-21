@@ -1,0 +1,115 @@
+{
+  "description": "Independent unloaded finite-wing and section-force verification. This is not published Durrant Case1 or loaded Case4.",
+  "material_reference": "durrant-reference.json",
+  "sources": {
+    "asw_theory.pdf": {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c",
+      "equations": [
+        63,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157
+      ],
+      "scope": "Material Glauert angle and aerodynamic sampling geometry."
+    },
+    "asw_uns_theory.pdf": {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+      "sha256": "c8ae0c9a23a4262f679688f9f59afabeeb652999bf53cb5303b9f4fbe62dae44",
+      "equations": [
+        "29-36",
+        "41-44",
+        "49-56"
+      ],
+      "scope": "Circulation force/rate force, apparent mass and empirical lag."
+    },
+    "durrant_thesis": {
+      "author": "Matthew Durrant",
+      "year": 2024,
+      "title": "Aeroelastic Instability of Reduced-scale High-altitude Pseudo-satellite Wings",
+      "doi": "10.6084/m9.figshare.26317378.v1",
+      "university_record": "https://ir.canterbury.ac.nz/items/05d2855a-c14d-4e9a-83fb-1f3d42535aa7",
+      "author_deposit": "https://figshare.com/articles/thesis/26317378",
+      "license": "CC BY 4.0 (author-deposited Figshare version)",
+      "file": {
+        "url": "https://ndownloader.figshare.com/files/47736529",
+        "bytes": 7144562,
+        "sha256": "286c2d5b8fff0d6cdf42a21c89b1207a0fc1fbcc94383b27953ad299a0d9e07a"
+      }
+    }
+  },
+  "unloaded_conditions": {
+    "wing": "25",
+    "speed_m_s": 24.0,
+    "density_kg_m3": 1.225,
+    "mach": 0.0,
+    "alpha_deg": 0.0,
+    "beta_deg": 0.0,
+    "section_camber_deg": 0.0,
+    "section_Cm": 0.0,
+    "Cdf": 0.0,
+    "Cdp": 0.0,
+    "gravity_m_s2": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "stall": false,
+    "aero_lag": true,
+    "mechanical_coordinates": "All retained; no modal truncation in supplied plan."
+  },
+  "sampling": {
+    "arithmetic_integrated": "Arithmetic CP with exact FE circulation virtual work and continuous fluid quadrature. Retained historical baseline.",
+    "glauert_cp": "Documented global Glauert CP for influence targets and heave/twist kinematics; integrated circulation/fluid loads retained.",
+    "glauert_circulation": "Glauert CP plus one-point circulation/rate-force virtual work; continuous fluid quadrature retained.",
+    "glauert_all": "Glauert CP and one-point circulation/fluid quadrature; structural M/K unchanged."
+  },
+  "numerical_checks": {
+    "requested_meshes": [
+      8,
+      16,
+      32
+    ],
+    "mode_window_Hz": [
+      0.1,
+      40.0
+    ],
+    "native_search_shifts_per_s": [
+      [
+        -0.1,
+        100.0
+      ],
+      [
+        -0.3,
+        200.0
+      ]
+    ],
+    "native_tangent_step": 1e-05,
+    "maximum_pencil_backward_error": 1e-09,
+    "modal_assurance_minimum": 0.8,
+    "assignment_margin_minimum": 0.1,
+    "physical_root_agreement_tolerance": null,
+    "default_eigensystem_scaling": "energy_convective",
+    "historical_eigensystem_scaling": "unscaled",
+    "cross_runtime_scaled_root_tolerance": 2e-07
+  },
+  "limits": [
+    "Unloaded straight wing, independently reconstructed material table, not original published ASWING input.",
+    "Empirical ASWING lag is not exact Theodorsen aerodynamics.",
+    "Independent Hermite bending fields differ from production endpoint interpolation.",
+    "Local native searches do not establish the complete native finite spectrum.",
+    "No loaded Case4 flutter, general convergence, experimental agreement, or complete ASWING feature claim."
+  ],
+  "numerical_scaling": {
+    "state": "x=[Omega*q, v, sqrt(rho*delta_s)*Gamma] for mass-normalized mechanics; Gamma unchanged at rho=0",
+    "equations": "Original z=R*x, As=E*A*R/w0, Bs=E*B*R; full row operations, no rank reduction",
+    "time_scale_per_s": "w0=abs(U)/chord for finite speed",
+    "zero_speed": "Unchanged analytic still-air wet frequencies",
+    "history": "Initial unscaled WASM mismatch, original spectra, neutral-scaling diagnostics and successful diagnostic WASM replay preserved in candidate-history/conditioning-evidence.zip",
+    "physical_threshold": "No fitted physical agreement threshold; portability tolerance remains 2e-7."
+  }
+}

@@ -1,0 +1,1840 @@
+{
+  "status": "PASS",
+  "checks": {
+    "passed": 18544,
+    "total": 18544,
+    "categories": {
+      "exact": 3277,
+      "primary_literal": 1512,
+      "source_pin": 122,
+      "raw_source_pin": 144,
+      "primary_pin": 2,
+      "structural": 504,
+      "original_gate": 1008,
+      "raw_cache": 2520,
+      "finite": 2520,
+      "statistics": 378,
+      "historical_difference": 2520,
+      "csv": 4032,
+      "final_pin": 5
+    },
+    "failures": []
+  },
+  "scope": "Independent saved-data reduction only; no aircraft imports/evaluations/solves and no new experimental acceptance threshold.",
+  "method": {
+    "primary": "AST literal extraction of TABLES and IDS without importing reference module; reconstruct integer table values and explicit25/60 yaw normalization.",
+    "statistics": "Python math.fsum errors/squares and sqrt, independent of NumPy producer; numerical reduction agreement bound64ULP, not a physical tolerance.",
+    "zero": "21 unique zero anchors are excluded from all21 primary series, each uses11 measured rows;42 saved anchor states across2meshes.",
+    "historical": "Exact matched current-minus-historical coefficient subtraction for504 rows and5coefficients.",
+    "csv": "All504rows,2coefficients,observed/predicted/error and metadata checked.",
+    "native": "Only retained residual and wrench scalars inspected; no new full residual evaluations or field/wrench reconstruction.",
+    "provenance": "Current plan source pins, all72 originalsourcefile hashes/bytes,2primaryPDFhashes,504rawcachepacket equalities."
+  },
+  "counts": {
+    "cases": 504,
+    "measured_unique_locations": 231,
+    "measured_fine_coefficients": 462,
+    "series": 21,
+    "mesh_series": 21,
+    "historical_rows": 504,
+    "raw_cache_packets": 504,
+    "raw_input_files": 72,
+    "primary_pdfs": 2,
+    "current_plan_pins": 122
+  },
+  "input_pins": {
+    "/home/userland/aswing/docs/validation/isae-sa6-current.json": {
+      "bytes": 858424,
+      "sha256": "5a697a92b6b269528c1d32b0e8d719ec0083e9962a19890e9de8fcdc96b0260c"
+    },
+    "/home/userland/aswing/docs/validation/isae-sa6-current.csv": {
+      "bytes": 84750,
+      "sha256": "b478b78f12c399ce97606dd0a21472581a755576b1de1fb4da7592992bb72d1f"
+    },
+    "/home/userland/aswing/docs/validation/isae-sa6-sources.json": {
+      "bytes": 242594,
+      "sha256": "d694e8f904a414b5b688d7cc6afac2ba3dce6cad241f95914eddd586755a11b6"
+    },
+    "/home/userland/aswing/docs/validation/isae-sa6.json": {
+      "bytes": 2524559,
+      "sha256": "a400fecf539afeac5fdc848c32d35f4b065d6be0cf62bfc9c9ed4c0da43b4714"
+    },
+    "/home/userland/aswing/scripts/isae_sa6_reference.py": {
+      "bytes": 9954,
+      "sha256": "85a9f4526243f2edee98f98fc3835148c90cb01d03cc7c51a357c495e5a88ca5"
+    }
+  },
+  "current_identity": "6080c28fb413d25ca788900726c26bcc13bf776ced9be5a4e39693a76d440f9c",
+  "all21_series": [
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.011024312400063142,
+          "rmse": 0.018215252023716308,
+          "maximum_absolute_error": 0.030115798981961123,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.16411579898196113,
+            "observed": 0.134,
+            "signed_error": 0.030115798981961123
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0013541756261612613,
+          "rmse": 0.002285505866847749,
+          "maximum_absolute_error": 0.004562074011994247,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.017103740678660915,
+            "observed": -0.012541666666666668,
+            "signed_error": -0.004562074011994247
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.01614527788297793,
+          "rmse": 0.021694534169842364,
+          "maximum_absolute_error": 0.04099214674083701,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.13569214674083702,
+            "observed": 0.0947,
+            "signed_error": 0.04099214674083701
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 0.0016295778507246187,
+          "rmse": 0.00310135586943676,
+          "maximum_absolute_error": 0.004945041956694526,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.018486708623361194,
+            "observed": -0.013541666666666667,
+            "signed_error": -0.004945041956694526
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.024564781091288027,
+          "rmse": 0.034236869968691935,
+          "maximum_absolute_error": 0.0662167516641346,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.1171167516641346,
+            "observed": 0.0509,
+            "signed_error": 0.0662167516641346
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 0.0018367951063916663,
+          "rmse": 0.004067477048836131,
+          "maximum_absolute_error": 0.006637630689479035,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.027887630689479036,
+            "observed": -0.02125,
+            "signed_error": -0.006637630689479035
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.006661615876435544,
+          "rmse": 0.01597003786101549,
+          "maximum_absolute_error": 0.0239096600697917,
+          "maximum": {
+            "deflection_deg": 40,
+            "predicted": 0.1658096600697917,
+            "observed": 0.1419,
+            "signed_error": 0.0239096600697917
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0013271957088378371,
+          "rmse": 0.0028909638519569584,
+          "maximum_absolute_error": 0.006049242835722009,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.018965909502388675,
+            "observed": -0.012916666666666667,
+            "signed_error": -0.006049242835722009
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.01650575425905087,
+          "rmse": 0.023578296286032925,
+          "maximum_absolute_error": 0.047822697012456616,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.14982269701245662,
+            "observed": 0.10200000000000001,
+            "signed_error": 0.047822697012456616
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 0.00015837211939487682,
+          "rmse": 0.00425202627923618,
+          "maximum_absolute_error": 0.009218559222128202,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.02326022588879487,
+            "observed": -0.014041666666666668,
+            "signed_error": -0.009218559222128202
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.026644556860213494,
+          "rmse": 0.03490250540179233,
+          "maximum_absolute_error": 0.06399288432855055,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.13129288432855055,
+            "observed": 0.0673,
+            "signed_error": 0.06399288432855055
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0012236866065839834,
+          "rmse": 0.006904011537121806,
+          "maximum_absolute_error": 0.016167486739688985,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.03429248673968899,
+            "observed": -0.018125000000000002,
+            "signed_error": -0.016167486739688985
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.002638896915544794,
+          "rmse": 0.009856233911285447,
+          "maximum_absolute_error": 0.013870420351959761,
+          "maximum": {
+            "deflection_deg": 32,
+            "predicted": 0.17147042035195978,
+            "observed": 0.15760000000000002,
+            "signed_error": 0.013870420351959761
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0034689195737380206,
+          "rmse": 0.005795142820189659,
+          "maximum_absolute_error": 0.012724825184550244,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.025058158517883577,
+            "observed": -0.012333333333333333,
+            "signed_error": -0.012724825184550244
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.01290322947115649,
+          "rmse": 0.02290080816728095,
+          "maximum_absolute_error": 0.048871753226310044,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.18607175322631006,
+            "observed": 0.13720000000000002,
+            "signed_error": 0.048871753226310044
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.006280939245812422,
+          "rmse": 0.013172954870039354,
+          "maximum_absolute_error": 0.031727748402907256,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.04506108173624059,
+            "observed": -0.013333333333333334,
+            "signed_error": -0.031727748402907256
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.03204454048258625,
+          "rmse": 0.040371527867966904,
+          "maximum_absolute_error": 0.07478799638867413,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.17588799638867414,
+            "observed": 0.10110000000000001,
+            "signed_error": 0.07478799638867413
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.008393254094885387,
+          "rmse": 0.015804771333993224,
+          "maximum_absolute_error": 0.032137553349275975,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.05984588668260931,
+            "observed": -0.027708333333333335,
+            "signed_error": -0.032137553349275975
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.002600545450359389,
+          "rmse": 0.008573116807075145,
+          "maximum_absolute_error": 0.013370737255550769,
+          "maximum": {
+            "deflection_deg": 32,
+            "predicted": 0.18047073725555077,
+            "observed": 0.1671,
+            "signed_error": 0.013370737255550769
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.005163276778850061,
+          "rmse": 0.007753407089568263,
+          "maximum_absolute_error": 0.017148326546546556,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.029148326546546557,
+            "observed": -0.012000000000000002,
+            "signed_error": -0.017148326546546556
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.01965031218939451,
+          "rmse": 0.026984397575820617,
+          "maximum_absolute_error": 0.04944823291007994,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.19744823291007996,
+            "observed": 0.14800000000000002,
+            "signed_error": 0.04944823291007994
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.012375587210162915,
+          "rmse": 0.022064641029991765,
+          "maximum_absolute_error": 0.05160290858359011,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.0634779085835901,
+            "observed": -0.011875,
+            "signed_error": -0.05160290858359011
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.04675383059915448,
+          "rmse": 0.05541754097589384,
+          "maximum_absolute_error": 0.0981513226115269,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.1971513226115269,
+            "observed": 0.099,
+            "signed_error": 0.0981513226115269
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.013482144156066,
+          "rmse": 0.023985966740615598,
+          "maximum_absolute_error": 0.05230588795443995,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.08147255462110663,
+            "observed": -0.02916666666666667,
+            "signed_error": -0.05230588795443995
+          }
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.006831296385653937,
+          "rmse": 0.01599601513769169,
+          "maximum_absolute_error": 0.03130005855110697,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.12430005855110697,
+            "observed": 0.093,
+            "signed_error": 0.03130005855110697
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0011183816206766122,
+          "rmse": 0.0025369789216199545,
+          "maximum_absolute_error": 0.005698753107912629,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.015282086441245962,
+            "observed": -0.009583333333333333,
+            "signed_error": -0.005698753107912629
+          }
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.007427202107413092,
+          "rmse": 0.012486959709407502,
+          "maximum_absolute_error": 0.028509017250596472,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.10510901725059647,
+            "observed": 0.0766,
+            "signed_error": 0.028509017250596472
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 0.0006543343405747209,
+          "rmse": 0.003434531603547252,
+          "maximum_absolute_error": 0.007248484684792819,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.01674848468479282,
+            "observed": -0.009500000000000001,
+            "signed_error": -0.007248484684792819
+          }
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.016414141219675497,
+          "rmse": 0.021144887107356965,
+          "maximum_absolute_error": 0.04159753989816338,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.09009753989816338,
+            "observed": 0.0485,
+            "signed_error": 0.04159753989816338
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0010813332047644362,
+          "rmse": 0.0054451642999355735,
+          "maximum_absolute_error": 0.012899933603335547,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.024274933603335547,
+            "observed": -0.011375,
+            "signed_error": -0.012899933603335547
+          }
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.008947131603848113,
+          "rmse": 0.018981694840458054,
+          "maximum_absolute_error": 0.030193066763709836,
+          "maximum": {
+            "deflection_deg": 40,
+            "predicted": 0.15529306676370985,
+            "observed": 0.12510000000000002,
+            "signed_error": 0.030193066763709836
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0026795923682143945,
+          "rmse": 0.00404918334037578,
+          "maximum_absolute_error": 0.008655337416773382,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.019488670750106716,
+            "observed": -0.010833333333333334,
+            "signed_error": -0.008655337416773382
+          }
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.012122141644115115,
+          "rmse": 0.01840541498805835,
+          "maximum_absolute_error": 0.037178945755034845,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.14517894575503484,
+            "observed": 0.108,
+            "signed_error": 0.037178945755034845
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.001458732766101057,
+          "rmse": 0.006536403365667701,
+          "maximum_absolute_error": 0.016501225576764575,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.02745955891009791,
+            "observed": -0.010958333333333332,
+            "signed_error": -0.016501225576764575
+          }
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.0273492558935225,
+          "rmse": 0.03574592598250536,
+          "maximum_absolute_error": 0.06870061170536443,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.12820061170536443,
+            "observed": 0.059500000000000004,
+            "signed_error": 0.06870061170536443
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.003304778519257137,
+          "rmse": 0.009994774867601058,
+          "maximum_absolute_error": 0.023650583352029568,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.03906725001869624,
+            "observed": -0.015416666666666669,
+            "signed_error": -0.023650583352029568
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 0,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.00907767435415491,
+          "rmse": 0.015542885640760081,
+          "maximum_absolute_error": 0.023315798981961122,
+          "maximum": {
+            "deflection_deg": 32,
+            "predicted": 0.16411579898196113,
+            "observed": 0.1408,
+            "signed_error": 0.023315798981961122
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.003220085051201775,
+          "rmse": 0.004732731584681351,
+          "maximum_absolute_error": 0.00981790261723544,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.022734569283902106,
+            "observed": -0.012916666666666667,
+            "signed_error": -0.00981790261723544
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 8,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.02007257476281169,
+          "rmse": 0.028411796169799074,
+          "maximum_absolute_error": 0.056894006502066136,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.17549400650206615,
+            "observed": 0.11860000000000001,
+            "signed_error": 0.056894006502066136
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0022502977865717397,
+          "rmse": 0.009058105230864949,
+          "maximum_absolute_error": 0.022184702567656634,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.035434702567656635,
+            "observed": -0.013250000000000001,
+            "signed_error": -0.022184702567656634
+          }
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.03904633736637166,
+          "rmse": 0.04934449730604875,
+          "maximum_absolute_error": 0.09114793411570862,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.15944793411570862,
+            "observed": 0.0683,
+            "signed_error": 0.09114793411570862
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.0057043398678056165,
+          "rmse": 0.012489417712465072,
+          "maximum_absolute_error": 0.0286065568688853,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.04931489020221863,
+            "observed": -0.020708333333333332,
+            "signed_error": -0.0286065568688853
+          }
+        }
+      }
+    }
+  ],
+  "all21_mesh_series": [
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -9.321727946599818e-05,
+          "rmse": 0.00011087295464815925,
+          "maximum_absolute_error": 0.00018750640641634897,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00018750640641634897
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -2.872727884692408e-07,
+          "rmse": 3.8769588057303615e-07,
+          "maximum_absolute_error": 1.0366993503097e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -1.0366993503097e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00010169157759929292,
+          "rmse": 0.00011580302432420373,
+          "maximum_absolute_error": 0.00018750640641634897
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -3.1338849651150565e-07,
+          "rmse": 4.0493514068300584e-07,
+          "maximum_absolute_error": 1.0366993503097e-06
+        }
+      }
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -6.77104894252342e-05,
+          "rmse": 7.740891888658824e-05,
+          "maximum_absolute_error": 0.00011757173576482094,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00011757173576482094
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -1.063259447527046e-05,
+          "rmse": 1.2061437992673143e-05,
+          "maximum_absolute_error": 1.7666601231232718e-05,
+          "maximum_deflection_deg": 28,
+          "signed_error_at_maximum": -1.7666601231232718e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -7.386598846393757e-05,
+          "rmse": 8.085097889905216e-05,
+          "maximum_absolute_error": 0.00011757173576482094
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -1.1599193973026838e-05,
+          "rmse": 1.259776111931723e-05,
+          "maximum_absolute_error": 1.7666601231232718e-05
+        }
+      }
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -2.789829052516219e-05,
+          "rmse": 3.5702500763587956e-05,
+          "maximum_absolute_error": 7.756866413838326e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -7.756866413838326e-05
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -1.371296628178093e-06,
+          "rmse": 4.739903407759993e-06,
+          "maximum_absolute_error": 8.257019084013245e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 8.257019084013245e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -3.0434498754770865e-05,
+          "rmse": 3.729004586809142e-05,
+          "maximum_absolute_error": 7.756866413838326e-05
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -1.495959958020047e-06,
+          "rmse": 4.950667648075703e-06,
+          "maximum_absolute_error": 8.257019084013245e-06
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00010406670650826777,
+          "rmse": 0.00012313344786099462,
+          "maximum_absolute_error": 0.00020090463771474387,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00020090463771474387
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -4.310920765645895e-07,
+          "rmse": 6.501806110066877e-07,
+          "maximum_absolute_error": 1.6614520720152626e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -1.6614520720152626e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00011352731619085974,
+          "rmse": 0.00012860869184031046,
+          "maximum_absolute_error": 0.00020090463771474387
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -4.7028226534279514e-07,
+          "rmse": 6.790915002713255e-07,
+          "maximum_absolute_error": 1.6614520720152626e-06
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -7.411638680012834e-05,
+          "rmse": 8.457626546140633e-05,
+          "maximum_absolute_error": 0.00013278019521695272,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00013278019521695272
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -9.961447701104205e-06,
+          "rmse": 1.1485854786104718e-05,
+          "maximum_absolute_error": 1.7613503879979064e-05,
+          "maximum_deflection_deg": 28,
+          "signed_error_at_maximum": -1.7613503879979064e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -8.085424014564027e-05,
+          "rmse": 8.833702824605077e-05,
+          "maximum_absolute_error": 0.00013278019521695272
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -1.0867033855754559e-05,
+          "rmse": 1.1996584066875854e-05,
+          "maximum_absolute_error": 1.7613503879979064e-05
+        }
+      }
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -3.498813555076194e-05,
+          "rmse": 4.599361877189574e-05,
+          "maximum_absolute_error": 9.84359933887402e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -9.84359933887402e-05
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 1.8447773258238777e-07,
+          "rmse": 6.205547899993593e-06,
+          "maximum_absolute_error": 1.3857074786724488e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 1.3857074786724488e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -3.816887514633423e-05,
+          "rmse": 4.803876806838955e-05,
+          "maximum_absolute_error": 9.84359933887402e-05
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.0124843553684127e-07,
+          "rmse": 6.481483394110127e-06,
+          "maximum_absolute_error": 1.3857074786724488e-05
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00013716830724143158,
+          "rmse": 0.0001608013748584519,
+          "maximum_absolute_error": 0.00026857840399432953,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00026857840399432953
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 2.0086190277986697e-06,
+          "rmse": 5.791081600946054e-06,
+          "maximum_absolute_error": 1.7837666600462043e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 1.7837666600462043e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00014963815335431116,
+          "rmse": 0.00016795155845887675,
+          "maximum_absolute_error": 0.00026857840399432953
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.1912207575989418e-06,
+          "rmse": 6.048587463245154e-06,
+          "maximum_absolute_error": 1.7837666600462043e-05
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -9.251606693523366e-05,
+          "rmse": 0.00010483049859004102,
+          "maximum_absolute_error": 0.00015528623975383238,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00015528623975383238
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -3.88663452915325e-06,
+          "rmse": 1.2952890846896995e-05,
+          "maximum_absolute_error": 2.5599101255775747e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 2.5599101255775747e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00010092661847484607,
+          "rmse": 0.00010949188480332857,
+          "maximum_absolute_error": 0.00015528623975383238
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -4.239964940898971e-06,
+          "rmse": 1.3528853258867057e-05,
+          "maximum_absolute_error": 2.5599101255775747e-05
+        }
+      }
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -6.0607000487205414e-05,
+          "rmse": 8.043282623386558e-05,
+          "maximum_absolute_error": 0.00015810269476915217,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00015810269476915217
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 8.824287654111565e-06,
+          "rmse": 1.9055211008062334e-05,
+          "maximum_absolute_error": 4.986248759554501e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 4.986248759554501e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -6.611672780427255e-05,
+          "rmse": 8.400934711609967e-05,
+          "maximum_absolute_error": 0.00015810269476915217
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 9.626495622659579e-06,
+          "rmse": 1.9902518796148206e-05,
+          "maximum_absolute_error": 4.986248759554501e-05
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00016069654831689625,
+          "rmse": 0.00018943571127886014,
+          "maximum_absolute_error": 0.00033103317817115285,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00033103317817115285
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 5.58203026763551e-06,
+          "rmse": 1.1833233871908153e-05,
+          "maximum_absolute_error": 3.0889553010320786e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 3.0889553010320786e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00017530532543663625,
+          "rmse": 0.00019785914744234595,
+          "maximum_absolute_error": 0.00033103317817115285
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 6.089487564693677e-06,
+          "rmse": 1.2359409688784027e-05,
+          "maximum_absolute_error": 3.0889553010320786e-05
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00010196976562746256,
+          "rmse": 0.00011487929769501258,
+          "maximum_absolute_error": 0.0001699409459393897,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0001699409459393897
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 2.469270717531426e-06,
+          "rmse": 1.9943700955316633e-05,
+          "maximum_absolute_error": 4.756103448252946e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 4.756103448252946e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00011123974432091397,
+          "rmse": 0.00011998751316350757,
+          "maximum_absolute_error": 0.0001699409459393897
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.6937498736661305e-06,
+          "rmse": 2.083051628029759e-05,
+          "maximum_absolute_error": 4.756103448252946e-05
+        }
+      }
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -7.388949300274752e-05,
+          "rmse": 9.541281974484992e-05,
+          "maximum_absolute_error": 0.00016200649122663502,
+          "maximum_deflection_deg": 40,
+          "signed_error_at_maximum": -0.00016200649122663502
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 1.9853504467637322e-05,
+          "rmse": 3.8235418905739526e-05,
+          "maximum_absolute_error": 0.00010404611142991738,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 0.00010404611142991738
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -8.060671963940942e-05,
+          "rmse": 9.965544005584198e-05,
+          "maximum_absolute_error": 0.00016200649122663502
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.1658368510142223e-05,
+          "rmse": 3.993559258557186e-05,
+          "maximum_absolute_error": 0.00010404611142991738
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00027031872993319963,
+          "rmse": 0.00031477008783546673,
+          "maximum_absolute_error": 0.0004868636998311554,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0004868636998311554
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 1.90164016464544e-06,
+          "rmse": 4.216740904138707e-06,
+          "maximum_absolute_error": 6.914621719646477e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -6.914621719646477e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00029489315992714554,
+          "rmse": 0.00032876663433220306,
+          "maximum_absolute_error": 0.0004868636998311554
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.074516543249867e-06,
+          "rmse": 4.404242234189856e-06,
+          "maximum_absolute_error": 6.914621719646477e-06
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00017435471995884972,
+          "rmse": 0.00019794871033839613,
+          "maximum_absolute_error": 0.0003211130246565663,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0003211130246565663
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -2.2484495702285284e-05,
+          "rmse": 2.5390462245223953e-05,
+          "maximum_absolute_error": 3.64199359408901e-05,
+          "maximum_deflection_deg": 24,
+          "signed_error_at_maximum": -3.64199359408901e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00019020514904606253,
+          "rmse": 0.00020675068497096847,
+          "maximum_absolute_error": 0.0003211130246565663
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -2.4528540766133888e-05,
+          "rmse": 2.6519472907681383e-05,
+          "maximum_absolute_error": 3.64199359408901e-05
+        }
+      }
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -9.714080861159695e-05,
+          "rmse": 0.00012654472819353078,
+          "maximum_absolute_error": 0.0002452773528014568,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0002452773528014568
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -3.987381955718003e-06,
+          "rmse": 1.3322277814483699e-05,
+          "maximum_absolute_error": 2.798770793843372e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 2.798770793843372e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.000105971791212691,
+          "rmse": 0.0001321716579448845,
+          "maximum_absolute_error": 0.0002452773528014568
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -4.349871224426501e-06,
+          "rmse": 1.3914665363615517e-05,
+          "maximum_absolute_error": 2.798770793843372e-05
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": 9.497355489183317e-05,
+          "rmse": 0.00011416988444135307,
+          "maximum_absolute_error": 0.00019568756669328946,
+          "maximum_deflection_deg": 24,
+          "signed_error_at_maximum": 0.00019568756669328946
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 8.107495048707357e-06,
+          "rmse": 1.2417592427402208e-05,
+          "maximum_absolute_error": 2.5766873316096506e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 2.5766873316096506e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.00010360751442743613,
+          "rmse": 0.00011924655518570183,
+          "maximum_absolute_error": 0.00019568756669328946
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 8.844540053135518e-06,
+          "rmse": 1.2969752294252401e-05,
+          "maximum_absolute_error": 2.5766873316096506e-05
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": 0.0001097235567260551,
+          "rmse": 0.00012854615749029663,
+          "maximum_absolute_error": 0.00020431439397497475,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 0.00020431439397497475
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 6.461081678796526e-06,
+          "rmse": 9.086710108726604e-06,
+          "maximum_absolute_error": 1.4281172199791421e-05,
+          "maximum_deflection_deg": 12,
+          "signed_error_at_maximum": 1.4281172199791421e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.00011969842551930271,
+          "rmse": 0.00013426208266813683,
+          "maximum_absolute_error": 0.00020431439397497475
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 7.0484527405002835e-06,
+          "rmse": 9.49075917645643e-06,
+          "maximum_absolute_error": 1.4281172199791421e-05
+        }
+      }
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": 0.0001260363001845535,
+          "rmse": 0.00014806671426757618,
+          "maximum_absolute_error": 0.00022665279868425148,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 0.00022665279868425148
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -1.318436008558937e-06,
+          "rmse": 1.2517350294379004e-05,
+          "maximum_absolute_error": 2.877305174980166e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -2.877305174980166e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.0001374941456558436,
+          "rmse": 0.00015465063926857044,
+          "maximum_absolute_error": 0.00022665279868425148
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -1.4382938275248028e-06,
+          "rmse": 1.3073945988131169e-05,
+          "maximum_absolute_error": 2.877305174980166e-05
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00012432488926097612,
+          "rmse": 0.00014580622052300652,
+          "maximum_absolute_error": 0.0002365350275868039,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0002365350275868039
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 4.3055688641637026e-07,
+          "rmse": 2.4614362883528546e-06,
+          "maximum_absolute_error": 8.153258771282507e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 8.153258771282507e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00013562715192108705,
+          "rmse": 0.00015228963055442725,
+          "maximum_absolute_error": 0.0002365350275868039
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 4.696984215455246e-07,
+          "rmse": 2.5708863561645483e-06,
+          "maximum_absolute_error": 8.153258771282507e-06
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 8,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -8.643114848901474e-05,
+          "rmse": 9.838399407658422e-05,
+          "maximum_absolute_error": 0.00015114272323904498,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.00015114272323904498
+        },
+        "Cn": {
+          "count": 12,
+          "bias": -6.901806832255738e-06,
+          "rmse": 1.102872366930601e-05,
+          "maximum_absolute_error": 1.7552987760873634e-05,
+          "maximum_deflection_deg": 20,
+          "signed_error_at_maximum": -1.7552987760873634e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -9.428852562442543e-05,
+          "rmse": 0.00010275873043446624,
+          "maximum_absolute_error": 0.00015114272323904498
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -7.529243817010776e-06,
+          "rmse": 1.151912618721548e-05,
+          "maximum_absolute_error": 1.7552987760873634e-05
+        }
+      }
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -5.0845419190719434e-05,
+          "rmse": 6.781130481333891e-05,
+          "maximum_absolute_error": 0.0001388198988078737,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0001388198988078737
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 4.709232015632958e-06,
+          "rmse": 1.2469404272400641e-05,
+          "maximum_absolute_error": 3.1720046297326054e-05,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 3.1720046297326054e-05
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -5.546773002628786e-05,
+          "rmse": 7.08265979352202e-05,
+          "maximum_absolute_error": 0.0001388198988078737
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 5.137344017046554e-06,
+          "rmse": 1.3023868001420806e-05,
+          "maximum_absolute_error": 3.1720046297326054e-05
+        }
+      }
+    }
+  ],
+  "zero_anchors": [
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.1564769882083388e-16,
+      "fine_Cn": 1.725858250711669e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.201082935519203e-16,
+      "fine_Cn": -4.9443050705699054e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_15c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.301046217668838e-16,
+      "fine_Cn": -6.855054614086569e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.1564769882083388e-16,
+      "fine_Cn": 1.725858250711669e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.201082935519203e-16,
+      "fine_Cn": -4.9443050705699054e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_20c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.301046217668838e-16,
+      "fine_Cn": -6.855054614086569e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.1564769882083388e-16,
+      "fine_Cn": 1.725858250711669e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.201082935519203e-16,
+      "fine_Cn": -4.9443050705699054e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_30c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.301046217668838e-16,
+      "fine_Cn": -6.855054614086569e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.1564769882083388e-16,
+      "fine_Cn": 1.725858250711669e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.201082935519203e-16,
+      "fine_Cn": -4.9443050705699054e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.301046217668838e-16,
+      "fine_Cn": -6.855054614086569e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.3189991337268896e-16,
+      "fine_Cn": 2.2701854144441354e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.60723459811921e-16,
+      "fine_Cn": -5.167087457089955e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 12,
+      "fine_Cl": -2.9059985293041997e-16,
+      "fine_Cn": -6.389180664672362e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -1.9206815461297059e-16,
+      "fine_Cn": 7.467628857817311e-19,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -3.0889423154868873e-16,
+      "fine_Cn": -4.91960041486056e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "15b_25c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.06321798354796e-16,
+      "fine_Cn": -5.461875105300027e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 0,
+      "fine_Cl": -2.1564769882083388e-16,
+      "fine_Cn": 1.725858250711669e-18,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 8,
+      "fine_Cl": -4.201082935519203e-16,
+      "fine_Cn": -4.9443050705699054e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    },
+    {
+      "case": "20b_25c_literal",
+      "body_pitch_deg": 12,
+      "fine_Cl": -3.301046217668838e-16,
+      "fine_Cn": -6.855054614086569e-17,
+      "role": "appended zero anchors excluded from measured metrics"
+    }
+  ],
+  "largest_point_errors": {
+    "Cl": {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "deflection_deg": 44,
+      "predicted": 0.1971513226115269,
+      "observed": 0.099,
+      "signed_error": 0.0981513226115269
+    },
+    "Cn": {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "deflection_deg": 44,
+      "predicted": -0.08147255462110663,
+      "observed": -0.02916666666666667,
+      "signed_error": -0.05230588795443995
+    }
+  },
+  "largest_series_rmse": {
+    "Cl": {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.04675383059915448,
+          "rmse": 0.05541754097589384,
+          "maximum_absolute_error": 0.0981513226115269,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.1971513226115269,
+            "observed": 0.099,
+            "signed_error": 0.0981513226115269
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.013482144156066,
+          "rmse": 0.023985966740615598,
+          "maximum_absolute_error": 0.05230588795443995,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.08147255462110663,
+            "observed": -0.02916666666666667,
+            "signed_error": -0.05230588795443995
+          }
+        }
+      }
+    },
+    "Cn": {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "measured": {
+        "Cl": {
+          "count": 11,
+          "bias": 0.04675383059915448,
+          "rmse": 0.05541754097589384,
+          "maximum_absolute_error": 0.0981513226115269,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": 0.1971513226115269,
+            "observed": 0.099,
+            "signed_error": 0.0981513226115269
+          }
+        },
+        "Cn": {
+          "count": 11,
+          "bias": -0.013482144156066,
+          "rmse": 0.023985966740615598,
+          "maximum_absolute_error": 0.05230588795443995,
+          "maximum": {
+            "deflection_deg": 44,
+            "predicted": -0.08147255462110663,
+            "observed": -0.02916666666666667,
+            "signed_error": -0.05230588795443995
+          }
+        }
+      }
+    }
+  },
+  "largest_mesh_changes": {
+    "Cl": {
+      "case": "10b_25c_reconstructed",
+      "body_pitch_deg": 0,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -0.00027031872993319963,
+          "rmse": 0.00031477008783546673,
+          "maximum_absolute_error": 0.0004868636998311554,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -0.0004868636998311554
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 1.90164016464544e-06,
+          "rmse": 4.216740904138707e-06,
+          "maximum_absolute_error": 6.914621719646477e-06,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": -6.914621719646477e-06
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -0.00029489315992714554,
+          "rmse": 0.00032876663433220306,
+          "maximum_absolute_error": 0.0004868636998311554
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.074516543249867e-06,
+          "rmse": 4.404242234189856e-06,
+          "maximum_absolute_error": 6.914621719646477e-06
+        }
+      }
+    },
+    "Cn": {
+      "case": "20b_35c_literal",
+      "body_pitch_deg": 12,
+      "coarse_minus_fine": {
+        "Cl": {
+          "count": 12,
+          "bias": -7.388949300274752e-05,
+          "rmse": 9.541281974484992e-05,
+          "maximum_absolute_error": 0.00016200649122663502,
+          "maximum_deflection_deg": 40,
+          "signed_error_at_maximum": -0.00016200649122663502
+        },
+        "Cn": {
+          "count": 12,
+          "bias": 1.9853504467637322e-05,
+          "rmse": 3.8235418905739526e-05,
+          "maximum_absolute_error": 0.00010404611142991738,
+          "maximum_deflection_deg": 44,
+          "signed_error_at_maximum": 0.00010404611142991738
+        }
+      },
+      "measured_only": {
+        "Cl": {
+          "count": 11,
+          "bias": -8.060671963940942e-05,
+          "rmse": 9.965544005584198e-05,
+          "maximum_absolute_error": 0.00016200649122663502
+        },
+        "Cn": {
+          "count": 11,
+          "bias": 2.1658368510142223e-05,
+          "rmse": 3.993559258557186e-05,
+          "maximum_absolute_error": 0.00010404611142991738
+        }
+      }
+    }
+  },
+  "largest_historical_differences": {
+    "Cl": {
+      "absolute_difference": 9.39803790345195e-14,
+      "signed_difference": -9.39803790345195e-14,
+      "case": "20b_20c_literal",
+      "panels": 160,
+      "body_pitch_deg": 0,
+      "deflection_deg": 28
+    },
+    "Cn": {
+      "absolute_difference": 8.911274496092858e-15,
+      "signed_difference": 8.911274496092858e-15,
+      "case": "20b_20c_literal",
+      "panels": 160,
+      "body_pitch_deg": 0,
+      "deflection_deg": 28
+    },
+    "CL": {
+      "absolute_difference": 8.82960371484387e-13,
+      "signed_difference": -8.82960371484387e-13,
+      "case": "20b_20c_literal",
+      "panels": 160,
+      "body_pitch_deg": 0,
+      "deflection_deg": 28
+    },
+    "CD": {
+      "absolute_difference": 9.57081636165924e-14,
+      "signed_difference": -9.57081636165924e-14,
+      "case": "20b_20c_literal",
+      "panels": 160,
+      "body_pitch_deg": 0,
+      "deflection_deg": 28
+    },
+    "Cm": {
+      "absolute_difference": 2.2196133819818442e-13,
+      "signed_difference": 2.2196133819818442e-13,
+      "case": "20b_20c_literal",
+      "panels": 160,
+      "body_pitch_deg": 0,
+      "deflection_deg": 28
+    }
+  },
+  "maximum_zero_anchor_moment": 4.60723459811921e-16,
+  "maximum_saved_residual": 6.508377170533209e-13,
+  "maximum_saved_wrench_error": 2.7755575615628914e-17,
+  "arithmetic_reduction_max_absolute_difference": 1.3877787807814457e-17,
+  "arithmetic_reduction_max_ulp": 3.0,
+  "operations": {
+    "aircraft_imports": 0,
+    "aircraft_calls": 0,
+    "solves": 0,
+    "matrix_products": 0
+  },
+  "limitations": [
+    "Primary tabulations are faired curves from observations at three speeds; 20 m/s is the archived calculation setting.",
+    "Wing-only models omit the experimental fuselage; section/control properties and coefficient uncertainty remain unresolved.",
+    "10b uses the documented +/-0.508 m control-boundary reconstruction. Its mislabeled literal file and historical results remain unchanged.",
+    "No physical parameter was fitted. Residual gates test equations, not experimental agreement.",
+    "Two mesh levels give a sensitivity, not a rigorous continuum error bound. Historical archived ASWING startup settings remain unknown.",
+    "This current-influence study adds no frozen-influence, dynamic, WASM or browser validation."
+  ],
+  "native_lifecycle": "Native owner session65111 is separately owned/reaped by parent; audit does not infer native lifecycle from report existence.",
+  "execution": {
+    "pid": 13338,
+    "external_cap_seconds": 60,
+    "seconds": 1.5659402100027364,
+    "threading": "standard-library arithmetic only",
+    "owned_session": 37772,
+    "launch_chunk": "2393a7",
+    "terminal_chunk": "8e8a55",
+    "exit_code": 0,
+    "reaped": true,
+    "timed_out": false
+  },
+  "auditor_source": {
+    "sha256": "73e03d49a3e369768ae83befc41c53ff436bc565913616df90c2431de36ff1da",
+    "code": "from pathlib import Path\nimport ast,csv,hashlib,json,math,os,sys,time\nstart=time.monotonic()\nROOT=Path('/home/userland/aswing')\nOUT=Path('/tmp/openswing-isae-focus-20261025/saved-audit.json')\nreport_path=ROOT/'docs/validation/isae-sa6-current.json'\ncsv_path=ROOT/'docs/validation/isae-sa6-current.csv'\nsource_path=ROOT/'docs/validation/isae-sa6-sources.json'\nold_path=ROOT/'docs/validation/isae-sa6.json'\nreference_path=ROOT/'scripts/isae_sa6_reference.py'\ndef digest(p):\n h=hashlib.sha256()\n with Path(p).open('rb') as f:\n  for b in iter(lambda:f.read(1048576),b''):h.update(b)\n return h.hexdigest()\ninputs={str(p):dict(bytes=p.stat().st_size,sha256=digest(p)) for p in (report_path,csv_path,source_path,old_path,reference_path)}\nR=json.loads(report_path.read_text());S=json.loads(source_path.read_text());OLD=json.loads(old_path.read_text())\nchecks=0;fail=[];category_counts={};numerical_max_abs=0.;numerical_max_ulp=0.\ndef check(label,ok,category='structural',**detail):\n global checks\n checks+=1;category_counts[category]=category_counts.get(category,0)+1\n if not ok:fail.append(dict(name=label,category=category,**detail))\ndef same(label,a,b,category='exact'):\n check(label,a==b,category,actual=a,expected=b)\ndef near(label,a,b,category='statistics'):\n global numerical_max_abs,numerical_max_ulp\n a,b=float(a),float(b)\n allowed=64*math.ulp(max(abs(a),abs(b)))\n err=abs(a-b)\n numerical_max_abs=max(numerical_max_abs,err)\n ulps=err/math.ulp(max(abs(a),abs(b)))\n numerical_max_ulp=max(numerical_max_ulp,ulps)\n check(label,math.isfinite(a) and math.isfinite(b) and err<=allowed,category,actual=a,expected=b,error=err,allowed_64_ulp=allowed)\ndef stat(x):\n return dict(count=len(x),bias=math.fsum(x)/len(x),\n  rmse=math.sqrt(math.fsum(v*v for v in x)/len(x)),maximum_absolute_error=max(map(abs,x)))\ndef compare_stat(label,a,b):\n same(label+' count',a['count'],b['count'])\n for k in ('bias','rmse','maximum_absolute_error'):near(label+' '+k,a[k],b[k])\n# Extract only literal primary data assignments from the source AST; import no module.\nliterals={}\nfor node in ast.parse(reference_path.read_text()).body:\n if isinstance(node,ast.Assign):\n  for target in node.targets:\n   if isinstance(target,ast.Name) and target.id in ('IDS','TABLES'):literals[target.id]=ast.literal_eval(node.value)\nids=literals['IDS'];primary={}\nfor angle,text in literals['TABLES'].items():\n lines=text.splitlines();same('seven literal series '+str(angle),len(lines),7)\n for ident,line in zip(ids,lines):\n  roll,yaw=[[int(v)*1e-4 for v in part.split()] for part in line.split('/')]\n  same('eleven printed roll '+ident+str(angle),len(roll),11)\n  same('eleven printed yaw '+ident+str(angle),len(yaw),11)\n  for i,(cl,cn) in enumerate(zip(roll,yaw),1):primary[ident,angle,4*i]={'Cl':cl,'Cn':cn*25/60}\n  primary[ident,angle,0]={'Cl':0.,'Cn':0.}\nfor ref in S['primary']:\n for i,d in enumerate(ref['delta']):\n  for c,field in (('Cl','Cl_body'),('Cn','Cn_body')):\n   same('source primary '+ref['id']+str(ref['body_alpha'])+str(d)+c,ref[field][i],primary[ref['id'],ref['body_alpha'],d][c],'primary_literal')\nP=R['plan']\nfor path,want in P['source_sha256'].items():\n same('plan pin '+path,digest(ROOT/path),want,'source_pin')\nsame('110 current kernels',sum(p.startswith('openswing/') for p in P['source_sha256']),110)\nsame('source-derived plan identity',hashlib.sha256(json.dumps(P,sort_keys=True).encode()).hexdigest(),R['identity'])\nCACHE=ROOT/'.reference/isae-validation'/S['revision']\nfor path,want in S['sources'].items():\n p=CACHE/path\n same('raw input pin '+path,digest(p),want['sha256'],'raw_source_pin')\n same('raw input bytes '+path,p.stat().st_size,want['bytes'],'raw_source_pin')\nfor p in S['primary_manifest']:\n path=ROOT/'.reference/isae-sa6'/('naca-tr-'+str(p['report'])+'.pdf')\n same('primary PDF '+str(p['report']),digest(path),p['sha256'],'primary_pin')\nsame('fixed mesh grid',P['meshes'],[80,160])\nsame('fixed pitch grid',P['body_pitch_deg'],[0,8,12])\nsame('fixed delta grid',P['physical_deflection_deg'],list(range(0,45,4)))\nsame('current influences only',P['current_influences'],True)\nsame('no experimental threshold',P['experimental_acceptance_threshold'],None)\nrows=R['cases'];lookup={};cache_count=0\ncache=ROOT/'.reference/isae-sa6-current'/R['identity']\nfor row in rows:\n s=row['specification'];k=(s['case'],s['panels'],s['alpha'],s['delta'])\n check('unique row '+str(k),k not in lookup);lookup[k]=row\n ident=s['case'].removesuffix('_literal').removesuffix('_reconstructed')\n same('case id '+str(k),s['case'],ident+('_reconstructed' if ident=='10b_25c' else '_literal'))\n same('reconstruction '+str(k),s['reconstructed'],ident=='10b_25c')\n same('live influences '+str(k),s['frozen'],False)\n same('row identity '+str(k),row['identity'],R['identity'])\n same('status '+str(k),row['status'],'computed')\n same('observation kind '+str(k),row['reference_kind'],'symmetry_anchor' if s['delta']==0 else 'primary_tabulated')\n for c in ('Cl','Cn'):same('primary row '+str(k)+c,row['primary'][c],primary[ident,s['alpha'],s['delta']][c],'primary_literal')\n check('original residual '+str(k),row['result']['residual']<P['maximum_full_residual'],'original_gate')\n check('original wrench '+str(k),row['result']['independent_wrench_error']<P['maximum_wrench_error'],'original_gate')\n key=hashlib.sha256(json.dumps(s,sort_keys=True).encode()).hexdigest()\n saved=json.loads((cache/(key+'.json')).read_text())\n for field in ('status','result','specification','identity','seconds'):same('cache '+str(k)+' '+field,row[field],saved[field],'raw_cache')\n cache_count+=1\n for c in ('Cl','Cn','CL','CD','Cm'):check('finite '+str(k)+c,math.isfinite(row['result'][c]),'finite')\nsame('rows504',len(rows),504)\nsame('unique504',len(lookup),504)\nexpected_keys={(i+('_reconstructed' if i=='10b_25c' else '_literal'),n,a,d) for i in ids for n in (80,160) for a in (0,8,12) for d in range(0,45,4)}\nsame('complete grid',set(lookup),expected_keys)\nsame('accounting',R['accounting'],dict(requested=504,completed=504,rejected=0,newly_computed=504,reused=0,unique_tabulated_locations=231,tabulated_coefficients=462,unique_added_symmetry_anchors=21))\nseries=[];mesh_results=[];anchors=[];maxima={c:None for c in ('Cl','Cn')}\nfor claim in R['comparisons']:\n case,a=claim['case'],claim['body_pitch_deg']\n fine=[lookup[case,160,a,d] for d in range(4,45,4)]\n zero=lookup[case,160,a,0]\n same('11 requested '+case+str(a),claim['requested_measured'],11)\n same('11 completed '+case+str(a),claim['completed_measured'],11)\n out=dict(case=case,body_pitch_deg=a,measured={})\n for c in ('Cl','Cn'):\n  errors=[r['result'][c]-r['primary'][c] for r in fine];st=stat(errors)\n  compare_stat(case+str(a)+c+' measured',st,claim['measured_errors'][c])\n  compare_stat(case+str(a)+c+' including anchor',stat([zero['result'][c]]+errors),claim['historical_style_including_anchor_errors'][c])\n  ix=max(range(11),key=lambda i:abs(errors[i]));rr=fine[ix]\n  out['measured'][c]=dict(**st,maximum=dict(deflection_deg=rr['specification']['delta'],predicted=rr['result'][c],observed=rr['primary'][c],signed_error=errors[ix]))\n  if maxima[c] is None or abs(errors[ix])>abs(maxima[c]['signed_error']):maxima[c]=dict(case=case,body_pitch_deg=a,**out['measured'][c]['maximum'])\n series.append(out)\n anchors.append(dict(case=case,body_pitch_deg=a,fine_Cl=zero['result']['Cl'],fine_Cn=zero['result']['Cn'],role='appended zero anchors excluded from measured metrics'))\nfor claim in R['mesh_comparisons']:\n case,a=claim['case'],claim['body_pitch_deg']\n same('mesh completed '+case+str(a),claim['completed'],12)\n out=dict(case=case,body_pitch_deg=a,coarse_minus_fine={},measured_only={})\n for c in ('Cl','Cn'):\n  errors=[lookup[case,80,a,d]['result'][c]-lookup[case,160,a,d]['result'][c] for d in range(0,45,4)]\n  st=stat(errors);compare_stat(case+str(a)+c+' mesh',st,claim['difference'][c])\n  ix=max(range(12),key=lambda i:abs(errors[i]))\n  out['coarse_minus_fine'][c]=dict(**st,maximum_deflection_deg=4*ix,signed_error_at_maximum=errors[ix])\n  out['measured_only'][c]=stat(errors[1:])\n mesh_results.append(out)\nsame('21 primary series',len(series),21)\nsame('21 mesh series',len(mesh_results),21)\nhistorical_lookup={}\nfor case in OLD['cases']:\n for row in case['runs']:\n  s=row['specification']\n  if not s['frozen']:historical_lookup[case['case_id'],s['panels'],s['alpha'],s['delta']]=row\nhistory_max={c:dict(absolute_difference=-1) for c in ('Cl','Cn','CL','CD','Cm')}\nfor claim in R['historical_differences']:\n k=(claim['case'],claim['panels'],claim['body_pitch_deg'],claim['deflection_deg'])\n for c in history_max:\n  diff=lookup[k]['result'][c]-historical_lookup[k]['result'][c]\n  same('historical '+str(k)+c,diff,claim['difference'][c],'historical_difference')\n  if abs(diff)>history_max[c]['absolute_difference']:history_max[c]=dict(absolute_difference=abs(diff),signed_difference=diff,case=k[0],panels=k[1],body_pitch_deg=k[2],deflection_deg=k[3])\nsame('504 historical rows',len(R['historical_differences']),504)\ncsv_rows=list(csv.DictReader(csv_path.open()))\nsame('504 CSV rows',len(csv_rows),504)\nfor line,row in enumerate(csv_rows,2):\n k=(row['case'],int(row['panels']),int(row['body_pitch_deg']),int(row['deflection_deg']))\n rr=lookup[k]\n for field in ('status','reference_kind'):same('CSV '+str(line)+field,row[field],rr[field],'csv')\n for c in ('Cl','Cn'):\n  for field,want in ((c,rr['result'][c]),(c+'_measured',rr['primary'][c]),(c+'_error',rr['result'][c]-rr['primary'][c])):\n   same('CSV '+str(line)+field,float(row[field]),want,'csv')\nobserved_max_residual=max(r['result']['residual'] for r in rows)\nobserved_max_wrench=max(r['result']['independent_wrench_error'] for r in rows)\nzero_max=max(abs(r['result'][c]) for r in rows if r['specification']['delta']==0 for c in ('Cl','Cn'))\nsame('maximum residual',observed_max_residual,R['maximum_residual'])\nsame('maximum wrench',observed_max_wrench,R['maximum_wrench_error'])\nsame('anchor maximum',zero_max,R['maximum_zero_control_lateral_moment'])\nfor path,want in inputs.items():same('final input pin '+path,digest(path),want['sha256'],'final_pin')\nsame('no production imports',any(k=='openswing' or k.startswith('openswing.') for k in sys.modules),False)\naudit=dict(status='PASS' if not fail else 'FAIL_RETAINED',checks=dict(passed=checks-len(fail),total=checks,categories=category_counts,failures=fail),\n scope='Independent saved-data reduction only; no aircraft imports/evaluations/solves and no new experimental acceptance threshold.',\n method=dict(primary='AST literal extraction of TABLES and IDS without importing reference module; reconstruct integer table values and explicit25/60 yaw normalization.',\n statistics='Python math.fsum errors/squares and sqrt, independent of NumPy producer; numerical reduction agreement bound64ULP, not a physical tolerance.',\n zero='21 unique zero anchors are excluded from all21 primary series, each uses11 measured rows;42 saved anchor states across2meshes.',\n historical='Exact matched current-minus-historical coefficient subtraction for504 rows and5coefficients.',\n csv='All504rows,2coefficients,observed/predicted/error and metadata checked.',\n native='Only retained residual and wrench scalars inspected; no new full residual evaluations or field/wrench reconstruction.',\n provenance='Current plan source pins, all72 originalsourcefile hashes/bytes,2primaryPDFhashes,504rawcachepacket equalities.'),\n counts=dict(cases=len(rows),measured_unique_locations=231,measured_fine_coefficients=462,series=21,mesh_series=21,historical_rows=504,raw_cache_packets=cache_count,raw_input_files=len(S['sources']),primary_pdfs=2,current_plan_pins=len(P['source_sha256'])),\n input_pins=inputs,current_identity=R['identity'],all21_series=series,all21_mesh_series=mesh_results,zero_anchors=anchors,\n largest_point_errors=maxima,largest_series_rmse={c:max(series,key=lambda r:r['measured'][c]['rmse']) for c in ('Cl','Cn')},\n largest_mesh_changes={c:max(mesh_results,key=lambda r:r['coarse_minus_fine'][c]['maximum_absolute_error']) for c in ('Cl','Cn')},\n largest_historical_differences=history_max,maximum_zero_anchor_moment=zero_max,maximum_saved_residual=observed_max_residual,\n maximum_saved_wrench_error=observed_max_wrench,arithmetic_reduction_max_absolute_difference=numerical_max_abs,\n arithmetic_reduction_max_ulp=numerical_max_ulp,operations=dict(aircraft_imports=0,aircraft_calls=0,solves=0,matrix_products=0),\n limitations=R['limitations'],native_lifecycle='Native owner session65111 is separately owned/reaped by parent; audit does not infer native lifecycle from report existence.',\n execution=dict(pid=os.getpid(),external_cap_seconds=60,seconds=time.monotonic()-start,threading='standard-library arithmetic only'))\nOUT.write_text(json.dumps(audit,indent=2,allow_nan=False)+'\\n')\nprint(json.dumps({k:audit[k] for k in ('status','counts','largest_point_errors','largest_historical_differences','maximum_zero_anchor_moment','maximum_saved_residual','arithmetic_reduction_max_ulp')},indent=2))\nprint('checks',checks-len(fail),checks,'failures',len(fail),flush=True)\nif fail:print(json.dumps(fail[:10],indent=2),flush=True)\nsys.exit(1 if fail else 0)\n",
+    "saved_after_execution": true
+  }
+}

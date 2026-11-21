@@ -1,0 +1,237 @@
+{
+  "format": "openswing-independent-source-review",
+  "version": 1,
+  "recorded_utc": "2026-10-27T08:53:17.997922+00:00",
+  "status": "NO_NEW_CONSTITUTIVE_DEFECT_IDENTIFIED",
+  "scope": "SA1 nonlinear section constitutive/stall law, primary equation typesetting and finite-angle 2D analytic limit; saved scalar-field arithmetic only.",
+  "registered_acceptance_unchanged": "19/154",
+  "pins": [
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": ".reference/isae-sa1/SA_1.asw",
+      "bytes": 4427,
+      "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+    },
+    {
+      "path": ".reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "artifacts/isae/sa1-arithmetic-export-20261027/older-primary-sources/steady-20070316.pdf",
+      "bytes": 420090,
+      "sha256": "002df4c5ff0b0c8c476d94adb05dd90a7d04174fd14cce0f9c6ead8c71052c89"
+    },
+    {
+      "path": "artifacts/isae/sa1-arithmetic-export-20261027/older-primary-sources/steady-20070316.txt",
+      "bytes": 161027,
+      "sha256": "54ad75bc0bc34d9c8b71b41b47a050430e2188dd366880992870720ac42be851"
+    },
+    {
+      "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+      "bytes": 745943,
+      "sha256": "53eb985d0ea800863b0d5b80f8915de9303be8a8ab5bce3f34a022e92ae4f774"
+    },
+    {
+      "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k0.json",
+      "bytes": 755966,
+      "sha256": "cb6f4ff9b297dc63141867d545b839661b89ef162d3a9dffac944d4f289d70b8"
+    }
+  ],
+  "pdf_render_evidence": [
+    {
+      "render": {
+        "path": "docs/validation/sa1-nonlinear-law-review-20261027/steady-5.99-p40.png",
+        "bytes": 166822,
+        "sha256": "7d1cd5fe45eb1979f8a37965873078171e26c10d8bdd366da39a56cf04e88adf"
+      },
+      "pdf_path": ".reference/asw_theory.pdf",
+      "page_number_1based": 40,
+      "original_render_path": "/tmp/stall-current.png",
+      "render_scale": 1.5,
+      "visually_inspected": true,
+      "preserved_existing_render_without_rerender": true
+    },
+    {
+      "render": {
+        "path": "docs/validation/sa1-nonlinear-law-review-20261027/steady-5.60-p33.png",
+        "bytes": 154662,
+        "sha256": "458ed3b7d7fe53d52aa75df274f3965943eade4da38db0ef69d7c61ed8221170"
+      },
+      "pdf_path": "artifacts/isae/sa1-arithmetic-export-20261027/older-primary-sources/steady-20070316.pdf",
+      "page_number_1based": 33,
+      "original_render_path": "/tmp/stall-old.png",
+      "render_scale": 1.5,
+      "visually_inspected": true,
+      "preserved_existing_render_without_rerender": true
+    }
+  ],
+  "citations": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "pages": [
+        32,
+        33,
+        40,
+        41
+      ],
+      "lines": [
+        "1615-1657",
+        "2041-2055",
+        "2080-2102"
+      ],
+      "equations": [
+        "155-159",
+        "202-204"
+      ]
+    },
+    {
+      "path": "artifacts/isae/sa1-arithmetic-export-20261027/older-primary-sources/steady-20070316.txt",
+      "pages": [
+        33
+      ],
+      "lines": [
+        "1690-1703",
+        "1714-1728"
+      ],
+      "equations": [
+        "158-160"
+      ]
+    },
+    {
+      "path": ".reference/isae-sa1/SA_1.asw",
+      "lines": [
+        "79-87"
+      ]
+    },
+    {
+      "path": "openswing/aero.py",
+      "lines": [
+        "135-137",
+        "177-195",
+        "330-339",
+        "458-495",
+        "553-563",
+        "829"
+      ]
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "lines": [
+        "14-36",
+        "63-69"
+      ]
+    }
+  ],
+  "two_dimensional_limit": {
+    "assumptions": [
+      "infinite isolated span",
+      "constant circulation",
+      "zero PG Mach",
+      "no motion or gust",
+      "bound-line singular self velocity excluded",
+      "planar untwisted wing"
+    ],
+    "a0": "4*pi*h=dCLda",
+    "delta": "alpha+alphaA",
+    "current": "a0*sin(delta)=cl*cos(delta)+Ks*f(cl)",
+    "frozen_zero_angles": "a0*sin(delta)=cl*cos(alphaA)+Ks*f(cl)",
+    "qualification": "Derived analytic limit of the documented vector equations, not a finite-span SA1 fit or replacement."
+  },
+  "saved_state_arithmetic": [
+    {
+      "saved_state_path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+      "alpha_degrees": 1.9971,
+      "intervals": 400,
+      "max_cl": 0.17269313786994706,
+      "fstall_at_max_cl": 5.962953881817493e-11,
+      "fstall_derivative_at_max_cl": 1.1949784159104543e-09,
+      "Ks_times_derivative": 4.779913663641817e-08,
+      "maximum_leakage_over_local_speed": 3.7961254658883964e-10,
+      "maximum_leakage_over_freestream": 3.796202583878748e-10,
+      "reported_stalled_count": 0,
+      "condition": {
+        "alpha": 1.9971,
+        "speed": 47.9,
+        "density": 1.2256,
+        "mach": 0.0,
+        "freeze_influences": false,
+        "beta": 0.0,
+        "stall": true,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "wake_core_ratio": 0.25,
+        "aero_lag": true,
+        "body_added_mass_factor": 1.0,
+        "circulation_modes": {}
+      },
+      "saved_CL": 0.1448810324049513,
+      "saved_CLi": 0.14497528298304313
+    },
+    {
+      "saved_state_path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k0.json",
+      "alpha_degrees": 18.091,
+      "intervals": 400,
+      "max_cl": 1.1500713258398392,
+      "fstall_at_max_cl": 0.015682276853242704,
+      "fstall_derivative_at_max_cl": 0.2692219840235946,
+      "Ks_times_derivative": 10.768879360943783,
+      "maximum_leakage_over_local_speed": 0.09983624174460597,
+      "maximum_leakage_over_freestream": 0.09989701703714052,
+      "reported_stalled_count": 0,
+      "condition": {
+        "alpha": 18.091,
+        "speed": 47.9,
+        "density": 1.2256,
+        "mach": 0.0,
+        "freeze_influences": false,
+        "beta": 0.0,
+        "stall": true,
+        "stall_factor": 40.0,
+        "stall_width": 0.05,
+        "wake_core_ratio": 0.25,
+        "aero_lag": true,
+        "body_added_mass_factor": 1.0,
+        "circulation_modes": {}
+      },
+      "saved_CL": 1.05023420427422,
+      "saved_CLi": 1.0518829305434156
+    }
+  ],
+  "findings": [
+    "Published log ratio, sign, Vperp normalization and exact derivative agree with reviewed code.",
+    "Current and frozen nonzero-angle 2D factors are retained through vector geometry.",
+    "Zero reported stalled strips does not imply zero smooth stall leakage.",
+    "No new source-supported alternative or cause of archived discrepancy established."
+  ],
+  "operations": {
+    "production_imports": 0,
+    "forward_solves": 0,
+    "inverse_solves": 0,
+    "matrix_assemblies": 0,
+    "parameter_variations": 0,
+    "production_edits": 0,
+    "pdf_pages_visually_inspected": 2,
+    "existing_page_renders_preserved": 2
+  },
+  "report": {
+    "path": "docs/validation/sa1-nonlinear-law-review-20261027.md",
+    "bytes": 6682,
+    "sha256": "e2cc61f3b05a4dc76c378c0194c8be3c12a5df3326068469649a73814259ed1f"
+  },
+  "all_reviewed_inputs_unchanged": true
+}

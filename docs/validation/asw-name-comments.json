@@ -1,0 +1,279 @@
+{
+  "archive": {
+    "archive": "docs/validation/asw-name-comments-evidence.zip",
+    "bytes": 1103416,
+    "catalog_entries": 152,
+    "members": 319,
+    "prior_catalog_entries_unchanged": 151,
+    "scientific_solves": 0,
+    "sha256": "dd78778d437d77fc14c56e75fad70562315abcbb4c2e6384f367423696050af0",
+    "status": "ALL_ARCHIVE_MEMBER_BYTES_VERIFIED"
+  },
+  "artifact_pins": {
+    "integration.json": {
+      "bytes": 1631,
+      "sha256": "c022e230810b10a88cbfb3b25511722aaa1fafe2c76df04e6e8611c72a785b58"
+    },
+    "native-report.json": {
+      "bytes": 7316,
+      "sha256": "d880727581155c6d3be2f16095b5e77104414dfe8bbdad710554cf809419704e"
+    },
+    "ui-addendum.json": {
+      "bytes": 2165,
+      "sha256": "ff3b281841b719c76b4079a37d87bbea10435d207e36b85459c5e52cbef26614"
+    },
+    "wasm/summary.json": {
+      "bytes": 9193,
+      "sha256": "60f42c59979714eec158e169d5e691ccd8cc2cbb8e6fb388a5638bb48c201981"
+    }
+  },
+  "behavior": {
+    "corrected": "Preserve embedded #/% in all Name data lines and the first Beam data line; ! still starts inline comments.",
+    "editor": "Contextual comment extraction avoids turning name suffixes into relocated comments; canonical name edit roundtrip preserves names and annotations.",
+    "preserved": [
+      "Whole-line #/% comments including indented lines",
+      "Numeric and unknown-block inline #/% extension",
+      "Integer/numeric/distribution/physical semantics",
+      "Lossless unchanged save, including CRLF",
+      "Validation rejects names beginning #/% or containing ! or newline; token fields continue rejecting all #/%"
+    ]
+  },
+  "browser": {
+    "modules_loaded_and_verified": 105,
+    "named_ui_assertions": 105,
+    "report": "asw-name-comments-browser.json",
+    "scientific_solves": 0,
+    "scope": "One public browser metadata workflow; scientific equations unchanged.",
+    "sha256": "21c2fdd06d8d8197ae6a0de440cb2041122c07e6d2ce88ce5add1c7da273eb8b",
+    "status": "PASS_PUBLIC_UI_NAME_COMMENT_WORKFLOW"
+  },
+  "coverage": {
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "input_source_scan": {
+    "affected_name_lines": [],
+    "literal_asw_files": 279,
+    "parser_calls": 0,
+    "scientific_solves": 0,
+    "scope": "Pinned literal input text scanned for a branch where contextual name comment handling can differ. Not a corpus parse or physical rerun.",
+    "source_manifest_sha256": "813347a3bd9fcbd029a1ec86e0c3141f82422af26f33ebde7c2f732a16bf27f6",
+    "status": "SOURCE_SCAN_COMPLETE"
+  },
+  "integration": {
+    "changed_python": [
+      "openswing/asw.py",
+      "openswing/asw_edit.py"
+    ],
+    "changed_web": [
+      "web/asw-editor.js"
+    ],
+    "js_controls": {
+      "bytes": 2165,
+      "sha256": "ff3b281841b719c76b4079a37d87bbea10435d207e36b85459c5e52cbef26614"
+    },
+    "module_count": 105,
+    "module_manifest": {
+      "bytes": 13673,
+      "sha256": "3743d2af66467833da4445b15909c36d548aa3540bd295ac5576139b9280014b"
+    },
+    "native_report": {
+      "bytes": 7316,
+      "sha256": "d880727581155c6d3be2f16095b5e77104414dfe8bbdad710554cf809419704e"
+    },
+    "other_modules_byte_identical": 103,
+    "preview": {
+      "pid": 14335,
+      "preserved": true,
+      "start_ticks": 4031287
+    },
+    "release_remaining": "Build and browser-check the next local app/source downloads before promoting this parser/editor change. Existing optimized105-module source06 release remains served.",
+    "retained_wasm_harness_failures": 2,
+    "root_bytes_exactly_match_tested_candidate": true,
+    "scientific_equations_changed": false,
+    "scientific_solves": 0,
+    "served_module_manifest": {
+      "bytes": 13673,
+      "sha256": "521ef36c13c7d1155b399f05a085ecd5894ea82ecdf12a3f47de8aba5ec5be1b"
+    },
+    "served_source06_unchanged": true,
+    "source_scan": {
+      "bytes": 389,
+      "sha256": "0a750cd0995968de9ba7552a0306096ce8e82a317f70438bfa53cc825d7431e4"
+    },
+    "status": "INTEGRATED_TESTED_METADATA_FIX_NOT_YET_RELEASED",
+    "ui": {
+      "bytes": 2996,
+      "sha256": "1a0d834cd66f61b6b6b8a4595b0aa73fa25b2951f1f78b41b96b5407ca22fdda"
+    },
+    "wasm_fixtures": 5,
+    "wasm_summary": {
+      "bytes": 9193,
+      "sha256": "60f42c59979714eec158e169d5e691ccd8cc2cbb8e6fb388a5638bb48c201981"
+    }
+  },
+  "integration_record_scope": "Historical source-integration checkpoint. Current build/browser evidence is recorded separately; its original pins and release-pending fields remain unchanged.",
+  "javascript": {
+    "browser_execution": false,
+    "check_count": 10,
+    "checks": [
+      "complete aircraft name highlighted as text",
+      "complete beam name highlighted as text",
+      "retained comment # heading",
+      "retained comment % heading",
+      "retained comment ! before beam",
+      "retained comment # numeric",
+      "retained comment % numeric",
+      "CRLF preservation",
+      "HTML names remain escaped",
+      "ordinary example highlighting unchanged"
+    ],
+    "html": "<span class=\"asw-token-keyword\">Name</span>\n <span class=\"asw-token-comment\"># heading</span>\n <span class=\"asw-token-comment\">% heading</span>\n<span class=\"asw-token-string\">Wing #2 at 50% scale </span><span class=\"asw-token-comment\">! aircraft</span>\n<span class=\"asw-token-keyword\">End</span>\n<span class=\"asw-token-keyword\">Beam</span> <span class=\"asw-token-number\">1</span>\n<span class=\"asw-token-comment\">! before beam</span>\n<span class=\"asw-token-string\">Panel #3 25% </span><span class=\"asw-token-comment\">! beam</span>\n<span class=\"asw-token-keyword\">t</span> <span class=\"asw-token-keyword\">y</span> <span class=\"asw-token-keyword\">chord</span>\n<span class=\"asw-token-number\">0</span> <span class=\"asw-token-number\">0</span> <span class=\"asw-token-number\">1</span> <span class=\"asw-token-comment\"># numeric</span>\n<span class=\"asw-token-number\">1</span> <span class=\"asw-token-number\">1</span> <span class=\"asw-token-number\">1</span> <span class=\"asw-token-comment\">% numeric</span>\n<span class=\"asw-token-keyword\">End</span>\n",
+    "note": "Same bytes will be integrated as web/asw-editor.js; .mjs isolates ES-module evaluation outside the application package.",
+    "permanent_tests_added": 0,
+    "scientific_solves": 0,
+    "source": "Name\n # heading\n % heading\nWing #2 at 50% scale ! aircraft\nEnd\nBeam 1\n! before beam\nPanel #3 25% ! beam\nt y chord\n0 0 1 # numeric\n1 1 1 % numeric\nEnd\n",
+    "source_pins": {
+      "baseline": "a5d31750f35664f93e268d2f0474e0887ab56c7e0a80d5921d4b8927eff13fe1",
+      "candidate": "1a0d834cd66f61b6b6b8a4595b0aa73fa25b2951f1f78b41b96b5407ca22fdda"
+    },
+    "status": "PASS_CONTEXTUAL_NAME_HIGHLIGHTING"
+  },
+  "limitations": [
+    "No ASWING executable comparison",
+    "Does not change or resolve the 102 literal corpus rejections",
+    "No numeric inline-comment grammar change",
+    "No scientific or browser validation claim from these native controls",
+    "Browser checks establish metadata/editor behavior only. They do not add scientific validation or prove hosted deployment."
+  ],
+  "native_tests": {
+    "deselected": 2,
+    "excluded_scientific_tests": [
+      "test_bridge_preview_and_serialized_stiffness_match_analytic_solution_and_identity",
+      "test_literal_and_canonical_save_preserve_the_same_physical_model"
+    ],
+    "passed": 91,
+    "pytest_seconds": 3.18,
+    "solve_functions_patched_to_raise": true,
+    "worker_wall_seconds": 16.156309803991462
+  },
+  "one_off_controls": {
+    "check_count": 33,
+    "checks": [
+      "Wing #2:parse",
+      "Wing #2:lossless",
+      "Wing #2:canonical semantic",
+      "Wing #2:canonical idempotent",
+      "Wing #2:comments",
+      "Wing #2:no name suffix comment",
+      "Wing #2:rename roundtrip",
+      "Wing #2:renamed canonical stable",
+      "Wing 50% scale:parse",
+      "Wing 50% scale:lossless",
+      "Wing 50% scale:canonical semantic",
+      "Wing 50% scale:canonical idempotent",
+      "Wing 50% scale:comments",
+      "Wing 50% scale:no name suffix comment",
+      "Wing 50% scale:rename roundtrip",
+      "Wing 50% scale:renamed canonical stable",
+      "Wing #2 at 50% scale:parse",
+      "Wing #2 at 50% scale:lossless",
+      "Wing #2 at 50% scale:canonical semantic",
+      "Wing #2 at 50% scale:canonical idempotent",
+      "Wing #2 at 50% scale:comments",
+      "Wing #2 at 50% scale:no name suffix comment",
+      "Wing #2 at 50% scale:rename roundtrip",
+      "Wing #2 at 50% scale:renamed canonical stable",
+      "multiple Name rows",
+      "numeric inline markers unchanged",
+      "numeric annotation retention",
+      "reject unrepresentable aircraft name '# comment'",
+      "reject unrepresentable aircraft name '% comment'",
+      "reject unrepresentable aircraft name 'Wing ! comment'",
+      "reject unrepresentable aircraft name 'Wing\\nEnd'",
+      "token restrictions preserved bad#token",
+      "token restrictions preserved bad%token"
+    ],
+    "imported_parser": "/tmp/openswing-isae-ffwt1-20261015/name-comment-19/candidate/openswing/asw.py",
+    "permanent_tests_added": 0,
+    "scientific_solves": 0,
+    "status": "PASS_ONE_OFF_NAME_METADATA_CONTROLS"
+  },
+  "other_python_modules_unchanged": 103,
+  "primary_evidence": {
+    "lines": [
+      169,
+      170,
+      171,
+      172,
+      321,
+      322,
+      323,
+      324
+    ],
+    "manual": ".reference/aswing_doc.txt",
+    "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+  },
+  "problem": "Embedded # and % in valid aircraft/beam names were truncated during parse, rejected during rename, and incorrectly treated as inline comments in canonical export and editor highlighting.",
+  "source_modules": {
+    "openswing/asw.py": {
+      "bytes": 18778,
+      "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+    },
+    "openswing/asw_edit.py": {
+      "bytes": 10879,
+      "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+    }
+  },
+  "status": "BUILT_AND_BROWSER_VERIFIED_NAME_METADATA_FIX",
+  "wasm": {
+    "assertions": {
+      "harness": 253,
+      "note": "Assertions overlap and include source-byte and ownership checks; these are not286 independent fixtures.",
+      "unchanged_native_helper": 33
+    },
+    "fixtures": {
+      "baseline": 5,
+      "baseline_rename_error_ids": [
+        "name-1",
+        "name-2",
+        "name-3",
+        "multiple-name-rows",
+        "numeric-inline-extension"
+      ],
+      "baseline_wrong_name_ids": [
+        "name-1",
+        "name-2",
+        "name-3",
+        "multiple-name-rows"
+      ],
+      "candidate": 5,
+      "candidate_rename_error_ids": [],
+      "candidate_wrong_name_ids": [],
+      "complete_native_export_equality": true,
+      "model_data_representation": "Exact JSON export representation, including tuple-to-JSON-array conversion; no numeric rounding or tolerance.",
+      "serialized_comparison": "Exact Python strings/UTF-8 content, including CRLF lossless originals."
+    },
+    "retained_failures": [
+      {
+        "attempt": "01",
+        "exit_code": 1,
+        "kind": "Harness representation mismatch: live tuple-valued units versus native JSON arrays; candidate not executed.",
+        "manifest": "name-comment-19/wasm/attempt-01-manifest.json",
+        "reaped": true,
+        "session": 29049
+      },
+      {
+        "attempt": "02",
+        "exit_code": 1,
+        "kind": "Overly narrow import allowlist rejected legitimate parser joint/sensor validation dependencies after all5baseline fixtures passed; candidate not executed.",
+        "manifest": "name-comment-19/wasm/attempt-02-manifest.json",
+        "reaped": true,
+        "session": 21029
+      }
+    ],
+    "scientific_solves": 0,
+    "status": "PASS_ACTUAL_WASM_NAME_PARSER_EDITOR_COMPATIBILITY"
+  }
+}

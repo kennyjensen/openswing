@@ -1,0 +1,386 @@
+{
+  "status": "SOURCE_REVIEW_COMPLETE_HISTORICAL_POLICY_UNRESOLVED",
+  "literal_sensor": {
+    "id": 1,
+    "anchor_beam": 1,
+    "anchor_t": 0.558,
+    "jig_position": [
+      0.07,
+      0,
+      0.558
+    ],
+    "Vspec": [
+      1,
+      0,
+      0
+    ],
+    "Aspec": [
+      0,
+      0,
+      1
+    ],
+    "beam_physical_index_explicit": false,
+    "documented_default_physical_index": 1,
+    "source_locator": "[03_90].asw lines16-18,31-37",
+    "Xax_scale_zero": true,
+    "finite_core_at_ratio_quarter_m": 0.035,
+    "jig_tip_vortex_endpoint": [
+      0.035,
+      0,
+      0.558
+    ],
+    "jig_wake_direction": [
+      1,
+      0,
+      0
+    ],
+    "on_tip_trailing_filament": true
+  },
+  "supported_core_ratio": 0.25,
+  "alternative_numeric_default_found": false,
+  "source_locators": [
+    {
+      "source": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "lines": [
+        2255,
+        2443,
+        2454
+      ],
+      "finding": "Example menu W=.2500; recommended quarter-chord core; actual radius=max(ratio*chord,interval width)."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/asw_theory.txt",
+      "section": "4.2",
+      "equations": [
+        160,
+        161
+      ],
+      "lines": [
+        1671,
+        1683
+      ],
+      "finding": "Finite regularization for influence from surfaces not containing the lattice control point; whole Biot-Savart integral regularized."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "lines": [
+        1017,
+        1054
+      ],
+      "finding": "Physical index determines zero core for mutual lattice influences; no explicit sensor override or own-sensor beam-identity rule."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/version_notes.txt",
+      "lines": [
+        374,
+        390,
+        405
+      ],
+      "finding": "v5.55 introduced induced velocities on sensors; v5.56 same-physical zero-core change explicitly concerns mutual lattice influences."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "lines": [
+        526,
+        560
+      ],
+      "finding": "Sensor is pylon-attached and sees induced flow from all surfaces/volumes; no sensor-core input column."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/aswing_faq.txt",
+      "lines": [
+        289,
+        298
+      ],
+      "finding": "Near-wingtip sensor sees trailing-vortex velocity; this argues against wholesale own-surface omission but does not identify regularization."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "section": "10.3-10.4",
+      "equations": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "finding": "Pylon point and axes move; fixed sensor is obtained at ground anchor; documented speed/beta transform."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/version_notes.txt",
+      "version": "5.77",
+      "lines": [
+        754,
+        770
+      ],
+      "finding": "K/K selects full versus kinematic-only V/alpha/beta. It is not an Earth/body basis toggle."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "printed_page": 24,
+      "lines": [
+        1347,
+        1355
+      ],
+      "finding": "Default W=.25 explicitly. Its smaller-spacing wording conflicts with original max rule and its own official appendix; its K summary also conflicts with Drela v5.77 notes."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "lines": [
+        4708,
+        4952,
+        4976
+      ],
+      "finding": "Official appendix repeats W=.25 recommendation/example and max rule."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "lines": [
+        1574,
+        1581,
+        2270
+      ],
+      "finding": "Startup reads same-basename .set if present; option values are saved there. Missing archived .set does not prove historical defaults."
+    },
+    {
+      "source": "/home/userland/aswing/.reference/version_notes.txt",
+      "version": "5.96",
+      "lines": [
+        1008,
+        1014
+      ],
+      "finding": "Listed change is sideforce/CY/Cl/Cn outputs, not a sensor-core policy. Changelog silence is not proof of implementation identity."
+    }
+  ],
+  "scripts": [
+    {
+      "source": {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A1.sh",
+        "bytes": 386,
+        "sha256": "f045a1263ba9f092c8f3520da024fca671dc016959bd3e84efdf3b599179d0b1"
+      },
+      "standalone_K_lines": [],
+      "SGET_lines": []
+    },
+    {
+      "source": {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A10.sh",
+        "bytes": 316,
+        "sha256": "766f9bedb33ab73237fc9d128545d1b573e32033da49b7bfe6655260aaca36f3"
+      },
+      "standalone_K_lines": [],
+      "SGET_lines": []
+    },
+    {
+      "source": {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A15.sh",
+        "bytes": 292,
+        "sha256": "bb5c95f7f6963691031f96e731926e02cbed907cda07617ff4d8fff2e51d2ca9"
+      },
+      "standalone_K_lines": [],
+      "SGET_lines": []
+    },
+    {
+      "source": {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+        "bytes": 330,
+        "sha256": "e1d4677898df6ffeb63c681f7b1cb44f94b27b9e607066e4df2ddf0cb20b2244"
+      },
+      "standalone_K_lines": [],
+      "SGET_lines": []
+    }
+  ],
+  "archived_AE2_set_files": [],
+  "saved_only_kinematic_outputs": [
+    {
+      "nominal_panels": 80,
+      "kinematic_body": [
+        9.961946980917455,
+        -0.8715574274765816,
+        0.0
+      ],
+      "kinematic_sensor": [
+        9.952598582269598,
+        -0.972443662384259,
+        0.01160963797364252
+      ],
+      "V_mps": 10.0,
+      "beta_deg": 5.580510766802649,
+      "difference_from_archive": {
+        "V_mps": -0.011499999999999844,
+        "beta_deg": -0.6989192331973504
+      },
+      "full_field_saved": {
+        "V_mps": 10.009076195432417,
+        "beta_deg": 6.141774750666816
+      }
+    },
+    {
+      "nominal_panels": 160,
+      "kinematic_body": [
+        9.961946980917455,
+        -0.8715574274765816,
+        0.0
+      ],
+      "kinematic_sensor": [
+        9.952598184377338,
+        -0.9724477906525858,
+        0.011604946522815136
+      ],
+      "V_mps": 10.0,
+      "beta_deg": 5.580534532675827,
+      "difference_from_archive": {
+        "V_mps": -0.011499999999999844,
+        "beta_deg": -0.6988954673241725
+      },
+      "full_field_saved": {
+        "V_mps": 10.009076754862361,
+        "beta_deg": 6.141831631539728
+      }
+    }
+  ],
+  "online_primary_checks": [
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/",
+      "finding": "Lists official theory/user guide/version notes and the ISAE extended manual."
+    },
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/version_notes.txt",
+      "finding": "Live text confirms v5.77 K/K full/kinematic-only selection."
+    },
+    {
+      "url": "https://web.mit.edu/drela/Public/web/aswing/ASWING_Extended_User_Manual.pdf#page=24",
+      "finding": "Live parsed PDF confirms p24 default.25 and conflicting smaller-spacing/K summary wording."
+    }
+  ],
+  "tool_limits": [
+    {
+      "operation": "Local PDF screenshot",
+      "result": "pdftoppm unavailable, terminal a5176f exit127; no scientific work."
+    },
+    {
+      "operation": "Web PDF screenshot p24",
+      "result": "Timeout; no screenshot verification claimed. Local text and live parsed PDF agree."
+    }
+  ],
+  "counts": {
+    "saved_sensor_transforms": 2,
+    "new_field_products": 0,
+    "equilibrium_solves": 0,
+    "residual_calls": 0,
+    "production_imports": 0
+  },
+  "inputs": [
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_faq.txt",
+      "bytes": 16180,
+      "sha256": "29c0f3cc76bd741d0fecc88c10350bc214860633317c4fc8b7beb8c5541248c2"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "bytes": 222073,
+      "sha256": "f735309dff805b659d94a2da1c9052e3fe6888071843a23dbfcbd9f40f48f88e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.pdf",
+      "bytes": 3126157,
+      "sha256": "4f3af9fc10383f4f84888214e295d0bfaf0ef6190a37a5701f58d2d075f360d0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw",
+      "bytes": 1705,
+      "sha256": "eb35a50606bcceee263352cbd40ffd509b504082c78ba61732ad52ce03193db8"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt",
+      "bytes": 1816,
+      "sha256": "0532d6ebde7fd8e64a39ef90adcc10e05d887bbc4c6af92398ff10f7c3dae34e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/Analysis.m",
+      "bytes": 14230,
+      "sha256": "ce5f38d6e32e479f3706ac48f29cbae84f0fd5796a14a54f1d27cb0f28efbc6a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A1.sh",
+      "bytes": 386,
+      "sha256": "f045a1263ba9f092c8f3520da024fca671dc016959bd3e84efdf3b599179d0b1"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A10.sh",
+      "bytes": 316,
+      "sha256": "766f9bedb33ab73237fc9d128545d1b573e32033da49b7bfe6655260aaca36f3"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A15.sh",
+      "bytes": 292,
+      "sha256": "bb5c95f7f6963691031f96e731926e02cbed907cda07617ff4d8fff2e51d2ca9"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+      "bytes": 330,
+      "sha256": "e1d4677898df6ffeb63c681f7b1cb44f94b27b9e607066e4df2ddf0cb20b2244"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae2-aswing-run-20261025/results/m80-frozen-fixed-zero/result.json",
+      "bytes": 495147,
+      "sha256": "5663d6ba54615fd5e1b46a3f070d3ac1ac065d28ae9b3e9f6e83bf1996c31140"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae2-aswing-run-20261025/results/m160-frozen-fixed-zero/result.json",
+      "bytes": 951817,
+      "sha256": "362f3663d7ccf8f06093d51e5624a17c40d9e66df2d5bb55d9d90391215b04f9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62253,
+      "sha256": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/sensors.py",
+      "bytes": 10501,
+      "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae2-sensor-reference-20261025/field-report.json",
+      "bytes": 36322,
+      "sha256": "a24cc2826e23820cb2b73ce11333aa665f76ac1206d64338207bb1cce655531e"
+    }
+  ],
+  "source": {
+    "path": "/tmp/openswing-isae-ae2-core-source-20261025/record.py",
+    "bytes": 6674,
+    "sha256": "f5ecbe202d0e24936cf022a191a2525f090c5e4574888e9246c4859fc2f9883b"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "request": {
+    "action": "solve",
+    "mode": "rigid",
+    "source": "! Original OpenSwing verification example. SI input units.\nName\nRectangular research wing\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n12 1 12\n0 0 0\nEnd\nGround\n1 0 0\nEnd\nBeam 1\nMain wing\nt x y z chord Xax\n0 0 0 0 1 .25\n6 0 6 0 1 .25\nt Cdf dCLda CLmax CLmin\n0 .008 6.283185307179586 1.2 -1.2\n6 .008 6.283185307179586 1.2 -1.2\nt dCLdF1 dCMdF1\n-6 -.05 .012\n-2 -.05 .012\n-2 0 0\n2 0 0\n2 .05 -.012\n6 .05 -.012\nEnd\n",
+    "condition": {
+      "speed": 30,
+      "alpha": 5,
+      "beta": 0,
+      "density": null,
+      "mach": null,
+      "rates": [
+        0,
+        0,
+        0
+      ],
+      "acceleration": [
+        0,
+        0,
+        0
+      ],
+      "angular_acceleration": [
+        0,
+        0,
+        0
+      ],
+      "controls": {
+        "1": 0
+      },
+      "powers": {},
+      "body_added_mass_factor": 1,
+      "position_earth": [
+        0,
+        0,
+        0
+      ],
+      "attitude": [
+        0,
+        0,
+        0
+      ],
+      "ground_effect": 0,
+      "ground_normal": [
+        0,
+        0,
+        1
+      ],
+      "stall": true,
+      "stall_factor": 40,
+      "stall_width": 0.05,
+      "altitude_m": 0,
+      "gravity_magnitude": null,
+      "load_factor": 1,
+      "gust": null,
+      "sensor_flow": "full",
+      "time": 0,
+      "circulation_modes": {
+        "1": 0
+      },
+      "aero_lag": true,
+      "wake_core_ratio": 0.25,
+      "freeze_influences": false
+    },
+    "operating_constraints": [],
+    "strut_mode": "bilateral",
+    "panels": 4,
+    "circulation_method": "direct"
+  },
+  "seed": [
+    0,
+    1.2e-322,
+    -1.6e-322,
+    -1.2e-322,
+    -2.87e-322,
+    5.4e-323
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "scope": "Complete aerodynamic loads and local circulation residual at actual stationary corrected Daedalus trim, baseline plus four saved real/imaginary response parts. No complete aircraft response or historical ASWING match.",
+  "expected_source": "Independent full aerodynamic reference; Q32 and complex-step1e-24. No production imports in expected evaluator.",
+  "source_study": "/tmp/openswing-daedalus-full-aero-20261025",
+  "source_states": {
+    "path": "/tmp/openswing-daedalus-shell-mesh-20261025/results/states.npz",
+    "bytes": 197534,
+    "sha256": "6a9a97955d8aa0640f496ce83221ab7d2c0dcc0d5f044aa0fc5a1d93bc5b0540"
+  },
+  "input_state_chart": "Physical input directions extracted from fourth-order native chart stencils; chart and material interpolation excluded from expected physics scope.",
+  "gate": {
+    "absolute": 2e-07,
+    "relative": 2e-07
+  },
+  "native_test_width": 0.0005,
+  "expected_maps": 115,
+  "expected_scalar_values": 14735,
+  "files": {
+    "inputs.npz": {
+      "bytes": 137333,
+      "sha256": "2fd365e6ffe68136c8d6975906dddea17c857105f5aa5271c565d5203a859f4f"
+    },
+    "expected.npz": {
+      "bytes": 130285,
+      "sha256": "c81754c07cea6a033051ae07864c75ebd631955246808827ed85282dfeb379f3"
+    }
+  },
+  "expected_pins": {
+    "/tmp/openswing-daedalus-full-aero-20261025/reference-attempt2/report.json": {
+      "bytes": 6065,
+      "sha256": "6ddafec98cc132b73554fb5617c692b3566c7b871a87c6681cd20c6e38e6bc8c"
+    },
+    "/tmp/openswing-daedalus-full-aero-20261025/reference-attempt2/plan.json": {
+      "bytes": 38149,
+      "sha256": "21e0f815a6be1ddeb34aed5707fd2b0e343f61dee21ca6d7d948b1366acd8d6f"
+    }
+  },
+  "reference_sources": {
+    "scripts/daedalus_full_aero_reference.py": {
+      "bytes": 16284,
+      "sha256": "c7884803885281a8827b68f51514d5f7d31882f51546b57cc3885322207c579b"
+    },
+    "scripts/daedalus_jet_reference.py": {
+      "bytes": 13084,
+      "sha256": "894dae2d2f909dd5bedb6283f4b99172e8973b8b59811d4f7c0c26b9fe725908"
+    },
+    "scripts/daedalus_volume_reference.py": {
+      "bytes": 17804,
+      "sha256": "7f679a9473505f056029c5c3561d3e5fc93be177f882244ad5a9ced40f70602e"
+    }
+  }
+}

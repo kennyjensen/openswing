@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SA-11: same-main-wing control</title><style>body{font:16px/1.5 system-ui;background:#101827;color:#e5e7eb;max-width:1100px;margin:auto;padding:24px}a{color:#8fc4ff}h1{font-size:1.7rem}img{width:100%;height:auto}table{border-collapse:collapse;width:100%}th,td{padding:10px;text-align:left;border-bottom:1px solid #64748b}.scroll{overflow:auto}small{color:#cbd5e1}</style>
+<p><a href="./">← Primary SA-11 comparison</a></p><h1>SA-11: same main wing, winglets removed</h1>
+<p><a href="wake-interactions.html">Follow-up: localized wingtip wake interactions and a tip-only mesh control</a>.</p>
+<p>The control removes only the Joint and two winglet Beam blocks from the disclosed report-derived upper-winglet model. Main-wing geometry, section data, nodes, references and operating settings are identical between the pair. The original archive input is preserved.</p>
+<p><strong>All 56 new diagnostic solves are valid.</strong> The 32-interval bare control passes all six selected lift checks and fails all six equal-lift drag checks. These alternative results are separate from the unchanged <strong>21/48 primary score</strong>.</p>
+<div class="scroll"><table><caption>At CL = 0.5, 240 m/s: upper-winglet drag change</caption><thead><tr><th>Quantity</th><th>ASWING</th><th>Main 32</th><th>Main 62</th></tr></thead><tbody>
+<tr><th>Total ΔCD</th><td>-0.00276893</td><td>-0.00379425</td><td>-0.00226453</td></tr>
+<tr><th>Trefftz ΔCDi</th><td>-0.00263341</td><td>-0.00285607</td><td>-0.00263642</td></tr></tbody></table></div>
+<p>Changing only the main-wing mesh moves the total-drag benefit from 37.0% too strong to 18.2% too weak. Both winglets retain exactly the same 16-interval geometry and sampling points. The finer main-wing trial matches the Trefftz induced-drag reduction within 0.12% and the lift increment at 3° within 2.97%.</p>
+<p>This identifies sensitivity in near-field drag evaluation; it is not a convergence claim or a new acceptance requirement. No solver equation, default, tolerance or primary scope was changed.</p>
+<img src="same-mainwing.svg" alt="Same-main-wing control and upper winglet compared with archived ASWING, including a finer-main-wing diagnostic point">
+<p><a href="same-mainwing.png">Download plot</a> · <a href="same-mainwing-data.json">Control and force decomposition</a> · <a href="same-mainwing-mesh-data.json">Mesh comparison</a> · <a href="same-mainwing-verification.json">Independent verification</a></p>
+<p>Inspect the disclosed control: <a href="same-mainwing-control.asw" download>ASW file</a> and <a href="same-mainwing-control.mesh.json" download>matching mesh</a>. This is a diagnostic model, not the archived bare-wing file.</p>
+<p><small>Observed 2026-11-08T20:37:19.486161+00:00. Small serial foreground jobs; no browser, Vite, build or background solver was started.</small></p></html>

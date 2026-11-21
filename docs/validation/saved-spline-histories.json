@@ -1,0 +1,653 @@
+{
+  "status": "SCOPED_INCREMENT_VALIDATED",
+  "goal_complete": false,
+  "broad_requirements_complete": 0,
+  "broad_requirements_partial": 40,
+  "scope": "One nonrotating Earth-velocity saved launch accepts smooth cubic tables; original version-1 linear records retain their contract.",
+  "physics_unchanged": [
+    "residual",
+    "mesh",
+    "integration methods",
+    "interpolation",
+    "tolerances",
+    "accuracy gates"
+  ],
+  "modules": 69,
+  "kernel_sha256": {
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/aero.py": "e3efabb119bccd1b6c22bd990e705b4d833f1f5526b1812e38c010ff2a0ec76c",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+    "openswing/network.py": "df7df8b0e29793475f61a97d32f966fc02a345d4650e3ca3391761f70e754209",
+    "openswing/inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+    "openswing/operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/local_motion.py": "885c393eace666a77de16ddcef80628250ac4fdb6dea119ae44a984648fdcbe5",
+    "openswing/dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/time_integration.py": "8276837f355332f593343dd97f811f332f68b0a88a58b4729e96074b6de2c3c1",
+    "openswing/forcing.py": "dd74815ddaa05da3866b16caae40a41d40dbf822fa9e17ae0c52be7b3642f64e",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+    "openswing/rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/time_state.py": "6a1478d7ccfe48996e60c83f2556c1682a41cfc17315c53e4a5f54f7d99ee56f",
+    "openswing/time_initialization.py": "103429a7358f295c05b8e67c25dda1a71a5e3f65be43ea0cc89f5a9e6f019a2b",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+    "openswing/radau_time.py": "de44b770e146d2ce73ecf0436e6c7857271ab2637d93bf8416cd73b8babfc54f",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "openswing/time_accuracy.py": "5a9d9e321f04e97b5757fee0cb48c6802fa6e32d3e03362db9b5cb321712b2fb",
+    "openswing/root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "openswing/vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+    "openswing/initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "openswing/position_history_checkpoint.py": "4a0992a4b83777d95a5b56de7929555666168b5caef6f47dc77394f72bfa0a58",
+    "openswing/position_history_lift.py": "189079a927f0b8a975464378131b336734b8bf714d86494eb37084dd2e8818fe",
+    "openswing/time_acceptance.py": "bcf446c04bf946ca3fda684dc894795414deffe78790226ddec69778da828e12",
+    "openswing/time_acceptance_validation.py": "f29c99994196251c8e7740013011c5517287e1d34cbf5c31ffa796cf9158e1e8",
+    "openswing/time_cold_initial.py": "278ec804bb6663ad9599a6472cfc7470cf71c3c26a36d880ccb3098939ed7d0f",
+    "openswing/time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "openswing/time_saved_history.py": "d8fa0a36593cacf6c2e9b9ecd076f4eb5ed7486d9516696a65e43662b5849788",
+    "openswing/time_transition_initial.py": "d9804451d98e0a21c077a9c56d399b13e77ee82979fb2081d03fb91846433e04"
+  },
+  "native": {
+    "status": "PASS_AFTER_TEST_FIXTURE_CORRECTION",
+    "distinct_current_tests": 149,
+    "first_attempt": {
+      "tests": 148,
+      "passed": 147,
+      "failed": 1
+    },
+    "corrected_frame_selection": {
+      "passed": 22,
+      "failed": 0
+    },
+    "baseline_failure_reproduced": true,
+    "production_changed_for_failure": false,
+    "collection": 1663
+  },
+  "native_public_cases": {
+    "status": "PASS",
+    "cases": [
+      {
+        "status": "PASS",
+        "name": "radau-split",
+        "accepted_steps": 2,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 2.621590878409963e-12,
+          "velocity": 4.3708974981071513e-10,
+          "root_force": 1.310368591411759e-09,
+          "frame_velocity": 4.4015434352839833e-10,
+          "frame_acceleration": 5.2989786003543315e-08,
+          "relative_acceleration": 5.233455513398155e-08
+        },
+        "seconds": 38.25365445704665
+      },
+      {
+        "status": "PASS",
+        "name": "bdf1",
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 1.3160523018584946e-13,
+          "velocity": 6.475614749285041e-12,
+          "root_force": 6.460076917846891e-11,
+          "frame_velocity": 7.121542938692826e-12,
+          "frame_acceleration": 3.5610558946075344e-10,
+          "relative_acceleration": 3.819123350901066e-10
+        },
+        "seconds": 5.162701020017266
+      },
+      {
+        "status": "PASS",
+        "name": "bdf2",
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 1.5781343246090707e-13,
+          "velocity": 6.475614749285041e-12,
+          "root_force": 7.891320930042411e-11,
+          "frame_velocity": 7.121542938692826e-12,
+          "frame_acceleration": 7.074589802869014e-10,
+          "relative_acceleration": 7.469155294259622e-10
+        },
+        "seconds": 5.787144457048271
+      },
+      {
+        "status": "PASS",
+        "name": "radau-half",
+        "accepted_steps": 6,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 1.230870223453695e-12,
+          "velocity": 1.8577853665158184e-10,
+          "root_force": 6.15299589057372e-10,
+          "frame_velocity": 1.8909940280309456e-10,
+          "frame_acceleration": 1.0123408777928944e-08,
+          "relative_acceleration": 9.956371338493142e-09
+        },
+        "seconds": 95.56544223398669
+      },
+      {
+        "status": "PASS",
+        "name": "radau-quarter",
+        "accepted_steps": 12,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 3.010751370435827e-13,
+          "velocity": 4.723677872464638e-11,
+          "root_force": 1.505078284225192e-10,
+          "frame_velocity": 4.8150421150250367e-11,
+          "frame_acceleration": 3.509867729789562e-09,
+          "relative_acceleration": 3.5851378810125567e-09
+        },
+        "seconds": 188.6269734260277
+      },
+      {
+        "status": "PASS",
+        "name": "bdf2-half",
+        "accepted_steps": 6,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 2.3804959739526232e-14,
+          "velocity": 1.7307587654724621e-12,
+          "root_force": 1.190259002470384e-11,
+          "frame_velocity": 1.7740201668781097e-12,
+          "frame_acceleration": 3.545190807585641e-10,
+          "relative_acceleration": 3.6028219296824204e-10
+        },
+        "seconds": 11.951753811037634
+      },
+      {
+        "status": "PASS",
+        "name": "bdf2-quarter",
+        "accepted_steps": 12,
+        "rejected_steps": 0,
+        "maximum_errors": {
+          "position": 3.629692033046972e-15,
+          "velocity": 4.399553638068099e-13,
+          "root_force": 1.8088863740217676e-12,
+          "frame_velocity": 4.425956129372466e-13,
+          "frame_acceleration": 1.7701995425056793e-10,
+          "relative_acceleration": 1.7778978289584302e-10
+        },
+        "seconds": 22.446683923946694
+      }
+    ],
+    "seconds": 367.80769762402633
+  },
+  "first_native_launch": {
+    "status": "SOLVED",
+    "scientific_assertions": "Integration, saved ownership and checkpoint restore only; independent mechanics check follows retained output.",
+    "accepted_steps": 3,
+    "rejected_steps": 0,
+    "seconds": 157.34341889602365,
+    "cpu_seconds": 148.868320262,
+    "source_unchanged": true
+  },
+  "first_native_mechanics": {
+    "status": "PASS",
+    "snapshots": 4,
+    "maximum_discrete_errors": {
+      "position": 4.865129566572479e-12,
+      "velocity": 6.846437236585068e-10,
+      "root_force": 2.4320827574086934e-09,
+      "frame_velocity": 6.945583483353168e-10,
+      "frame_acceleration": 6.114012163216387e-08,
+      "relative_acceleration": 5.992399562670947e-08
+    },
+    "trajectory": [
+      {
+        "time": 0.0,
+        "actual": [
+          -0.0016000000000000458,
+          0.0
+        ],
+        "discrete": [
+          -0.0016,
+          0.0
+        ],
+        "continuous": [
+          -0.0016,
+          0.0
+        ],
+        "temporal_error": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "time": 0.02,
+        "actual": [
+          -0.0016389741576516847,
+          -0.003874892363789151
+        ],
+        "discrete": [
+          -0.001638974157651771,
+          -0.0038748923638156872
+        ],
+        "continuous": [
+          -0.0016389740875411805,
+          -0.0038748927943996698
+        ],
+        "temporal_error": [
+          7.011059051029167e-11,
+          4.3058398253165153e-10
+        ]
+      },
+      {
+        "time": 0.04,
+        "actual": [
+          -0.0017532214604543128,
+          -0.0074845162905511214
+        ],
+        "discrete": [
+          -0.0017532214613531292,
+          -0.007484516461737689
+        ],
+        "continuous": [
+          -0.0017532213450225187,
+          -0.007484517969683862
+        ],
+        "temporal_error": [
+          1.1633061050911331e-10,
+          1.5079461733111255e-09
+        ]
+      },
+      {
+        "time": 0.06,
+        "actual": [
+          -0.0019348783644244083,
+          -0.010569181043205558
+        ],
+        "discrete": [
+          -0.0019348783692895379,
+          -0.010569181727849281
+        ],
+        "continuous": [
+          -0.0019348782157141936,
+          -0.01056918493350115
+        ],
+        "temporal_error": [
+          1.5357534428189767e-10,
+          3.2056518689538294e-09
+        ]
+      }
+    ]
+  },
+  "refinement": {
+    "status": "PASS",
+    "rows": [
+      {
+        "method": "bdf2",
+        "step": 0.02,
+        "continuous_errors": [
+          2.111065199767283e-05,
+          0.0008272732275291916
+        ],
+        "maximum_discrete_errors": {
+          "position": 1.5781343246090707e-13,
+          "velocity": 6.475614749285041e-12,
+          "root_force": 7.891320930042411e-11,
+          "frame_velocity": 7.121542938692826e-12,
+          "frame_acceleration": 7.074589802869014e-10,
+          "relative_acceleration": 7.469155294259622e-10
+        }
+      },
+      {
+        "method": "bdf2",
+        "step": 0.01,
+        "continuous_errors": [
+          5.366370525343184e-06,
+          0.00023547133037418733
+        ],
+        "maximum_discrete_errors": {
+          "position": 2.3804959739526232e-14,
+          "velocity": 1.7307587654724621e-12,
+          "root_force": 1.190259002470384e-11,
+          "frame_velocity": 1.7740201668781097e-12,
+          "frame_acceleration": 3.545190807585641e-10,
+          "relative_acceleration": 3.6028219296824204e-10
+        }
+      },
+      {
+        "method": "bdf2",
+        "step": 0.005,
+        "continuous_errors": [
+          1.2173393680353813e-06,
+          6.178994735529797e-05
+        ],
+        "maximum_discrete_errors": {
+          "position": 3.629692033046972e-15,
+          "velocity": 4.399553638068099e-13,
+          "root_force": 1.8088863740217676e-12,
+          "frame_velocity": 4.425956129372466e-13,
+          "frame_acceleration": 1.7701995425056793e-10,
+          "relative_acceleration": 1.7778978289584302e-10
+        }
+      },
+      {
+        "method": "radau",
+        "step": 0.02,
+        "continuous_errors": [
+          1.487102147153252e-10,
+          3.890295592612336e-09
+        ],
+        "maximum_discrete_errors": {
+          "position": 4.865129566572479e-12,
+          "velocity": 6.846437236585068e-10,
+          "root_force": 2.4320827574086934e-09,
+          "frame_velocity": 6.945583483353168e-10,
+          "frame_acceleration": 6.114012163216387e-08,
+          "relative_acceleration": 5.992399562670947e-08
+        }
+      },
+      {
+        "method": "radau",
+        "step": 0.01,
+        "continuous_errors": [
+          3.755499817376107e-12,
+          2.841927145003087e-10
+        ],
+        "maximum_discrete_errors": {
+          "position": 1.230870223453695e-12,
+          "velocity": 1.8577853665158184e-10,
+          "root_force": 6.15299589057372e-10,
+          "frame_velocity": 1.8909940280309456e-10,
+          "frame_acceleration": 1.0123408777928944e-08,
+          "relative_acceleration": 9.956371338493142e-09
+        }
+      },
+      {
+        "method": "radau",
+        "step": 0.005,
+        "continuous_errors": [
+          1.424932220828179e-13,
+          5.028111607630059e-11
+        ],
+        "maximum_discrete_errors": {
+          "position": 3.010751370435827e-13,
+          "velocity": 4.723677872464638e-11,
+          "root_force": 1.505078284225192e-10,
+          "frame_velocity": 4.8150421150250367e-11,
+          "frame_acceleration": 3.509867729789562e-09,
+          "relative_acceleration": 3.5851378810125567e-09
+        }
+      }
+    ],
+    "interpretation": "Actual continuous errors decrease at every refinement. Fine Radau velocity error includes nonlinear/finite-difference error; no clean fifth-order convergence claim."
+  },
+  "legacy_comparison": {
+    "status": "PASS",
+    "entire_output_byte_identical": true,
+    "exclusions": [],
+    "bytes": 139861,
+    "sha256": "6e9ae93cdd3b37dd018c68bad2ac7f29e1f5c66e4c6256e4d6f10f00e1039bfe"
+  },
+  "javascript": {
+    "status": "PASS",
+    "command": "node --test tests/time-target-results.test.mjs tests/time-actuators.test.mjs",
+    "tests": 10,
+    "failures": 0,
+    "seconds": 0.525741355,
+    "evidence_origin": "Captured functions exec terminal43688; exit0; no separate file redirection",
+    "source_sha256": {
+      "tests/time-target-results.test.mjs": "798112c7803dc864ef7b5c53fa129fdf05902e12b6d0a4e000cd42d18e881014",
+      "tests/time-actuators.test.mjs": "9c238c2d9bbc92a481576673fa29c16ae06cf4bab710d28f97453621755b8fac",
+      "web/time-target-results.js": "83df1c6f52046f09c453d281c1601cbb4ec3617b1e3373eee61018c5747b5de5",
+      "web/time-actuators.js": "1287f76386c645e76956318ab88d21d0c2b922f9f49fb9ff567dfa1956ad6f6a"
+    }
+  },
+  "browser": {
+    "first_workflow": "FAIL after the actual launch and independent mechanics passed; incorrect UI text assertion",
+    "first_attempt_seconds": 482.85226345062256,
+    "followup": {
+      "status": "PASS",
+      "seconds": 120.929,
+      "launch_origin": "retained_browser_export",
+      "retained_file": "/tmp/openswing-saved-spline-20261010/browser-01/result.json",
+      "initial_export_unchanged": true,
+      "offline": true,
+      "viewport": 390,
+      "source_sha256": {
+        "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+        "aero.py": "e3efabb119bccd1b6c22bd990e705b4d833f1f5526b1812e38c010ff2a0ec76c",
+        "asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+        "asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+        "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+        "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+        "bridge.py": "0c9816ab8b5dba5d73d4a6862fb72adf5ec37e1fc01d45292ef0b4ddabeceba0",
+        "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+        "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+        "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+        "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+        "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+        "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+        "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+        "derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+        "descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+        "discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+        "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+        "dynamic_inertia.py": "4b1ed5d553dc2fc3ad6a4cec3859ba0b9f1382c346e97f69a8a271851b104b46",
+        "equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+        "feedback.py": "b6ed4c6e19d400b73a3b80c2369be8d5c74515a14e1b215efd25cb85b6dc55a0",
+        "flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+        "forcing.py": "dd74815ddaa05da3866b16caae40a41d40dbf822fa9e17ae0c52be7b3642f64e",
+        "frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+        "frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+        "frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+        "geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+        "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+        "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+        "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+        "inertia.py": "517a30df0ab413bfce6a462abd65825b189a5d849bcbd65cc7434fea0d1d3282",
+        "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+        "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+        "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+        "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+        "linear_dynamics.py": "0d5499966788993e349410006369162cac02626d5fdd72e050caf1bff719b656",
+        "local_motion.py": "885c393eace666a77de16ddcef80628250ac4fdb6dea119ae44a984648fdcbe5",
+        "network.py": "df7df8b0e29793475f61a97d32f966fc02a345d4650e3ca3391761f70e754209",
+        "nonlinear_initial.py": "7e16f61c8178d73a581aea1dc88497eb086037e6c76754045a8776b6871a55fd",
+        "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+        "position_history_checkpoint.py": "4a0992a4b83777d95a5b56de7929555666168b5caef6f47dc77394f72bfa0a58",
+        "position_history_lift.py": "189079a927f0b8a975464378131b336734b8bf714d86494eb37084dd2e8818fe",
+        "propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+        "radau_time.py": "de44b770e146d2ce73ecf0436e6c7857271ab2637d93bf8416cd73b8babfc54f",
+        "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+        "reduced_model.py": "725ccac8d491a4bd79fc30553489672ddebb1318e7bfa469d4f2a47f1b815218",
+        "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+        "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+        "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+        "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+        "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+        "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+        "stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+        "steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+        "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+        "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+        "time_acceptance.py": "bcf446c04bf946ca3fda684dc894795414deffe78790226ddec69778da828e12",
+        "time_acceptance_validation.py": "f29c99994196251c8e7740013011c5517287e1d34cbf5c31ffa796cf9158e1e8",
+        "time_accuracy.py": "5a9d9e321f04e97b5757fee0cb48c6802fa6e32d3e03362db9b5cb321712b2fb",
+        "time_cold_initial.py": "278ec804bb6663ad9599a6472cfc7470cf71c3c26a36d880ccb3098939ed7d0f",
+        "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+        "time_initialization.py": "103429a7358f295c05b8e67c25dda1a71a5e3f65be43ea0cc89f5a9e6f019a2b",
+        "time_integration.py": "8276837f355332f593343dd97f811f332f68b0a88a58b4729e96074b6de2c3c1",
+        "time_saved_history.py": "d8fa0a36593cacf6c2e9b9ecd076f4eb5ed7486d9516696a65e43662b5849788",
+        "time_state.py": "6a1478d7ccfe48996e60c83f2556c1682a41cfc17315c53e4a5f54f7d99ee56f",
+        "time_transition_initial.py": "d9804451d98e0a21c077a9c56d399b13e77ee82979fb2081d03fb91846433e04",
+        "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+        "vector_ops.py": "a15540ef7419d50c8056db5ff4a797ac88b0446611f8a334e97ed08485419b3d",
+        "volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf"
+      },
+      "errors": [],
+      "external": []
+    },
+    "followup_mechanics": {
+      "status": "PASS",
+      "snapshots": 4,
+      "maximum_discrete_errors": {
+        "position": 2.621590878409963e-12,
+        "velocity": 4.3708681118914683e-10,
+        "root_force": 1.3126435494115185e-09,
+        "frame_velocity": 4.4015417699494463e-10,
+        "frame_acceleration": 5.298975236378567e-08,
+        "relative_acceleration": 5.233334593457428e-08
+      },
+      "trajectory": [
+        {
+          "time": 0,
+          "actual": [
+            -0.0016000000000000458,
+            0.0
+          ],
+          "discrete": [
+            -0.0016,
+            0.0
+          ],
+          "continuous": [
+            -0.0016,
+            0.0
+          ],
+          "temporal_error": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 0.02,
+          "actual": [
+            -0.0016389741576516847,
+            -0.0038748923637893055
+          ],
+          "discrete": [
+            -0.001638974157651771,
+            -0.0038748923638156872
+          ],
+          "continuous": [
+            -0.0016389740875411805,
+            -0.0038748927943996698
+          ],
+          "temporal_error": [
+            7.011059051029167e-11,
+            4.3058398253165153e-10
+          ]
+        },
+        {
+          "time": 0.04,
+          "actual": [
+            -0.0017532214613487085,
+            -0.0074845164603971615
+          ],
+          "discrete": [
+            -0.0017532214613531292,
+            -0.007484516461737689
+          ],
+          "continuous": [
+            -0.0017532213450225187,
+            -0.007484517969683862
+          ],
+          "temporal_error": [
+            1.1633061050911331e-10,
+            1.5079461733111255e-09
+          ]
+        },
+        {
+          "time": 0.06,
+          "actual": [
+            -0.001934878366667947,
+            -0.01056918129076247
+          ],
+          "discrete": [
+            -0.0019348783692895379,
+            -0.010569181727849281
+          ],
+          "continuous": [
+            -0.0019348782157141936,
+            -0.01056918493350115
+          ],
+          "temporal_error": [
+            1.5357534428189767e-10,
+            3.2056518689538294e-09
+          ]
+        }
+      ]
+    },
+    "distinction": "The follow-up reopens the byte-identical original result through the public archive UI and solves a new checkpoint continuation; it does not repeat initialization.",
+    "screenshot_visually_inspected": true
+  },
+  "evidence": {
+    "file": "saved-spline-histories-evidence.zip",
+    "sha256": "60fe67f66f701f31a3203af9b4a403d5ff6cc1e9b6d0055e56ca6fc177365d5a",
+    "bytes": 2349203,
+    "members": 376,
+    "fresh_verifier": {
+      "status": "PASS",
+      "payloads": 375,
+      "native_selected": 149,
+      "public_candidate_workflows": 8,
+      "legacy_full_output_byte_identical": true,
+      "browser_metrics": {
+        "result": {
+          "position": 4.865129566572479e-12,
+          "velocity": 6.846434235513454e-10,
+          "root_force": 2.4319865010724584e-09,
+          "frame_velocity": 6.945582997630595e-10,
+          "frame_acceleration": 6.11399830763304e-08,
+          "relative_acceleration": 5.992399421117511e-08
+        },
+        "resumed-result": {
+          "position": 2.621590878409963e-12,
+          "velocity": 4.3708681118914683e-10,
+          "root_force": 1.3126435494115185e-09,
+          "frame_velocity": 4.4015417699494463e-10,
+          "frame_acceleration": 5.298975236378567e-08,
+          "relative_acceleration": 5.233334593457428e-08
+        }
+      },
+      "production_solver_imports": 0
+    }
+  },
+  "remaining": [
+    "Discontinuous/cutoff transitions",
+    "Rotating or multiple saved inverse targets",
+    "Controller, disturbance and changed-load saved transitions",
+    "Exact ASWING spline endpoint conventions",
+    "All remaining broad ASWING requirements and aircraft-level quantitative validation"
+  ]
+}

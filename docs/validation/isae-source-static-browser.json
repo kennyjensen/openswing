@@ -1,0 +1,179 @@
+{
+  "status": "PASS_BOUNDED_STATIC_BROWSER_INTEGRATION_REFERENCE_INCOMPLETE",
+  "date": "2026-10-26",
+  "acceptance": "Tested archived ASWING output with unchanged models/settings; experiment agreement is not required.",
+  "policy": {
+    "beam_interpolation": "drela-segspl-v1",
+    "structural_operator": "drela-steady-zero-offset-v1"
+  },
+  "default_unchanged": true,
+  "source_text_unchanged": true,
+  "native": {
+    "status": "PASS_NATIVE_BRIDGE_BASELINE",
+    "seconds": 0.7668589589957264,
+    "residual": 1.082014889106763e-14,
+    "cold_solves": 1,
+    "endpoint_traces": 140,
+    "unchanged_physical_state": {
+      "positions": {
+        "values": 216,
+        "max_abs": 0.0
+      },
+      "rotations": {
+        "values": 216,
+        "max_abs": 0.0
+      },
+      "internal_force": {
+        "values": 210,
+        "max_abs": 0.0
+      },
+      "internal_moment": {
+        "values": 210,
+        "max_abs": 0.0
+      },
+      "reactions": {
+        "values": 24,
+        "max_abs": 0.0
+      }
+    },
+    "result": {
+      "path": "/tmp/openswing-source-static-browser-native-20261026-v2/result.json",
+      "bytes": 725739,
+      "sha256": "9db24d9b34ee501d1e02b4fcff9c140b5cc0675c548590dd0ef845e503ab451b"
+    },
+    "reference_scope": "Preserve prior archived-output gates and differences. This run checks browser integration, not a new reference pass."
+  },
+  "browser": {
+    "status": "PASS_OFFLINE_SOURCE_STATIC_UI_AND_PROJECTS",
+    "startup_seconds": 40.936098728999994,
+    "solve_seconds": 3.675810445999996,
+    "total_seconds": 71.45806200800001,
+    "gates": {
+      "absolute": 2e-08,
+      "relative": 2e-08,
+      "residual": 1e-08
+    },
+    "exclusions": [
+      "evaluations"
+    ],
+    "exclusion_reason": "Execution counter only; no physical outputs excluded.",
+    "parity": {
+      "numeric": 16605,
+      "leaves": 17431,
+      "max_absolute": 8.105871529551223e-11,
+      "max_fraction": 4.554372625407269e-05,
+      "worst": "reactions[0].moment[2]"
+    },
+    "request_counts": {
+      "inspect": 7,
+      "distribution": 7,
+      "solve": 1
+    },
+    "page_errors": [],
+    "network_failures": [],
+    "offline_requests": []
+  },
+  "browser_startup_scope": "Includes verifier preflight and browser/runtime initialization; one host measurement, separate from solve.",
+  "restoration": {
+    "status": "PASS_SAVED_RESTORATION_AND_ENDPOINT_REPORTING",
+    "passed": 7893,
+    "total": 7893,
+    "fresh_residuals": 6,
+    "cold_solves": 0,
+    "physical_arrays_exact": true,
+    "independent_prior_traces": 856,
+    "reported_traces": 1596
+  },
+  "tests": {
+    "bridge": 73,
+    "default_json_outputs_exact": 4,
+    "ui_project_solution": 21,
+    "recovery_final": 8,
+    "earlier_source_recovery_sensors": 50,
+    "earlier_suite_scope": "Before final endpoint cache/reporting cleanup; final recovery and restored states cover that cleanup."
+  },
+  "reference": {
+    "st3": {
+      "strict_matches": [
+        220,
+        220,
+        220
+      ],
+      "total_each": 270,
+      "conditional_zeros_each": 90,
+      "mesh_passed": 10,
+      "mesh_total": 10
+    },
+    "st5": {
+      "strict_matches": [
+        403,
+        129,
+        120
+      ],
+      "total_each": 1120,
+      "conditional_zeros_each": 800,
+      "mesh_passed": [
+        0,
+        4
+      ],
+      "mesh_total_each": 14
+    },
+    "scope": "Retained unchanged counts, no new precision/mesh gate or full reference pass."
+  },
+  "limitations": [
+    "Bounded static lifting beams only: zero section/distributed-CG offsets, rigid shear/joints.",
+    "Other section/load laws, body charts, struts, engines, aerodynamic and dynamic integration remain unfinished.",
+    "Exact historical interpolation caller, EA/ds choices and exporter sampling remain unproven."
+  ],
+  "receipts": {
+    "native": {
+      "path": "/tmp/openswing-source-static-browser-native-20261026-v2/report.json",
+      "bytes": 893,
+      "sha256": "67bab41c050952c4ba101e36d6530c997e483ebd48d9fee560fa14b66fb45a9e"
+    },
+    "browser": {
+      "path": "/tmp/openswing-source-static-browser-ui-20261026/report.json",
+      "bytes": 114092,
+      "sha256": "d48f610f21b331ff62aa87d1429b9092a908b816bd2b2a819b001279e7f4ecd0"
+    },
+    "restoration": {
+      "path": "/tmp/openswing-source-browser-restoration-20261026/report.json",
+      "bytes": 58486,
+      "sha256": "6ea0a17a1395117f6ebe18b45864b982174406c8d2d3de5267a3b83525dbdd2d"
+    },
+    "bridge-checks": {
+      "path": "/tmp/openswing-isae-bridge-numerics-20261026/report.json",
+      "bytes": 5632,
+      "sha256": "d07b8c54eb64c3c68f69d3dacea51d031ec9040f14dfa3896749366c2e572b9c"
+    },
+    "ui-checks": {
+      "path": "/tmp/openswing-source-discrete-ui-20261026/receipt.json",
+      "bytes": 4054,
+      "sha256": "24c9cc3dccf154c656973a18f4891787d7359cbdcd997e142ac50967140f6652"
+    },
+    "recovery-checks": {
+      "path": "/tmp/openswing-source-recovery-check-20261026/receipt.json",
+      "bytes": 4065,
+      "sha256": "8245ce30d0aba31899d801c5ece4fe554e098a7bdff1e821d7e0712aa5227dfb"
+    }
+  },
+  "retained_failure": {
+    "path": "/tmp/openswing-source-static-browser-native-20261026",
+    "reason": "Harness progress callback signature; stopped before Newton iteration. Corrected callback only; no physical code change."
+  },
+  "saved_project": {
+    "path": "/home/userland/aswing/examples/isae-st5-source-static-project.json",
+    "bytes": 990556,
+    "sha256": "bd959591b032aade035af2941eb6020f20e1763ad56d52dfe8dbbdce74c3b1b1"
+  },
+  "evidence": {
+    "path": "/home/userland/aswing/docs/validation/isae-source-static-browser-20261026-evidence.zip",
+    "bytes": 3685102,
+    "sha256": "e2244c9e045da880117a93aa826d8ac00fe80a9131d44b74f9cd72a35c131ec7"
+  },
+  "publication": {
+    "path": "/tmp/openswing-source-static-browser-closeout-20261026/publication.json",
+    "bytes": 404,
+    "sha256": "ab392949e52ea466aaa491a51b1affcefd51bcc8914b421ee93f0c00ccd67260"
+  }
+}

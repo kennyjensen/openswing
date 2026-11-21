@@ -1,0 +1,29 @@
+import {test,expect} from '@playwright/test';
+import {readFile} from 'node:fs/promises';
+async function download(page,id,json=true){const event=page.waitForEvent('download');await page.locator(id).click();const text=await readFile(await(await event).path(),'utf8');return json?JSON.parse(text):text;}
+test('offline stepped body retains concentrated forces, current geometry, field inspection and time histories',async({page,context})=>{
+  test.setTimeout(900000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/');await expect(page.locator('#solve')).toBeEnabled();await page.locator('#example').selectOption('stepped-body');await expect(page.locator('#model-name')).toHaveText('Stepped slender-body verification');
+  await page.locator('#panels').fill('4');await page.locator('#panels').press('Tab');await page.locator('#mode').selectOption('mounted');await page.locator('#speed').fill('17');await page.locator('#alpha').fill('11');
+  await page.locator('#atmosphere-settings').evaluate(e=>e.open=true);await page.locator('#gravity-mode').selectOption('custom');await page.locator('#gravity-magnitude').fill('0');await page.locator('#mach-mode').selectOption('fixed');await page.locator('#pg-mach').fill('0');
+  await context.setOffline(true);await page.locator('#solve').click();await expect(page.locator('#runtime-status')).toHaveText('Analysis converged',{timeout:180000});
+  const result=await download(page,'#export-json'),expected=1.225*2*Math.PI*.2**2*17**2*Math.sin(11*Math.PI/180)*Math.cos(11*Math.PI/180);
+  expect(result.body_shoulders).toHaveLength(2);expect(Math.hypot(...result.force)).toBeLessThan(2e-8);expect(result.moment[1]).toBeCloseTo(expected,7);expect(result.support_moment[1]).toBeCloseTo(-expected,7);
+  expect(result.geometry[0].quads).toHaveLength(12*result.panels+24);expect(result.strips.every(s=>Math.hypot(...s.force)<1e-10)).toBeTruthy();
+  await page.locator('#plot-quantity').selectOption('shoulder.2');await expect(page.locator('#plot svg')).toHaveAttribute('aria-label','Concentrated body shoulder forces');await expect(page.locator('#plot-unit')).toContainText('input F against');
+  const csv=await download(page,'#shoulder-csv',false),rows=csv.trim().split('\n');expect(rows).toHaveLength(3);expect(rows[0]).toContain('area_jump_L2');expect(Number(rows[1].split(',').at(-1))).toBeCloseTo(expected/2,8);expect(Number(rows[2].split(',').at(-1))).toBeCloseTo(-expected/2,8);
+  expect(await download(page,'#export-json')).toEqual(result);await page.locator('#pane-loading').screenshot({path:'test-results/body-shoulders-loads.png'});await page.locator('.viewport-container').screenshot({path:'test-results/body-shoulders-geometry.png'});
+  await page.locator('#tab-report').click();await expect(page.locator('#pane-report')).toContainText('BODY SHOULDERS');await page.locator('#tab-flow').click();await page.locator('#flow-sample').click();await expect(page.locator('#flow-json')).toBeEnabled({timeout:180000});const field=await download(page,'#flow-json');expect(field.state_kind).toBe('saved_equilibrium');expect(field.saved_state_residual).toBeLessThan(1e-8);expect(field.limitations.join(' ')).toContain('weak limits');
+  await page.locator('#mode').selectOption('time');await page.locator('#alpha').fill('0');await page.locator('#speed').fill('10');await page.locator('#time-duration').fill('.04');await page.locator('#time-step').fill('.02');
+  await page.locator('#gust-settings').evaluate(e=>e.open=true);await page.locator('#gust-kind').selectOption('expression');await page.locator('#gust-expr-z').fill('.2*sin(3*t)');await page.locator('#solve').click();await expect(page.locator('#runtime-status')).toHaveText('Time integration converged',{timeout:300000});
+  const trajectory=await download(page,'#export-json');for(const s of trajectory.snapshots){const moment=1.225*2*Math.PI*.2**2*10*.2*Math.sin(3*s.time);expect(s.moment[1]).toBeCloseTo(moment,7);expect(s.support_moment[1]).toBeCloseTo(-moment,7);}
+  await page.locator('#time-quantity').selectOption('body_shoulders.0.force.2');await expect(page.locator('#time-plot svg')).toBeVisible();expect(await download(page,'#time-csv',false)).toContain('Shoulder beam 1, t=1: force z');
+  await page.locator('#time-scrub').fill('2');await page.locator('#tab-loading').click();await page.locator('#plot-quantity').selectOption('shoulder.2');const current=await download(page,'#shoulder-csv',false);expect(Number(current.trim().split('\n')[1].split(',')[0])).toBe(.04);
+  await page.locator('#plot-scope').selectOption('overlay');await expect(page.locator('#plot .distribution-trace')).toHaveCount(trajectory.snapshots.length);
+  await page.locator('#plot-scope').selectOption('envelope');await expect(page.locator('#plot-unit')).toContainText('input F against');
+  const envelope=(await download(page,'#plot-envelope-csv',false)).trim().split('\n').map(line=>[...line.matchAll(/"((?:[^"]|"")*)"(?:,|$)/g)].map(m=>m[1]));
+  for(let j=0;j<2;j++){const values=trajectory.snapshots.map(s=>s.body_shoulders[j].force[2]);expect(Number(envelope[j+1][envelope[0].indexOf('min_value')])).toBe(Math.min(...values));expect(Number(envelope[j+1][envelope[0].indexOf('max_value')])).toBe(Math.max(...values));}
+  expect((await download(page,'#plot-history-csv',false)).trim().split('\n')).toHaveLength(1+2*trajectory.snapshots.length);
+  expect(await download(page,'#export-json')).toEqual(trajectory);
+  await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();await expect.poll(()=>page.locator('#plot').evaluate(el=>Math.abs(el.querySelector('svg').viewBox.baseVal.width-el.clientWidth))).toBeLessThan(1);await page.locator('#pane-loading').screenshot({path:'test-results/body-shoulders-mobile.png'});expect(errors).toEqual([]);
+});

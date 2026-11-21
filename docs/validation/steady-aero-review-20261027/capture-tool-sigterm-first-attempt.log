@@ -1,0 +1,27 @@
+............F............                                                [100%]
+=================================== FAILURES ===================================
+____________ test_fake_timeout_terminates_and_reaps_direct_process _____________
+
+sources = PosixPath('/tmp/pytest-of-userland/pytest-67/test_fake_timeout_terminates_a0/source')
+tmp_path = PosixPath('/tmp/pytest-of-userland/pytest-67/test_fake_timeout_terminates_a0')
+
+    def test_fake_timeout_terminates_and_reaps_direct_process(sources, tmp_path):
+        executable = fake_executable(tmp_path,
+            'import signal,time\nsignal.signal(signal.SIGTERM,signal.SIG_IGN)\n'
+            'print("FAKE timeout",flush=True)\ntime.sleep(60)\n')
+        output = tmp_path / 'capture'
+        manifest = CAPTURE.prepare(output, source_root=sources)
+        record = CAPTURE.capture(output, manifest, executable, timeout=.3, kill_grace=.05)
+        stage = record['stages'][0]
+        assert record['status'] == 'incomplete' and stage['status'] == 'timeout'
+        assert stage['timed_out'] and stage['process_reaped'] and stage['return_code'] < 0
+>       assert stage['cleanup_signals'] == ['SIGTERM', 'SIGKILL']
+E       AssertionError: assert ['SIGTERM'] == ['SIGTERM', 'SIGKILL']
+E         
+E         Right contains one more item: 'SIGKILL'
+E         Use -v to get more diff
+
+tests/test_capture_isae_sa1_reference.py:183: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_capture_isae_sa1_reference.py::test_fake_timeout_terminates_and_reaps_direct_process
+1 failed, 24 passed in 41.24s

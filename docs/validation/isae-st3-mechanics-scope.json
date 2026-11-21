@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "case": "ST-3",
+  "selected_before_replay_completed": true,
+  "primary_scopes": [
+    {
+      "name": "static-published-curves",
+      "required": 86,
+      "source_available": 84,
+      "definition": "All four static observables for all three layups, at every nonnegative script load associated with Figure25. Two clipped values remain unavailable. Both64/128 meshes must pass5% and fixed mesh/equilibrium checks.",
+      "plan": "artifacts/isae/st3-static-curves-20261109/replay/plan.json"
+    },
+    {
+      "name": "modal-workbook",
+      "required": 9,
+      "definition": "Original nine frequencies, requiring both meshes, physical-shape correspondence and matrix checks.",
+      "report": "docs/validation/isae-st3-modal-current-20261109.md"
+    }
+  ],
+  "overlap_policy": "The historical930/1080 static snapshot remains a separate archive comparison. Neither it nor repeated meshes adds to these95 primary votes.",
+  "qualifications": [
+    "Static torque abscissa is passed as signed masses, giving1.3734 times that number as undeformed physical torque.",
+    "MATLAB5-significant-digit formatting is consistent with all three final archived Weight rows; intermediate decks and version unavailable.",
+    "Negative moment branch is outside the declared published-figure scope.",
+    "Native startup, modal labels and incompatible test.asw/test.txt remain unresolved."
+  ],
+  "completion_claim": "Only this defined mechanics scope; no full-family or full-ASWING validation."
+}

@@ -1,0 +1,2260 @@
+{
+  "status": "PASS_NUMERICAL_CHECKS_MESH_AND_REFERENCE_AGREEMENT_UNRESOLVED",
+  "scope": "One new16-panel steady/level trim and3-frequency unitF3 sweep against retained8-panel outputs; sameV30ft/s,PGMach.1,Earth-followinggravity,groundeffectoff,freeflight,7trimconstraints. Prior7solvedtrimvalues initialize guesses only; no old physical seed or reference fitting.",
+  "findings": [
+    "All three fine harmonic samples pass unchanged full-equation and near-pole checks.",
+    "Complex mesh changes at1Hz and10Hz remain appreciable; one pair does not establish convergence.",
+    "Magnitude changes are smaller than complex changes because phase shifts also matter.",
+    "The selected flight condition still differs substantially from the published drawing. Unknown reference operating point prevents attributing that difference solely to model error.",
+    "Inspected kinematic, gravity and inertia matrix blocks agree with their analytic conventions; this does not validate the complete aerodynamic/elastic formulation."
+  ],
+  "samples": [
+    {
+      "frequency_Hz": 0.1,
+      "published_drawing_magnitude_deg_s_per_F3": 0.11823821391655272,
+      "chosen_trim_8_magnitude_deg_s_per_F3": 0.3814106110921936,
+      "chosen_trim_16_magnitude_deg_s_per_F3": 0.3794802992039475,
+      "complex_mesh_relative_change_fine_denominator": 0.005104208910649216,
+      "magnitude_mesh_relative_change_fine_denominator": 0.005086724903230484,
+      "phase_change_degrees": -0.0241239460593389,
+      "fine_magnitude_to_drawing_ratio": 3.2094556119713364
+    },
+    {
+      "frequency_Hz": 1.0,
+      "published_drawing_magnitude_deg_s_per_F3": 0.0587461101358694,
+      "chosen_trim_8_magnitude_deg_s_per_F3": 0.027383064624543815,
+      "chosen_trim_16_magnitude_deg_s_per_F3": 0.027371874241846044,
+      "complex_mesh_relative_change_fine_denominator": 0.019925016327716337,
+      "magnitude_mesh_relative_change_fine_denominator": 0.00040882778427590735,
+      "phase_change_degrees": -1.1411646251214653,
+      "fine_magnitude_to_drawing_ratio": 0.46593509218805673
+    },
+    {
+      "frequency_Hz": 10.0,
+      "published_drawing_magnitude_deg_s_per_F3": 0.17186802869914472,
+      "chosen_trim_8_magnitude_deg_s_per_F3": 0.34454078949825717,
+      "chosen_trim_16_magnitude_deg_s_per_F3": 0.34017862753402867,
+      "complex_mesh_relative_change_fine_denominator": 0.06727622972035684,
+      "magnitude_mesh_relative_change_fine_denominator": 0.012823151165756875,
+      "phase_change_degrees": -3.7606211086663714,
+      "fine_magnitude_to_drawing_ratio": 1.9793013867024212
+    }
+  ],
+  "mesh": {
+    "coarse8": {
+      "network_size": 989,
+      "nodes": 77,
+      "elements": 72
+    },
+    "fine16": {
+      "network_size": 1501,
+      "nodes": 117,
+      "elements": 112
+    }
+  },
+  "trim_comparison": {
+    "alpha": {
+      "coarse8": -1.6619581191089043,
+      "fine16": -1.6777926117334858,
+      "signed_change": -0.015834492624581475
+    },
+    "attitude.bank": {
+      "coarse8": 0.0014436678241698396,
+      "fine16": 0.0016132901937356656,
+      "signed_change": 0.000169622369565826
+    },
+    "power.1": {
+      "coarse8": 7.908974869896494,
+      "fine16": 7.9266285521621995,
+      "signed_change": 0.017653682265705406
+    },
+    "beta": {
+      "coarse8": 0.008743973456159678,
+      "fine16": 0.009011744869333939,
+      "signed_change": 0.0002677714131742604
+    },
+    "control.2": {
+      "coarse8": -1.8058249055540216,
+      "fine16": -2.4670321197521994,
+      "signed_change": -0.6612072141981777
+    },
+    "control.3": {
+      "coarse8": -0.0025869808564224755,
+      "fine16": -0.0023750764422201744,
+      "signed_change": 0.0002119044142023011
+    },
+    "attitude.elevation": {
+      "coarse8": -1.6619578983545353,
+      "fine16": -1.6777923574318174,
+      "signed_change": -0.015834459077282093
+    }
+  },
+  "base_comparison": {
+    "CL": {
+      "coarse8": 0.656976549940283,
+      "fine16": 0.657141368670742,
+      "signed_change": 0.0001648187304590376
+    },
+    "CY": {
+      "coarse8": -1.6546715093793337e-05,
+      "fine16": -1.849534539162044e-05,
+      "signed_change": -1.9486302978271035e-06
+    },
+    "CD": {
+      "coarse8": -3.583679926296431e-15,
+      "fine16": 3.172547334704685e-14,
+      "signed_change": 3.530915327334328e-14
+    },
+    "Cl": {
+      "coarse8": -2.8185995976395994e-05,
+      "fine16": -2.813658336576316e-05,
+      "signed_change": 4.94126106328341e-08
+    },
+    "Cm": {
+      "coarse8": -0.06417444824472926,
+      "fine16": -0.0642850096939066,
+      "signed_change": -0.00011056144917734323
+    },
+    "Cn": {
+      "coarse8": 8.60400647606971e-07,
+      "fine16": 8.71835589417313e-07,
+      "signed_change": 1.1434941810342041e-08
+    },
+    "max_displacement": {
+      "coarse8": 7.116616443354005,
+      "fine16": 7.088001230918423,
+      "signed_change": -0.028615212435581405
+    },
+    "max_rotation_deg": {
+      "coarse8": 13.212513996614895,
+      "fine16": 12.952999379077545,
+      "signed_change": -0.2595146175373504
+    },
+    "applied_force": {
+      "coarse8": [
+        -1.3775734025722741e-12,
+        -1.46192761469135e-11,
+        -3.6567138206322625e-12
+      ],
+      "fine16": [
+        1.1186388620965104e-11,
+        -6.713010460961946e-13,
+        1.2189901865689023e-13
+      ],
+      "signed_change": [
+        1.2563962023537378e-11,
+        1.3947975100817305e-11,
+        3.778612839289153e-12
+      ]
+    },
+    "applied_moment": {
+      "coarse8": [
+        -3.382706811330075e-11,
+        7.791101097609499e-12,
+        7.437639726651755e-11
+      ],
+      "fine16": [
+        -1.112411054659988e-11,
+        -8.60053001039418e-11,
+        2.8152308799043665e-11
+      ],
+      "signed_change": [
+        2.2702957566700873e-11,
+        -9.37964012015513e-11,
+        -4.622408846747389e-11
+      ]
+    },
+    "gravity_body": {
+      "coarse8": [
+        -0.9333026994447544,
+        0.0008104905480491052,
+        -32.16646305415493
+      ],
+      "fine16": [
+        -0.9421922982738752,
+        0.0009057110622137452,
+        -32.16620389248257
+      ],
+      "signed_change": [
+        -0.00888959882912077,
+        9.522051416464004e-05,
+        0.0002591616723606194
+      ]
+    },
+    "mass": {
+      "coarse8": {
+        "mass": 7.209449971524223,
+        "cg": [
+          0.20432440297458276,
+          0.004880021754372249,
+          -2.8936037145340174
+        ],
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "first_moment": [
+          1.4730665612068097,
+          0.035182272698096595,
+          -20.86129121734966
+        ],
+        "inertia_reference": [
+          [
+            887.410076440593,
+            -0.6952703200724794,
+            -3.2203268621814445
+          ],
+          [
+            -0.6952703200724794,
+            145.6406176065587,
+            -0.03846145054280293
+          ],
+          [
+            -3.2203268621814445,
+            -0.03846145054280293,
+            820.9175578611774
+          ]
+        ],
+        "inertia_cg": [
+          [
+            827.0455949938408,
+            -0.6880817232081481,
+            -7.482797735445319
+          ],
+          [
+            -0.6880817232081481,
+            84.97532440439947,
+            -0.1402650055077853
+          ],
+          [
+            -7.482797735445319,
+            -0.1402650055077853,
+            820.6164027252605
+          ]
+        ],
+        "spin_angular_momentum": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spatial_matrix": [
+          [
+            7.209449971524223,
+            0.0,
+            0.0,
+            -0.0,
+            -20.86129121734966,
+            -0.035182272698096595
+          ],
+          [
+            0.0,
+            7.209449971524223,
+            0.0,
+            20.86129121734966,
+            -0.0,
+            1.4730665612068097
+          ],
+          [
+            0.0,
+            0.0,
+            7.209449971524223,
+            0.035182272698096595,
+            -1.4730665612068097,
+            -0.0
+          ],
+          [
+            0.0,
+            20.86129121734966,
+            0.035182272698096595,
+            887.410076440593,
+            -0.6952703200724794,
+            -3.2203268621814445
+          ],
+          [
+            -20.86129121734966,
+            0.0,
+            -1.4730665612068097,
+            -0.6952703200724794,
+            145.6406176065587,
+            -0.03846145054280293
+          ],
+          [
+            -0.035182272698096595,
+            1.4730665612068097,
+            0.0,
+            -3.2203268621814445,
+            -0.03846145054280293,
+            820.9175578611774
+          ]
+        ]
+      },
+      "fine16": {
+        "mass": 7.211258639984996,
+        "cg": [
+          0.203965752906988,
+          0.004878981387397802,
+          -2.893086174095914
+        ],
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "first_moment": [
+          1.470849797911562,
+          0.03518359668419838,
+          -20.862792669170293
+        ],
+        "inertia_reference": [
+          [
+            887.1584810427576,
+            -0.6949357805548769,
+            -3.215495360631502
+          ],
+          [
+            -0.6949357805548769,
+            145.57646127065337,
+            -0.038636940478715846
+          ],
+          [
+            -3.215495360631502,
+            -0.038636940478715846,
+            820.632751856578
+          ]
+        ],
+        "inertia_cg": [
+          [
+            826.8004523584378,
+            -0.6877595317672119,
+            -7.470790575141204
+          ],
+          [
+            -0.6877595317672119,
+            84.91860126000309,
+            -0.14042611760071663
+          ],
+          [
+            -7.470790575141204,
+            -0.14042611760071663,
+            820.3325772100176
+          ]
+        ],
+        "spin_angular_momentum": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spatial_matrix": [
+          [
+            7.211258639984996,
+            0.0,
+            0.0,
+            -0.0,
+            -20.862792669170293,
+            -0.03518359668419838
+          ],
+          [
+            0.0,
+            7.211258639984996,
+            0.0,
+            20.862792669170293,
+            -0.0,
+            1.470849797911562
+          ],
+          [
+            0.0,
+            0.0,
+            7.211258639984996,
+            0.03518359668419838,
+            -1.470849797911562,
+            -0.0
+          ],
+          [
+            0.0,
+            20.862792669170293,
+            0.03518359668419838,
+            887.1584810427576,
+            -0.6949357805548769,
+            -3.215495360631502
+          ],
+          [
+            -20.862792669170293,
+            0.0,
+            -1.470849797911562,
+            -0.6949357805548769,
+            145.57646127065337,
+            -0.038636940478715846
+          ],
+          [
+            -0.03518359668419838,
+            1.470849797911562,
+            0.0,
+            -3.215495360631502,
+            -0.038636940478715846,
+            820.632751856578
+          ]
+        ]
+      }
+    },
+    "kinematics": {
+      "coarse8": {
+        "frame": "free",
+        "load_targets": {
+          "force.x": 0.0,
+          "force.y": 0.0,
+          "force.z": 0.0,
+          "moment.x": 0.0,
+          "moment.y": 0.0,
+          "moment.z": 0.0
+        },
+        "velocity_origin_body": [
+          -29.98737975716804,
+          0.004578333777737548,
+          0.8700772024644805
+        ],
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0014436678241698396,
+          -1.6619578983545353,
+          0.0
+        ],
+        "body_to_earth": [
+          [
+            0.9995793369908577,
+            7.307707013863285e-07,
+            -0.02900256989274358
+          ],
+          [
+            0.0,
+            0.9999999996825617,
+            2.5196756834200136e-05
+          ],
+          [
+            0.029002569901950107,
+            -2.5186157490649634e-05,
+            0.9995793366735529
+          ]
+        ],
+        "velocity_derivative_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_origin_earth": [
+          -29.999999647293944,
+          0.004600256899981689,
+          7.797544040382019e-16
+        ],
+        "attitude_rates_rad": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "continuous_residual": 6.716771825544667e-13,
+        "kinematically_steady": true
+      },
+      "fine16": {
+        "frame": "free",
+        "load_targets": {
+          "force.x": 0.0,
+          "force.y": 0.0,
+          "force.z": 0.0,
+          "moment.x": 0.0,
+          "moment.y": 0.0,
+          "moment.z": 0.0
+        },
+        "velocity_origin_body": [
+          -29.987138132238215,
+          0.004718538560132613,
+          0.878364601665204
+        ],
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0016132901937356656,
+          -1.6777923574318172,
+          0.0
+        ],
+        "body_to_earth": [
+          [
+            0.9995712835684812,
+            8.244102288472587e-07,
+            -0.029278815969557996
+          ],
+          [
+            0.0,
+            0.9999999996035853,
+            2.8157225667103915e-05
+          ],
+          [
+            0.02927881598116455,
+            -2.8145154201794446e-05,
+            0.9995712831722365
+          ]
+        ],
+        "velocity_derivative_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_origin_earth": [
+          -29.99999962502302,
+          0.004743270868569198,
+          -2.0604193967782287e-15
+        ],
+        "attitude_rates_rad": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "continuous_residual": 1.2335210632838307e-13,
+        "kinematically_steady": true
+      }
+    }
+  },
+  "common_material_nodes": {
+    "count": 77,
+    "coarse_nodes": 77,
+    "fine_nodes": 117,
+    "matching": "Exact (beam,t), no interpolation or state transfer",
+    "max_position_change_L2_ft": 0.028951121724609702,
+    "max_rotation_matrix_component_change": 0.004403855853803623,
+    "rows": [
+      {
+        "beam": 1,
+        "material_t": -56.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0025069937420836297,
+          -0.006389447988723873,
+          -0.028125742406018617
+        ],
+        "position_change_L2_ft": 0.028951121724609702,
+        "rotation_matrix_max_abs_change": 0.004295230796180438
+      },
+      {
+        "beam": 1,
+        "material_t": -55.42,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.002283187087278482,
+          -0.005832365471476919,
+          -0.025634926915621747
+        ],
+        "position_change_L2_ft": 0.02638899217927164,
+        "rotation_matrix_max_abs_change": 0.0042937881388769306
+      },
+      {
+        "beam": 1,
+        "material_t": -51.737253820632056,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0009529567483638202,
+          -0.0025598009175880065,
+          -0.01094949410497481
+        ],
+        "position_change_L2_ft": 0.011285040029030233,
+        "rotation_matrix_max_abs_change": 0.003917333992548122
+      },
+      {
+        "beam": 1,
+        "material_t": -50.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00031537706444351166,
+          -0.0010072537713554652,
+          -0.003911395294786679
+        ],
+        "position_change_L2_ft": 0.004051300532516218,
+        "rotation_matrix_max_abs_change": 0.004185276931656434
+      },
+      {
+        "beam": 1,
+        "material_t": -49.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          7.269557978029084e-05,
+          -6.987935540792023e-05,
+          0.0003819680599210784
+        ],
+        "position_change_L2_ft": 0.000395053629817132,
+        "rotation_matrix_max_abs_change": 0.004401479341634096
+      },
+      {
+        "beam": 1,
+        "material_t": -42.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0006922493991361467,
+          0.0010923449809396857,
+          0.006533095718983972
+        ],
+        "position_change_L2_ft": 0.0066598623455290116,
+        "rotation_matrix_max_abs_change": 0.0002545150520808781
+      },
+      {
+        "beam": 1,
+        "material_t": -39.59797974644667,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0006151222476145635,
+          0.0009515362894845225,
+          0.005781664740784009
+        ],
+        "position_change_L2_ft": 0.005891641864925378,
+        "rotation_matrix_max_abs_change": 0.000371230248565807
+      },
+      {
+        "beam": 1,
+        "material_t": -32.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.000384087001874478,
+          0.000605292980427663,
+          0.003624023623462591
+        ],
+        "position_change_L2_ft": 0.0036942454764916284,
+        "rotation_matrix_max_abs_change": 0.0001960054580745496
+      },
+      {
+        "beam": 1,
+        "material_t": -28.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0003442261871716701,
+          0.0005341515324417401,
+          0.003236541051068631
+        ],
+        "position_change_L2_ft": 0.00329833404960702,
+        "rotation_matrix_max_abs_change": 0.0002590458743498836
+      },
+      {
+        "beam": 1,
+        "material_t": -24.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00023976856064225616,
+          0.00043695020451650635,
+          0.0024034788717308686
+        ],
+        "position_change_L2_ft": 0.002454613030755798,
+        "rotation_matrix_max_abs_change": 0.00015741945222375042
+      },
+      {
+        "beam": 1,
+        "material_t": -21.430272212445033,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00019574974318659066,
+          0.0004033767091762286,
+          0.002090930419243131
+        ],
+        "position_change_L2_ft": 0.0021384622394561275,
+        "rotation_matrix_max_abs_change": 8.581084491904312e-05
+      },
+      {
+        "beam": 1,
+        "material_t": -14.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00017355716704388346,
+          0.00040572914710246266,
+          0.0021201933534142903
+        ],
+        "position_change_L2_ft": 0.002165631105914145,
+        "rotation_matrix_max_abs_change": 9.460271883997284e-05
+      },
+      {
+        "beam": 1,
+        "material_t": -7.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0002953352186318963,
+          -3.1810007643073845e-05,
+          -0.0014124417380355636
+        ],
+        "position_change_L2_ft": 0.0014433386405468143,
+        "rotation_matrix_max_abs_change": 0.00036624876415111
+      },
+      {
+        "beam": 1,
+        "material_t": 0.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0001245518390536847,
+          -7.24067848570385e-07,
+          -0.00013067245284870133
+        ],
+        "position_change_L2_ft": 0.00018052416685696232,
+        "rotation_matrix_max_abs_change": 6.492623491540558e-05
+      },
+      {
+        "beam": 1,
+        "material_t": 7.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00030500178777492434,
+          3.0445153250013846e-05,
+          -0.0014155966663231823
+        ],
+        "position_change_L2_ft": 0.0014484015049728524,
+        "rotation_matrix_max_abs_change": 0.0003666086899886678
+      },
+      {
+        "beam": 1,
+        "material_t": 14.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00015444584572538167,
+          -0.0004072560827150795,
+          0.0021155164427255624
+        ],
+        "position_change_L2_ft": 0.0021598890840995697,
+        "rotation_matrix_max_abs_change": 9.332231757661069e-05
+      },
+      {
+        "beam": 1,
+        "material_t": 21.43027221244502,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00016831152798482685,
+          -0.0004058231796051359,
+          0.002097655880223037
+        ],
+        "position_change_L2_ft": 0.0021431708787195886,
+        "rotation_matrix_max_abs_change": 8.762278817230074e-05
+      },
+      {
+        "beam": 1,
+        "material_t": 24.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0002095675354625015,
+          -0.00043988065096556284,
+          0.0024150475725095433
+        ],
+        "position_change_L2_ft": 0.00246371027446369,
+        "rotation_matrix_max_abs_change": 0.00015937683878605724
+      },
+      {
+        "beam": 1,
+        "material_t": 28.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00030980652392853525,
+          -0.0005380019747924791,
+          0.0032562887063836143
+        ],
+        "position_change_L2_ft": 0.0033149422840331264,
+        "rotation_matrix_max_abs_change": 0.00026117765502928214
+      },
+      {
+        "beam": 1,
+        "material_t": 32.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0003454031156311932,
+          -0.000610147150855056,
+          0.0036516013040470696
+        ],
+        "position_change_L2_ft": 0.0037183026963525357,
+        "rotation_matrix_max_abs_change": 0.00019820419094071506
+      },
+      {
+        "beam": 1,
+        "material_t": 39.597979746446654,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0005687069029554626,
+          -0.0009591899094445466,
+          0.0058264245889940725
+        ],
+        "position_change_L2_ft": 0.005932174669974257,
+        "rotation_matrix_max_abs_change": 0.000373551169896541
+      },
+      {
+        "beam": 1,
+        "material_t": 42.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0006434156625807486,
+          -0.001101040471496617,
+          0.00658319979279387
+        ],
+        "position_change_L2_ft": 0.006705579270023505,
+        "rotation_matrix_max_abs_change": 0.00025664419469431654
+      },
+      {
+        "beam": 1,
+        "material_t": 49.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          1.5639206648043746e-05,
+          6.120271707032998e-05,
+          0.00043644371354467637
+        ],
+        "position_change_L2_ft": 0.00044099146528480413,
+        "rotation_matrix_max_abs_change": 0.004403855853803623
+      },
+      {
+        "beam": 1,
+        "material_t": 50.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00037391403512265775,
+          0.0010000316309231039,
+          -0.0038594136781311406
+        ],
+        "position_change_L2_ft": 0.004004366230435744,
+        "rotation_matrix_max_abs_change": 0.0041878886355525835
+      },
+      {
+        "beam": 1,
+        "material_t": 51.73725382063206,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0010141194844485169,
+          0.0025552737688272487,
+          -0.010902654775976295
+        ],
+        "position_change_L2_ft": 0.011243920291718251,
+        "rotation_matrix_max_abs_change": 0.003920642530758467
+      },
+      {
+        "beam": 1,
+        "material_t": 55.42,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.002350245446990251,
+          0.005834672221631365,
+          -0.025603372472195574
+        ],
+        "position_change_L2_ft": 0.026364744177498806,
+        "rotation_matrix_max_abs_change": 0.0042998292298545016
+      },
+      {
+        "beam": 1,
+        "material_t": 56.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00257506775409444,
+          0.006393131673526398,
+          -0.028097692375511407
+        ],
+        "position_change_L2_ft": 0.028930665795347595,
+        "rotation_matrix_max_abs_change": 0.004301273887691581
+      },
+      {
+        "beam": 2,
+        "material_t": -7.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -6.762777270807874e-05,
+          0.0002394030892336474,
+          -0.00818733669787397
+        ],
+        "position_change_L2_ft": 0.008191115281762912,
+        "rotation_matrix_max_abs_change": 0.00024348479709325813
+      },
+      {
+        "beam": 2,
+        "material_t": -6.929096493834651,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -4.878907943961508e-05,
+          0.0002410233483223223,
+          -0.00822224520902437
+        ],
+        "position_change_L2_ft": 0.008225921766345293,
+        "rotation_matrix_max_abs_change": 0.00024406501933598237
+      },
+      {
+        "beam": 2,
+        "material_t": -5.303300858899107,
+        "same_jig_position": true,
+        "position_change_ft": [
+          4.4193265473779775e-06,
+          0.00021026715736027768,
+          -0.007554814721193015
+        ],
+        "position_change_L2_ft": 0.0075577415462204185,
+        "rotation_matrix_max_abs_change": 0.0002589517827804727
+      },
+      {
+        "beam": 2,
+        "material_t": -3.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          8.154735132848145e-05,
+          9.001044745504672e-05,
+          -0.004685162929844
+        ],
+        "position_change_L2_ft": 0.004686736981135613,
+        "rotation_matrix_max_abs_change": 0.0008564555907174393
+      },
+      {
+        "beam": 2,
+        "material_t": -2.870125742738174,
+        "same_jig_position": true,
+        "position_change_ft": [
+          8.402325280698619e-05,
+          8.689033766495768e-05,
+          -0.004578109354928972
+        ],
+        "position_change_L2_ft": 0.004579704696099953,
+        "rotation_matrix_max_abs_change": 0.0007925103871080051
+      },
+      {
+        "beam": 2,
+        "material_t": -1.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0001139905838662969,
+          4.351019134263279e-05,
+          -0.0031247960485535353
+        ],
+        "position_change_L2_ft": 0.003127177215160126,
+        "rotation_matrix_max_abs_change": 0.0003324625650492855
+      },
+      {
+        "beam": 2,
+        "material_t": 0.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00012017701442701423,
+          4.2883469090066774e-05,
+          -0.0029842309883144624
+        ],
+        "position_change_L2_ft": 0.0029869576659762188,
+        "rotation_matrix_max_abs_change": 0.0002837672941100218
+      },
+      {
+        "beam": 2,
+        "material_t": 1.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00012210624855413243,
+          4.109933522422615e-05,
+          -0.003226935684369381
+        ],
+        "position_change_L2_ft": 0.0032295066190284115,
+        "rotation_matrix_max_abs_change": 0.000434160420042011
+      },
+      {
+        "beam": 2,
+        "material_t": 2.8701257427381712,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00010722642075222666,
+          -1.0658002040919712e-05,
+          -0.00487131504377003
+        ],
+        "position_change_L2_ft": 0.004872506680752223,
+        "rotation_matrix_max_abs_change": 0.0008966554645514872
+      },
+      {
+        "beam": 2,
+        "material_t": 3.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00010578787230741682,
+          -1.4515431794759337e-05,
+          -0.004991935765618183
+        ],
+        "position_change_L2_ft": 0.004993077654087258,
+        "rotation_matrix_max_abs_change": 0.0009608433126228333
+      },
+      {
+        "beam": 2,
+        "material_t": 5.303300858899107,
+        "same_jig_position": true,
+        "position_change_ft": [
+          4.679133233764787e-05,
+          -0.00015274189554137507,
+          -0.00811018900825522
+        ],
+        "position_change_L2_ft": 0.008111762155355598,
+        "rotation_matrix_max_abs_change": 0.00037373070459578023
+      },
+      {
+        "beam": 2,
+        "material_t": 6.929096493834651,
+        "same_jig_position": true,
+        "position_change_ft": [
+          6.025028447709246e-06,
+          -0.000194488353680633,
+          -0.008966830541652593
+        ],
+        "position_change_L2_ft": 0.008968941519677722,
+        "rotation_matrix_max_abs_change": 0.0002440965341261904
+      },
+      {
+        "beam": 2,
+        "material_t": 7.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -8.472934432290913e-06,
+          -0.00019611905760896775,
+          -0.008999572238625797
+        ],
+        "position_change_L2_ft": 0.009001712889979299,
+        "rotation_matrix_max_abs_change": 0.00024351843840964005
+      },
+      {
+        "beam": 3,
+        "material_t": -3.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0011611625839513806,
+          -0.0004753710188541982,
+          -0.0037474783239490606
+        ],
+        "position_change_L2_ft": 0.003951945083171473,
+        "rotation_matrix_max_abs_change": 0.00028553540290576773
+      },
+      {
+        "beam": 3,
+        "material_t": -3.1764880131729685,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0010687980866386226,
+          -0.0004229152228206745,
+          -0.0037494549103960217
+        ],
+        "position_change_L2_ft": 0.003921683154053714,
+        "rotation_matrix_max_abs_change": 0.00028546986971993843
+      },
+      {
+        "beam": 3,
+        "material_t": -2.2552038200428273,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0008066148517080762,
+          -0.00027639092855935576,
+          -0.0037550601168567788
+        ],
+        "position_change_L2_ft": 0.0038506487694405975,
+        "rotation_matrix_max_abs_change": 0.00028432153081994413
+      },
+      {
+        "beam": 3,
+        "material_t": -0.8764045875516318,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.0004193095046893802,
+          -9.506433212369547e-05,
+          -0.003763265169853147
+        ],
+        "position_change_L2_ft": 0.0037877463519347242,
+        "rotation_matrix_max_abs_change": 0.00028083312966626153
+      },
+      {
+        "beam": 3,
+        "material_t": 0.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00017396091982746498,
+          -2.1912545134283867e-05,
+          -0.0037683805094560485
+        ],
+        "position_change_L2_ft": 0.0037724573192164422,
+        "rotation_matrix_max_abs_change": 0.0002796938935137258
+      },
+      {
+        "beam": 3,
+        "material_t": 0.7499999999999991,
+        "same_jig_position": true,
+        "position_change_ft": [
+          3.562030513037939e-05,
+          3.8502077924551514e-05,
+          -0.003772762157355225
+        ],
+        "position_change_L2_ft": 0.003773126755373286,
+        "rotation_matrix_max_abs_change": 0.000279189295581031
+      },
+      {
+        "beam": 3,
+        "material_t": 1.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.00010538944065530131,
+          6.485528780686423e-05,
+          -0.0037742407177149273
+        ],
+        "position_change_L2_ft": 0.0037762688116466814,
+        "rotation_matrix_max_abs_change": 0.00027896377716178644
+      },
+      {
+        "beam": 3,
+        "material_t": 2.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0003840263886587536,
+          0.0002154411861330363,
+          -0.0037802877524342193
+        ],
+        "position_change_L2_ft": 0.003805846379331785,
+        "rotation_matrix_max_abs_change": 0.0002759705627362573
+      },
+      {
+        "beam": 3,
+        "material_t": 2.3764045875516313,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0004877851987181714,
+          0.00029094514525906945,
+          -0.003782602773207522
+        ],
+        "position_change_L2_ft": 0.0038250055186255065,
+        "rotation_matrix_max_abs_change": 0.0002753447347935943
+      },
+      {
+        "beam": 3,
+        "material_t": 3.7552038200428264,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0008660410542731256,
+          0.000653473055226339,
+          -0.0037913406233176516
+        ],
+        "position_change_L2_ft": 0.003943515926633495,
+        "rotation_matrix_max_abs_change": 0.0002771573221401432
+      },
+      {
+        "beam": 3,
+        "material_t": 4.676488013172969,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0011113290024020728,
+          0.0009170510954168432,
+          -0.003797122475105219
+        ],
+        "position_change_L2_ft": 0.004061302002330583,
+        "rotation_matrix_max_abs_change": 0.0002861549070319854
+      },
+      {
+        "beam": 3,
+        "material_t": 5.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0011966280322397438,
+          0.0010096255813611954,
+          -0.00379913747817362
+        ],
+        "position_change_L2_ft": 0.004109100636409907,
+        "rotation_matrix_max_abs_change": 0.00028628269534099757
+      },
+      {
+        "beam": 4,
+        "material_t": -6.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -8.984766946706912e-05,
+          -5.373873343460624e-06,
+          -0.0006651314119243065
+        ],
+        "position_change_L2_ft": 0.0006711939193346411,
+        "rotation_matrix_max_abs_change": 4.73879527194479e-05
+      },
+      {
+        "beam": 4,
+        "material_t": -5.491403805774549,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.008054295112089e-05,
+          -4.671285647211867e-06,
+          -0.0006120910157941008
+        ],
+        "position_change_L2_ft": 0.0006187016540658516,
+        "rotation_matrix_max_abs_change": 4.748348786575308e-05
+      },
+      {
+        "beam": 4,
+        "material_t": -2.6191648507217553,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.126171869011657e-05,
+          -2.6773888958037183e-06,
+          -0.0003397538940379703
+        ],
+        "position_change_L2_ft": 0.00035180758693288255,
+        "rotation_matrix_max_abs_change": 5.9763254717488425e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 0.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.208872159601443e-05,
+          -8.562085621416577e-07,
+          -0.00013056135160891338
+        ],
+        "position_change_L2_ft": 0.00015977275197052984,
+        "rotation_matrix_max_abs_change": 6.492623491540558e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 1.6794445211625604,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.234965603144296e-05,
+          2.1275975987816832e-07,
+          -3.407408759341433e-05
+        ],
+        "position_change_L2_ft": 9.84355001062367e-05,
+        "rotation_matrix_max_abs_change": 4.997751833412875e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 2.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.241225832568034e-05,
+          6.321726806021105e-07,
+          -2.0718972514996994e-07
+        ],
+        "position_change_L2_ft": 9.241465283564389e-05,
+        "rotation_matrix_max_abs_change": 3.256878019936276e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 4.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.246163690246334e-05,
+          1.2936007786763963e-06,
+          4.903434543075485e-05
+        ],
+        "position_change_L2_ft": 0.00010466706613582016,
+        "rotation_matrix_max_abs_change": 3.308668078374642e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 6.749999999999998,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.24853914945345e-05,
+          2.51691435522752e-06,
+          0.00015044797831462522
+        ],
+        "position_change_L2_ft": 0.0001766195818043028,
+        "rotation_matrix_max_abs_change": 3.3466059179279323e-05
+      },
+      {
+        "beam": 4,
+        "material_t": 11.820555478837438,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.560025259780502e-05,
+          8.085609633240904e-06,
+          0.0009359433923445543
+        ],
+        "position_change_L2_ft": 0.0009408479255721073,
+        "rotation_matrix_max_abs_change": 0.00040760630399353653
+      },
+      {
+        "beam": 4,
+        "material_t": 12.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.625920751688e-05,
+          7.383076516487896e-06,
+          0.0008628071938305663
+        ],
+        "position_change_L2_ft": 0.0008681915679021552,
+        "rotation_matrix_max_abs_change": 0.00040753955868836483
+      },
+      {
+        "beam": 4,
+        "material_t": 16.119164850721752,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00015613041488293788,
+          -7.666891796304911e-07,
+          -0.002589097150948322
+        ],
+        "position_change_L2_ft": 0.0025938005612059947,
+        "rotation_matrix_max_abs_change": 0.0002803523236191395
+      },
+      {
+        "beam": 4,
+        "material_t": 17.5,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00016359027968348983,
+          -8.198382599330424e-06,
+          -0.0029785568370202103
+        ],
+        "position_change_L2_ft": 0.002983057127251171,
+        "rotation_matrix_max_abs_change": 0.0002837672941100218
+      },
+      {
+        "beam": 4,
+        "material_t": 18.99140380577455,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00017231930297967324,
+          -1.6082542002907236e-05,
+          -0.0034155367343382537
+        ],
+        "position_change_L2_ft": 0.003419918679435331,
+        "rotation_matrix_max_abs_change": 0.0002805557675389682
+      },
+      {
+        "beam": 4,
+        "material_t": 20.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -0.00017818266853097953,
+          -2.17927842076878e-05,
+          -0.003705158371925532
+        ],
+        "position_change_L2_ft": 0.0037095043536648133,
+        "rotation_matrix_max_abs_change": 0.0002796938935137258
+      },
+      {
+        "beam": 5,
+        "material_t": -15.6,
+        "same_jig_position": true,
+        "position_change_ft": [
+          0.0,
+          -1.1095161315970543e-26,
+          0.0
+        ],
+        "position_change_L2_ft": 1.1095161315970543e-26,
+        "rotation_matrix_max_abs_change": 2.4606240384436828e-28
+      },
+      {
+        "beam": 5,
+        "material_t": -15.386862691031602,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -1.3955224575923353e-07,
+          -6.002957941346037e-10,
+          -2.3858781617036584e-10
+        ],
+        "position_change_L2_ft": 1.395537408156155e-07,
+        "rotation_matrix_max_abs_change": 1.2486118362913196e-06
+      },
+      {
+        "beam": 5,
+        "material_t": -15.2,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -4.7481120279968536e-07,
+          -6.593834348872432e-10,
+          -3.3996450099493813e-10
+        ],
+        "position_change_L2_ft": 4.7481178235850474e-07,
+        "rotation_matrix_max_abs_change": 2.339680196956559e-06
+      },
+      {
+        "beam": 5,
+        "material_t": -14.779898987322332,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -2.0093378800822848e-06,
+          -2.570151935892799e-09,
+          -2.5308537487944704e-09
+        ],
+        "position_change_L2_ft": 2.009341117688891e-06,
+        "rotation_matrix_max_abs_change": 4.7827014780402015e-06
+      },
+      {
+        "beam": 5,
+        "material_t": -13.87151361062225,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.458436927900493e-06,
+          -3.743473680972047e-08,
+          -3.389576175294451e-08
+        ],
+        "position_change_L2_ft": 9.458571742142496e-06,
+        "rotation_matrix_max_abs_change": 1.0051678306974678e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -13.2,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -1.7699210584254388e-05,
+          -1.4183982248327538e-08,
+          -5.640058020617289e-08
+        ],
+        "position_change_L2_ft": 1.7699306130935825e-05,
+        "rotation_matrix_max_abs_change": 1.3877962891532813e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -12.8,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -2.371383938193361e-05,
+          2.279654840180214e-08,
+          -7.018898395827478e-08
+        ],
+        "position_change_L2_ft": 2.3713954212830758e-05,
+        "rotation_matrix_max_abs_change": 1.6195181294757516e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -11.72848638937775,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -4.465444096846127e-05,
+          1.0921886274921649e-07,
+          -1.1662311161231287e-07
+        ],
+        "position_change_L2_ft": 4.4654726826125974e-05,
+        "rotation_matrix_max_abs_change": 2.2453554477387585e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -10.820101012677668,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -6.762184593123166e-05,
+          3.115690351709771e-07,
+          -1.6252665380189768e-07
+        ],
+        "position_change_L2_ft": 6.762275901886956e-05,
+        "rotation_matrix_max_abs_change": 2.776601257253441e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -10.213137308968397,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -8.560209008834363e-05,
+          5.344899170364727e-07,
+          -1.9538507017857754e-07
+        ],
+        "position_change_L2_ft": 8.560398169647228e-05,
+        "rotation_matrix_max_abs_change": 3.1319662721607765e-05
+      },
+      {
+        "beam": 5,
+        "material_t": -10.0,
+        "same_jig_position": true,
+        "position_change_ft": [
+          -9.241225832568034e-05,
+          6.321726806021105e-07,
+          -2.0718972514996994e-07
+        ],
+        "position_change_L2_ft": 9.241465283564389e-05,
+        "rotation_matrix_max_abs_change": 3.256878019936276e-05
+      }
+    ]
+  },
+  "primitive_state_output_verification": {
+    "source": "state Omega coordinate times recorded physical angular-rate scale; independently agrees with operating and frame exports",
+    "review": {
+      "status": "PASS_SAVED_PRIMITIVE_YAW_SCALAR_REVIEW",
+      "counts": {
+        "passed": 19,
+        "total": 19
+      },
+      "checks": [
+        {
+          "name": "Terminal physical/source success",
+          "pass_": true
+        },
+        {
+          "name": "Exact frozen plan binding",
+          "pass_": true
+        },
+        {
+          "name": "Steady six released load equations",
+          "pass_": true
+        },
+        {
+          "name": "Saved fresh full base residual",
+          "pass_": true,
+          "maximum": 1.2335210632838307e-13
+        },
+        {
+          "name": "Exact frequency 0",
+          "pass_": true
+        },
+        {
+          "name": "coarse primitive/frame/operating yaw 0",
+          "pass_": true,
+          "primitive": [
+            0.006246688395518119,
+            0.0023006119059892026
+          ],
+          "max_difference": 4.336808689942018e-19,
+          "allowance": 1.6656870965602384e-12
+        },
+        {
+          "name": "fine primitive/frame/operating yaw 0",
+          "pass_": true,
+          "primitive": [
+            0.006216037225339211,
+            0.002286351540854021
+          ],
+          "max_difference": 0.0,
+          "allowance": 1.66231806675621e-12
+        },
+        {
+          "name": "Saved original harmonic diagnostics 0",
+          "pass_": true
+        },
+        {
+          "name": "Reported scalar reductions 0",
+          "pass_": true
+        },
+        {
+          "name": "Exact frequency 1",
+          "pass_": true
+        },
+        {
+          "name": "coarse primitive/frame/operating yaw 1",
+          "pass_": true,
+          "primitive": [
+            0.0003436182326974913,
+            -0.0003321723480285281
+          ],
+          "max_difference": 0.0,
+          "allowance": 1.0477924636984675e-12
+        },
+        {
+          "name": "fine primitive/frame/operating yaw 1",
+          "pass_": true,
+          "primitive": [
+            0.0003367969222067343,
+            -0.00033881136932979895
+          ],
+          "max_difference": 5.421010862427522e-20,
+          "allowance": 1.047772932796204e-12
+        },
+        {
+          "name": "Saved original harmonic diagnostics 1",
+          "pass_": true
+        },
+        {
+          "name": "Reported scalar reductions 1",
+          "pass_": true
+        },
+        {
+          "name": "Exact frequency 2",
+          "pass_": true
+        },
+        {
+          "name": "coarse primitive/frame/operating yaw 2",
+          "pass_": true,
+          "primitive": [
+            -0.0005505501558914953,
+            -0.005988115523634903
+          ],
+          "max_difference": 0.0,
+          "allowance": 1.601337118416529e-12
+        },
+        {
+          "name": "fine primitive/frame/operating yaw 2",
+          "pass_": true,
+          "primitive": [
+            -0.0009301859334649796,
+            -0.005863918353455354
+          ],
+          "max_difference": 8.940560153363745e-19,
+          "allowance": 1.593723709538424e-12
+        },
+        {
+          "name": "Saved original harmonic diagnostics 2",
+          "pass_": true
+        },
+        {
+          "name": "Reported scalar reductions 2",
+          "pass_": true
+        }
+      ],
+      "rows": [
+        {
+          "frequency_Hz": 0.1,
+          "coarse_gain_deg_s": 0.3814106110921936,
+          "fine_gain_deg_s": 0.3794802992039475,
+          "relative_complex_change": 0.005104208910649216,
+          "relative_magnitude_change": 0.005086724903230484,
+          "phase_change_degrees": -0.0241239460593389,
+          "drawn_reference_gain_deg_s": 0.11823821391655272,
+          "descriptive_fine_to_drawing_gain_ratio": 3.2094556119713364
+        },
+        {
+          "frequency_Hz": 1.0,
+          "coarse_gain_deg_s": 0.027383064624543815,
+          "fine_gain_deg_s": 0.027371874241846044,
+          "relative_complex_change": 0.019925016327716337,
+          "relative_magnitude_change": 0.00040882778427590735,
+          "phase_change_degrees": -1.1411646251214653,
+          "drawn_reference_gain_deg_s": 0.0587461101358694,
+          "descriptive_fine_to_drawing_gain_ratio": 0.46593509218805673
+        },
+        {
+          "frequency_Hz": 10.0,
+          "coarse_gain_deg_s": 0.34454078949825717,
+          "fine_gain_deg_s": 0.34017862753402867,
+          "relative_complex_change": 0.06727622972035684,
+          "relative_magnitude_change": 0.012823151165756875,
+          "phase_change_degrees": -3.7606211086663714,
+          "drawn_reference_gain_deg_s": 0.17186802869914472,
+          "descriptive_fine_to_drawing_gain_ratio": 1.9793013867024212
+        }
+      ],
+      "operations": {
+        "physics_calls": 0,
+        "production_imports": 0,
+        "matrix_products": 0,
+        "solves": 0,
+        "factorizations": 0
+      },
+      "conclusions": [
+        "Primitive aircraft-yaw state confirms the reported mesh changes without dependence on the different supported output-recovery arithmetic paths.",
+        "Fine and coarse full-equation residual/condition diagnostics pass as recorded; they were not recomputed by this scalar review.",
+        "Gain changes are approximately0.509%,0.041%,1.282%, while complex changes are0.510%,1.993%,6.728%; phase contributes substantially at1and10Hz.",
+        "This mesh pair does not establish convergence; it does not account for the much larger magnitude differences from the drawing at these three frequencies. That observation does not identify a physics error because the reference operating point is unknown.",
+        "The body-rate kinematic/gravity/inertia block audit did not cover all aerodynamic tangents or validate the complete model."
+      ],
+      "read_pins": {
+        "/tmp/openswing-daedalus-mesh16-20261024/plan.json": {
+          "bytes": 49699,
+          "sha256": "dbe4aa4a26d2c708bc1e3307abe40da66c7d8deb0bba5d9e97fbf5b6ab1ab278"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/report.json": {
+          "bytes": 96785,
+          "sha256": "661df0a506ff749203781db3fd77c7b5e32ecdf425b0c91fac5814cd13869541"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/session-closeout.json": {
+          "bytes": 2479,
+          "sha256": "8400cd4c02bd12ab87e2261cce14b7d9e48e41ef2ec3825919f1509d2aa896d6"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/status.json": {
+          "bytes": 570,
+          "sha256": "8656c77813de378fd3ad59e52a9682232c7d360e24f756f4f65e078497e3fb93"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/response.json": {
+          "bytes": 5326967,
+          "sha256": "4548cbd5e3cdb92e31e23e47c472483348edc859da082911a431097e39811ef6"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/response.json": {
+          "bytes": 8199207,
+          "sha256": "99bf61158c1bbd53ab443e6374fec74ddb836f4e3a90e0a5e057b1ee6f1314fd"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/state-layout.json": {
+          "bytes": 3003,
+          "sha256": "cc8c5b264880ac393e52b535c7ad7517232fbf36b0611ad1b78879e3a4e227dd"
+        },
+        "/tmp/openswing-daedalus-reference-curve-20261024/extraction.json": {
+          "bytes": 2484,
+          "sha256": "4d390fd2fa617cd3928239fbd907315b65d4ce66f101c8e497c955716a3c3fca"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/base.json": {
+          "bytes": 825547,
+          "sha256": "d07ae3353f25d24172d8f82b4b6a0fe2ac0dd4f61264980416ad56a177b3af71"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/fresh-base-residual.npz": {
+          "bytes": 17984,
+          "sha256": "34f0699a843879c0c6b3792126df1f81310b4dfdb0fdea174e1ace01420683df"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/sample-0.npz": {
+          "bytes": 70966,
+          "sha256": "c81a0c612945afac413fe5902035e2d60cd869d8454018b1e4fda1f8133aede9"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/sample-0-0.npz": {
+          "bytes": 107062,
+          "sha256": "a70de2dec7d39455fa2b675bf66c6cd66f6acce3d278e07452348f6622fb0ef3"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/sample-1.npz": {
+          "bytes": 70966,
+          "sha256": "480a83c159b10e22dc7687b2904f9a854471947a7f2c51f598019bb0c460d9a1"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/sample-1-0.npz": {
+          "bytes": 107062,
+          "sha256": "d2684971b9dbec6e02bc557d2eb34aa0acbfbea3a7c5927baf99055b4ccc04c1"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/sample-2.npz": {
+          "bytes": 70966,
+          "sha256": "2895a70fe944e47fbc083bc145a31baabf006dada2ea1292a9e2b8bcd172a1ed"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/results/sample-2-0.npz": {
+          "bytes": 107062,
+          "sha256": "68f34cf0f1799881164cc3162ff3857d406170e53db3b5e56645d35fff7e9bd7"
+        },
+        "/tmp/openswing-daedalus-mesh16-20261024/review/reference/audit_yaw_scalars.py": {
+          "bytes": 5199,
+          "sha256": "bae02f1b9c0ba59b2e39229418f476c8ff7692df034c48ac12ec6a93c9450df6"
+        }
+      }
+    }
+  },
+  "checks": {
+    "measurement": {
+      "passed": 271,
+      "total": 271
+    },
+    "kinematic_blocks": {
+      "status": "PASS_SAVED_KINEMATIC_AND_LOAD_BLOCKS",
+      "counts": {
+        "passed": 8,
+        "total": 8
+      },
+      "checks": [
+        {
+          "name": "W is coordinate scale V/L, not frequency conversion",
+          "pass_": true,
+          "shape": [],
+          "max_absolute_difference": 0.0,
+          "maximum_allowance": 0.0
+        },
+        {
+          "name": "body to Earth equation 6",
+          "pass_": true,
+          "shape": [
+            3,
+            3
+          ],
+          "max_absolute_difference": 0.0,
+          "maximum_allowance": 3.9999999993651235e-15
+        },
+        {
+          "name": "all twelve aircraft kinematic A rows",
+          "pass_": true,
+          "shape": [
+            12,
+            1463
+          ],
+          "max_absolute_difference": 3.8835972210030586e-12,
+          "maximum_allowance": 4.000000000000001e-09
+        },
+        {
+          "name": "all twelve aircraft kinematic M rows",
+          "pass_": true,
+          "shape": [
+            12,
+            1463
+          ],
+          "max_absolute_difference": 0.0,
+          "maximum_allowance": 5.790332362036981e-15
+        },
+        {
+          "name": "all local velocity kinematic A rows sparse difference",
+          "pass_": true,
+          "shape": [
+            0
+          ],
+          "max_absolute_difference": 0.0,
+          "maximum_allowance": 2e-09
+        },
+        {
+          "name": "all local velocity kinematic M rows sparse difference",
+          "pass_": true,
+          "shape": [
+            0
+          ],
+          "max_absolute_difference": 0.0,
+          "maximum_allowance": 2e-15
+        },
+        {
+          "name": "six global load rows versus six acceleration unknowns: real plus apparent inertia",
+          "pass_": true,
+          "shape": [
+            6,
+            6
+          ],
+          "max_absolute_difference": 3.986615291357021e-12,
+          "maximum_allowance": 2.215359740611101e-09
+        },
+        {
+          "name": "six global load rows versus three Euler angles: Earth gravity",
+          "pass_": true,
+          "shape": [
+            6,
+            3
+          ],
+          "max_absolute_difference": 2.9232089839015263e-12,
+          "maximum_allowance": 2.169325753189632e-09
+        }
+      ],
+      "operation_scope": {
+        "saved_harmonic_products": 0,
+        "full_matrix_products": 0,
+        "physical_residual_evaluations": 0,
+        "solves": 0,
+        "factorizations": 0,
+        "production_imports": 0,
+        "algebra": "Sparse selected-row differences, small analytic rotation/load blocks and scalar comparisons only"
+      },
+      "tolerances": "2e-9 absolute+relative for existing fourth-order A stencil; 2e-15 absolute+relative for analytic M/rotation, not a solver gate change",
+      "yaw_convention": "ASWING body Omega_z, not Euler heading rate. At bank=0: Omega_z=-cos(elevation)*heading_dot. Reversing an axis changes sign/phase, not magnitude; no sign correction is applied.",
+      "inertia_yaw_reference": {
+        "real": 820.9175578611774,
+        "apparent": 65.16053167543657
+      },
+      "input_pins": {
+        "/tmp/openswing-daedalus-steady-trim-20261024/results/A.npz": {
+          "bytes": 1399141,
+          "sha256": "77d40e4fac66bf04df9e1ab7104534a7802fe513653c7c5a49f01396d277e16a"
+        },
+        "/tmp/openswing-daedalus-steady-trim-20261024/results/M.npz": {
+          "bytes": 78113,
+          "sha256": "3c6df7f01f18b67e334ea728a01389568893e611f452b680c9e88744aa1fe388"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/base.json": {
+          "bytes": 497365,
+          "sha256": "7b2c55265dafb4b0fed52bf0b7a9184879b59a5d9c963793d6542d7dfdffab88"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/state-layout.json": {
+          "bytes": 3003,
+          "sha256": "cc8c5b264880ac393e52b535c7ad7517232fbf36b0611ad1b78879e3a4e227dd"
+        },
+        "/tmp/openswing-daedalus-trim-resume-20261024/results/scales.json": {
+          "bytes": 79,
+          "sha256": "0676b7772ae0ccbf2aa39ec01624680365c2f9c1295f727c40616ab3fcba7b08"
+        },
+        "/tmp/openswing-rudder-bode-research-20261024/audit_kinematic_blocks.py": {
+          "bytes": 6549,
+          "sha256": "3141b5ee7410d0ff479c1b9c8dcccc9b7578723bd484917f4aea2942b299582a"
+        },
+        "/home/userland/aswing/openswing/linear_dynamics.py": {
+          "bytes": 72981,
+          "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+        },
+        "/home/userland/aswing/openswing/descriptor_mass.py": {
+          "bytes": 10869,
+          "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+        },
+        "/home/userland/aswing/openswing/ground.py": {
+          "bytes": 4871,
+          "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+        },
+        "/home/userland/aswing/openswing/time_integration.py": {
+          "bytes": 46536,
+          "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+        },
+        "/home/userland/aswing/openswing/local_motion.py": {
+          "bytes": 13165,
+          "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+        },
+        "/home/userland/aswing/openswing/inertia.py": {
+          "bytes": 11357,
+          "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+        },
+        "/home/userland/aswing/openswing/dynamic_inertia.py": {
+          "bytes": 3845,
+          "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+        },
+        "/home/userland/aswing/openswing/operating.py": {
+          "bytes": 26335,
+          "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+        },
+        "/home/userland/aswing/openswing/frequency_response.py": {
+          "bytes": 46509,
+          "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+        }
+      },
+      "limitations": [
+        "Selected kinematic/gravity/global-acceleration blocks do not validate all aerodynamic or structural entries.",
+        "This is the chosen V30/Mach.1 trim, not identified published operating point 1.",
+        "No new harmonic products, physics calls or solves."
+      ]
+    },
+    "native_lifecycle": {
+      "status": "PASS",
+      "completed_utc": "2026-10-24T19:52:54.704719+00:00",
+      "exit_code": 0,
+      "reaped": true,
+      "report_pin": {
+        "bytes": 96785,
+        "sha256": "661df0a506ff749203781db3fd77c7b5e32ecdf425b0c91fac5814cd13869541"
+      },
+      "plan_pin": {
+        "bytes": 49699,
+        "sha256": "dbe4aa4a26d2c708bc1e3307abe40da66c7d8deb0bba5d9e97fbf5b6ab1ab278"
+      },
+      "execution_pin": {
+        "bytes": 184,
+        "sha256": "40c0a8e8f5ca1e609fc1ce2a309d807ad806c5cdc1f481514564ff083bdf70a9"
+      },
+      "run_status_pin": {
+        "bytes": 570,
+        "sha256": "8656c77813de378fd3ad59e52a9682232c7d360e24f756f4f65e078497e3fb93"
+      },
+      "summary_script_pin": {
+        "bytes": 7170,
+        "sha256": "2aa6e582c487ddfec5a7dd9d317c33eb61a3a2e1638ae805f58095963d71df55"
+      },
+      "physical_owner": {
+        "session_id": 29290,
+        "launch_chunk": "918aa4",
+        "terminal_chunk": "02f3c4",
+        "exit_code": 0,
+        "reaped": true,
+        "supervisor_pid": 24342,
+        "child_pid": 24365,
+        "child_exit_code": 0,
+        "child_reaped": true,
+        "monotonic_seconds": 257.83569264400285
+      },
+      "saved_summary_owner": {
+        "session_id": 32094,
+        "launch_chunk": "b71188",
+        "terminal_chunk": "6451bb",
+        "exit_code": 0,
+        "reaped": true,
+        "physics_calls": 0,
+        "linear_solves": 0,
+        "matrix_products": 0,
+        "rank_refactorizations": 0
+      },
+      "actual_scope": {
+        "FrequencyAnalysis_constructions": 1,
+        "harmonic_sweeps": 1,
+        "requested_frequencies": 3,
+        "explicit_extra_fresh_residuals": 1,
+        "initial_physical_state_supplied": false,
+        "mesh_cases": 1,
+        "retries": 0
+      },
+      "initial_guess_only": {
+        "source": "/tmp/openswing-daedalus-steady-trim-20261024/results/trim-coordinates.json",
+        "variables": {
+          "alpha": -1.6619581191089043,
+          "attitude.bank": 0.0014436678241698396,
+          "power.1": 7.908974869896494,
+          "beta": 0.008743973456159678,
+          "control.2": -1.8058249055540216,
+          "control.3": -0.0025869808564224755,
+          "attitude.elevation": -1.6619578983545353
+        },
+        "scope": "Only seven solved scalar trim coordinates initialize the new 16-panel cold physical mesh; no 8-panel physical state is supplied; no fit or tuning."
+      },
+      "fresh_full_base_residual": 1.2335210632838307e-13,
+      "all_frozen_pins_match": true,
+      "scientific_scope": "Observed8-to16 mesh changes; no convergence, stability, or ASWING matching claim. Native timing/RSS single descriptive observation.",
+      "all_owned_processes_terminal": true,
+      "no_more_agent_writes_pending": true
+    }
+  },
+  "reference_drawing": {
+    "status": "EXTRACTED_PRIMARY_DRAWING_NOT_MATCHED_OPERATING_POINT",
+    "source_url": "https://web.mit.edu/drela/Public/web/aswing/rudder-bode.pdf",
+    "source_pin": {
+      "bytes": 28726,
+      "sha256": "b37f684a57c2e93c1ec64566480d0051c05adf7b59376e409c004cfb581e0dfe"
+    },
+    "script_pin": {
+      "bytes": 4822,
+      "sha256": "4282cc81ffcdb015b9ea4e038216f20939288045acf59645459882c57c39711e"
+    },
+    "pymupdf_version": "1.28.2",
+    "page": 0,
+    "grid_path": 18,
+    "curve_path": 21,
+    "segments": 103,
+    "points": 104,
+    "pdf_axis_rectangle": [
+      91.0,
+      141.70001220703125,
+      558.9000244140625,
+      259.89996337890625
+    ],
+    "axis_mapping": {
+      "frequency_Hz": [
+        0.1,
+        10
+      ],
+      "yaw_reference_deg_s": 1,
+      "magnitude_limits": [
+        0.01,
+        1
+      ],
+      "logarithmic_axes": true
+    },
+    "drawing_reading_envelope": {
+      "assumed_pdf_coordinate_halfwidth_pt": 0.75,
+      "frequency_multiplier": 1.0074089689110206,
+      "magnitude_multiplier": 1.0296517467093071,
+      "meaning": "Conservative graphic-coordinate envelope, not a physical uncertainty or a solver acceptance tolerance."
+    },
+    "comparisons": [
+      {
+        "frequency_Hz": 0.1,
+        "drawing_magnitude": 0.11823821391655272,
+        "chosen_8_panel_trim_magnitude": 0.38141061109219354,
+        "magnitude_ratio": 3.2257812297585637
+      },
+      {
+        "frequency_Hz": 1.0,
+        "drawing_magnitude": 0.0587461101358694,
+        "chosen_8_panel_trim_magnitude": 0.027383064624543815,
+        "magnitude_ratio": 0.46612557939941235
+      },
+      {
+        "frequency_Hz": 10.0,
+        "drawing_magnitude": 0.17186802869914472,
+        "chosen_8_panel_trim_magnitude": 0.3445407894982572,
+        "magnitude_ratio": 2.0046822675866984
+      }
+    ],
+    "baseline_pin": {
+      "bytes": 5326967,
+      "sha256": "4548cbd5e3cdb92e31e23e47c472483348edc859da082911a431097e39811ef6"
+    },
+    "csv_pin": {
+      "bytes": 7870,
+      "sha256": "0891450a32f0a97a427ac0a0b0da891b81c75f8ae5f46b6ef9590c0b94825224"
+    },
+    "limitations": [
+      "Data describe the published vector drawing; original ASWING numerical samples are not supplied.",
+      "No phase is provided or inferred.",
+      "Operating point 1 lacks speed, trim settings and mesh information; ratios are descriptive, not matched-case validation errors.",
+      "The OpenSwing baseline is a chosen V=30 ft/s, PG Mach=.1, eight-panel steady level trim; it is not fitted to this curve.",
+      "The coordinate envelope does not include unknown model/operating-point differences."
+    ]
+  },
+  "drawing_review": {
+    "status": "PASS_PRIMARY_VECTOR_DRAWING_REVIEW",
+    "counts": {
+      "passed": 10,
+      "total": 10
+    },
+    "checks": [
+      {
+        "name": "primary page and top graph rectangle",
+        "pass_": true
+      },
+      {
+        "name": "red top-yaw curve styling",
+        "pass_": true
+      },
+      {
+        "name": "103 monotone connected segments",
+        "pass_": true
+      },
+      {
+        "name": "markers excluded at path reset",
+        "pass_": true
+      },
+      {
+        "name": "exact104 PDF vertices retained",
+        "pass_": true
+      },
+      {
+        "name": "log axes mapped correctly",
+        "pass_": true
+      },
+      {
+        "name": "drawn segment interpolation 0.1",
+        "pass_": true
+      },
+      {
+        "name": "drawn segment interpolation 1.0",
+        "pass_": true
+      },
+      {
+        "name": "drawn segment interpolation 10.0",
+        "pass_": true
+      },
+      {
+        "name": "graph labels independently read from primary image",
+        "pass_": true,
+        "evidence": "Top panel label ref Omega_z=1.00000 deg/s; x .1,1,10 cycles/s; y .01,.1,1; unit deltaF3. Image inspected, not inferred from extraction metadata."
+      }
+    ],
+    "values": [
+      {
+        "frequency_Hz": 0.1,
+        "drawing_gain_deg_s_per_F3": 0.11823821391655273
+      },
+      {
+        "frequency_Hz": 1.0,
+        "drawing_gain_deg_s_per_F3": 0.0587461101358694
+      },
+      {
+        "frequency_Hz": 10.0,
+        "drawing_gain_deg_s_per_F3": 0.17186802869914472
+      }
+    ],
+    "input_pins": {
+      "/tmp/openswing-daedalus-rudder-20261024/rudder-bode.pdf": {
+        "bytes": 28726,
+        "sha256": "b37f684a57c2e93c1ec64566480d0051c05adf7b59376e409c004cfb581e0dfe"
+      },
+      "/tmp/openswing-daedalus-rudder-20261024/rudder-bode.png": {
+        "bytes": 108389,
+        "sha256": "a7031b347213b74388802ef5428a906623f3ad82ff2b86fbe7b53c025678074f"
+      },
+      "/tmp/openswing-daedalus-reference-curve-20261024/extract.py": {
+        "bytes": 4822,
+        "sha256": "4282cc81ffcdb015b9ea4e038216f20939288045acf59645459882c57c39711e"
+      },
+      "/tmp/openswing-daedalus-reference-curve-20261024/extraction.json": {
+        "bytes": 2484,
+        "sha256": "4d390fd2fa617cd3928239fbd907315b65d4ce66f101c8e497c955716a3c3fca"
+      },
+      "/tmp/openswing-daedalus-reference-curve-20261024/yaw-reference.csv": {
+        "bytes": 7870,
+        "sha256": "0891450a32f0a97a427ac0a0b0da891b81c75f8ae5f46b6ef9590c0b94825224"
+      },
+      "/tmp/openswing-rudder-bode-research-20261024/finalize_convention_review.py": {
+        "bytes": 10002,
+        "sha256": "27725612b1359ad5aaf4ff6a5e18582f548b14371aabe98bb5a4f6790f4a6adc"
+      }
+    },
+    "limitations": [
+      "This validates extraction of the drawn magnitude curve, not original numerical samples.",
+      "No phase or matching operating point is established.",
+      "The .75-point envelope is an assumed graphic reading envelope, not a rigorous numerical error bound or physical uncertainty."
+    ]
+  },
+  "plot": {
+    "status": "DESCRIPTIVE_COMPARISON_OPERATING_POINT_UNMATCHED",
+    "source_pins": {
+      "reference_csv": {
+        "bytes": 7870,
+        "sha256": "0891450a32f0a97a427ac0a0b0da891b81c75f8ae5f46b6ef9590c0b94825224"
+      },
+      "8": {
+        "bytes": 5326967,
+        "sha256": "4548cbd5e3cdb92e31e23e47c472483348edc859da082911a431097e39811ef6"
+      },
+      "16": {
+        "bytes": 8199207,
+        "sha256": "99bf61158c1bbd53ab443e6374fec74ddb836f4e3a90e0a5e057b1ee6f1314fd"
+      }
+    },
+    "samples": {
+      "8": [
+        {
+          "frequency_Hz": 0.1,
+          "magnitude_deg_s_per_file_F3": 0.38141061109219354
+        },
+        {
+          "frequency_Hz": 1.0,
+          "magnitude_deg_s_per_file_F3": 0.027383064624543815
+        },
+        {
+          "frequency_Hz": 10.0,
+          "magnitude_deg_s_per_file_F3": 0.3445407894982572
+        }
+      ],
+      "16": [
+        {
+          "frequency_Hz": 0.1,
+          "magnitude_deg_s_per_file_F3": 0.3794802992039475
+        },
+        {
+          "frequency_Hz": 1.0,
+          "magnitude_deg_s_per_file_F3": 0.027371874241846044
+        },
+        {
+          "frequency_Hz": 10.0,
+          "magnitude_deg_s_per_file_F3": 0.3401786275340286
+        }
+      ]
+    },
+    "script_pin": {
+      "bytes": 3572,
+      "sha256": "06bf8e9001a0cff07b724e496fcdaed8750753c8f3a3f8d445802a3d620a2415"
+    },
+    "artifacts": {
+      "svg": {
+        "bytes": 85020,
+        "sha256": "3c538443c45390df368a3f28b78de4943d0e02abef213d29c76abc685860c5ff"
+      },
+      "png": {
+        "bytes": 123937,
+        "sha256": "15ec7a16cb56d65d66bdb2faee2d7d967278a52b2f209046c0a7305864c5bd91"
+      },
+      "pdf": {
+        "bytes": 23231,
+        "sha256": "6b8f40508821571a81fcf25e4942c8127a1489d0bff072a48863234d0355634d"
+      }
+    }
+  },
+  "plot_artifacts": [
+    "daedalus-rudder-mesh.svg",
+    "daedalus-rudder-mesh.png",
+    "daedalus-rudder-mesh.pdf"
+  ],
+  "reference_vertices": "daedalus-rudder-reference.csv",
+  "limitations": [
+    "No ASWING numerical or experimental validation is established.",
+    "Reference operating point and original discretization remain unspecified; no phase data are inferred from its magnitude drawing.",
+    "Only0.1/1/10Hz are checked. Resonant features require more frequencies and further mesh refinement.",
+    "No new32panel run, stability solve or dynamic derivative-step study was performed.",
+    "Numerical production source and full-goal completion states are unchanged."
+  ],
+  "next": [
+    "Further spatial refinement of complex transfer and trim, with identical conditions and original numerical gates.",
+    "Resolve the reference operating point if obtainable; continue independent aerodynamic/structural formulation comparisons without fitting to the drawing."
+  ],
+  "evidence_pins": {
+    "/tmp/openswing-daedalus-mesh16-20261024/plan.json": {
+      "bytes": 49699,
+      "sha256": "dbe4aa4a26d2c708bc1e3307abe40da66c7d8deb0bba5d9e97fbf5b6ab1ab278"
+    },
+    "/tmp/openswing-daedalus-mesh16-20261024/report.json": {
+      "bytes": 96785,
+      "sha256": "661df0a506ff749203781db3fd77c7b5e32ecdf425b0c91fac5814cd13869541"
+    },
+    "/tmp/openswing-daedalus-mesh16-20261024/session-closeout.json": {
+      "bytes": 2479,
+      "sha256": "8400cd4c02bd12ab87e2261cce14b7d9e48e41ef2ec3825919f1509d2aa896d6"
+    },
+    "/tmp/openswing-daedalus-mesh16-20261024/results/response.json": {
+      "bytes": 8199207,
+      "sha256": "99bf61158c1bbd53ab443e6374fec74ddb836f4e3a90e0a5e057b1ee6f1314fd"
+    },
+    "/tmp/openswing-daedalus-mesh16-20261024/review/reference/yaw-scalar-review.json": {
+      "bytes": 8194,
+      "sha256": "7ecfbd1a192737e4b08094221c0aea5d39c5907b322aac2f66f772d416e5a9c2"
+    },
+    "/tmp/openswing-rudder-bode-research-20261024/convention-review.json": {
+      "bytes": 14991,
+      "sha256": "d101b66492184ed7df65b9fdac0d13bfcdfa6f719d9732d1de6e36067e0f4dd2"
+    },
+    "/tmp/openswing-rudder-bode-research-20261024/kinematic-block-review.json": {
+      "bytes": 5684,
+      "sha256": "67580b223de0abe600a1fffeb18bb04baf67abd2de252f4b98cbf5c9d77a3c8d"
+    },
+    "/tmp/openswing-daedalus-reference-curve-20261024/extract.py": {
+      "bytes": 4822,
+      "sha256": "4282cc81ffcdb015b9ea4e038216f20939288045acf59645459882c57c39711e"
+    },
+    "/tmp/openswing-daedalus-reference-curve-20261024/extraction.json": {
+      "bytes": 2484,
+      "sha256": "4d390fd2fa617cd3928239fbd907315b65d4ce66f101c8e497c955716a3c3fca"
+    },
+    "/tmp/openswing-daedalus-reference-curve-20261024/independent-review.json": {
+      "bytes": 2859,
+      "sha256": "59298e55104015f2d009b0e808a00f1ce5ef3f424e1627545729cfc3764c1220"
+    },
+    "/tmp/openswing-daedalus-reference-curve-20261024/plot_comparison.py": {
+      "bytes": 3572,
+      "sha256": "06bf8e9001a0cff07b724e496fcdaed8750753c8f3a3f8d445802a3d620a2415"
+    },
+    "/tmp/openswing-daedalus-reference-curve-20261024/plot-report.json": {
+      "bytes": 1680,
+      "sha256": "7774e87b7ae68e5e2b459a9b6db6ccb7851b22cfd8ea7b897a18bc128d799128"
+    }
+  }
+}

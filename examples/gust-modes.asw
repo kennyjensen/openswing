@@ -1,0 +1,38 @@
+! Original OpenSwing gust-mode comparison reference, SI units.
+! Set speed=10, alpha=0, gravity=0, Mach=0 and use a fixed frame.
+! A drag point at (1.2,.6,-.3) has CDA=.4. For a unit Earth-z gust:
+! Fz = .5*rho*CDA*U * {cos,sin}(pi*n*.6) * exp(-i*omega*1.2/U).
+! The two sensors and Engine 1 provide station and unlike-unit comparisons.
+Name
+Gust-mode phase demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+End
+Ground
+1 0 0
+End
+Weight
+1 0 1.2 .6 -.3 0 .4 0
+End
+Engine
+1 0 1 0 0 0 0 0 1 0 1 0 -1 0 0
+End
+Sensor
+1 1 0 0 0 .2
+2 1 2 .3 2 .2
+End
+Beam 1
+Rigid reference axis
+t y
+0 0
+2 2
+End

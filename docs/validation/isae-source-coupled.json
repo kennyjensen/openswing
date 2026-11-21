@@ -1,0 +1,4708 @@
+{
+  "status": "PASS_SOURCE_COUPLED_IMPLEMENTATION_ARCHIVED_REFERENCE_INCOMPLETE",
+  "date": "2026-10-26",
+  "acceptance": "Reproduce tested archived ASWING outputs using original models/settings; experiment is optional.",
+  "policy": {
+    "beam_interpolation": "drela-segspl-v1",
+    "structural_operator": "drela-steady-coupled-v1"
+  },
+  "defaults_changed": false,
+  "goal_complete": false,
+  "native": {
+    "status": "PASS_SOURCE_COUPLED_PHYSICS_REFERENCE_INCOMPLETE",
+    "cases": {
+      "midpoint-80": {
+        "status": "PASS_PHYSICS_REFERENCE_RECORDED",
+        "case": "midpoint-80",
+        "checks_passed": 15,
+        "checks_total": 15,
+        "solve_seconds": 1.2064821099993424,
+        "fresh_residual": 4.0402994739636e-14,
+        "balances": {
+          "force": {
+            "defect": 1.6405326971842701e-12,
+            "scale": 4.682225877933661,
+            "relative": 3.503745312492833e-13
+          },
+          "moment": {
+            "defect": 2.6666286867207457e-12,
+            "scale": 1.0080209074231075,
+            "relative": 2.645410097234673e-12
+          }
+        },
+        "values": {
+          "RY_m": -0.025932669817737366,
+          "Psi_deg": -0.5741472164769754,
+          "sensor_V_m_s": 10.009076195432414,
+          "sensor_beta_deg": 6.14177475066669
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932669817737366,
+            "archived": -0.02582,
+            "difference": -0.00011266981773736667,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741472164769754,
+            "archived": -0.572223,
+            "difference": -0.0019242164769753822,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076195432414,
+            "archived": 10.0115,
+            "difference": -0.002423804567586174,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.14177475066669,
+            "archived": 6.27943,
+            "difference": -0.1376552493333092,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "reference_passed": 0,
+        "mesh_observables": {
+          "deflection": 0.025932669817737366,
+          "incremental_projected_twist": 0.5741472164769754
+        },
+        "operations": {
+          "cold_solves": 1,
+          "fresh_residuals": 1
+        },
+        "kernel_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "c4e356541c9f886bead8f01ce7f5ab6f494ac37fda76af90668e71948dbc616a",
+          "asw_edit.py": "1fc5ec1164d35ec46ed4a560f17801655717ee294029c5b02465f5ec50b5dc0a",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "b66d70792d761f45a03a03448b630f6ddc6f1ebb15768dbc01b30324e15dce98",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "f8d4ec302b179188a044790f1ea25aa3568b8da58d386956cc441743e6bea8d0",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "network.py": "2b424e21ab403d0189997a5f818aa9c2068f7e14891db7a3daf87387263bb880",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "5a4eedced0d35bb7d2d25edfb1024bea9d1c271f2ac152a60064812922a5564f",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "5f72f1295165cc1cc5fb59288847a8a8d024ffb8474e361ade9683803c9438d6",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "f83ce3ddac6894ddc9e2619abbac7327059f1b5d673b34ebf6835c83f457d56c",
+          "source_recovery.py": "1bb00183fad087647669602deaa7f18ce50ffe54e7883f707f7c39566e3d22d7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "1c2d6025c809ec41e6917a8a4c98cad7fa6cea2d71b5468c8c9944d3df4e7e88",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "request": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/request.json",
+          "bytes": 2944,
+          "sha256": "47a80ad483d109452f519a3fb62601b12a4480f6578ded912408012ed0e878f3"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/result.json",
+          "bytes": 495334,
+          "sha256": "cc0419cfcde41f911ffc0fd9385dc560155801cd444a4f6387098f5cd4f473c9"
+        }
+      },
+      "source-80": {
+        "status": "PASS_PHYSICS_REFERENCE_RECORDED",
+        "case": "source-80",
+        "checks_passed": 18,
+        "checks_total": 18,
+        "solve_seconds": 1.12166458399588,
+        "fresh_residual": 5.838038530370962e-13,
+        "balances": {
+          "force": {
+            "defect": 1.9585003217307185e-11,
+            "scale": 4.6822405375691165,
+            "relative": 4.182827229861871e-12
+          },
+          "moment": {
+            "defect": 1.1204246389914035e-11,
+            "scale": 1.0080253079260977,
+            "relative": 1.1115044733316817e-11
+          }
+        },
+        "values": {
+          "RY_m": -0.02593278352333023,
+          "Psi_deg": -0.5741583057070457,
+          "sensor_V_m_s": 10.009076264146463,
+          "sensor_beta_deg": 6.141789960822178
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.02593278352333023,
+            "archived": -0.02582,
+            "difference": -0.00011278352333023156,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741583057070457,
+            "archived": -0.572223,
+            "difference": -0.001935305707045698,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076264146463,
+            "archived": 10.0115,
+            "difference": -0.0024237358535366127,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.141789960822178,
+            "archived": 6.27943,
+            "difference": -0.1376400391778212,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "reference_passed": 0,
+        "mesh_observables": {
+          "deflection": 0.02593278352333023,
+          "incremental_projected_twist": 0.5741583057070457
+        },
+        "operations": {
+          "cold_solves": 1,
+          "fresh_residuals": 1
+        },
+        "kernel_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "c4e356541c9f886bead8f01ce7f5ab6f494ac37fda76af90668e71948dbc616a",
+          "asw_edit.py": "1fc5ec1164d35ec46ed4a560f17801655717ee294029c5b02465f5ec50b5dc0a",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "b66d70792d761f45a03a03448b630f6ddc6f1ebb15768dbc01b30324e15dce98",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "f8d4ec302b179188a044790f1ea25aa3568b8da58d386956cc441743e6bea8d0",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "network.py": "2b424e21ab403d0189997a5f818aa9c2068f7e14891db7a3daf87387263bb880",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "5a4eedced0d35bb7d2d25edfb1024bea9d1c271f2ac152a60064812922a5564f",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "5f72f1295165cc1cc5fb59288847a8a8d024ffb8474e361ade9683803c9438d6",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "f83ce3ddac6894ddc9e2619abbac7327059f1b5d673b34ebf6835c83f457d56c",
+          "source_recovery.py": "1bb00183fad087647669602deaa7f18ce50ffe54e7883f707f7c39566e3d22d7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "1c2d6025c809ec41e6917a8a4c98cad7fa6cea2d71b5468c8c9944d3df4e7e88",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "request": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/request.json",
+          "bytes": 3063,
+          "sha256": "336239ca13aa965afd294124aec6e238370ff4508b413b7510d3082350cbf264"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/result.json",
+          "bytes": 983647,
+          "sha256": "ce3b73404669f56a6a9e24b618a64317f6d9fcc9ca0322fd6457d4b938643f8e"
+        }
+      },
+      "midpoint-160": {
+        "status": "PASS_PHYSICS_REFERENCE_RECORDED",
+        "case": "midpoint-160",
+        "checks_passed": 15,
+        "checks_total": 15,
+        "solve_seconds": 5.385988025002007,
+        "fresh_residual": 6.06920808619167e-13,
+        "balances": {
+          "force": {
+            "defect": 5.5333231220181755e-11,
+            "scale": 4.682302321073098,
+            "relative": 1.1817526384648395e-11
+          },
+          "moment": {
+            "defect": 8.25891498934174e-11,
+            "scale": 1.008061948970049,
+            "relative": 8.192864533553705e-11
+          }
+        },
+        "values": {
+          "RY_m": -0.025932299651561835,
+          "Psi_deg": -0.5741716207643729,
+          "sensor_V_m_s": 10.009076754862354,
+          "sensor_beta_deg": 6.141831631539385
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932299651561835,
+            "archived": -0.02582,
+            "difference": -0.00011229965156183547,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741716207643729,
+            "archived": -0.572223,
+            "difference": -0.0019486207643728548,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076754862354,
+            "archived": 10.0115,
+            "difference": -0.00242324513764558,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.141831631539385,
+            "archived": 6.27943,
+            "difference": -0.13759836846061457,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "reference_passed": 0,
+        "mesh_observables": {
+          "deflection": 0.025932299651561835,
+          "incremental_projected_twist": 0.5741716207643729
+        },
+        "operations": {
+          "cold_solves": 1,
+          "fresh_residuals": 1
+        },
+        "kernel_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "c4e356541c9f886bead8f01ce7f5ab6f494ac37fda76af90668e71948dbc616a",
+          "asw_edit.py": "1fc5ec1164d35ec46ed4a560f17801655717ee294029c5b02465f5ec50b5dc0a",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "b66d70792d761f45a03a03448b630f6ddc6f1ebb15768dbc01b30324e15dce98",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "f8d4ec302b179188a044790f1ea25aa3568b8da58d386956cc441743e6bea8d0",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "network.py": "2b424e21ab403d0189997a5f818aa9c2068f7e14891db7a3daf87387263bb880",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "5a4eedced0d35bb7d2d25edfb1024bea9d1c271f2ac152a60064812922a5564f",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "5f72f1295165cc1cc5fb59288847a8a8d024ffb8474e361ade9683803c9438d6",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "f83ce3ddac6894ddc9e2619abbac7327059f1b5d673b34ebf6835c83f457d56c",
+          "source_recovery.py": "1bb00183fad087647669602deaa7f18ce50ffe54e7883f707f7c39566e3d22d7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "1c2d6025c809ec41e6917a8a4c98cad7fa6cea2d71b5468c8c9944d3df4e7e88",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "request": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/request.json",
+          "bytes": 2946,
+          "sha256": "5b65a79314cbb65ff2086ebf7141534a5a88f2260523a12797c6e699fe103054"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/result.json",
+          "bytes": 951552,
+          "sha256": "702b10dc79e27de04c9ebbb07cd87a81cf7212ffa0f623920017e9aff6edab24"
+        }
+      },
+      "source-160": {
+        "status": "PASS_PHYSICS_REFERENCE_RECORDED",
+        "case": "source-160",
+        "checks_passed": 18,
+        "checks_total": 18,
+        "solve_seconds": 1.618662865999795,
+        "fresh_residual": 7.15669133938113e-13,
+        "balances": {
+          "force": {
+            "defect": 2.0810432712222506e-11,
+            "scale": 4.6823059853125075,
+            "relative": 4.444483717531666e-12
+          },
+          "moment": {
+            "defect": 9.248361039031814e-12,
+            "scale": 1.0080630487598476,
+            "relative": 9.174387505235364e-12
+          }
+        },
+        "values": {
+          "RY_m": -0.025932328082524544,
+          "Psi_deg": -0.57417438522535,
+          "sensor_V_m_s": 10.009076772046543,
+          "sensor_beta_deg": 6.1418354265649056
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932328082524544,
+            "archived": -0.02582,
+            "difference": -0.00011232808252454457,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.57417438522535,
+            "archived": -0.572223,
+            "difference": -0.0019513852253499886,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076772046543,
+            "archived": 10.0115,
+            "difference": -0.0024232279534572854,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.1418354265649056,
+            "archived": 6.27943,
+            "difference": -0.13759457343509407,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "reference_passed": 0,
+        "mesh_observables": {
+          "deflection": 0.025932328082524544,
+          "incremental_projected_twist": 0.57417438522535
+        },
+        "operations": {
+          "cold_solves": 1,
+          "fresh_residuals": 1
+        },
+        "kernel_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "c4e356541c9f886bead8f01ce7f5ab6f494ac37fda76af90668e71948dbc616a",
+          "asw_edit.py": "1fc5ec1164d35ec46ed4a560f17801655717ee294029c5b02465f5ec50b5dc0a",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "b66d70792d761f45a03a03448b630f6ddc6f1ebb15768dbc01b30324e15dce98",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "f8d4ec302b179188a044790f1ea25aa3568b8da58d386956cc441743e6bea8d0",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+          "network.py": "2b424e21ab403d0189997a5f818aa9c2068f7e14891db7a3daf87387263bb880",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "5a4eedced0d35bb7d2d25edfb1024bea9d1c271f2ac152a60064812922a5564f",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "5f72f1295165cc1cc5fb59288847a8a8d024ffb8474e361ade9683803c9438d6",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "f83ce3ddac6894ddc9e2619abbac7327059f1b5d673b34ebf6835c83f457d56c",
+          "source_recovery.py": "1bb00183fad087647669602deaa7f18ce50ffe54e7883f707f7c39566e3d22d7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "1c2d6025c809ec41e6917a8a4c98cad7fa6cea2d71b5468c8c9944d3df4e7e88",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "request": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/request.json",
+          "bytes": 3065,
+          "sha256": "e6551782a185fc67dc798bdcd1c34319fa26ffb5adb8aec31c97971b647728da"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/result.json",
+          "bytes": 1923500,
+          "sha256": "dad77b154055d297a2459224d0ba5f2d8c299cb97adb15a6c1537923cacbe1fe"
+        }
+      }
+    },
+    "mesh": {
+      "midpoint": {
+        "deflection": {
+          "coarse": 0.025932669817737366,
+          "fine": 0.025932299651561835,
+          "relative_change": 1.4274328945173655e-05,
+          "passed": true
+        },
+        "incremental_projected_twist": {
+          "coarse": 0.5741472164769754,
+          "fine": 0.5741716207643729,
+          "relative_change": 4.250347198453326e-05,
+          "passed": true
+        }
+      },
+      "source": {
+        "deflection": {
+          "coarse": 0.02593278352333023,
+          "fine": 0.025932328082524544,
+          "relative_change": 1.7562665574708133e-05,
+          "passed": true
+        },
+        "incremental_projected_twist": {
+          "coarse": 0.5741583057070457,
+          "fine": 0.57417438522535,
+          "relative_change": 2.8004590100235343e-05,
+          "passed": true
+        }
+      }
+    },
+    "checks_passed": 66,
+    "checks_total": 66,
+    "operations": {
+      "cold_solves": 4,
+      "fresh_residuals": 4
+    },
+    "plan": {
+      "path": "/tmp/openswing-source-coupled-native-20261026/plan.json",
+      "bytes": 51941,
+      "sha256": "9fb5a278c159dbb07b5c52c6a1fe526885a2b147b34e0774171279f9bce73502"
+    },
+    "acceptance": "All four original archived output channels and printed half-units retained. No experimental matching or fitted parameters.",
+    "scope": "Frozen-influence PG0 candidate with declared atmosphere/pose; historical ASWING K/F/PG/mesh and sensor implementation remain unknown."
+  },
+  "browser": {
+    "status": "PASS_OFFLINE_SOURCE_COUPLED_UI_AND_FOUR_PROJECT_POLICIES",
+    "startup_seconds": 59.019897128,
+    "solve_seconds": null,
+    "total_seconds": 112.35748865299999,
+    "gates": {
+      "absolute": 2e-08,
+      "relative": 2e-08,
+      "residual": 1e-08
+    },
+    "exclusions": [
+      "evaluations"
+    ],
+    "exclusion_reason": "Execution counter only; no physical outputs excluded.",
+    "parity": {
+      "numeric": 44049,
+      "leaves": 48080,
+      "max_absolute": 9.034717418643368e-13,
+      "max_fraction": 3.807197349573262e-05,
+      "worst": "trefftz.velocity_body[1][1]"
+    },
+    "request_counts": {
+      "inspect": 10,
+      "distribution": 9
+    },
+    "page_errors": [],
+    "network_failures": [],
+    "offline_requests": [],
+    "original_run": {
+      "startup_seconds": 42.345567194,
+      "solve_seconds": 5.613628909999999,
+      "parity": {
+        "numeric": 44049,
+        "leaves": 48080,
+        "max_absolute": 9.034717418643368e-13,
+        "max_fraction": 3.807197349573262e-05,
+        "worst": "trefftz.velocity_body[1][1]"
+      },
+      "solves": 1
+    },
+    "planned_solves": 0
+  },
+  "browser_checks": {
+    "passed": 1110,
+    "total": 1110
+  },
+  "browser_startup_scope": "Verifier preflight plus browser/runtime initialization; separate from solve, one host run.",
+  "tests": {
+    "focused": 8,
+    "synthetic_solves": 2,
+    "existing_regressions": 100,
+    "python_boundary": 181,
+    "python_boundary_solve_tests_deselected": 5,
+    "javascript": 29
+  },
+  "independent_audit": {
+    "status": "PASS",
+    "checks_passed": 605,
+    "checks_total": 605,
+    "checks": [
+      {
+        "name": "native_terminal",
+        "passed": true
+      },
+      {
+        "name": "native_children_reaped",
+        "passed": true
+      },
+      {
+        "name": "owner_terminal_reaped",
+        "passed": true
+      },
+      {
+        "name": "four_cases_exact",
+        "passed": true
+      },
+      {
+        "name": "summary_plan_pin",
+        "passed": true
+      },
+      {
+        "name": "summary_operations",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/__init__.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/aero.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/applied_load_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/arc_length.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/asw.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/asw_edit.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/atmosphere.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/beam_matching.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/beam_spline.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/body_shoulders.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/bridge.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/circulation.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/circulation_polish.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/circulation_solve.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/circulation_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/control_allocation.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/control_expressions.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/control_tables.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/custom_constraints.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/damping.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/derivative_cache.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/derivative_circulation.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/derivatives.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/descriptor_mass.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/discretization.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/distribution_curve.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/dynamic_inertia.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/equilibrium_state.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/equilibrium_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/factored_influence.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/feedback.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/field_products.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/flow_survey.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/forcing.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/frequency_response.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/frequency_sweep.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/frozen_influence.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/geometry.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/geometry_field_partials.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/geometry_partials.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/geometry_stencil.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/geometry_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/ground.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/gust.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/gust_file.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/gust_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/harmonic_structure.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/hinge_history.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/inertia.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/initial_diagnostics.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/initial_response.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/joints.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/kinematics.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/legacy_hinge_state.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/linear_dynamics.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/local_geometry_matrix.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/local_motion.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/local_rate_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/mechanical_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/network.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/newton_structure.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/nonlinear_initial.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/numerical_policy.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/operating.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/output_derivatives.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/output_fields.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/position_history_checkpoint.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/position_history_lift.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/position_history_radau.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/power_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/propulsion.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/quiescent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/radau_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/radau_time.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/recovery.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/reduced_model.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/reference_flow.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/rigid_initial_rank.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/rom_file.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/rom_initial.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/rom_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/root_diagnostics.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/seeded_corrector.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/sensors.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/source_coupled.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/source_discrete.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/source_recovery.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/sparse_rank.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/stability.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/steady_feedback.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structural_geometry.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structural_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structure.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structured_radau.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structured_static.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/structured_time.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/struts.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/support_outputs.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/tangent_influences.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_acceptance.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_acceptance_validation.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_accuracy.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_cold_initial.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_history.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_initialization.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_input_transition.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_integration.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_result_storage.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_saved_history.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_state.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/time_transition_initial.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/trefftz.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/vector_ops.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/volume.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/volume_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/vortex_tangent.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/openswing/wall_root.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/scripts/verify-source-coupled-integration.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/tests/test_source_coupled.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/tests/test_source_sections.py",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/asw-editor.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/case-settings.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/control-allocation.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/custom-constraints.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/derivative-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/distribution-editor.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/distribution-history.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/dynamic-frame.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/equilibrium-state.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/feedback-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/flow-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-axes.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-comparison.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-frame-help.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-overlay-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-overlays.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/frequency-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/ground-grid.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/gust-settings.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/loading-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/main.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/mode-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/node-editor.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/numerical-policy.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/plot-colors.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/project-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/project-settings.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/quiescent-settings.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/responsive-workbench.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/rom-file.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/rom-initial.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/rom-outputs.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/rom-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/saved-state-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/sensor-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/software-viewer.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/solution-data.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/solve-progress.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/stability-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/structure-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-accuracy.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-actuators.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-checkpoint.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-history-targets.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-initial.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-result-storage.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-target-results.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/time-timeline.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/viewer.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/home/userland/aswing/web/worker.js",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-aero-case-audit-20261026/report.json",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-aero-primary-20261026/oracles.json",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-aero-primary-20261026/spec.md",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/request.json",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/request.json",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-coupled-native-20261026/cases/source-160/request.json",
+        "passed": true
+      },
+      {
+        "name": "native_plan_pin:/tmp/openswing-source-coupled-native-20261026/cases/source-80/request.json",
+        "passed": true
+      },
+      {
+        "name": "literal_pin:model",
+        "passed": true
+      },
+      {
+        "name": "literal_pin:archive",
+        "passed": true
+      },
+      {
+        "name": "literal_pin:commands",
+        "passed": true
+      },
+      {
+        "name": "literal_sensor_definition",
+        "passed": true
+      },
+      {
+        "name": "literal_constants",
+        "passed": true
+      },
+      {
+        "name": "literal_reference_origin",
+        "passed": true
+      },
+      {
+        "name": "literal_no_point_or_engine_loads",
+        "passed": true
+      },
+      {
+        "name": "literal_property_rows_complete",
+        "passed": true
+      },
+      {
+        "name": "literal_straight_axis",
+        "passed": true
+      },
+      {
+        "name": "literal_constant_weight",
+        "passed": true
+      },
+      {
+        "name": "literal_centroid_axis",
+        "passed": true
+      },
+      {
+        "name": "archive_exact_raw_line",
+        "passed": true
+      },
+      {
+        "name": "archive_four_channels",
+        "passed": true
+      },
+      {
+        "name": "archive_index_not_speed",
+        "passed": true
+      },
+      {
+        "name": "archive_half_unit:RY_m",
+        "passed": true
+      },
+      {
+        "name": "archive_half_unit:Psi_deg",
+        "passed": true
+      },
+      {
+        "name": "archive_half_unit:sensor_V_m_s",
+        "passed": true
+      },
+      {
+        "name": "archive_half_unit:sensor_beta_deg",
+        "passed": true
+      },
+      {
+        "name": "commanded_beta",
+        "passed": true
+      },
+      {
+        "name": "commanded_speed_locator",
+        "passed": true
+      },
+      {
+        "name": "command_to_stack_row",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:literal_source",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:expected_counts",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:raw_shapes",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:identity_pose_and_stationary",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:native_setting",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:source",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:panels",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:condition",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:operating_constraints",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:controller",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:paired_request:strut_mode",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:request_policy",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:report_request_pin",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:report_result_pin",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:report_operations",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:summary_case_fields",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:physical_report_status",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:report_check_count",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:saved_node_positions",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 246
+      },
+      {
+        "name": "midpoint-80:saved_node_rotations",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 738
+      },
+      {
+        "name": "midpoint-80:literal_jig_geometry",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-16,
+        "atol": 2e-15,
+        "rtol": 2e-12,
+        "compared_scalars": 246
+      },
+      {
+        "name": "midpoint-80:clamp_position",
+        "passed": true,
+        "maximum_absolute_error": 4.471420207232062e-28,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:clamp_rotation",
+        "passed": true,
+        "maximum_absolute_error": 1.1580521091209705e-26,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-80:raw_residual_gate",
+        "passed": true,
+        "maximum": 4.0402994739636e-14
+      },
+      {
+        "name": "midpoint-80:reported_fresh_residual",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 0,
+        "rtol": 0,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:sensor_pylon_position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:sensor_axes",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-80:body_flow_sensor_projection",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:body_flow_components",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:known_kinematic_wind",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:solved:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:solved:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-80:solved:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:solved:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:solved:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:solved:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 8.881784197001252e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:restored:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:restored:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-80:restored:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:restored:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:restored:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:restored:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 8.881784197001252e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:RY_m:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:RY_m:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:RY_m:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:RY_m:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:RY_m:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:reference:Psi_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:Psi_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:Psi_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:Psi_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:Psi_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:reference:sensor_V_m_s:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_V_m_s:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_V_m_s:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_V_m_s:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_V_m_s:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:reference:sensor_beta_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 8.881784197001252e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_beta_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_beta_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 8.881784197001252e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_beta_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:reference:sensor_beta_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:reference_pass_count",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:strip_force_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:strip_moment_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:raw_strips:force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "midpoint-80:raw_strips:moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "midpoint-80:raw_strips:position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "midpoint-80:saved_endpoint_total_force",
+        "passed": true,
+        "maximum_absolute_error": 2.220446049250313e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:saved_endpoint_total_moment",
+        "passed": true,
+        "maximum_absolute_error": 2.7755575615628914e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:single_ground_reaction",
+        "passed": true
+      },
+      {
+        "name": "midpoint-80:support_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:support_moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-80:independent_force_balance_gate",
+        "passed": true,
+        "relative": 3.5034598683387724e-13
+      },
+      {
+        "name": "midpoint-80:balance_report:force:defect",
+        "passed": true,
+        "maximum_absolute_error": 1.3365140048463892e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:balance_report:force:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:balance_report:force:relative",
+        "passed": true,
+        "maximum_absolute_error": 2.8544415406034853e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:independent_moment_balance_gate",
+        "passed": true,
+        "relative": 2.645410960305983e-12
+      },
+      {
+        "name": "midpoint-80:balance_report:moment:defect",
+        "passed": true,
+        "maximum_absolute_error": 8.699939252483624e-19,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:balance_report:moment:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-80:balance_report:moment:relative",
+        "passed": true,
+        "maximum_absolute_error": 8.630713100747333e-19,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:literal_source",
+        "passed": true
+      },
+      {
+        "name": "source-80:expected_counts",
+        "passed": true
+      },
+      {
+        "name": "source-80:raw_shapes",
+        "passed": true
+      },
+      {
+        "name": "source-80:identity_pose_and_stationary",
+        "passed": true
+      },
+      {
+        "name": "source-80:native_setting",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:source",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:panels",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:condition",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:operating_constraints",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:controller",
+        "passed": true
+      },
+      {
+        "name": "source-80:paired_request:strut_mode",
+        "passed": true
+      },
+      {
+        "name": "source-80:request_policy",
+        "passed": true
+      },
+      {
+        "name": "source-80:report_request_pin",
+        "passed": true
+      },
+      {
+        "name": "source-80:report_result_pin",
+        "passed": true
+      },
+      {
+        "name": "source-80:report_operations",
+        "passed": true
+      },
+      {
+        "name": "source-80:summary_case_fields",
+        "passed": true
+      },
+      {
+        "name": "source-80:physical_report_status",
+        "passed": true
+      },
+      {
+        "name": "source-80:report_check_count",
+        "passed": true
+      },
+      {
+        "name": "source-80:saved_node_positions",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 246
+      },
+      {
+        "name": "source-80:saved_node_rotations",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 738
+      },
+      {
+        "name": "source-80:literal_jig_geometry",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-16,
+        "atol": 2e-15,
+        "rtol": 2e-12,
+        "compared_scalars": 246
+      },
+      {
+        "name": "source-80:clamp_position",
+        "passed": true,
+        "maximum_absolute_error": 1.5963555292769172e-25,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:clamp_rotation",
+        "passed": true,
+        "maximum_absolute_error": 1.927811069460075e-25,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-80:raw_residual_gate",
+        "passed": true,
+        "maximum": 5.838038530370962e-13
+      },
+      {
+        "name": "source-80:reported_fresh_residual",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 0,
+        "rtol": 0,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:sensor_pylon_position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:sensor_axes",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-80:body_flow_sensor_projection",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:body_flow_components",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:known_kinematic_wind",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:solved:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:solved:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-80:solved:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:solved:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:solved:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:solved:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:restored:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:restored:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-80:restored:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:restored:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:restored:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:restored:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:RY_m:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:RY_m:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:RY_m:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:RY_m:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:RY_m:passed",
+        "passed": true
+      },
+      {
+        "name": "source-80:reference:Psi_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:Psi_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:Psi_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:Psi_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:Psi_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "source-80:reference:sensor_V_m_s:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_V_m_s:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_V_m_s:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_V_m_s:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_V_m_s:passed",
+        "passed": true
+      },
+      {
+        "name": "source-80:reference:sensor_beta_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_beta_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_beta_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_beta_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:reference:sensor_beta_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "source-80:reference_pass_count",
+        "passed": true
+      },
+      {
+        "name": "source-80:strip_force_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:strip_moment_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:raw_strips:force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:raw_strips:moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:raw_strips:position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:independent_gravity_force",
+        "passed": true,
+        "maximum_absolute_error": 2.0816681711721685e-16,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:source_endpoint_force",
+        "passed": true,
+        "maximum_absolute_error": 1.0408340855860843e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "source-80:source_endpoint_couple",
+        "passed": true,
+        "maximum_absolute_error": 5.854691731421724e-18,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "source-80:symmetric_aero_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:symmetric_aero_couple",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 243
+      },
+      {
+        "name": "source-80:aero_wrench_origin:0",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:aero_wrench_origin:1",
+        "passed": true,
+        "maximum_absolute_error": 1.3877787807814457e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:aero_wrench_origin:2",
+        "passed": true,
+        "maximum_absolute_error": 2.6645352591003757e-15,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:independent_total_applied_force",
+        "passed": true,
+        "maximum_absolute_error": 6.661338147750939e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:independent_total_applied_moment",
+        "passed": true,
+        "maximum_absolute_error": 2.7755575615628914e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:source_identity",
+        "passed": true
+      },
+      {
+        "name": "source-80:saved_endpoint_total_force",
+        "passed": true,
+        "maximum_absolute_error": 8.881784197001252e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:saved_endpoint_total_moment",
+        "passed": true,
+        "maximum_absolute_error": 2.220446049250313e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:single_ground_reaction",
+        "passed": true
+      },
+      {
+        "name": "source-80:support_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:support_moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-80:independent_force_balance_gate",
+        "passed": true,
+        "relative": 4.182601823316487e-12
+      },
+      {
+        "name": "source-80:balance_report:force:defect",
+        "passed": true,
+        "maximum_absolute_error": 1.0554076642308259e-15,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:balance_report:force:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:balance_report:force:relative",
+        "passed": true,
+        "maximum_absolute_error": 2.254065453841205e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:independent_moment_balance_gate",
+        "passed": true,
+        "relative": 1.1115140203725832e-11
+      },
+      {
+        "name": "source-80:balance_report:moment:defect",
+        "passed": true,
+        "maximum_absolute_error": 9.623658844799346e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:balance_report:moment:scale",
+        "passed": true,
+        "maximum_absolute_error": 2.220446049250313e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-80:balance_report:moment:relative",
+        "passed": true,
+        "maximum_absolute_error": 9.547040901449883e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:literal_source",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:expected_counts",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:raw_shapes",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:identity_pose_and_stationary",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:native_setting",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:source",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:panels",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:condition",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:operating_constraints",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:controller",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:paired_request:strut_mode",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:request_policy",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:report_request_pin",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:report_result_pin",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:report_operations",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:summary_case_fields",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:physical_report_status",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:report_check_count",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:saved_node_positions",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "midpoint-160:saved_node_rotations",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 1458
+      },
+      {
+        "name": "midpoint-160:literal_jig_geometry",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-16,
+        "atol": 2e-15,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "midpoint-160:clamp_position",
+        "passed": true,
+        "maximum_absolute_error": 1.2316786299958415e-25,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:clamp_rotation",
+        "passed": true,
+        "maximum_absolute_error": 1.1210180048766982e-24,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-160:raw_residual_gate",
+        "passed": true,
+        "maximum": 6.06920808619167e-13
+      },
+      {
+        "name": "midpoint-160:reported_fresh_residual",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 0,
+        "rtol": 0,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:sensor_pylon_position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:sensor_axes",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-160:body_flow_sensor_projection",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:body_flow_components",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:known_kinematic_wind",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:solved:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:solved:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-160:solved:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:solved:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:solved:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:solved:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:restored:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:restored:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "midpoint-160:restored:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:restored:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:restored:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:restored:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:RY_m:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:RY_m:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:RY_m:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:RY_m:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:RY_m:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:reference:Psi_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:Psi_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:Psi_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:Psi_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:Psi_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:reference:sensor_V_m_s:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_V_m_s:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_V_m_s:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_V_m_s:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_V_m_s:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:reference:sensor_beta_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_beta_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_beta_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_beta_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:reference:sensor_beta_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:reference_pass_count",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:strip_force_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:strip_moment_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:raw_strips:force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "midpoint-160:raw_strips:moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "midpoint-160:raw_strips:position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "midpoint-160:saved_endpoint_total_force",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-15,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:saved_endpoint_total_moment",
+        "passed": true,
+        "maximum_absolute_error": 5.551115123125783e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:single_ground_reaction",
+        "passed": true
+      },
+      {
+        "name": "midpoint-160:support_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:support_moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "midpoint-160:independent_force_balance_gate",
+        "passed": true,
+        "relative": 1.1817606267060374e-11
+      },
+      {
+        "name": "midpoint-160:balance_report:force:defect",
+        "passed": true,
+        "maximum_absolute_error": 3.7403360302595253e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:balance_report:force:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:balance_report:force:relative",
+        "passed": true,
+        "maximum_absolute_error": 7.988241197940859e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:independent_moment_balance_gate",
+        "passed": true,
+        "relative": 8.192870209389588e-11
+      },
+      {
+        "name": "midpoint-160:balance_report:moment:defect",
+        "passed": true,
+        "maximum_absolute_error": 5.721594181967621e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:balance_report:moment:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint-160:balance_report:moment:relative",
+        "passed": true,
+        "maximum_absolute_error": 5.675835883017456e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:literal_source",
+        "passed": true
+      },
+      {
+        "name": "source-160:expected_counts",
+        "passed": true
+      },
+      {
+        "name": "source-160:raw_shapes",
+        "passed": true
+      },
+      {
+        "name": "source-160:identity_pose_and_stationary",
+        "passed": true
+      },
+      {
+        "name": "source-160:native_setting",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:source",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:panels",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:condition",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:operating_constraints",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:controller",
+        "passed": true
+      },
+      {
+        "name": "source-160:paired_request:strut_mode",
+        "passed": true
+      },
+      {
+        "name": "source-160:request_policy",
+        "passed": true
+      },
+      {
+        "name": "source-160:report_request_pin",
+        "passed": true
+      },
+      {
+        "name": "source-160:report_result_pin",
+        "passed": true
+      },
+      {
+        "name": "source-160:report_operations",
+        "passed": true
+      },
+      {
+        "name": "source-160:summary_case_fields",
+        "passed": true
+      },
+      {
+        "name": "source-160:physical_report_status",
+        "passed": true
+      },
+      {
+        "name": "source-160:report_check_count",
+        "passed": true
+      },
+      {
+        "name": "source-160:saved_node_positions",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "source-160:saved_node_rotations",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 1458
+      },
+      {
+        "name": "source-160:literal_jig_geometry",
+        "passed": true,
+        "maximum_absolute_error": 1.1102230246251565e-16,
+        "atol": 2e-15,
+        "rtol": 2e-12,
+        "compared_scalars": 486
+      },
+      {
+        "name": "source-160:clamp_position",
+        "passed": true,
+        "maximum_absolute_error": 1.1542835132467903e-25,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:clamp_rotation",
+        "passed": true,
+        "maximum_absolute_error": 1.0347553056572083e-24,
+        "atol": 1e-10,
+        "rtol": 0,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-160:raw_residual_gate",
+        "passed": true,
+        "maximum": 7.15669133938113e-13
+      },
+      {
+        "name": "source-160:reported_fresh_residual",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 0,
+        "rtol": 0,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:sensor_pylon_position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:sensor_axes",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-160:body_flow_sensor_projection",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:body_flow_components",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:known_kinematic_wind",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:solved:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:solved:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-160:solved:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:solved:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:solved:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:solved:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:restored:sensor_position_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:restored:sensor_axes_earth",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 9
+      },
+      {
+        "name": "source-160:restored:RY_m",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:restored:Psi_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:restored:sensor_V_m_s",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:restored:sensor_beta_deg",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:RY_m:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:RY_m:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:RY_m:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:RY_m:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:RY_m:passed",
+        "passed": true
+      },
+      {
+        "name": "source-160:reference:Psi_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:Psi_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:Psi_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:Psi_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:Psi_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "source-160:reference:sensor_V_m_s:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_V_m_s:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_V_m_s:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_V_m_s:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_V_m_s:passed",
+        "passed": true
+      },
+      {
+        "name": "source-160:reference:sensor_beta_deg:value",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_beta_deg:archived",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_beta_deg:difference",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_beta_deg:half_unit",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:reference:sensor_beta_deg:passed",
+        "passed": true
+      },
+      {
+        "name": "source-160:reference_pass_count",
+        "passed": true
+      },
+      {
+        "name": "source-160:strip_force_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:strip_moment_sum",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:raw_strips:force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:raw_strips:moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:raw_strips:position",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:independent_gravity_force",
+        "passed": true,
+        "maximum_absolute_error": 2.402592014227878e-16,
+        "atol": 2e-12,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:source_endpoint_force",
+        "passed": true,
+        "maximum_absolute_error": 1.201296007113939e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 966
+      },
+      {
+        "name": "source-160:source_endpoint_couple",
+        "passed": true,
+        "maximum_absolute_error": 6.735605996566196e-18,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 966
+      },
+      {
+        "name": "source-160:symmetric_aero_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:symmetric_aero_couple",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 483
+      },
+      {
+        "name": "source-160:aero_wrench_origin:0",
+        "passed": true,
+        "maximum_absolute_error": 5.551115123125783e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:aero_wrench_origin:1",
+        "passed": true,
+        "maximum_absolute_error": 6.938893903907228e-18,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:aero_wrench_origin:2",
+        "passed": true,
+        "maximum_absolute_error": 3.552713678800501e-15,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:independent_total_applied_force",
+        "passed": true,
+        "maximum_absolute_error": 6.661338147750939e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:independent_total_applied_moment",
+        "passed": true,
+        "maximum_absolute_error": 5.551115123125783e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:source_identity",
+        "passed": true
+      },
+      {
+        "name": "source-160:saved_endpoint_total_force",
+        "passed": true,
+        "maximum_absolute_error": 2.220446049250313e-16,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:saved_endpoint_total_moment",
+        "passed": true,
+        "maximum_absolute_error": 4.163336342344337e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:single_ground_reaction",
+        "passed": true
+      },
+      {
+        "name": "source-160:support_force",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:support_moment",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 3
+      },
+      {
+        "name": "source-160:independent_force_balance_gate",
+        "passed": true,
+        "relative": 4.444476066859934e-12
+      },
+      {
+        "name": "source-160:balance_report:force:defect",
+        "passed": true,
+        "maximum_absolute_error": 3.582278604511384e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:balance_report:force:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:balance_report:force:relative",
+        "passed": true,
+        "maximum_absolute_error": 7.650671732426815e-18,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:independent_moment_balance_gate",
+        "passed": true,
+        "relative": 9.174360114964837e-12
+      },
+      {
+        "name": "source-160:balance_report:moment:defect",
+        "passed": true,
+        "maximum_absolute_error": 2.761111961426779e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:balance_report:moment:scale",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source-160:balance_report:moment:relative",
+        "passed": true,
+        "maximum_absolute_error": 2.7390270526812936e-17,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:deflection:coarse",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:deflection:fine",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:deflection:relative_change",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:deflection:passed",
+        "passed": true
+      },
+      {
+        "name": "midpoint:mesh:incremental_projected_twist:coarse",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:incremental_projected_twist:fine",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:incremental_projected_twist:relative_change",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "midpoint:mesh:incremental_projected_twist:passed",
+        "passed": true
+      },
+      {
+        "name": "source:mesh:deflection:coarse",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:deflection:fine",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:deflection:relative_change",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:deflection:passed",
+        "passed": true
+      },
+      {
+        "name": "source:mesh:incremental_projected_twist:coarse",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:incremental_projected_twist:fine",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:incremental_projected_twist:relative_change",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-10,
+        "rtol": 2e-12,
+        "compared_scalars": 1
+      },
+      {
+        "name": "source:mesh:incremental_projected_twist:passed",
+        "passed": true
+      },
+      {
+        "name": "paired_topology:80",
+        "passed": true
+      },
+      {
+        "name": "paired_grid:80",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-12,
+        "rtol": 0,
+        "compared_scalars": 164
+      },
+      {
+        "name": "paired_jig_nodes:80",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-12,
+        "rtol": 0,
+        "compared_scalars": 246
+      },
+      {
+        "name": "paired_topology:160",
+        "passed": true
+      },
+      {
+        "name": "paired_grid:160",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-12,
+        "rtol": 0,
+        "compared_scalars": 324
+      },
+      {
+        "name": "paired_jig_nodes:160",
+        "passed": true,
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-12,
+        "rtol": 0,
+        "compared_scalars": 486
+      },
+      {
+        "name": "summary_check_count",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/plan.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/summary.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/execution.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/owner-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/request.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/restored-result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/report.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/fresh-fields.npz",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-80/request.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-80/result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-80/restored-result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-80/report.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-80/fresh-fields.npz",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/request.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/restored-result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/report.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/fresh-fields.npz",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-160/request.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-160/result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-160/restored-result.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-160/report.json",
+        "passed": true
+      },
+      {
+        "name": "input_unchanged:/tmp/openswing-source-coupled-native-20261026/cases/source-160/fresh-fields.npz",
+        "passed": true
+      }
+    ],
+    "inputs": [
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/plan.json",
+        "bytes": 51941,
+        "sha256": "9fb5a278c159dbb07b5c52c6a1fe526885a2b147b34e0774171279f9bce73502"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/summary.json",
+        "bytes": 56436,
+        "sha256": "25ab7e9ddbc0247b8f53b1d6fa87121a66abcd6d112f499712235ac406f8e9ac"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/execution.json",
+        "bytes": 1719,
+        "sha256": "0e730be148e0df428f0f9e30c22570fe4b422a8691f68a8339e4fdaa9fd64a1c"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/owner-receipt.json",
+        "bytes": 156,
+        "sha256": "dd39848f329ba18107501d2b23a83abbdf2da731cb4b1aaa863fe92e163f5e56"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90].asw",
+        "bytes": 1705,
+        "sha256": "eb35a50606bcceee263352cbd40ffd509b504082c78ba61732ad52ce03193db8"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[03_90]_A5.txt",
+        "bytes": 1816,
+        "sha256": "0532d6ebde7fd8e64a39ef90adcc10e05d887bbc4c6af92398ff10f7c3dae34e"
+      },
+      {
+        "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection/[0_90]_3s_A5.sh",
+        "bytes": 330,
+        "sha256": "e1d4677898df6ffeb63c681f7b1cb44f94b27b9e607066e4df2ddf0cb20b2244"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/request.json",
+        "bytes": 2944,
+        "sha256": "47a80ad483d109452f519a3fb62601b12a4480f6578ded912408012ed0e878f3"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/result.json",
+        "bytes": 495334,
+        "sha256": "cc0419cfcde41f911ffc0fd9385dc560155801cd444a4f6387098f5cd4f473c9"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/restored-result.json",
+        "bytes": 439884,
+        "sha256": "f3f8918250d423522a012ee204596d96a3c9010a999c9e57b459621743c38b39"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/report.json",
+        "bytes": 14245,
+        "sha256": "70d066f0af5ff1eeda63756fbbc73786ad8d0f1587adb0c737d2c1e402ea60fe"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-80/fresh-fields.npz",
+        "bytes": 34681,
+        "sha256": "5cab18dde0b27ecf3fe647f8adc34289493322ada71b7dd7bbf00458325e81d4"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/request.json",
+        "bytes": 3063,
+        "sha256": "336239ca13aa965afd294124aec6e238370ff4508b413b7510d3082350cbf264"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/result.json",
+        "bytes": 983647,
+        "sha256": "ce3b73404669f56a6a9e24b618a64317f6d9fcc9ca0322fd6457d4b938643f8e"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/restored-result.json",
+        "bytes": 848571,
+        "sha256": "e3e4aec18cde78d30c6cb4915a5ed5376b94a35f1808cf26c9afc4c65b508d2c"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/report.json",
+        "bytes": 14463,
+        "sha256": "e425bb871dc76127c8ea74dcd4bf2988533deb8a7b3dd37bb8feab168af234c3"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-80/fresh-fields.npz",
+        "bytes": 31659,
+        "sha256": "e68a8bbbc984a53841bc45a59f3fdec5fb6c0bc0a4c40fb605aef3f8b8def03d"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/request.json",
+        "bytes": 2946,
+        "sha256": "5b65a79314cbb65ff2086ebf7141534a5a88f2260523a12797c6e699fe103054"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/result.json",
+        "bytes": 951552,
+        "sha256": "702b10dc79e27de04c9ebbb07cd87a81cf7212ffa0f623920017e9aff6edab24"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/restored-result.json",
+        "bytes": 845599,
+        "sha256": "5b0f638795744c6a13cd54837e82b22bada5333e3064800f7268434686891c05"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/report.json",
+        "bytes": 14247,
+        "sha256": "142e5952504e81a3baee27020646d5a251d78f72f20e2679d203e77ae2c081f1"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/midpoint-160/fresh-fields.npz",
+        "bytes": 66336,
+        "sha256": "0e582d9fa2abeb081120e06c1c0dc19ad9ae003e6100edd5604033b577ef816d"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/request.json",
+        "bytes": 3065,
+        "sha256": "e6551782a185fc67dc798bdcd1c34319fa26ffb5adb8aec31c97971b647728da"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/result.json",
+        "bytes": 1923500,
+        "sha256": "dad77b154055d297a2459224d0ba5f2d8c299cb97adb15a6c1537923cacbe1fe"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/restored-result.json",
+        "bytes": 1657308,
+        "sha256": "5cec06074f6b7a4188b54cc1a33fc35186910ad4fe84f82f013f9f81f7cac367"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/report.json",
+        "bytes": 14463,
+        "sha256": "4a721576242c45772e2848bdffb3ae403cda759f9c7523a1550c95928f6b6eeb"
+      },
+      {
+        "path": "/tmp/openswing-source-coupled-native-20261026/cases/source-160/fresh-fields.npz",
+        "bytes": 58503,
+        "sha256": "43ebf2079a8a0ddcf148f474f7df2c4eaab824b34af4cf5dc9e575441c67c00b"
+      }
+    ],
+    "audit_source": {
+      "path": "/tmp/openswing-source-coupled-native-audit-20261026/audit.py",
+      "bytes": 20358,
+      "sha256": "5e3ea0dee985c2f048929c09b4b9f8ada8c8d4a748962161edc32f7cb6f21086"
+    },
+    "cases": {
+      "midpoint-80": {
+        "values": {
+          "RY_m": -0.025932669817737366,
+          "Psi_deg": -0.5741472164769754,
+          "sensor_V_m_s": 10.009076195432414,
+          "sensor_beta_deg": 6.1417747506666895
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932669817737366,
+            "archived": -0.02582,
+            "difference": -0.00011266981773736667,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741472164769754,
+            "archived": -0.572223,
+            "difference": -0.0019242164769753822,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076195432414,
+            "archived": 10.0115,
+            "difference": -0.002423804567586174,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.1417747506666895,
+            "archived": 6.27943,
+            "difference": -0.13765524933331008,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "fresh_residual": 4.0402994739636e-14,
+        "solve_seconds": 1.2064821099993424
+      },
+      "source-80": {
+        "values": {
+          "RY_m": -0.02593278352333023,
+          "Psi_deg": -0.5741583057070457,
+          "sensor_V_m_s": 10.009076264146463,
+          "sensor_beta_deg": 6.141789960822178
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.02593278352333023,
+            "archived": -0.02582,
+            "difference": -0.00011278352333023156,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741583057070457,
+            "archived": -0.572223,
+            "difference": -0.001935305707045698,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076264146463,
+            "archived": 10.0115,
+            "difference": -0.0024237358535366127,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.141789960822178,
+            "archived": 6.27943,
+            "difference": -0.1376400391778212,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "fresh_residual": 5.838038530370962e-13,
+        "solve_seconds": 1.12166458399588
+      },
+      "midpoint-160": {
+        "values": {
+          "RY_m": -0.025932299651561835,
+          "Psi_deg": -0.5741716207643729,
+          "sensor_V_m_s": 10.009076754862354,
+          "sensor_beta_deg": 6.141831631539385
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932299651561835,
+            "archived": -0.02582,
+            "difference": -0.00011229965156183547,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.5741716207643729,
+            "archived": -0.572223,
+            "difference": -0.0019486207643728548,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076754862354,
+            "archived": 10.0115,
+            "difference": -0.00242324513764558,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.141831631539385,
+            "archived": 6.27943,
+            "difference": -0.13759836846061457,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "fresh_residual": 6.06920808619167e-13,
+        "solve_seconds": 5.385988025002007
+      },
+      "source-160": {
+        "values": {
+          "RY_m": -0.025932328082524544,
+          "Psi_deg": -0.57417438522535,
+          "sensor_V_m_s": 10.009076772046543,
+          "sensor_beta_deg": 6.1418354265649056
+        },
+        "reference": {
+          "RY_m": {
+            "value": -0.025932328082524544,
+            "archived": -0.02582,
+            "difference": -0.00011232808252454457,
+            "half_unit": 5e-08,
+            "passed": false
+          },
+          "Psi_deg": {
+            "value": -0.57417438522535,
+            "archived": -0.572223,
+            "difference": -0.0019513852253499886,
+            "half_unit": 5e-07,
+            "passed": false
+          },
+          "sensor_V_m_s": {
+            "value": 10.009076772046543,
+            "archived": 10.0115,
+            "difference": -0.0024232279534572854,
+            "half_unit": 5e-05,
+            "passed": false
+          },
+          "sensor_beta_deg": {
+            "value": 6.1418354265649056,
+            "archived": 6.27943,
+            "difference": -0.13759457343509407,
+            "half_unit": 5e-06,
+            "passed": false
+          }
+        },
+        "fresh_residual": 7.15669133938113e-13,
+        "solve_seconds": 1.618662865999795
+      }
+    },
+    "mesh": {
+      "midpoint": {
+        "deflection": {
+          "coarse": 0.025932669817737366,
+          "fine": 0.025932299651561835,
+          "relative_change": 1.4274328945173655e-05,
+          "passed": true
+        },
+        "incremental_projected_twist": {
+          "coarse": 0.5741472164769754,
+          "fine": 0.5741716207643729,
+          "relative_change": 4.250347198453326e-05,
+          "passed": true
+        }
+      },
+      "source": {
+        "deflection": {
+          "coarse": 0.02593278352333023,
+          "fine": 0.025932328082524544,
+          "relative_change": 1.7562665574708133e-05,
+          "passed": true
+        },
+        "incremental_projected_twist": {
+          "coarse": 0.5741583057070457,
+          "fine": 0.57417438522535,
+          "relative_change": 2.8004590100235343e-05,
+          "passed": true
+        }
+      }
+    },
+    "reference_acceptance": "Archived printed half-unit comparison retained separately; this audit pass certifies saved arithmetic and provenance, not ASWING parity.",
+    "limitations": [
+      "One archived beta5/IAS10 coordinate; atmosphere/pose/frozen influence/PG0 are declared conditional settings.",
+      "Sensor airflow is given from native saved data; its vector projection is independently checked, not its physical vortex implementation.",
+      "Only the source cases receive independent endpoint gravity/CG subtraction; midpoint global checks reconstruct saved endpoint operands.",
+      "No experiments or uncomputed archived coordinates enter acceptance."
+    ],
+    "operations": {
+      "production_imports": 0,
+      "equilibrium_solves": 0,
+      "residuals": 0,
+      "aerodynamic_evaluations": 0
+    },
+    "elapsed_seconds": 3.013778283006104
+  },
+  "saved_project": {
+    "path": "/home/userland/aswing/examples/isae-ae2-source-coupled-project.json",
+    "bytes": 2436747,
+    "sha256": "c56949db32cd544ed42eee5b030fb78daa488452d628e734df14136b8f3e3dea"
+  },
+  "limitations": [
+    "The selected archived coordinate is one of 87 finite AE-2 coordinates. All four raw channels and printed precision are retained.",
+    "Historical ASWING K/F/PG/mesh/atmosphere/startup and sensor conventions remain unresolved; frozen-influence PG0 settings are an explicit comparison candidate.",
+    "Existing aerodynamic Glauert-midpoint quadrature is retained with conservative symmetric endpoint transfer; exact historical transfer is unproven.",
+    "Prescribed stationary mounted conditions only; no operating constraints, controllers, derivatives, dynamics, body charts, stepped axes, struts, engines or nonrigid joints.",
+    "Static mass/first moment only; dynamic inertia/spin unavailable."
+  ],
+  "retained_failure": "Two test trial vectors were Python lists divided by scalar in zero-airflow fixture; converted to numpy arrays. Original failure retained, no physics/reference tolerance changed. First browser attempt clicked a collapsed project control before any solve; runner now opens the controls first. Second browser attempt completed the sole solve and full parity/project checks, then expected a shell plot from a model without shell coordinates. Final continuation selects curvature and restores saved results without another solve. All attempts retained.",
+  "evidence": {
+    "path": "/home/userland/aswing/docs/validation/isae-source-coupled-20261026-evidence.zip",
+    "bytes": 8253180,
+    "sha256": "0cdbbca3195e1f3b99b7ff6f4e1163aee8157a037aeeb35ab816a169cc0ce940"
+  },
+  "publication": {
+    "path": "/tmp/openswing-source-coupled-closeout-20261026/publication.json",
+    "bytes": 412,
+    "sha256": "61fcafbbed13ae57d58612463bc51b7493a6ca2287f57ff69d436840e4044bc2"
+  }
+}

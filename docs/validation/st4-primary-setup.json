@@ -1,0 +1,1236 @@
+{
+  "scope": "Physical setup audit; no modal frequencies used or fit; no root repository changes. All numerical extra digits are unit arithmetic, not experimental accuracy.",
+  "sources": [
+    {
+      "name": "NACA TN1594",
+      "path": "/home/userland/aswing/.reference/isae-st4-primary/NACA-TN-1594.pdf",
+      "url": "https://digital.library.unt.edu/ark:/67531/metadc54595/m2/1/high_res_d/19930082244.pdf",
+      "sha256": "2e63c2ca3b4a50a0c8c3830b5abb3dd887b6acb0b8f0985b25c5042f6cbc95b9"
+    },
+    {
+      "name": "NACA TN1546 (NASA scan)",
+      "path": "/tmp/openswing-st4-experiment-20261015/physical-setup/NACA-TN-1546-nasa.pdf",
+      "url": "https://ntrs.nasa.gov/api/citations/19930082349/downloads/19930082349.pdf",
+      "sha256": "7c8439ab42d4ccaa4e744b1bb23dc80a6a539c796dda02b7bc67374493f5ee55",
+      "used_pages": "printed pp.3-4 / PDF pp.5-6: 16-series nomenclature, symmetric profile ordinates, maximum thickness at half chord"
+    },
+    {
+      "name": "NACA TN1546 (PDAS scan)",
+      "path": "/tmp/openswing-st4-experiment-20261015/physical-setup/NACA-TN-1546.pdf",
+      "url": "https://www.pdas.com/refs/tn1546.pdf",
+      "sha256": "db1e4ed5e98d29ecd1179cf29604b0fe7f41ef97933f8e2a20a3483bd5da60f4",
+      "used_pages": "printed p.3 / PDF p.4 rendered"
+    },
+    {
+      "name": "ASWING user guide local copy",
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a",
+      "used_lines": [
+        1152,
+        1153
+      ]
+    },
+    {
+      "name": "ISAE source repository",
+      "revision": "f62943df20e9e4d7d9f50e070477b22426b5f865",
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight"
+    }
+  ],
+  "unit_conversions": {
+    "inch_to_m": 0.0254,
+    "lbm_to_kg": 0.45359237,
+    "lbf_to_N": 4.4482216152605,
+    "standard_g_m_s2": 9.80665,
+    "one_lbf_in_s2_to_kg_m2": 0.11298482902761668
+  },
+  "wing_primary": {
+    "span_m": 1.2191999999999998,
+    "chord_m": 0.2032,
+    "mass_kg": 1.5785014476,
+    "mass_per_span_kg_m": 1.294702630905512,
+    "centroidal_polar_kg_m2": 0.004316020468854957,
+    "EA_polar_kg_m2": 0.004338617434660481,
+    "centroidal_polar_per_span_kg_m": 0.0035400430354781474,
+    "EA_polar_per_span_kg_m": 0.0035585772922084,
+    "EI_N_m2": 403.78292228231595,
+    "GJ_N_m2": 198.5911742852613,
+    "x_EA_from_LE_m": 0.0887984,
+    "x_CG_from_LE_m": 0.0922528,
+    "CG_minus_EA_m": 0.0034543999999999964,
+    "source_properties": "TN1594 printed p.4 / PDF p.5: EI and GJ determined experimentally from static deflection curves",
+    "source_geometry": "TN1594 Figure2 printed p.17 / PDF p.18: EA 43.7% chord; CG 45.4% chord",
+    "source_uniformity": "TN1594 printed p.1 / PDF p.2: uniform properties the entire length",
+    "polar_EA_reconstructed_from_CG_and_offset_kg_m2": 0.004334856536198753,
+    "polar_EA_reconstruction_relative_difference": -0.0008668426102017568,
+    "polar_consistency_note": "Rounded I_CG, I_EA, CG and EA are not exact mutually consistent numbers; reconstructed I_EA differs by less than 0.1%. Reporting precision allows this; do not tune an offset to force all rounded values exact."
+  },
+  "section_rotary": {
+    "ASWING_convention": "j_cc=mgcc/g about chord axis, j_nn=mgnn/g about section normal, j_span=j_cc+j_nn; OpenSwing inertia.py diagonal([icc,icc+inn,inn]) agrees.",
+    "what_primary_proves": "Under stated spanwise uniformity, the whole-wing polar inertia about spanwise CG axis / span gives j_cc+j_nn. It does not give j_cc separately.",
+    "physical_bound_assumption": "All modeled distributed sectional mass lies within the nominal symmetric 10%-thick NACA16010 envelope. Separate external concentrated weights excluded; unknown protruding instrumentation not reconstructed.",
+    "full_thickness_m": 0.02032,
+    "j_cc_lower_kg_m": 0,
+    "j_cc_upper_kg_m": 0.00013364645589680006,
+    "j_nn_lower_kg_m": 0.0034063965795813472,
+    "j_nn_upper_kg_m": 0.0035400430354781474,
+    "j_cc_upper_fraction_of_polar": 0.03775277717174663,
+    "bound_derivation": "j_cc/m is variance of normal coordinate, at most (total thickness)^2/4 for arbitrary nonnegative density. This bound requires no uniform-density material assumption.",
+    "literal_mgcc_values_kg_m": [
+      0.0078,
+      0.0035
+    ],
+    "literal_mgnn_value_kg_m": 0,
+    "literal_mgcc_to_physical_bound_ratios": [
+      58.362939351141875,
+      26.188498426794432
+    ],
+    "cannot_identify_unique_split": "Fig.2 shows balsa plus .032in-gage dural insert with hollow box, nominal box height .5in, chordwise segments1.5in/1.5in/4in. No material densities, glue/finish/gage contributions, as-built tolerances or sectional inertia split are reported. Outer profile equations alone cannot recover heterogeneous mass moments. A homogeneous-airfoil split would be an additional assumption inconsistent with the detailed construction as an exact model.",
+    "recommended_parameterization": "For a transparent primary-derived sensitivity family hold j_cc+j_nn=0.003540043035478147 kg m and vary j_cc over the stated geometry bound. Do not put all polar inertia in mgcc. j_cc=0 is a thin-section approximation, not measured truth.",
+    "source": "TN1594 Figure2 printed p.17/PDF p.18; properties printed p.4/PDF p.5. TN1546 printed pp.3-4 / NASA PDF pp.5-6 confirms profile definition."
+  },
+  "concentrated_weights": [
+    {
+      "name": "1",
+      "Ww_over_W": 0.636,
+      "ew": 0.039,
+      "Iw_over_IEA": 1.4,
+      "mass_kg": 1.0039269206736001,
+      "chord_offset_from_EA_m": 0.0039624,
+      "x_cg_from_LE_m": 0.0927608,
+      "polar_about_EA_kg_m2": 0.006074064408524673,
+      "polar_about_own_CG_kg_m2": 0.00605830213969991,
+      "equivalent_two_point_mass_each_kg": 0.5019634603368001,
+      "equivalent_two_point_x_m": [
+        0.01507808167960542,
+        0.1704435183203946
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "2",
+      "Ww_over_W": 0.625,
+      "ew": 0.039,
+      "Iw_over_IEA": 0.883,
+      "mass_kg": 0.98656340475,
+      "chord_offset_from_EA_m": 0.0039624,
+      "x_cg_from_LE_m": 0.0927608,
+      "polar_about_EA_kg_m2": 0.0038309991948052044,
+      "polar_about_own_CG_kg_m2": 0.003815509543837474,
+      "equivalent_two_point_mass_each_kg": 0.493281702375,
+      "equivalent_two_point_x_m": [
+        0.030571771680517647,
+        0.15494982831948237
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "3",
+      "Ww_over_W": 0.375,
+      "ew": -0.05,
+      "Iw_over_IEA": 0.514,
+      "mass_kg": 0.5919380428500001,
+      "chord_offset_from_EA_m": -0.00508,
+      "x_cg_from_LE_m": 0.0837184,
+      "polar_about_EA_kg_m2": 0.002230049361415487,
+      "polar_about_own_CG_kg_m2": 0.0022147735715064825,
+      "equivalent_two_point_mass_each_kg": 0.29596902142500003,
+      "equivalent_two_point_x_m": [
+        0.022550081766066064,
+        0.14488671823393393
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "4",
+      "Ww_over_W": 0.636,
+      "ew": -0.625,
+      "Iw_over_IEA": 1.91,
+      "mass_kg": 1.0039269206736001,
+      "chord_offset_from_EA_m": -0.0635,
+      "x_cg_from_LE_m": 0.0252984,
+      "polar_about_EA_kg_m2": 0.008286759300201518,
+      "polar_about_own_CG_kg_m2": 0.0042386749743153936,
+      "equivalent_two_point_mass_each_kg": 0.5019634603368001,
+      "equivalent_two_point_x_m": [
+        -0.039679251093417245,
+        0.09027605109341724
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "5",
+      "Ww_over_W": 0.636,
+      "ew": 0.687,
+      "Iw_over_IEA": 2.68,
+      "mass_kg": 1.0039269206736001,
+      "chord_offset_from_EA_m": 0.0697992,
+      "x_cg_from_LE_m": 0.1585976,
+      "polar_about_EA_kg_m2": 0.01162749472489009,
+      "polar_about_own_CG_kg_m2": 0.0067364347282074695,
+      "equivalent_two_point_mass_each_kg": 0.5019634603368001,
+      "equivalent_two_point_x_m": [
+        0.07668249298272851,
+        0.2405127070172715
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "6",
+      "Ww_over_W": 1.04,
+      "ew": -0.937,
+      "Iw_over_IEA": 7.5,
+      "mass_kg": 1.6416415055040001,
+      "chord_offset_from_EA_m": -0.0951992,
+      "x_cg_from_LE_m": -0.006400799999999998,
+      "polar_about_EA_kg_m2": 0.03253963075995361,
+      "polar_about_own_CG_kg_m2": 0.017661618183694102,
+      "equivalent_two_point_mass_each_kg": 0.8208207527520001,
+      "equivalent_two_point_x_m": [
+        -0.11012404229940004,
+        0.09732244229940004
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7a",
+      "Ww_over_W": 0.917,
+      "ew": -0.818,
+      "Iw_over_IEA": 4.26,
+      "mass_kg": 1.4474858274492002,
+      "chord_offset_from_EA_m": -0.0831088,
+      "x_cg_from_LE_m": 0.005689600000000003,
+      "polar_about_EA_kg_m2": 0.018482510271653648,
+      "polar_about_own_CG_kg_m2": 0.00848462051979708,
+      "equivalent_two_point_mass_each_kg": 0.7237429137246001,
+      "equivalent_two_point_x_m": [
+        -0.07087165633548378,
+        0.08225085633548379
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7b",
+      "Ww_over_W": 0.931,
+      "ew": -0.578,
+      "Iw_over_IEA": 2.86,
+      "mass_kg": 1.4695848477156002,
+      "chord_offset_from_EA_m": -0.058724799999999994,
+      "x_cg_from_LE_m": 0.030073600000000006,
+      "polar_about_EA_kg_m2": 0.012408445863128973,
+      "polar_about_own_CG_kg_m2": 0.007340432419674523,
+      "equivalent_two_point_mass_each_kg": 0.7347924238578001,
+      "equivalent_two_point_x_m": [
+        -0.04060102122162376,
+        0.10074822122162377
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7c",
+      "Ww_over_W": 0.94,
+      "ew": -0.36,
+      "Iw_over_IEA": 2.04,
+      "mass_kg": 1.483791360744,
+      "chord_offset_from_EA_m": -0.036576,
+      "x_cg_from_LE_m": 0.0522224,
+      "polar_about_EA_kg_m2": 0.00885077956670738,
+      "polar_about_own_CG_kg_m2": 0.006865757881507879,
+      "equivalent_two_point_mass_each_kg": 0.741895680372,
+      "equivalent_two_point_x_m": [
+        -0.01580091974503839,
+        0.12024571974503839
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7d",
+      "Ww_over_W": 0.946,
+      "ew": -0.14,
+      "Iw_over_IEA": 1.555,
+      "mass_kg": 1.4932623694296001,
+      "chord_offset_from_EA_m": -0.014224,
+      "x_cg_from_LE_m": 0.0745744,
+      "polar_about_EA_kg_m2": 0.006746550110897047,
+      "polar_about_own_CG_kg_m2": 0.006444430018975135,
+      "equivalent_two_point_mass_each_kg": 0.7466311847148001,
+      "equivalent_two_point_x_m": [
+        0.00888062850442721,
+        0.1402681714955728
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7e",
+      "Ww_over_W": 0.954,
+      "ew": 0.034,
+      "Iw_over_IEA": 1.56,
+      "mass_kg": 1.5058903810104,
+      "chord_offset_from_EA_m": 0.0034544000000000003,
+      "x_cg_from_LE_m": 0.0922528,
+      "polar_about_EA_kg_m2": 0.00676824319807035,
+      "polar_about_own_CG_kg_m2": 0.006750273589824368,
+      "equivalent_two_point_mass_each_kg": 0.7529451905052,
+      "equivalent_two_point_x_m": [
+        0.02530073014040353,
+        0.15920486985959648
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    },
+    {
+      "name": "7f",
+      "Ww_over_W": 0.917,
+      "ew": 0.5,
+      "Iw_over_IEA": 2.27,
+      "mass_kg": 1.4474858274492002,
+      "chord_offset_from_EA_m": 0.0508,
+      "x_cg_from_LE_m": 0.1395984,
+      "polar_about_EA_kg_m2": 0.009848661576679291,
+      "polar_about_own_CG_kg_m2": 0.006113221750930787,
+      "equivalent_two_point_mass_each_kg": 0.7237429137246001,
+      "equivalent_two_point_x_m": [
+        0.07461118666274878,
+        0.20458561333725123
+      ],
+      "derivation": "M=Ww/W*3.48 lbm; dx=ew*(8in/2); I_EA=(Iw/IEA)*0.0384 lbf in s2; I_CG=I_EA-M*dx^2; pair x=x_CG+-sqrt(I_CG/M). This constructs equivalent chordwise masses, not a measured physical pylon.",
+      "source": "TN1594 Table I, printed p.8 / PDF p.9; symbols printed p.2 / PDF p.3"
+    }
+  ],
+  "pylon_limitations": {
+    "primary_known": "Rigid mounting, total Ww, chordwise CG offset ew and polar inertia Iw about wing EA. Weight7 variants obtained by moving same weight along support; table gives slightly different whole added weights.",
+    "primary_missing": "No dimensioned pylon/weight drawing or complete three-dimensional CG and centroidal inertia tensor; photographs do not establish transverse/axial offsets or bending rotary inertia.",
+    "support_mass": "TableI names concentrated weight parameters, and text describes moving weight on weight support. Treat each tabulated set as measured aggregate added assembly for the equivalent model; report does not separately quantify support mass. Do not add a guessed pylon mass on top.",
+    "two_point_equivalence": "Two equal point masses along chord at same station match total mass, chordwise CG and spanwise polar inertia only. They invent zero normal/axial extent and corresponding bending inertia; finite object geometry cannot be inferred from this reduction.",
+    "literal_axial_offset": "The ASW parameter starts at0.0001 while physical z starts0. A listed t=z therefore has dz=z-s=0.0001*(L-t)/(L-0.0001). This is under0.1mm and zero at tip; it is due to parameterization, not primary pylon geometry.",
+    "sources": "TN1594 printed p.4 / PDF p.5; TableI printed p.8 / PDF p.9; Figure3(g) printed p.25 / PDF p.26",
+    "spanwise_station_ambiguity": "TableII header says Spanwise position (in. from root); text does not explicitly identify assembly CG versus attachment. Co-location of equivalent mass CG and attachment at the tabulated station is a reduced-model assumption."
+  },
+  "gravity": {
+    "direction": "Vertical wing clamped at tunnel top, tip downward; gravity positive root-to-tip. In literal geometry with root z0 and tip z+1.2192, use gravity (0,0,+g). Do not impose default -z without rotating model.",
+    "preload": "Axial tension N(s)=g[m(L-s)+sum(Mp for points outboard of s)] for centered straight idealization. Chordwise CG offsets also produce in-plane gravity moments; literal model suppresses in-plane bending with its stiff limit. Physically correct full equilibrium needs unreported in-plane stiffness or an explicit stiff in-plane approximation.",
+    "zero_gravity_status": "Numerical implementation control only, not physical experimental state.",
+    "g_value": "Primary does not report local g; standard9.80665m/s2 or literal9.81 is a documented convention with0.034% difference.",
+    "source": "TN1594 printed pp.3-4 / PDF pp.4-5 and Figure1 printed p.15 / PDF p.16"
+  },
+  "measurement_medium": {
+    "no_flow": "TableII zero-speed before/after frequency rows list0% Freon12. Thus air surrounds the wing; no zero-pressure/vacuum measurement is reported.",
+    "density": "Density entries on the zero-speed rows are blank. Temperature, pressure and density for those measurements are not specified. The apparatus could vary absolute pressure from30 to4.3inHg; therefore0%Freon does not prove sea-level density.",
+    "standard_air_entry": "TN1594 properties list 1/kappa=32.6 for standard air,no weight as a reference parameter, not a record of all zero-flow test densities.",
+    "flutter_conditions": "Flutter rows record density, and some early runs use Freon/air mixtures. Do not substitute a flutter-row density or imported rho_SL for no-flow density without saying it is an assumption.",
+    "endplate": "Report says endplate effect on natural frequencies negligible (printed p.7/PDF p.8), though flutter behavior differs. Small disturbance aerodynamic added mass remains even at zero mean speed; any modeled operator and ambient density require explicit assumptions.",
+    "sources": "TN1594 TableII printed pp.9-13 / PDF pp.10-14 visually reviewed; apparatus printed p.3 / PDF p.4; test procedure printed p.5 / PDF p.6; endplate frequency statement printed p.7 / PDF p.8"
+  },
+  "uncertainty": "Report gives printed precision and repeated before/after measurements, but no calibrated uncertainty for mass/stiffness/inertia or modal estimates. Treat before/after spread as observed repeat/change evidence, not a confidence interval. No frequency fitting performed.",
+  "literal_file_point_audit": [
+    {
+      "path": "Simulation_files/W0M.asw",
+      "sha256": "ad35aafe4a544969934b934c2e1511f80c3f92270d4d2c7af7d52140d4fa54b1",
+      "points": [
+        {
+          "mass_kg": 0.0,
+          "t_m": 0.43179999999999996,
+          "station_m": 0.4317354113690427,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.43179999999999996,
+          "axial_offset_z_minus_station_m": 6.458863095726297e-05
+        },
+        {
+          "mass_kg": 0.0,
+          "t_m": 0.43179999999999996,
+          "station_m": 0.4317354113690427,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.43179999999999996,
+          "axial_offset_z_minus_station_m": 6.458863095726297e-05
+        }
+      ],
+      "mass_kg": 0.0,
+      "x_CG_m": null,
+      "polar_about_EA_kg_m2": 0.0
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b11.asw",
+      "sha256": "586d8ecc7235f0b5fda27b7b8579f17b19308e54b7b054fb91785d440888e2a2",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b17.asw",
+      "sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.43179999999999996,
+          "station_m": 0.4317354113690427,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.43179999999999996,
+          "axial_offset_z_minus_station_m": 6.458863095726297e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.43179999999999996,
+          "station_m": 0.4317354113690427,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.43179999999999996,
+          "axial_offset_z_minus_station_m": 6.458863095726297e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b30.asw",
+      "sha256": "52982ed08637f4fd4ee96adbd9b524c2665e97e35aed1add19b0eee5fb1b2421",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.762,
+          "station_m": 0.7619624969239603,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.762,
+          "axial_offset_z_minus_station_m": 3.750307603966885e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.762,
+          "station_m": 0.7619624969239603,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.762,
+          "axial_offset_z_minus_station_m": 3.750307603966885e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b46.asw",
+      "sha256": "bead9f4a7aaedeb115f924ca2b16568eeb4540e63a9c7b671e406a3145884e83",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.1683999999999999,
+          "station_m": 1.1683958329915511,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 1.1683999999999999,
+          "axial_offset_z_minus_station_m": 4.167008448741072e-06
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.1683999999999999,
+          "station_m": 1.1683958329915511,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 1.1683999999999999,
+          "axial_offset_z_minus_station_m": 4.167008448741072e-06
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b48.asw",
+      "sha256": "8bc94c2f0f18238a691b0d5977ce01a5eefe697a6bd5da1c8e3ec1278f5cfe33",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/7a_b8.asw",
+      "sha256": "c142e591a497c36df57bd86c156fd5f73ede1a5b4c50fcf571b77d00e4e37ffd",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2032,
+          "station_m": 0.2031166598310229,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.2032,
+          "axial_offset_z_minus_station_m": 8.33401689770974e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2032,
+          "station_m": 0.2031166598310229,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.2032,
+          "axial_offset_z_minus_station_m": 8.33401689770974e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7a/WING.asw",
+      "sha256": "1dc95edc16f8decc4100d106398b6aaa165ae7eb4beba5b7d3e51b423aaccf11",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2032,
+          "station_m": 0.2031166598310229,
+          "x_m": -0.0709,
+          "y_m": 0.0,
+          "z_m": 0.2032,
+          "axial_offset_z_minus_station_m": 8.33401689770974e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2032,
+          "station_m": 0.2031166598310229,
+          "x_m": 0.0823,
+          "y_m": 0.0,
+          "z_m": 0.2032,
+          "axial_offset_z_minus_station_m": 8.33401689770974e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.005699999999999997,
+      "polar_about_EA_kg_m2": 0.018487501369097346
+    },
+    {
+      "path": "Simulation_files/Weight7b/7b_b11.asw",
+      "sha256": "3fedc1d2fdfbdf4e5caade14b99e563866c92dd22e20abad6b60cfe963ea882b",
+      "points": [
+        {
+          "mass_kg": 0.7348,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": -0.0406,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7348,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.1008,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.4696,
+      "x_CG_m": 0.0301,
+      "polar_about_EA_kg_m2": 0.012409290882098177
+    },
+    {
+      "path": "Simulation_files/Weight7b/7b_b21.asw",
+      "sha256": "ceeb1a092cf39104f1a4cdb33deca126b9cb136a20ac49c94a94ea9f194cab6b",
+      "points": [
+        {
+          "mass_kg": 0.7348,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": -0.0406,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        },
+        {
+          "mass_kg": 0.7348,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.1008,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        }
+      ],
+      "mass_kg": 1.4696,
+      "x_CG_m": 0.0301,
+      "polar_about_EA_kg_m2": 0.012409290882098177
+    },
+    {
+      "path": "Simulation_files/Weight7c/7c_b11.asw",
+      "sha256": "ee7ca07344c54dede6634a9fc420000fddada855e7e626abd2378ead5a3ec500",
+      "points": [
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": -0.0158,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.1203,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.4838,
+      "x_CG_m": 0.05225,
+      "polar_about_EA_kg_m2": 0.00885322333755053
+    },
+    {
+      "path": "Simulation_files/Weight7c/7c_b21.asw",
+      "sha256": "d2965ed14659bde1fba31ee59a61c8a4bde450c24623bc717b027ac04402ce1f",
+      "points": [
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": -0.0158,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        },
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.1203,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        }
+      ],
+      "mass_kg": 1.4838,
+      "x_CG_m": 0.05225,
+      "polar_about_EA_kg_m2": 0.00885322333755053
+    },
+    {
+      "path": "Simulation_files/Weight7c/7c_b28.asw",
+      "sha256": "b9ba09cb8fd068c2390b0d403a8598c1413dc4b6c4e902aafb80eb00f0233fd5",
+      "points": [
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.7111999999999999,
+          "station_m": 0.7111583299155114,
+          "x_m": -0.0158,
+          "y_m": 0.0,
+          "z_m": 0.7111999999999999,
+          "axial_offset_z_minus_station_m": 4.167008448852094e-05
+        },
+        {
+          "mass_kg": 0.7419,
+          "t_m": 0.7111999999999999,
+          "station_m": 0.7111583299155114,
+          "x_m": 0.1203,
+          "y_m": 0.0,
+          "z_m": 0.7111999999999999,
+          "axial_offset_z_minus_station_m": 4.167008448852094e-05
+        }
+      ],
+      "mass_kg": 1.4838,
+      "x_CG_m": 0.05225,
+      "polar_about_EA_kg_m2": 0.00885322333755053
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b11.asw",
+      "sha256": "b380bb4a625c108413c3190121d79da1f324fdc7f041e3a27eaade26b570b89b",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b21.asw",
+      "sha256": "63bf05f30df514fb50fadef302f4456fcd2ff703b93dcd83888de2867352b170",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b27.asw",
+      "sha256": "d024238a2dc2f0ba979aa60bc1d4fe8d9ebcf7d4236f164c9819389c0f2cffcb",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.6858,
+          "station_m": 0.685756246411287,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 0.6858,
+          "axial_offset_z_minus_station_m": 4.37535887130025e-05
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.6858,
+          "station_m": 0.685756246411287,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 0.6858,
+          "axial_offset_z_minus_station_m": 4.37535887130025e-05
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b33.asw",
+      "sha256": "756b4855461f63f5cf74168f57fe94ab04c7b67497ffebf60be22f428c7f63f4",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.8382,
+          "station_m": 0.8381687474366335,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 0.8382,
+          "axial_offset_z_minus_station_m": 3.125256336644622e-05
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.8382,
+          "station_m": 0.8381687474366335,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 0.8382,
+          "axial_offset_z_minus_station_m": 3.125256336644622e-05
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b39.asw",
+      "sha256": "30ff7771e002f2337f34a8318cc7ff27140ff8de8836638541d28415435900b5",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.9905999999999999,
+          "station_m": 0.9905812484619801,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 0.9905999999999999,
+          "axial_offset_z_minus_station_m": 1.8751538019778913e-05
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 0.9905999999999999,
+          "station_m": 0.9905812484619801,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 0.9905999999999999,
+          "axial_offset_z_minus_station_m": 1.8751538019778913e-05
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b44.asw",
+      "sha256": "764a2025135259b7050540d92435e7f1e8c9849b861ca5ca408de65148e6d3cd",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.1176,
+          "station_m": 1.1175916659831022,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 1.1176,
+          "axial_offset_z_minus_station_m": 8.334016897704188e-06
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.1176,
+          "station_m": 1.1175916659831022,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 1.1176,
+          "axial_offset_z_minus_station_m": 8.334016897704188e-06
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b48.asw",
+      "sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7d/7d_b49.asw",
+      "sha256": "daae8af825fe3d4171fe0e4924df8fc4a1c000e1182131ae1de15bee497fa107",
+      "points": [
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.0089,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        },
+        {
+          "mass_kg": 0.7466,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.1403,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        }
+      ],
+      "mass_kg": 1.4932,
+      "x_CG_m": 0.0746,
+      "polar_about_EA_kg_m2": 0.006746403868814593
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b11.asw",
+      "sha256": "bcb2919591e9530ec307438003aaa603a8f67ced69b04015859d3a5710adbacf",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b21.asw",
+      "sha256": "f1c37a8b19a4e881757efe358dfee30138b5e8cb876c746fdb321a09f430ab8e",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.5334,
+          "station_m": 0.5333437453859404,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 0.5334,
+          "axial_offset_z_minus_station_m": 5.625461405955878e-05
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b29.asw",
+      "sha256": "1e5afac9682243116216a8822795c5d5e24d32d896b123073c6cbf70144b7269",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.7365999999999999,
+          "station_m": 0.7365604134197358,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 0.7365999999999999,
+          "axial_offset_z_minus_station_m": 3.9586580264150406e-05
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.7365999999999999,
+          "station_m": 0.7365604134197358,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 0.7365999999999999,
+          "axial_offset_z_minus_station_m": 3.9586580264150406e-05
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b35.asw",
+      "sha256": "f648afac8afc7c260902d4ed249e61a9e9901cced0390a060d397008dd9a9263",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.889,
+          "station_m": 0.8889729144450824,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 0.889,
+          "axial_offset_z_minus_station_m": 2.7085554917594123e-05
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 0.889,
+          "station_m": 0.8889729144450824,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 0.889,
+          "axial_offset_z_minus_station_m": 2.7085554917594123e-05
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b40.asw",
+      "sha256": "48b025f71a35c5640de4d75a01278da4e5cdeca196a9819f707eb4a390574ad6",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 1.016,
+          "station_m": 1.0159833319662046,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 1.016,
+          "axial_offset_z_minus_station_m": 1.6668033795408377e-05
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 1.016,
+          "station_m": 1.0159833319662046,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 1.016,
+          "axial_offset_z_minus_station_m": 1.6668033795408377e-05
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7e/7e_b48.asw",
+      "sha256": "678e4e06043ddb317778c43c6e196c296469019dd8d26840d88ca23ec49b3ddc",
+      "points": [
+        {
+          "mass_kg": 0.7529,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.0253,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        },
+        {
+          "mass_kg": 0.7529,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.1592,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        }
+      ],
+      "mass_kg": 1.5058,
+      "x_CG_m": 0.09225,
+      "polar_about_EA_kg_m2": 0.006767390516886848
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b11.asw",
+      "sha256": "eebbfdf62fe020ec443fd9f23e9e73357a321b2776524819deabc970f63e5141",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.2794,
+          "station_m": 0.27932291034369616,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 0.2794,
+          "axial_offset_z_minus_station_m": 7.708965630381925e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b16.asw",
+      "sha256": "24435bd5748a450fb0a601ff7a28ea51a38c3df5f44bc5126037ab19b9f18a25",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.4064,
+          "station_m": 0.4063333278648183,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 0.4064,
+          "axial_offset_z_minus_station_m": 6.667213518168902e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.4064,
+          "station_m": 0.4063333278648183,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 0.4064,
+          "axial_offset_z_minus_station_m": 6.667213518168902e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b24.asw",
+      "sha256": "7b0e4c63d46ec890dc24b53ff6331412f8442ac05a96b84eb7ef8fa04ffd42d4",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.6095999999999999,
+          "station_m": 0.6095499958986137,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 0.6095999999999999,
+          "axial_offset_z_minus_station_m": 5.000410138622513e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.6095999999999999,
+          "station_m": 0.6095499958986137,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 0.6095999999999999,
+          "axial_offset_z_minus_station_m": 5.000410138622513e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b32.asw",
+      "sha256": "517fe80c5ab11895adc330018caf96606bb0bf2a4c424bf8e6b9a8bdf938de96",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.8128,
+          "station_m": 0.8127666639324092,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 0.8128,
+          "axial_offset_z_minus_station_m": 3.3336067590816754e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 0.8128,
+          "station_m": 0.8127666639324092,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 0.8128,
+          "axial_offset_z_minus_station_m": 3.3336067590816754e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b40.asw",
+      "sha256": "64ad9540f7535875d4added8f01adbe5ae09596c2751b7628ce5e51b6d2d7228",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.016,
+          "station_m": 1.0159833319662046,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 1.016,
+          "axial_offset_z_minus_station_m": 1.6668033795408377e-05
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.016,
+          "station_m": 1.0159833319662046,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 1.016,
+          "axial_offset_z_minus_station_m": 1.6668033795408377e-05
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    },
+    {
+      "path": "Simulation_files/Weight7f/7f_b48.asw",
+      "sha256": "222f1fc61097af0e17cd11455c3ef9ad83353c929c6777b2e4abd76e06d15865",
+      "points": [
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.0746,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        },
+        {
+          "mass_kg": 0.7237,
+          "t_m": 1.2191999999999998,
+          "station_m": 1.2191999999999998,
+          "x_m": 0.2046,
+          "y_m": 0.0,
+          "z_m": 1.2191999999999998,
+          "axial_offset_z_minus_station_m": 0.0
+        }
+      ],
+      "mass_kg": 1.4474,
+      "x_CG_m": 0.1396,
+      "polar_about_EA_kg_m2": 0.009850718629049345
+    }
+  ],
+  "isae_conversion_script": {
+    "path": "3 - Structure/CASE - ST4 Concentrated weight/NACA16010_analysis.m",
+    "finding": "DOUBLE POINT MASS conversion includes lbm-to-kg explicitly. It uses g=9.81*39.3701, then lb2kg*inch2m^2 and divides by span. It does not generate0.0078; that input provenance remains unproved.",
+    "j_CG_result_kg_m": 0.0035412513552746995,
+    "j_EA_result_kg_m": 0.003559791938286609,
+    "EI_before_input_g_multiplier": 41.174365651104,
+    "GJ_before_input_g_multiplier": 20.250647498623998,
+    "comment": "Script stiffness variables omit g; ASW table applies9.81 multiplier to41.1744 and20.2506. Direct standard-lbf SI values are in wing_primary. Literal values differ by about0.034%, consistent with9.81 vs9.80665 plus printed rounding."
+  }
+}

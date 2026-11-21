@@ -1,0 +1,2658 @@
+{
+  "description": "Annotated ASWING ROM syntax, exact coefficient preservation and independent nonzero-input transfer verification.",
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "scripts/verify-rom-file.py": "84d4e18cfaa5e8bd1a18186644d11eafcbe5de7371c73511c6d4da1c75ff7315",
+    "docs/validation/rom-file-sources.json": "8d5761bcb61ceafac7bdbeb099b515993b08fd3482a0dd29004cb8e1cabf7a3c",
+    "examples/mechanical-reference.rom": "c97c240eda0706040a95be10f6a71ee05cb46357c690db4d3dbae43bad092fed",
+    "examples/instrumented-oscillator.asw": "181241561bc21c0dcb17347f9ad7c32c28801c6ded89449c81abe2a21bb64f40",
+    "examples/actuator-lag-controller.json": "a09b10af385feae94a61b92bccfa87de81e6cd37f35b7b7570ce14c00f77c52b",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "7513c4c83e7b2777bf8a200155c2783b664f7700f45445301f728a6a4afc8bbd",
+    "openswing/asw.py": "ac47d13944bafd8394f686274ebc8fbb6e9973f2a854484200dcfae475bb6bb3",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/bridge.py": "f9174e5e519dc378f6b818dae6896946fc077fca9d59c4e5e2cdda7fa6ebae1c",
+    "openswing/control_expressions.py": "77a76be47b2867ca2f27e3029502c199547f6167e600fcbcbb801dd31f8b99d8",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "9c1823306fe644437f166ab00ba783268b4772dd891d98239ce0f978d78c7595",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/feedback.py": "0fd0f17c9bd447e932bc8bdb81206208c0bde9454a219539ce64308e2fc83ccf",
+    "openswing/forcing.py": "19b98a8da7c76a9aea5817faeff7cd74144b5c6274e1469a2614fb252b98b7bb",
+    "openswing/frequency_response.py": "3655469f36dbb5bec3856bb59cf03e13a37ffdca6fd470d289c60372a0c821a7",
+    "openswing/geometry.py": "2b532a334bb438a85f89c013cacddc733b915b591da46a51af7d82d78177eb45",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "ad538682fd68c3c4d52ded7db0be8927d42f5e4153a8f0ce2d9aed3cb6d453d2",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "49ea6e62d94a0d0a421addeae78ccf28e9f39fda72fa75399665e5ddc8cebfb3",
+    "openswing/local_motion.py": "ba9a4fe285500c3140e07b4fca920ced1d12437c912bc1784b182c56daae974f",
+    "openswing/network.py": "3c27bf84bc2d857a70d5b9a75da68cedd4fe5e396231768609f95771a8c00d59",
+    "openswing/operating.py": "59e234f72c4216c0384c810e598f15016bbb163396ea635f970b95eb105cb242",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "4d2fe7dcaf4b2fb5bcf5b0b9de471d28d9c19da86d5470f8f85d31407b72ff2c",
+    "openswing/rom_file.py": "dc0f3a4075e6a286474ddfba88102493c7662d93fd2fadca190ff7b2eb9fe7ae",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/steady_feedback.py": "e14c44bc84a190c4485093b62d73f5407bd4f27f72e0eb33c12f62d49d2fe9a1",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_integration.py": "9dcbfabee24322c12bf51dc3e3165c91603c974fbb3289825e505f2a2bb52f60",
+    "openswing/volume.py": "b311ac36402d2bab96ba297ab9780abeaa0302a4f0afbd00fc3bda56d634d031"
+  },
+  "cases": [
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha3_down.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha3_down.rom",
+        "local": ".reference/rom-sources/isae-1.rom",
+        "sha256": "85f3c4b16f3bb2261138b825742381497322c4821efbc8eb8e0b60735c83df31",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            0.705928,
+            176.043
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha3_up.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha3_up.rom",
+        "local": ".reference/rom-sources/isae-2.rom",
+        "sha256": "b3194ce7424860d0cd9f063ebb2c2085dee71b4df6cd0f3e92f4cb595bd88a90",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            1.20391,
+            192.997
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha5_down.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha5_down.rom",
+        "local": ".reference/rom-sources/isae-3.rom",
+        "sha256": "15936a80f23dd2735415b2baeaad37531f59645e047293d147c288a522c368e1",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            -1.17251,
+            173.864
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha5_up.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/LCO_alpha3/Pazy_wing_flutter_alpha5_up.rom",
+        "local": ".reference/rom-sources/isae-4.rom",
+        "sha256": "a0614d2390c9f1525c8da6769e0b1ae27c23cb73c1ccfa6bcea41d27208dbb02",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            2.35884,
+            185.465
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha3_down.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha3_down.rom",
+        "local": ".reference/rom-sources/isae-5.rom",
+        "sha256": "85f3c4b16f3bb2261138b825742381497322c4821efbc8eb8e0b60735c83df31",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            0.705928,
+            176.043
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha3_up.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha3_up.rom",
+        "local": ".reference/rom-sources/isae-6.rom",
+        "sha256": "b3194ce7424860d0cd9f063ebb2c2085dee71b4df6cd0f3e92f4cb595bd88a90",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            1.20391,
+            192.997
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha5_down.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha5_down.rom",
+        "local": ".reference/rom-sources/isae-7.rom",
+        "sha256": "15936a80f23dd2735415b2baeaad37531f59645e047293d147c288a522c368e1",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            -1.17251,
+            173.864
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-4-D Pazy Wing - Flutter boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha5_up.rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-4-D%20Pazy%20Wing%20-%20Flutter%20boundaries/1-Flutter_Deformed/Modal_analysis/Pazy_wing_flutter_alpha5_up.rom",
+        "local": ".reference/rom-sources/isae-8.rom",
+        "sha256": "a0614d2390c9f1525c8da6769e0b1ae27c23cb73c1ccfa6bcea41d27208dbb02",
+        "bytes": 1238
+      },
+      "printed_modes": 1,
+      "real_states": 2,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RZ pos [3]",
+          "unit": "m"
+        },
+        {
+          "name": "Theta [3]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 3,
+          "eigenvalue": [
+            2.35884,
+            185.465
+          ]
+        }
+      ],
+      "selected_state_names": [],
+      "numeric_rows": 5,
+      "errors": {
+        "coefficient_changes": 0
+      }
+    },
+    {
+      "kind": "published ASWING annotated ROM",
+      "source": {
+        "path": "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-7-U Low Aspect Ratio Wing - Limit Cycle Oscillations/LCO/[p15_0].rom",
+        "url": "https://raw.githubusercontent.com/rom1isae/ISAE_Aswing_Experimental_Validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-7-U%20Low%20Aspect%20Ratio%20Wing%20-%20Limit%20Cycle%20Oscillations/LCO/%5Bp15_0%5D.rom",
+        "local": ".reference/rom-sources/isae-9.rom",
+        "sha256": "cebeb4a59ad459de6513e64ab97f9ed6d13dc786c4d27b3c3ea33d21c5c2cf7c",
+        "bytes": 15242
+      },
+      "printed_modes": 7,
+      "real_states": 12,
+      "inputs": [
+        {
+          "name": "Flap_01",
+          "unit": null,
+          "coefficient_unit": "1 / s"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dUx Lacc [1]",
+          "unit": "m/s^2"
+        },
+        {
+          "name": "dUy Lacc [1]",
+          "unit": "m/s^2"
+        },
+        {
+          "name": "dUz Lacc [1]",
+          "unit": "m/s^2"
+        },
+        {
+          "name": "dWx Aacc [1]",
+          "unit": "deg/s^2"
+        },
+        {
+          "name": "dWy Aacc [1]",
+          "unit": "deg/s^2"
+        },
+        {
+          "name": "dWz Aacc [1]",
+          "unit": "deg/s^2"
+        },
+        {
+          "name": "UX vel [1]",
+          "unit": "m/s"
+        },
+        {
+          "name": "UY vel [1]",
+          "unit": "m/s"
+        },
+        {
+          "name": "UZ vel [1]",
+          "unit": "m/s"
+        },
+        {
+          "name": "Wx rate [1]",
+          "unit": "deg/s"
+        },
+        {
+          "name": "Wy rate [1]",
+          "unit": "deg/s"
+        },
+        {
+          "name": "Wz rate [1]",
+          "unit": "deg/s"
+        },
+        {
+          "name": "RX pos [1]",
+          "unit": "m"
+        },
+        {
+          "name": "RY pos [1]",
+          "unit": "m"
+        },
+        {
+          "name": "RZ pos [1]",
+          "unit": "m"
+        },
+        {
+          "name": "Phi [1]",
+          "unit": "deg"
+        },
+        {
+          "name": "Theta [1]",
+          "unit": "deg"
+        },
+        {
+          "name": "Psi [1]",
+          "unit": "deg"
+        }
+      ],
+      "modes": [
+        {
+          "index": 1,
+          "eigenvalue": [
+            -24.0751,
+            46.3461
+          ]
+        },
+        {
+          "index": 2,
+          "eigenvalue": [
+            -12.8094,
+            109.83
+          ]
+        },
+        {
+          "index": 3,
+          "eigenvalue": [
+            -143.436,
+            0.0
+          ]
+        },
+        {
+          "index": 4,
+          "eigenvalue": [
+            -15.1282,
+            163.953
+          ]
+        },
+        {
+          "index": 5,
+          "eigenvalue": [
+            -243.429,
+            0.0
+          ]
+        },
+        {
+          "index": 6,
+          "eigenvalue": [
+            -12.4177,
+            397.028
+          ]
+        },
+        {
+          "index": 7,
+          "eigenvalue": [
+            -22.6994,
+            501.622
+          ]
+        }
+      ],
+      "selected_state_names": [
+        "Flap 1"
+      ],
+      "numeric_rows": 158,
+      "errors": {
+        "coefficient_changes": 0,
+        "maximum_printed_velocity_position_identity_error": 3.33373503343369e-05
+      }
+    },
+    {
+      "kind": "original two-input oscillator and first-order filter",
+      "result": {
+        "analysis": "imported_rom",
+        "model": {
+          "format": "aswing-rom",
+          "format_version": 1,
+          "name": "Original two-input mechanical ROM",
+          "operating_point": 7,
+          "time_unit": "s",
+          "modes": [
+            {
+              "index": 3,
+              "eigenvalue": [
+                -2.5,
+                15.612494995995995
+              ]
+            },
+            {
+              "index": 8,
+              "eigenvalue": [
+                -4.0,
+                0.0
+              ]
+            }
+          ],
+          "inputs": [
+            {
+              "name": "Flap_01",
+              "unit": null,
+              "coefficient_unit": "1 / s"
+            },
+            {
+              "name": "Peng_02",
+              "unit": null,
+              "coefficient_unit": "1 / s"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "q pos [1]",
+              "unit": "m"
+            },
+            {
+              "name": "v rate [1]",
+              "unit": "m/s"
+            },
+            {
+              "name": "a acceleration [1]",
+              "unit": "m/s^2"
+            },
+            {
+              "name": "filter value [1]",
+              "unit": "custom"
+            }
+          ],
+          "state_names": [
+            "q",
+            "v",
+            "z"
+          ],
+          "matrices": {
+            "B": {
+              "real": [
+                [
+                  -0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.0
+                ]
+              ],
+              "imag": [
+                [
+                  -0.016012815380508715,
+                  0.004803844614152614
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            "C": {
+              "real": [
+                [
+                  1.0,
+                  0.0
+                ],
+                [
+                  -2.5,
+                  0.0
+                ],
+                [
+                  -237.49999999999997,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  15.612494995995995,
+                  0.0
+                ],
+                [
+                  -78.06247497997998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            "D": {
+              "real": [
+                [
+                  0.0,
+                  0.1
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  -0.15
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            "V": {
+              "real": [
+                [
+                  1.0,
+                  0.0
+                ],
+                [
+                  -2.5,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  15.612494995995995,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          },
+          "source": "# Original two-input mechanical ROM\n# Op.Point : 7\n# Mode: 3\n# Eigenvalue: -2.50000000000000000e+00 1.56124949959959949e+01 1/s\n# Eigenvector...\n# Real(x) Imag(x)\n1.00000000000000000e+00 0.00000000000000000e+00 q\n-2.50000000000000000e+00 1.56124949959959949e+01 v\n0.00000000000000000e+00 0.00000000000000000e+00 z\n# Control variable influence-matrix row 3\n# Real(w*B) Imag(w*B)\n-0.00000000000000000e+00 -1.60128153805087145e-02 1 / s = d(zdot 3) / d(Flap_01)\n0.00000000000000000e+00 4.80384461415261400e-03 1 / s = d(zdot 3) / d(Peng_02)\n# Output variable dependence-matrix column 3\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n1.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(z 3)\n-2.50000000000000000e+00 1.56124949959959949e+01 m/s = d( v rate [1] ) / d(z 3)\n-2.37499999999999972e+02 -7.80624749799799815e+01 m/s^2 = d( a acceleration [1] ) / d(z 3)\n0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(z 3)\n# Mode: 8\n# Eigenvalue: -4.00000000000000000e+00 0.00000000000000000e+00 1/s\n# Eigenvector...\n# Real(x) Imag(x)\n0.00000000000000000e+00 0.00000000000000000e+00 q\n0.00000000000000000e+00 0.00000000000000000e+00 v\n1.00000000000000000e+00 0.00000000000000000e+00 z\n# Control variable influence-matrix row 8\n# Real(w*B) Imag(w*B)\n0.00000000000000000e+00 0.00000000000000000e+00 1 / s = d(zdot 8) / d(Flap_01)\n2.00000000000000000e+00 0.00000000000000000e+00 1 / s = d(zdot 8) / d(Peng_02)\n# Output variable dependence-matrix column 8\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n0.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(z 8)\n0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(z 8)\n0.00000000000000000e+00 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(z 8)\n1.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(z 8)\n# Output-variable dependence-matrix D + QVW*B\n# Column for forcing variable: Flap_01\n# Real(D+QVW*B) Imag(D+QVW*B)\n0.00000000000000000e+00 0.00000000000000000e+00 m = d( q pos [1] ) / d(Flap_01)\n0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(Flap_01)\n5.00000000000000000e-01 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(Flap_01)\n0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(Flap_01)\n# Column for forcing variable: Peng_02\n# Real(D+QVW*B) Imag(D+QVW*B)\n1.00000000000000006e-01 0.00000000000000000e+00 m = d( q pos [1] ) / d(Peng_02)\n0.00000000000000000e+00 0.00000000000000000e+00 m/s = d( v rate [1] ) / d(Peng_02)\n-1.49999999999999994e-01 0.00000000000000000e+00 m/s^2 = d( a acceleration [1] ) / d(Peng_02)\n0.00000000000000000e+00 0.00000000000000000e+00 custom = d( filter value [1] ) / d(Peng_02)\n",
+          "limitations": [
+            "One stored representative supplies both members of each nonreal conjugate pair. Real poles contribute once.",
+            "Response uses the matrices printed in this file. The aircraft baseline, full descriptor and ASWING-specific Bode reconstruction corrections are not contained in a ROM file.",
+            "Unknown variable and unit labels are preserved. Original files generally do not specify physical input units; these remain unspecified rather than inferred.",
+            "Importing an external ROM does not validate the underlying aircraft physics or attach it to the current .asw model."
+          ]
+        },
+        "real_matrices": {
+          "A": [
+            [
+              -2.5,
+              15.612494995995995,
+              0.0
+            ],
+            [
+              -15.612494995995995,
+              -2.5,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -4.0
+            ]
+          ],
+          "B": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              0.03202563076101743,
+              -0.009607689228305228
+            ],
+            [
+              0.0,
+              2.0
+            ]
+          ],
+          "C": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -2.5,
+              15.612494995995995,
+              0.0
+            ],
+            [
+              -237.49999999999997,
+              -78.06247497997998,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "D": [
+            [
+              0.0,
+              0.1
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              -0.15
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "V": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -2.5,
+              15.612494995995995,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "groups": [
+            {
+              "index": 3,
+              "coordinates": [
+                0,
+                1
+              ]
+            },
+            {
+              "index": 8,
+              "coordinates": [
+                2
+              ]
+            }
+          ],
+          "time_unit": "s"
+        },
+        "samples": [
+          {
+            "omega": 0.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0020000000000000005,
+                  0.09940000000000002
+                ],
+                [
+                  -8.666675708199898e-19,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.5
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 0.1,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0020000720022720574,
+                  0.09939997839931838
+                ],
+                [
+                  4.0003040167007256e-07,
+                  -1.2000912050134838e-07
+                ],
+                [
+                  -2.0000720022728125e-05,
+                  6.000216006787906e-06
+                ],
+                [
+                  0.0,
+                  0.4996876951905059
+                ]
+              ],
+              "imag": [
+                [
+                  -4.0003040167047846e-06,
+                  1.2000912050114408e-06
+                ],
+                [
+                  0.00020000720022720492,
+                  -6.000216006816182e-05
+                ],
+                [
+                  4.000304016510414e-08,
+                  -1.2000912050572077e-08
+                ],
+                [
+                  0.0,
+                  -0.012492192379762648
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 2.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0020291672165764817,
+                  0.09939124983502706
+                ],
+                [
+                  0.0001649729444371119,
+                  -4.949188333113388e-05
+                ],
+                [
+                  -0.008116668866305937,
+                  0.002435000659891773
+                ],
+                [
+                  0.0,
+                  0.4
+                ]
+              ],
+              "imag": [
+                [
+                  -8.248647221855616e-05,
+                  2.4745941665566853e-05
+                ],
+                [
+                  0.004058334433152963,
+                  -0.001217500329945889
+                ],
+                [
+                  0.0003299458888742224,
+                  -9.89837666622688e-05
+                ],
+                [
+                  0.0,
+                  -0.2
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 15.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0019999999999999987,
+                  0.0994
+                ],
+                [
+                  0.09000000000000002,
+                  -0.027
+                ],
+                [
+                  -0.44999999999999984,
+                  0.1349999999999999
+                ],
+                [
+                  0.0,
+                  0.03319502074688797
+                ]
+              ],
+              "imag": [
+                [
+                  -0.006000000000000001,
+                  0.0018000000000000002
+                ],
+                [
+                  0.029999999999999985,
+                  -0.008999999999999994
+                ],
+                [
+                  1.35,
+                  -0.405
+                ],
+                [
+                  0.0,
+                  -0.12448132780082988
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 30.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -0.0007303370786516855,
+                  0.10021910112359551
+                ],
+                [
+                  0.005056179775280899,
+                  -0.0015168539325842697
+                ],
+                [
+                  0.6573033707865169,
+                  -0.19719101123595506
+                ],
+                [
+                  0.0,
+                  0.008733624454148471
+                ]
+              ],
+              "imag": [
+                [
+                  -0.00016853932584269668,
+                  5.0561797752808995e-05
+                ],
+                [
+                  -0.021910112359550562,
+                  0.006573033707865169
+                ],
+                [
+                  0.15168539325842698,
+                  -0.04550561797752809
+                ],
+                [
+                  0.0,
+                  -0.06550218340611354
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 100.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -5.1147540983606575e-05,
+                  0.10001534426229508
+                ],
+                [
+                  0.0002622950819672132,
+                  -7.868852459016395e-05
+                ],
+                [
+                  0.5114754098360655,
+                  -0.15344262295081967
+                ],
+                [
+                  0.0,
+                  0.0007987220447284345
+                ]
+              ],
+              "imag": [
+                [
+                  -2.6229508196721335e-06,
+                  7.868852459016399e-07
+                ],
+                [
+                  -0.005114754098360656,
+                  0.001534426229508197
+                ],
+                [
+                  0.02622950819672132,
+                  -0.007868852459016393
+                ],
+                [
+                  0.0,
+                  -0.019968051118210862
+                ]
+              ]
+            }
+          }
+        ],
+        "converged": true,
+        "normalized_text": "# Original two-input mechanical ROM\n#\n#   Op.Point  :    7\n#\n# ======================================================\n#   Mode:    3\n#\n#   Eigenvalue: -2.5000000000000000e+00  1.5612494995995995e+01 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n 1.0000000000000000e+00  0.0000000000000000e+00  q\n-2.5000000000000000e+00  1.5612494995995995e+01  v\n 0.0000000000000000e+00  0.0000000000000000e+00  z\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  3\n#\n#   Real(w*B)    Imag(w*B)\n-0.0000000000000000e+00 -1.6012815380508715e-02  1 / s =  d(zdot 3) / d(Flap_01)\n 0.0000000000000000e+00  4.8038446141526140e-03  1 / s =  d(zdot 3) / d(Peng_02)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    3\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 1.0000000000000000e+00  0.0000000000000000e+00  m =  d( q pos [1] ) / d(z 3)\n-2.5000000000000000e+00  1.5612494995995995e+01  m/s =  d( v rate [1] ) / d(z 3)\n-2.3749999999999997e+02 -7.8062474979979982e+01  m/s^2 =  d( a acceleration [1] ) / d(z 3)\n 0.0000000000000000e+00  0.0000000000000000e+00  custom =  d( filter value [1] ) / d(z 3)\n#\n# ======================================================\n#   Mode:    8\n#\n#   Eigenvalue: -4.0000000000000000e+00  0.0000000000000000e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n 0.0000000000000000e+00  0.0000000000000000e+00  q\n 0.0000000000000000e+00  0.0000000000000000e+00  v\n 1.0000000000000000e+00  0.0000000000000000e+00  z\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  8\n#\n#   Real(w*B)    Imag(w*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  1 / s =  d(zdot 8) / d(Flap_01)\n 2.0000000000000000e+00  0.0000000000000000e+00  1 / s =  d(zdot 8) / d(Peng_02)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    8\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( q pos [1] ) / d(z 8)\n 0.0000000000000000e+00  0.0000000000000000e+00  m/s =  d( v rate [1] ) / d(z 8)\n 0.0000000000000000e+00  0.0000000000000000e+00  m/s^2 =  d( a acceleration [1] ) / d(z 8)\n 1.0000000000000000e+00  0.0000000000000000e+00  custom =  d( filter value [1] ) / d(z 8)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Flap_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( q pos [1] ) / d(Flap_01)\n 0.0000000000000000e+00  0.0000000000000000e+00  m/s =  d( v rate [1] ) / d(Flap_01)\n 5.0000000000000000e-01  0.0000000000000000e+00  m/s^2 =  d( a acceleration [1] ) / d(Flap_01)\n 0.0000000000000000e+00  0.0000000000000000e+00  custom =  d( filter value [1] ) / d(Flap_01)\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_02\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 1.0000000000000001e-01  0.0000000000000000e+00  m =  d( q pos [1] ) / d(Peng_02)\n 0.0000000000000000e+00  0.0000000000000000e+00  m/s =  d( v rate [1] ) / d(Peng_02)\n-1.4999999999999999e-01  0.0000000000000000e+00  m/s^2 =  d( a acceleration [1] ) / d(Peng_02)\n 0.0000000000000000e+00  0.0000000000000000e+00  custom =  d( filter value [1] ) / d(Peng_02)\n"
+      },
+      "errors": {
+        "maximum_absolute_transfer_error": 1.6653345369377348e-16
+      }
+    },
+    {
+      "kind": "generated oscillator ROM",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 1 m\nT 1 s\nF 1 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "controller": null,
+      "input_si_scales": {
+        "L": 1.0,
+        "T": 1.0,
+        "F": 1.0
+      },
+      "rom_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -2.5000000000000142e+00  1.5612494996012032e+01 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 2.0408163265306319e-02 -6.2090508618366180e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.3274999999989032e-01 -7.6501225466192202e-02  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-6.1249999999999368e+01  4.4725585333086037e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 5.0000000000000033e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n",
+      "imported": {
+        "analysis": "imported_rom",
+        "model": {
+          "format": "aswing-rom",
+          "format_version": 1,
+          "name": "Instrumented spring-mass demonstrator",
+          "operating_point": 1,
+          "time_unit": "s",
+          "modes": [
+            {
+              "index": 1,
+              "eigenvalue": [
+                -2.500000000000014,
+                15.612494996012032
+              ]
+            }
+          ],
+          "inputs": [
+            {
+              "name": "Peng_01",
+              "unit": "file engine setting",
+              "coefficient_unit": "1 / s"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "RY pos [2]",
+              "unit": "m"
+            },
+            {
+              "name": "UY vel [2]",
+              "unit": "m/s"
+            },
+            {
+              "name": "dUy Lacc [2]",
+              "unit": "m/s^2"
+            }
+          ],
+          "state_names": [],
+          "matrices": {
+            "B": {
+              "real": [
+                [
+                  0.02040816326530632
+                ]
+              ],
+              "imag": [
+                [
+                  -0.06209050861836618
+                ]
+              ]
+            },
+            "C": {
+              "real": [
+                [
+                  0.23274999999989032
+                ],
+                [
+                  0.6124999999987789
+                ],
+                [
+                  -61.24999999999937
+                ]
+              ],
+              "imag": [
+                [
+                  -0.0765012254661922
+                ],
+                [
+                  3.8250612740152885
+                ],
+                [
+                  4.4725585333086037e-14
+                ]
+              ]
+            },
+            "D": {
+              "real": [
+                [
+                  0.0
+                ],
+                [
+                  -3.1472477223649287e-17
+                ],
+                [
+                  0.5000000000000003
+                ]
+              ],
+              "imag": [
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ]
+              ]
+            },
+            "V": {
+              "real": [],
+              "imag": []
+            }
+          },
+          "source": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -2.5000000000000142e+00  1.5612494996012032e+01 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 2.0408163265306319e-02 -6.2090508618366180e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.3274999999989032e-01 -7.6501225466192202e-02  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-6.1249999999999368e+01  4.4725585333086037e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 5.0000000000000033e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n",
+          "limitations": [
+            "One stored representative supplies both members of each nonreal conjugate pair. Real poles contribute once.",
+            "Response uses the matrices printed in this file. The aircraft baseline, full descriptor and ASWING-specific Bode reconstruction corrections are not contained in a ROM file.",
+            "Unknown variable and unit labels are preserved. Original files generally do not specify physical input units; these remain unspecified rather than inferred.",
+            "Importing an external ROM does not validate the underlying aircraft physics or attach it to the current .asw model."
+          ]
+        },
+        "real_matrices": {
+          "A": [
+            [
+              -2.500000000000014,
+              15.612494996012032
+            ],
+            [
+              -15.612494996012032,
+              -2.500000000000014
+            ]
+          ],
+          "B": [
+            [
+              0.04081632653061264
+            ],
+            [
+              0.12418101723673236
+            ]
+          ],
+          "C": [
+            [
+              0.23274999999989032,
+              -0.0765012254661922
+            ],
+            [
+              0.6124999999987789,
+              3.8250612740152885
+            ],
+            [
+              -61.24999999999937,
+              4.4725585333086037e-14
+            ]
+          ],
+          "D": [
+            [
+              0.0
+            ],
+            [
+              -3.1472477223649287e-17
+            ],
+            [
+              0.5000000000000003
+            ]
+          ],
+          "V": [],
+          "groups": [
+            {
+              "index": 1,
+              "coordinates": [
+                0,
+                1
+              ]
+            }
+          ],
+          "time_unit": "s"
+        },
+        "samples": [
+          {
+            "omega": 0.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.001999999999980456
+                ],
+                [
+                  -5.660583677740445e-17
+                ],
+                [
+                  5.551115123125783e-15
+                ]
+              ],
+              "imag": [
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 1.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0020072227775254146
+                ],
+                [
+                  4.0305678263735515e-05
+                ],
+                [
+                  -0.0020072227775353446
+                ]
+              ],
+              "imag": [
+                [
+                  -4.0305678256464584e-05
+                ],
+                [
+                  0.0020072227775408662
+                ],
+                [
+                  4.03056782637759e-05
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 5.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.002195121951201954
+                ],
+                [
+                  0.0012195121951165384
+                ],
+                [
+                  -0.054878048780362565
+                ]
+              ],
+              "imag": [
+                [
+                  -0.00024390243898307005
+                ],
+                [
+                  0.010975609756073743
+                ],
+                [
+                  0.006097560975582818
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 20.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -0.002307692307569812
+                ],
+                [
+                  0.03076923076937311
+                ],
+                [
+                  0.9230769230781007
+                ]
+              ],
+              "imag": [
+                [
+                  -0.001538461538617987
+                ],
+                [
+                  -0.046153846153905276
+                ],
+                [
+                  0.6153846153874556
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 100.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -5.114754098229523e-05
+                ],
+                [
+                  0.0002622950819672109
+                ],
+                [
+                  0.5114754098360919
+                ]
+              ],
+              "imag": [
+                [
+                  -2.6229508375255657e-06
+                ],
+                [
+                  -0.005114754098360922
+                ],
+                [
+                  0.02622950819672392
+                ]
+              ]
+            }
+          }
+        ],
+        "converged": true,
+        "normalized_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -2.5000000000000142e+00  1.5612494996012032e+01 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 2.0408163265306319e-02 -6.2090508618366180e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.3274999999989032e-01 -7.6501225466192202e-02  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-6.1249999999999368e+01  4.4725585333086037e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 5.0000000000000033e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n"
+      },
+      "independent": {
+        "real": [
+          [
+            [
+              0.002
+            ],
+            [
+              0.0
+            ],
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0020072227775449008
+            ],
+            [
+              4.0305678263953826e-05
+            ],
+            [
+              -0.0020072227775449008
+            ]
+          ],
+          [
+            [
+              0.0021951219512195124
+            ],
+            [
+              0.0012195121951219512
+            ],
+            [
+              -0.05487804878048781
+            ]
+          ],
+          [
+            [
+              -0.002307692307692308
+            ],
+            [
+              0.03076923076923077
+            ],
+            [
+              0.9230769230769231
+            ]
+          ],
+          [
+            [
+              -5.114754098360656e-05
+            ],
+            [
+              0.0002622950819672131
+            ],
+            [
+              0.5114754098360657
+            ]
+          ]
+        ],
+        "imag": [
+          [
+            [
+              0.0
+            ],
+            [
+              0.0
+            ],
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              -4.0305678263953826e-05
+            ],
+            [
+              0.0020072227775449008
+            ],
+            [
+              4.0305678263953826e-05
+            ]
+          ],
+          [
+            [
+              -0.00024390243902439024
+            ],
+            [
+              0.010975609756097562
+            ],
+            [
+              0.006097560975609756
+            ]
+          ],
+          [
+            [
+              -0.0015384615384615385
+            ],
+            [
+              -0.046153846153846156
+            ],
+            [
+              0.6153846153846154
+            ]
+          ],
+          [
+            [
+              -2.622950819672131e-06
+            ],
+            [
+              -0.005114754098360656
+            ],
+            [
+              0.026229508196721308
+            ]
+          ]
+        ]
+      },
+      "errors": {
+        "normalized_reference": [
+          [
+            7.16420304373084e-11
+          ],
+          [
+            2.77856056416604e-12
+          ],
+          [
+            2.771434635070428e-12
+          ]
+        ],
+        "normalized_interchange": [
+          [
+            1.3190690763637667e-14
+          ],
+          [
+            1.5210468536489215e-14
+          ],
+          [
+            9.54069398813138e-15
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "generated oscillator ROM",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 2 m\nT 2 s\nF 3 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "controller": null,
+      "input_si_scales": {
+        "L": 2.0,
+        "T": 2.0,
+        "F": 3.0
+      },
+      "rom_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -1.2500000000000071e+00  7.8062474980060159e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 1.0204081632653159e-02 -3.1045254309183090e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 4.6549999999978064e-01 -1.5300245093238440e-01  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-3.0624999999999684e+01  2.2362792666543018e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 2.5000000000000017e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n",
+      "imported": {
+        "analysis": "imported_rom",
+        "model": {
+          "format": "aswing-rom",
+          "format_version": 1,
+          "name": "Instrumented spring-mass demonstrator",
+          "operating_point": 1,
+          "time_unit": "s",
+          "modes": [
+            {
+              "index": 1,
+              "eigenvalue": [
+                -1.250000000000007,
+                7.806247498006016
+              ]
+            }
+          ],
+          "inputs": [
+            {
+              "name": "Peng_01",
+              "unit": "file engine setting",
+              "coefficient_unit": "1 / s"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "RY pos [2]",
+              "unit": "m"
+            },
+            {
+              "name": "UY vel [2]",
+              "unit": "m/s"
+            },
+            {
+              "name": "dUy Lacc [2]",
+              "unit": "m/s^2"
+            }
+          ],
+          "state_names": [],
+          "matrices": {
+            "B": {
+              "real": [
+                [
+                  0.01020408163265316
+                ]
+              ],
+              "imag": [
+                [
+                  -0.03104525430918309
+                ]
+              ]
+            },
+            "C": {
+              "real": [
+                [
+                  0.46549999999978064
+                ],
+                [
+                  0.6124999999987789
+                ],
+                [
+                  -30.624999999999684
+                ]
+              ],
+              "imag": [
+                [
+                  -0.1530024509323844
+                ],
+                [
+                  3.8250612740152885
+                ],
+                [
+                  2.2362792666543018e-14
+                ]
+              ]
+            },
+            "D": {
+              "real": [
+                [
+                  0.0
+                ],
+                [
+                  -3.1472477223649287e-17
+                ],
+                [
+                  0.25000000000000017
+                ]
+              ],
+              "imag": [
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ]
+              ]
+            },
+            "V": {
+              "real": [],
+              "imag": []
+            }
+          },
+          "source": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -1.2500000000000071e+00  7.8062474980060159e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 1.0204081632653159e-02 -3.1045254309183090e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 4.6549999999978064e-01 -1.5300245093238440e-01  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-3.0624999999999684e+01  2.2362792666543018e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 2.5000000000000017e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n",
+          "limitations": [
+            "One stored representative supplies both members of each nonreal conjugate pair. Real poles contribute once.",
+            "Response uses the matrices printed in this file. The aircraft baseline, full descriptor and ASWING-specific Bode reconstruction corrections are not contained in a ROM file.",
+            "Unknown variable and unit labels are preserved. Original files generally do not specify physical input units; these remain unspecified rather than inferred.",
+            "Importing an external ROM does not validate the underlying aircraft physics or attach it to the current .asw model."
+          ]
+        },
+        "real_matrices": {
+          "A": [
+            [
+              -1.250000000000007,
+              7.806247498006016
+            ],
+            [
+              -7.806247498006016,
+              -1.250000000000007
+            ]
+          ],
+          "B": [
+            [
+              0.02040816326530632
+            ],
+            [
+              0.06209050861836618
+            ]
+          ],
+          "C": [
+            [
+              0.46549999999978064,
+              -0.1530024509323844
+            ],
+            [
+              0.6124999999987789,
+              3.8250612740152885
+            ],
+            [
+              -30.624999999999684,
+              2.2362792666543018e-14
+            ]
+          ],
+          "D": [
+            [
+              0.0
+            ],
+            [
+              -3.1472477223649287e-17
+            ],
+            [
+              0.25000000000000017
+            ]
+          ],
+          "V": [],
+          "groups": [
+            {
+              "index": 1,
+              "coordinates": [
+                0,
+                1
+              ]
+            }
+          ],
+          "time_unit": "s"
+        },
+        "samples": [
+          {
+            "omega": 0.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.003999999999960912
+                ],
+                [
+                  -5.660583677740445e-17
+                ],
+                [
+                  2.7755575615628914e-15
+                ]
+              ],
+              "imag": [
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ],
+                [
+                  0.0
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 1.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.004058334433114354
+                ],
+                [
+                  0.00016497294443638602
+                ],
+                [
+                  -0.00405833443314195
+                ]
+              ],
+              "imag": [
+                [
+                  -0.00016497294440679739
+                ],
+                [
+                  0.004058334433144732
+                ],
+                [
+                  0.00016497294443642424
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 5.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.006000000000007246
+                ],
+                [
+                  0.009999999999939889
+                ],
+                [
+                  -0.1499999999995949
+                ]
+              ],
+              "imag": [
+                [
+                  -0.0019999999997627822
+                ],
+                [
+                  0.02999999999991987
+                ],
+                [
+                  0.0499999999996991
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 20.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -0.0007248322147447171
+                ],
+                [
+                  0.0021476510067129553
+                ],
+                [
+                  0.2899328859061429
+                ]
+              ],
+              "imag": [
+                [
+                  -0.00010738255043613199
+                ],
+                [
+                  -0.014496644295307169
+                ],
+                [
+                  0.04295302013425922
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 100.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -2.5141321104632367e-05
+                ],
+                [
+                  6.324860655410755e-05
+                ],
+                [
+                  0.2514132110526973
+                ]
+              ],
+              "imag": [
+                [
+                  -6.324860831077634e-07
+                ],
+                [
+                  -0.0025141321105269735
+                ],
+                [
+                  0.0063248606554138255
+                ]
+              ]
+            }
+          }
+        ],
+        "converged": true,
+        "normalized_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -1.2500000000000071e+00  7.8062474980060159e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 1.0204081632653159e-02 -3.1045254309183090e-02  1 / s =  d(zdot 1) / d(Peng_01)\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 4.6549999999978064e-01 -1.5300245093238440e-01  m =  d( RY pos [2] ) / d(z 1)\n 6.1249999999877891e-01  3.8250612740152885e+00  m/s =  d( UY vel [2] ) / d(z 1)\n-3.0624999999999684e+01  2.2362792666543018e-14  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-3.1472477223649287e-17  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 2.5000000000000017e-01  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n"
+      },
+      "independent": {
+        "real": [
+          [
+            [
+              0.004
+            ],
+            [
+              0.0
+            ],
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0040583344331529625
+            ],
+            [
+              0.0001649729444371123
+            ],
+            [
+              -0.0040583344331529625
+            ]
+          ],
+          [
+            [
+              0.006
+            ],
+            [
+              0.01
+            ],
+            [
+              -0.15
+            ]
+          ],
+          [
+            [
+              -0.0007248322147651007
+            ],
+            [
+              0.0021476510067114096
+            ],
+            [
+              0.28993288590604027
+            ]
+          ],
+          [
+            [
+              -2.51413211052694e-05
+            ],
+            [
+              6.324860655413686e-05
+            ],
+            [
+              0.251413211052694
+            ]
+          ]
+        ],
+        "imag": [
+          [
+            [
+              0.0
+            ],
+            [
+              0.0
+            ],
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.0001649729444371123
+            ],
+            [
+              0.0040583344331529625
+            ],
+            [
+              0.0001649729444371123
+            ]
+          ],
+          [
+            [
+              -0.002
+            ],
+            [
+              0.03
+            ],
+            [
+              0.05
+            ]
+          ],
+          [
+            [
+              -0.00010738255033557047
+            ],
+            [
+              -0.014496644295302013
+            ],
+            [
+              0.04295302013422819
+            ]
+          ],
+          [
+            [
+              -6.324860655413687e-07
+            ],
+            [
+              -0.00251413211052694
+            ],
+            [
+              0.006324860655413687
+            ]
+          ]
+        ]
+      },
+      "errors": {
+        "normalized_reference": [
+          [
+            3.752492074981691e-11
+          ],
+          [
+            3.1676934018974067e-12
+          ],
+          [
+            1.7216894497772644e-12
+          ]
+        ],
+        "normalized_interchange": [
+          [
+            1.6569929586940637e-14
+          ],
+          [
+            1.7129461062587102e-14
+          ],
+          [
+            2.3335494540862365e-14
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "generated lag-controller ROM",
+      "source": "! Original OpenSwing harmonic verification example. SI input units.\n! Fixed root, axial stiffness k=500 N/m, tip mass m=2 kg, damping time .02 s.\n! Engine setting is a force in N along +y. Set gravity to zero, alpha=0.\n! Tip y response per unit setting: 1 / [500*(1+i*.02*omega)-2*omega^2].\nName\nInstrumented spring-mass demonstrator\nEnd\nUnit\nL 2 m\nT 2 s\nF 3 N\nEnd\nConstant\n9.80665 1.225 340.294\nEnd\nReference\n2 1 2\nEnd\nGround\n1 0 0\nEnd\nWeight\n1 2 0 2 0 19.6133\nEnd\nEngine\n1 0 1 2 0 2 0 0 1 0 1 0 -1 0 0\nEnd\nBeam 1\nAxial spring\nt y EA tdeps\n0 0 1000 .02\n2 2 1000 .02\nEnd\n\n! Default body-aligned pylon-tip pitot, accelerometer and GPS.\nSensor\n1 1 0 0 0 .2\n2 1 2 .3 2 .2\nEnd\n",
+      "controller": {
+        "parameters": {
+          "kp": 200,
+          "kd": 20,
+          "tau": 0.05
+        },
+        "outputs": [
+          {
+            "actuator": "E1",
+            "expression": "state('lag')"
+          }
+        ],
+        "states": [
+          {
+            "name": "lag",
+            "initial": 0,
+            "scale": 10,
+            "unit": "file engine setting",
+            "rate": "(command('E1')-parameter('kp')*error('RY[2]')-parameter('kd')*error('UY[2]')-state('lag'))/parameter('tau')"
+          }
+        ]
+      },
+      "input_si_scales": {
+        "L": 2.0,
+        "T": 2.0,
+        "F": 3.0
+      },
+      "rom_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n# OpenSwing input-unit: {\"name\": \"command.RY[2]\", \"unit\": \"m\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -8.4663869495226542e+00  0.0000000000000000e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 8.0220174372888764e-01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(Peng_01)\n 8.0220174373043207e+01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.2121203843448813e-02  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(z 1)\n-1.8728667204916719e-01  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(z 1)\n 1.5856414360565978e+00  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#   Mode:    2\n#\n#   Eigenvalue: -2.0168065252386915e+00  9.9640535200235441e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  2\n#\n#   Real(w*B)    Imag(w*B)\n 9.8899128135556069e-02  1.4097318959776220e-01  1 / s =  d(zdot 2) / d(Peng_01)\n 9.8899128135746484e+00  1.4097318959803362e+01  1 / s =  d(zdot 2) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    2\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n-5.6893935274082701e-02  2.3026176732669656e-02  m =  d( RY pos [2] ) / d(z 2)\n-1.1468999730821548e-01 -6.1333355962129288e-01  m/s =  d( UY vel [2] ) / d(z 2)\n 6.3425959486439307e+00  9.4197853801689893e-02  m/s^2 =  d( dUy Lacc [2] ) / d(z 2)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-6.5843669215189180e-18  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 1.2106896451842713e-17  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n#\n# ------------------------------------------------------\n#  Column for forcing variable: command.RY[2]\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(command.RY[2])\n-4.1443458556328960e-16  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(command.RY[2])\n 4.4025808409772461e-15  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(command.RY[2])\n",
+      "imported": {
+        "analysis": "imported_rom",
+        "model": {
+          "format": "aswing-rom",
+          "format_version": 1,
+          "name": "Instrumented spring-mass demonstrator",
+          "operating_point": 1,
+          "time_unit": "s",
+          "modes": [
+            {
+              "index": 1,
+              "eigenvalue": [
+                -8.466386949522654,
+                0.0
+              ]
+            },
+            {
+              "index": 2,
+              "eigenvalue": [
+                -2.0168065252386915,
+                9.964053520023544
+              ]
+            }
+          ],
+          "inputs": [
+            {
+              "name": "Peng_01",
+              "unit": "file engine setting",
+              "coefficient_unit": "1 / s"
+            },
+            {
+              "name": "command.RY[2]",
+              "unit": "m",
+              "coefficient_unit": "1 / s"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "RY pos [2]",
+              "unit": "m"
+            },
+            {
+              "name": "UY vel [2]",
+              "unit": "m/s"
+            },
+            {
+              "name": "dUy Lacc [2]",
+              "unit": "m/s^2"
+            }
+          ],
+          "state_names": [],
+          "matrices": {
+            "B": {
+              "real": [
+                [
+                  0.8022017437288876,
+                  80.2201743730432
+                ],
+                [
+                  0.09889912813555607,
+                  9.889912813574648
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.1409731895977622,
+                  14.097318959803362
+                ]
+              ]
+            },
+            "C": {
+              "real": [
+                [
+                  0.022121203843448813,
+                  -0.0568939352740827
+                ],
+                [
+                  -0.18728667204916719,
+                  -0.11468999730821548
+                ],
+                [
+                  1.5856414360565978,
+                  6.342595948643931
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.023026176732669656
+                ],
+                [
+                  0.0,
+                  -0.6133335596212929
+                ],
+                [
+                  0.0,
+                  0.0941978538016899
+                ]
+              ]
+            },
+            "D": {
+              "real": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -6.584366921518918e-18,
+                  -4.144345855632896e-16
+                ],
+                [
+                  1.2106896451842713e-17,
+                  4.402580840977246e-15
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            "V": {
+              "real": [],
+              "imag": []
+            }
+          },
+          "source": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n# OpenSwing input-unit: {\"name\": \"command.RY[2]\", \"unit\": \"m\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -8.4663869495226542e+00  0.0000000000000000e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 8.0220174372888764e-01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(Peng_01)\n 8.0220174373043207e+01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.2121203843448813e-02  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(z 1)\n-1.8728667204916719e-01  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(z 1)\n 1.5856414360565978e+00  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#   Mode:    2\n#\n#   Eigenvalue: -2.0168065252386915e+00  9.9640535200235441e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  2\n#\n#   Real(w*B)    Imag(w*B)\n 9.8899128135556069e-02  1.4097318959776220e-01  1 / s =  d(zdot 2) / d(Peng_01)\n 9.8899128135746484e+00  1.4097318959803362e+01  1 / s =  d(zdot 2) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    2\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n-5.6893935274082701e-02  2.3026176732669656e-02  m =  d( RY pos [2] ) / d(z 2)\n-1.1468999730821548e-01 -6.1333355962129288e-01  m/s =  d( UY vel [2] ) / d(z 2)\n 6.3425959486439307e+00  9.4197853801689893e-02  m/s^2 =  d( dUy Lacc [2] ) / d(z 2)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-6.5843669215189180e-18  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 1.2106896451842713e-17  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n#\n# ------------------------------------------------------\n#  Column for forcing variable: command.RY[2]\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(command.RY[2])\n-4.1443458556328960e-16  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(command.RY[2])\n 4.4025808409772461e-15  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(command.RY[2])\n",
+          "limitations": [
+            "One stored representative supplies both members of each nonreal conjugate pair. Real poles contribute once.",
+            "Response uses the matrices printed in this file. The aircraft baseline, full descriptor and ASWING-specific Bode reconstruction corrections are not contained in a ROM file.",
+            "Unknown variable and unit labels are preserved. Original files generally do not specify physical input units; these remain unspecified rather than inferred.",
+            "Importing an external ROM does not validate the underlying aircraft physics or attach it to the current .asw model."
+          ]
+        },
+        "real_matrices": {
+          "A": [
+            [
+              -8.466386949522654,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -2.0168065252386915,
+              9.964053520023544
+            ],
+            [
+              0.0,
+              -9.964053520023544,
+              -2.0168065252386915
+            ]
+          ],
+          "B": [
+            [
+              0.8022017437288876,
+              80.2201743730432
+            ],
+            [
+              0.19779825627111214,
+              19.779825627149297
+            ],
+            [
+              -0.2819463791955244,
+              -28.194637919606723
+            ]
+          ],
+          "C": [
+            [
+              0.022121203843448813,
+              -0.0568939352740827,
+              0.023026176732669656
+            ],
+            [
+              -0.18728667204916719,
+              -0.11468999730821548,
+              -0.6133335596212929
+            ],
+            [
+              1.5856414360565978,
+              6.342595948643931,
+              0.0941978538016899
+            ]
+          ],
+          "D": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -6.584366921518918e-18,
+              -4.144345855632896e-16
+            ],
+            [
+              1.2106896451842713e-17,
+              4.402580840977246e-15
+            ]
+          ],
+          "V": [],
+          "groups": [
+            {
+              "index": 1,
+              "coordinates": [
+                0
+              ]
+            },
+            {
+              "index": 2,
+              "coordinates": [
+                1,
+                2
+              ]
+            }
+          ],
+          "time_unit": "s"
+        },
+        "samples": [
+          {
+            "omega": 0.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.0028571428508153036,
+                  0.28571428508208047
+                ],
+                [
+                  -1.8041124150158794e-16,
+                  -1.7319479184152442e-14
+                ],
+                [
+                  -2.220446049250313e-16,
+                  -2.3092638912203256e-14
+                ]
+              ],
+              "imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 1.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.002827726069219076,
+                  0.282772606922452
+                ],
+                [
+                  0.00044751838759462745,
+                  0.044751838759549356
+                ],
+                [
+                  -0.0028277260754650396,
+                  -0.28277260754704603
+                ]
+              ],
+              "imag": [
+                [
+                  -0.00044751838689702434,
+                  -0.04475183868978859
+                ],
+                [
+                  0.0028277260754647933,
+                  0.2827726075470238
+                ],
+                [
+                  0.00044751838759461704,
+                  0.0447518387595478
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 5.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  0.00222222221728873,
+                  0.22222222172930084
+                ],
+                [
+                  0.01111111111107683,
+                  1.1111111111098229
+                ],
+                [
+                  -0.05555555555549479,
+                  -5.555555555560175
+                ]
+              ],
+              "imag": [
+                [
+                  -0.002222222219512817,
+                  -0.22222222195170954
+                ],
+                [
+                  0.01111111111109889,
+                  1.1111111111120282
+                ],
+                [
+                  0.05555555555538414,
+                  5.555555555549109
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 20.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -0.00023133543711307,
+                  -0.023133543711351533
+                ],
+                [
+                  -0.0058885383806544615,
+                  -0.5888538380665795
+                ],
+                [
+                  0.09253417455314762,
+                  9.253417455332581
+                ]
+              ],
+              "imag": [
+                [
+                  0.00029442692117758693,
+                  0.029442692117815382
+                ],
+                [
+                  -0.004626708727657379,
+                  -0.46267087276662866
+                ],
+                [
+                  -0.11777076761308891,
+                  -11.777076761331568
+                ]
+              ]
+            }
+          },
+          {
+            "omega": 100.0,
+            "converged": true,
+            "response": {
+              "real": [
+                [
+                  -3.140509743061672e-07,
+                  -3.140509743067635e-05
+                ],
+                [
+                  -0.0002495329203895671,
+                  -0.024953292039004524
+                ],
+                [
+                  0.0031405093782868997,
+                  0.3140509378292978
+                ]
+              ],
+              "imag": [
+                [
+                  2.4953296957056414e-06,
+                  0.00024953296957104347
+                ],
+                [
+                  -3.1405093782868924e-05,
+                  -0.0031405093782929244
+                ],
+                [
+                  -0.024953292038956045,
+                  -2.4953292039004085
+                ]
+              ]
+            }
+          }
+        ],
+        "converged": true,
+        "normalized_text": "# Instrumented spring-mass demonstrator\n#\n#   Op.Point  :    1\n# OpenSwing input-unit: {\"name\": \"Peng_01\", \"unit\": \"file engine setting\"}\n# OpenSwing input-unit: {\"name\": \"command.RY[2]\", \"unit\": \"m\"}\n#\n# ======================================================\n#   Mode:    1\n#\n#   Eigenvalue: -8.4663869495226542e+00  0.0000000000000000e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  1\n#\n#   Real(w*B)    Imag(w*B)\n 8.0220174372888764e-01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(Peng_01)\n 8.0220174373043207e+01  0.0000000000000000e+00  1 / s =  d(zdot 1) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    1\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n 2.2121203843448813e-02  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(z 1)\n-1.8728667204916719e-01  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(z 1)\n 1.5856414360565978e+00  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(z 1)\n#\n# ======================================================\n#   Mode:    2\n#\n#   Eigenvalue: -2.0168065252386915e+00  9.9640535200235441e+00 1/s\n#\n#   Eigenvector...\n#\n#   Real(x)      Imag(x)\n#\n# ------------------------------------------------------\n# Control variable influence-matrix row  2\n#\n#   Real(w*B)    Imag(w*B)\n 9.8899128135556069e-02  1.4097318959776220e-01  1 / s =  d(zdot 2) / d(Peng_01)\n 9.8899128135746484e+00  1.4097318959803362e+01  1 / s =  d(zdot 2) / d(command.RY[2])\n#\n# ------------------------------------------------------\n# Output variable dependence-matrix column    2\n#\n# Real(Cv+Qvl) Imag(Cv+Qvl)\n-5.6893935274082701e-02  2.3026176732669656e-02  m =  d( RY pos [2] ) / d(z 2)\n-1.1468999730821548e-01 -6.1333355962129288e-01  m/s =  d( UY vel [2] ) / d(z 2)\n 6.3425959486439307e+00  9.4197853801689893e-02  m/s^2 =  d( dUy Lacc [2] ) / d(z 2)\n#\n# ======================================================\n#  Output-variable dependence-matrix  D + QVW*B\n#   generated using above modes\n#\n# ------------------------------------------------------\n#  Column for forcing variable: Peng_01\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(Peng_01)\n-6.5843669215189180e-18  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(Peng_01)\n 1.2106896451842713e-17  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(Peng_01)\n#\n# ------------------------------------------------------\n#  Column for forcing variable: command.RY[2]\n#\n# Real(D+QVW*B) Imag(D+QVW*B)\n 0.0000000000000000e+00  0.0000000000000000e+00  m =  d( RY pos [2] ) / d(command.RY[2])\n-4.1443458556328960e-16  0.0000000000000000e+00  m/s =  d( UY vel [2] ) / d(command.RY[2])\n 4.4025808409772461e-15  0.0000000000000000e+00  m/s^2 =  d( dUy Lacc [2] ) / d(command.RY[2])\n"
+      },
+      "independent": {
+        "real": [
+          [
+            [
+              0.002857142857142857,
+              0.2857142857142857
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              0.0028277260754702876,
+              0.28277260754702876
+            ],
+            [
+              0.0004475183875961673,
+              0.044751838759616726
+            ],
+            [
+              -0.0028277260754702876,
+              -0.28277260754702876
+            ]
+          ],
+          [
+            [
+              0.0022222222222222222,
+              0.2222222222222222
+            ],
+            [
+              0.011111111111111112,
+              1.1111111111111112
+            ],
+            [
+              -0.05555555555555555,
+              -5.555555555555555
+            ]
+          ],
+          [
+            [
+              -0.000231335436382755,
+              -0.0231335436382755
+            ],
+            [
+              -0.005888538380651946,
+              -0.5888538380651945
+            ],
+            [
+              0.092534174553102,
+              9.2534174553102
+            ]
+          ],
+          [
+            [
+              -3.1405093782868314e-07,
+              -3.1405093782868314e-05
+            ],
+            [
+              -0.0002495329203895579,
+              -0.024953292038955792
+            ],
+            [
+              0.003140509378286831,
+              0.31405093782868315
+            ]
+          ]
+        ],
+        "imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.0004475183875961673,
+              -0.044751838759616726
+            ],
+            [
+              0.0028277260754702876,
+              0.28277260754702876
+            ],
+            [
+              0.0004475183875961673,
+              0.044751838759616726
+            ]
+          ],
+          [
+            [
+              -0.0022222222222222222,
+              -0.2222222222222222
+            ],
+            [
+              0.011111111111111112,
+              1.1111111111111112
+            ],
+            [
+              0.05555555555555555,
+              5.555555555555555
+            ]
+          ],
+          [
+            [
+              0.0002944269190325973,
+              0.029442691903259727
+            ],
+            [
+              -0.0046267087276551004,
+              -0.46267087276551
+            ],
+            [
+              -0.11777076761303891,
+              -11.77707676130389
+            ]
+          ],
+          [
+            [
+              2.495329203895579e-06,
+              0.0002495329203895579
+            ],
+            [
+              -3.1405093782868314e-05,
+              -0.003140509378286831
+            ],
+            [
+              -0.024953292038955792,
+              -2.4953292038955794
+            ]
+          ]
+        ]
+      },
+      "errors": {
+        "normalized_reference": [
+          [
+            2.0134151942075263e-09,
+            2.0116647318577954e-09
+          ],
+          [
+            2.316153459214188e-12,
+            1.1330059453696e-12
+          ],
+          [
+            1.2142420159492786e-12,
+            2.3764854712986046e-12
+          ]
+        ],
+        "normalized_interchange": [
+          [
+            4.0749850864226945e-15,
+            4.18741407624299e-15
+          ],
+          [
+            1.0526445658231367e-14,
+            1.0557837211207449e-14
+          ],
+          [
+            7.200218518390519e-15,
+            7.260907471421877e-15
+          ]
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "The nine external samples have zero control/direct matrices. Their numerical forced dynamics are therefore not a nonzero transfer benchmark.",
+    "The original independent mechanical and newly generated examples provide nonzero SISO/MIMO, conjugate, feedthrough and SI-scaling checks.",
+    "Printed ROM transfer matrices do not contain all data used by ASWING Bode reconstruction corrections; executable interoperability and aircraft physics parity are not established."
+  ]
+}

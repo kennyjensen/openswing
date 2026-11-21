@@ -1,0 +1,1450 @@
+{
+  "format": "openswing.isae.scn-conditional-metric-audit",
+  "version": 1,
+  "pins": [
+    {
+      "path": "docs/validation/sa1-scn-load-audit-20261027/metric-analysis.py",
+      "bytes": 9229,
+      "sha256": "efa17593af4a2396e0ea747beae06c9a5fd19bbe064774c9dda1e3695bf56fbb"
+    },
+    {
+      "path": ".reference/sa1-public-history-20261027/scn-study/CASEI.asw",
+      "bytes": 54127,
+      "sha256": "d0c35703d6c257aa4016bb5e00ac8635bf1d5c0cc847be9cfa70a45f1d3a2fa5"
+    },
+    {
+      "path": ".reference/sa1-public-history-20261027/scn-study/SCN_ellip.sh",
+      "bytes": 389,
+      "sha256": "821c77685b598b2740927ad78a35f5c2672d2b2b2bb28a3c6c1219b06bc1272d"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    }
+  ],
+  "qualifications": [
+    "CASEI-to-output pairing remains conditional; matching names/headers and retained driver are not an execution receipt.",
+    "Natural spline boundary conditions are declared for this diagnostic; historical boundary conditions and exact unprinted node t values are unknown.",
+    "The box geometry uses literal x(t), y=t, z=0 and integrates Eq48/50 with endpoint unit tangents and spline arc length. No aerodynamic or structural equilibrium solve is run.",
+    "Central printed t values are used. A within-half-unit y result is a diagnostic agreement, not rigorous propagation of all node-t rounding.",
+    "The cos(8deg) alternative treats f_aero as a freestream-normal lift magnitude only to test that particular interpretation; the manual instead calls it wing-normal lift. No projection is chosen by numerical closeness.",
+    "The model excludes prescribed profile drag and mass loads. All shown cl are well below the stall limits. Tiny smooth-stall leakage and unsaved fields are not asserted identically zero.",
+    "The effective-length lower-bound rejection is independent of spline boundary conditions, conditioned only on Fn being z force, f_aero being the complete normal density, and a single interval product."
+  ],
+  "source_facts": {
+    "geometry_lines": [
+      40,
+      121
+    ],
+    "geometry_count": 81,
+    "max_abs_x_plus_chord_over_4": 1.5000000000431335e-07,
+    "zero_mass_blocks_start_lines": [
+      544,
+      628
+    ],
+    "zero_rigidity_means_infinity_manual_lines": [
+      1200,
+      1204
+    ],
+    "zero_twist_alpha_Cm_lines": [
+      712,
+      714
+    ],
+    "zero_Cdf_Cdp_and_stall_limits_lines": [
+      717,
+      719
+    ],
+    "theory_true_arc_definition_lines": [
+      2257,
+      2261
+    ]
+  },
+  "scalar_sanity_checks": {
+    "linear_derivative_error": 0.0,
+    "quadratic_integral_error": 5.551115123125783e-17,
+    "unit_tangent_max_error": 2.220446049250313e-16
+  },
+  "arc_quadrature_refinement_abs_1e11_vs_1e13": 3.6637359812630166e-14,
+  "files": [
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N6.txt",
+        "bytes": 2803,
+        "sha256": "190ccaac8fd5291cfd72b7312c68a4624133a8a4d15b07c96d9962a352ba110e"
+      },
+      "N": 6,
+      "positive_half_intervals": 3,
+      "maximum_printed_cl": 0.6503,
+      "native_Lift": 82.63,
+      "body_force_projected_to_Lift": 82.62966181804397,
+      "natural_spline_half_arc": 1.040682938438284,
+      "max_abs_box_y_minus_native": 0.004546894093406584,
+      "y_checks_within_print_half_unit_central_t_only": 1,
+      "normal_density_single_product_impossible_count_positive_half": 2,
+      "sum_f_aero_times_natural_arc": 82.77668621190966,
+      "sum_f_aero_times_natural_arc_cos_freestream_alpha": 81.97110919189477,
+      "native_sum_Fz": 82.15,
+      "intervals": [
+        {
+          "lines": [
+            38,
+            39
+          ],
+          "t": 0.4031,
+          "native_y_token": "0.4030",
+          "box_y_natural_spline": 0.40304809975566536,
+          "box_y_minus_native_y": 4.8099755665331756e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08170102283443172,
+          "natural_spline_arc_interval": 0.4031858383499423,
+          "printed_delta_t": 0.4031,
+          "printed_delta_y": 0.403,
+          "Fn_decrement": 21.694000000000003,
+          "f_aero": 54.1396,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.4006860036959972958820383952",
+            "0.4007236853649503920885932742"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.40290",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            39,
+            40
+          ],
+          "t": 0.8322,
+          "native_y_token": "0.8315",
+          "box_y_natural_spline": 0.831612167366413,
+          "box_y_minus_native_y": 0.00011216736641295189,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.04817986014768378,
+          "natural_spline_arc_interval": 0.430236191499391,
+          "printed_delta_t": 0.42910000000000004,
+          "printed_delta_y": 0.4285,
+          "Fn_decrement": 17.823999999999998,
+          "f_aero": 41.6901,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.4275110547695318918257669977",
+            "0.4275600532980891123901266609"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.42840",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            40,
+            41
+          ],
+          "t": 1.0277,
+          "native_y_token": "0.9452",
+          "box_y_natural_spline": 0.9497468940934066,
+          "box_y_minus_native_y": 0.004546894093406584,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": 0.0666422422205509,
+          "natural_spline_arc_interval": 0.20726090858895066,
+          "printed_delta_t": 0.1955,
+          "printed_delta_y": 0.11370000000000002,
+          "Fn_decrement": 1.5559999999999998,
+          "f_aero": 7.8328,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.1985228875824252985822529475",
+            "0.1987807602693817624716734225"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.11360",
+          "normal_density_single_product_impossible_for_any_arc": false
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N12.txt",
+        "bytes": 3295,
+        "sha256": "c9cc2ec8b540d9c7f8204d3da2a9b4ea288d0a46a65001ea70ed2f110a568fa9"
+      },
+      "N": 12,
+      "positive_half_intervals": 6,
+      "maximum_printed_cl": 0.6666,
+      "native_Lift": 89.21,
+      "body_force_projected_to_Lift": 89.20802887061755,
+      "natural_spline_half_arc": 1.040682938438284,
+      "max_abs_box_y_minus_native": 0.001948157198029321,
+      "y_checks_within_print_half_unit_central_t_only": 3,
+      "normal_density_single_product_impossible_count_positive_half": 4,
+      "sum_f_aero_times_natural_arc": 89.28283638523001,
+      "sum_f_aero_times_natural_arc_cos_freestream_alpha": 88.41394195897132,
+      "native_sum_Fz": 88.69,
+      "intervals": [
+        {
+          "lines": [
+            41,
+            42
+          ],
+          "t": 0.1939,
+          "native_y_token": "0.1939",
+          "box_y_natural_spline": 0.1938953846706425,
+          "box_y_minus_native_y": -4.615329357499087e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.0875353045968654,
+          "natural_spline_arc_interval": 0.19390884637876935,
+          "printed_delta_t": 0.1939,
+          "printed_delta_y": 0.1939,
+          "Fn_decrement": 10.859000000000002,
+          "f_aero": 56.3466,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.1927000096722697800135411777",
+            "0.1927358462940499462700023338"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.19380",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            42,
+            43
+          ],
+          "t": 0.4031,
+          "native_y_token": "0.4030",
+          "box_y_natural_spline": 0.4030863536691235,
+          "box_y_minus_native_y": 8.635366912346232e-05,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.08192423140632712,
+          "natural_spline_arc_interval": 0.209276991971173,
+          "printed_delta_t": 0.20920000000000002,
+          "printed_delta_y": 0.20910000000000004,
+          "Fn_decrement": 11.212000000000003,
+          "f_aero": 53.9115,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.2079517283402165213205704529",
+            "0.2079892119392077193249300473"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.20900",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            43,
+            44
+          ],
+          "t": 0.6249,
+          "native_y_token": "0.6249",
+          "box_y_natural_spline": 0.6248581949220354,
+          "box_y_minus_native_y": -4.18050779645851e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07045817247081752,
+          "natural_spline_arc_interval": 0.2220920082394178,
+          "printed_delta_t": 0.2218,
+          "printed_delta_y": 0.2219,
+          "Fn_decrement": 10.652999999999997,
+          "f_aero": 48.2488,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.2207721013039689028857682618",
+            "0.2208140107256664680432135548"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.22180",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            44,
+            45
+          ],
+          "t": 0.8322,
+          "native_y_token": "0.8320",
+          "box_y_natural_spline": 0.8320355754141533,
+          "box_y_minus_native_y": 3.557541415333265e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.05118797648103463,
+          "natural_spline_arc_interval": 0.20814418325997322,
+          "printed_delta_t": 0.20730000000000004,
+          "printed_delta_y": 0.20709999999999995,
+          "Fn_decrement": 7.912000000000001,
+          "f_aero": 38.2552,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.2067951457643068598427666791",
+            "0.2068479668750481961252275837"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.20700",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            45,
+            46
+          ],
+          "t": 0.9813,
+          "native_y_token": "0.9800",
+          "box_y_natural_spline": 0.9801621899521109,
+          "box_y_minus_native_y": 0.0001621899521109249,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.021849103456294924,
+          "natural_spline_arc_interval": 0.15144580792148946,
+          "printed_delta_t": 0.1490999999999999,
+          "printed_delta_y": 0.14800000000000002,
+          "Fn_decrement": 3.5109999999999997,
+          "f_aero": 23.371,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.1501858067994377659540328740",
+            "0.1502720257413583957862217839"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.14790",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            46,
+            47
+          ],
+          "t": 1.0277,
+          "native_y_token": "1.0092",
+          "box_y_natural_spline": 1.0111481571980294,
+          "box_y_minus_native_y": 0.001948157198029321,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": 0.013250569785794548,
+          "natural_spline_arc_interval": 0.05581510066746118,
+          "printed_delta_t": 0.04640000000000011,
+          "printed_delta_y": 0.029200000000000115,
+          "Fn_decrement": 0.2,
+          "f_aero": 3.855,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.05162060154861804645854139376",
+            "0.05214075409538385711876937444"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02910",
+          "normal_density_single_product_impossible_for_any_arc": false
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": ".reference/sa1-public-history-20261027/scn-study/SCN/ellip_A8_N96.txt",
+        "bytes": 10183,
+        "sha256": "099487d7c871ddde6db4cccfc7184974ee13db8e9fc210bcc3ec928fc15baeac"
+      },
+      "N": 96,
+      "positive_half_intervals": 48,
+      "maximum_printed_cl": 0.9172,
+      "native_Lift": 91.38,
+      "body_force_projected_to_Lift": 91.38263621294513,
+      "natural_spline_half_arc": 1.040682938438284,
+      "max_abs_box_y_minus_native": 9.870769792008627e-05,
+      "y_checks_within_print_half_unit_central_t_only": 44,
+      "normal_density_single_product_impossible_count_positive_half": 14,
+      "sum_f_aero_times_natural_arc": 91.44148272306646,
+      "sum_f_aero_times_natural_arc_cos_freestream_alpha": 90.55158049903669,
+      "native_sum_Fz": 90.85,
+      "intervals": [
+        {
+          "lines": [
+            83,
+            84
+          ],
+          "t": 0.0238,
+          "native_y_token": "0.0238",
+          "box_y_natural_spline": 0.023799991926956022,
+          "box_y_minus_native_y": -8.073043979844874e-09,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08912616149224681,
+          "natural_spline_arc_interval": 0.023800016027409686,
+          "printed_delta_t": 0.0238,
+          "printed_delta_y": 0.0238,
+          "Fn_decrement": 1.3539999999999974,
+          "f_aero": 57.1322,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02368189595193607813450371725",
+            "0.02371694396237495000625742248"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02370",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            84,
+            85
+          ],
+          "t": 0.0477,
+          "native_y_token": "0.0477",
+          "box_y_natural_spline": 0.047699983755940575,
+          "box_y_minus_native_y": -1.624405942396434e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08905394346157959,
+          "natural_spline_arc_interval": 0.023900113107116306,
+          "printed_delta_t": 0.023899999999999998,
+          "printed_delta_y": 0.023899999999999998,
+          "Fn_decrement": 1.355000000000004,
+          "f_aero": 57.0997,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02371288841019444043100013573",
+            "0.02374795642355075731637584469"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02380",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            85,
+            86
+          ],
+          "t": 0.0717,
+          "native_y_token": "0.0717",
+          "box_y_natural_spline": 0.07169997585424978,
+          "box_y_minus_native_y": -2.4145750218695916e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08893286802745926,
+          "natural_spline_arc_interval": 0.024000309836185556,
+          "printed_delta_t": 0.024,
+          "printed_delta_y": 0.024,
+          "Fn_decrement": 1.357999999999997,
+          "f_aero": 57.0344,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02379263760762135867006695076",
+            "0.02382774591101678199190487838"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02390",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            86,
+            87
+          ],
+          "t": 0.0958,
+          "native_y_token": "0.0958",
+          "box_y_natural_spline": 0.09579996811257452,
+          "box_y_minus_native_y": -3.188742547788337e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08876202717953258,
+          "natural_spline_arc_interval": 0.02410061056484025,
+          "printed_delta_t": 0.024099999999999996,
+          "printed_delta_y": 0.024099999999999996,
+          "Fn_decrement": 1.362000000000001,
+          "f_aero": 56.9357,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02390413755856381974418533171",
+            "0.02393930691930275670867022683"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02400",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            87,
+            88
+          ],
+          "t": 0.12,
+          "native_y_token": "0.1200",
+          "box_y_natural_spline": 0.11999995939068653,
+          "box_y_minus_native_y": -4.0609313467498964e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08854040670842385,
+          "natural_spline_arc_interval": 0.02420101910459551,
+          "printed_delta_t": 0.0242,
+          "printed_delta_y": 0.0242,
+          "Fn_decrement": 1.3680000000000003,
+          "f_aero": 56.803,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02406560915302963485235387889",
+            "0.02410086095880583666869414353"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02410",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            88,
+            89
+          ],
+          "t": 0.1444,
+          "native_y_token": "0.1444",
+          "box_y_natural_spline": 0.14439995070263267,
+          "box_y_minus_native_y": -4.929736732717238e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08826580803002602,
+          "natural_spline_arc_interval": 0.02440155006774993,
+          "printed_delta_t": 0.024400000000000005,
+          "printed_delta_y": 0.024400000000000005,
+          "Fn_decrement": 1.3739999999999997,
+          "f_aero": 56.6352,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02424285228722394621724102922",
+            "0.02427820885086381867091373467"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02430",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            89,
+            90
+          ],
+          "t": 0.169,
+          "native_y_token": "0.1690",
+          "box_y_natural_spline": 0.16899994008527772,
+          "box_y_minus_native_y": -5.991472229460726e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08793651074649673,
+          "natural_spline_arc_interval": 0.024602207490388696,
+          "printed_delta_t": 0.02460000000000001,
+          "printed_delta_y": 0.02460000000000001,
+          "Fn_decrement": 1.3819999999999988,
+          "f_aero": 56.4309,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02447238616397561976185054478",
+            "0.02450787113786164837141386316"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02450",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            90,
+            91
+          ],
+          "t": 0.1939,
+          "native_y_token": "0.1939",
+          "box_y_natural_spline": 0.19389992970137448,
+          "box_y_minus_native_y": -7.029862550411714e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08754898280835398,
+          "natural_spline_arc_interval": 0.024903020180483404,
+          "printed_delta_t": 0.024899999999999978,
+          "printed_delta_y": 0.024899999999999978,
+          "Fn_decrement": 1.3890000000000002,
+          "f_aero": 56.1888,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02470240981974181710428314514",
+            "0.02473804809681653355876398745"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02480",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            91,
+            92
+          ],
+          "t": 0.219,
+          "native_y_token": "0.2190",
+          "box_y_natural_spline": 0.2189999165518999,
+          "box_y_minus_native_y": -8.344810009663917e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08710231087735312,
+          "natural_spline_arc_interval": 0.02510397697170086,
+          "printed_delta_t": 0.02510000000000001,
+          "printed_delta_y": 0.02510000000000001,
+          "Fn_decrement": 1.3969999999999994,
+          "f_aero": 55.9072,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02496992787160878061432104065",
+            "0.02500574613443897605225807433"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02500",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            92,
+            93
+          ],
+          "t": 0.2444,
+          "native_y_token": "0.2444",
+          "box_y_natural_spline": 0.24439990256862215,
+          "box_y_minus_native_y": -9.743137785456213e-08,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08659229121640019,
+          "natural_spline_arc_interval": 0.02540512287692554,
+          "printed_delta_t": 0.025400000000000006,
+          "printed_delta_y": 0.025400000000000006,
+          "Fn_decrement": 1.4040000000000008,
+          "f_aero": 55.5841,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02524100845294926701226878526",
+            "0.02527703540853896036722764894"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02530",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            93,
+            94
+          ],
+          "t": 0.2702,
+          "native_y_token": "0.2702",
+          "box_y_natural_spline": 0.27019988862523414,
+          "box_y_minus_native_y": -1.1137476585432182e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08601337836172417,
+          "natural_spline_arc_interval": 0.025806498924873415,
+          "printed_delta_t": 0.02579999999999999,
+          "printed_delta_y": 0.02579999999999999,
+          "Fn_decrement": 1.4109999999999978,
+          "f_aero": 55.2175,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02553535968184028447477296620",
+            "0.02557162636086961639843926150"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02570",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            94,
+            95
+          ],
+          "t": 0.2962,
+          "native_y_token": "0.2962",
+          "box_y_natural_spline": 0.29619987210959203,
+          "box_y_minus_native_y": -1.278904079859977e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08536662588166354,
+          "natural_spline_arc_interval": 0.02600804595947554,
+          "printed_delta_t": 0.026000000000000023,
+          "printed_delta_y": 0.026000000000000023,
+          "Fn_decrement": 1.4170000000000016,
+          "f_aero": 54.8052,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02583694080402881110842483156",
+            "0.02587348086813009361346515793"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02590",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            95,
+            96
+          ],
+          "t": 0.3225,
+          "native_y_token": "0.3225",
+          "box_y_natural_spline": 0.32249985374933565,
+          "box_y_minus_native_y": -1.4625066435680623e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08464627975507248,
+          "natural_spline_arc_interval": 0.02630986640837601,
+          "printed_delta_t": 0.02629999999999999,
+          "printed_delta_y": 0.02629999999999999,
+          "Fn_decrement": 1.4210000000000012,
+          "f_aero": 54.3448,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02612943084763321639492978636",
+            "0.02616628101150525119721776253"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02620",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            96,
+            97
+          ],
+          "t": 0.3491,
+          "native_y_token": "0.3491",
+          "box_y_natural_spline": 0.3490998335871102,
+          "box_y_minus_native_y": -1.6641288980157043e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08384826854626985,
+          "natural_spline_arc_interval": 0.02661197091138355,
+          "printed_delta_t": 0.026600000000000013,
+          "printed_delta_y": 0.026600000000000013,
+          "Fn_decrement": 1.4239999999999986,
+          "f_aero": 53.8339,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02643313373809649858500072909",
+            "0.02647033418564713465598317787"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02650",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            97,
+            98
+          ],
+          "t": 0.3759,
+          "native_y_token": "0.3759",
+          "box_y_natural_spline": 0.3758998090866907,
+          "box_y_minus_native_y": -1.9091330932807793e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08297161539480692,
+          "natural_spline_arc_interval": 0.026814335328315484,
+          "printed_delta_t": 0.02679999999999999,
+          "printed_delta_y": 0.02679999999999999,
+          "Fn_decrement": 1.423000000000001,
+          "f_aero": 53.2699,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02669422441733097177677095623",
+            "0.02673181921856359648093621439"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02670",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            98,
+            99
+          ],
+          "t": 0.4031,
+          "native_y_token": "0.4031",
+          "box_y_natural_spline": 0.40309978332158225,
+          "box_y_minus_native_y": -2.166784177637382e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08200494595113339,
+          "natural_spline_arc_interval": 0.02721717459012258,
+          "printed_delta_t": 0.027200000000000002,
+          "printed_delta_y": 0.027200000000000002,
+          "Fn_decrement": 1.4210000000000012,
+          "f_aero": 52.6502,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02697043223916315687010033191",
+            "0.02700847006133885658445417534"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02710",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            99,
+            100
+          ],
+          "t": 0.4304,
+          "native_y_token": "0.4304",
+          "box_y_natural_spline": 0.4303997537442819,
+          "box_y_minus_native_y": -2.462557180948899e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.08095394059293562,
+          "natural_spline_arc_interval": 0.027320225138237675,
+          "printed_delta_t": 0.02729999999999999,
+          "printed_delta_y": 0.02729999999999999,
+          "Fn_decrement": 1.4149999999999974,
+          "f_aero": 51.9723,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02720677437137247016923421781",
+            "0.02724530879459711673056294465"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02720",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            100,
+            101
+          ],
+          "t": 0.458,
+          "native_y_token": "0.4580",
+          "box_y_natural_spline": 0.45799971597216943,
+          "box_y_minus_native_y": -2.8402783058822934e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07980583809375276,
+          "natural_spline_arc_interval": 0.027623865909861652,
+          "printed_delta_t": 0.027600000000000013,
+          "printed_delta_y": 0.027600000000000013,
+          "Fn_decrement": 1.4040000000000008,
+          "f_aero": 51.2335,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02738439948041859289469498014",
+            "0.02742348992699105760006402067"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02750",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            101,
+            102
+          ],
+          "t": 0.4857,
+          "native_y_token": "0.4857",
+          "box_y_natural_spline": 0.48569967516958634,
+          "box_y_minus_native_y": -3.248304136782565e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.0785634272339643,
+          "natural_spline_arc_interval": 0.02772784620761023,
+          "printed_delta_t": 0.027700000000000002,
+          "printed_delta_y": 0.027700000000000002,
+          "Fn_decrement": 1.391,
+          "f_aero": 50.4313,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02756222072183274887545148008",
+            "0.02760193332507126037922914859"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02760",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            102,
+            103
+          ],
+          "t": 0.5136,
+          "native_y_token": "0.5136",
+          "box_y_natural_spline": 0.513599623247645,
+          "box_y_minus_native_y": -3.767523549802476e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07721628431548058,
+          "natural_spline_arc_interval": 0.027932495659024,
+          "printed_delta_t": 0.027899999999999925,
+          "printed_delta_y": 0.027899999999999925,
+          "Fn_decrement": 1.3729999999999998,
+          "f_aero": 49.5633,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02768174467625775900942934648",
+            "0.02772215300651188128300706673"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02780",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            103,
+            104
+          ],
+          "t": 0.5415,
+          "native_y_token": "0.5415",
+          "box_y_natural_spline": 0.5414995684538944,
+          "box_y_minus_native_y": -4.3154610562812223e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07576790978621299,
+          "natural_spline_arc_interval": 0.027937563053393132,
+          "printed_delta_t": 0.027900000000000036,
+          "printed_delta_y": 0.027900000000000036,
+          "Fn_decrement": 1.351,
+          "f_aero": 48.6271,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02776226860920288357429954254",
+            "0.02780345507284525793771162347"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02780",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            104,
+            105
+          ],
+          "t": 0.5694,
+          "native_y_token": "0.5694",
+          "box_y_natural_spline": 0.5693995010817583,
+          "box_y_minus_native_y": -4.989182417203253e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07421233452484864,
+          "natural_spline_arc_interval": 0.02794331926378029,
+          "printed_delta_t": 0.027900000000000036,
+          "printed_delta_y": 0.027900000000000036,
+          "Fn_decrement": 1.3230000000000008,
+          "f_aero": 47.6206,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02776106584013447947476567414",
+            "0.02780312281147529795434954027"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02780",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            105,
+            106
+          ],
+          "t": 0.5972,
+          "native_y_token": "0.5972",
+          "box_y_natural_spline": 0.5971994179175634,
+          "box_y_minus_native_y": -5.82082436584308e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07254883445906063,
+          "natural_spline_arc_interval": 0.02784970412502558,
+          "printed_delta_t": 0.027799999999999936,
+          "printed_delta_y": 0.027799999999999936,
+          "Fn_decrement": 1.29,
+          "f_aero": 46.5417,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02769556366058431408359161398",
+            "0.02773859543011474668388421983"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02770",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            106,
+            107
+          ],
+          "t": 0.6249,
+          "native_y_token": "0.6249",
+          "box_y_natural_spline": 0.6248993256154929,
+          "box_y_minus_native_y": -6.743845071266463e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.07077072300233943,
+          "natural_spline_arc_interval": 0.027756988882485237,
+          "printed_delta_t": 0.027700000000000058,
+          "printed_delta_y": 0.027700000000000058,
+          "Fn_decrement": 1.2529999999999997,
+          "f_aero": 45.3887,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02758392773539698713888353392",
+            "0.02762805238754622576348933048"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02760",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            107,
+            108
+          ],
+          "t": 0.6525,
+          "native_y_token": "0.6525",
+          "box_y_natural_spline": 0.6524992091144952,
+          "box_y_minus_native_y": -7.908855047533692e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.06887007745640492,
+          "natural_spline_arc_interval": 0.027665329839499327,
+          "printed_delta_t": 0.027599999999999958,
+          "printed_delta_y": 0.027599999999999958,
+          "Fn_decrement": 1.21,
+          "f_aero": 44.16,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02737768639301812384723296282",
+            "0.02742303829601256342002198825"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02750",
+          "normal_density_single_product_impossible_for_any_arc": true
+        },
+        {
+          "lines": [
+            108,
+            109
+          ],
+          "t": 0.6797,
+          "native_y_token": "0.6797",
+          "box_y_natural_spline": 0.6796990730847396,
+          "box_y_minus_native_y": -9.269152603241793e-07,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.06686029127213494,
+          "natural_spline_arc_interval": 0.02727410534500905,
+          "printed_delta_t": 0.027200000000000002,
+          "printed_delta_y": 0.027200000000000002,
+          "Fn_decrement": 1.1619999999999997,
+          "f_aero": 42.8544,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02709170226195879307749836948",
+            "0.02713843518802641972168519649"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02710",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            109,
+            110
+          ],
+          "t": 0.7065,
+          "native_y_token": "0.7065",
+          "box_y_natural_spline": 0.706498906839351,
+          "box_y_minus_native_y": -1.0931606490016677e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.06473498848319677,
+          "natural_spline_arc_interval": 0.02688407786191089,
+          "printed_delta_t": 0.026800000000000046,
+          "printed_delta_y": 0.026800000000000046,
+          "Fn_decrement": 1.1109999999999998,
+          "f_aero": 41.4709,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02676572395857823367923811728",
+            "0.02681401514557815911658429957"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02670",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            110,
+            111
+          ],
+          "t": 0.733,
+          "native_y_token": "0.7329",
+          "box_y_natural_spline": 0.7329987076979201,
+          "box_y_minus_native_y": 9.870769792008627e-05,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.0624773941251446,
+          "natural_spline_arc_interval": 0.026595916728780426,
+          "printed_delta_t": 0.026499999999999968,
+          "printed_delta_y": 0.02639999999999998,
+          "Fn_decrement": 1.0540000000000005,
+          "f_aero": 40.009,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02631904531599725562091576781",
+            "0.02636909991389426615794715932"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02630",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            111,
+            112
+          ],
+          "t": 0.7588,
+          "native_y_token": "0.7588",
+          "box_y_natural_spline": 0.7587984632625656,
+          "box_y_minus_native_y": -1.5367374344155138e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.060113621163751185,
+          "natural_spline_arc_interval": 0.02590795651523105,
+          "printed_delta_t": 0.025800000000000045,
+          "printed_delta_y": 0.025900000000000034,
+          "Fn_decrement": 0.9919999999999995,
+          "f_aero": 38.4684,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02576137068168850057644641258",
+            "0.02581342844182295315499625016"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02580",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            112,
+            113
+          ],
+          "t": 0.784,
+          "native_y_token": "0.7840",
+          "box_y_natural_spline": 0.7839981617504382,
+          "box_y_minus_native_y": -1.8382495617919048e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.05762744299472067,
+          "natural_spline_arc_interval": 0.025322212645783566,
+          "printed_delta_t": 0.0252,
+          "printed_delta_y": 0.0252,
+          "Fn_decrement": 0.9289999999999998,
+          "f_aero": 36.8491,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02518375593466877797723963782",
+            "0.02523809976105218452036076914"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02510",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            113,
+            114
+          ],
+          "t": 0.8086,
+          "native_y_token": "0.8086",
+          "box_y_natural_spline": 0.8085977833067698,
+          "box_y_minus_native_y": -2.2166932301947995e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.05500834945472351,
+          "natural_spline_arc_interval": 0.024738859820185904,
+          "printed_delta_t": 0.024599999999999955,
+          "printed_delta_y": 0.024599999999999955,
+          "Fn_decrement": 0.8610000000000007,
+          "f_aero": 35.1516,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02446542338695338625640617155",
+            "0.02452238948211387549055447057"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02450",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            114,
+            115
+          ],
+          "t": 0.8322,
+          "native_y_token": "0.8322",
+          "box_y_natural_spline": 0.8321973216890655,
+          "box_y_minus_native_y": -2.6783109345895895e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.05229085217657618,
+          "natural_spline_arc_interval": 0.023755724503572998,
+          "printed_delta_t": 0.023600000000000065,
+          "printed_delta_y": 0.023600000000000065,
+          "Fn_decrement": 0.7899999999999996,
+          "f_aero": 33.377,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02363899745483797998924410635",
+            "0.02369898987175281144622261770"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02350",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            115,
+            116
+          ],
+          "t": 0.855,
+          "native_y_token": "0.8550",
+          "box_y_natural_spline": 0.8549967234426187,
+          "box_y_minus_native_y": -3.276557381304279e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.049443382203426936,
+          "natural_spline_arc_interval": 0.022976826130452207,
+          "printed_delta_t": 0.02279999999999993,
+          "printed_delta_y": 0.02279999999999993,
+          "Fn_decrement": 0.7189999999999996,
+          "f_aero": 31.5264,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02277452742062617262647713269",
+            "0.02283803865655237602830648013"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02270",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            116,
+            117
+          ],
+          "t": 0.8768,
+          "native_y_token": "0.8768",
+          "box_y_natural_spline": 0.8767959612818467,
+          "box_y_minus_native_y": -4.038718153354104e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.04647926764495776,
+          "natural_spline_arc_interval": 0.022000204549417535,
+          "printed_delta_t": 0.02180000000000004,
+          "printed_delta_y": 0.02180000000000004,
+          "Fn_decrement": 0.6460000000000005,
+          "f_aero": 29.6016,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02178932593284495965596512357",
+            "0.02185696357116434781286790725"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02170",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            117,
+            118
+          ],
+          "t": 0.8975,
+          "native_y_token": "0.8975",
+          "box_y_natural_spline": 0.897494976531244,
+          "box_y_minus_native_y": -5.023468755971372e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.0434017088283881,
+          "natural_spline_arc_interval": 0.02092701670350173,
+          "printed_delta_t": 0.02069999999999994,
+          "printed_delta_y": 0.02069999999999994,
+          "Fn_decrement": 0.5739999999999998,
+          "f_aero": 27.6047,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.02075729720428549434427046070",
+            "0.02082982396081819548518093872"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.02060",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            118,
+            119
+          ],
+          "t": 0.917,
+          "native_y_token": "0.9169",
+          "box_y_natural_spline": 0.9169936827620329,
+          "box_y_minus_native_y": 9.368276203280956e-05,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.040214303252719914,
+          "natural_spline_arc_interval": 0.019758104417724486,
+          "printed_delta_t": 0.019500000000000073,
+          "printed_delta_y": 0.019400000000000084,
+          "Fn_decrement": 0.5010000000000001,
+          "f_aero": 25.5381,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01957855208775890187817050178",
+            "0.01965694326700746533114313740"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01930",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            119,
+            120
+          ],
+          "t": 0.9352,
+          "native_y_token": "0.9352",
+          "box_y_natural_spline": 0.9351919384339208,
+          "box_y_minus_native_y": -8.061566079242688e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.03692227706391391,
+          "natural_spline_arc_interval": 0.01849439398005697,
+          "printed_delta_t": 0.018199999999999994,
+          "printed_delta_y": 0.018299999999999983,
+          "Fn_decrement": 0.4299999999999998,
+          "f_aero": 23.4046,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01832969089475809294306900552",
+            "0.01841522268105987938242777580"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01820",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            120,
+            121
+          ],
+          "t": 0.952,
+          "native_y_token": "0.9520",
+          "box_y_natural_spline": 0.9519895837766438,
+          "box_y_minus_native_y": -1.0416223356179977e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.033532043217061214,
+          "natural_spline_arc_interval": 0.017137395979980204,
+          "printed_delta_t": 0.016799999999999926,
+          "printed_delta_y": 0.016799999999999926,
+          "Fn_decrement": 0.3620000000000001,
+          "f_aero": 21.2074,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01702231998660847956732186095",
+            "0.01711670717935055534991406281"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01670",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            121,
+            122
+          ],
+          "t": 0.9674,
+          "native_y_token": "0.9674",
+          "box_y_natural_spline": 0.9673861360953032,
+          "box_y_minus_native_y": -1.3863904696820306e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.030027934892160588,
+          "natural_spline_arc_interval": 0.015791727442710405,
+          "printed_delta_t": 0.01540000000000008,
+          "printed_delta_y": 0.01540000000000008,
+          "Fn_decrement": 0.29700000000000004,
+          "f_aero": 18.9494,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01562050613606199652232650552",
+            "0.01572613308635916271534379807"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01530",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            122,
+            123
+          ],
+          "t": 0.9813,
+          "native_y_token": "0.9813",
+          "box_y_natural_spline": 0.9812811238496625,
+          "box_y_minus_native_y": -1.8876150337465702e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.02641111934218779,
+          "natural_spline_arc_interval": 0.014360138717645916,
+          "printed_delta_t": 0.013899999999999912,
+          "printed_delta_y": 0.013899999999999912,
+          "Fn_decrement": 0.237,
+          "f_aero": 16.634,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01418776545699934772349487948",
+            "0.01430808677433802554414315301"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01380",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            123,
+            124
+          ],
+          "t": 0.9936,
+          "native_y_token": "0.9935",
+          "box_y_natural_spline": 0.9935729750481633,
+          "box_y_minus_native_y": 7.297504816328182e-05,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": -0.022681629768391314,
+          "natural_spline_arc_interval": 0.01284848088010736,
+          "printed_delta_t": 0.012300000000000089,
+          "printed_delta_y": 0.0122000000000001,
+          "Fn_decrement": 0.181,
+          "f_aero": 14.2641,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01261904845364077074343721848",
+            "0.01275934955359803141464030202"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01210",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            124,
+            125
+          ],
+          "t": 1.0041,
+          "native_y_token": "1.0041",
+          "box_y_natural_spline": 1.0040619640403559,
+          "box_y_minus_native_y": -3.8035959644133754e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.018883295262367063,
+          "natural_spline_arc_interval": 0.011160633382102488,
+          "printed_delta_t": 0.010499999999999954,
+          "printed_delta_y": 0.010599999999999943,
+          "Fn_decrement": 0.132,
+          "f_aero": 11.8433,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.01106105958195949625739338954",
+            "0.01123002554197538682371815169"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.01050",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            125,
+            126
+          ],
+          "t": 1.0129,
+          "native_y_token": "1.0128",
+          "box_y_natural_spline": 1.0128493055784382,
+          "box_y_minus_native_y": 4.930557843829675e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.014943862835322444,
+          "natural_spline_arc_interval": 0.009639231550757231,
+          "printed_delta_t": 0.008799999999999919,
+          "printed_delta_y": 0.00869999999999993,
+          "Fn_decrement": 0.08900000000000002,
+          "f_aero": 9.374,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.009387617945285122225718872846",
+            "0.009601075320435888819547789352"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00860",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            126,
+            127
+          ],
+          "t": 1.0197,
+          "native_y_token": "1.0196",
+          "box_y_natural_spline": 1.0196135565975009,
+          "box_y_minus_native_y": 1.3556597500796741e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.010899750951445308,
+          "natural_spline_arc_interval": 0.007902370313654365,
+          "printed_delta_t": 0.006800000000000139,
+          "printed_delta_y": 0.006800000000000139,
+          "Fn_decrement": 0.05299999999999999,
+          "f_aero": 6.8382,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.007604284721968339853032574123",
+            "0.007896872692175515307502760249"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00670",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            127,
+            128
+          ],
+          "t": 1.0244,
+          "native_y_token": "1.0240",
+          "box_y_natural_spline": 1.024002005860733,
+          "box_y_minus_native_y": 2.0058607330675216e-06,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.006638005471086867,
+          "natural_spline_arc_interval": 0.00619474039426436,
+          "printed_delta_t": 0.0046999999999999265,
+          "printed_delta_y": 0.0043999999999999595,
+          "Fn_decrement": 0.026,
+          "f_aero": 4.2493,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.005883252732770894372080435831",
+            "0.006354062481614402541624992646"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00430",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            128,
+            129
+          ],
+          "t": 1.027,
+          "native_y_token": "1.0260",
+          "box_y_natural_spline": 1.0259730800314828,
+          "box_y_minus_native_y": -2.6919968517225e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": -0.002855861675587631,
+          "natural_spline_arc_interval": 0.004321033505190462,
+          "printed_delta_t": 0.0025999999999999357,
+          "printed_delta_y": 0.0020000000000000018,
+          "Fn_decrement": 0.007,
+          "f_aero": 2.6702,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0.002246980619792154292669225728",
+            "0.002996086362189390109169896822"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00190",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            129,
+            130
+          ],
+          "t": 1.0276,
+          "native_y_token": "1.0266",
+          "box_y_natural_spline": 1.0266841959126163,
+          "box_y_minus_native_y": 8.419591261632497e-05,
+          "within_y_print_half_unit_central_t_only": false,
+          "box_x_natural_spline_unobserved": 0.0001212912647321064,
+          "natural_spline_arc_interval": 0.0030719052446202388,
+          "printed_delta_t": 0.000600000000000156,
+          "printed_delta_y": 0.0005999999999999339,
+          "Fn_decrement": 0.001,
+          "f_aero": 2.0551,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "0",
+            "0.0009732123306002287048976910537"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00050",
+          "normal_density_single_product_impossible_for_any_arc": false
+        },
+        {
+          "lines": [
+            130,
+            131
+          ],
+          "t": 1.0277,
+          "native_y_token": "1.0268",
+          "box_y_natural_spline": 1.0267844479616672,
+          "box_y_minus_native_y": -1.5552038332700135e-05,
+          "within_y_print_half_unit_central_t_only": true,
+          "box_x_natural_spline_unobserved": 0.0007905290089485475,
+          "natural_spline_arc_interval": 0.0006767053967648745,
+          "printed_delta_t": 9.999999999998899e-05,
+          "printed_delta_y": 0.00019999999999997797,
+          "Fn_decrement": 0.0,
+          "f_aero": 0.007,
+          "Fn_decrement_over_f_aero_print_interval": [
+            "-0.1418439716312056737588652482",
+            "0.1438848920863309352517985612"
+          ],
+          "minimum_delta_y_from_print_bounds": "0.00010",
+          "normal_density_single_product_impossible_for_any_arc": false
+        }
+      ]
+    }
+  ]
+}

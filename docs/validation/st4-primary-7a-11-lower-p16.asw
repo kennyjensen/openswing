@@ -1,0 +1,34 @@
+! Conditional primary NACA TN1594 reconstruction; not the original ISAE model.
+! No fitted properties. Fixed polar inertia; chord-axis rotary inertia at geometry-bound lower endpoint.
+! Stiff in-plane. Equivalent chordwise point masses; unreported pylon bending inertia and axial CG offset omitted.
+! Vacuum modes with gravity +z. Zero-speed experiments were in air of unspecified density.
+! Material parameter t=1+s(m) avoids the documented zero-origin mirroring rule; physical root is z=0.
+Name
+NACA TN1594 7a-11in jcc-lower
+End
+Units
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.8066499999999994 1.225 340.294
+End
+Reference
+0.24774143999999995 0.20319999999999999 1.2191999999999998
+0 0 0
+End
+Weight
+! beam t x y z weight
+1 1.2793999999999999 -0.070871656335483785 0 0.27939999999999998 7.0974934448773492
+1 1.2793999999999999 0.082250856335483791 0 0.27939999999999998 7.0974934448773492
+End
+Ground
+1 1 0
+End
+Beam 1
+Primary vertical cantilever
+t x y z chord Xax EIcc GJ EInn GKc EA GKn mg mgcc mgnn Cea Nea Cta Nta Ccg Ncg
+1 0 0 0 0.20319999999999999 0 403.78292228231595 198.5911742852613 0 0 0 0 12.696695555369539 0 0.034715963033871769 0.0887984 0 0.0887984 0 0.092252799999999996 0
+2.2191999999999998 0 0 1.2191999999999998 0.20319999999999999 0 403.78292228231595 198.5911742852613 0 0 0 0 12.696695555369539 0 0.034715963033871769 0.0887984 0 0.0887984 0 0.092252799999999996 0
+End

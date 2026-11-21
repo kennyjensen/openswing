@@ -1,0 +1,234 @@
+{
+  "status": "SOURCE_REVIEW_COMPLETE_NO_PROCESSED_AXIS_RESOLUTION",
+  "date_utc": "2026-10-25",
+  "scope": "Primary-source observables/provenance only; no solves, residuals, model imports, input changes, fitting, or repository publication.",
+  "new_evidence_ids": [
+    "avin2022:camera calibration axes and Test 1 processing details",
+    "drachinsky2022:explicit slow-varying/oscillatory filtering and high-deflection tracking limitations"
+  ],
+  "sources": [
+    {
+      "id": "avin2022",
+      "title": "Experimental Aeroelastic Benchmark of a Very Flexible Wing",
+      "doi": "10.2514/1.J060621",
+      "url": "https://www.researchgate.net/publication/357596316_Experimental_Aeroelastic_Benchmark_of_a_Very_Flexible_Wing",
+      "kind": "Primary authors paper; author-uploaded full text",
+      "locators": [
+        {
+          "section": "IV, Structural Tests",
+          "page": "Page not independently resolved; use section and retained web-line locator",
+          "web_lines": "867\u2013901",
+          "finding": "MRS coordinates are calibrated X chord, Y span, Z out of plane. The structural-test description does not specify a Test 2 export rotation matrix."
+        },
+        {
+          "section": "V.A.1, Test 1",
+          "page": "Author PDF pp. 14\u201315",
+          "web_lines": "1279\u20131359",
+          "finding": "Initially nonstraight wing and about -1 degree built-in twist; the Test 1 displayed incremental results exclude this built-in twist. This is not evidence for adjusting Test 2 export values."
+        },
+        {
+          "section": "V.A.2, Test 1 velocity sweep",
+          "page": "Author PDF pp. 17\u201318",
+          "web_lines": "1535\u20131580",
+          "finding": "Commands held approximately 15 seconds; MRS at 120 Hz. Trend plots use a 500-sample moving average on MRS and tunnel data. Test 2 export filter/window is not established."
+        },
+        {
+          "section": "V.B, Test 2",
+          "page": "Author PDF pp. 18\u201322",
+          "web_lines": "1643\u20131845",
+          "finding": "This is the current comparison campaign, distinct from the preceding Test 1. Previously retained mounting, tip mass and dynamic indicators are unchanged."
+        }
+      ]
+    },
+    {
+      "id": "drachinsky2022",
+      "title": "Large Deformation Shape Sensing Using a Nonlinear Strain to Displacement Method",
+      "doi": "10.2514/1.J061832",
+      "url": "https://www.researchgate.net/publication/361074479_Large_Deformation_Shape_Sensing_Using_a_Nonlinear_Strain_to_Displacement_Method",
+      "kind": "Primary authors paper; author-uploaded full text",
+      "locators": [
+        {
+          "section": "V.C, Static Loading",
+          "page": "Author PDF pp. 9\u201310",
+          "web_lines": "1188\u20131191",
+          "finding": "Twist is computed from differential leading/trailing-edge x and z positions via arctangent in that paper\u2019s coordinate convention."
+        },
+        {
+          "section": "V.D, Wind Tunnel Test",
+          "page": "Author PDF pp. 10\u201311",
+          "web_lines": "1303\u20131405",
+          "finding": "A 7 degree sweep to 55 m/s is separated into slowly varying and oscillatory components using 1 Hz low/high-pass filters. Reflections, camera position restrictions and loss of line of sight cause errors/offsets at large deformation; twist is especially sensitive. The rough 1 mm to 0.8 degree sensitivity is not a current Test 2 statistical uncertainty band."
+        }
+      ],
+      "applicability": "This 7 degree / 55 m/s sweep is not established as the current Test 2 export, whose reported speed range is different. Neither its filter nor uncertainty estimate is transferred to current data."
+    },
+    {
+      "id": "riso_cesnik",
+      "title": "Impact of Low-Order Modeling on Aeroelastic Predictions for Very Flexible Wings",
+      "doi": "10.2514/1.C036869",
+      "url": "https://www.researchgate.net/publication/366714346_Impact_of_Low-Order_Modeling_on_Aeroelastic_Predictions_for_Very_Flexible_Wings",
+      "kind": "Primary model-comparison author preprint",
+      "locators": [
+        {
+          "section": "IV.C, Static Aeroelastic Analysis",
+          "page": "Author preprint p. 18",
+          "web_lines": "2403\u20132435",
+          "finding": "Identifies Avin Test 2. Midchord displacement is directly measured at 5 degrees and estimated from LE/TE mean at 7 degrees; twist uses differential LE/TE positions. These were already in the retained source scope."
+        }
+      ]
+    },
+    {
+      "id": "author_data",
+      "title": "AePW3-LDWG pinned author data repository",
+      "url": "https://github.com/UM-A2SRL/AePW3-LDWG/tree/396710a19a80004c65c767e9955fe60d59565c39",
+      "revision": "396710a19a80004c65c767e9955fe60d59565c39",
+      "locators": [
+        "README.md",
+        "03_2023_JA_Riso_Cesnik/04_Static_Aeroelastic/README.txt; locally retained downloaded copy pinned below"
+      ],
+      "finding": "Export documentation labels displacement percent semispan and twist degrees, and identifies differential LE/TE recovery. It does not supply raw calibration, initial-reference or filtering/resampling code. The data publishers state they were not involved in the experiments."
+    },
+    {
+      "id": "nasa_aepw",
+      "title": "NASA AePW3 Large Deflection Working Group",
+      "url": "https://nescacademy.nasa.gov/workshops/AePW3/public/wg/largedeflection",
+      "locators": [
+        "Web lines 0\u20136, accessed 2026-10-25"
+      ],
+      "finding": "The official page directs users to request data-depository access. No contact was made and no unavailable raw data is claimed as inspected."
+    }
+  ],
+  "already_known_not_new": [
+    "Test 2 floor mounting and added tip mass",
+    "5 degree / 48 m/s and 7 degree / 40 m/s dynamic indicators, without a stability proof",
+    "Direct 5 degree midchord and estimated 7 degree LE/TE mean",
+    "Primary static no-gravity comparison and unresolved exported displacement axis"
+  ],
+  "unresolved_current_test2_export": [
+    {
+      "field": "Coordinate projection",
+      "status": "UNRESOLVED",
+      "missing": "Camera calibration matrix and treatment of rigid root incidence; calibrated chord/span/normal language does not decide root-normal versus tunnel-normal export."
+    },
+    {
+      "field": "Experimental zero/baseline",
+      "status": "UNRESOLVED",
+      "missing": "Exact retained zero/reference record, built-in twist removal, whether subtraction precedes averaging or angle recovery; Test 1 initial -1 degree does not authorize a Test 2 shift."
+    },
+    {
+      "field": "Static or time mean",
+      "status": "UNRESOLVED",
+      "missing": "Current Test 2 filtering, windowing, speed pairing/resampling and angle/position averaging order. A static equilibrium is not thereby a measured oscillatory mean."
+    },
+    {
+      "field": "Measurement uncertainty",
+      "status": "UNRESOLVED",
+      "missing": "Campaign- and exported-point-specific covariance/uncertainty. Other test estimates cannot become acceptance bands."
+    }
+  ],
+  "conclusion": "No new source-supported axis, baseline, gravity or coefficient correction is established. A closer RMSE under an alternative projection is not evidence that its measurement convention is correct.",
+  "next_action": {
+    "kind": "Conditional saved-data provenance audit, not another native solve",
+    "requires": [
+      "Raw Test 2 timestamped MRS LE/TE/midchord positions and speed",
+      "Calibration/root-pose transform and reference record",
+      "Exact published export/filter/resampling procedure"
+    ],
+    "operations": [
+      "Verify campaign/run identity and masks",
+      "Reconstruct the documented coordinate transform and zero convention",
+      "Compare filtering positions before angle recovery versus filtering recovered angles, preserving each operation order",
+      "Retain original signed low-speed twist and avoid fitted offsets"
+    ],
+    "currently_executable_from_retained_export": false
+  },
+  "input_pins": [
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.md",
+      "bytes": 5426,
+      "sha256": "f293d78641b2db04814c1815717508a5d54c36eee62d146b21bfa10e083089ee"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.json",
+      "bytes": 64572,
+      "sha256": "92d3ebd24297d6f9d377bdaf70064d812e6a5ac95b22bc41d2c926fbb73ff38f"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-readiness.json",
+      "bytes": 36338,
+      "sha256": "5e498ece09445b9981d5632fa0a3dba3b63fadce89fb75a439fc6997dbfb6e9e"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-mirror-source.json",
+      "bytes": 19201,
+      "sha256": "bd3dc7b2175ac9cd97b1273b0932639e7a3bd1d9b2c13f3913b69c8a3294e0fa"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-literal-frozen-curves.md",
+      "bytes": 11625,
+      "sha256": "938f87e6b447f106b776650aa92e9711b621736f6b6282b135ef532fea7a4168"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/manifest.json",
+      "bytes": 28553,
+      "sha256": "a165cd3e99776c609b45166e908f6da5112f420c0fdec65eb99b6144cbf44c69"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/README.md",
+      "bytes": 7249,
+      "sha256": "99229856bed51f882cdc5298e492f420c97ec50c98e8814b6214dc27b681cb28"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/README.txt",
+      "bytes": 1628,
+      "sha256": "233361fa97c12d288f27ae289043db01ca1f3ea296bb7b1d33c64227fab2145a"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_disp_exp.txt",
+      "bytes": 2382,
+      "sha256": "16d2f45eec3bc7cf30a01eb91bc4190e4915f191673f6fa0a0bd3f966bda270b"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa5_skin1_rot_exp.txt",
+      "bytes": 2397,
+      "sha256": "74c0de75b9de016eb31041e179bf2bfdc643c92c1944ffd98f56612b08c1a988"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_disp_exp.txt",
+      "bytes": 1786,
+      "sha256": "27abcf4f0e2b90559a8a48e8cfd257cada79fd07cd6ba7b178ec77e7641e609a"
+    },
+    {
+      "path": "/tmp/openswing-isae-ae1-20261025/primary-source/03_Experimental/static_aeroelastic_sweep_aoa7_skin1_rot_exp.txt",
+      "bytes": 1787,
+      "sha256": "76b048b4e9908429f9e643e104ce24996ce54b0e9a94693e695d3b8dcba20875"
+    }
+  ],
+  "web_evidence_pins": [
+    {
+      "path": "/tmp/openswing-isae-pazy-observable-sources-20261025/primary-web-evidence.json",
+      "bytes": 25091,
+      "sha256": "c1e1479bab29c305d8cdb36e08a7241c6b2843945a895db1d42ecae6bddd3e60"
+    },
+    {
+      "path": "/tmp/openswing-isae-pazy-observable-sources-20261025/shape-sensing-web-evidence.json",
+      "bytes": 28459,
+      "sha256": "05a46540f8cea769e8fa2d3ae30b8056ce486f5b325bb8707c736e0ebaea9a92"
+    }
+  ],
+  "source_pin": {
+    "path": "/tmp/openswing-isae-pazy-observable-sources-20261025/finalize_sources.py",
+    "bytes": 8372,
+    "sha256": "d51def0fc0b3a2d44be5510f17017a340bade23f535b9849b72037e53a3d383f"
+  },
+  "operations": {
+    "new_physics": 0,
+    "new_states": 0,
+    "residual_evaluations": 0,
+    "assemblies": 0,
+    "solves": 0,
+    "production_imports": 0,
+    "repository_edits": 0,
+    "external_messages": 0
+  }
+}

@@ -1,0 +1,2409 @@
+{
+  "schema": "openswing-elastic-fin-feedback-publication-v1",
+  "published_utc": "2026-10-25T02:29:21.739236+00:00",
+  "scope": "Clamped loaded continuous elastic boom and fin with live aerodynamic feedback at 1 Hz, compared with full native equations on two meshes.",
+  "frequency_Hz": 1,
+  "inputs": [
+    "native control.3 F3 unit",
+    "physical upper fin tip Mz unit"
+  ],
+  "full_daedalus_validated": false,
+  "production_changed": false,
+  "browser_or_WASM_run": false,
+  "hosted_release_changed": false,
+  "broad_requirements_partial": 40,
+  "isae": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0
+  },
+  "criterion": {
+    "groups": 13,
+    "inputs": 2,
+    "fine_relative_scaled_complex_infinity_limit": 0.01,
+    "exact_zero_reference_scaled_absolute_limit": 1e-10,
+    "translations_scaled_by_ft": 20,
+    "moments_scaled_by_ft": 20,
+    "coarse_descriptive_only": true
+  },
+  "comparison": {
+    "status": "PASS_FINE_SAVED_COMPARISON",
+    "passed": 26,
+    "total": 26,
+    "cases": [
+      {
+        "subdivisions": 1,
+        "groups": [
+          {
+            "name": "all_node_motion",
+            "shape": [
+              36,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.005192955683801937,
+                "complex_error_infinity": 5.6819386316800136e-05,
+                "relative_infinity_error": 0.010941627423094194,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.11116753724162776,
+                "complex_error_infinity": 0.00017862384813565208,
+                "relative_infinity_error": 0.0016067986443506878,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "circulation",
+            "shape": [
+              19,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.7812190884307321,
+                "complex_error_infinity": 0.008476041647694076,
+                "relative_infinity_error": 0.01084976259952923,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 3.2752067131898857,
+                "complex_error_infinity": 0.012590602750338747,
+                "relative_infinity_error": 0.0038442162137839954,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "clamp_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5366317730513062,
+                "complex_error_infinity": 0.0042765020521569564,
+                "relative_infinity_error": 0.007969155512057407,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.8133510196361011,
+                "complex_error_infinity": 0.005164044953653217,
+                "relative_infinity_error": 0.0063490975347441575,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "fin_joint_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5181925406186357,
+                "complex_error_infinity": 0.0040733252982193035,
+                "relative_infinity_error": 0.007860640551398965,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7881583002880557,
+                "complex_error_infinity": 0.004944772840529288,
+                "relative_infinity_error": 0.00627383209530633,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_total",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.47700332149929536,
+                "complex_error_infinity": 0.004107389176693948,
+                "relative_infinity_error": 0.008610818817327701,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7265706675583359,
+                "complex_error_infinity": 0.004829368306823832,
+                "relative_infinity_error": 0.006646797789199335,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_total",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.06279654445757656,
+                "complex_error_infinity": 0.0005147599002457209,
+                "relative_infinity_error": 0.008197264749073528,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.13425743925761013,
+                "complex_error_infinity": 0.000811622166715358,
+                "relative_infinity_error": 0.006045267742356055,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_rate",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.20903231538950998,
+                "complex_error_infinity": 0.002390255913713085,
+                "relative_infinity_error": 0.011434863117978155,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.33712124091818996,
+                "complex_error_infinity": 0.0028887895358770616,
+                "relative_infinity_error": 0.008568992947490044,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_rate",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.030427565151278178,
+                "complex_error_infinity": 0.000328137881463098,
+                "relative_infinity_error": 0.010784230674773982,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.06770900753484656,
+                "complex_error_infinity": 0.0004979952126708858,
+                "relative_infinity_error": 0.007354932981621267,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_apparent",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.16685001308050346,
+                "complex_error_infinity": 0.0014537778061581201,
+                "relative_infinity_error": 0.008713081763180246,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.21196060020519045,
+                "complex_error_infinity": 0.0018516709351831502,
+                "relative_infinity_error": 0.008735920418184431,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_apparent",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.022071756868704502,
+                "complex_error_infinity": 0.0002038922593956377,
+                "relative_infinity_error": 0.009237699590862026,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.0415035545420631,
+                "complex_error_infinity": 0.0003265685770442701,
+                "relative_infinity_error": 0.007868448393096037,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "net_aero_remainder",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.26322904141151265,
+                "complex_error_infinity": 0.0030467403254092885,
+                "relative_infinity_error": 0.01157448398957713,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.49285981933906237,
+                "complex_error_infinity": 0.0034534115835261853,
+                "relative_infinity_error": 0.007006884002346344,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_remainder",
+            "shape": [
+              19,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.032078558132111724,
+                "complex_error_infinity": 0.0003461491890230369,
+                "relative_infinity_error": 0.010790671687844032,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": false,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.10342404293119607,
+                "complex_error_infinity": 0.0005248160072114438,
+                "relative_infinity_error": 0.005074410092057445,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          },
+          {
+            "name": "HV_relative_velocity",
+            "shape": [
+              19,
+              3,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.28451963648412576,
+                "complex_error_infinity": 0.0016819530144712308,
+                "relative_infinity_error": 0.005911553365017293,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 1.1422149824796344,
+                "complex_error_infinity": 0.0035617608950187863,
+                "relative_infinity_error": 0.003118292921781292,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": false
+              }
+            ]
+          }
+        ],
+        "base_geometry": {
+          "position": {
+            "error_infinity": 0.00020486284702490032,
+            "reference_deflection_infinity": 0.015261662057058922,
+            "relative_to_reference_deflection": 0.013423364130261673,
+            "criterion": null,
+            "descriptive_only": true
+          },
+          "rotation": {
+            "error_infinity": 0.0004324118509258107,
+            "reference_deflection_infinity": 0.0316510270138444,
+            "relative_to_reference_deflection": 0.013661858452070779,
+            "criterion": null,
+            "descriptive_only": true
+          }
+        },
+        "stencil_recovery": {
+          "packet_count": 9,
+          "stencils": [
+            {
+              "column": 0,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original forced-output state norm and native input scale",
+              "state_infinity_norm": 0.026738286363970992,
+              "rate_infinity_norm": 0.16800160802126282
+            },
+            {
+              "column": 1,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original unforced-output state/rate norm",
+              "state_infinity_norm": 0.5732050055592908,
+              "rate_infinity_norm": 3.6015532689319287
+            }
+          ],
+          "identities": [
+            {
+              "packet": "output-c0-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            }
+          ],
+          "rate_intrinsic_moment_zero_verified": true
+        },
+        "native_technical_status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+        "native_harmonic_diagnostics": {
+          "reciprocal_condition": 2.356737897350884e-05,
+          "backward_errors": [
+            7.981710500361728e-18,
+            1.6504028122726601e-18
+          ],
+          "scaled_residuals": [
+            1.0941518145422496e-17,
+            1.850258975163656e-17
+          ],
+          "factor_dimension": 667,
+          "beam_equations_eliminated": 0
+        },
+        "reference_status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+        "comparison_acceptance_enforced": false
+      },
+      {
+        "subdivisions": 2,
+        "groups": [
+          {
+            "name": "all_node_motion",
+            "shape": [
+              70,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.005179690011194399,
+                "complex_error_infinity": 1.5916409026955367e-05,
+                "relative_infinity_error": 0.003072849725091011,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.11125799515284916,
+                "complex_error_infinity": 4.3042709053067094e-05,
+                "relative_infinity_error": 0.0003868729523117317,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "circulation",
+            "shape": [
+              38,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.7840586956121789,
+                "complex_error_infinity": 0.0026363086904619202,
+                "relative_infinity_error": 0.0033623869044696175,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 3.2221585703161186,
+                "complex_error_infinity": 0.003743070809621653,
+                "relative_infinity_error": 0.0011616656126437715,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "clamp_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5370460938543432,
+                "complex_error_infinity": 0.0013243154110778085,
+                "relative_infinity_error": 0.002465925041132479,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.8065769829947597,
+                "complex_error_infinity": 0.0015868119007725404,
+                "relative_infinity_error": 0.0019673409162766177,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "fin_joint_reaction",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.5185918433716559,
+                "complex_error_infinity": 0.0012686949796197424,
+                "relative_infinity_error": 0.0024464229351762383,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7816167803190204,
+                "complex_error_infinity": 0.0015242783653616806,
+                "relative_infinity_error": 0.0019501607485186534,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_total",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.4774229764049128,
+                "complex_error_infinity": 0.0012813181807950832,
+                "relative_infinity_error": 0.0026838217767474375,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.7208411861121985,
+                "complex_error_infinity": 0.0015015810874130181,
+                "relative_infinity_error": 0.0020830955782530688,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_total",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.03242058332748641,
+                "complex_error_infinity": 8.194135737487361e-05,
+                "relative_infinity_error": 0.002527448582499844,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.06840109331349097,
+                "complex_error_infinity": 0.00012190071801882522,
+                "relative_infinity_error": 0.001782145754017975,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_rate",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.20928589251907287,
+                "complex_error_infinity": 0.0007447474200395528,
+                "relative_infinity_error": 0.0035585170652230255,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.3352697080812859,
+                "complex_error_infinity": 0.0008976976834615627,
+                "relative_infinity_error": 0.002677538894280054,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_rate",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.015726742949382963,
+                "complex_error_infinity": 5.2619300197281976e-05,
+                "relative_infinity_error": 0.003345848556604436,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.03404633743042878,
+                "complex_error_infinity": 7.571444323126079e-05,
+                "relative_infinity_error": 0.0022238645606440857,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_apparent",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.1671457308637156,
+                "complex_error_infinity": 0.00045367974318117054,
+                "relative_infinity_error": 0.0027142765826970723,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.21084574012365795,
+                "complex_error_infinity": 0.0005667929946959497,
+                "relative_infinity_error": 0.0026881880296160308,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_apparent",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.011605982247444436,
+                "complex_error_infinity": 3.322187483285108e-05,
+                "relative_infinity_error": 0.0028624785153506783,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.02139755955331297,
+                "complex_error_infinity": 5.0342460985396245e-05,
+                "relative_infinity_error": 0.002352719751052253,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "net_aero_remainder",
+            "shape": [
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.2633014990009325,
+                "complex_error_infinity": 0.0009482262729179717,
+                "relative_infinity_error": 0.003601294624283979,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.48838634852858176,
+                "complex_error_infinity": 0.0010858763859958956,
+                "relative_infinity_error": 0.002223396270734105,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "strip_aero_remainder",
+            "shape": [
+              38,
+              6,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.016210093336163287,
+                "complex_error_infinity": 5.426823304891235e-05,
+                "relative_infinity_error": 0.0033478050942399398,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 0.052439016927704044,
+                "complex_error_infinity": 7.801449160798865e-05,
+                "relative_infinity_error": 0.0014877184237748905,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          },
+          {
+            "name": "HV_relative_velocity",
+            "shape": [
+              38,
+              3,
+              2
+            ],
+            "inputs": [
+              {
+                "input": "control.3",
+                "reference_infinity_norm": 0.28706600900122997,
+                "complex_error_infinity": 0.0005093748936457212,
+                "relative_infinity_error": 0.0017744173035949328,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              },
+              {
+                "input": "upper_tip_physical_Mz",
+                "reference_infinity_norm": 1.131004652947388,
+                "complex_error_infinity": 0.0010215251345642004,
+                "relative_infinity_error": 0.0009032015314014094,
+                "criterion": "complex scaled infinity error / reference infinity norm <=.01",
+                "within_declared_fine_limit": true,
+                "enforced": true
+              }
+            ]
+          }
+        ],
+        "base_geometry": {
+          "position": {
+            "error_infinity": 6.215811114240744e-05,
+            "reference_deflection_infinity": 0.015261662057058922,
+            "relative_to_reference_deflection": 0.004072827121319835,
+            "criterion": null,
+            "descriptive_only": true
+          },
+          "rotation": {
+            "error_infinity": 0.0001386279753923264,
+            "reference_deflection_infinity": 0.0316510270138444,
+            "relative_to_reference_deflection": 0.0043798886946603485,
+            "criterion": null,
+            "descriptive_only": true
+          }
+        },
+        "stencil_recovery": {
+          "packet_count": 9,
+          "stencils": [
+            {
+              "column": 0,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original forced-output state norm and native input scale",
+              "state_infinity_norm": 0.026782538118935335,
+              "rate_infinity_norm": 0.1682796499978717
+            },
+            {
+              "column": 1,
+              "requested_width": 2.5e-06,
+              "actual_h": 2.5e-06,
+              "scaling": "original unforced-output state/rate norm",
+              "state_infinity_norm": 0.5741603615228738,
+              "rate_infinity_norm": 3.60755594748544
+            }
+          ],
+          "identities": [
+            {
+              "packet": "output-c0-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c0-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p0-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s+1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            },
+            {
+              "packet": "output-c1-p1-s-1",
+              "rate_identity_error": 0.0,
+              "family_identity_error": 0.0
+            }
+          ],
+          "rate_intrinsic_moment_zero_verified": true
+        },
+        "native_technical_status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+        "native_harmonic_diagnostics": {
+          "reciprocal_condition": 1.2301780310485529e-05,
+          "backward_errors": [
+            1.6109616878905206e-17,
+            2.663900517727723e-18
+          ],
+          "scaled_residuals": [
+            2.203128890659391e-17,
+            2.652634200378554e-17
+          ],
+          "factor_dimension": 1298,
+          "beam_equations_eliminated": 0
+        },
+        "reference_status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+        "comparison_acceptance_enforced": true
+      }
+    ],
+    "error_trends": [
+      {
+        "group": "all_node_motion",
+        "input": "control.3",
+        "coarse_relative_error": 0.010941627423094194,
+        "fine_relative_error": 0.003072849725091011,
+        "fine_over_coarse": 0.280840281456233,
+        "coarse_absolute_scaled_error": 5.6819386316800136e-05,
+        "fine_absolute_scaled_error": 1.5916409026955367e-05
+      },
+      {
+        "group": "all_node_motion",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0016067986443506878,
+        "fine_relative_error": 0.0003868729523117317,
+        "fine_over_coarse": 0.2407725160037512,
+        "coarse_absolute_scaled_error": 0.00017862384813565208,
+        "fine_absolute_scaled_error": 4.3042709053067094e-05
+      },
+      {
+        "group": "circulation",
+        "input": "control.3",
+        "coarse_relative_error": 0.01084976259952923,
+        "fine_relative_error": 0.0033623869044696175,
+        "fine_over_coarse": 0.30990419132447294,
+        "coarse_absolute_scaled_error": 0.008476041647694076,
+        "fine_absolute_scaled_error": 0.0026363086904619202
+      },
+      {
+        "group": "circulation",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0038442162137839954,
+        "fine_relative_error": 0.0011616656126437715,
+        "fine_over_coarse": 0.3021852955300617,
+        "coarse_absolute_scaled_error": 0.012590602750338747,
+        "fine_absolute_scaled_error": 0.003743070809621653
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "control.3",
+        "coarse_relative_error": 0.007969155512057407,
+        "fine_relative_error": 0.002465925041132479,
+        "fine_over_coarse": 0.3094336705315276,
+        "coarse_absolute_scaled_error": 0.0042765020521569564,
+        "fine_absolute_scaled_error": 0.0013243154110778085
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.0063490975347441575,
+        "fine_relative_error": 0.0019673409162766177,
+        "fine_over_coarse": 0.3098615048061147,
+        "coarse_absolute_scaled_error": 0.005164044953653217,
+        "fine_absolute_scaled_error": 0.0015868119007725404
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "control.3",
+        "coarse_relative_error": 0.007860640551398965,
+        "fine_relative_error": 0.0024464229351762383,
+        "fine_over_coarse": 0.31122437404173714,
+        "coarse_absolute_scaled_error": 0.0040733252982193035,
+        "fine_absolute_scaled_error": 0.0012686949796197424
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.00627383209530633,
+        "fine_relative_error": 0.0019501607485186534,
+        "fine_over_coarse": 0.3108404431125334,
+        "coarse_absolute_scaled_error": 0.004944772840529288,
+        "fine_absolute_scaled_error": 0.0015242783653616806
+      },
+      {
+        "group": "net_aero_total",
+        "input": "control.3",
+        "coarse_relative_error": 0.008610818817327701,
+        "fine_relative_error": 0.0026838217767474375,
+        "fine_over_coarse": 0.31168020529554474,
+        "coarse_absolute_scaled_error": 0.004107389176693948,
+        "fine_absolute_scaled_error": 0.0012813181807950832
+      },
+      {
+        "group": "net_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.006646797789199335,
+        "fine_relative_error": 0.0020830955782530688,
+        "fine_over_coarse": 0.3133983678032119,
+        "coarse_absolute_scaled_error": 0.004829368306823832,
+        "fine_absolute_scaled_error": 0.0015015810874130181
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "control.3",
+        "coarse_relative_error": 0.008197264749073528,
+        "fine_relative_error": 0.002527448582499844,
+        "fine_over_coarse": 0.308328285088694,
+        "coarse_absolute_scaled_error": 0.0005147599002457209,
+        "fine_absolute_scaled_error": 8.194135737487361e-05
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.006045267742356055,
+        "fine_relative_error": 0.001782145754017975,
+        "fine_over_coarse": 0.29480013623406687,
+        "coarse_absolute_scaled_error": 0.000811622166715358,
+        "fine_absolute_scaled_error": 0.00012190071801882522
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "control.3",
+        "coarse_relative_error": 0.011434863117978155,
+        "fine_relative_error": 0.0035585170652230255,
+        "fine_over_coarse": 0.3111989210984295,
+        "coarse_absolute_scaled_error": 0.002390255913713085,
+        "fine_absolute_scaled_error": 0.0007447474200395528
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.008568992947490044,
+        "fine_relative_error": 0.002677538894280054,
+        "fine_over_coarse": 0.3124683274554842,
+        "coarse_absolute_scaled_error": 0.0028887895358770616,
+        "fine_absolute_scaled_error": 0.0008976976834615627
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "control.3",
+        "coarse_relative_error": 0.010784230674773982,
+        "fine_relative_error": 0.003345848556604436,
+        "fine_over_coarse": 0.3102538008975368,
+        "coarse_absolute_scaled_error": 0.000328137881463098,
+        "fine_absolute_scaled_error": 5.2619300197281976e-05
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007354932981621267,
+        "fine_relative_error": 0.0022238645606440857,
+        "fine_over_coarse": 0.3023636743123489,
+        "coarse_absolute_scaled_error": 0.0004979952126708858,
+        "fine_absolute_scaled_error": 7.571444323126079e-05
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "control.3",
+        "coarse_relative_error": 0.008713081763180246,
+        "fine_relative_error": 0.0027142765826970723,
+        "fine_over_coarse": 0.3115174006706865,
+        "coarse_absolute_scaled_error": 0.0014537778061581201,
+        "fine_absolute_scaled_error": 0.00045367974318117054
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.008735920418184431,
+        "fine_relative_error": 0.0026881880296160308,
+        "fine_over_coarse": 0.3077166344167214,
+        "coarse_absolute_scaled_error": 0.0018516709351831502,
+        "fine_absolute_scaled_error": 0.0005667929946959497
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "control.3",
+        "coarse_relative_error": 0.009237699590862026,
+        "fine_relative_error": 0.0028624785153506783,
+        "fine_over_coarse": 0.3098691927784981,
+        "coarse_absolute_scaled_error": 0.0002038922593956377,
+        "fine_absolute_scaled_error": 3.322187483285108e-05
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007868448393096037,
+        "fine_relative_error": 0.002352719751052253,
+        "fine_over_coarse": 0.29900682237638937,
+        "coarse_absolute_scaled_error": 0.0003265685770442701,
+        "fine_absolute_scaled_error": 5.0342460985396245e-05
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "control.3",
+        "coarse_relative_error": 0.01157448398957713,
+        "fine_relative_error": 0.003601294624283979,
+        "fine_over_coarse": 0.3111408359566577,
+        "coarse_absolute_scaled_error": 0.0030467403254092885,
+        "fine_absolute_scaled_error": 0.0009482262729179717
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.007006884002346344,
+        "fine_relative_error": 0.002223396270734105,
+        "fine_over_coarse": 0.31731598096808405,
+        "coarse_absolute_scaled_error": 0.0034534115835261853,
+        "fine_absolute_scaled_error": 0.0010858763859958956
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "control.3",
+        "coarse_relative_error": 0.010790671687844032,
+        "fine_relative_error": 0.0033478050942399398,
+        "fine_over_coarse": 0.31024992614790864,
+        "coarse_absolute_scaled_error": 0.0003461491890230369,
+        "fine_absolute_scaled_error": 5.426823304891235e-05
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.005074410092057445,
+        "fine_relative_error": 0.0014877184237748905,
+        "fine_over_coarse": 0.29318056617132565,
+        "coarse_absolute_scaled_error": 0.0005248160072114438,
+        "fine_absolute_scaled_error": 7.801449160798865e-05
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "control.3",
+        "coarse_relative_error": 0.005911553365017293,
+        "fine_relative_error": 0.0017744173035949328,
+        "fine_over_coarse": 0.3001609211709691,
+        "coarse_absolute_scaled_error": 0.0016819530144712308,
+        "fine_absolute_scaled_error": 0.0005093748936457212
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "upper_tip_physical_Mz",
+        "coarse_relative_error": 0.003118292921781292,
+        "fine_relative_error": 0.0009032015314014094,
+        "fine_over_coarse": 0.2896461474457842,
+        "coarse_absolute_scaled_error": 0.0035617608950187863,
+        "fine_absolute_scaled_error": 0.0010215251345642004
+      }
+    ],
+    "limitation": "Separate per-mesh manufactured counterloads; no common-physical-mesh convergence or full-Daedalus/reference validation claim.",
+    "operations": {
+      "new_physics": 0,
+      "new_stencils": 0,
+      "integrations": 0,
+      "factorizations": 0,
+      "solves": 0,
+      "system_matrix_products": 0,
+      "small_coordinate_products": "Three saved3x3 relative material-frame products pernode for descriptive base logs only"
+    }
+  },
+  "original_reference": [
+    {
+      "status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+      "operations": {
+        "aero_evaluations": 1200,
+        "reused_aero_evaluations": 3,
+        "field_integrations": 1092,
+        "field_sets": 364,
+        "steady_solves": 0,
+        "coupled_solves": 3,
+        "production_calls": 0,
+        "rod_integrations": 0
+      },
+      "completed": [
+        {
+          "variant": 0,
+          "quadrature": 32,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.003048630126229191,
+            "component_backward": 5.100337233093351e-14,
+            "absolute_residual": 5.354316813958479e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 120
+        },
+        {
+          "variant": 1,
+          "quadrature": 32,
+          "epsilon": 1e-24,
+          "diagnostics": {
+            "reciprocal_condition": 0.0030486301262291904,
+            "component_backward": 4.3974956100997153e-14,
+            "absolute_residual": 5.95063135145759e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 122
+        },
+        {
+          "variant": 2,
+          "quadrature": 16,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0030486301262291956,
+            "component_backward": 5.030252104703759e-14,
+            "absolute_residual": 6.704169021107504e-16,
+            "available": true
+          },
+          "evaluations": 401,
+          "field_sets": 122
+        }
+      ],
+      "passed": 300,
+      "total": 300,
+      "elapsed_seconds": 32.78437851398485
+    },
+    {
+      "status": "PASS_REFERENCE_ELASTIC_FEEDBACK",
+      "operations": {
+        "aero_evaluations": 2343,
+        "reused_aero_evaluations": 0,
+        "field_integrations": 2124,
+        "field_sets": 708,
+        "steady_solves": 1,
+        "coupled_solves": 3,
+        "production_calls": 0,
+        "rod_integrations": 0
+      },
+      "completed": [
+        {
+          "variant": 0,
+          "quadrature": 32,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774483,
+            "component_backward": 2.603318783028297e-13,
+            "absolute_residual": 3.324083269623866e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        },
+        {
+          "variant": 1,
+          "quadrature": 32,
+          "epsilon": 1e-24,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774592,
+            "component_backward": 1.3478823957849245e-13,
+            "absolute_residual": 2.402945234638975e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        },
+        {
+          "variant": 2,
+          "quadrature": 16,
+          "epsilon": 1e-20,
+          "diagnostics": {
+            "reciprocal_condition": 0.0016715197232774295,
+            "component_backward": 3.138850481260651e-13,
+            "absolute_residual": 4.049211789376673e-15,
+            "available": true
+          },
+          "evaluations": 781,
+          "field_sets": 236
+        }
+      ],
+      "passed": 300,
+      "total": 300,
+      "elapsed_seconds": 251.95375415100716
+    }
+  ],
+  "original_native": [
+    {
+      "status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+      "frequency_Hz": 1.0,
+      "nodes": 36,
+      "elements": 34,
+      "Gamma": 19,
+      "dynamic_size": 667,
+      "fresh_residual_max": 7.475919411396238e-12,
+      "operations": {
+        "network_constructions": 1,
+        "network_residual_calls": 845,
+        "base_corrections": 1,
+        "linearizations": 1,
+        "input_partials": 1,
+        "harmonic_calls": 1,
+        "output_snapshots": 9
+      },
+      "counts": {
+        "passed": 186,
+        "total": 186
+      },
+      "elapsed_seconds": 16.773677278019022,
+      "actual_network_nfev": 845
+    },
+    {
+      "status": "PASS_NATIVE_SINGLE_CASE_TECHNICAL_GATES",
+      "frequency_Hz": 1.0,
+      "nodes": 70,
+      "elements": 68,
+      "Gamma": 38,
+      "dynamic_size": 1298,
+      "fresh_residual_max": 6.129476910485224e-13,
+      "operations": {
+        "network_constructions": 1,
+        "network_residual_calls": 1483,
+        "base_corrections": 1,
+        "linearizations": 1,
+        "input_partials": 1,
+        "harmonic_calls": 1,
+        "output_snapshots": 9
+      },
+      "counts": {
+        "passed": 186,
+        "total": 186
+      },
+      "elapsed_seconds": 27.7251020000258,
+      "actual_network_nfev": 1483
+    }
+  ],
+  "portable_reference": {
+    "status": "PASS_PORTABLE_REFERENCE_PUBLICATION_VERIFICATION",
+    "source_only_checks": {
+      "owned": 45,
+      "independent_peer": 37
+    },
+    "smoke_checks": {
+      "passed": 15,
+      "total": 15
+    },
+    "fresh_reference_checks": {
+      "passed": 302,
+      "total": 302
+    },
+    "saved_comparison_checks": {
+      "passed": 125,
+      "total": 125
+    },
+    "comparison_maxima": {
+      "response": {
+        "maximum_difference": 0.0,
+        "maximum_gate_fraction": 0.0,
+        "label": "motion_gauge"
+      },
+      "geometry": {
+        "maximum_difference": 0.0,
+        "maximum_gate_fraction": 0.0,
+        "label": "seed position"
+      }
+    },
+    "fresh_reference_operations": {
+      "loaded_base_calls": 1,
+      "aero_evaluations": 1203,
+      "field_integrations": 1098,
+      "field_sets": 366,
+      "steady_circulation_solves": 1,
+      "coupled_two_rhs_solves": 3,
+      "production_calls": 0,
+      "reused_aero_evaluations": 0,
+      "rod_reference": {
+        "base_integrations": 108,
+        "base_rhs": 5184,
+        "transfer_integrations": 0,
+        "transfer_rhs": 0,
+        "boundary_solves": 0
+      },
+      "continuum_compliance": {
+        "transfer_integrations": 36,
+        "transfer_rhs": 2211,
+        "boundary_factorizations": 1,
+        "boundary_solves": 1,
+        "density_calls": 0
+      }
+    },
+    "comparison_operations": {
+      "physics_evaluations": 0,
+      "integrations": 0,
+      "matrix_products": 0,
+      "factorizations": 0,
+      "solves": 0
+    },
+    "timing": {
+      "supervisor_seconds": 62.347286923002684,
+      "reference_seconds": 58.8243354090082,
+      "smoke_seconds": 4.661616488010623,
+      "comparison_seconds": 0.2543815360113513
+    },
+    "source_pins": {
+      "/home/userland/aswing/scripts/elastic_fin_mechanics.py": {
+        "bytes": 18045,
+        "sha256": "3bf6f5da9baf8414477c0d1e3f7547ac644ac7b8f448f6272727703a0c24b6ea"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_mesh.py": {
+        "bytes": 852,
+        "sha256": "0a7d0fab886026d855e5903b8d054e5b5c01cce8ad04185139dcc21f3c83f369"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_aero.py": {
+        "bytes": 16652,
+        "sha256": "f3983491ca86951531e8ba5933de78a0e696883820f61d4162cc5f568ff56703"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_kinematics.py": {
+        "bytes": 6454,
+        "sha256": "45fbde915ed61c6be2c26eea8970e53c2d334b798752eb401c3c5dc54bc574be"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_response.py": {
+        "bytes": 8645,
+        "sha256": "6eb96e02d80c34d9fb1c39e239eed0de0d4dd50d004928856cc6c236a381888e"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_io.py": {
+        "bytes": 3458,
+        "sha256": "cb0fbe8421bde1d53e390d6cdd0f2400115a389800f211aecaf881cf52d90160"
+      },
+      "/home/userland/aswing/scripts/elastic_fin_reproduce.py": {
+        "bytes": 19667,
+        "sha256": "1331753700db698be64c58b5f98dccd80d202de86ff48a48aa2313535cb8a172"
+      },
+      "/home/userland/aswing/scripts/boom_fin_reference.py": {
+        "bytes": 16519,
+        "sha256": "3531e4a3679b22d50711d6867abf09c364faf1260056fdff4f2672aaea3d708a"
+      }
+    },
+    "fixture_pin": {
+      "/home/userland/aswing/docs/validation/daedalus-boom-fin-fixture.json": {
+        "bytes": 85493,
+        "sha256": "821330de408479d3fae677a8c189e2566da632eb6684f8415812c85ef4a15708"
+      }
+    },
+    "evidence": {
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/plan.json": {
+        "bytes": 6107,
+        "sha256": "1b707cbb3046dc812acbeedc4d5226fb15285c818e4dcad1d67c2b555139104d"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/smoke.py": {
+        "bytes": 2592,
+        "sha256": "e23ac415623045f7463286ff9c524e1646292aec9e8eefca4e64eaa73f1bfa07"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/compare_saved.py": {
+        "bytes": 5591,
+        "sha256": "f9408cbb2e248ef119d408cc8aae47939e24d21e95b3a498b5ff57f166bb283d"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/smoke-report.json": {
+        "bytes": 1478,
+        "sha256": "8a2d2fe11946d4250f363add2ce881f2118c28a950cf624130dc294d50a45ec3"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/smoke-closeout.json": {
+        "bytes": 585,
+        "sha256": "7e6aa12de0e5c929648eaba0d7bd5941ba3c372ea4089f65d8326dd549c4886f"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/comparison.json": {
+        "bytes": 13297,
+        "sha256": "0e2a8bc596ecdffd01fd296678fa93ba7b64064012f7d8169413c66fe142c51e"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/comparison-closeout.json": {
+        "bytes": 557,
+        "sha256": "e533458c654f98b39be0333ad1c0f3c362d329d0ec5ea0d2302768415a36874e"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/fresh-subdivisions-1/plan.json": {
+        "bytes": 4808,
+        "sha256": "783c40234a3797a70410f7dc724811cca7ab903987e2018f245c4b21466a160d"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/fresh-subdivisions-1/report.json": {
+        "bytes": 69281,
+        "sha256": "8fa1ee1b337394c57b6d8a3268421488ae0994ee050eeed73cae5b5e3e56db7c"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/fresh-subdivisions-1/execution.json": {
+        "bytes": 625,
+        "sha256": "36f3d0756102d16f4fdc05539bde15078b94dd80dcb22cbe513efdfa437c8cd4"
+      },
+      "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/fresh-subdivisions-1/session-closeout.json": {
+        "bytes": 1860,
+        "sha256": "78d52e641ede3786d4d5a0dbc7930c9c6c8f896dd4abcd2c38679597ce4af5df"
+      },
+      "/tmp/openswing-elastic-fin-20261025/durable-reference-review/source-review.json": {
+        "bytes": 8175,
+        "sha256": "bca584b284f296481273eda2b98e0fa73a2aadf03c8d86f775ba8b5983e442da"
+      },
+      "/tmp/openswing-elastic-fin-20261025/adapter/durable-reference-peer-review.json": {
+        "bytes": 8593,
+        "sha256": "85f3622c058a6da91d2fc790a27fb34b585997ed852e1290954ac60174bdb512"
+      }
+    },
+    "scope": [
+      "One fresh portable subdivision1 reference case only; all checked variant0 complex responses and fresh geometry match accepted coarse arrays with zero numerical difference.",
+      "No native solve or fine-mesh regeneration. The internal threeQ/epsilon variants passed their unchanged original gates.",
+      "Historical complex-scalar serializer failure and exact-prefix reuse remain recorded separately; this portable verification made one freshbase/Green/Gamma case without historical staging dependencies.",
+      "Repository changes comprise only seven new scripts; existing boom_fin_reference.py and existing fixture are reused unchanged.",
+      "No pending scientific process or file writes remain; both fresh supervisor/child and saved comparison are terminal and reaped."
+    ]
+  },
+  "portable_regression": {
+    "status": "PASS_PORTABLE_ELASTIC_FIN_REGRESSION",
+    "tests": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "response_criteria": {
+      "passed": 26,
+      "total": 26,
+      "relative_limit": 0.01,
+      "exact_zero_reference_scaled_absolute_limit": 1e-10,
+      "maximum_relative_error": 0.003601294624283979,
+      "maximum_relative_error_percent": 0.3601294624283979,
+      "worst_group": "net_aero_remainder",
+      "worst_input": "control.3"
+    },
+    "metrics": [
+      {
+        "group": "all_node_motion",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 1.5916409026955367e-05,
+        "reference_infinity_norm": 0.005179690011194399,
+        "relative_error": 0.003072849725091011,
+        "passed": true
+      },
+      {
+        "group": "all_node_motion",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 4.3042709053067094e-05,
+        "reference_infinity_norm": 0.11125799515284916,
+        "relative_error": 0.0003868729523117317,
+        "passed": true
+      },
+      {
+        "group": "circulation",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0026363086904619202,
+        "reference_infinity_norm": 0.7840586956121789,
+        "relative_error": 0.0033623869044696175,
+        "passed": true
+      },
+      {
+        "group": "circulation",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.003743070809621653,
+        "reference_infinity_norm": 3.2221585703161186,
+        "relative_error": 0.0011616656126437715,
+        "passed": true
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0013243154110778085,
+        "reference_infinity_norm": 0.5370460938543432,
+        "relative_error": 0.002465925041132479,
+        "passed": true
+      },
+      {
+        "group": "clamp_reaction",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0015868119007725404,
+        "reference_infinity_norm": 0.8065769829947597,
+        "relative_error": 0.0019673409162766177,
+        "passed": true
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0012686949796197424,
+        "reference_infinity_norm": 0.5185918433716559,
+        "relative_error": 0.0024464229351762383,
+        "passed": true
+      },
+      {
+        "group": "fin_joint_reaction",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0015242783653616806,
+        "reference_infinity_norm": 0.7816167803190204,
+        "relative_error": 0.0019501607485186534,
+        "passed": true
+      },
+      {
+        "group": "net_aero_total",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0012813181807950832,
+        "reference_infinity_norm": 0.4774229764049128,
+        "relative_error": 0.0026838217767474375,
+        "passed": true
+      },
+      {
+        "group": "net_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0015015810874130181,
+        "reference_infinity_norm": 0.7208411861121985,
+        "relative_error": 0.0020830955782530688,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 8.194135737487361e-05,
+        "reference_infinity_norm": 0.03242058332748641,
+        "relative_error": 0.002527448582499844,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_total",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.00012190071801882522,
+        "reference_infinity_norm": 0.06840109331349097,
+        "relative_error": 0.001782145754017975,
+        "passed": true
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0007447474200395528,
+        "reference_infinity_norm": 0.20928589251907287,
+        "relative_error": 0.0035585170652230255,
+        "passed": true
+      },
+      {
+        "group": "net_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0008976976834615627,
+        "reference_infinity_norm": 0.3352697080812859,
+        "relative_error": 0.002677538894280054,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 5.2619300197281976e-05,
+        "reference_infinity_norm": 0.015726742949382963,
+        "relative_error": 0.003345848556604436,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_rate",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 7.571444323126079e-05,
+        "reference_infinity_norm": 0.03404633743042878,
+        "relative_error": 0.0022238645606440857,
+        "passed": true
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.00045367974318117054,
+        "reference_infinity_norm": 0.1671457308637156,
+        "relative_error": 0.0027142765826970723,
+        "passed": true
+      },
+      {
+        "group": "net_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0005667929946959497,
+        "reference_infinity_norm": 0.21084574012365795,
+        "relative_error": 0.0026881880296160308,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 3.322187483285108e-05,
+        "reference_infinity_norm": 0.011605982247444436,
+        "relative_error": 0.0028624785153506783,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_apparent",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 5.0342460985396245e-05,
+        "reference_infinity_norm": 0.02139755955331297,
+        "relative_error": 0.002352719751052253,
+        "passed": true
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0009482262729179717,
+        "reference_infinity_norm": 0.2633014990009325,
+        "relative_error": 0.003601294624283979,
+        "passed": true
+      },
+      {
+        "group": "net_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0010858763859958956,
+        "reference_infinity_norm": 0.48838634852858176,
+        "relative_error": 0.002223396270734105,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 5.426823304891235e-05,
+        "reference_infinity_norm": 0.016210093336163287,
+        "relative_error": 0.0033478050942399398,
+        "passed": true
+      },
+      {
+        "group": "strip_aero_remainder",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 7.801449160798865e-05,
+        "reference_infinity_norm": 0.052439016927704044,
+        "relative_error": 0.0014877184237748905,
+        "passed": true
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "control.3",
+        "complex_scaled_infinity_error": 0.0005093748936457212,
+        "reference_infinity_norm": 0.28706600900122997,
+        "relative_error": 0.0017744173035949328,
+        "passed": true
+      },
+      {
+        "group": "HV_relative_velocity",
+        "input": "upper_tip_physical_Mz",
+        "complex_scaled_infinity_error": 0.0010215251345642004,
+        "reference_infinity_norm": 1.131004652947388,
+        "relative_error": 0.0009032015314014094,
+        "passed": true
+      }
+    ],
+    "operations": {
+      "base_corrections": 1,
+      "harmonic_calls": 1,
+      "input_partials": 1,
+      "linearizations": 1,
+      "network_constructions": 1,
+      "network_residuals": 1483,
+      "output_snapshots": 9
+    },
+    "geometry_gate_fractions": {
+      "a": 6.472297367943598e-07,
+      "b": 6.472297367943598e-07,
+      "cp": 1.615926713073986e-05,
+      "ds": 4.2666781710832086e-05,
+      "frame0": 6.10775303212902e-05,
+      "frame1": 6.10775303212902e-05,
+      "frames": 6.10774888410498e-05,
+      "hv": 1.1033230186389742e-05,
+      "r0": 6.472297367943598e-07,
+      "r1": 6.472297367943598e-07,
+      "rm": 1.1033230186389742e-05,
+      "wind": 2.7755707469897327e-06
+    },
+    "native_output_steps": [
+      2.5e-06,
+      2.5e-06
+    ],
+    "fresh_residual_max": 6.129476910485224e-13,
+    "test_elapsed_seconds": 15.667249907011865,
+    "outer_elapsed_seconds": 22.43760251699132,
+    "plan_pin": {
+      "bytes": 18181,
+      "sha256": "83ebf3ac0361ea04f0d0b0ca0a915dc5f70481e920185da2fe1644b2d891b8e8"
+    },
+    "junit_pin": {
+      "bytes": 9303,
+      "sha256": "8688601eff1b711ef67566e37e8898ca6888cada2dfecde3403567b5c3da3f3c"
+    },
+    "log_pin": {
+      "bytes": 99,
+      "sha256": "7049abcf1e3cf62a65401c4282816b0ea5a4819fa9bb486beb8dc79b534b229b"
+    },
+    "execution_pin": {
+      "bytes": 510,
+      "sha256": "36857e55fc5e538fec1804cceff5038c1820b7c398538f895603ed552eaf7e5f"
+    },
+    "logs": "stdout.log combines stdout and stderr",
+    "input_pins": {
+      "/home/userland/aswing/tests/elastic_fin_adapter.py": {
+        "bytes": 18114,
+        "sha256": "689312f9961ceaeddf7bc912ad7feed254a6779d12efeef562124f0495a19162"
+      },
+      "/home/userland/aswing/tests/test_elastic_fin_feedback.py": {
+        "bytes": 14599,
+        "sha256": "3a5695eeed33651dbeb621d239b7cd15ff1c6c2f6219e5e5d5b434e99975cc2b"
+      },
+      "/home/userland/aswing/tests/data/elastic-fin/expected.npz": {
+        "bytes": 45796,
+        "sha256": "e4b7b453bee4620c095ade2c39204a4001ada8e5ba7c81954751c1b5ff83e48f"
+      },
+      "/home/userland/aswing/tests/data/elastic-fin/fixture.json": {
+        "bytes": 19846,
+        "sha256": "fa9a47b40c56af7175eedca7fb6756a1ef751403ef16bcf233586c27e570e56a"
+      },
+      "/home/userland/aswing/tests/data/elastic-fin/provenance.json": {
+        "bytes": 24283,
+        "sha256": "30f78736d42a723044b8cc796d1e1ad756c4da7a0b24bc1eed7b016d9ef92554"
+      },
+      "/home/userland/aswing/tests/data/elastic-fin/request.json": {
+        "bytes": 45026,
+        "sha256": "d2a1192e623e306c35e26e07ea777e2d60510d4d83699bd34723cc34ea91fdb0"
+      },
+      "/home/userland/aswing/tests/data/elastic-fin/seed-geometry.npz": {
+        "bytes": 16361,
+        "sha256": "acc343b975d00f75b425b688bb179a7e90873cd7be54efc3c306a47202a3936a"
+      },
+      "/tmp/openswing-elastic-fin-regression-20261025/supervise.py": {
+        "bytes": 2393,
+        "sha256": "7bd6bd488c5d0ee69e2bc3b9d0444d00c78ba76ec78ba9564b35d5733a9c467f"
+      }
+    },
+    "production_modules": {
+      "__init__.py": {
+        "bytes": 100,
+        "sha256": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf"
+      },
+      "aero.py": {
+        "bytes": 62023,
+        "sha256": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b"
+      },
+      "applied_load_outputs.py": {
+        "bytes": 6251,
+        "sha256": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea"
+      },
+      "asw.py": {
+        "bytes": 18778,
+        "sha256": "b0f0effa5d5f70469274d3de83650cc88f960fb6f1e7ee4eedb3ac2da9fbb2fe"
+      },
+      "asw_edit.py": {
+        "bytes": 10879,
+        "sha256": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131"
+      },
+      "atmosphere.py": {
+        "bytes": 4215,
+        "sha256": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26"
+      },
+      "beam_matching.py": {
+        "bytes": 3051,
+        "sha256": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a"
+      },
+      "body_shoulders.py": {
+        "bytes": 3343,
+        "sha256": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef"
+      },
+      "bridge.py": {
+        "bytes": 12029,
+        "sha256": "b5dcc7ef5e08634fb0574656e71ebfee7e3cf69522e781bb1c68d97e95608791"
+      },
+      "circulation.py": {
+        "bytes": 5613,
+        "sha256": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2"
+      },
+      "circulation_polish.py": {
+        "bytes": 5095,
+        "sha256": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69"
+      },
+      "circulation_solve.py": {
+        "bytes": 7012,
+        "sha256": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c"
+      },
+      "circulation_tangent.py": {
+        "bytes": 16610,
+        "sha256": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09"
+      },
+      "control_allocation.py": {
+        "bytes": 8411,
+        "sha256": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e"
+      },
+      "control_expressions.py": {
+        "bytes": 5757,
+        "sha256": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff"
+      },
+      "control_tables.py": {
+        "bytes": 3801,
+        "sha256": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158"
+      },
+      "custom_constraints.py": {
+        "bytes": 9749,
+        "sha256": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289"
+      },
+      "damping.py": {
+        "bytes": 1635,
+        "sha256": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1"
+      },
+      "derivative_cache.py": {
+        "bytes": 5250,
+        "sha256": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968"
+      },
+      "derivative_circulation.py": {
+        "bytes": 5832,
+        "sha256": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956"
+      },
+      "derivatives.py": {
+        "bytes": 24933,
+        "sha256": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e"
+      },
+      "descriptor_mass.py": {
+        "bytes": 10869,
+        "sha256": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e"
+      },
+      "discretization.py": {
+        "bytes": 4802,
+        "sha256": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0"
+      },
+      "distribution_curve.py": {
+        "bytes": 8796,
+        "sha256": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c"
+      },
+      "dynamic_inertia.py": {
+        "bytes": 3845,
+        "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+      },
+      "equilibrium_state.py": {
+        "bytes": 18913,
+        "sha256": "280e05e77648a77508cd9dd0ced0e12c5c4b35c63b677e28343d46ea29c98b57"
+      },
+      "equilibrium_tangent.py": {
+        "bytes": 4704,
+        "sha256": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138"
+      },
+      "factored_influence.py": {
+        "bytes": 15112,
+        "sha256": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2"
+      },
+      "feedback.py": {
+        "bytes": 24602,
+        "sha256": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb"
+      },
+      "field_products.py": {
+        "bytes": 792,
+        "sha256": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e"
+      },
+      "flow_survey.py": {
+        "bytes": 9512,
+        "sha256": "f2c232e4c13f2aad941560414e75e50d46648900080187c2a98bb0139e136681"
+      },
+      "forcing.py": {
+        "bytes": 21844,
+        "sha256": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79"
+      },
+      "frequency_response.py": {
+        "bytes": 46509,
+        "sha256": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c"
+      },
+      "frequency_sweep.py": {
+        "bytes": 4776,
+        "sha256": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc"
+      },
+      "frozen_influence.py": {
+        "bytes": 7839,
+        "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+      },
+      "geometry.py": {
+        "bytes": 11506,
+        "sha256": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12"
+      },
+      "geometry_field_partials.py": {
+        "bytes": 9598,
+        "sha256": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8"
+      },
+      "geometry_partials.py": {
+        "bytes": 17356,
+        "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+      },
+      "geometry_stencil.py": {
+        "bytes": 17207,
+        "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+      },
+      "geometry_tangent.py": {
+        "bytes": 38257,
+        "sha256": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469"
+      },
+      "ground.py": {
+        "bytes": 4871,
+        "sha256": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611"
+      },
+      "gust.py": {
+        "bytes": 10381,
+        "sha256": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc"
+      },
+      "gust_file.py": {
+        "bytes": 4716,
+        "sha256": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb"
+      },
+      "gust_tangent.py": {
+        "bytes": 5382,
+        "sha256": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf"
+      },
+      "harmonic_structure.py": {
+        "bytes": 11685,
+        "sha256": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459"
+      },
+      "hinge_history.py": {
+        "bytes": 1989,
+        "sha256": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c"
+      },
+      "inertia.py": {
+        "bytes": 11357,
+        "sha256": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336"
+      },
+      "initial_diagnostics.py": {
+        "bytes": 7346,
+        "sha256": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff"
+      },
+      "initial_response.py": {
+        "bytes": 12115,
+        "sha256": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370"
+      },
+      "joints.py": {
+        "bytes": 2686,
+        "sha256": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00"
+      },
+      "kinematics.py": {
+        "bytes": 2561,
+        "sha256": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f"
+      },
+      "legacy_hinge_state.py": {
+        "bytes": 6540,
+        "sha256": "9380c010ce7d042b16be58eb9a313d01754f0871d3654d888bc72f8f84d387aa"
+      },
+      "linear_dynamics.py": {
+        "bytes": 72981,
+        "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+      },
+      "local_geometry_matrix.py": {
+        "bytes": 8878,
+        "sha256": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3"
+      },
+      "local_motion.py": {
+        "bytes": 13165,
+        "sha256": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2"
+      },
+      "local_rate_tangent.py": {
+        "bytes": 7672,
+        "sha256": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c"
+      },
+      "mechanical_tangent.py": {
+        "bytes": 6197,
+        "sha256": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9"
+      },
+      "network.py": {
+        "bytes": 62003,
+        "sha256": "c667cf70d8d36f079a7dcdf7511b20eb113dd607329bf2ae95c8f9ec6adc000f"
+      },
+      "newton_structure.py": {
+        "bytes": 4108,
+        "sha256": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486"
+      },
+      "nonlinear_initial.py": {
+        "bytes": 23838,
+        "sha256": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0"
+      },
+      "operating.py": {
+        "bytes": 26335,
+        "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+      },
+      "output_derivatives.py": {
+        "bytes": 2159,
+        "sha256": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee"
+      },
+      "output_fields.py": {
+        "bytes": 11902,
+        "sha256": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0"
+      },
+      "position_history_checkpoint.py": {
+        "bytes": 9373,
+        "sha256": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475"
+      },
+      "position_history_lift.py": {
+        "bytes": 10301,
+        "sha256": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff"
+      },
+      "position_history_radau.py": {
+        "bytes": 3301,
+        "sha256": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df"
+      },
+      "power_tangent.py": {
+        "bytes": 5710,
+        "sha256": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c"
+      },
+      "propulsion.py": {
+        "bytes": 9272,
+        "sha256": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318"
+      },
+      "quiescent.py": {
+        "bytes": 5490,
+        "sha256": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911"
+      },
+      "radau_tangent.py": {
+        "bytes": 4159,
+        "sha256": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359"
+      },
+      "radau_time.py": {
+        "bytes": 3880,
+        "sha256": "3685924d50dffc7b9dd297eea75736141d3c2f71a064feb0305aed1edd8841b2"
+      },
+      "recovery.py": {
+        "bytes": 7213,
+        "sha256": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a"
+      },
+      "reduced_model.py": {
+        "bytes": 17492,
+        "sha256": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302"
+      },
+      "reference_flow.py": {
+        "bytes": 3892,
+        "sha256": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e"
+      },
+      "rigid_initial_rank.py": {
+        "bytes": 7327,
+        "sha256": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35"
+      },
+      "rom_file.py": {
+        "bytes": 21226,
+        "sha256": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8"
+      },
+      "rom_initial.py": {
+        "bytes": 6195,
+        "sha256": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4"
+      },
+      "rom_outputs.py": {
+        "bytes": 11136,
+        "sha256": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463"
+      },
+      "root_diagnostics.py": {
+        "bytes": 4331,
+        "sha256": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9"
+      },
+      "seeded_corrector.py": {
+        "bytes": 8299,
+        "sha256": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa"
+      },
+      "sensors.py": {
+        "bytes": 10501,
+        "sha256": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260"
+      },
+      "sparse_rank.py": {
+        "bytes": 9144,
+        "sha256": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7"
+      },
+      "stability.py": {
+        "bytes": 23781,
+        "sha256": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361"
+      },
+      "steady_feedback.py": {
+        "bytes": 8132,
+        "sha256": "e11fabe4db4c98bc74843fdc2225b776fbdbcecfb81d07751996e834db62b6d3"
+      },
+      "structural_geometry.py": {
+        "bytes": 5810,
+        "sha256": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd"
+      },
+      "structural_outputs.py": {
+        "bytes": 7538,
+        "sha256": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0"
+      },
+      "structure.py": {
+        "bytes": 7489,
+        "sha256": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988"
+      },
+      "structured_static.py": {
+        "bytes": 39701,
+        "sha256": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0"
+      },
+      "structured_time.py": {
+        "bytes": 9364,
+        "sha256": "67cd56303216bfc3ee94e9d5277b9cc4f2cf59f105efe6595d22d530750e9395"
+      },
+      "struts.py": {
+        "bytes": 1477,
+        "sha256": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28"
+      },
+      "support_outputs.py": {
+        "bytes": 6436,
+        "sha256": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6"
+      },
+      "tangent_influences.py": {
+        "bytes": 15650,
+        "sha256": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3"
+      },
+      "time_acceptance.py": {
+        "bytes": 5788,
+        "sha256": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18"
+      },
+      "time_acceptance_validation.py": {
+        "bytes": 21446,
+        "sha256": "7dfe69cae6f229fe33fc1fc09639b2d0146a437fea1b4404f6eb8332a1b7fd3b"
+      },
+      "time_accuracy.py": {
+        "bytes": 17505,
+        "sha256": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40"
+      },
+      "time_cold_initial.py": {
+        "bytes": 10150,
+        "sha256": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593"
+      },
+      "time_history.py": {
+        "bytes": 12251,
+        "sha256": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb"
+      },
+      "time_initialization.py": {
+        "bytes": 9446,
+        "sha256": "ff34065233a74c82cc64203b7812846a937cfe7b408a625de67a4eb5b75cfa96"
+      },
+      "time_input_transition.py": {
+        "bytes": 2954,
+        "sha256": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc"
+      },
+      "time_integration.py": {
+        "bytes": 46536,
+        "sha256": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16"
+      },
+      "time_saved_history.py": {
+        "bytes": 12034,
+        "sha256": "74f2e5246e326e5ca5816703a979833828d8e4758b715f33aff86b8d5efe6bb9"
+      },
+      "time_state.py": {
+        "bytes": 18892,
+        "sha256": "eb57273dce87bca657e9098f7bf6fc8cb61723692809f9962c990e12c46f1c75"
+      },
+      "time_transition_initial.py": {
+        "bytes": 6461,
+        "sha256": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a"
+      },
+      "trefftz.py": {
+        "bytes": 6459,
+        "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+      },
+      "vector_ops.py": {
+        "bytes": 1749,
+        "sha256": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537"
+      },
+      "volume.py": {
+        "bytes": 9165,
+        "sha256": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53"
+      },
+      "volume_tangent.py": {
+        "bytes": 12795,
+        "sha256": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc"
+      },
+      "vortex_tangent.py": {
+        "bytes": 26804,
+        "sha256": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      }
+    },
+    "source_and_inputs_unchanged": true,
+    "scope": "One fine68-element/38-Gamma case at1Hz with nativeF3 and physical upper-tipMz, against saved independent accepted outputs; no reference regeneration and no full-aircraft/experimental claim.",
+    "failures_or_retries": 0
+  },
+  "limitations": [
+    "Each mesh uses independently manufactured fixed aerodynamic base counterloads. This is not a common-load aircraft mesh-convergence study.",
+    "Boom aerodynamic radius is removed; boom structural properties and inertia remain. Live gravity, propulsion and aircraft free-frame coupling are excluded; original fixed spatial dead loads and preload remain.",
+    "The 1% criterion is a scaled complex relative infinity norm per output group and input, not a pointwise relative error bound.",
+    "The coarse comparison and corrected base-geometry discrepancies are descriptive only.",
+    "Portable fresh reference entry point was verified on subdivision1 only; original subdivision2 reference and fresh fine native regression both pass."
+  ],
+  "retained_failures": [
+    "Original rigid-limit checker scalar/vector mismatch; retained first pair replayed saved-only after checker correction.",
+    "Original reference complex-scalar serialization failure; three complete numerical packets and base circulation reused exactly after recorder correction."
+  ],
+  "archive": {
+    "path": "docs/validation/elastic-fin-feedback-20261025-evidence.zip",
+    "manifest": "manifest.json",
+    "historical_staging_paths": "Manifest source fields map original absolute paths to archive members."
+  },
+  "source_and_fixture_pins": [
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_aero.py",
+      "bytes": 16652,
+      "sha256": "f3983491ca86951531e8ba5933de78a0e696883820f61d4162cc5f568ff56703"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_io.py",
+      "bytes": 3458,
+      "sha256": "cb0fbe8421bde1d53e390d6cdd0f2400115a389800f211aecaf881cf52d90160"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_kinematics.py",
+      "bytes": 6454,
+      "sha256": "45fbde915ed61c6be2c26eea8970e53c2d334b798752eb401c3c5dc54bc574be"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_mechanics.py",
+      "bytes": 18045,
+      "sha256": "3bf6f5da9baf8414477c0d1e3f7547ac644ac7b8f448f6272727703a0c24b6ea"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_mesh.py",
+      "bytes": 852,
+      "sha256": "0a7d0fab886026d855e5903b8d054e5b5c01cce8ad04185139dcc21f3c83f369"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_reproduce.py",
+      "bytes": 19667,
+      "sha256": "1331753700db698be64c58b5f98dccd80d202de86ff48a48aa2313535cb8a172"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/elastic_fin_response.py",
+      "bytes": 8645,
+      "sha256": "6eb96e02d80c34d9fb1c39e239eed0de0d4dd50d004928856cc6c236a381888e"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/boom_fin_reference.py",
+      "bytes": 16519,
+      "sha256": "3531e4a3679b22d50711d6867abf09c364faf1260056fdff4f2672aaea3d708a"
+    },
+    {
+      "path": "/home/userland/aswing/tests/elastic_fin_adapter.py",
+      "bytes": 18114,
+      "sha256": "689312f9961ceaeddf7bc912ad7feed254a6779d12efeef562124f0495a19162"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_elastic_fin_feedback.py",
+      "bytes": 14599,
+      "sha256": "3a5695eeed33651dbeb621d239b7cd15ff1c6c2f6219e5e5d5b434e99975cc2b"
+    },
+    {
+      "path": "/home/userland/aswing/tests/data/elastic-fin/expected.npz",
+      "bytes": 45796,
+      "sha256": "e4b7b453bee4620c095ade2c39204a4001ada8e5ba7c81954751c1b5ff83e48f"
+    },
+    {
+      "path": "/home/userland/aswing/tests/data/elastic-fin/fixture.json",
+      "bytes": 19846,
+      "sha256": "fa9a47b40c56af7175eedca7fb6756a1ef751403ef16bcf233586c27e570e56a"
+    },
+    {
+      "path": "/home/userland/aswing/tests/data/elastic-fin/provenance.json",
+      "bytes": 24283,
+      "sha256": "30f78736d42a723044b8cc796d1e1ad756c4da7a0b24bc1eed7b016d9ef92554"
+    },
+    {
+      "path": "/home/userland/aswing/tests/data/elastic-fin/request.json",
+      "bytes": 45026,
+      "sha256": "d2a1192e623e306c35e26e07ea777e2d60510d4d83699bd34723cc34ea91fdb0"
+    },
+    {
+      "path": "/home/userland/aswing/tests/data/elastic-fin/seed-geometry.npz",
+      "bytes": 16361,
+      "sha256": "acc343b975d00f75b425b688bb179a7e90873cd7be54efc3c306a47202a3936a"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/daedalus-boom-fin-fixture.json",
+      "bytes": 85493,
+      "sha256": "821330de408479d3fae677a8c189e2566da632eb6684f8415812c85ef4a15708"
+    }
+  ],
+  "evidence_pins": [
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/results/report.json",
+      "bytes": 61312,
+      "sha256": "6b95da50e3d8faa88b645dec198354290511aacbac010e8bc82ffb34af5205c7"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/comparison/session-closeout.json",
+      "bytes": 1184,
+      "sha256": "1c7561b6b4d0574f2e3b801d7bf0f5890e799db86bf92ffafc2ce836d41c2573"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-20261025/portable-reproduction-check/summary.json",
+      "bytes": 6726,
+      "sha256": "5c3712e8dbe410539e520a2f906ee8ec470a6632ba8a63de07a877bfa86f9a75"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-regression-20261025/report.json",
+      "bytes": 25467,
+      "sha256": "4fc0114ebd321ad0571f5ec3c238b17a5e5f94f52d41299bbaf57f2b44641db3"
+    },
+    {
+      "path": "/tmp/openswing-elastic-fin-regression-20261025/session-closeout.json",
+      "bytes": 1217,
+      "sha256": "ff514352e57a4d6366f5305c06c4dad2cdfbf6c2861ae82eba0a16d6aadec6d6"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/elastic-fin-feedback-status.json",
+      "bytes": 55525,
+      "sha256": "e46fca95c52db38ae69aeda3709c0437f623e04cf90ff2be2ebcc77bdee6bd3c"
+    }
+  ]
+}

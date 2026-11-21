@@ -1,0 +1,1979 @@
+{
+  "format": "openswing-ae3-saved-circulation-defect",
+  "date": "2026-10-24",
+  "status": "DIAGNOSTIC_COMPLETE_VALIDATION_PENDING",
+  "results": {
+    "status": "COMPLETED_SAVED_CIRCULATION_DEFECT_ADJOINT",
+    "pid": 32655,
+    "operations": {
+      "literal_geometry_reconstructions": 2,
+      "operator_block_captures": 2,
+      "source_aggregation_calls": 1,
+      "source_column_sums": 160,
+      "matrix_vector_products": 5,
+      "absolute_matrix_vector_products": 6,
+      "scalar_vector_products": 6,
+      "absolute_scalar_vector_products": 9,
+      "direct_cm_sums": 2,
+      "zone_reductions": 66,
+      "column_scaled_A_rank_SVDs": 1,
+      "transpose_LU_factorizations": 1,
+      "transpose_RHS_solves": 1,
+      "transpose_right_hand_sides": 1,
+      "physics_calls": 0,
+      "residual_API_calls": 0,
+      "derivative_API_calls": 0,
+      "equilibrium_solves": 0,
+      "new_meshes": 0,
+      "quadrature_evaluations": 0
+    },
+    "product_tags": {
+      "matrix_vector": [
+        "coarse_primal",
+        "fine_primal",
+        "injected_defect",
+        "error_identity",
+        "adjoint_residual"
+      ],
+      "absolute_matrix_vector": [
+        "coarse_primal_scale",
+        "fine_primal_scale",
+        "injected_defect_scale",
+        "error_identity_scale",
+        "error_subtraction_scale",
+        "adjoint_residual_scale"
+      ],
+      "scalar_vector": [
+        "coarse_output",
+        "fine_output",
+        "injected_output",
+        "lambda_defect",
+        "lambda_fine_residual",
+        "adjoint_correction"
+      ],
+      "absolute_scalar_vector": [
+        "coarse_output_scale",
+        "fine_output_scale",
+        "injected_output_scale",
+        "lambda_defect_scale",
+        "lambda_fine_residual_scale",
+        "adjoint_correction_scale",
+        "weighted_primal_arithmetic_scale",
+        "weighted_adjoint_arithmetic_scale",
+        "weighted_injection_subtraction_scale"
+      ]
+    },
+    "checks": [
+      {
+        "check": "coarse exact condition and state",
+        "pass_": true
+      },
+      {
+        "check": "coarse unchanged model identity",
+        "pass_": true
+      },
+      {
+        "check": "coarse exact zero-base guards",
+        "pass_": true
+      },
+      {
+        "check": "coarse one pointwise same-beam zero-core lifting system",
+        "pass_": true
+      },
+      {
+        "check": "coarse exact derivative conventions",
+        "pass_": true
+      },
+      {
+        "check": "coarse prior clamped solve passed",
+        "pass_": true
+      },
+      {
+        "check": "coarse exact analytic Gamma block",
+        "pass_": true
+      },
+      {
+        "check": "coarse matrix/response shapes",
+        "pass_": true
+      },
+      {
+        "check": "coarse exact nested-definition coordinates",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry rnode",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry rm",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry t",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry a",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry b",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry hv",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry cp",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry span",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry chord_vector",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry normal",
+        "pass_": true
+      },
+      {
+        "check": "coarse previously audited geometry chord",
+        "pass_": true
+      },
+      {
+        "check": "coarse literal and saved strip geometry",
+        "pass_": true
+      },
+      {
+        "check": "coarse physical velocity and normalization",
+        "pass_": true
+      },
+      {
+        "check": "coarse no interval crosses root/control discontinuity",
+        "pass_": true
+      },
+      {
+        "check": "coarse nonzero actual stall leakage",
+        "pass_": true
+      },
+      {
+        "check": "coarse physical coefficient scales",
+        "pass_": true
+      },
+      {
+        "check": "coarse retained clamped force",
+        "pass_": true
+      },
+      {
+        "check": "coarse retained clamped span moment",
+        "pass_": true
+      },
+      {
+        "check": "coarse retained clamped quarter moment",
+        "pass_": true
+      },
+      {
+        "check": "coarse retained direct Cm",
+        "pass_": true
+      },
+      {
+        "check": "coarse original equation residual gate",
+        "pass_": true,
+        "value": 3.1433189384699745e-15,
+        "limit": 1e-08
+      },
+      {
+        "check": "fine exact condition and state",
+        "pass_": true
+      },
+      {
+        "check": "fine unchanged model identity",
+        "pass_": true
+      },
+      {
+        "check": "fine exact zero-base guards",
+        "pass_": true
+      },
+      {
+        "check": "fine one pointwise same-beam zero-core lifting system",
+        "pass_": true
+      },
+      {
+        "check": "fine exact derivative conventions",
+        "pass_": true
+      },
+      {
+        "check": "fine prior clamped solve passed",
+        "pass_": true
+      },
+      {
+        "check": "fine exact analytic Gamma block",
+        "pass_": true
+      },
+      {
+        "check": "fine matrix/response shapes",
+        "pass_": true
+      },
+      {
+        "check": "fine exact nested-definition coordinates",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry rnode",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry rm",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry t",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry a",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry b",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry hv",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry cp",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry span",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry chord_vector",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry normal",
+        "pass_": true
+      },
+      {
+        "check": "fine previously audited geometry chord",
+        "pass_": true
+      },
+      {
+        "check": "fine literal and saved strip geometry",
+        "pass_": true
+      },
+      {
+        "check": "fine physical velocity and normalization",
+        "pass_": true
+      },
+      {
+        "check": "fine no interval crosses root/control discontinuity",
+        "pass_": true
+      },
+      {
+        "check": "fine nonzero actual stall leakage",
+        "pass_": true
+      },
+      {
+        "check": "fine physical coefficient scales",
+        "pass_": true
+      },
+      {
+        "check": "fine retained clamped force",
+        "pass_": true
+      },
+      {
+        "check": "fine retained clamped span moment",
+        "pass_": true
+      },
+      {
+        "check": "fine retained clamped quarter moment",
+        "pass_": true
+      },
+      {
+        "check": "fine retained direct Cm",
+        "pass_": true
+      },
+      {
+        "check": "fine original equation residual gate",
+        "pass_": true,
+        "value": 2.2551405187698492e-15,
+        "limit": 1e-08
+      },
+      {
+        "check": "Matched physical scaling and condition",
+        "pass_": true
+      },
+      {
+        "check": "Fine intervals exactly contained in unique coarse parents",
+        "pass_": true
+      },
+      {
+        "check": "Exact 34 unchanged and 126 split parent intervals",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 0",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 1",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 2",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 3",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 4",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 5",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 6",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 7",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 8",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 9",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 10",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 11",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 12",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 13",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 14",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 15",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 16",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 17",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 18",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 19",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 20",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 21",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 22",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 23",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 24",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 25",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 26",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 27",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 28",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 29",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 30",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 31",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 32",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 33",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 34",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 35",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 36",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 37",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 38",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 39",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 40",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 41",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 42",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 43",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 44",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 45",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 46",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 47",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 48",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 49",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 50",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 51",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 52",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 53",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 54",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 55",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 56",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 57",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 58",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 59",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 60",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 61",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 62",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 63",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 64",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 65",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 66",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 67",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 68",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 69",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 70",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 71",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 72",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 73",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 74",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 75",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 76",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 77",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 78",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 79",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 80",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 81",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 82",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 83",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 84",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 85",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 86",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 87",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 88",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 89",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 90",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 91",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 92",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 93",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 94",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 95",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 96",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 97",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 98",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 99",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 100",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 101",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 102",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 103",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 104",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 105",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 106",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 107",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 108",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 109",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 110",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 111",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 112",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 113",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 114",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 115",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 116",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 117",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 118",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 119",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 120",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 121",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 122",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 123",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 124",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 125",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 126",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 127",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 128",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 129",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 130",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 131",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 132",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 133",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 134",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 135",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 136",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 137",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 138",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 139",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 140",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 141",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 142",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 143",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 144",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 145",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 146",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 147",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 148",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 149",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 150",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 151",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 152",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 153",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 154",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 155",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 156",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 157",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 158",
+        "pass_": true
+      },
+      {
+        "check": "Complete parent partition 159",
+        "pass_": true
+      },
+      {
+        "check": "Common exact interval or literal control t0",
+        "pass_": true
+      },
+      {
+        "check": "Common exact interval or literal control t1",
+        "pass_": true
+      },
+      {
+        "check": "Common exact interval or literal control control_slope",
+        "pass_": true
+      },
+      {
+        "check": "Common exact interval or literal control dCMdF1",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver t",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver rm",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver a",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver end",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver hv",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver cp",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver span",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver chord_vector",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver normal",
+        "pass_": true
+      },
+      {
+        "check": "Common physical receiver chord",
+        "pass_": true
+      },
+      {
+        "check": "Common finite stall leakage",
+        "pass_": true
+      },
+      {
+        "check": "Straight partitioned bound sources",
+        "pass_": true
+      },
+      {
+        "check": "Coincident interior endpoints and equal-strength wake cancellation",
+        "pass_": true
+      },
+      {
+        "check": "Common normal influence source-additivity tolerance",
+        "pass_": true,
+        "maximum_absolute_difference": 5.684341886080802e-14
+      },
+      {
+        "check": "Common actual centered RHS tolerance",
+        "pass_": true,
+        "maximum_absolute_difference": 0.0
+      },
+      {
+        "check": "Exact saved error equation within dimension-derived arithmetic bound",
+        "pass_": true
+      },
+      {
+        "check": "Finite nonzero column norms",
+        "pass_": true
+      },
+      {
+        "check": "Original rank gate on column-scaled A_f",
+        "pass_": true,
+        "value": 0.002016852905099158,
+        "limit": 1e-10
+      },
+      {
+        "check": "Finite adjoint and original equation gate",
+        "pass_": true,
+        "value": 5.377642775528102e-17,
+        "limit": 1e-08
+      },
+      {
+        "check": "Signed adjoint output identity",
+        "pass_": true,
+        "left": 6.74579925788346e-06,
+        "right": 6.745799257879909e-06,
+        "allowance": 1.6711965145081922e-11
+      },
+      {
+        "check": "Disjoint receiver region left_root",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region left_inner",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region left_control_break",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region left_outer",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region left_tip",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region right_root",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region right_inner",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region right_control_break",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region right_outer",
+        "pass_": true
+      },
+      {
+        "check": "Disjoint receiver region right_tip",
+        "pass_": true
+      },
+      {
+        "check": "Every fine receiver retained in exactly one region",
+        "pass_": true
+      },
+      {
+        "check": "Conservative signed/gross zone sum defect",
+        "pass_": true
+      },
+      {
+        "check": "Conservative signed/gross zone sum fine_primal_residual",
+        "pass_": true
+      },
+      {
+        "check": "Conservative signed/gross zone sum adjoint_residual",
+        "pass_": true
+      },
+      {
+        "check": "Existing clamped signed drift reconstructed",
+        "pass_": true,
+        "reported": 6.745799257883243e-06,
+        "reconstructed": 6.74579925788346e-06
+      },
+      {
+        "check": "Exact product tags and bounded operation counts",
+        "pass_": true
+      },
+      {
+        "check": "Original two mesh failures unchanged",
+        "pass_": true
+      }
+    ],
+    "cases": [
+      {
+        "id": "coarse",
+        "prior_id": "20O-05-coarse",
+        "nodes": 161,
+        "gamma_count": 160,
+        "primal_residual": 3.1433189384699745e-15,
+        "c": 5.8802740711000176e-06,
+        "V": 52.32123117428077,
+        "rho": 1.2256,
+        "gamma_scale": 7.848184676142115,
+        "qs": 310.3461733031819,
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "id": "fine",
+        "prior_id": "20O-05-fine-reused",
+        "nodes": 287,
+        "gamma_count": 286,
+        "primal_residual": 2.2551405187698492e-15,
+        "c": 5.880956889428947e-06,
+        "V": 52.32123117428077,
+        "rho": 1.2256,
+        "gamma_scale": 7.848184676142115,
+        "qs": 310.3461733031819,
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "original_mesh_failures": [
+      {
+        "observation_id": "20O-04",
+        "coarse_id": "20O-04-coarse",
+        "fine_id": "20O-04-fine",
+        "status": "FAIL",
+        "coarse_derivative": -0.0006642245865368195,
+        "fine_derivative": -0.0006507075477168842,
+        "relative_change": 0.020772832384320903,
+        "limit": 0.01,
+        "coarse_p": -0.8137789551087253,
+        "fine_p": -0.8140240903722965
+      },
+      {
+        "observation_id": "20O-05",
+        "coarse_id": "20O-05-coarse",
+        "fine_id": "20O-05-fine-reused",
+        "status": "FAIL",
+        "coarse_derivative": -0.0002414142308418781,
+        "fine_derivative": -0.00022531851051219313,
+        "relative_change": 0.07143541066864076,
+        "limit": 0.01,
+        "coarse_p": -0.944983949616963,
+        "fine_p": -0.9453432604343455
+      }
+    ],
+    "rank": 0.002016852905099158,
+    "adjoint_residual": 5.377642775528102e-17,
+    "common_receiver_count": 34,
+    "refined_receiver_count": 252,
+    "common_influence_max_difference": 5.684341886080802e-14,
+    "common_rhs_max_difference": 0.0,
+    "defect_max_abs": 0.4990432786910836,
+    "unchanged_receiver_defect_max_abs": 2.699229728619912e-15,
+    "outputs": {
+      "coarse": -0.0017987439303777614,
+      "fine": -0.001791998131119878,
+      "injected_coarse_on_fine": -0.0017986446146854426,
+      "signed_fine_minus_coarse": 6.74579925788346e-06,
+      "functional_shift": 9.931569231878996e-08,
+      "weighted_defect": 6.646483565564941e-06,
+      "fine_primal_correction": -3.827758436858233e-18,
+      "adjoint_correction": 6.153033973217066e-21,
+      "identity_right": 6.745799257879909e-06,
+      "identity_error": 3.550762114890027e-18,
+      "identity_allowance": 1.6711965145081922e-11
+    },
+    "contribution_gross": {
+      "defect": 0.0013711990446586947,
+      "fine_primal_residual": 2.2034186461226353e-17,
+      "adjoint_residual": 2.1542517331232507e-19
+    },
+    "zones": [
+      {
+        "id": 0,
+        "name": "left_root",
+        "side": "left",
+        "absolute_semispan_bounds": [
+          0.0,
+          0.1
+        ],
+        "rows": [
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -1.0029136140301491e-07,
+            "gross": 7.906527809350428e-07,
+            "gross_share": 0.000576614156795773,
+            "signed_over_global_gross": -7.314135886666873e-05
+          },
+          "fine_primal_residual": {
+            "signed": 1.1196431892267596e-21,
+            "gross": 2.4558901788145463e-21,
+            "gross_share": 0.00011145817355844683,
+            "signed_over_global_gross": 5.081391097406751e-05
+          },
+          "adjoint_residual": {
+            "signed": -9.986157863632467e-23,
+            "gross": 1.098214744183379e-22,
+            "gross_share": 0.0005097894212164234,
+            "signed_over_global_gross": -0.0004635557539579861
+          }
+        }
+      },
+      {
+        "id": 1,
+        "name": "left_inner",
+        "side": "left",
+        "absolute_semispan_bounds": [
+          0.1,
+          0.75
+        ],
+        "rows": [
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134
+        ],
+        "contributions": {
+          "defect": {
+            "signed": 7.934049750299335e-06,
+            "gross": 0.0002067419010215212,
+            "gross_share": 0.1507745369476839,
+            "signed_over_global_gross": 0.005786213009121662
+          },
+          "fine_primal_residual": {
+            "signed": 6.849276600243694e-19,
+            "gross": 2.337808963751607e-18,
+            "gross_share": 0.10609917311290158,
+            "signed_over_global_gross": 0.031084771894330628
+          },
+          "adjoint_residual": {
+            "signed": -7.604192387752016e-22,
+            "gross": 2.5734011902709865e-20,
+            "gross_share": 0.11945684669544399,
+            "signed_over_global_gross": -0.0035298532064901252
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "left_control_break",
+        "side": "left",
+        "absolute_semispan_bounds": [
+          0.75,
+          0.85
+        ],
+        "rows": [
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -1.6753894519848825e-06,
+            "gross": 0.0002169580898879138,
+            "gross_share": 0.1582250882780602,
+            "signed_over_global_gross": -0.0012218426336505388
+          },
+          "fine_primal_residual": {
+            "signed": -1.4959211835704038e-19,
+            "gross": 4.901166881602992e-18,
+            "gross_share": 0.2224346648889259,
+            "signed_over_global_gross": -0.006789091969439318
+          },
+          "adjoint_residual": {
+            "signed": -1.0403199468839186e-20,
+            "gross": 5.572723208438005e-20,
+            "gross_share": 0.25868486596775897,
+            "signed_over_global_gross": -0.04829147545239083
+          }
+        }
+      },
+      {
+        "id": 3,
+        "name": "left_outer",
+        "side": "left",
+        "absolute_semispan_bounds": [
+          0.85,
+          0.95
+        ],
+        "rows": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ],
+        "contributions": {
+          "defect": {
+            "signed": 1.6910463006047572e-06,
+            "gross": 9.964830095171212e-05,
+            "gross_share": 0.07267238213144729,
+            "signed_over_global_gross": 0.001233260996783786
+          },
+          "fine_primal_residual": {
+            "signed": -1.4626499296973485e-18,
+            "gross": 4.822043426475944e-18,
+            "gross_share": 0.21884372427188603,
+            "signed_over_global_gross": -0.06638093638134449
+          },
+          "adjoint_residual": {
+            "signed": -3.46587284093269e-21,
+            "gross": 1.2221919801161569e-20,
+            "gross_share": 0.05673394438189513,
+            "signed_over_global_gross": -0.016088522931848086
+          }
+        }
+      },
+      {
+        "id": 4,
+        "name": "left_tip",
+        "side": "left",
+        "absolute_semispan_bounds": [
+          0.95,
+          1.0
+        ],
+        "rows": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -4.526173454725313e-06,
+            "gross": 0.00016146057768727257,
+            "gross_share": 0.11775137848601823,
+            "signed_over_global_gross": -0.003300887258021627
+          },
+          "fine_primal_residual": {
+            "signed": 4.9406492925620836e-20,
+            "gross": 1.3462972276854495e-18,
+            "gross_share": 0.06110038280989108,
+            "signed_over_global_gross": 0.002242265354909365
+          },
+          "adjoint_residual": {
+            "signed": -1.2745565718948269e-21,
+            "gross": 1.6805272432280844e-20,
+            "gross_share": 0.07800978954263822,
+            "signed_over_global_gross": -0.0059164699849026696
+          }
+        }
+      },
+      {
+        "id": 5,
+        "name": "right_root",
+        "side": "right",
+        "absolute_semispan_bounds": [
+          0.0,
+          0.1
+        ],
+        "rows": [
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -1.0029136140301638e-07,
+            "gross": 7.906527809351504e-07,
+            "gross_share": 0.0005766141567958515,
+            "signed_over_global_gross": -7.31413588666698e-05
+          },
+          "fine_primal_residual": {
+            "signed": 1.1915956420626504e-21,
+            "gross": 1.9958881247292807e-21,
+            "gross_share": 9.058143028068919e-05,
+            "signed_over_global_gross": 5.407940266637509e-05
+          },
+          "adjoint_residual": {
+            "signed": 2.7338591460919675e-23,
+            "gross": 1.2048378293211776e-22,
+            "gross_share": 0.0005592836764598511,
+            "signed_over_global_gross": 0.0001269052777842447
+          }
+        }
+      },
+      {
+        "id": 6,
+        "name": "right_inner",
+        "side": "right",
+        "absolute_semispan_bounds": [
+          0.1,
+          0.75
+        ],
+        "rows": [
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211
+        ],
+        "contributions": {
+          "defect": {
+            "signed": 7.934049750301745e-06,
+            "gross": 0.00020674190102152554,
+            "gross_share": 0.15077453694768705,
+            "signed_over_global_gross": 0.00578621300912342
+          },
+          "fine_primal_residual": {
+            "signed": -4.589693659523341e-19,
+            "gross": 1.079120828843292e-18,
+            "gross_share": 0.04897484328464884,
+            "signed_over_global_gross": -0.020829875736959217
+          },
+          "adjoint_residual": {
+            "signed": -1.7935776714934885e-21,
+            "gross": 2.423602617655958e-20,
+            "gross_share": 0.11250322236678442,
+            "signed_over_global_gross": -0.008325757124461708
+          }
+        }
+      },
+      {
+        "id": 7,
+        "name": "right_control_break",
+        "side": "right",
+        "absolute_semispan_bounds": [
+          0.75,
+          0.85
+        ],
+        "rows": [
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -1.6753894519985316e-06,
+            "gross": 0.00021695808988790144,
+            "gross_share": 0.15822508827805118,
+            "signed_over_global_gross": -0.0012218426336604931
+          },
+          "fine_primal_residual": {
+            "signed": -1.19263844539928e-18,
+            "gross": 4.496788943629773e-18,
+            "gross_share": 0.20408236771268096,
+            "signed_over_global_gross": -0.05412672927579925
+          },
+          "adjoint_residual": {
+            "signed": 1.9464017426964797e-20,
+            "gross": 4.5532709287692736e-20,
+            "gross_share": 0.21136206408746422,
+            "signed_over_global_gross": 0.09035163870447821
+          }
+        }
+      },
+      {
+        "id": 8,
+        "name": "right_outer",
+        "side": "right",
+        "absolute_semispan_bounds": [
+          0.85,
+          0.95
+        ],
+        "rows": [
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259
+        ],
+        "contributions": {
+          "defect": {
+            "signed": 1.6910463005976667e-06,
+            "gross": 9.964830095171549e-05,
+            "gross_share": 0.07267238213144975,
+            "signed_over_global_gross": 0.001233260996778615
+          },
+          "fine_primal_residual": {
+            "signed": -9.727461267214918e-19,
+            "gross": 2.373215528873838e-18,
+            "gross_share": 0.10770606543835848,
+            "signed_over_global_gross": -0.04414713147831607
+          },
+          "adjoint_residual": {
+            "signed": 1.5686717859100804e-21,
+            "gross": 1.5047074141154363e-20,
+            "gross_share": 0.06984826290165727,
+            "signed_over_global_gross": 0.007281747818932043
+          }
+        }
+      },
+      {
+        "id": 9,
+        "name": "right_tip",
+        "side": "right",
+        "absolute_semispan_bounds": [
+          0.95,
+          1.0
+        ],
+        "rows": [
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285
+        ],
+        "contributions": {
+          "defect": {
+            "signed": -4.526173454723783e-06,
+            "gross": 0.00016146057768726216,
+            "gross_share": 0.11775137848601064,
+            "signed_over_global_gross": -0.003300887258020511
+          },
+          "fine_primal_residual": {
+            "signed": -3.278078425120168e-19,
+            "gross": 6.732928820599222e-19,
+            "gross_share": 0.030556738876868376,
+            "signed_over_global_gross": -0.014877238290093513
+          },
+          "adjoint_residual": {
+            "signed": 2.8904935394529832e-21,
+            "gross": 1.989062222903561e-20,
+            "gross_share": 0.09233193095868157,
+            "signed_over_global_gross": 0.013417621975229067
+          }
+        }
+      }
+    ],
+    "limitations": [
+      "Common rows cannot bound the shared finite patch error.",
+      "Receiver-weighted indicators do not uniquely locate source error.",
+      "The clamped circulation contribution is not the full coupled mesh drift or a structural error measure.",
+      "Original two mesh FAILs and thresholds remain unchanged; no continuum or experimental acceptance."
+    ],
+    "experimental_validation": false,
+    "production_source_changed": false,
+    "hosted_release_updated": false,
+    "counts": {
+      "passed": 264,
+      "total": 264
+    },
+    "monotonic_seconds": 1.5340453399985563
+  },
+  "plan_pin": {
+    "bytes": 69041,
+    "sha256": "0d4da32615d7dc79f8fc08008fdc6d7d10965e4836399da881d0072bbace549c"
+  },
+  "independent_review": {
+    "counts": {
+      "passed": 1298,
+      "total": 1298
+    },
+    "bytes": 226735,
+    "sha256": "f8c57b42c727c7cf57b8d317fcc9c79bd5ec8a3d89326ac162234344b485d300"
+  },
+  "retained_first_attempt": {
+    "revision": {
+      "status": "REPORTING_HELPER_CORRECTION_ONLY_PREPARED",
+      "first_stage": "/tmp/openswing-ae3-circulation-defect-20261024",
+      "first_plan_pin": {
+        "bytes": 62139,
+        "sha256": "202de64dd965a5e40f0341dd3d8ebbd4a681e0e5e33a6ebc398ca762aa474efe"
+      },
+      "first_report_pin": {
+        "bytes": 5109,
+        "sha256": "9632db3ceddce64afe5283d2dc4d9267c0428e0a5ffdf231063660a42314c4c6"
+      },
+      "first_lifecycle": {
+        "status": "FAILED_RETAINED",
+        "supervisor_pid": 26119,
+        "reaped": true,
+        "pid": 26140,
+        "exit_code": 1,
+        "monotonic_seconds": 4.963608154997928
+      },
+      "first_root_session": {
+        "session": 16471,
+        "exit_code": 1,
+        "reaped": true
+      },
+      "retained_operations": {
+        "literal_geometry_reconstructions": 1,
+        "operator_block_captures": 1,
+        "source_aggregation_calls": 0,
+        "source_column_sums": 0,
+        "matrix_vector_products": 1,
+        "absolute_matrix_vector_products": 1,
+        "scalar_vector_products": 0,
+        "absolute_scalar_vector_products": 0,
+        "direct_cm_sums": 1,
+        "zone_reductions": 0,
+        "column_scaled_A_rank_SVDs": 0,
+        "transpose_LU_factorizations": 0,
+        "transpose_RHS_solves": 0,
+        "transpose_right_hand_sides": 0,
+        "physics_calls": 0,
+        "residual_API_calls": 0,
+        "derivative_API_calls": 0,
+        "equilibrium_solves": 0,
+        "new_meshes": 0,
+        "quadrature_evaluations": 0
+      },
+      "first_checks": {
+        "passed": 29,
+        "total": 29
+      },
+      "change": "Rename check() formal value to predicate; metric keyword value remains unchanged.",
+      "old_runner_pin": {
+        "bytes": 23420,
+        "sha256": "f19b07f26e1e91469ae5f8382e7d89df6b17df474f60b3520a5cf6b45bfd0152"
+      },
+      "new_runner_pin": {
+        "bytes": 23428,
+        "sha256": "d3cef08718d48868272f5fc350b7a40252d755e2053be087881f145ca525e2ef"
+      },
+      "all_other_numerical_scripts_unchanged": true,
+      "isolated_helper_test": {
+        "call_sites_checked": 39,
+        "positive_metadata_probe": true,
+        "negative_predicate_raises": true,
+        "production_imports": 0,
+        "operator_products": 0,
+        "solves": 0
+      },
+      "scientific_formulas_changed": false,
+      "tolerances_changed": false,
+      "inputs_changed": false,
+      "automatic_retry": false
+    },
+    "operations": {
+      "literal_geometry_reconstructions": 1,
+      "operator_block_captures": 1,
+      "source_aggregation_calls": 0,
+      "source_column_sums": 0,
+      "matrix_vector_products": 1,
+      "absolute_matrix_vector_products": 1,
+      "scalar_vector_products": 0,
+      "absolute_scalar_vector_products": 0,
+      "direct_cm_sums": 1,
+      "zone_reductions": 0,
+      "column_scaled_A_rank_SVDs": 0,
+      "transpose_LU_factorizations": 0,
+      "transpose_RHS_solves": 0,
+      "transpose_right_hand_sides": 0,
+      "physics_calls": 0,
+      "residual_API_calls": 0,
+      "derivative_API_calls": 0,
+      "equilibrium_solves": 0,
+      "new_meshes": 0,
+      "quadrature_evaluations": 0
+    },
+    "checks": {
+      "passed": 29,
+      "total": 29
+    },
+    "failure_audit_counts": {
+      "passed": 323,
+      "total": 323
+    },
+    "scientific_stage_completed": false
+  },
+  "descriptive_signed_clamped_shares": {
+    "circulation_resolution": 0.9852774017545135,
+    "output_functional": 0.014722598245526644
+  },
+  "coverage": {
+    "partial": 17,
+    "pending": 24,
+    "fully_validated": 0,
+    "AE_3": "pending"
+  },
+  "production_source_changed": false,
+  "runtime_bundles_changed": false,
+  "hosted_release_updated": false,
+  "original_aswing_executable_available": false,
+  "next_work": "Run the prepared two-axis 20O-05 refinement: retain the existing 160/286-interval grids and split all 34 shared intervals to create 194/320-interval grids. Test patch refinement and refinement elsewhere separately with the unchanged 1% native Cl_control criterion. Preserve the original 2.0773% and 7.1435% failures. Complete 20O-04 convergence, experimental amplitude/incidence/sign, section-control provenance and fixture/stiffness matching, driven-roll and reversal comparisons.",
+  "prepared_meshes": {
+    "path": "review/next-mesh/prepared-nodes.json",
+    "bytes": 44614,
+    "sha256": "4077f26df84c89ad2c94336f906f886f5c5587c104357b23f7a2e5b8ee4716c6",
+    "physical_cases_executed": 0
+  }
+}

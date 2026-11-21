@@ -1,0 +1,236 @@
+{
+  "primary": {
+    "title": "Dunn, Nonlinear stall flutter of wings with bending-torsion coupling (1992)",
+    "url": "https://dspace.mit.edu/entities/publication/55aa429a-7a4a-4908-87e6-7ecc1ece5ae5",
+    "pdf_sha256": "4a2f76f6d51b5562a9a7ab7390c71adea8c792235eb4266bef38205d335d8e0d",
+    "pages": {
+      "setup_pdf": [
+        107,
+        108,
+        109
+      ],
+      "static_results_pdf": [
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121
+      ]
+    },
+    "facts": [
+      "Vertical clamped specimen; pulley/thread/weight tip loads and opposite chord-edge forces for torque.",
+      "Static measurements use pointer positions; the plotted displacement unit is cm and torque unit is Nm.",
+      "Archived CSV displacements are in m; both signed load branches and their offsets are retained.",
+      "The primary experiment has self-weight; the horizontal ISAE input zeros all distributed mass.",
+      "No full uncertainty budget or exact pulley geometry is available; no measurement uncertainty is invented."
+    ],
+    "redistribution": "Primary PDF, extracted text and rendered pages excluded from distributions."
+  },
+  "archived_torque_factor": 1.3734000000000002,
+  "torque_derivation": "change_mass writes +M and -M into Mg rows multiplied by 9.81; points are separated by 0.14 m, giving M_actual=9.81*0.14*M_plotted before rotation.",
+  "caveat": "The rotating force couple is a dead-force pair; its body-axis torque changes with wing rotation.",
+  "original_postprocessing": [
+    "All central experimental points overwritten with zero.",
+    "Positive/negative branches folded by absolute value; half-range bars are branch differences, not a statistical uncertainty.",
+    "Force twist plotted with ASWING sign, opposite the signed Dunn CSV convention.",
+    "Coupled moment displacement plotted as +body z; signed Dunn displacement is -body z.",
+    "T(F) and Z(M) saved EPS limits differ from final Analysis.m commands; actual vector ticks were used.",
+    "Uncoupled force-twist analysis filename has lowercase _num.csv; Analysis.m requests uppercase _NUM.csv."
+  ],
+  "static_reconstruction": "For a negative weight w at lever r, use positive |w| at -r plus a central force 2*(0,0,-w). Force and moment are identical for every rotation Q. This equivalence does not extend to inertia or dynamics.",
+  "property_warning": "Static properties are taken from the static files, not the different modal files. All three internal Name fields are identical; paths and hashes identify layups.",
+  "scripts_executed": false,
+  "sources": {
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/Analysis.m": {
+      "sha256": "cb0a9bba22a50350242c6b7226c2ee17e916c3688b53bb72b56e4da2542f55bb",
+      "bytes": 19484
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/NACA0012_T(F).eps": {
+      "sha256": "55b962b3c08e35eb7f50a7b524f8907232ff9a3d61d6b06bdb48fd3fe01fdc3e",
+      "bytes": 63824
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/NACA0012_T(M).eps": {
+      "sha256": "690a7c2222600fb59cc29eddb7aa38ca8876caf39df9e75977f590e343aea37c",
+      "bytes": 110576
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/NACA0012_Z(F).eps": {
+      "sha256": "8f543dc4805892b158d52956225d9a7c5b888ec22afc778ca7016c3443740cd9",
+      "bytes": 91731
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/NACA0012_Z(M).eps": {
+      "sha256": "8c4db0a8e0168bfa277b262f75baf31918a85bba78becdf9b6397680f576cecf",
+      "bytes": 89127
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/[0_3_90].asw": {
+      "sha256": "a5312c3a783c4b5068c6a598e88e42baed0c54ac4248829926b1008af8cae4f3",
+      "bytes": 2083
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/[m15_0].asw": {
+      "sha256": "583f6e203f28d2272207e217434585b4bbf27bba8a6531b7679c0887033c6397",
+      "bytes": 2001
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/[p15_0].asw": {
+      "sha256": "7b4ba927d6ec7d364a7cc102478be2da9ca593904ba641d85d85f041008fe12b",
+      "bytes": 2003
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/calcul_temps.m": {
+      "sha256": "0da85e0ffce464fa0d211299493a2f16c322447de7d06169487dfc0b69664414",
+      "bytes": 188
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/calul_temps.sh": {
+      "sha256": "b24c739c37472db2acf27b8bda6edb4fce3d874d78534a996b9341b50845d9ff",
+      "bytes": 105
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/change_mass.m": {
+      "sha256": "f641dc498c49ea70e0c98a8c5ea7902b46fd4dcc393b9bf889203fd69fa06cb7",
+      "bytes": 895
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/temp.txt": {
+      "sha256": "b0aa034e0ea1b139ce9ff0c237355f15cc69851b0ef04c50f683707363be09cc",
+      "bytes": 7652
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/temp_analysis1.sh": {
+      "sha256": "1570b41a9508c60b45e81e03b8e1b12f4f20cd7f1b7a978e39608d543c4608f7",
+      "bytes": 106
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/temp_analysis2.sh": {
+      "sha256": "abb8ce66370e8d91f4d8593a0711bfefd75c02ebf5513f0f8291e40b856f3312",
+      "bytes": 105
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/temp_analysis3.sh": {
+      "sha256": "e5c04b9916621dfc5d5855554426d168bec5c23a5fd321bfb810e5ab1c0bf485",
+      "bytes": 105
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/test.asw": {
+      "sha256": "48c46b2489ca075ce373291e6cdfb63cb5b0c5e288312cddf02321dec424258e",
+      "bytes": 2001
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/test.txt": {
+      "sha256": "e31bff51b8e77514d5dedbe97b2e8aa516e42772fddd0b1ee029755ddabd6818",
+      "bytes": 5453
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_forces_analysis1.m": {
+      "sha256": "9752d95b1677a9f42367fc7f27bcea06dd94f5b6dcf6da48fc1cfad2f4909984",
+      "bytes": 368
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_forces_analysis2.m": {
+      "sha256": "cb09d72347b560c2996b6fad1f02523a28155e7e70e924837e695fbac6c967a2",
+      "bytes": 368
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_forces_analysis3.m": {
+      "sha256": "c0165533146ea2ce4af2b45baa55d2290ee0c688a8b48aefa6653412ee384208",
+      "bytes": 368
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_moment_analysis1.m": {
+      "sha256": "43f4280ff7cd64bcb9120366b65a82edf1ed7cb143a3b0a350ae1e633582d1be",
+      "bytes": 365
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_moment_analysis2.m": {
+      "sha256": "f942a1c90f14a8e34ea36a237faea102ba85d48d530f7f9856f3a030e4aae904",
+      "bytes": 365
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/Static_Deflection_analysis/tip_moment_analysis3.m": {
+      "sha256": "154dde8afc9edee0bdcbcb35312e183af009c5225ddb9dd42e7c82dcb16f6ed7",
+      "bytes": 365
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_F_VS_THETA.csv": {
+      "sha256": "aa86012e5f19bf77aa9f1793ed913122e09427e0199aba84b4c9bb102b3a80a4",
+      "bytes": 354
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_F_VS_THETA_NUM.csv": {
+      "sha256": "0dde65d4b86855320c2de7491e2a54b7799ccc55ff5d524542405d6fbae58971",
+      "bytes": 214
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_F_VS_Z.csv": {
+      "sha256": "743336098a4c75e9172f392cf5bf59c729eb610fb48442f6718edc6cf49869c8",
+      "bytes": 373
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_F_VS_Z_NUM.csv": {
+      "sha256": "58de08f9bacb1caa000d9ab29b0036a7a2fdb3d58698b351952eda29ba5cecad",
+      "bytes": 219
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_M_VS_THETA.csv": {
+      "sha256": "3caf7e940bccc13b9a5ead855b3a7a18fbab33ca3aceae6dd0e4610114923e1e",
+      "bytes": 668
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_M_VS_THETA_NUM.csv": {
+      "sha256": "fe02644264b0c8e4d61f5ec20c01be584e4d27aac2278d0d42064a9a39dc4d50",
+      "bytes": 367
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_M_VS_Z.csv": {
+      "sha256": "2920346c6826644536f6f43279678bc142deca1e055e01196d37185488297b46",
+      "bytes": 719
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[+15_2_0_2]_S/[+15_2_0_2]_S_M_VS_Z_NUM.csv": {
+      "sha256": "c9ae5fb888c512776b97b1b45578b37b99072a3cb4b5780dc5eeb1d26c5766d2",
+      "bytes": 438
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_F_VS_THETA.csv": {
+      "sha256": "cc87017a89143c36d59cc806870292d2e9c2e09f1c07925c27f09126eb67b813",
+      "bytes": 353
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_F_VS_THETA_NUM.csv": {
+      "sha256": "9ec5796fef6058d79bff4992f75542b1db260213453598746049046d44978a06",
+      "bytes": 210
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_F_VS_Z.csv": {
+      "sha256": "f668fb84f97467391e1fc1284a7de890328bf84ccdbf38864664ac43739c8a91",
+      "bytes": 369
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_F_VS_Z_NUM.csv": {
+      "sha256": "0d135632cc5ff1bef1c4e3256511fa8b3350827965624c07bb7221d0dba2be3e",
+      "bytes": 220
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_M_VS_THETA.csv": {
+      "sha256": "e8a2bf0f8cec3c85131ba107a3a9e88df1695eaf73fa27aa1ac9fe2de4c39fc4",
+      "bytes": 667
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_M_VS_THETA_NUM.csv": {
+      "sha256": "a8181a3bfffb132abeef7d80f9f88c0b6653fb52a803b16220f697cb24e2b5eb",
+      "bytes": 331
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_M_VS_Z.csv": {
+      "sha256": "671deafce10c135a593263fa3a5e6ec68698d9e68c2de7c67c4c7aba49af53f3",
+      "bytes": 715
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[-15_2_0_2]_S/[-15_2_0_2]_S_M_VS_Z_NUM.csv": {
+      "sha256": "1d29f84bb9e1b5472358371e493fd24b2307a4d353c045dcd521812d408a1b4e",
+      "bytes": 427
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_F_VS_THETA.csv": {
+      "sha256": "e42258ef46b9c7c4d19addb0245643b90acd556ad4ed84364e5e08b3bb84d16a",
+      "bytes": 450
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_F_VS_THETA_num.csv": {
+      "sha256": "b07f0f69d509cd1c8e01807424d69cc785d19e3d44f23d19d24f820d31cdb1f3",
+      "bytes": 253
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_F_VS_Z.csv": {
+      "sha256": "3ed10fa9c7b3eef71a3a2f9bf9a00dbbcd2c781a2c3f7b70ab7210a66d7b94d5",
+      "bytes": 451
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_F_VS_Z_NUM.csv": {
+      "sha256": "ac861a021b0055a0cc8fae6c679fe84299049b018ab45181c7badcb677706c76",
+      "bytes": 259
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_M_VS_THETA.csv": {
+      "sha256": "5243f98197dd7a0b893b2135d1357d48b2e64928f049cfa2bca37a580e11caae",
+      "bytes": 671
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_M_VS_THETA_NUM.csv": {
+      "sha256": "4b7777a778e0c70aa981eaec53669090bef77de8fe2114dd46d5b2b790c05012",
+      "bytes": 518
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_M_VS_Z.csv": {
+      "sha256": "b2ce22a5ef72d5f00cb68a6c2e1dfb56c63534ef04e7794d8184fa5c07638149",
+      "bytes": 734
+    },
+    "3 - Structure/CASE - ST3 Low aspect ratio/[0_3_90]_S/[03_90]_S_M_VS_Z_NUM.csv": {
+      "sha256": "737450baf448515a38d9be2a78e93f173e9b477eb2a6891d344eba8731abaf19",
+      "bytes": 481
+    }
+  },
+  "ui_limit": "Current bridge constructs a positive-speed FlightCondition for mounted solves. This study uses condition=None in the production Python API; no vacuum-static UI workflow or literal signed-weight support is claimed."
+}

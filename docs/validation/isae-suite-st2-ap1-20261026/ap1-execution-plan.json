@@ -1,0 +1,319 @@
+{
+  "status": "SOURCE_PLAN_COMPLETE_NO_NEW_PHYSICS",
+  "candidate_ranking": [
+    {
+      "rank": 1,
+      "family": "ST-5",
+      "scope": "Fastest narrow existing-adapter extension: Rigid_Joint/JW_1_30lb_80_20.asw + same .sh/.txt",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint",
+      "settings": "Air-free, zero motion; source sections, literal signed Dmg gravity loading, ft/s/lb g32.18; rigid joints\u00b12.001 and root mounts both beams. No mesh command recovered.",
+      "evidence": "Driver lines1,9\u201310; input112 forward Dmg scale\u221224 and179 rear\u22126 support80/20 despite stale line6 90/10 comment. Header speed0.",
+      "outputs": "Both beam tables,28 columns, per-table exponents and all original rows; use existing structure decoder.",
+      "blockers": [
+        "f_reac display remains qualified",
+        "source grid/display history unknown",
+        "not new-family coverage"
+      ]
+    },
+    {
+      "rank": 2,
+      "family": "AE-2",
+      "scope": "Existing source-coupled sensor adapter extension: [m15_02]_S.asw and [p15_02]_S.asw, eight exact script/output pairs",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-2-S Low Aspect Ratio Wing - Steady Deflection/Steady_deflection",
+      "settings": "Scripts use beta !B1/5/10/15 (filenames A are not alpha), IAS0..20/20/15/14 for minus;0..30/30/26/21 for plus; root .0001, sensor1 at .558 position(.07,0,.558). Literal rhoSL1.23.",
+      "outputs": "184 rows\u00d74 channels RY,Psi,sensorV,sensorbeta;8 initial all-NaN rows=32 missing scalar slots retained.",
+      "blockers": [
+        "historical atmosphere,TAS,PG,K/F,mesh/continuation unproven",
+        "worker/catalog generalization needed; no stiffness or sensor relocation"
+      ]
+    },
+    {
+      "rank": 3,
+      "family": "AP-1",
+      "scope": "Best next new family: three positive-slope PROWIM paired header states at alpha0/4/10,150/300 nominal current intervals",
+      "source": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation",
+      "settings": "Literal50m/s,rho1.2256,PG0,beta0,attitude0,rates/accelerations0,flap1=0;active shared channel1=500W per disk. Retain unused E2=333 provenance.",
+      "outputs": "Six executable header jobs\u00d713targets; all span targets and d-model/unpaired targets retained explicitly blocked.",
+      "blockers": [
+        "span node/display+a_flap mapping",
+        "dCLda0 on PROWIMd",
+        "unpaired PROWIN/PROWIM.t",
+        "current influence/core/startup declared reconstruction, not recovered"
+      ]
+    }
+  ],
+  "ranking_basis": "Smallest defensible implementation scope; AP1 is the first new-family choice and parent has independently completed a six-run production probe.",
+  "ap1": {
+    "pairing": [
+      {
+        "model": "PROWIM.asw",
+        "driver": "PROWIM.sh",
+        "output": "PROWINA0.txt",
+        "alpha_deg": 0,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "output header; first driver write has no !A command",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": 1.0
+      },
+      {
+        "model": "PROWIM.asw",
+        "driver": "PROWIM.sh",
+        "output": "PROWINA4.txt",
+        "alpha_deg": 4,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "driver !A and output header",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": 1.0
+      },
+      {
+        "model": "PROWIM.asw",
+        "driver": "PROWIM.sh",
+        "output": "PROWINA10.txt",
+        "alpha_deg": 10,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "driver !A and output header",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": 1.0
+      },
+      {
+        "model": "PROWIMd.asw",
+        "driver": "PROWIM_d.sh",
+        "output": "PROWINA0d.txt",
+        "alpha_deg": 0,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "output header; first driver write has no !A command",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": -1.0
+      },
+      {
+        "model": "PROWIMd.asw",
+        "driver": "PROWIM_d.sh",
+        "output": "PROWINA4d.txt",
+        "alpha_deg": 4,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "driver !A and output header",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": -1.0000000000000004
+      },
+      {
+        "model": "PROWIMd.asw",
+        "driver": "PROWIM_d.sh",
+        "output": "PROWINA10d.txt",
+        "alpha_deg": 10,
+        "speed": 50.0,
+        "rho_literal": 1.2256,
+        "mach_pg_from_header": 0.0,
+        "original_node_I": 150,
+        "span_rows": 150,
+        "numeric_columns": 9,
+        "non_t_field_slots": 1200,
+        "first_alpha_source": "driver !A and output header",
+        "active_engine_powers_W": {
+          "1": 500.0
+        },
+        "unused_driver_power_setting": {
+          "2": 333.0
+        },
+        "engine_torque_jump_at_negative_span_Nm": -1.0
+      }
+    ],
+    "planned_counts": {
+      "jobs": 26,
+      "executable_header_jobs": 6,
+      "blocked_jobs": 20,
+      "target_slots": 15470,
+      "paired_span_rows": 900,
+      "unpaired_span_rows": 100,
+      "unpaired_operating_rows": 1
+    },
+    "header_names": [
+      "sum Fx",
+      "sum Fy",
+      "sum Fz",
+      "sum Mx",
+      "sum My",
+      "sum Mz",
+      "Lift",
+      "avg CL",
+      "avg CD",
+      "avg CDi",
+      "avg Cm",
+      "Span Eff",
+      "L/D"
+    ],
+    "header_mapping": {
+      "net_wrench": "result.force/moment; retain engine force/couple, not support reactions",
+      "Lift": "distributed_aero_force dot(-sin(alpha),0,cos(alpha))",
+      "avg CL": "Lift/(q*Sref)",
+      "avg CD": "distributed_aero_force dot(cos(alpha),0,sin(alpha))/(q*Sref)",
+      "avg CDi": "result.CDi Trefftz",
+      "avg Cm": "distributed_aero_moment[1]/(q*Sref*Cref), qualified: massless rigid symmetric paired model has zero total engine moment, so equals net moment normalization; this archive cannot identify general exporter inclusion",
+      "Span Eff": "result.efficiency from(CL_i\u00b2+CY_i\u00b2)/(pi*Bref\u00b2/Sref*CDi), not CL\u00b2 inferred from header",
+      "L/D": "aerodynamic CL/CD"
+    },
+    "span_contract": {
+      "fields": {
+        "t": "Printed material coordinate, paired half-last-place .005 m. Retain raw row and index, not a full-precision recovered grid.",
+        "y": "Aircraft/body span position, paired half-last-place .0005 m. Original plotting uses y/.64 (=2y/full geometric span); do not divide by full1.28.",
+        "z-z0": "Nodal body z displacement in m.",
+        "tw-tw0": "Nodal Euler twist change in degrees.",
+        "Mc'/10,Ms'/10,Fn/10": "Local c,s moments in N m and local n force in N; multiply raw fields by their own printed powers of10 from header line31 only.",
+        "cl": "Local cl_perpendicular=2Gamma/(chord*Vperp), not whole-wing CL or a coefficient normalized by freestream alone. Derived interval quantity shifted upward one-half line; retain final dummy zero explicitly.",
+        "f_aero": "Unpaired PROWIN only: normal aerodynamic force per span, N/m, a derived shifted interval field.",
+        "a_flap": "All observed values zero, consistent with Flap1=0. Preserve rows; the reviewed primary displayed-variable list does not define this extra column sampling or units independently, so do not infer a nonzero-control recovery formula.",
+        "node_mapping": "Counts and known root/engine duplicates are consistent with original NODE/I150 structural outputs; missing saved display/startup state prevents proof of exact interpolation mode or unrounded grid. No fitting to printed coordinates.",
+        "duplicates": "Keep both one-sided rows at -0.3,0,+0.3 and all rounded duplicate coordinates. Do not collapse by rounded t/y or mistake every rounded duplicate for a physical jump.",
+        "source_location": ".reference/aswing_doc.txt:2464-2505,2537-2600; asw_theory.txt:2512ff"
+      },
+      "correction": "Mc\u2032=Mc+Nta*Fs; Ms\u2032=Ms\u2212Nea*Fc+Cea*Fn: recover endpoint moment_axes, not raw moment_local; actual PROWIM offsets multiply to zero.",
+      "status": "All span targets blocked until independent exact node/display and a_flap contract. Do not average one-sided engine/root loads or silently remove dummy/rounded duplicate rows."
+    },
+    "normalization": {
+      "Sref": 0.1536,
+      "Cref": 0.24,
+      "Bref": 0.64,
+      "full_geometric_span": 1.28,
+      "q": 1532
+    },
+    "capability": {
+      "current": "SourceCoupledNetwork now supports rotated engine attachment positions and conservative once-only force/couple transfer; production probe exists separately.",
+      "legacy": "solve_static/StaticNetwork is a distinct older structural operator, not substitute evidence for source coupling; pure source structural route still rejects engines.",
+      "scope": "Read-only audit did not execute physics or import production."
+    },
+    "primary_refs": [
+      "PROWIM.asw:14,19,32\u201342,49\u201363,71\u201385,88\u2013100",
+      "PROWIM.sh:3\u201326",
+      ".reference/aswing_doc.txt:668\u2013715,1200\u20131204,2464\u20132505,2537\u20132600",
+      ".reference/asw_theory.txt:1909\u20131917,2474\u20132499,2508\u20132524",
+      "openswing/source_coupled.py:74\u2013108",
+      "openswing/recovery.py:27,35"
+    ]
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-suite-backlog.json",
+      "bytes": 1702520,
+      "sha256": "311abbe84e842804a5fba45243c86c85bbc2040ab8f61e22eaf70ba75bc08cfd"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-suite-expanded-20261026/ap1-readiness.json",
+      "bytes": 188052,
+      "sha256": "228a3dc4ae8f0f1b82b655713642d787e94e372cc2db65f83c9398d039c7ba0d"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/recovery.py",
+      "bytes": 7364,
+      "sha256": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62253,
+      "sha256": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation/PROWIM.asw",
+      "bytes": 4952,
+      "sha256": "78b754e2add9fa0ac4e8aa78981182bbb4cb35309ef3d904f713fbefa3a1c9da"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation/PROWIM.sh",
+      "bytes": 202,
+      "sha256": "d12d933764eb04ba2a7c9ce751361197c982c4ed3497aa00367736af5baf431e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation/PROWINA0.txt",
+      "bytes": 13223,
+      "sha256": "3678b6c86efa5fdeef00389738fc57488ca24f0ab846d16fae819e739a6f2507"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation/PROWINA4.txt",
+      "bytes": 13223,
+      "sha256": "2f397a8ff4b6f110dfff6833bf127e947fde66e6d7345a0b919225e415e8588a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/2 - Propellers/AP - Aero Propulsive Cases - Propeller Wing Interaction/AP-1 - Propeller Jet Effect on Lift Distribution/Aswing_Simulation/PROWINA10.txt",
+      "bytes": 13223,
+      "sha256": "77d2a8eac930a3ca8e4debe1289c7bcd91b370b6b4a42ce069e2e72a3de6452b"
+    },
+    {
+      "path": "/tmp/openswing-isae-ap1-engine-probe-20261026/plan.json",
+      "bytes": 13769,
+      "sha256": "834ebb56bdeea301dea6a30b802386a9825eebfd2d2de939e6fec1dca7db5579"
+    },
+    {
+      "path": "/tmp/openswing-isae-ap1-engine-probe-20261026/receipts.json",
+      "bytes": 888,
+      "sha256": "c8935ab347b0496510d35e2c7df7904010b9906d86e9f0443e372461a871e6a4"
+    }
+  ]
+}

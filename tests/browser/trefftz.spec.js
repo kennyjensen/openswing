@@ -1,0 +1,54 @@
+import {test,expect} from '@playwright/test';
+import {readFile} from 'node:fs/promises';
+
+test('offline Trefftz drag, force ledger, image-plane gaps and mobile display',async({page,context})=>{
+  test.setTimeout(180000);
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/');await expect(page.locator('#solve')).toBeEnabled();
+  await page.locator('#file').setInputFiles('examples/rectangular.asw');
+  await expect(page.locator('#solve')).toBeEnabled();
+  await page.locator('#panels').fill('8');await page.locator('#panels').press('Tab');
+  await expect(page.locator('#solve')).toBeEnabled();
+  await page.locator('#alpha').fill('12');await page.locator('#beta').fill('7');
+  await context.setOffline(true);
+  async function solve(){
+    await page.locator('#solve').click();
+    await expect(page.locator('#result-state')).toHaveText('Converged · rigid geometry');
+    const dl=page.waitForEvent('download');await page.locator('#export-json').click();
+    return JSON.parse(await readFile(await(await dl).path(),'utf8'));
+  }
+  const free=await solve();
+  expect(free.trefftz.available).toBe(true);
+  expect(Math.abs(free.CDi-free.CDi_near)).toBeGreaterThan(1e-5);
+  expect(free.CD).toBeCloseTo(['CDi_near','CDp','CDbody','CDam','CDeng','CDrate'].reduce((s,k)=>s+free[k],0),12);
+  expect(free.efficiency).toBeCloseTo((free.CLi**2+free.CYi**2)/(Math.PI*12*free.CDi),12);
+  await expect(page.locator('#cdi')).toHaveText(free.CDi.toFixed(5));
+  await expect(page.locator('#cdi-near')).toHaveText(free.CDi_near.toFixed(5));
+  await expect(page.locator('#trefftz-note')).toContainText('Far-wake lift');
+  await page.locator('#tab-report').click();
+  await expect(page.locator('#pane-report')).toContainText('TREFFTZ PLANE');
+  await expect(page.locator('#pane-report')).toContainText('CDi_near+CDp');
+  await page.screenshot({path:'test-results/trefftz-desktop.png',fullPage:true});
+  await page.locator('#alpha').fill('5');await page.locator('#beta').fill('0');
+  await expect(page.locator('#trefftz-note')).toBeHidden();
+  await expect(page.locator('#cdi-near')).toHaveText('—');
+  await page.locator('#ground-settings').evaluate(e=>e.open=true);
+  await page.locator('#ground-effect').selectOption('1');
+  await page.locator('#position-earth-z').fill('4');
+  const oblique=await solve();
+  expect(oblique.trefftz.available).toBe(false);expect(oblique.CDi).toBeNull();
+  expect(oblique.efficiency).toBeNull();expect(Number.isFinite(oblique.CD)).toBe(true);
+  await expect(page.locator('#cdi')).toHaveText('—');await expect(page.locator('#efficiency')).toHaveText('—');
+  await expect(page.locator('#trefftz-note')).toContainText('wind parallel');
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  await expect(page.locator('#trefftz-note')).toBeVisible();
+  await page.locator('#trefftz-note').scrollIntoViewIfNeeded();
+  await page.screenshot({path:'test-results/trefftz-mobile-unavailable.png'});
+  await page.locator('#level-attitude').click();
+  const level=await solve();
+  expect(level.trefftz.available).toBe(true);expect(level.CDi).toBeGreaterThan(0);
+  await expect(page.locator('#trefftz-note')).toContainText('Far-wake lift');
+  await expect(page.locator('#cdi')).toHaveText(level.CDi.toFixed(5));
+  expect(errors).toEqual([]);
+});

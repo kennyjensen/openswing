@@ -1,0 +1,3610 @@
+{
+  "status": "PARTIAL_NATIVE_REFERENCE_NOT_ESTABLISHED",
+  "full_goal_complete": false,
+  "acceptance_target": "Reproduce tested ASWING results with unchanged models and matching settings; experimental agreement is optional.",
+  "scope": "Unchanged original ST-4 7a_b17 model and archived ASWING roots; conditional declared vacuum/unloaded setup, not an experimental reconstruction or exact historical settings claim.",
+  "historical_limits": [
+    "Original script enters MODE before OPER, selects anchored defaults, toggles MODE F, requests16 at shift(-.1,300), then writes vaccum.txt.",
+    "MODE F is the documented free-body/vacuum toggle, not the frozen-influence K/F switch. Its initial value and startup sidecars are not retained.",
+    "Zero gravity/pose and uniform meshes are declared prospective choices. Unloaded zero-lift base is documented without preceding operating points, but detailed historical gravity treatment is not proved.",
+    "Original node array, mode shapes and complete spectrum are absent. Six archived positive roots are compared ordinally; their completeness is not proved.",
+    "Retain literal Constant g9.81/rho_SL1.0771417304, section properties, point positions and parameter anchors. No damping or property fitting.",
+    "Tiny original real components are separate numerical residue, not a fitted material damping target."
+  ],
+  "source_policy": {
+    "beam_interpolation": "drela-segspl-v1",
+    "structural_operator": "drela-fixed-vacuum-v1"
+  },
+  "source_pins": {
+    "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+    "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+    "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+    "asw.py": "8dfd00a3fe7def618e6527d59d62d0aa3178c9a9b83c15a41624afc61c8ad781",
+    "asw_edit.py": "2e8c4c495ade38b56f01c7e900ae954b710bb24b9746709cacf1f5757c8f3bb7",
+    "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+    "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+    "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "bridge.py": "d0d7aeaeaa8ce2c2f06838a5894ab59caf7500fe9a4e92a1281fb185d66e40b9",
+    "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+    "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+    "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+    "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+    "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+    "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+    "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+    "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+    "distribution_curve.py": "cf6603d7da313c436f6f3d8d9d94faa6c72185acde0112936a7f3f33c5115103",
+    "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+    "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+    "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+    "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+    "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+    "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+    "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+    "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+    "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+    "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+    "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+    "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+    "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+    "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+    "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+    "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+    "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+    "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+    "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+    "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+    "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+    "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+    "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "joints.py": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef",
+    "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+    "linear_dynamics.py": "10197034e6fe7e41901044cf86854949cdcbca9bafea7186f2a46c664d54f7b9",
+    "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+    "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+    "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+    "mechanical_tangent.py": "f737bdcf5b00f1d9fd925d1f31925e0c264e84f6337b99343daa4f3321b4a304",
+    "network.py": "49011507a7d84ca0af2cb57068a8828e618226ca2ec1e80c53db42a1671bdb21",
+    "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+    "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+    "numerical_policy.py": "d3452f2b03b9fdbf5a8a41b7e156f0d434867ba444cb796ae73a7f1e992a3778",
+    "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+    "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+    "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+    "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+    "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+    "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+    "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+    "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+    "quiescent.py": "7923dbb733510d9ece55cf65980cab3223cf631ae10800cd6ddb93e82c14bbad",
+    "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+    "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+    "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+    "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+    "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+    "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+    "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+    "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+    "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+    "sensors.py": "380325bad067b8be3e47001cbceb32118f2b07f920e442f6a7e39201ab81f4bf",
+    "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+    "source_discrete.py": "cbeb40163a29344b99107ce597d39fbe6fd9bc8b1705cf4fbf00bc1d6ad559e1",
+    "source_dynamics.py": "6549a395ffb81bca7848ed069684927983c070b9d4335f22799382f9044d1763",
+    "source_quiescent.py": "392be444d815e8a20358503ccd521d12bdddd8be5129ee4fe45c748a9f55d338",
+    "source_recovery.py": "b126e29b30d909ff210d8c2825cdb0c8e932549ea9f9e1a1255a2332747b13b7",
+    "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+    "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+    "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+    "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+    "structural_outputs.py": "e7a6bde6a5762f8108ed24e0bb4fedec75731829b5efc9ec50739c4c2869ac86",
+    "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+    "structured_static.py": "77273acb1d2f52493190907c098110b600157ef2656fd82b7ef7f075eca5ca32",
+    "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+    "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+    "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+    "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+    "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+    "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+    "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+    "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+    "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+    "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+    "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+    "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+    "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+    "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+    "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+    "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+    "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+    "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+    "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+    "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+  },
+  "meshes": [
+    {
+      "nominal_intervals": 16,
+      "report": {
+        "status": "PASS_NUMERICAL_REFERENCE_NOT_ESTABLISHED",
+        "numerical_status": "PASS",
+        "reference_status": "NOT_ESTABLISHED",
+        "checks": [
+          {
+            "name": "original attachment-enriched mesh count",
+            "passed": true,
+            "predicted_elements": 17,
+            "actual_elements": 17,
+            "actual_nodes": 18
+          },
+          {
+            "name": "dense finite dimension equals four times actual intervals",
+            "passed": true,
+            "observed": 68,
+            "expected": 68
+          },
+          {
+            "name": "base converged with declared residual gate",
+            "passed": true,
+            "base_residual": 5.691349986800548e-17,
+            "fresh_modal_base_residual": 5.691349986800548e-17,
+            "gate": 1e-09
+          },
+          {
+            "name": "source fixed vacuum identity",
+            "passed": true
+          },
+          {
+            "name": "equilibrium numerical identity",
+            "passed": true
+          },
+          {
+            "name": "zero material damping retained",
+            "passed": true
+          },
+          {
+            "name": "complete dense census identified",
+            "passed": true
+          },
+          {
+            "name": "census finite and complete",
+            "passed": true,
+            "shape": [
+              68,
+              2
+            ]
+          },
+          {
+            "name": "complete census conjugacy with multiplicity",
+            "passed": true
+          },
+          {
+            "name": "undamped census near imaginary axis",
+            "passed": true,
+            "maximum_relative": 2.5302857934190377e-13,
+            "gate": 1e-08
+          },
+          {
+            "name": "expected positive and negative census counts",
+            "passed": true
+          },
+          {
+            "name": "exactly sixteen selected vectors",
+            "passed": true
+          },
+          {
+            "name": "selected roots distinct at declared matching gate",
+            "passed": true
+          },
+          {
+            "name": "all six lowest census roots have selected vectors",
+            "passed": true
+          },
+          {
+            "name": "full saved pencil finite and square",
+            "passed": true
+          },
+          {
+            "name": "selected mode0 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 3.672765302686137e-17,
+            "reported_backward_error": 2.6568026967589492e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode0 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.7750659767162894e-19,
+            "reported_backward_error": 7.378390461620124e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode1 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 6.263268056705599e-17,
+            "reported_backward_error": 4.60885817741118e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode1 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.3860254119056169e-19,
+            "reported_backward_error": 1.0964581941026305e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode2 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.704980906260007e-17,
+            "reported_backward_error": 3.3900190641095113e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode2 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 3.9682316874261357e-19,
+            "reported_backward_error": 3.4084617153531793e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode3 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.7781132724159494e-17,
+            "reported_backward_error": 1.3361155760194723e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode3 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.0328705225729947e-19,
+            "reported_backward_error": 6.442418783433751e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode4 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.3243460549799983e-16,
+            "reported_backward_error": 9.833554176859501e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode4 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 8.390099556965036e-19,
+            "reported_backward_error": 5.211211659350947e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode5 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.324342591802562e-16,
+            "reported_backward_error": 9.833235144412108e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode5 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 8.362544339543743e-19,
+            "reported_backward_error": 5.390111823484859e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode6 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.704980906260007e-17,
+            "reported_backward_error": 3.3900190641095113e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode6 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 3.9682316874261357e-19,
+            "reported_backward_error": 3.4084617153531793e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode7 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 6.262992864326857e-17,
+            "reported_backward_error": 4.608400140200354e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode7 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.4965397455004007e-19,
+            "reported_backward_error": 9.73464025490149e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode8 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 3.672693127294453e-17,
+            "reported_backward_error": 2.6567274989663054e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode8 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.1687235849050224e-19,
+            "reported_backward_error": 1.0181031662338249e-19,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode9 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.577386050116814e-17,
+            "reported_backward_error": 3.276978414256505e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode9 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.823810692225044e-20,
+            "reported_backward_error": 2.8285167248130247e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode10 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.7781132724159494e-17,
+            "reported_backward_error": 1.3360356813799194e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode10 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 1.0328705225729947e-19,
+            "reported_backward_error": 6.046949423633099e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode11 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.3647890567944597e-17,
+            "reported_backward_error": 1.69159067159734e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode11 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.1798827191797165e-20,
+            "reported_backward_error": 1.5712719201371814e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode12 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.232234128990686e-17,
+            "reported_backward_error": 3.0569341672017163e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode12 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 3.228629226885879e-20,
+            "reported_backward_error": 3.128149496186078e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode13 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.577386050116814e-17,
+            "reported_backward_error": 3.276978414256505e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode13 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 4.823810692225044e-20,
+            "reported_backward_error": 2.8285167248130247e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode14 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 8.829075008710447e-17,
+            "reported_backward_error": 6.312815529194343e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode14 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.4420427516377007e-20,
+            "reported_backward_error": 2.2986321501946506e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode15 right full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.727520513966199e-17,
+            "reported_backward_error": 1.9509536214721162e-17,
+            "gate": 1e-08
+          },
+          {
+            "name": "selected mode15 left full-pencil residual",
+            "passed": true,
+            "independent_backward_error": 2.1669458303629804e-20,
+            "reported_backward_error": 1.342187780427017e-20,
+            "gate": 1e-08
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/Flutter_analysis.sh",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/vaccum.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/examples/isae-st4-7a-b17.asw",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/scripts/verify-isae-st4-source-modes.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/aswing_doc.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/version_notes.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/__init__.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/aero.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/applied_load_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/arc_length.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/asw.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/asw_edit.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/atmosphere.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/beam_matching.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/beam_spline.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/body_shoulders.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/bridge.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_polish.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_solve.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_allocation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_expressions.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_tables.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/custom_constraints.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/damping.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivative_cache.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivative_circulation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivatives.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/descriptor_mass.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/discretization.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/distribution_curve.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/dynamic_inertia.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/equilibrium_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/equilibrium_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/factored_influence.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/feedback.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/field_products.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/flow_survey.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/forcing.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frequency_response.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frequency_sweep.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frozen_influence.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_field_partials.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_partials.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_stencil.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/ground.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust_file.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/harmonic_structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/hinge_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/inertia.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/initial_diagnostics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/initial_response.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/joints.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/kinematics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/legacy_hinge_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/linear_dynamics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_geometry_matrix.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_motion.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_rate_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/mechanical_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/network.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/newton_structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/nonlinear_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/numerical_policy.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/operating.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/output_derivatives.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/output_fields.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_checkpoint.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_lift.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_radau.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/power_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/propulsion.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/quiescent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/radau_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/radau_time.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/recovery.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/reduced_model.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/reference_flow.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rigid_initial_rank.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_file.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/root_diagnostics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/seeded_corrector.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/sensors.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_coupled.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_discrete.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_dynamics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_quiescent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_recovery.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/sparse_rank.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/stability.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/steady_feedback.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structural_geometry.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structural_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_radau.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_static.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_time.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/struts.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/support_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/tangent_influences.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_acceptance.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_acceptance_validation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_accuracy.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_cold_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_initialization.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_input_transition.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_integration.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_result_storage.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_saved_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_transition_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/trefftz.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/vector_ops.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/volume.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/volume_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/vortex_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/wall_root.py",
+            "passed": true
+          }
+        ],
+        "cold_bridge_calls": 1,
+        "additional_equilibrium_solves": 0,
+        "retries": 0,
+        "source_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "8dfd00a3fe7def618e6527d59d62d0aa3178c9a9b83c15a41624afc61c8ad781",
+          "asw_edit.py": "2e8c4c495ade38b56f01c7e900ae954b710bb24b9746709cacf1f5757c8f3bb7",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "d0d7aeaeaa8ce2c2f06838a5894ab59caf7500fe9a4e92a1281fb185d66e40b9",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "cf6603d7da313c436f6f3d8d9d94faa6c72185acde0112936a7f3f33c5115103",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "10197034e6fe7e41901044cf86854949cdcbca9bafea7186f2a46c664d54f7b9",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "f737bdcf5b00f1d9fd925d1f31925e0c264e84f6337b99343daa4f3321b4a304",
+          "network.py": "49011507a7d84ca0af2cb57068a8828e618226ca2ec1e80c53db42a1671bdb21",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "d3452f2b03b9fdbf5a8a41b7e156f0d434867ba444cb796ae73a7f1e992a3778",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "7923dbb733510d9ece55cf65980cab3223cf631ae10800cd6ddb93e82c14bbad",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "380325bad067b8be3e47001cbceb32118f2b07f920e442f6a7e39201ab81f4bf",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "cbeb40163a29344b99107ce597d39fbe6fd9bc8b1705cf4fbf00bc1d6ad559e1",
+          "source_dynamics.py": "6549a395ffb81bca7848ed069684927983c070b9d4335f22799382f9044d1763",
+          "source_quiescent.py": "392be444d815e8a20358503ccd521d12bdddd8be5129ee4fe45c748a9f55d338",
+          "source_recovery.py": "b126e29b30d909ff210d8c2825cdb0c8e932549ea9f9e1a1255a2332747b13b7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "e7a6bde6a5762f8108ed24e0bb4fedec75731829b5efc9ec50739c4c2869ac86",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "77273acb1d2f52493190907c098110b600157ef2656fd82b7ef7f075eca5ca32",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "reference_scope": "Unchanged original ST-4 7a_b17 model and archived ASWING roots; conditional declared vacuum/unloaded setup, not an experimental reconstruction or exact historical settings claim.",
+        "historical_limits": [
+          "Original script enters MODE before OPER, selects anchored defaults, toggles MODE F, requests16 at shift(-.1,300), then writes vaccum.txt.",
+          "MODE F is the documented free-body/vacuum toggle, not the frozen-influence K/F switch. Its initial value and startup sidecars are not retained.",
+          "Zero gravity/pose and uniform meshes are declared prospective choices. Unloaded zero-lift base is documented without preceding operating points, but detailed historical gravity treatment is not proved.",
+          "Original node array, mode shapes and complete spectrum are absent. Six archived positive roots are compared ordinally; their completeness is not proved.",
+          "Retain literal Constant g9.81/rho_SL1.0771417304, section properties, point positions and parameter anchors. No damping or property fitting.",
+          "Tiny original real components are separate numerical residue, not a fitted material damping target."
+        ],
+        "seconds": 7.108094901006552,
+        "mesh": {
+          "nominal_intervals": 16,
+          "actual_elements": 17,
+          "actual_nodes": 18,
+          "mesh_discretization": {
+            "settings": {
+              "default": 16,
+              "beams": {
+                "1": {
+                  "count": 16,
+                  "spacing": "uniform"
+                }
+              }
+            },
+            "beams": [
+              {
+                "beam": 1,
+                "name": "Beam",
+                "settings": {
+                  "count": 16,
+                  "spacing": "uniform"
+                },
+                "panels": 17,
+                "nodes": [
+                  {
+                    "t": 0.0001,
+                    "s": 0.0,
+                    "fraction": 0.0,
+                    "theta": 3.141592653589793,
+                    "required": [
+                      "endpoint",
+                      "ground 1"
+                    ]
+                  },
+                  {
+                    "t": 0.07629375000000001,
+                    "s": 0.07620000000000003,
+                    "fraction": 0.06250000000000003,
+                    "theta": 2.636232143305636,
+                    "required": []
+                  },
+                  {
+                    "t": 0.1524875,
+                    "s": 0.15240000000000004,
+                    "fraction": 0.12500000000000003,
+                    "theta": 2.418858405776377,
+                    "required": []
+                  },
+                  {
+                    "t": 0.22868125,
+                    "s": 0.22860000000000008,
+                    "fraction": 0.18750000000000006,
+                    "theta": 2.245927859731928,
+                    "required": []
+                  },
+                  {
+                    "t": 0.304875,
+                    "s": 0.3048000000000001,
+                    "fraction": 0.2500000000000001,
+                    "theta": 2.094395102393195,
+                    "required": []
+                  },
+                  {
+                    "t": 0.38106875,
+                    "s": 0.38100000000000017,
+                    "fraction": 0.3125000000000001,
+                    "theta": 1.9551931012905355,
+                    "required": []
+                  },
+                  {
+                    "t": 0.43179999999999996,
+                    "s": 0.43173541136904287,
+                    "fraction": 0.3541136904273645,
+                    "theta": 1.8668759007238094,
+                    "required": [
+                      "weight 1",
+                      "weight 2"
+                    ]
+                  },
+                  {
+                    "t": 0.4572625,
+                    "s": 0.45720000000000016,
+                    "fraction": 0.3750000000000001,
+                    "theta": 1.823476581936975,
+                    "required": []
+                  },
+                  {
+                    "t": 0.53345625,
+                    "s": 0.5334000000000001,
+                    "fraction": 0.43750000000000006,
+                    "theta": 1.6961241579629618,
+                    "required": []
+                  },
+                  {
+                    "t": 0.60965,
+                    "s": 0.6096000000000001,
+                    "fraction": 0.5000000000000001,
+                    "theta": 1.5707963267948961,
+                    "required": []
+                  },
+                  {
+                    "t": 0.6858437500000001,
+                    "s": 0.6858000000000002,
+                    "fraction": 0.5625000000000001,
+                    "theta": 1.4454684956268307,
+                    "required": []
+                  },
+                  {
+                    "t": 0.7620375,
+                    "s": 0.7620000000000001,
+                    "fraction": 0.6250000000000001,
+                    "theta": 1.3181160716528175,
+                    "required": []
+                  },
+                  {
+                    "t": 0.83823125,
+                    "s": 0.8382000000000001,
+                    "fraction": 0.6875,
+                    "theta": 1.186399552299257,
+                    "required": []
+                  },
+                  {
+                    "t": 0.914425,
+                    "s": 0.9144000000000001,
+                    "fraction": 0.75,
+                    "theta": 1.047197551196597,
+                    "required": []
+                  },
+                  {
+                    "t": 0.9906187500000001,
+                    "s": 0.9906000000000001,
+                    "fraction": 0.8125000000000001,
+                    "theta": 0.8956647938578643,
+                    "required": []
+                  },
+                  {
+                    "t": 1.0668125,
+                    "s": 1.0668,
+                    "fraction": 0.8749999999999999,
+                    "theta": 0.7227342478134151,
+                    "required": []
+                  },
+                  {
+                    "t": 1.14300625,
+                    "s": 1.143,
+                    "fraction": 0.9375,
+                    "theta": 0.5053605102841567,
+                    "required": []
+                  },
+                  {
+                    "t": 1.2192,
+                    "s": 1.2192,
+                    "fraction": 1.0,
+                    "theta": 0.0,
+                    "required": [
+                      "endpoint"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "coordinates": "Undeformed material arc length; theta decreases from pi to zero. Rigid position jumps contain no beam material."
+          },
+          "expected_finite_dimension": 68
+        },
+        "census": {
+          "scope": "Complete numerically reduced finite spectrum, including deflated zero roots.",
+          "count": 68,
+          "eigenvalues": [
+            [
+              -2.7510698881414763e-08,
+              139638.34353803252
+            ],
+            [
+              -2.7510698881414766e-08,
+              -139638.34353803252
+            ],
+            [
+              2.8948033216845727e-10,
+              69074.91390908205
+            ],
+            [
+              2.8948033216845727e-10,
+              -69074.91390908204
+            ],
+            [
+              -1.174328496299816e-08,
+              46410.90343842186
+            ],
+            [
+              -1.1743284962998161e-08,
+              -46410.90343842187
+            ],
+            [
+              -6.54868143486373e-09,
+              27019.894960514943
+            ],
+            [
+              -6.5486814348637295e-09,
+              -27019.894960514932
+            ],
+            [
+              -1.260354986096931e-09,
+              22436.1202948452
+            ],
+            [
+              -1.260354986096931e-09,
+              -22436.120294845197
+            ],
+            [
+              5.026691680812954e-10,
+              18538.73833022921
+            ],
+            [
+              5.026691680812953e-10,
+              -18538.73833022921
+            ],
+            [
+              2.707695257802306e-09,
+              16932.50036216539
+            ],
+            [
+              2.707695257802306e-09,
+              -16932.500362165392
+            ],
+            [
+              2.5669256444225524e-10,
+              14092.535649644433
+            ],
+            [
+              2.566925644422552e-10,
+              -14092.535649644433
+            ],
+            [
+              -1.7563821205370044e-10,
+              12846.7783039776
+            ],
+            [
+              -1.7563821205370044e-10,
+              -12846.7783039776
+            ],
+            [
+              6.606790411658348e-10,
+              10720.547025526008
+            ],
+            [
+              6.606790411658348e-10,
+              -10720.547025526008
+            ],
+            [
+              1.8914923746072384e-10,
+              8632.791638234969
+            ],
+            [
+              1.8914923746072384e-10,
+              -8632.791638234969
+            ],
+            [
+              4.4525497101559256e-10,
+              8486.96498835946
+            ],
+            [
+              4.4525497101559256e-10,
+              -8486.96498835946
+            ],
+            [
+              6.738083425960547e-11,
+              7822.232057379335
+            ],
+            [
+              6.738083425960547e-11,
+              -7822.232057379335
+            ],
+            [
+              1.9301562348824585e-10,
+              6972.2531650925475
+            ],
+            [
+              1.930156234882459e-10,
+              -6972.253165092548
+            ],
+            [
+              2.3040336142674993e-11,
+              6189.781109555918
+            ],
+            [
+              2.3040336142674993e-11,
+              -6189.781109555919
+            ],
+            [
+              -1.6554426348656518e-10,
+              5395.973956220888
+            ],
+            [
+              -1.6554426348656515e-10,
+              -5395.973956220889
+            ],
+            [
+              1.4015916231242984e-10,
+              4589.665576727548
+            ],
+            [
+              1.4015916231242982e-10,
+              -4589.665576727549
+            ],
+            [
+              1.7840303615292454e-11,
+              4493.078720255152
+            ],
+            [
+              1.784030361529245e-11,
+              -4493.078720255153
+            ],
+            [
+              -5.980358492447146e-10,
+              4301.710717683062
+            ],
+            [
+              -5.980358492447146e-10,
+              -4301.710717683062
+            ],
+            [
+              -6.571101530386762e-11,
+              3463.311653990147
+            ],
+            [
+              -6.571101530386762e-11,
+              -3463.311653990148
+            ],
+            [
+              -1.217398988552096e-10,
+              3395.947327401568
+            ],
+            [
+              -1.2173989885520962e-10,
+              -3395.9473274015672
+            ],
+            [
+              3.6164859805022885e-12,
+              2604.608545078449
+            ],
+            [
+              3.616485980502289e-12,
+              -2604.6085450784494
+            ],
+            [
+              1.000616925055333e-11,
+              2467.4750513304025
+            ],
+            [
+              1.000616925055333e-11,
+              -2467.4750513304025
+            ],
+            [
+              -1.447346498989753e-10,
+              2435.5414882397126
+            ],
+            [
+              -1.4473464989897533e-10,
+              -2435.5414882397126
+            ],
+            [
+              -1.8099863291302765e-10,
+              1752.4384172418015
+            ],
+            [
+              -1.8099863291302765e-10,
+              -1752.4384172418015
+            ],
+            [
+              -4.969231117745714e-11,
+              1681.8149903815986
+            ],
+            [
+              -4.969231117745714e-11,
+              -1681.8149903815986
+            ],
+            [
+              -2.000319001741451e-11,
+              1239.4184925017946
+            ],
+            [
+              -2.0003190017414506e-11,
+              -1239.4184925017946
+            ],
+            [
+              -1.6440904978982997e-11,
+              1183.1848125278914
+            ],
+            [
+              -1.6440904978982994e-11,
+              -1183.1848125278914
+            ],
+            [
+              -1.0637607542313844e-12,
+              992.0454116695734
+            ],
+            [
+              -1.0637607542313846e-12,
+              -992.0454116695734
+            ],
+            [
+              1.0592478852058937e-12,
+              554.9755898686697
+            ],
+            [
+              1.0592478852058933e-12,
+              -554.9755898686697
+            ],
+            [
+              -6.663016292978575e-13,
+              380.3051120712304
+            ],
+            [
+              -6.663016292978575e-13,
+              -380.30511207123044
+            ],
+            [
+              -3.539053730106426e-12,
+              199.09775604811432
+            ],
+            [
+              -3.539053730106426e-12,
+              -199.0977560481143
+            ],
+            [
+              1.9157584315508372e-13,
+              38.94438123205724
+            ],
+            [
+              1.9157584315508372e-13,
+              -38.944381232057246
+            ],
+            [
+              4.36022851628011e-15,
+              120.9722213778689
+            ],
+            [
+              4.360228516280111e-15,
+              -120.9722213778689
+            ]
+          ],
+          "maximum_real_absolute": 2.7510698881414766e-08,
+          "maximum_neutral_relative": 2.5302857934190377e-13,
+          "maximum_conjugacy_gate_fraction": 2.0195364434123004e-08,
+          "conjugate_matches": [
+            {
+              "index": 0,
+              "conjugate_index": 1,
+              "absolute_error": 3.308722450212111e-24,
+              "gate": 0.0027927868707606504
+            },
+            {
+              "index": 1,
+              "conjugate_index": 0,
+              "absolute_error": 3.308722450212111e-24,
+              "gate": 0.0027927868707606504
+            },
+            {
+              "index": 2,
+              "conjugate_index": 3,
+              "absolute_error": 1.4551915228366852e-11,
+              "gate": 0.0013815182781816411
+            },
+            {
+              "index": 3,
+              "conjugate_index": 2,
+              "absolute_error": 1.4551915228366852e-11,
+              "gate": 0.0013815182781816411
+            },
+            {
+              "index": 4,
+              "conjugate_index": 5,
+              "absolute_error": 7.275957614183426e-12,
+              "gate": 0.0009282380687684374
+            },
+            {
+              "index": 5,
+              "conjugate_index": 4,
+              "absolute_error": 7.275957614183426e-12,
+              "gate": 0.0009282380687684374
+            },
+            {
+              "index": 6,
+              "conjugate_index": 7,
+              "absolute_error": 1.0913936421275139e-11,
+              "gate": 0.0005404178992102988
+            },
+            {
+              "index": 7,
+              "conjugate_index": 6,
+              "absolute_error": 1.0913936421275139e-11,
+              "gate": 0.0005404178992102988
+            },
+            {
+              "index": 8,
+              "conjugate_index": 9,
+              "absolute_error": 3.637978807091713e-12,
+              "gate": 0.000448742405896904
+            },
+            {
+              "index": 9,
+              "conjugate_index": 8,
+              "absolute_error": 3.637978807091713e-12,
+              "gate": 0.000448742405896904
+            },
+            {
+              "index": 10,
+              "conjugate_index": 11,
+              "absolute_error": 1.0339757656912846e-25,
+              "gate": 0.0003707947666045842
+            },
+            {
+              "index": 11,
+              "conjugate_index": 10,
+              "absolute_error": 1.0339757656912846e-25,
+              "gate": 0.0003707947666045842
+            },
+            {
+              "index": 12,
+              "conjugate_index": 13,
+              "absolute_error": 3.637978807091713e-12,
+              "gate": 0.00033867000724330785
+            },
+            {
+              "index": 13,
+              "conjugate_index": 12,
+              "absolute_error": 3.637978807091713e-12,
+              "gate": 0.00033867000724330785
+            },
+            {
+              "index": 14,
+              "conjugate_index": 15,
+              "absolute_error": 5.169878828456423e-26,
+              "gate": 0.00028187071299288867
+            },
+            {
+              "index": 15,
+              "conjugate_index": 14,
+              "absolute_error": 5.169878828456423e-26,
+              "gate": 0.00028187071299288867
+            },
+            {
+              "index": 16,
+              "conjugate_index": 17,
+              "absolute_error": 0.0,
+              "gate": 0.000256955566079552
+            },
+            {
+              "index": 17,
+              "conjugate_index": 16,
+              "absolute_error": 0.0,
+              "gate": 0.000256955566079552
+            },
+            {
+              "index": 18,
+              "conjugate_index": 19,
+              "absolute_error": 0.0,
+              "gate": 0.00021443094051052015
+            },
+            {
+              "index": 19,
+              "conjugate_index": 18,
+              "absolute_error": 0.0,
+              "gate": 0.00021443094051052015
+            },
+            {
+              "index": 20,
+              "conjugate_index": 21,
+              "absolute_error": 0.0,
+              "gate": 0.00017267583276469936
+            },
+            {
+              "index": 21,
+              "conjugate_index": 20,
+              "absolute_error": 0.0,
+              "gate": 0.00017267583276469936
+            },
+            {
+              "index": 22,
+              "conjugate_index": 23,
+              "absolute_error": 0.0,
+              "gate": 0.0001697592997671892
+            },
+            {
+              "index": 23,
+              "conjugate_index": 22,
+              "absolute_error": 0.0,
+              "gate": 0.0001697592997671892
+            },
+            {
+              "index": 24,
+              "conjugate_index": 25,
+              "absolute_error": 0.0,
+              "gate": 0.0001564646411475867
+            },
+            {
+              "index": 25,
+              "conjugate_index": 24,
+              "absolute_error": 0.0,
+              "gate": 0.0001564646411475867
+            },
+            {
+              "index": 26,
+              "conjugate_index": 27,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00013946506330185095
+            },
+            {
+              "index": 27,
+              "conjugate_index": 26,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00013946506330185095
+            },
+            {
+              "index": 28,
+              "conjugate_index": 29,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00012381562219111836
+            },
+            {
+              "index": 29,
+              "conjugate_index": 28,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00012381562219111836
+            },
+            {
+              "index": 30,
+              "conjugate_index": 31,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00010793947912441778
+            },
+            {
+              "index": 31,
+              "conjugate_index": 30,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 0.00010793947912441778
+            },
+            {
+              "index": 32,
+              "conjugate_index": 33,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 9.181331153455099e-05
+            },
+            {
+              "index": 33,
+              "conjugate_index": 32,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 9.181331153455099e-05
+            },
+            {
+              "index": 34,
+              "conjugate_index": 35,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 8.988157440510306e-05
+            },
+            {
+              "index": 35,
+              "conjugate_index": 34,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 8.988157440510306e-05
+            },
+            {
+              "index": 36,
+              "conjugate_index": 37,
+              "absolute_error": 0.0,
+              "gate": 8.605421435366124e-05
+            },
+            {
+              "index": 37,
+              "conjugate_index": 36,
+              "absolute_error": 0.0,
+              "gate": 8.605421435366124e-05
+            },
+            {
+              "index": 38,
+              "conjugate_index": 39,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 6.928623307980296e-05
+            },
+            {
+              "index": 39,
+              "conjugate_index": 38,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 6.928623307980296e-05
+            },
+            {
+              "index": 40,
+              "conjugate_index": 41,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 6.793894654803137e-05
+            },
+            {
+              "index": 41,
+              "conjugate_index": 40,
+              "absolute_error": 9.094947017729282e-13,
+              "gate": 6.793894654803137e-05
+            },
+            {
+              "index": 42,
+              "conjugate_index": 43,
+              "absolute_error": 4.547473508864641e-13,
+              "gate": 5.211217090156899e-05
+            },
+            {
+              "index": 43,
+              "conjugate_index": 42,
+              "absolute_error": 4.547473508864641e-13,
+              "gate": 5.211217090156899e-05
+            },
+            {
+              "index": 44,
+              "conjugate_index": 45,
+              "absolute_error": 0.0,
+              "gate": 4.9369501026608054e-05
+            },
+            {
+              "index": 45,
+              "conjugate_index": 44,
+              "absolute_error": 0.0,
+              "gate": 4.9369501026608054e-05
+            },
+            {
+              "index": 46,
+              "conjugate_index": 47,
+              "absolute_error": 2.5849394142282115e-26,
+              "gate": 4.873082976479426e-05
+            },
+            {
+              "index": 47,
+              "conjugate_index": 46,
+              "absolute_error": 2.5849394142282115e-26,
+              "gate": 4.873082976479426e-05
+            },
+            {
+              "index": 48,
+              "conjugate_index": 49,
+              "absolute_error": 0.0,
+              "gate": 3.5068768344836035e-05
+            },
+            {
+              "index": 49,
+              "conjugate_index": 48,
+              "absolute_error": 0.0,
+              "gate": 3.5068768344836035e-05
+            },
+            {
+              "index": 50,
+              "conjugate_index": 51,
+              "absolute_error": 0.0,
+              "gate": 3.365629980763198e-05
+            },
+            {
+              "index": 51,
+              "conjugate_index": 50,
+              "absolute_error": 0.0,
+              "gate": 3.365629980763198e-05
+            },
+            {
+              "index": 52,
+              "conjugate_index": 53,
+              "absolute_error": 3.2311742677852644e-27,
+              "gate": 2.4808369850035892e-05
+            },
+            {
+              "index": 53,
+              "conjugate_index": 52,
+              "absolute_error": 3.2311742677852644e-27,
+              "gate": 2.4808369850035892e-05
+            },
+            {
+              "index": 54,
+              "conjugate_index": 55,
+              "absolute_error": 3.2311742677852644e-27,
+              "gate": 2.368369625055783e-05
+            },
+            {
+              "index": 55,
+              "conjugate_index": 54,
+              "absolute_error": 3.2311742677852644e-27,
+              "gate": 2.368369625055783e-05
+            },
+            {
+              "index": 56,
+              "conjugate_index": 57,
+              "absolute_error": 2.0194839173657902e-28,
+              "gate": 1.986090823339147e-05
+            },
+            {
+              "index": 57,
+              "conjugate_index": 56,
+              "absolute_error": 2.0194839173657902e-28,
+              "gate": 1.986090823339147e-05
+            },
+            {
+              "index": 58,
+              "conjugate_index": 59,
+              "absolute_error": 4.0389678347315804e-28,
+              "gate": 1.1119511797373394e-05
+            },
+            {
+              "index": 59,
+              "conjugate_index": 58,
+              "absolute_error": 4.0389678347315804e-28,
+              "gate": 1.1119511797373394e-05
+            },
+            {
+              "index": 60,
+              "conjugate_index": 61,
+              "absolute_error": 5.684341886080802e-14,
+              "gate": 7.626102241424609e-06
+            },
+            {
+              "index": 61,
+              "conjugate_index": 60,
+              "absolute_error": 5.684341886080802e-14,
+              "gate": 7.626102241424609e-06
+            },
+            {
+              "index": 62,
+              "conjugate_index": 63,
+              "absolute_error": 2.842170943040401e-14,
+              "gate": 4.001955120962286e-06
+            },
+            {
+              "index": 63,
+              "conjugate_index": 62,
+              "absolute_error": 2.842170943040401e-14,
+              "gate": 4.001955120962286e-06
+            },
+            {
+              "index": 64,
+              "conjugate_index": 65,
+              "absolute_error": 7.105427357601002e-15,
+              "gate": 7.98887624641145e-07
+            },
+            {
+              "index": 65,
+              "conjugate_index": 64,
+              "absolute_error": 7.105427357601002e-15,
+              "gate": 7.98887624641145e-07
+            },
+            {
+              "index": 66,
+              "conjugate_index": 67,
+              "absolute_error": 7.888609052210118e-31,
+              "gate": 2.439444427557378e-06
+            },
+            {
+              "index": 67,
+              "conjugate_index": 66,
+              "absolute_error": 7.888609052210118e-31,
+              "gate": 2.439444427557378e-06
+            }
+          ]
+        },
+        "reference_comparison": [
+          {
+            "ordinal": 1,
+            "census_index": 64,
+            "selected_mode_index": 4,
+            "reference": {
+              "line": 4,
+              "raw_tokens": [
+                "1",
+                "0.12018164E-12",
+                "38.924987"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                1.2018164e-13,
+                38.924987
+              ],
+              "frequency_Hz": 6.195104090837766,
+              "half_printed_units": [
+                5e-21,
+                5e-07
+              ],
+              "exact_decimal_values": [
+                "1.2018164E-13",
+                "38.924987"
+              ],
+              "exact_decimal_half_units": [
+                "5E-21",
+                "5E-7"
+              ]
+            },
+            "actual_eigenvalue": [
+              1.9157584315508372e-13,
+              38.94438123205724
+            ],
+            "actual_frequency_Hz": 6.198190778737147,
+            "difference_per_s": [
+              7.139420315508371e-14,
+              0.01939423205723756
+            ],
+            "frequency_relative_difference": 0.0004982463335758483,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          },
+          {
+            "ordinal": 2,
+            "census_index": 66,
+            "selected_mode_index": 2,
+            "reference": {
+              "line": 5,
+              "raw_tokens": [
+                "1",
+                "0.11940449E-12",
+                "120.74387"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                1.1940449e-13,
+                120.74387
+              ],
+              "frequency_Hz": 19.216983758545208,
+              "half_printed_units": [
+                5e-21,
+                5e-06
+              ],
+              "exact_decimal_values": [
+                "1.1940449E-13",
+                "120.74387"
+              ],
+              "exact_decimal_half_units": [
+                "5E-21",
+                "0.000005"
+              ]
+            },
+            "actual_eigenvalue": [
+              4.36022851628011e-15,
+              120.9722213778689
+            ],
+            "actual_frequency_Hz": 19.253327009094892,
+            "difference_per_s": [
+              -1.1504426148371988e-13,
+              0.22835137786890414
+            ],
+            "frequency_relative_difference": 0.0018912047283965979,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          },
+          {
+            "ordinal": 3,
+            "census_index": 62,
+            "selected_mode_index": 1,
+            "reference": {
+              "line": 6,
+              "raw_tokens": [
+                "1",
+                "-0.70693451E-13",
+                "198.21227"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                -7.0693451e-14,
+                198.21227
+              ],
+              "frequency_Hz": 31.546462551965394,
+              "half_printed_units": [
+                5e-22,
+                5e-06
+              ],
+              "exact_decimal_values": [
+                "-7.0693451E-14",
+                "198.21227"
+              ],
+              "exact_decimal_half_units": [
+                "5E-22",
+                "0.000005"
+              ]
+            },
+            "actual_eigenvalue": [
+              -3.539053730106426e-12,
+              199.09775604811432
+            ],
+            "actual_frequency_Hz": 31.687392033561697,
+            "difference_per_s": [
+              -3.468360279106426e-12,
+              0.8854860481143305
+            ],
+            "frequency_relative_difference": 0.004467362429754377,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          },
+          {
+            "ordinal": 4,
+            "census_index": 60,
+            "selected_mode_index": 0,
+            "reference": {
+              "line": 7,
+              "raw_tokens": [
+                "1",
+                "-0.25757174E-13",
+                "379.27684"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                -2.5757174e-14,
+                379.27684
+              ],
+              "frequency_Hz": 60.36378388627389,
+              "half_printed_units": [
+                5e-22,
+                5e-06
+              ],
+              "exact_decimal_values": [
+                "-2.5757174E-14",
+                "379.27684"
+              ],
+              "exact_decimal_half_units": [
+                "5E-22",
+                "0.000005"
+              ]
+            },
+            "actual_eigenvalue": [
+              -6.663016292978575e-13,
+              380.3051120712304
+            ],
+            "actual_frequency_Hz": 60.52743846925355,
+            "difference_per_s": [
+              -6.405444552978575e-13,
+              1.0282720712303899
+            ],
+            "frequency_relative_difference": 0.0027111385742150506,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          },
+          {
+            "ordinal": 5,
+            "census_index": 58,
+            "selected_mode_index": 3,
+            "reference": {
+              "line": 8,
+              "raw_tokens": [
+                "1",
+                "-0.97906405E-12",
+                "546.71484"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                -9.7906405e-13,
+                546.71484
+              ],
+              "frequency_Hz": 87.01236924769466,
+              "half_printed_units": [
+                5e-21,
+                5e-06
+              ],
+              "exact_decimal_values": [
+                "-9.7906405E-13",
+                "546.71484"
+              ],
+              "exact_decimal_half_units": [
+                "5E-21",
+                "0.000005"
+              ]
+            },
+            "actual_eigenvalue": [
+              1.0592478852058937e-12,
+              554.9755898686697
+            ],
+            "actual_frequency_Hz": 88.32710842293916,
+            "difference_per_s": [
+              2.0383119352058937e-12,
+              8.260749868669677
+            ],
+            "frequency_relative_difference": 0.015109796303809271,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          },
+          {
+            "ordinal": 6,
+            "census_index": 56,
+            "selected_mode_index": 9,
+            "reference": {
+              "line": 9,
+              "raw_tokens": [
+                "1",
+                "0.34444808E-11",
+                "978.17039"
+              ],
+              "operating_point": 1,
+              "eigenvalue": [
+                3.4444808e-12,
+                978.17039
+              ],
+              "frequency_Hz": 155.68065275462706,
+              "half_printed_units": [
+                5e-20,
+                5e-06
+              ],
+              "exact_decimal_values": [
+                "3.4444808E-12",
+                "978.17039"
+              ],
+              "exact_decimal_half_units": [
+                "5E-20",
+                "0.000005"
+              ]
+            },
+            "actual_eigenvalue": [
+              -1.0637607542313844e-12,
+              992.0454116695734
+            ],
+            "actual_frequency_Hz": 157.88893103884683,
+            "difference_per_s": [
+              -4.5082415542313845e-12,
+              13.875021669573357
+            ],
+            "frequency_relative_difference": 0.014184667427495282,
+            "printed_precision": {
+              "real": false,
+              "imaginary": false
+            },
+            "real_component_scope": "Numerical residue retained separately; no fitted damping or stability claim."
+          }
+        ],
+        "lowest_six_positive_frequencies_Hz": [
+          6.198190778737147,
+          19.253327009094892,
+          31.687392033561697,
+          60.52743846925355,
+          88.32710842293916,
+          157.88893103884683
+        ],
+        "printed_precision_counts": {
+          "real": 0,
+          "imaginary": 0,
+          "per_component_total": 6
+        },
+        "pencil_checks": [
+          {
+            "index": 0,
+            "eigenvalue": [
+              -6.663016292978575e-13,
+              380.3051120712304
+            ],
+            "right": {
+              "backward_error": 3.672765302686137e-17,
+              "residual_norm": 1.4275992570228038e-13,
+              "denominator": 3886.9874314558183,
+              "reported_backward_error": 2.6568026967589492e-17
+            },
+            "left": {
+              "backward_error": 1.7750659767162894e-19,
+              "residual_norm": 3.9248892945598394e-11,
+              "denominator": 221112304.89700037,
+              "reported_backward_error": 7.378390461620124e-20
+            }
+          },
+          {
+            "index": 1,
+            "eigenvalue": [
+              -3.539053730106426e-12,
+              199.09775604811432
+            ],
+            "right": {
+              "backward_error": 6.263268056705599e-17,
+              "residual_norm": 1.3574265280295846e-13,
+              "denominator": 2167.2815465343087,
+              "reported_backward_error": 4.60885817741118e-17
+            },
+            "left": {
+              "backward_error": 1.3860254119056169e-19,
+              "residual_norm": 3.5599901823602474e-11,
+              "denominator": 256848839.2623114,
+              "reported_backward_error": 1.0964581941026305e-19
+            }
+          },
+          {
+            "index": 2,
+            "eigenvalue": [
+              4.36022851628011e-15,
+              120.9722213778689
+            ],
+            "right": {
+              "backward_error": 4.704980906260007e-17,
+              "residual_norm": 6.814978205246778e-14,
+              "denominator": 1448.4603319387345,
+              "reported_backward_error": 3.3900190641095113e-17
+            },
+            "left": {
+              "backward_error": 3.9682316874261357e-19,
+              "residual_norm": 1.7838084718802694e-11,
+              "denominator": 44952225.88772982,
+              "reported_backward_error": 3.4084617153531793e-19
+            }
+          },
+          {
+            "index": 3,
+            "eigenvalue": [
+              1.0592478852058937e-12,
+              554.9755898686697
+            ],
+            "right": {
+              "backward_error": 1.7781132724159494e-17,
+              "residual_norm": 1.1668200370537677e-13,
+              "denominator": 6562.124332317658,
+              "reported_backward_error": 1.3361155760194723e-17
+            },
+            "left": {
+              "backward_error": 1.0328705225729947e-19,
+              "residual_norm": 3.2910695344107024e-10,
+              "denominator": 3186333100.3118224,
+              "reported_backward_error": 6.442418783433751e-20
+            }
+          },
+          {
+            "index": 4,
+            "eigenvalue": [
+              1.9157584315508372e-13,
+              38.94438123205724
+            ],
+            "right": {
+              "backward_error": 1.3243460549799983e-16,
+              "residual_norm": 7.449202484359553e-14,
+              "denominator": 562.4815701566807,
+              "reported_backward_error": 9.833554176859501e-17
+            },
+            "left": {
+              "backward_error": 8.390099556965036e-19,
+              "residual_norm": 1.937684925852453e-12,
+              "denominator": 2309489.7893599905,
+              "reported_backward_error": 5.211211659350947e-19
+            }
+          },
+          {
+            "index": 5,
+            "eigenvalue": [
+              1.9157584315508372e-13,
+              -38.944381232057246
+            ],
+            "right": {
+              "backward_error": 1.324342591802562e-16,
+              "residual_norm": 7.449183004624732e-14,
+              "denominator": 562.4815701566808,
+              "reported_backward_error": 9.833235144412108e-17
+            },
+            "left": {
+              "backward_error": 8.362544339543743e-19,
+              "residual_norm": 1.9313210765246462e-12,
+              "denominator": 2309489.789359991,
+              "reported_backward_error": 5.390111823484859e-19
+            }
+          },
+          {
+            "index": 6,
+            "eigenvalue": [
+              4.360228516280111e-15,
+              -120.9722213778689
+            ],
+            "right": {
+              "backward_error": 4.704980906260007e-17,
+              "residual_norm": 6.814978205246778e-14,
+              "denominator": 1448.4603319387345,
+              "reported_backward_error": 3.3900190641095113e-17
+            },
+            "left": {
+              "backward_error": 3.9682316874261357e-19,
+              "residual_norm": 1.7838084718802694e-11,
+              "denominator": 44952225.88772982,
+              "reported_backward_error": 3.4084617153531793e-19
+            }
+          },
+          {
+            "index": 7,
+            "eigenvalue": [
+              -3.539053730106426e-12,
+              -199.0977560481143
+            ],
+            "right": {
+              "backward_error": 6.262992864326857e-17,
+              "residual_norm": 1.357366886093165e-13,
+              "denominator": 2167.2815465343087,
+              "reported_backward_error": 4.608400140200354e-17
+            },
+            "left": {
+              "backward_error": 1.4965397455004007e-19,
+              "residual_norm": 3.8438449654169275e-11,
+              "denominator": 256848839.26231134,
+              "reported_backward_error": 9.73464025490149e-20
+            }
+          },
+          {
+            "index": 8,
+            "eigenvalue": [
+              -6.663016292978575e-13,
+              -380.30511207123044
+            ],
+            "right": {
+              "backward_error": 3.672693127294453e-17,
+              "residual_norm": 1.4275712025387705e-13,
+              "denominator": 3886.9874314558188,
+              "reported_backward_error": 2.6567274989663054e-17
+            },
+            "left": {
+              "backward_error": 2.1687235849050224e-19,
+              "residual_norm": 4.79531470542835e-11,
+              "denominator": 221112304.8970004,
+              "reported_backward_error": 1.0181031662338249e-19
+            }
+          },
+          {
+            "index": 9,
+            "eigenvalue": [
+              -1.0637607542313844e-12,
+              992.0454116695734
+            ],
+            "right": {
+              "backward_error": 4.577386050116814e-17,
+              "residual_norm": 4.207564543864155e-13,
+              "denominator": 9192.068350356376,
+              "reported_backward_error": 3.276978414256505e-17
+            },
+            "left": {
+              "backward_error": 4.823810692225044e-20,
+              "residual_norm": 4.447437166355993e-11,
+              "denominator": 921975892.1145713,
+              "reported_backward_error": 2.8285167248130247e-20
+            }
+          },
+          {
+            "index": 10,
+            "eigenvalue": [
+              1.0592478852058933e-12,
+              -554.9755898686697
+            ],
+            "right": {
+              "backward_error": 1.7781132724159494e-17,
+              "residual_norm": 1.1668200370537677e-13,
+              "denominator": 6562.124332317658,
+              "reported_backward_error": 1.3360356813799194e-17
+            },
+            "left": {
+              "backward_error": 1.0328705225729947e-19,
+              "residual_norm": 3.2910695344107024e-10,
+              "denominator": 3186333100.3118224,
+              "reported_backward_error": 6.046949423633099e-20
+            }
+          },
+          {
+            "index": 11,
+            "eigenvalue": [
+              -1.6440904978982997e-11,
+              1183.1848125278914
+            ],
+            "right": {
+              "backward_error": 2.3647890567944597e-17,
+              "residual_norm": 2.8126005877455794e-13,
+              "denominator": 11893.663748419664,
+              "reported_backward_error": 1.69159067159734e-17
+            },
+            "left": {
+              "backward_error": 2.1798827191797165e-20,
+              "residual_norm": 4.5810990048244834e-10,
+              "denominator": 21015346213.434536,
+              "reported_backward_error": 1.5712719201371814e-20
+            }
+          },
+          {
+            "index": 12,
+            "eigenvalue": [
+              -2.000319001741451e-11,
+              1239.4184925017946
+            ],
+            "right": {
+              "backward_error": 4.232234128990686e-17,
+              "residual_norm": 5.035614925413342e-13,
+              "denominator": 11898.24280022582,
+              "reported_backward_error": 3.0569341672017163e-17
+            },
+            "left": {
+              "backward_error": 3.228629226885879e-20,
+              "residual_norm": 2.051376789555072e-10,
+              "denominator": 6353708169.623719,
+              "reported_backward_error": 3.128149496186078e-20
+            }
+          },
+          {
+            "index": 13,
+            "eigenvalue": [
+              -1.0637607542313846e-12,
+              -992.0454116695734
+            ],
+            "right": {
+              "backward_error": 4.577386050116814e-17,
+              "residual_norm": 4.207564543864155e-13,
+              "denominator": 9192.068350356376,
+              "reported_backward_error": 3.276978414256505e-17
+            },
+            "left": {
+              "backward_error": 4.823810692225044e-20,
+              "residual_norm": 4.447437166355993e-11,
+              "denominator": 921975892.1145713,
+              "reported_backward_error": 2.8285167248130247e-20
+            }
+          },
+          {
+            "index": 14,
+            "eigenvalue": [
+              -4.969231117745714e-11,
+              1681.8149903815986
+            ],
+            "right": {
+              "backward_error": 8.829075008710447e-17,
+              "residual_norm": 1.7893494597255128e-12,
+              "denominator": 20266.55632623129,
+              "reported_backward_error": 6.312815529194343e-17
+            },
+            "left": {
+              "backward_error": 2.4420427516377007e-20,
+              "residual_norm": 2.607963499795144e-10,
+              "denominator": 10679434248.422441,
+              "reported_backward_error": 2.2986321501946506e-20
+            }
+          },
+          {
+            "index": 15,
+            "eigenvalue": [
+              -1.8099863291302765e-10,
+              1752.4384172418015
+            ],
+            "right": {
+              "backward_error": 2.727520513966199e-17,
+              "residual_norm": 3.824589783591386e-13,
+              "denominator": 14022.221882503438,
+              "reported_backward_error": 1.9509536214721162e-17
+            },
+            "left": {
+              "backward_error": 2.1669458303629804e-20,
+              "residual_norm": 2.455961671246446e-09,
+              "denominator": 113337474192.19302,
+              "reported_backward_error": 1.342187780427017e-20
+            }
+          }
+        ],
+        "maximum_pencil_backward_error": 1.3243460549799983e-16,
+        "base_residual": 5.691349986800548e-17,
+        "finite_dimension": 68,
+        "returned_count": 16,
+        "total_seconds": 12.74149987999408,
+        "check_counts": {
+          "passed": 173,
+          "total": 173
+        }
+      },
+      "execution": {
+        "status": "PASS",
+        "exit_code": 0,
+        "reaped": true,
+        "timeout": false,
+        "pid": 22213,
+        "seconds": 13.719745999987936,
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-isae-st4-source-modes.py",
+          "/tmp/openswing-isae-st4-source-20261026/native-16",
+          "16"
+        ],
+        "log": "/tmp/openswing-isae-st4-source-20261026/native-16.log"
+      }
+    },
+    {
+      "nominal_intervals": 32,
+      "report": {
+        "status": "FAIL_NUMERICAL_REFERENCE_NOT_ESTABLISHED",
+        "numerical_status": "FAIL",
+        "reference_status": "NOT_ESTABLISHED",
+        "checks": [
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/7a_b17.asw",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/Flutter_analysis.sh",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST4 Concentrated weight/Simulation_files/Weight7a/vaccum.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/examples/isae-st4-7a-b17.asw",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/scripts/verify-isae-st4-source-modes.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/aswing_doc.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/.reference/version_notes.txt",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/__init__.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/aero.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/applied_load_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/arc_length.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/asw.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/asw_edit.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/atmosphere.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/beam_matching.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/beam_spline.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/body_shoulders.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/bridge.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_polish.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_solve.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/circulation_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_allocation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_expressions.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/control_tables.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/custom_constraints.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/damping.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivative_cache.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivative_circulation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/derivatives.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/descriptor_mass.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/discretization.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/distribution_curve.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/dynamic_inertia.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/equilibrium_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/equilibrium_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/factored_influence.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/feedback.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/field_products.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/flow_survey.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/forcing.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frequency_response.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frequency_sweep.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/frozen_influence.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_field_partials.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_partials.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_stencil.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/geometry_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/ground.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust_file.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/gust_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/harmonic_structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/hinge_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/inertia.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/initial_diagnostics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/initial_response.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/joints.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/kinematics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/legacy_hinge_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/linear_dynamics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_geometry_matrix.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_motion.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/local_rate_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/mechanical_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/network.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/newton_structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/nonlinear_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/numerical_policy.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/operating.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/output_derivatives.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/output_fields.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_checkpoint.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_lift.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/position_history_radau.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/power_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/propulsion.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/quiescent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/radau_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/radau_time.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/recovery.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/reduced_model.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/reference_flow.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rigid_initial_rank.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_file.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/rom_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/root_diagnostics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/seeded_corrector.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/sensors.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_coupled.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_discrete.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_dynamics.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_quiescent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/source_recovery.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/sparse_rank.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/stability.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/steady_feedback.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structural_geometry.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structural_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structure.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_radau.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_static.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/structured_time.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/struts.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/support_outputs.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/tangent_influences.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_acceptance.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_acceptance_validation.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_accuracy.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_cold_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_initialization.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_input_transition.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_integration.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_result_storage.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_saved_history.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_state.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/time_transition_initial.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/trefftz.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/vector_ops.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/volume.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/volume_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/vortex_tangent.py",
+            "passed": true
+          },
+          {
+            "name": "source pin /home/userland/aswing/openswing/wall_root.py",
+            "passed": true
+          }
+        ],
+        "cold_bridge_calls": 1,
+        "additional_equilibrium_solves": 0,
+        "retries": 0,
+        "source_pins": {
+          "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+          "aero.py": "0b70790306515dcd4eba80e00c6d2b3433c4cc6fccf263bbab02c0031cc3555e",
+          "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+          "arc_length.py": "10cd25eb89ecc7cb17f2bc39456b6478e6104614acb027ee19af5befbda2ecf6",
+          "asw.py": "8dfd00a3fe7def618e6527d59d62d0aa3178c9a9b83c15a41624afc61c8ad781",
+          "asw_edit.py": "2e8c4c495ade38b56f01c7e900ae954b710bb24b9746709cacf1f5757c8f3bb7",
+          "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+          "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+          "beam_spline.py": "6949d02dc0a26e252019fc8f48e6abd9367c2bd3dc1eb6965ddbcfc3a05e2e7e",
+          "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+          "bridge.py": "d0d7aeaeaa8ce2c2f06838a5894ab59caf7500fe9a4e92a1281fb185d66e40b9",
+          "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+          "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+          "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+          "circulation_tangent.py": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966",
+          "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+          "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+          "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+          "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+          "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+          "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+          "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+          "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+          "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+          "discretization.py": "bb74709ceda3250f514e6d55deb868055670d2ca1f2431e7e9111d6940ba3e6d",
+          "distribution_curve.py": "cf6603d7da313c436f6f3d8d9d94faa6c72185acde0112936a7f3f33c5115103",
+          "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+          "equilibrium_state.py": "2f4b0555bf38d9fd5fc8e007617a3898f98db0989fe764d1d4c780c98bccc94f",
+          "equilibrium_tangent.py": "0dd8c80320271cb2952e6a88a2113647036303df352a5bbfd2db14c7fb97a8b7",
+          "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+          "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+          "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+          "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+          "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+          "frequency_response.py": "3db0b0cacc859b309d1a215fff165a5b9d2e5fc043d34698f7e4a1f9c33ceaf0",
+          "frequency_sweep.py": "0ae540c520780815cafbdb724d12d9624bfbcb2265fd25ebe62a69306cb4ee12",
+          "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+          "geometry.py": "55f860abfef86446391aed695c8dd149a1600c68b19d930b55e2c251018ee131",
+          "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+          "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+          "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+          "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+          "ground.py": "868b2dec385bb9fe7f55fff1af5d6e9f38236b02baa8b91ad3c17714ef986945",
+          "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+          "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+          "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+          "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+          "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+          "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+          "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+          "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+          "joints.py": "a714877d57b0ecdaf88ddb946f384d4231e412fd75040b20e90dff51fc91deef",
+          "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+          "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+          "linear_dynamics.py": "10197034e6fe7e41901044cf86854949cdcbca9bafea7186f2a46c664d54f7b9",
+          "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+          "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+          "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+          "mechanical_tangent.py": "f737bdcf5b00f1d9fd925d1f31925e0c264e84f6337b99343daa4f3321b4a304",
+          "network.py": "49011507a7d84ca0af2cb57068a8828e618226ca2ec1e80c53db42a1671bdb21",
+          "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+          "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+          "numerical_policy.py": "d3452f2b03b9fdbf5a8a41b7e156f0d434867ba444cb796ae73a7f1e992a3778",
+          "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+          "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+          "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+          "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+          "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+          "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+          "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+          "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+          "quiescent.py": "7923dbb733510d9ece55cf65980cab3223cf631ae10800cd6ddb93e82c14bbad",
+          "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+          "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+          "recovery.py": "2a0cd57931d7ba029651e6889195bddbda215fba21eb37719128b2d01debb6ac",
+          "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+          "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+          "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+          "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+          "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+          "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+          "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+          "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+          "sensors.py": "380325bad067b8be3e47001cbceb32118f2b07f920e442f6a7e39201ab81f4bf",
+          "source_coupled.py": "c963dd98b25f7c38fa3841738eb8f4b78efe8a71eeddbcc15aa702b041b39c41",
+          "source_discrete.py": "cbeb40163a29344b99107ce597d39fbe6fd9bc8b1705cf4fbf00bc1d6ad559e1",
+          "source_dynamics.py": "6549a395ffb81bca7848ed069684927983c070b9d4335f22799382f9044d1763",
+          "source_quiescent.py": "392be444d815e8a20358503ccd521d12bdddd8be5129ee4fe45c748a9f55d338",
+          "source_recovery.py": "b126e29b30d909ff210d8c2825cdb0c8e932549ea9f9e1a1255a2332747b13b7",
+          "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+          "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+          "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+          "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+          "structural_outputs.py": "e7a6bde6a5762f8108ed24e0bb4fedec75731829b5efc9ec50739c4c2869ac86",
+          "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+          "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+          "structured_static.py": "77273acb1d2f52493190907c098110b600157ef2656fd82b7ef7f075eca5ca32",
+          "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+          "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+          "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+          "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+          "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+          "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+          "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+          "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+          "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+          "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+          "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+          "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+          "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+          "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+          "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+          "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+          "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+          "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+          "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+          "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+          "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee",
+          "wall_root.py": "1dc072e849ce27014804f5ed49fa1dee801399e792d69112caac97ae2ba74a81"
+        },
+        "reference_scope": "Unchanged original ST-4 7a_b17 model and archived ASWING roots; conditional declared vacuum/unloaded setup, not an experimental reconstruction or exact historical settings claim.",
+        "historical_limits": [
+          "Original script enters MODE before OPER, selects anchored defaults, toggles MODE F, requests16 at shift(-.1,300), then writes vaccum.txt.",
+          "MODE F is the documented free-body/vacuum toggle, not the frozen-influence K/F switch. Its initial value and startup sidecars are not retained.",
+          "Zero gravity/pose and uniform meshes are declared prospective choices. Unloaded zero-lift base is documented without preceding operating points, but detailed historical gravity treatment is not proved.",
+          "Original node array, mode shapes and complete spectrum are absent. Six archived positive roots are compared ordinally; their completeness is not proved.",
+          "Retain literal Constant g9.81/rho_SL1.0771417304, section properties, point positions and parameter anchors. No damping or property fitting.",
+          "Tiny original real components are separate numerical residue, not a fitted material damping target."
+        ],
+        "error": {
+          "type": "AnalysisError",
+          "message": "Dynamic derivative rank is ambiguous at this tolerance; lower the rank tolerance and refine the difference step, or use full_shift_invert for nearby roots. A weak inertia must not be silently discarded.",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/userland/aswing/scripts/verify-isae-st4-source-modes.py\", line 263, in main\n    result = dispatch(request, progress=progress)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 21, in dispatch\n    result = _dispatch(request, progress, policy)\n  File \"/home/userland/aswing/openswing/bridge.py\", line 112, in _dispatch\n    return solve_modes(model, None, panels, gravity=request.get('gravity'),\n        loads=request.get('loads', ()), progress=progress,\n        structural_operator=policy['structural_operator'], **request.get('modes', {}))\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 1146, in solve_modes\n    modes, metadata = eigensystem(a, m, time_scale=system.W, count=count, shift=shift,\n                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                 method=method, rank_tolerance=rank_tolerance)\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 667, in eigensystem\n    right,rh=finite_subspace(da,dm,rank_tolerance) if len(da) else (np.empty((0,0)),[])\n             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/userland/aswing/openswing/linear_dynamics.py\", line 502, in finite_subspace\n    raise AnalysisError('Dynamic derivative rank is ambiguous at this tolerance; lower the rank tolerance and refine the difference step, or use full_shift_invert for nearby roots. A weak inertia must not be silently discarded.')\nopenswing.aero.AnalysisError: Dynamic derivative rank is ambiguous at this tolerance; lower the rank tolerance and refine the difference step, or use full_shift_invert for nearby roots. A weak inertia must not be silently discarded.\n"
+        },
+        "total_seconds": 16.748873006989015,
+        "check_counts": {
+          "passed": 126,
+          "total": 126
+        }
+      },
+      "execution": {
+        "status": "FAIL",
+        "exit_code": 1,
+        "reaped": true,
+        "timeout": false,
+        "pid": 22394,
+        "seconds": 17.531061679997947,
+        "command": [
+          ".venv/bin/python",
+          "scripts/verify-isae-st4-source-modes.py",
+          "/tmp/openswing-isae-st4-source-20261026/native-32",
+          "32"
+        ],
+        "log": "/tmp/openswing-isae-st4-source-20261026/native-32.log"
+      }
+    },
+    {
+      "nominal_intervals": 64,
+      "status": "NOT_RUN",
+      "reason": "Required 32-interval refinement was rejected; rank ambiguity must be resolved first."
+    }
+  ],
+  "mesh_criterion": {
+    "nominal_grids": [
+      16,
+      32,
+      64
+    ],
+    "relative_gate": 0.001,
+    "formula": "abs(finer_frequency - coarser_frequency) / abs(finer_frequency)",
+    "quantities": "six lowest positive frequencies from each complete census, ordinal comparison",
+    "required_final_pair": [
+      32,
+      64
+    ],
+    "other_pair_reported": [
+      16,
+      32
+    ],
+    "scope": "Numerical convergence only; not a historical or experimental agreement gate.",
+    "status": "NOT_ASSESSED"
+  },
+  "reference_status": "NOT_ESTABLISHED",
+  "saved_output_addendum": {
+    "status": "PASS_SAVED_ONLY_REPORTING_ADDENDUM",
+    "checks": [
+      {
+        "name": "executed source retained byte-exact",
+        "passed": true
+      },
+      {
+        "name": "returned unloaded base has zero gravity",
+        "passed": true
+      },
+      {
+        "name": "six comparisons follow lowest positive complete census roots",
+        "passed": true
+      },
+      {
+        "name": "ordinal 1 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 4,
+        "absolute_error": 0.0,
+        "gate": 7.988876246411448e-07
+      },
+      {
+        "name": "ordinal 2 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 2,
+        "absolute_error": 0.0,
+        "gate": 2.439444427557378e-06
+      },
+      {
+        "name": "ordinal 3 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 1,
+        "absolute_error": 0.0,
+        "gate": 4.001955120962286e-06
+      },
+      {
+        "name": "ordinal 4 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 0,
+        "absolute_error": 0.0,
+        "gate": 7.626102241424608e-06
+      },
+      {
+        "name": "ordinal 5 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 3,
+        "absolute_error": 0.0,
+        "gate": 1.1119511797373394e-05
+      },
+      {
+        "name": "ordinal 6 selected-vector correspondence",
+        "passed": true,
+        "selected_mode_index": 9,
+        "absolute_error": 0.0,
+        "gate": 1.986090823339147e-05
+      },
+      {
+        "name": "six selected correspondences are distinct",
+        "passed": true
+      },
+      {
+        "name": "native 16 terminal lifecycle retained",
+        "passed": true
+      },
+      {
+        "name": "native 32 terminal lifecycle retained",
+        "passed": true
+      },
+      {
+        "name": "refinement failure remains explicit",
+        "passed": true
+      },
+      {
+        "name": "unexecuted finest mesh remains absent",
+        "passed": true
+      }
+    ],
+    "checks_passed": 14,
+    "checks_total": 14,
+    "pins": [
+      {
+        "path": "/tmp/openswing-st4-source-native-preparation-20261026/audit_saved_addendum.py",
+        "bytes": 4012,
+        "sha256": "bf8dc5bf8792c8536ebec0165c34e586bb9d1545db008a7c1b05f9324fd7ffbd"
+      },
+      {
+        "path": "/home/userland/aswing/scripts/verify-isae-st4-source-modes.py",
+        "bytes": 19419,
+        "sha256": "36c75982fa3d08e34549c0aee04db3c6968a2f51f4c74c531b9fd60122d3644c"
+      },
+      {
+        "path": "/tmp/openswing-st4-source-native-preparation-20261026/executed-source/verify-isae-st4-source-modes.py",
+        "bytes": 19197,
+        "sha256": "acccca78138e08ada2091e5d8d5daaeec57257d6a8730f16d6ad017a90667ef4"
+      },
+      {
+        "path": "/home/userland/aswing/examples/isae-st4-7a-b17.asw",
+        "bytes": 1454,
+        "sha256": "a2608f3c8554991f8f491bd0d2beb077ea3af43dfe4d48098dee3bed6d1a2fd3"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-16/result.json",
+        "bytes": 5665395,
+        "sha256": "7f7e8ab3641acb837c037890ae6c0f7cae739df8b8a09495c22de44a0ff725fa"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-16/report.json",
+        "bytes": 73139,
+        "sha256": "2b053c1a5715395a5bf3c157d326bdcf569d2ac6a4ab559f63d72a5ad2166754"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-16/plan.json",
+        "bytes": 18884,
+        "sha256": "69ff3afeb12429bbfca20dc65c04e3504b2e95bb37e9bb8a8073f1124888651c"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-16-receipt.json",
+        "bytes": 351,
+        "sha256": "cf41fa43eee48f88a37a796b4430e8d81e9040b5b04e8e92789a9c9494793bc9"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-32/report.json",
+        "bytes": 29167,
+        "sha256": "bf45ffc99b7c55e4891a69714155fb3b3e9c2fc7f2ac21abe8726d9309244b38"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-32/plan.json",
+        "bytes": 18885,
+        "sha256": "8ccd01476adc4de84f57b81f8b6ffe0fcda47159d8524af66e720ecb22c3cd17"
+      },
+      {
+        "path": "/tmp/openswing-isae-st4-source-20261026/native-32-receipt.json",
+        "bytes": 351,
+        "sha256": "192e0f71f3decccca2b7d16b26a12871fb495a82bf0794c13b87c90108b74c82"
+      }
+    ],
+    "production_imports": 0,
+    "numerical_evaluations": 0,
+    "equilibrium_solves": 0,
+    "eigenproblem_solves": 0,
+    "current_script_syntax": "PASS_AST",
+    "original_native_reports_modified": false,
+    "changes": [
+      "Verify returned base gravity is zero.",
+      "Use null for any selected-mode correspondence outside its fixed gate."
+    ],
+    "result_scope": "Native16 remains numerical PASS only. Native32 rank ambiguity is retained; native64 was not run. No refinement or archived-reference pass established."
+  },
+  "descriptor_tests": {
+    "status": "PASS",
+    "total_passed": 28,
+    "phases": [
+      {
+        "phase": "focused",
+        "passed": 7,
+        "pytest_seconds": 7.19,
+        "owner": {
+          "session_id": 6934,
+          "start_chunk_id": "bb7be3",
+          "terminal_chunk_id": "59b827",
+          "exit_code": 0,
+          "reaped": true
+        },
+        "child": {
+          "pid": 20340,
+          "exit_code": 0,
+          "reaped": true,
+          "timed_out": false
+        },
+        "receipt": {
+          "path": "/tmp/openswing-modal-spectrum-census-check-20261026/focused-receipt.json",
+          "bytes": 1019,
+          "sha256": "fabd009975603d9f0b3b3a2a186af3b2043fcead7e3d35a32a73953b85881fad"
+        },
+        "log": {
+          "path": "/tmp/openswing-modal-spectrum-census-check-20261026/focused.log",
+          "bytes": 98,
+          "sha256": "50282b303ed0b9d5c07e3d6336ae601ef18b15441e92710e6ceafb9b890eca22"
+        }
+      },
+      {
+        "phase": "regression",
+        "passed": 21,
+        "pytest_seconds": 5.14,
+        "owner": {
+          "session_id": 47978,
+          "start_chunk_id": "625393",
+          "terminal_chunk_id": "88109a",
+          "exit_code": 0,
+          "reaped": true
+        },
+        "child": {
+          "pid": 20521,
+          "exit_code": 0,
+          "reaped": true,
+          "timed_out": false
+        },
+        "receipt": {
+          "path": "/tmp/openswing-modal-spectrum-census-check-20261026/regression-receipt.json",
+          "bytes": 1455,
+          "sha256": "1ba3eb52bd4a6a6fde3af92e70292110f7e0aa8e40529c66b895452b5ed29da5"
+        },
+        "log": {
+          "path": "/tmp/openswing-modal-spectrum-census-check-20261026/regression.log",
+          "bytes": 99,
+          "sha256": "a534a43a8b05d6cd9551c207c462c3a54f71ec354d16bac91f310f1b72a3702f"
+        }
+      }
+    ],
+    "source": {
+      "path": "/home/userland/aswing/openswing/linear_dynamics.py",
+      "bytes": 79094,
+      "sha256": "10197034e6fe7e41901044cf86854949cdcbca9bafea7186f2a46c664d54f7b9"
+    },
+    "test": {
+      "path": "/home/userland/aswing/tests/test_modal_spectrum_census.py",
+      "bytes": 4177,
+      "sha256": "4ed77e01316a7f699ac1186e7f88c066a2eda0c9d81b68589d51deaf20074717"
+    },
+    "plan": {
+      "path": "/tmp/openswing-modal-spectrum-census-check-20261026/plan.json",
+      "bytes": 24126,
+      "sha256": "f0648240dd44f67925c94b559717cd5db49c3c758bedb710866829fc1b82ba4f"
+    },
+    "source_pins_unchanged": true,
+    "physical_model_solves": 0,
+    "physical_residual_evaluations": 0,
+    "retries": 0,
+    "all_owned_processes_reaped": true
+  },
+  "browser_runner_checks": {
+    "status": "PASS_PREPARED_RUNNER_NO_BROWSER",
+    "source": {
+      "path": "/home/userland/aswing/scripts/test-source-vacuum-browser.mjs",
+      "bytes": 38378,
+      "sha256": "00ec14b22f05c764abaf90814f79b1eadc436496e7f03a01aeb778934430577d"
+    },
+    "before": {
+      "path": "/tmp/openswing-st4-browser-generalization-20261026/runner-before.mjs",
+      "bytes": 30508,
+      "sha256": "5e5be405f5328c658e524387f55ffc9d8844c2cd1121a685a9a8c83add89a8e6"
+    },
+    "snapshot": {
+      "path": "/tmp/openswing-st4-browser-generalization-20261026/runner-final.mjs",
+      "bytes": 38378,
+      "sha256": "00ec14b22f05c764abaf90814f79b1eadc436496e7f03a01aeb778934430577d"
+    },
+    "diff": {
+      "path": "/tmp/openswing-st4-browser-generalization-20261026/runner.diff",
+      "bytes": 27541,
+      "sha256": "078019a35a97138049382efb2da98a0e963f4b6fb7bd72ebfdb3478534a7f8c2"
+    },
+    "earlier_checks": {
+      "path": "/tmp/openswing-st4-browser-generalization-20261026/checks.json",
+      "bytes": 1517,
+      "sha256": "4bedb3629090f3de404732b1fd2033f98bc69a344e30e3fbe8b4a8c384a892d7"
+    },
+    "norm_checks": 5,
+    "norm_matrix_entries": 1048576,
+    "final_syntax": {
+      "pid": 20768,
+      "exit_code": 0,
+      "reaped": true,
+      "seconds": 0.4444665370101575,
+      "log": {
+        "path": "/tmp/openswing-st4-browser-generalization-20261026/final-syntax.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "owner": {
+      "session_id": 57709,
+      "launch_chunk": "4ed802",
+      "terminal_chunk": "505bda",
+      "exit_code": 0,
+      "reaped": true
+    },
+    "changes": [
+      "stable scaled matrix/vector norm with standalone norm-only test",
+      "distinct returned-root count and full finite dimension",
+      "optional dense complete census multiplicity matching",
+      "native request and actual applied mesh counts",
+      "request-driven modal settings and optional case labels/timeouts",
+      "saved-output display choice and sensor-availability guard"
+    ],
+    "new_plan_options": {
+      "expected_returned_count": 16,
+      "browser_case": [
+        "scope",
+        "project_name",
+        "case_name",
+        "solution_name",
+        "plot_beam",
+        "plot_quantity",
+        "plot_native_mode_index",
+        "require_nonzero_plot",
+        "solve_timeout_ms",
+        "total_timeout_ms"
+      ]
+    },
+    "limitations": [
+      "No actual ST4 browser request or native result consumed yet; stage must provide the established plan/report/request/result contract.",
+      "Browser run remains subject to root authorization and native completion.",
+      "Census checks values and multiplicity; independent full-pencil checks cover returned eigenvectors only."
+    ],
+    "physics_calls": 0,
+    "browser_runs": 0,
+    "builds": 0,
+    "production_edits": [
+      "scripts/test-source-vacuum-browser.mjs"
+    ]
+  },
+  "browser_solve_status": "NOT_RUN_FOR_ST4",
+  "packaged_application_release": false,
+  "source_runner_versions": {
+    "executed": {
+      "path": "/tmp/openswing-st4-source-native-preparation-20261026/executed-source/verify-isae-st4-source-modes.py",
+      "bytes": 19197,
+      "sha256": "acccca78138e08ada2091e5d8d5daaeec57257d6a8730f16d6ad017a90667ef4"
+    },
+    "current": {
+      "path": "/home/userland/aswing/scripts/verify-isae-st4-source-modes.py",
+      "bytes": 19419,
+      "sha256": "36c75982fa3d08e34549c0aee04db3c6968a2f51f4c74c531b9fd60122d3644c"
+    },
+    "change": "Reporting only: explicit zero-gravity assertion and null correspondence index when a match fails. Existing numerical results remain immutable."
+  },
+  "owned_processes": [
+    {
+      "session_id": 62600,
+      "terminal_chunk_id": "ab7ea9",
+      "exit_code": 0,
+      "reaped": true
+    },
+    {
+      "session_id": 88171,
+      "terminal_chunk_id": "ed6ac5",
+      "exit_code": 1,
+      "reaped": true
+    }
+  ],
+  "next_work": [
+    "Preserve/recover the failing descriptor matrices and diagnose finite-rank ambiguity without discarding weak inertia.",
+    "Complete declared 32/64 refinement and all-six frequency comparison.",
+    "Run the ST4 browser parity check only after a qualified native baseline is chosen.",
+    "Resolve historical mesh/startup limitations before claiming exact archived reproduction."
+  ]
+}

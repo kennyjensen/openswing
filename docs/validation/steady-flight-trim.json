@@ -1,0 +1,1812 @@
+{
+  "description": "Internal common-residual flight-trim and mesh study; no ASWING executable or experimental comparison.",
+  "source": "examples/trim-aircraft.asw",
+  "source_sha256": "89070db03605afa3dc541c017fcbf36bb3a6190f43000a6d0c551b0a8e33610f",
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "condition": {
+    "speed": 30,
+    "beta": 0,
+    "mach": 0,
+    "heading_deg": 57
+  },
+  "preset": {
+    "roll_flap": 2,
+    "pitch_flap": 1,
+    "yaw_flap": 3,
+    "engine_control": 1
+  },
+  "cases": [
+    {
+      "requested_panels_per_beam": 4,
+      "heading_rate_deg_per_T": 0,
+      "flight_path_deg": 0,
+      "panels": 14,
+      "lifting_panels": 14,
+      "structural_nodes": 17,
+      "residual": 4.508271223371915e-14,
+      "max_displacement": 0.12915471140429663,
+      "CL": 0.3186775636179942,
+      "CDi": 0.003617037456593324,
+      "operating_values": {
+        "rates.x": 3.06873343783177e-29,
+        "rates.y": -8.807902673688722e-28,
+        "rates.z": -1.4318908705036334e-29,
+        "acceleration.x": -2.471442776292595e-26,
+        "acceleration.y": 5.299391514890222e-28,
+        "acceleration.z": -2.87854608264068e-26,
+        "angular_acceleration.x": 4.088051587482465e-31,
+        "angular_acceleration.y": 2.111421637203778e-29,
+        "angular_acceleration.z": -2.7822424425865333e-31,
+        "speed": 30.0,
+        "alpha": 3.958768461164232,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": -3.5787976267869184e-16,
+        "attitude.elevation": 3.9587684611642326,
+        "attitude.heading": 57.0,
+        "control.1": -5.327120743175551,
+        "control.2": -2.6857429432868793e-15,
+        "control.3": 1.6086163534930922e-15,
+        "power.1": 113.71084472844981
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -7.225576390279075e-28,
+          "normalized_residual": -3.0923065834911886e-28
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -5.045588439404646e-28,
+          "normalized_residual": -2.1593441832196034e-28
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.0,
+          "specified_target": -0.0,
+          "actual": -1.6403353722856446e-29,
+          "normalized_residual": -7.020090297123626e-30
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.6533404557872566e-26,
+          "normalized_residual": -2.7056542813165114e-27
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.794500669683592e-29,
+          "normalized_residual": 3.869313853031965e-30
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.40896436049736e-27,
+          "normalized_residual": -2.4564600148851647e-28
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 4.088051587482465e-31,
+          "normalized_residual": 5.352134205751868e-31
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.111421637203778e-29,
+          "normalized_residual": 2.7643026819537224e-29
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.7822424425865333e-31,
+          "normalized_residual": -3.6425506447271284e-31
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.125212484887125e-16,
+          "normalized_residual": 3.125212484887125e-17
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.5786656971126263e-10,
+          "normalized_residual": -4.508271223371915e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.5700221338284295e-14,
+          "normalized_residual": -3.2376192162111737e-18
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 7.585898575968031e-11,
+          "normalized_residual": 9.556435595827704e-15
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -7.688070007823141e-13,
+          "normalized_residual": -7.543535385411011e-18
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.3890621985979124e-10,
+          "normalized_residual": 1.3629480268776995e-15
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.56046883137121e-14,
+          "normalized_residual": -3.49353252386767e-19
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          -3.5787976267869184e-16,
+          3.9587684611642326,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.5433395211225327,
+            0.838670567945424,
+            0.037601107010788656
+          ],
+          [
+            -0.8366694920323816,
+            0.5446390350150271,
+            -0.057900627286556344
+          ],
+          [
+            -0.06903858260866523,
+            6.231276739958278e-18,
+            0.99761399053511
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.928419716053302,
+          0.0,
+          -2.071157478259957
+        ],
+        "velocity_earth": [
+          -16.339171050450815,
+          25.160117038362724,
+          1.636357430571416e-16
+        ],
+        "velocity_origin_body": [
+          -29.928419716053302,
+          -2.5563541957705128e-30,
+          -2.071157478259957
+        ],
+        "velocity_origin_earth": [
+          -16.339171050450815,
+          25.160117038362724,
+          1.636357430571416e-16
+        ],
+        "acceleration_velocity_reference_body": [
+          -2.470914920883294e-26,
+          5.3004561838252915e-28,
+          -2.8769625164127774e-26
+        ],
+        "acceleration_velocity_reference_earth": [
+          -1.4062693393123287e-26,
+          2.2627854195018478e-26,
+          -2.699509592734098e-26
+        ],
+        "acceleration_origin_body": [
+          -2.4712316341288746e-26,
+          5.29967827034212e-28,
+          -2.8780182272313793e-26
+        ],
+        "acceleration_earth": [
+          -1.4066246169258386e-26,
+          2.2633129508943456e-26,
+          -2.7010529381687123e-26
+        ],
+        "rates_earth": [
+          -7.225576390279075e-28,
+          -5.045588439404646e-28,
+          -1.6403353722856446e-29
+        ],
+        "angular_acceleration_earth": [
+          1.7919530296064822e-29,
+          1.1173700983723933e-29,
+          -3.0578372730157953e-31
+        ],
+        "velocity_derivative_body": [
+          -2.6533404557872566e-26,
+          3.794500669683592e-29,
+          -2.40896436049736e-27
+        ],
+        "speed_rate": 2.663640708846525e-26,
+        "attitude_rates": [
+          -2.9696412868718243e-29,
+          -8.807902673688722e-28,
+          1.435315546983841e-29
+        ],
+        "radial_acceleration": 2.2359836992739678e-26,
+        "flight_path": 3.125212484887125e-16
+      },
+      "applied_force": [
+        7.585898575968031e-11,
+        -2.5700221338284295e-14,
+        -3.5786656971126263e-10
+      ],
+      "applied_moment": [
+        -7.688070007823141e-13,
+        1.3890621985979124e-10,
+        -3.56046883137121e-14
+      ],
+      "support_force": [
+        -1.5829953279349031e-16,
+        9.088923645418819e-16,
+        -1.8519105524890978e-14
+      ],
+      "support_moment": [
+        1.7632631341832946e-12,
+        -1.8310441154635716e-09,
+        2.293831285190967e-14
+      ],
+      "force_balance": [
+        7.585882746014752e-11,
+        -2.4791328973742413e-14,
+        -3.578850888167875e-10
+      ],
+      "moment_balance": [
+        9.944561334009806e-13,
+        -1.6921378956037804e-09,
+        -1.2666375461802431e-14
+      ]
+    },
+    {
+      "requested_panels_per_beam": 4,
+      "heading_rate_deg_per_T": 3,
+      "flight_path_deg": 0,
+      "panels": 14,
+      "lifting_panels": 14,
+      "structural_nodes": 17,
+      "residual": 3.628690108953184e-14,
+      "max_displacement": 0.13076732180489214,
+      "CL": 0.32274035349563723,
+      "CDi": 0.0036574517850004157,
+      "operating_values": {
+        "rates.x": 0.0035969860895927967,
+        "rates.y": 0.00825478047338316,
+        "rates.z": -0.051579812606173656,
+        "acceleration.x": -0.01922798001578693,
+        "acceleration.y": 1.5512811373508903,
+        "acceleration.z": 0.24692455868206611,
+        "angular_acceleration.x": -8.29826414512097e-32,
+        "angular_acceleration.y": 4.537760820937882e-30,
+        "angular_acceleration.z": -4.309808897277383e-30,
+        "speed": 30.0,
+        "alpha": 3.9891383289198883,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 9.092454414346149,
+        "attitude.elevation": 3.9391721200025196,
+        "attitude.heading": 57.0,
+        "control.1": -5.498387512695465,
+        "control.2": 0.2056093848247123,
+        "control.3": 1.0430834269304625,
+        "power.1": 114.50822187702704
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.227316859253591e-14,
+          "normalized_residual": 5.252508310624924e-15
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.606855703524147e-14,
+          "normalized_residual": 1.1156476132567638e-14
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.05235987755982989,
+          "specified_target": -0.05235987755982989,
+          "actual": -0.0523598775598307,
+          "normalized_residual": -3.474450727028218e-16
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.5116380369661897e-14,
+          "normalized_residual": 1.5414418144485526e-15
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 7.327471962526033e-15,
+          "normalized_residual": 7.471941960328995e-16
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.5126788710517758e-14,
+          "normalized_residual": -1.5425031698406447e-15
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -8.29826414512097e-32,
+          "normalized_residual": -1.0864203258945966e-31
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 4.537760820937882e-30,
+          "normalized_residual": 5.940899811936751e-30
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -4.309808897277383e-30,
+          "normalized_residual": -5.642461971370845e-30
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.54577798007337e-13,
+          "normalized_residual": -2.54577798007337e-14
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.8804542084870377e-10,
+          "normalized_residual": -3.628690108953184e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.474195071571316e-11,
+          "normalized_residual": 1.8571366484899418e-15
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 8.35032043511319e-12,
+          "normalized_residual": 1.0519426096136546e-15
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -8.967285247685197e-11,
+          "normalized_residual": -8.79870156074983e-16
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 7.509681765327514e-11,
+          "normalized_residual": 7.368500816496092e-16
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.3459150460803926e-11,
+          "normalized_residual": -1.3206120346892262e-16
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          9.092454414346149,
+          3.9391721200025196,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.5433523496988446,
+            0.8222196977503826,
+            0.16947859070695018
+          ],
+          [
+            -0.8366892463075799,
+            0.5469001427119443,
+            0.029177714353746487
+          ],
+          [
+            -0.0686973739672658,
+            -0.1576546939768188,
+            0.9851018568031822
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.927317686108054,
+          0.0,
+          -2.0870208707063975
+        ],
+        "velocity_earth": [
+          -16.61478374087391,
+          24.978970379981476,
+          -1.332966233311527e-13
+        ],
+        "velocity_origin_body": [
+          -29.928555903179063,
+          -0.025250358389647908,
+          -2.091148260943089
+        ],
+        "velocity_origin_earth": [
+          -16.63691737535272,
+          24.966076530469206,
+          -1.4471930598336513e-13
+        ],
+        "acceleration_velocity_reference_body": [
+          -0.017227899131035177,
+          1.5511524230955083,
+          0.24704343765600414
+        ],
+        "acceleration_velocity_reference_earth": [
+          1.3078958306664796,
+          0.8699480423552151,
+          7.226164111528988e-13
+        ],
+        "acceleration_origin_body": [
+          -0.018564378585343815,
+          1.5512311362652642,
+          0.24696283367821892
+        ],
+        "acceleration_earth": [
+          1.3068947659733507,
+          0.8716884137511254,
+          7.232547893920582e-13
+        ],
+        "rates_earth": [
+          1.227316859253591e-14,
+          2.606855703524147e-14,
+          -0.0523598775598307
+        ],
+        "angular_acceleration_earth": [
+          2.9555271793114957e-30,
+          2.4253823513720272e-30,
+          -4.955299351187219e-30
+        ],
+        "velocity_derivative_body": [
+          1.5116380369661897e-14,
+          7.327471962526033e-15,
+          -1.5126788710517758e-14
+        ],
+        "speed_rate": -1.4027426461376754e-14,
+        "attitude_rates": [
+          1.5214392246054587e-14,
+          2.4490826033840563e-14,
+          0.052359877559831756
+        ],
+        "radial_acceleration": -8.770761894538737e-15,
+        "flight_path": -2.54577798007337e-13
+      },
+      "applied_force": [
+        8.35032043511319e-12,
+        1.474195071571316e-11,
+        -2.8804542084870377e-10
+      ],
+      "applied_moment": [
+        -8.967285247685197e-11,
+        7.509681765327514e-11,
+        -1.3459150460803926e-11
+      ],
+      "support_force": [
+        3.837204083807224e-15,
+        -1.9320462468707416e-15,
+        6.912782725695455e-14
+      ],
+      "support_moment": [
+        -2.7445657215380273e-11,
+        -6.457289511326795e-10,
+        -3.6715812111941665e-13
+      ],
+      "force_balance": [
+        8.354157639196997e-12,
+        1.474001866946629e-11,
+        -2.879762930214468e-10
+      ],
+      "moment_balance": [
+        -1.1711850969223224e-10,
+        -5.706321334794043e-10,
+        -1.3826308581923343e-11
+      ]
+    },
+    {
+      "requested_panels_per_beam": 8,
+      "heading_rate_deg_per_T": 3,
+      "flight_path_deg": 0,
+      "panels": 26,
+      "lifting_panels": 26,
+      "structural_nodes": 29,
+      "residual": 3.910906410175998e-14,
+      "max_displacement": 0.12540684609635042,
+      "CL": 0.32274035195095274,
+      "CDi": 0.0032550006735994584,
+      "operating_values": {
+        "rates.x": 0.0035338284059184127,
+        "rates.y": 0.008254814464325242,
+        "rates.z": -0.05158417269896596,
+        "acceleration.x": -0.01892670374084642,
+        "acceleration.y": 1.5512805930611415,
+        "acceleration.z": 0.24694880402284816,
+        "angular_acceleration.x": -2.6152279267453137e-31,
+        "angular_acceleration.y": -1.0111226926349453e-31,
+        "angular_acceleration.z": -4.298288135537175e-30,
+        "speed": 30.0,
+        "alpha": 3.9189850323984676,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 9.091735533408631,
+        "attitude.elevation": 3.8698998456278533,
+        "attitude.heading": 57.0,
+        "control.1": -6.2778786375573885,
+        "control.2": 0.1964288248140726,
+        "control.3": 1.0446846967893861,
+        "power.1": 111.30563892786245
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.54303653188137e-14,
+          "normalized_residual": 6.6036835933581195e-15
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.8569160925862036e-14,
+          "normalized_residual": 1.222665150073242e-14
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.05235987755982989,
+          "specified_target": -0.05235987755982989,
+          "actual": -0.05235987755982298,
+          "normalized_residual": 2.9577375419829962e-15
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.062933157631619e-14,
+          "normalized_residual": 2.1036063871267143e-15
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -5.995204332975845e-15,
+          "normalized_residual": -6.1134070584509955e-16
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.2101430968414206e-14,
+          "normalized_residual": -1.2340025358725157e-15
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.6152279267453137e-31,
+          "normalized_residual": -3.423892909137897e-31
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.0111226926349453e-31,
+          "normalized_residual": -1.3237759440301181e-31
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -4.298288135537175e-30,
+          "normalized_residual": -5.627378829275748e-30
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.4295810336035694e-13,
+          "normalized_residual": -2.4295810336035694e-14
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.104477508397707e-10,
+          "normalized_residual": -3.910906410175998e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.8581712557530494e-11,
+          "normalized_residual": 2.3408557013769835e-15
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.5802610048586416e-11,
+          "normalized_residual": 3.2505177687813576e-15
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -6.194263504899489e-11,
+          "normalized_residual": -6.077812232227561e-16
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 7.730749373990875e-11,
+          "normalized_residual": 7.585412385566526e-16
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.2969250673400268e-11,
+          "normalized_residual": -1.272543060579673e-16
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          9.091735533408631,
+          3.8698998456278533,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.5433971887230213,
+            0.822325633440962,
+            0.1688195719513522
+          ],
+          [
+            -0.8367582923499214,
+            0.5467406563996345,
+            0.030169766710072148
+          ],
+          [
+            -0.0674911510611615,
+            -0.15765534315594074,
+            0.9851851284417675
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.929850613290494,
+          0.0,
+          -2.0503761279615293
+        ],
+        "velocity_earth": [
+          -16.609940302423787,
+          24.9821913200167,
+          -1.2721256544116783e-13
+        ],
+        "velocity_origin_body": [
+          -29.931088835460145,
+          -0.02526201208859522,
+          -2.054503535193692
+        ],
+        "velocity_origin_earth": [
+          -16.632083536084743,
+          24.969291120700323,
+          -1.4071903364776261e-13
+        ],
+        "acceleration_velocity_reference_body": [
+          -0.016925474518383388,
+          1.5511522602940304,
+          0.247065363757672
+        ],
+        "acceleration_velocity_reference_earth": [
+          1.3080644786921511,
+          0.8696944405108576,
+          8.476830348769226e-13
+        ],
+        "acceleration_origin_body": [
+          -0.018262665493605064,
+          1.5512307185091891,
+          0.24698631343603872
+        ],
+        "acceleration_earth": [
+          1.3070628701181406,
+          0.871435633818967,
+          8.483214131160821e-13
+        ],
+        "rates_earth": [
+          1.54303653188137e-14,
+          2.8569160925862036e-14,
+          -0.05235987755982298
+        ],
+        "angular_acceleration_earth": [
+          -9.508931243620518e-31,
+          3.387082663991625e-32,
+          -4.201018185074571e-30
+        ],
+        "velocity_derivative_body": [
+          2.062933157631619e-14,
+          -5.995204332975845e-15,
+          -1.2101430968414206e-14
+        ],
+        "speed_rate": -1.9754010905312304e-14,
+        "attitude_rates": [
+          1.5591694602079542e-14,
+          2.8499771986822964e-14,
+          0.05235987755982403
+        ],
+        "radial_acceleration": -2.0872192862952943e-14,
+        "flight_path": -2.4295810336035694e-13
+      },
+      "applied_force": [
+        2.5802610048586416e-11,
+        1.8581712557530494e-11,
+        -3.104477508397707e-10
+      ],
+      "applied_moment": [
+        -6.194263504899489e-11,
+        7.730749373990875e-11,
+        -1.2969250673400268e-11
+      ],
+      "support_force": [
+        -1.236897929530291e-14,
+        -1.0081448448018322e-15,
+        -1.8809423995076395e-13
+      ],
+      "support_moment": [
+        -1.7081872402802384e-11,
+        -5.639466256895076e-10,
+        -1.2382622325513167e-13
+      ],
+      "force_balance": [
+        2.5790241069291113e-11,
+        1.8580704412685692e-11,
+        -3.1063584507972147e-10
+      ],
+      "moment_balance": [
+        -7.902450745179727e-11,
+        -4.866391319495989e-10,
+        -1.30930768966554e-11
+      ]
+    },
+    {
+      "requested_panels_per_beam": 16,
+      "heading_rate_deg_per_T": 3,
+      "flight_path_deg": 0,
+      "panels": 50,
+      "lifting_panels": 50,
+      "structural_nodes": 53,
+      "residual": 5.0081647697663334e-14,
+      "max_displacement": 0.13426971247191588,
+      "CL": 0.32274035034655274,
+      "CDi": 0.003256707765915771,
+      "operating_values": {
+        "rates.x": 0.0035296844148741393,
+        "rates.y": 0.008254424396148334,
+        "rates.z": -0.05158451883946669,
+        "acceleration.x": -0.018906111737505688,
+        "acceleration.y": 1.5512824302652881,
+        "acceleration.z": 0.2469386400480626,
+        "angular_acceleration.x": 1.207509160993882e-31,
+        "angular_acceleration.y": 3.625974964811295e-30,
+        "angular_acceleration.z": -1.7480116538822435e-30,
+        "speed": 30.0,
+        "alpha": 3.914377492854422,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 9.091253107406999,
+        "attitude.elevation": 3.865354854595108,
+        "attitude.heading": 57.0,
+        "control.1": -5.8950599656717415,
+        "control.2": 0.19710983338863247,
+        "control.3": 1.0463392522303139,
+        "power.1": 111.33860424275645
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.2347575179271217e-14,
+          "normalized_residual": 9.564019549346372e-15
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.482544114197239e-14,
+          "normalized_residual": 1.4904131532148504e-14
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.05235987755982989,
+          "specified_target": -0.05235987755982989,
+          "actual": -0.052359877559822736,
+          "normalized_residual": 3.061674102193242e-15
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.7354173653671978e-14,
+          "normalized_residual": 1.7696332237483727e-15
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -8.43769498715119e-15,
+          "normalized_residual": -8.60405437856066e-16
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.4876988529977098e-14,
+          "normalized_residual": -1.5170306404304323e-15
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.207509160993882e-31,
+          "normalized_residual": 1.5808878498752104e-31
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.625974964811295e-30,
+          "normalized_residual": 4.7471770409623535e-30
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.7480116538822435e-30,
+          "normalized_residual": -2.2885212587440666e-30
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.139318054315235e-13,
+          "normalized_residual": -3.139318054315235e-14
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.9754811942405155e-10,
+          "normalized_residual": -5.0081647697663334e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.5990289564611913e-11,
+          "normalized_residual": 3.274160942883839e-15
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.7958655396110856e-11,
+          "normalized_residual": 2.2623652552419825e-15
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -4.291003359926937e-11,
+          "normalized_residual": -4.210333107215252e-16
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.055681930761665e-10,
+          "normalized_residual": 1.0358352606487911e-15
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.0383788407185577e-11,
+          "normalized_residual": -2.000057608500805e-16
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          9.091253107406999,
+          3.865354854595108,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.5434001028688643,
+            0.8223338657855971,
+            0.16877008438767666
+          ],
+          [
+            -0.8367627797410043,
+            0.5467304225008133,
+            0.0302307054530609
+          ],
+          [
+            -0.06741200666213105,
+            -0.1576478934023478,
+            0.9851917392384016
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.930015401069046,
+          0.0,
+          -2.0479692604552753
+        ],
+        "velocity_earth": [
+          -16.609609392718017,
+          24.98241132919986,
+          -1.6437430894530908e-13
+        ],
+        "velocity_origin_body": [
+          -29.93125356472847,
+          -0.025262806757502226,
+          -2.0520964726533495
+        ],
+        "velocity_origin_earth": [
+          -16.631753222470365,
+          24.9695106649169,
+          -1.820973927202374e-13
+        ],
+        "acceleration_velocity_reference_body": [
+          -0.016904807426046532,
+          1.5511541285027364,
+          0.24705504930366484
+        ],
+        "acceleration_velocity_reference_earth": [
+          1.308075998346033,
+          0.8696771141191775,
+          1.1222411888667239e-12
+        ],
+        "acceleration_origin_body": [
+          -0.018242044918222577,
+          1.5512325663359248,
+          0.24697609989669367
+        ],
+        "acceleration_earth": [
+          1.3070743498618091,
+          0.871418358420871,
+          1.1229350782571146e-12
+        ],
+        "rates_earth": [
+          2.2347575179271217e-14,
+          3.482544114197239e-14,
+          -0.052359877559822736
+        ],
+        "angular_acceleration_earth": [
+          2.7523659959486353e-30,
+          1.828547326840022e-30,
+          -2.301894017789946e-30
+        ],
+        "velocity_derivative_body": [
+          1.7354173653671978e-14,
+          -8.43769498715119e-15,
+          -1.4876988529977098e-14
+        ],
+        "speed_rate": -1.629810231765634e-14,
+        "attitude_rates": [
+          1.7074883174039712e-14,
+          3.770941892078383e-14,
+          0.05235987755982389
+        ],
+        "radial_acceleration": -1.9539925233402755e-14,
+        "flight_path": -3.139318054315235e-13
+      },
+      "applied_force": [
+        1.7958655396110856e-11,
+        2.5990289564611913e-11,
+        -3.9754811942405155e-10
+      ],
+      "applied_moment": [
+        -4.291003359926937e-11,
+        1.055681930761665e-10,
+        -2.0383788407185577e-11
+      ],
+      "support_force": [
+        6.617578766864589e-15,
+        7.989697624370307e-16,
+        6.327983660773622e-14
+      ],
+      "support_moment": [
+        -2.3281173398177364e-11,
+        -6.838879949299977e-10,
+        -2.5191963048517614e-13
+      ],
+      "force_balance": [
+        1.7965272974877722e-11,
+        2.599108853437435e-11,
+        -3.9748483958744383e-10
+      ],
+      "moment_balance": [
+        -6.619120699744674e-11,
+        -5.783198018538312e-10,
+        -2.0635708037670752e-11
+      ]
+    },
+    {
+      "requested_panels_per_beam": 32,
+      "heading_rate_deg_per_T": 3,
+      "flight_path_deg": 0,
+      "panels": 98,
+      "lifting_panels": 98,
+      "structural_nodes": 101,
+      "residual": 2.766664627757457e-13,
+      "max_displacement": 0.13688262229944737,
+      "CL": 0.32274035009861907,
+      "CDi": 0.003252750701389497,
+      "operating_values": {
+        "rates.x": 0.00352969856689818,
+        "rates.y": 0.008254366972951196,
+        "rates.z": -0.05158452706005597,
+        "acceleration.x": -0.018906058652930102,
+        "acceleration.y": 1.55128270450262,
+        "acceleration.z": 0.24693691615690566,
+        "angular_acceleration.x": -1.5286824253750051e-30,
+        "angular_acceleration.y": 1.9103540580206138e-29,
+        "angular_acceleration.z": -4.615648665747901e-30,
+        "speed": 30.0,
+        "alpha": 3.914392516642039,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 9.091189493991214,
+        "attitude.elevation": 3.8653703760211617,
+        "attitude.heading": 57.0,
+        "control.1": -5.561935404069622,
+        "control.2": 0.19618503762966708,
+        "control.3": 1.0483163365976398,
+        "power.1": 111.31712550735514
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.3555723344115265e-13,
+          "normalized_residual": 1.008106681619227e-13
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.9431678488501802e-13,
+          "normalized_residual": 8.31611266322207e-14
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.05235987755982989,
+          "specified_target": -0.05235987755982989,
+          "actual": -0.05235987756008371,
+          "normalized_residual": -1.0862558388373094e-13
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.812922200197022e-14,
+          "normalized_residual": -3.888098586364377e-15
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.8199664825478976e-14,
+          "normalized_residual": -2.8755655423084314e-15
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.0808688933348094e-14,
+          "normalized_residual": -3.1416119605928726e-15
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.5286824253750051e-30,
+          "normalized_residual": -2.0013723710418776e-30
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.9103540580206138e-29,
+          "normalized_residual": 2.501062200471283e-29
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -4.615648665747901e-30,
+          "normalized_residual": -6.0428716656424224e-30
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.8814578679858585e-12,
+          "normalized_residual": -1.8814578679858586e-13
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 2.196178381513869e-09,
+          "normalized_residual": 2.766664627757457e-13
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 3.398256099803633e-10,
+          "normalized_residual": 4.2809978581552444e-14
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.0730781072748607e-09,
+          "normalized_residual": 1.3518242722031503e-13
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.3388922000110862e-08,
+          "normalized_residual": -2.294921359390841e-13
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.287552952617844e-09,
+          "normalized_residual": -2.2445472825448696e-14
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 5.380872067362041e-09,
+          "normalized_residual": 5.279712437999567e-14
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          9.091189493991214,
+          3.8653703760211617,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.5434000929226943,
+            0.8223340299047283,
+            0.16876931673813467
+          ],
+          [
+            -0.8367627644252457,
+            0.5467304918812247,
+            0.030229874606670183
+          ],
+          [
+            -0.06741227694588087,
+            -0.15764679669426743,
+            0.9851918962359608
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.930014864060656,
+          0.0,
+          -2.0479771085410254
+        ],
+        "velocity_earth": [
+          -16.60960855561199,
+          24.98241188575156,
+          -9.851290360171813e-13
+        ],
+        "velocity_origin_body": [
+          -29.9312530191066,
+          -0.02526280874499326,
+          -2.052104292027501
+        ],
+        "velocity_origin_earth": [
+          -16.63175237843806,
+          24.969511215699868,
+          -1.132921013946575e-12
+        ],
+        "acceleration_velocity_reference_body": [
+          -0.016904754606139258,
+          1.5511544035280438,
+          0.24705332619380985
+        ],
+        "acceleration_velocity_reference_earth": [
+          1.3080760274934828,
+          0.8696770702927782,
+          9.088951813396307e-12
+        ],
+        "acceleration_origin_body": [
+          -0.018241991934520453,
+          1.5512328408841534,
+          0.24697437628010543
+        ],
+        "acceleration_earth": [
+          1.3070743785035641,
+          0.8714183139935467,
+          9.090866948113785e-12
+        ],
+        "rates_earth": [
+          2.3555723344115265e-13,
+          1.9431678488501802e-13,
+          -0.05235987756008371
+        ],
+        "angular_acceleration_earth": [
+          1.40998254671498e-29,
+          1.1584102189880113e-29,
+          -7.455859676333921e-30
+        ],
+        "velocity_derivative_body": [
+          -3.812922200197022e-14,
+          -2.8199664825478976e-14,
+          -3.0808688933348094e-14
+        ],
+        "speed_rate": 4.014345569845651e-14,
+        "attitude_rates": [
+          3.475388379858835e-14,
+          3.0338752343705977e-13,
+          0.052359877560086046
+        ],
+        "radial_acceleration": 1.554312234475219e-14,
+        "flight_path": -1.8814578679858585e-12
+      },
+      "applied_force": [
+        1.0730781072748607e-09,
+        3.398256099803633e-10,
+        2.196178381513869e-09
+      ],
+      "applied_moment": [
+        -2.3388922000110862e-08,
+        -2.287552952617844e-09,
+        5.380872067362041e-09
+      ],
+      "support_force": [
+        -2.2504270233697187e-15,
+        -9.214833634255389e-15,
+        5.12854319210831e-14
+      ],
+      "support_moment": [
+        -2.4826806315658572e-11,
+        -6.63835826651267e-10,
+        2.1698105340972704e-13
+      ],
+      "force_balance": [
+        1.0730758568478373e-09,
+        3.3981639514672906e-10,
+        2.1962296669457902e-09
+      ],
+      "moment_balance": [
+        -2.341374880642652e-08,
+        -2.951388779269111e-09,
+        5.381089048415451e-09
+      ]
+    },
+    {
+      "requested_panels_per_beam": 4,
+      "heading_rate_deg_per_T": 2,
+      "flight_path_deg": 5,
+      "panels": 14,
+      "lifting_panels": 14,
+      "structural_nodes": 17,
+      "residual": 3.208511673642038e-14,
+      "max_displacement": 0.12860295429336582,
+      "CL": 0.3192676918428239,
+      "CDi": 0.0035643647932179514,
+      "operating_values": {
+        "rates.x": 0.005408550420950907,
+        "rates.y": 0.0036704822516059952,
+        "rates.z": -0.03428913561943362,
+        "acceleration.x": -0.008403421036378408,
+        "acceleration.y": 1.03743125484192,
+        "acceleration.z": 0.10972637874376924,
+        "angular_acceleration.x": -9.457825666330093e-31,
+        "angular_acceleration.y": -1.8647529683360646e-29,
+        "angular_acceleration.z": -3.851782675376209e-31,
+        "speed": 30.0,
+        "alpha": 3.9356760821256804,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 6.109963197577431,
+        "attitude.elevation": 8.913522713639505,
+        "attitude.heading": 57.0,
+        "control.1": -5.357336476194397,
+        "control.2": 0.22524306087455973,
+        "control.3": 0.665544607253402,
+        "power.1": 334.48389283490064
+      },
+      "operating_constraints": [
+        {
+          "variable": "rates.x",
+          "quantity": "rates_earth.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.03367835124768e-14,
+          "normalized_residual": 4.423799843948589e-15
+        },
+        {
+          "variable": "rates.y",
+          "quantity": "rates_earth.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 6.7285586824450405e-15,
+          "normalized_residual": 2.879599520824936e-15
+        },
+        {
+          "variable": "rates.z",
+          "quantity": "rates_earth.z",
+          "target": -0.03490658503988659,
+          "specified_target": -0.03490658503988659,
+          "actual": -0.03490658503983502,
+          "normalized_residual": 2.2070186156644204e-14
+        },
+        {
+          "variable": "acceleration.x",
+          "quantity": "velocity_derivative_body.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -8.572136056539392e-15,
+          "normalized_residual": -8.741146116705901e-16
+        },
+        {
+          "variable": "acceleration.y",
+          "quantity": "velocity_derivative_body.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.774758283725532e-15,
+          "normalized_residual": -3.849182221987664e-16
+        },
+        {
+          "variable": "acceleration.z",
+          "quantity": "velocity_derivative_body.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.4307999229856705e-14,
+          "normalized_residual": -1.4590098789960594e-15
+        },
+        {
+          "variable": "angular_acceleration.x",
+          "quantity": "angular_acceleration.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -9.457825666330093e-31,
+          "normalized_residual": -1.23823173894868e-30
+        },
+        {
+          "variable": "angular_acceleration.y",
+          "quantity": "angular_acceleration.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.8647529683360646e-29,
+          "normalized_residual": -2.4413606172849183e-29
+        },
+        {
+          "variable": "angular_acceleration.z",
+          "quantity": "angular_acceleration.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -3.851782675376209e-31,
+          "normalized_residual": -5.042807647811239e-31
+        },
+        {
+          "variable": "attitude.elevation",
+          "quantity": "flight_path",
+          "target": 5.0,
+          "specified_target": 5.0,
+          "actual": 4.999999999999684,
+          "normalized_residual": -3.161915174132446e-14
+        },
+        {
+          "variable": "alpha",
+          "quantity": "force.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.5469165665370497e-10,
+          "normalized_residual": -3.208511673642038e-14
+        },
+        {
+          "variable": "attitude.bank",
+          "quantity": "force.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 6.64878291312121e-11,
+          "normalized_residual": 8.375891802873783e-15
+        },
+        {
+          "variable": "power.1",
+          "quantity": "force.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -2.930489184649332e-11,
+          "normalized_residual": -3.691722328860332e-15
+        },
+        {
+          "variable": "control.2",
+          "quantity": "moment.x",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 1.67901803571624e-11,
+          "normalized_residual": 1.6474527355084553e-16
+        },
+        {
+          "variable": "control.1",
+          "quantity": "moment.y",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": 7.760325715366889e-11,
+          "normalized_residual": 7.614432695932317e-16
+        },
+        {
+          "variable": "control.3",
+          "quantity": "moment.z",
+          "target": 0.0,
+          "specified_target": 0.0,
+          "actual": -1.6733225915999128e-11,
+          "normalized_residual": -1.641864364931259e-16
+        }
+      ],
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          6.109963197577431,
+          8.913522713639505,
+          57.0
+        ],
+        "body_to_earth": [
+          [
+            0.538061605931631,
+            0.8249244221104646,
+            0.17317449589356496
+          ],
+          [
+            -0.8285422153479273,
+            0.5553763093107025,
+            -0.07123870045678715
+          ],
+          [
+            -0.1549435562023251,
+            -0.10515157089715355,
+            0.9823113770741118
+          ]
+        ],
+        "velocity_reference": [
+          -0.5,
+          0.0,
+          0.15
+        ],
+        "acceleration_reference": [
+          0.25,
+          0.0,
+          -0.1
+        ],
+        "velocity_body": [
+          -29.92925204051317,
+          0.0,
+          -2.0590950185550203
+        ],
+        "velocity_earth": [
+          -16.460364159086275,
+          24.94433604259216,
+          2.6146722824295803
+        ],
+        "velocity_origin_body": [
+          -29.92980261285091,
+          -0.016333285246574174,
+          -2.0609302596808234
+        ],
+        "velocity_origin_earth": [
+          -16.4744519437725,
+          24.935851835530244,
+          2.614672282429574
+        ],
+        "acceleration_velocity_reference_body": [
+          -0.007557871719985091,
+          1.0373849014347463,
+          0.1098547884185318
+        ],
+        "acceleration_velocity_reference_earth": [
+          0.8707215873329723,
+          0.5745751013057766,
+          3.5627056860221273e-13
+        ],
+        "acceleration_origin_body": [
+          -0.008124662172895446,
+          1.037413706078467,
+          0.10976846988772984
+        ],
+        "acceleration_earth": [
+          0.8702826304868302,
+          0.5753105659321234,
+          3.5628444639002055e-13
+        ],
+        "rates_earth": [
+          1.03367835124768e-14,
+          6.7285586824450405e-15,
+          -0.03490658503983502
+        ],
+        "angular_acceleration_earth": [
+          -1.5958394986808696e-29,
+          -9.545335831087469e-30,
+          1.728994959421052e-30
+        ],
+        "velocity_derivative_body": [
+          -8.572136056539392e-15,
+          -3.774758283725532e-15,
+          -1.4307999229856705e-14
+        ],
+        "speed_rate": 9.533971683380838e-15,
+        "attitude_rates": [
+          1.3010426069826053e-17,
+          1.233301655245711e-14,
+          0.03490658503983503
+        ],
+        "radial_acceleration": -2.098321516541546e-14,
+        "flight_path": 4.999999999999684
+      },
+      "applied_force": [
+        -2.930489184649332e-11,
+        6.64878291312121e-11,
+        -2.5469165665370497e-10
+      ],
+      "applied_moment": [
+        1.67901803571624e-11,
+        7.760325715366889e-11,
+        -1.6733225915999128e-11
+      ],
+      "support_force": [
+        5.991944799373844e-15,
+        1.2823814022088094e-15,
+        -2.8119349665135066e-14
+      ],
+      "support_moment": [
+        -1.1908640921369515e-10,
+        -4.3285114024793604e-10,
+        -1.6462825277301165e-12
+      ],
+      "force_balance": [
+        -2.929889990169394e-11,
+        6.64891115126143e-11,
+        -2.547197760033701e-10
+      ],
+      "moment_balance": [
+        -1.0229622885653275e-10,
+        -3.5524788309426714e-10,
+        -1.8379508443729245e-11
+      ]
+    }
+  ]
+}

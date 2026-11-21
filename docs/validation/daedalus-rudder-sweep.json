@@ -1,0 +1,1205 @@
+{
+  "title": "Daedalus rudder-to-yaw: saved-matrix frequency sweep",
+  "status": "DESCRIPTIVE_COMPARISON_UNMATCHED_REFERENCE_NOT_CONVERGED",
+  "reference_url": "https://web.mit.edu/drela/Public/web/aswing/rudder-bode.pdf",
+  "meaning": "Numerical equation checks pass; reference operating point is unmatched and mesh convergence is unresolved.",
+  "source_model": "examples/dae.asw",
+  "speed_ft_s": 30,
+  "fixed_PG_Mach": 0.1,
+  "frame": "free",
+  "input": "unit native control.3 (F3) setting",
+  "output": "body yaw rate from raw state coordinate times recorded rate scale",
+  "reference_phase_available": false,
+  "numerical_production_source_changed": false,
+  "detail": {
+    "status": "DESCRIPTIVE_COMPARISON_UNMATCHED_REFERENCE_NOT_CONVERGED",
+    "sweep": {
+      "status": "PASS_SAVED_MATRIX_SWEEP",
+      "plan_pin": {
+        "bytes": 29104,
+        "sha256": "2f2dba507eee913eb2c8639b4564cd2b5f7d355b8624d293af636a107f4eb429"
+      },
+      "operation": "Saved A/M/B harmonic solves; no trim, residual linearization or physical-output stencils.",
+      "cases": {
+        "8": {
+          "panels": 8,
+          "dimension": 1463,
+          "yaw_index": 1456,
+          "rate_scale": 0.527658212781417,
+          "samples": 203,
+          "resolved": 203,
+          "anchors": [
+            {
+              "frequency_Hz": 0.1,
+              "relative_complex_yaw_difference": 0.0
+            },
+            {
+              "frequency_Hz": 1.0,
+              "relative_complex_yaw_difference": 0.0
+            },
+            {
+              "frequency_Hz": 10.0,
+              "relative_complex_yaw_difference": 0.0
+            }
+          ],
+          "min_reciprocal_condition": 1.021127281798168e-08,
+          "max_scaled_residual": 1.8563709209326541e-16,
+          "saved_vectors": {
+            "bytes": 4552944,
+            "sha256": "f56e21314d41a885ad11618e2141fc172ca0a545d632da6ebb492f06063db456"
+          },
+          "saved_samples": {
+            "bytes": 125576,
+            "sha256": "eedf87664e7cd1d41f06e42946b48c8cd643e1e7c40a61c54a070095b4d2bb9c"
+          }
+        },
+        "16": {
+          "panels": 16,
+          "dimension": 2215,
+          "yaw_index": 2208,
+          "rate_scale": 0.527658212781417,
+          "samples": 203,
+          "resolved": 203,
+          "anchors": [
+            {
+              "frequency_Hz": 0.1,
+              "relative_complex_yaw_difference": 1.5229160471874502e-13
+            },
+            {
+              "frequency_Hz": 1.0,
+              "relative_complex_yaw_difference": 5.851891272012554e-13
+            },
+            {
+              "frequency_Hz": 10.0,
+              "relative_complex_yaw_difference": 1.9977295218547876e-13
+            }
+          ],
+          "min_reciprocal_condition": 5.41769798244833e-09,
+          "max_scaled_residual": 1.9825640250031926e-16,
+          "saved_vectors": {
+            "bytes": 6921256,
+            "sha256": "fa6b99602884f2496b6bae17c321b717c477f9b847276d71c37decbc8bb0e185"
+          },
+          "saved_samples": {
+            "bytes": 125490,
+            "sha256": "83e281fdf16a35793d6edb258784db925b3d5995db34e57b2f30e7bfefa44ee3"
+          }
+        }
+      },
+      "harmonic_calls": 406,
+      "gaps": [],
+      "limitations": [
+        "Operating point of published drawing is unknown; no matched-case numerical validation.",
+        "Spatial, difference-step and frequency convergence remain unverified.",
+        "Grid is union of 101 logarithmic samples and 104 drawing vertices, rounded to 14 decimal places; narrow unresolved resonances may remain.",
+        "Only body yaw rate from saved state coordinate is reported; no new physical output stencils.",
+        "Harmonic poles are explicit gaps and all original numerical gates are retained."
+      ],
+      "elapsed_seconds": 129.7880927810038,
+      "peak_rss_bytes": 190750720
+    },
+    "comparison": [
+      {
+        "frequency_Hz": 0.1,
+        "complex_relative_change": 0.0051042089106978885,
+        "magnitude_relative_change": 0.005086724903291031
+      },
+      {
+        "frequency_Hz": 0.10471285480509,
+        "complex_relative_change": 0.005466784144636505,
+        "magnitude_relative_change": 0.005463549462215756
+      },
+      {
+        "frequency_Hz": 0.10597881743013,
+        "complex_relative_change": 0.005553233965260922,
+        "magnitude_relative_change": 0.005541915817104922
+      },
+      {
+        "frequency_Hz": 0.10964781961432,
+        "complex_relative_change": 0.005781303099865886,
+        "magnitude_relative_change": 0.005720333304065177
+      },
+      {
+        "frequency_Hz": 0.11231509743888,
+        "complex_relative_change": 0.005928389954439917,
+        "magnitude_relative_change": 0.00580839177868644
+      },
+      {
+        "frequency_Hz": 0.11481536214969,
+        "complex_relative_change": 0.006053698933999674,
+        "magnitude_relative_change": 0.005862120769210364
+      },
+      {
+        "frequency_Hz": 0.11903021206122,
+        "complex_relative_change": 0.00624076004623491,
+        "magnitude_relative_change": 0.0058956620561392325
+      },
+      {
+        "frequency_Hz": 0.12022644346174,
+        "complex_relative_change": 0.006288877383213592,
+        "magnitude_relative_change": 0.005893188578436233
+      },
+      {
+        "frequency_Hz": 0.12589254117942,
+        "complex_relative_change": 0.006490819653898824,
+        "magnitude_relative_change": 0.005817164084727053
+      },
+      {
+        "frequency_Hz": 0.12614680165468,
+        "complex_relative_change": 0.006498959713035883,
+        "magnitude_relative_change": 0.005811435979395787
+      },
+      {
+        "frequency_Hz": 0.13182567385564,
+        "complex_relative_change": 0.006662735248291335,
+        "magnitude_relative_change": 0.005637318790314658
+      },
+      {
+        "frequency_Hz": 0.13382053079111,
+        "complex_relative_change": 0.006712760418725894,
+        "magnitude_relative_change": 0.005556758385794199
+      },
+      {
+        "frequency_Hz": 0.13803842646029,
+        "complex_relative_change": 0.006807226123719707,
+        "magnitude_relative_change": 0.0053569586742542785
+      },
+      {
+        "frequency_Hz": 0.14182141601114,
+        "complex_relative_change": 0.0068801587736345045,
+        "magnitude_relative_change": 0.0051470179044856125
+      },
+      {
+        "frequency_Hz": 0.14454397707459,
+        "complex_relative_change": 0.00692644847618784,
+        "magnitude_relative_change": 0.004979859485797576
+      },
+      {
+        "frequency_Hz": 0.15030067083736,
+        "complex_relative_change": 0.007009146336956302,
+        "magnitude_relative_change": 0.004587705298102095
+      },
+      {
+        "frequency_Hz": 0.15135612484362,
+        "complex_relative_change": 0.007022267529893009,
+        "magnitude_relative_change": 0.00451070441907574
+      },
+      {
+        "frequency_Hz": 0.15848931924611,
+        "complex_relative_change": 0.007096403107619659,
+        "magnitude_relative_change": 0.003955482445703015
+      },
+      {
+        "frequency_Hz": 0.15928686158211,
+        "complex_relative_change": 0.007103245151423675,
+        "magnitude_relative_change": 0.003890069294237506
+      },
+      {
+        "frequency_Hz": 0.16595869074376,
+        "complex_relative_change": 0.007150563488915721,
+        "magnitude_relative_change": 0.003321804288915639
+      },
+      {
+        "frequency_Hz": 0.16897655814785,
+        "complex_relative_change": 0.007166707877306062,
+        "magnitude_relative_change": 0.003054456828774167
+      },
+      {
+        "frequency_Hz": 0.17378008287494,
+        "complex_relative_change": 0.0071865637350630954,
+        "magnitude_relative_change": 0.0026190943364980974
+      },
+      {
+        "frequency_Hz": 0.17907934461214,
+        "complex_relative_change": 0.007201211160177268,
+        "magnitude_relative_change": 0.002128831592585775
+      },
+      {
+        "frequency_Hz": 0.181970085861,
+        "complex_relative_change": 0.0072064233915482495,
+        "magnitude_relative_change": 0.001858623623087861
+      },
+      {
+        "frequency_Hz": 0.18978618593263,
+        "complex_relative_change": 0.007212400788335907,
+        "magnitude_relative_change": 0.0011246556099963727
+      },
+      {
+        "frequency_Hz": 0.19054607179632,
+        "complex_relative_change": 0.007212437847138327,
+        "magnitude_relative_change": 0.001053363279135332
+      },
+      {
+        "frequency_Hz": 0.19952623149689,
+        "complex_relative_change": 0.007207218011026006,
+        "magnitude_relative_change": 0.0002176585793023194
+      },
+      {
+        "frequency_Hz": 0.20113314039403,
+        "complex_relative_change": 0.007205372498186541,
+        "magnitude_relative_change": 7.010201289783292e-05
+      },
+      {
+        "frequency_Hz": 0.2089296130854,
+        "complex_relative_change": 0.007193694594552392,
+        "magnitude_relative_change": 0.00063325203168577
+      },
+      {
+        "frequency_Hz": 0.21336841881169,
+        "complex_relative_change": 0.0071856274607923435,
+        "magnitude_relative_change": 0.0010225178007828481
+      },
+      {
+        "frequency_Hz": 0.21877616239496,
+        "complex_relative_change": 0.007175085866628488,
+        "magnitude_relative_change": 0.0014838256439581238
+      },
+      {
+        "frequency_Hz": 0.22612534400577,
+        "complex_relative_change": 0.007160515041271813,
+        "magnitude_relative_change": 0.0020853501426312373
+      },
+      {
+        "frequency_Hz": 0.22908676527678,
+        "complex_relative_change": 0.007154831090700832,
+        "magnitude_relative_change": 0.0023188477565596185
+      },
+      {
+        "frequency_Hz": 0.23964494749216,
+        "complex_relative_change": 0.007136845750889273,
+        "magnitude_relative_change": 0.0031070664454756294
+      },
+      {
+        "frequency_Hz": 0.23988329190195,
+        "complex_relative_change": 0.007136495227202391,
+        "magnitude_relative_change": 0.0031240400939659594
+      },
+      {
+        "frequency_Hz": 0.25118864315096,
+        "complex_relative_change": 0.007123653464412207,
+        "magnitude_relative_change": 0.0038865804125854065
+      },
+      {
+        "frequency_Hz": 0.25397286231239,
+        "complex_relative_change": 0.007121781809674573,
+        "magnitude_relative_change": 0.004061521443530669
+      },
+      {
+        "frequency_Hz": 0.26302679918954,
+        "complex_relative_change": 0.0071197662384002445,
+        "magnitude_relative_change": 0.004595487889364192
+      },
+      {
+        "frequency_Hz": 0.26942247282826,
+        "complex_relative_change": 0.007122380521696612,
+        "magnitude_relative_change": 0.004940971147162918
+      },
+      {
+        "frequency_Hz": 0.27542287033382,
+        "complex_relative_change": 0.007128056200574225,
+        "magnitude_relative_change": 0.005241850030906177
+      },
+      {
+        "frequency_Hz": 0.28840315031266,
+        "complex_relative_change": 0.007151398234289391,
+        "magnitude_relative_change": 0.005818890435185455
+      },
+      {
+        "frequency_Hz": 0.3019951720402,
+        "complex_relative_change": 0.007192231790979234,
+        "magnitude_relative_change": 0.006321896150304847
+      },
+      {
+        "frequency_Hz": 0.30260211287931,
+        "complex_relative_change": 0.007194442025564942,
+        "magnitude_relative_change": 0.00634209155094049
+      },
+      {
+        "frequency_Hz": 0.31622776601684,
+        "complex_relative_change": 0.007252502090552198,
+        "magnitude_relative_change": 0.0067480363449574
+      },
+      {
+        "frequency_Hz": 0.32069416482903,
+        "complex_relative_change": 0.007274949949455238,
+        "magnitude_relative_change": 0.006862327430676764
+      },
+      {
+        "frequency_Hz": 0.33113112148259,
+        "complex_relative_change": 0.007333633110251369,
+        "magnitude_relative_change": 0.007096109569161276
+      },
+      {
+        "frequency_Hz": 0.34020254811144,
+        "complex_relative_change": 0.007391345748452866,
+        "magnitude_relative_change": 0.007264043544903628
+      },
+      {
+        "frequency_Hz": 0.34673685045253,
+        "complex_relative_change": 0.007436531611448161,
+        "magnitude_relative_change": 0.007366256154709712
+      },
+      {
+        "frequency_Hz": 0.36054261028248,
+        "complex_relative_change": 0.007541148307047406,
+        "magnitude_relative_change": 0.0075351146880267145
+      },
+      {
+        "frequency_Hz": 0.3630780547701,
+        "complex_relative_change": 0.0075616179790145765,
+        "magnitude_relative_change": 0.007559667038400068
+      },
+      {
+        "frequency_Hz": 0.38018939632056,
+        "complex_relative_change": 0.007708877290309146,
+        "magnitude_relative_change": 0.007678312928114904
+      },
+      {
+        "frequency_Hz": 0.38209876601726,
+        "complex_relative_change": 0.007726220331157591,
+        "magnitude_relative_change": 0.007686813245972236
+      },
+      {
+        "frequency_Hz": 0.3981071705535,
+        "complex_relative_change": 0.00787792276504271,
+        "magnitude_relative_change": 0.0077247098324104355
+      },
+      {
+        "frequency_Hz": 0.40494378404747,
+        "complex_relative_change": 0.007945811843461862,
+        "magnitude_relative_change": 0.007724136066837729
+      },
+      {
+        "frequency_Hz": 0.41686938347034,
+        "complex_relative_change": 0.008068063931958717,
+        "magnitude_relative_change": 0.007701730074010173
+      },
+      {
+        "frequency_Hz": 0.42957721805846,
+        "complex_relative_change": 0.008202976600986149,
+        "magnitude_relative_change": 0.007650842807917062
+      },
+      {
+        "frequency_Hz": 0.43651583224017,
+        "complex_relative_change": 0.00827837302303186,
+        "magnitude_relative_change": 0.007612462499091384
+      },
+      {
+        "frequency_Hz": 0.45526082146202,
+        "complex_relative_change": 0.008487066379842085,
+        "magnitude_relative_change": 0.007475795193248399
+      },
+      {
+        "frequency_Hz": 0.45708818961488,
+        "complex_relative_change": 0.008507745067344256,
+        "magnitude_relative_change": 0.007460122083096723
+      },
+      {
+        "frequency_Hz": 0.47863009232264,
+        "complex_relative_change": 0.008754949288046833,
+        "magnitude_relative_change": 0.007248007241861011
+      },
+      {
+        "frequency_Hz": 0.48248007103761,
+        "complex_relative_change": 0.00879967979508132,
+        "magnitude_relative_change": 0.007205250683340274
+      },
+      {
+        "frequency_Hz": 0.50118723362727,
+        "complex_relative_change": 0.009018671645018461,
+        "magnitude_relative_change": 0.006979502972944762
+      },
+      {
+        "frequency_Hz": 0.51132671201727,
+        "complex_relative_change": 0.009138181226133047,
+        "magnitude_relative_change": 0.0068460127811032865
+      },
+      {
+        "frequency_Hz": 0.52480746024977,
+        "complex_relative_change": 0.009297550496712017,
+        "magnitude_relative_change": 0.00665812917827091
+      },
+      {
+        "frequency_Hz": 0.54189796190909,
+        "complex_relative_change": 0.00949982863818906,
+        "magnitude_relative_change": 0.006405272063110325
+      },
+      {
+        "frequency_Hz": 0.54954087385762,
+        "complex_relative_change": 0.009590209702509254,
+        "magnitude_relative_change": 0.006287636405992254
+      },
+      {
+        "frequency_Hz": 0.57486255652999,
+        "complex_relative_change": 0.009888522819020905,
+        "magnitude_relative_change": 0.005881661029978112
+      },
+      {
+        "frequency_Hz": 0.57543993733716,
+        "complex_relative_change": 0.00989529670958559,
+        "magnitude_relative_change": 0.005872156268279104
+      },
+      {
+        "frequency_Hz": 0.60255958607436,
+        "complex_relative_change": 0.010211538746157506,
+        "magnitude_relative_change": 0.005416422225182334
+      },
+      {
+        "frequency_Hz": 0.60923249351175,
+        "complex_relative_change": 0.010288695006959685,
+        "magnitude_relative_change": 0.005302068010709591
+      },
+      {
+        "frequency_Hz": 0.63095734448019,
+        "complex_relative_change": 0.010537841374633199,
+        "magnitude_relative_change": 0.004926090814278756
+      },
+      {
+        "frequency_Hz": 0.64565734354136,
+        "complex_relative_change": 0.01070455065179146,
+        "magnitude_relative_change": 0.004670029703838187
+      },
+      {
+        "frequency_Hz": 0.6606934480076,
+        "complex_relative_change": 0.010873477701626293,
+        "magnitude_relative_change": 0.00440821891400431
+      },
+      {
+        "frequency_Hz": 0.68425996595476,
+        "complex_relative_change": 0.011135139261979368,
+        "magnitude_relative_change": 0.004001195133026746
+      },
+      {
+        "frequency_Hz": 0.69183097091894,
+        "complex_relative_change": 0.011218471456149655,
+        "magnitude_relative_change": 0.003871999061025044
+      },
+      {
+        "frequency_Hz": 0.72443596007499,
+        "complex_relative_change": 0.011574410387771546,
+        "magnitude_relative_change": 0.0033299413305420875
+      },
+      {
+        "frequency_Hz": 0.72588468864895,
+        "complex_relative_change": 0.011590156754167249,
+        "magnitude_relative_change": 0.0033065424906562582
+      },
+      {
+        "frequency_Hz": 0.75857757502918,
+        "complex_relative_change": 0.011946271081792123,
+        "magnitude_relative_change": 0.0027998486229418107
+      },
+      {
+        "frequency_Hz": 0.76928418223338,
+        "complex_relative_change": 0.01206420079432538,
+        "magnitude_relative_change": 0.002644615808384143
+      },
+      {
+        "frequency_Hz": 0.79432823472428,
+        "complex_relative_change": 0.012346797087875797,
+        "magnitude_relative_change": 0.002308187949462929
+      },
+      {
+        "frequency_Hz": 0.81527821778864,
+        "complex_relative_change": 0.012596496917838006,
+        "magnitude_relative_change": 0.002061843295630215
+      },
+      {
+        "frequency_Hz": 0.83176377110267,
+        "complex_relative_change": 0.012807869633335533,
+        "magnitude_relative_change": 0.0018956055497187383
+      },
+      {
+        "frequency_Hz": 0.86402214909831,
+        "complex_relative_change": 0.013290322042400281,
+        "magnitude_relative_change": 0.00165716280197696
+      },
+      {
+        "frequency_Hz": 0.87096358995608,
+        "complex_relative_change": 0.013412629304427999,
+        "magnitude_relative_change": 0.0016231308486609594
+      },
+      {
+        "frequency_Hz": 0.91201083935591,
+        "complex_relative_change": 0.01439099463545228,
+        "magnitude_relative_change": 0.0015546978717917537
+      },
+      {
+        "frequency_Hz": 0.9165821177466,
+        "complex_relative_change": 0.01454013561804113,
+        "magnitude_relative_change": 0.0015585937685345136
+      },
+      {
+        "frequency_Hz": 0.95499258602144,
+        "complex_relative_change": 0.016353425129258435,
+        "magnitude_relative_change": 0.001507303955879415
+      },
+      {
+        "frequency_Hz": 0.97138281622263,
+        "complex_relative_change": 0.0175183220047877,
+        "magnitude_relative_change": 0.0012300076240944577
+      },
+      {
+        "frequency_Hz": 0.99950783045105,
+        "complex_relative_change": 0.019884802986049773,
+        "magnitude_relative_change": 0.00036379961381179565
+      },
+      {
+        "frequency_Hz": 1.0,
+        "complex_relative_change": 0.019925016327132672,
+        "magnitude_relative_change": 0.0004088277843034929
+      },
+      {
+        "frequency_Hz": 1.02945994404996,
+        "complex_relative_change": 0.021606245582692946,
+        "magnitude_relative_change": 0.0039106467625330136
+      },
+      {
+        "frequency_Hz": 1.0471285480509,
+        "complex_relative_change": 0.021704189306556196,
+        "magnitude_relative_change": 0.006028422261070698
+      },
+      {
+        "frequency_Hz": 1.06030962851496,
+        "complex_relative_change": 0.02143616117214371,
+        "magnitude_relative_change": 0.00724281380178454
+      },
+      {
+        "frequency_Hz": 1.09100972039307,
+        "complex_relative_change": 0.020426620218576063,
+        "magnitude_relative_change": 0.008863868701026451
+      },
+      {
+        "frequency_Hz": 1.09647819614319,
+        "complex_relative_change": 0.020247542872771373,
+        "magnitude_relative_change": 0.009028662776359456
+      },
+      {
+        "frequency_Hz": 1.12370385853502,
+        "complex_relative_change": 0.019484333496142037,
+        "magnitude_relative_change": 0.009570277537908138
+      },
+      {
+        "frequency_Hz": 1.14815362149688,
+        "complex_relative_change": 0.01899372254465928,
+        "magnitude_relative_change": 0.009860028828813282
+      },
+      {
+        "frequency_Hz": 1.15737773741517,
+        "complex_relative_change": 0.01885037233149864,
+        "magnitude_relative_change": 0.009950618119123773
+      },
+      {
+        "frequency_Hz": 1.19088797126823,
+        "complex_relative_change": 0.01847757124762968,
+        "magnitude_relative_change": 0.010255004538150526
+      },
+      {
+        "frequency_Hz": 1.20226443461741,
+        "complex_relative_change": 0.018392659603939134,
+        "magnitude_relative_change": 0.010357379968278792
+      },
+      {
+        "frequency_Hz": 1.22657514720851,
+        "complex_relative_change": 0.01826293997400252,
+        "magnitude_relative_change": 0.010581669112618921
+      },
+      {
+        "frequency_Hz": 1.25892541179417,
+        "complex_relative_change": 0.018171870810203532,
+        "magnitude_relative_change": 0.010894829179719559
+      },
+      {
+        "frequency_Hz": 1.26208889409732,
+        "complex_relative_change": 0.018166809806751984,
+        "magnitude_relative_change": 0.010926332463051506
+      },
+      {
+        "frequency_Hz": 1.29990973829307,
+        "complex_relative_change": 0.01814559036891677,
+        "magnitude_relative_change": 0.011313082230664037
+      },
+      {
+        "frequency_Hz": 1.31825673855641,
+        "complex_relative_change": 0.0181560477659262,
+        "magnitude_relative_change": 0.011506131883759997
+      },
+      {
+        "frequency_Hz": 1.37762886485577,
+        "complex_relative_change": 0.01825066386702118,
+        "magnitude_relative_change": 0.012144903374954545
+      },
+      {
+        "frequency_Hz": 1.38038426460288,
+        "complex_relative_change": 0.018256743677379558,
+        "magnitude_relative_change": 0.01217484732456497
+      },
+      {
+        "frequency_Hz": 1.44543977074593,
+        "complex_relative_change": 0.01842870845174034,
+        "magnitude_relative_change": 0.01288277990130059
+      },
+      {
+        "frequency_Hz": 1.46143242246289,
+        "complex_relative_change": 0.01847739184497329,
+        "magnitude_relative_change": 0.013056147196103592
+      },
+      {
+        "frequency_Hz": 1.51356124843621,
+        "complex_relative_change": 0.018647660755512777,
+        "magnitude_relative_change": 0.013616439647328293
+      },
+      {
+        "frequency_Hz": 1.54880868256644,
+        "complex_relative_change": 0.018770199304644204,
+        "magnitude_relative_change": 0.013989806598759529
+      },
+      {
+        "frequency_Hz": 1.58489319246111,
+        "complex_relative_change": 0.018899925655392853,
+        "magnitude_relative_change": 0.014366546296208666
+      },
+      {
+        "frequency_Hz": 1.64140949579983,
+        "complex_relative_change": 0.019109067964263256,
+        "magnitude_relative_change": 0.014944254183925604
+      },
+      {
+        "frequency_Hz": 1.65958690743756,
+        "complex_relative_change": 0.01917742396694418,
+        "magnitude_relative_change": 0.015126685722018458
+      },
+      {
+        "frequency_Hz": 1.73780082874938,
+        "complex_relative_change": 0.019475116724038486,
+        "magnitude_relative_change": 0.015892148602828587
+      },
+      {
+        "frequency_Hz": 1.73954624221178,
+        "complex_relative_change": 0.01948180371253917,
+        "magnitude_relative_change": 0.015908864310354754
+      },
+      {
+        "frequency_Hz": 1.81970085860998,
+        "complex_relative_change": 0.019789655398131094,
+        "magnitude_relative_change": 0.01665906718358267
+      },
+      {
+        "frequency_Hz": 1.84536586274848,
+        "complex_relative_change": 0.01988827714737288,
+        "magnitude_relative_change": 0.016892044909871673
+      },
+      {
+        "frequency_Hz": 1.90546071796325,
+        "complex_relative_change": 0.02011869229990258,
+        "magnitude_relative_change": 0.01742383717671378
+      },
+      {
+        "frequency_Hz": 1.95569677174664,
+        "complex_relative_change": 0.0203103945230569,
+        "magnitude_relative_change": 0.017853670699787858
+      },
+      {
+        "frequency_Hz": 1.99526231496888,
+        "complex_relative_change": 0.02046061458529353,
+        "magnitude_relative_change": 0.018182829837786674
+      },
+      {
+        "frequency_Hz": 2.07262415558271,
+        "complex_relative_change": 0.0207521541459112,
+        "magnitude_relative_change": 0.018802841277097037
+      },
+      {
+        "frequency_Hz": 2.08929613085404,
+        "complex_relative_change": 0.020814599341069783,
+        "magnitude_relative_change": 0.018932423518006242
+      },
+      {
+        "frequency_Hz": 2.18776162394955,
+        "complex_relative_change": 0.021180936190566636,
+        "magnitude_relative_change": 0.019669378170912084
+      },
+      {
+        "frequency_Hz": 2.19654240491913,
+        "complex_relative_change": 0.021213432367212796,
+        "magnitude_relative_change": 0.019732797460023304
+      },
+      {
+        "frequency_Hz": 2.29086765276777,
+        "complex_relative_change": 0.021561567983813906,
+        "magnitude_relative_change": 0.02039153255736713
+      },
+      {
+        "frequency_Hz": 2.32787018948455,
+        "complex_relative_change": 0.02169805788688313,
+        "magnitude_relative_change": 0.020639217719282146
+      },
+      {
+        "frequency_Hz": 2.39883291901949,
+        "complex_relative_change": 0.021960780713284573,
+        "magnitude_relative_change": 0.021098726605075953
+      },
+      {
+        "frequency_Hz": 2.46947857800129,
+        "complex_relative_change": 0.022225107765009144,
+        "magnitude_relative_change": 0.021537872252345817
+      },
+      {
+        "frequency_Hz": 2.51188643150958,
+        "complex_relative_change": 0.022385951760289964,
+        "magnitude_relative_change": 0.021793761428088056
+      },
+      {
+        "frequency_Hz": 2.61712399713599,
+        "complex_relative_change": 0.02279573436123255,
+        "magnitude_relative_change": 0.022408136690640568
+      },
+      {
+        "frequency_Hz": 2.63026799189538,
+        "complex_relative_change": 0.022848263671275498,
+        "magnitude_relative_change": 0.022483144032196662
+      },
+      {
+        "frequency_Hz": 2.75422870333817,
+        "complex_relative_change": 0.023363216828348632,
+        "magnitude_relative_change": 0.023177238475862345
+      },
+      {
+        "frequency_Hz": 2.77359685457514,
+        "complex_relative_change": 0.023447369616604746,
+        "magnitude_relative_change": 0.02328406474124679
+      },
+      {
+        "frequency_Hz": 2.88403150312661,
+        "complex_relative_change": 0.023949939282451885,
+        "magnitude_relative_change": 0.023888462641140053
+      },
+      {
+        "frequency_Hz": 2.93942492603623,
+        "complex_relative_change": 0.024217712246602078,
+        "magnitude_relative_change": 0.02418940190830141
+      },
+      {
+        "frequency_Hz": 3.01995172040202,
+        "complex_relative_change": 0.02462621036612595,
+        "magnitude_relative_change": 0.024623702446184465
+      },
+      {
+        "frequency_Hz": 3.11823525181049,
+        "complex_relative_change": 0.025154571532664916,
+        "magnitude_relative_change": 0.025144828094288182
+      },
+      {
+        "frequency_Hz": 3.16227766016838,
+        "complex_relative_change": 0.025401627302868025,
+        "magnitude_relative_change": 0.025373685683132786
+      },
+      {
+        "frequency_Hz": 3.30466859641022,
+        "complex_relative_change": 0.026246749776006092,
+        "magnitude_relative_change": 0.026089649949005984
+      },
+      {
+        "frequency_Hz": 3.31131121482591,
+        "complex_relative_change": 0.02628808242992207,
+        "magnitude_relative_change": 0.02612214022581842
+      },
+      {
+        "frequency_Hz": 3.46736850452532,
+        "complex_relative_change": 0.02731712851909474,
+        "magnitude_relative_change": 0.026861506438086137
+      },
+      {
+        "frequency_Hz": 3.50224948741307,
+        "complex_relative_change": 0.027563724989092694,
+        "magnitude_relative_change": 0.027019793377524175
+      },
+      {
+        "frequency_Hz": 3.63078054770101,
+        "complex_relative_change": 0.028529810835933724,
+        "magnitude_relative_change": 0.027573278293753327
+      },
+      {
+        "frequency_Hz": 3.71164231150548,
+        "complex_relative_change": 0.02918580802492484,
+        "magnitude_relative_change": 0.02788972045259758
+      },
+      {
+        "frequency_Hz": 3.80189396320561,
+        "complex_relative_change": 0.029963509097922145,
+        "magnitude_relative_change": 0.02820309765306336
+      },
+      {
+        "frequency_Hz": 3.93742796263717,
+        "complex_relative_change": 0.03122431871257637,
+        "magnitude_relative_change": 0.028568369547483336
+      },
+      {
+        "frequency_Hz": 3.98107170553497,
+        "complex_relative_change": 0.03165470921263819,
+        "magnitude_relative_change": 0.028652446227190983
+      },
+      {
+        "frequency_Hz": 4.16869383470336,
+        "complex_relative_change": 0.03364629374044377,
+        "magnitude_relative_change": 0.028771150919557193
+      },
+      {
+        "frequency_Hz": 4.17283927862711,
+        "complex_relative_change": 0.03369297033551429,
+        "magnitude_relative_change": 0.028768596091134076
+      },
+      {
+        "frequency_Hz": 4.36515832240166,
+        "complex_relative_change": 0.03599320916577569,
+        "magnitude_relative_change": 0.028340806003332563
+      },
+      {
+        "frequency_Hz": 4.42232538867602,
+        "complex_relative_change": 0.03673009427763345,
+        "magnitude_relative_change": 0.02807914240317718
+      },
+      {
+        "frequency_Hz": 4.57088189614875,
+        "complex_relative_change": 0.038767195109591264,
+        "magnitude_relative_change": 0.02704185850702692
+      },
+      {
+        "frequency_Hz": 4.68672779790428,
+        "complex_relative_change": 0.04048273747272381,
+        "magnitude_relative_change": 0.025799832275082906
+      },
+      {
+        "frequency_Hz": 4.78630092322638,
+        "complex_relative_change": 0.04203461831612552,
+        "magnitude_relative_change": 0.024335691657616707
+      },
+      {
+        "frequency_Hz": 4.97182959347509,
+        "complex_relative_change": 0.04471784327008209,
+        "magnitude_relative_change": 0.020176285732835902
+      },
+      {
+        "frequency_Hz": 5.01187233627272,
+        "complex_relative_change": 0.0451499386438545,
+        "magnitude_relative_change": 0.019074241318653436
+      },
+      {
+        "frequency_Hz": 5.24807460249773,
+        "complex_relative_change": 0.04843324231672617,
+        "magnitude_relative_change": 0.012917160011322697
+      },
+      {
+        "frequency_Hz": 5.26908739477482,
+        "complex_relative_change": 0.048819205316446866,
+        "magnitude_relative_change": 0.012304606800433708
+      },
+      {
+        "frequency_Hz": 5.49540873857625,
+        "complex_relative_change": 0.053223287830843916,
+        "magnitude_relative_change": 0.004330540589940185
+      },
+      {
+        "frequency_Hz": 5.58411609103042,
+        "complex_relative_change": 0.055009149801180435,
+        "magnitude_relative_change": 0.0005931783857765743
+      },
+      {
+        "frequency_Hz": 5.75145452942221,
+        "complex_relative_change": 0.0584562529159661,
+        "magnitude_relative_change": 0.0072235252789622515
+      },
+      {
+        "frequency_Hz": 5.75439937337157,
+        "complex_relative_change": 0.05851794918647084,
+        "magnitude_relative_change": 0.0073690195477606685
+      },
+      {
+        "frequency_Hz": 5.91797975281781,
+        "complex_relative_change": 0.062015457388688376,
+        "magnitude_relative_change": 0.015808182383617912
+      },
+      {
+        "frequency_Hz": 6.02559586074358,
+        "complex_relative_change": 0.06441293805377109,
+        "magnitude_relative_change": 0.021679437718285306
+      },
+      {
+        "frequency_Hz": 6.09532303761474,
+        "complex_relative_change": 0.06602401737667091,
+        "magnitude_relative_change": 0.025588938708643323
+      },
+      {
+        "frequency_Hz": 6.2779807442205,
+        "complex_relative_change": 0.07058088555084713,
+        "magnitude_relative_change": 0.03616054912356318
+      },
+      {
+        "frequency_Hz": 6.30957344480193,
+        "complex_relative_change": 0.0714400686718832,
+        "magnitude_relative_change": 0.03803995040367586
+      },
+      {
+        "frequency_Hz": 6.45975078874689,
+        "complex_relative_change": 0.0759866882304046,
+        "magnitude_relative_change": 0.047292721401838246
+      },
+      {
+        "frequency_Hz": 6.51081335095554,
+        "complex_relative_change": 0.07776753784383368,
+        "magnitude_relative_change": 0.05062235658196467
+      },
+      {
+        "frequency_Hz": 6.55582556821981,
+        "complex_relative_change": 0.07946864714207694,
+        "magnitude_relative_change": 0.05367761841918474
+      },
+      {
+        "frequency_Hz": 6.60114897543744,
+        "complex_relative_change": 0.08132501287223083,
+        "magnitude_relative_change": 0.05690015307209442
+      },
+      {
+        "frequency_Hz": 6.60693448007596,
+        "complex_relative_change": 0.08157325036616021,
+        "magnitude_relative_change": 0.05732385365864756
+      },
+      {
+        "frequency_Hz": 6.65332925161684,
+        "complex_relative_change": 0.08366279052165194,
+        "magnitude_relative_change": 0.060838577889932896
+      },
+      {
+        "frequency_Hz": 6.69932674619415,
+        "complex_relative_change": 0.08591621622798874,
+        "magnitude_relative_change": 0.0645567880424108
+      },
+      {
+        "frequency_Hz": 6.75228309078403,
+        "complex_relative_change": 0.08873841586738317,
+        "magnitude_relative_change": 0.06917085260504717
+      },
+      {
+        "frequency_Hz": 6.79896469830817,
+        "complex_relative_change": 0.09141299567284085,
+        "magnitude_relative_change": 0.07355724662457129
+      },
+      {
+        "frequency_Hz": 6.84596903704066,
+        "complex_relative_change": 0.09424303181109078,
+        "magnitude_relative_change": 0.07826647545516746
+      },
+      {
+        "frequency_Hz": 6.91830970918937,
+        "complex_relative_change": 0.09870097099586948,
+        "magnitude_relative_change": 0.08593884868959889
+      },
+      {
+        "frequency_Hz": 6.94778797511145,
+        "complex_relative_change": 0.10047959501055378,
+        "magnitude_relative_change": 0.0891213181384432
+      },
+      {
+        "frequency_Hz": 7.05112124900435,
+        "complex_relative_change": 0.10595647113647239,
+        "magnitude_relative_change": 0.09959266445482583
+      },
+      {
+        "frequency_Hz": 7.15599138117958,
+        "complex_relative_change": 0.10925857623956105,
+        "magnitude_relative_change": 0.10703676716299902
+      },
+      {
+        "frequency_Hz": 7.2443596007499,
+        "complex_relative_change": 0.1096431241666914,
+        "magnitude_relative_change": 0.10929692156242504
+      },
+      {
+        "frequency_Hz": 7.26242122907009,
+        "complex_relative_change": 0.10944846374862542,
+        "magnitude_relative_change": 0.10927961439202195
+      },
+      {
+        "frequency_Hz": 7.4726921096327,
+        "complex_relative_change": 0.10283914085191888,
+        "magnitude_relative_change": 0.1014810420263656
+      },
+      {
+        "frequency_Hz": 7.58577575029184,
+        "complex_relative_change": 0.09915617273059547,
+        "magnitude_relative_change": 0.09667353009190702
+      },
+      {
+        "frequency_Hz": 7.69662524566065,
+        "complex_relative_change": 0.0976862944746459,
+        "magnitude_relative_change": 0.09447978232644516
+      },
+      {
+        "frequency_Hz": 7.92726895515738,
+        "complex_relative_change": 0.10277815807489757,
+        "magnitude_relative_change": 0.09809583510034003
+      },
+      {
+        "frequency_Hz": 7.94328234724281,
+        "complex_relative_change": 0.1035040006484077,
+        "magnitude_relative_change": 0.0986672097474363
+      },
+      {
+        "frequency_Hz": 8.15679425486314,
+        "complex_relative_change": 0.11737798776377864,
+        "magnitude_relative_change": 0.10898167243224662
+      },
+      {
+        "frequency_Hz": 8.31763771102671,
+        "complex_relative_change": 0.13351655843737933,
+        "magnitude_relative_change": 0.11899524526899087
+      },
+      {
+        "frequency_Hz": 8.40122778572836,
+        "complex_relative_change": 0.14437854892829483,
+        "magnitude_relative_change": 0.12424865359337536
+      },
+      {
+        "frequency_Hz": 8.52617782377344,
+        "complex_relative_change": 0.1646899363210063,
+        "magnitude_relative_change": 0.12995842891428572
+      },
+      {
+        "frequency_Hz": 8.64447603885609,
+        "complex_relative_change": 0.18904074261314696,
+        "magnitude_relative_change": 0.12686556846010447
+      },
+      {
+        "frequency_Hz": 8.70963589956081,
+        "complex_relative_change": 0.20403383454768229,
+        "magnitude_relative_change": 0.11652805650081784
+      },
+      {
+        "frequency_Hz": 8.77304386697399,
+        "complex_relative_change": 0.21811494892588046,
+        "magnitude_relative_change": 0.0961128761278534
+      },
+      {
+        "frequency_Hz": 8.90352386262554,
+        "complex_relative_change": 0.23143359353099802,
+        "magnitude_relative_change": 0.01612408993869326
+      },
+      {
+        "frequency_Hz": 9.1201083935591,
+        "complex_relative_change": 0.1653158064090796,
+        "magnitude_relative_change": 0.07639588915823423
+      },
+      {
+        "frequency_Hz": 9.17033453687869,
+        "complex_relative_change": 0.14532551155852041,
+        "magnitude_relative_change": 0.07502218722877246
+      },
+      {
+        "frequency_Hz": 9.43584575652605,
+        "complex_relative_change": 0.08149298311979968,
+        "magnitude_relative_change": 0.04027200882600389
+      },
+      {
+        "frequency_Hz": 9.54992586021436,
+        "complex_relative_change": 0.07177544259912878,
+        "magnitude_relative_change": 0.029083824759823393
+      },
+      {
+        "frequency_Hz": 9.71860844771349,
+        "complex_relative_change": 0.06676326387196753,
+        "magnitude_relative_change": 0.018936808046577446
+      },
+      {
+        "frequency_Hz": 10.0,
+        "complex_relative_change": 0.06727622972048332,
+        "magnitude_relative_change": 0.012823151165939016
+      }
+    ],
+    "maximum_observed_complex_mesh_change": {
+      "frequency_Hz": 8.90352386262554,
+      "complex_relative_change": 0.23143359353099802,
+      "magnitude_relative_change": 0.01612408993869326
+    },
+    "maximum_observed_magnitude_mesh_change": {
+      "frequency_Hz": 8.52617782377344,
+      "complex_relative_change": 0.1646899363210063,
+      "magnitude_relative_change": 0.12995842891428572
+    },
+    "source_pins": {
+      "/tmp/openswing-daedalus-rudder-sweep-20261024/plot.py": {
+        "bytes": 4449,
+        "sha256": "6bf31257009e374eb823877970ea85b98426c7bd0c17d17451c6df7a21a6a6dc"
+      },
+      "/home/userland/aswing/docs/validation/daedalus-rudder-reference.csv": {
+        "bytes": 7870,
+        "sha256": "0891450a32f0a97a427ac0a0b0da891b81c75f8ae5f46b6ef9590c0b94825224"
+      },
+      "/tmp/openswing-daedalus-rudder-sweep-20261024/report.json": {
+        "bytes": 2782,
+        "sha256": "742e40fd0e0270794947275687d888fc1fc952d6aceaaa652271d43f528948af"
+      },
+      "/tmp/openswing-daedalus-rudder-sweep-20261024/mesh8/samples.json": {
+        "bytes": 125576,
+        "sha256": "eedf87664e7cd1d41f06e42946b48c8cd643e1e7c40a61c54a070095b4d2bb9c"
+      },
+      "/tmp/openswing-daedalus-rudder-sweep-20261024/mesh16/samples.json": {
+        "bytes": 125490,
+        "sha256": "83e281fdf16a35793d6edb258784db925b3d5995db34e57b2f30e7bfefa44ee3"
+      }
+    },
+    "artifacts": {
+      "svg": {
+        "bytes": 113670,
+        "sha256": "c87ef8d730525839731f8aea11c7b75e8f33963a9b985811ab5e863f07d85b7b"
+      },
+      "png": {
+        "bytes": 242179,
+        "sha256": "fe555da7044bc6e8b3db2991e16941d8945f10e5fa5c4cccb12d08576c96155c"
+      },
+      "pdf": {
+        "bytes": 28290,
+        "sha256": "860d6c3e02f5896baa7dece7bfefb4611571b2faf717dd14b5addb0c13827627"
+      }
+    }
+  },
+  "independent_audit": {
+    "path": "/tmp/openswing-daedalus-rudder-sweep-20261024/review/measurement/independent-review.json",
+    "pin": {
+      "bytes": 243679,
+      "sha256": "641a9b7e5b705953d9378ea8dc8c69b2759787de0a9528d770df03eaac142cbb"
+    },
+    "status": "PASS_SAVED_SCALAR_SWEEP_AUDIT",
+    "counts": {
+      "passed": 2594,
+      "total": 2594
+    }
+  },
+  "lifecycle": {
+    "session-closeout.json": {
+      "bytes": 627,
+      "sha256": "5eba911a82a969fd72d14407e83286cceba8f11065d0ea66ccbd6f06c2333f70"
+    },
+    "plot-closeout.json": {
+      "bytes": 979,
+      "sha256": "0e1279e4bf8fa85126d52fb5f589e7a8f8132bc886d04a13eb9f65d500c896cd"
+    }
+  },
+  "artifacts": {
+    "docs/validation/daedalus-rudder-sweep.svg": {
+      "bytes": 113670,
+      "sha256": "c87ef8d730525839731f8aea11c7b75e8f33963a9b985811ab5e863f07d85b7b"
+    },
+    "docs/validation/daedalus-rudder-sweep.png": {
+      "bytes": 242179,
+      "sha256": "fe555da7044bc6e8b3db2991e16941d8945f10e5fa5c4cccb12d08576c96155c"
+    },
+    "docs/validation/daedalus-rudder-sweep.pdf": {
+      "bytes": 28290,
+      "sha256": "860d6c3e02f5896baa7dece7bfefb4611571b2faf717dd14b5addb0c13827627"
+    },
+    "docs/validation/daedalus-rudder-sweep.csv": {
+      "bytes": 43815,
+      "sha256": "ac99d145976008eb0825b177e510fca73951ff2c5d8057f2f1533cd84f22bace"
+    }
+  }
+}

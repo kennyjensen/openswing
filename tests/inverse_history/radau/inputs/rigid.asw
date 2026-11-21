@@ -1,0 +1,38 @@
+! Original OpenSwing guided-motion verification model. SI input units.
+! One kilogram at the origin, principal inertias (2,3,4) kg m^2.
+! No aerodynamic surface or volume. Set gravity to zero for inertial checks.
+! Mixed motion can prescribe selected accelerations and solve others from loads.
+! Net Fx includes inertial reaction: without external force, ax = -Fx / mass.
+Name
+Guided rigid-body demonstrator
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+2 1 2
+0 0 0
+0 0 0
+0 0 0
+End
+Ground
+1 0 0
+End
+Weight
+1 0 0 0 0 9.80665 0 0 0 0 0 19.6133 29.41995 39.2266
+End
+Beam 1
+Rigid frame
+t y
+0 0
+2 2
+End
+
+Engine
+1 0 1 0 0 0 0 1 0 0 1 0 -1 0 0
+End

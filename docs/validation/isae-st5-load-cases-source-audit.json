@@ -1,0 +1,98 @@
+{
+  "status": "PASS_TWO_ORIGINAL_STATIC_TARGETS",
+  "checks_total": 252,
+  "checks_passed": 252,
+  "targets": [
+    {
+      "path": "/tmp/openswing-st5-additional-reference-audit-20261026/JW_1_20lb_90_10-target.json",
+      "bytes": 276980,
+      "sha256": "2f4898f837eb152ffe737ee28ef5f04f26c13bc8416912e13a04b53b81c38098"
+    },
+    {
+      "path": "/tmp/openswing-st5-additional-reference-audit-20261026/JW_1_30lb_90_10-target.json",
+      "bytes": 277467,
+      "sha256": "96a5b42c50733c617c4e51374dda5f60527ff717734f5d2a9e420d8871bb4982"
+    }
+  ],
+  "pins": [
+    {
+      "path": "/home/userland/aswing/scripts/extract-isae-st5-load-cases.py",
+      "bytes": 21756,
+      "sha256": "58d98c8345dd85a06fa4ee7e008189438a498a66a7dd942b4fc60a2b838442d2"
+    },
+    {
+      "path": "/home/userland/aswing/docs/validation/isae-st5-reference-target.json",
+      "bytes": 149277,
+      "sha256": "5e96202114d1912ffb6b4472eaadcd02a24e31140e28222bbe7186e21334cf4f"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint/JW_1_20lb_80_20.asw",
+      "bytes": 13265,
+      "sha256": "4ae68c3970b38a3ed4656620cc048fba00c1d788bf141e79c22b385add4736ec"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint/JW_1_20lb_80_20.sh",
+      "bytes": 189,
+      "sha256": "f82202debec4a509c1a48aa86fb39fd5f82fc544d88d51a71d9a12856609ec62"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint/JW_1_20lb_80_20.txt",
+      "bytes": 36109,
+      "sha256": "0ceab44773769c991f2941e7f65d42ceb01cf4eebf01d9fa224e1c5256fea638"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint/extract_local_distribution_data.m",
+      "bytes": 2212,
+      "sha256": "e62380a2a43b631762dc9fbe1e77600de6b4d601f42a75c2763e483d10a58f7c"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST5 Joined Wing/Rigid_Joint/Rigid_joint.m",
+      "bytes": 40232,
+      "sha256": "52edd7d8138d1fc6cf5f118e7648091d66affea35eea9b1ddca8221ed6bdcfe4"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/version_notes.txt",
+      "bytes": 42201,
+      "sha256": "c7a11756971f22dc0af7d76468d66b763e291092320a74b1ac6681ff0f918e58"
+    }
+  ],
+  "decision": "Both unchanged originals qualify for the same explicitly scoped source-policy replay. Exact historical unrounded-node equivalence does not follow.",
+  "preferred_first": "JW_1_20lb_90_10",
+  "reason": "20lb90/10 isolates distribution and rear self-weight changes at the same nominal load;30lb90/10 then adds load amplitude without changing stiffness/geometry.",
+  "source_urls": [
+    "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/tree/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST5%20Joined%20Wing/Rigid_Joint",
+    "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+    "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt"
+  ],
+  "uncertainties": [
+    "Interior unrounded historical stations are unavailable. Use printed centers and exact literal anchors, retaining both original coordinates. This is a finite-grid replay, not proof of identical historical node arrays.",
+    "Positive forward joint prints2.000999 versus literal2.001; that difference exceeds the token half-unit. Do not enlarge output intervals or silently rewrite the archived coordinate.",
+    "All duplicate rows retain sided state/resultants and zero-width display intervals; one unique computational vertex does not recreate an original zero-length element.",
+    "Source policy drela-segspl-v1 plus drela-steady-section-v1 is explicit. Primary-generic zero-third interpolation is not proven by an original ASWING caller; loaded/unloaded-length and scalar EA averaging qualifications remain.",
+    "Selective export scaling has independent literal geometry/balance/shell support, not recovered exporter source. All-zero channels cannot determine their nonzero-rate scaling.",
+    "eps/tau are nodal here, including the nonzero last rear row; only the final seven columns have following-interval/final-dummy behavior.",
+    "For chord/Cm use endpoint VALUE averages under the current source display evidence, including both sides at zero-width intervals; do not reuse the obsolete parameter-midpoint display rule.",
+    "f_reac requires a separately labeled original-display comparison: the prior endpoint-weight and arithmetic-Euler-normal hypothesis is not a proven universal exporter law. Preserve this channel and every failure rather than relabel it solved.",
+    "Global traction sums compare about body origin; Xmom is a coefficient reference, not evidence for moving this sum. Tiny printed residual components are diagnostics, not loads to fit.",
+    "No matching startup .set/.pnt/.con or original binary is retained. The output directly establishes the no-flow static state; internal solver/startup and mesh policies remain unknown.",
+    "Both new literals include rear mg multiplier1.1699, unlike the old80/20 target. Preserve signed distributed loads exactly and do not normalize to filenames or experimental labels."
+  ],
+  "operations": {
+    "production_imports": 0,
+    "physics_calls": 0,
+    "solves": 0,
+    "residuals": 0,
+    "kernel_edits": 0
+  },
+  "no_old_artifacts_modified": true
+}

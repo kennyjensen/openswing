@@ -1,0 +1,2454 @@
+{
+  "format": "SA1_SAVED_LOAD_CONSISTENCY",
+  "version": 1,
+  "scope": {
+    "native_rows": 11,
+    "native_scalars": 77,
+    "baseline_mesh_jobs": 22,
+    "baseline_mesh_slots": 154,
+    "detailed_saved_states": 6,
+    "new_solves": 0,
+    "production_imports": 0,
+    "production_changes": 0
+  },
+  "source_pins": [
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+      "bytes": 4427,
+      "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+      "bytes": 1636,
+      "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+      "bytes": 309,
+      "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+    }
+  ],
+  "evidence_pins": [
+    {
+      "path": "artifacts/isae/sa1-focused-baseline-20261027/report.json",
+      "bytes": 2447187,
+      "sha256": "d360ec4bc375f1de54935b6a71a547bf47df9614176255dcc37613c5f02ca29c"
+    },
+    {
+      "path": "docs/validation/steady-aero-review-20261027/oracle.py",
+      "bytes": 4913,
+      "sha256": "cc675a84e98611127e75c4d5efdc08776267b63c425654bec55b9a6f638ac013"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "docs/validation/sa1-load-consistency-20261027/analysis.py",
+      "bytes": 19422,
+      "sha256": "8be6c6c3a55a543a50e29a297a246ecd3d681529afbe696c2b207f12dfefbfed"
+    }
+  ],
+  "definitions": {
+    "CLi_from_Cm": "(-4*Cm-CDi*sin(alpha))/cos(alpha)",
+    "CLi_from_efficiency": "sqrt(pi*(Bref^2/Sref)*efficiency*CDi)",
+    "CLprofile": "CL-CLi",
+    "CDprofile": "CD-CDi",
+    "basic_CDprofile": "sum((Cdf+Cdp)*sqrt(1+r_j^2)*ds_j/S)",
+    "separation_CDprofile": "sum(4*t_j^2/sqrt(1+r_j^2)*ds_j/S)",
+    "profile_CL": "Multiply each basic/separation CD summand by r_j.",
+    "r_j": "V_hv dot lift_axis / U",
+    "t_j": "V_cp dot physical_normal / U"
+  },
+  "source_equations": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "pages": "16-17",
+      "equations": "67,69,70,72",
+      "lines": [
+        770,
+        812
+      ]
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 49,
+      "equations": "207-211",
+      "lines": [
+        2474,
+        2495
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "row_index": 0,
+      "line_number": 4,
+      "raw_line": "  1  1.000      0.293690E-01   17.6570       93.2413      0.212850E-02  0.112400E-01  0.248495E-06 -0.532472E-03  0.984903    ",
+      "tokens": {
+        "index": "1",
+        "time": "1.000",
+        "alpha": "0.293690E-01",
+        "lift": "17.6570",
+        "drag": "93.2413",
+        "CL": "0.212850E-02",
+        "CD": "0.112400E-01",
+        "CDi": "0.248495E-06",
+        "Cm": "-0.532472E-03",
+        "efficiency": "0.984903"
+      },
+      "native": {
+        "index": 1.0,
+        "time": 1.0,
+        "alpha": 0.029369,
+        "lift": 17.657,
+        "drag": 93.2413,
+        "CL": 0.0021285,
+        "CD": 0.01124,
+        "CDi": 2.48495e-07,
+        "Cm": -0.000532472,
+        "efficiency": 0.984903
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.002129888152432829,
+        "CLi_from_efficiency": 0.0021298866903469776,
+        "CLi_route_difference": 1.4620858512608137e-09,
+        "CLprofile": -1.3881524328286828e-06,
+        "CDprofile": 0.011239751505,
+        "profile_force_angle_degrees": -0.00707624855248185,
+        "profile_normal_to_wind_ratio": -0.00012350383655823383
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.0021298861524315735,
+          0.002129890152434085
+        ],
+        "CLi_from_efficiency": [
+          0.0021298840069264922,
+          0.0021298893737662582
+        ],
+        "CLi_interval_intersection": [
+          0.0021298861524315735,
+          0.0021298893737662582
+        ],
+        "CLprofile": [
+          -1.3943737662584432e-06,
+          -1.3811524315729578e-06
+        ],
+        "CDprofile": [
+          0.011239701504499997,
+          0.011239801505500004
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.0005324723053335652,
+          -0.0005324709636233039
+        ],
+        "Cm_printed": [
+          -0.0005324725000000002,
+          -0.0005324714999999999
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4702948783300955365385564046126271725929701833",
+            "8295.5562498385009126166610680316373775836917634291"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4479739858808457257752412133397983105057361844",
+            "8295.5306740688348257776947406349672373987428769701"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row000:n200",
+          "predicted": {
+            "lift": 17.667162172090567,
+            "drag": 93.24124240302254,
+            "CL": 0.002129732216276648,
+            "CD": 0.01123999858591208,
+            "CDi": 2.484956867495632e-07,
+            "Cm": -0.0005327793708513062,
+            "efficiency": 0.9860390326169957
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.0021311176359992217,
+            "CLi_from_efficiency": 0.002131117635999223,
+            "CLi_route_difference": -1.3010426069826053e-18,
+            "CLprofile": -1.385419722573552e-06,
+            "CDprofile": 0.01123975009022533,
+            "profile_force_angle_degrees": -0.00706231917244104,
+            "profile_normal_to_wind_ratio": -0.00012326072301005917
+          },
+          "difference_from_native_centers": {
+            "CL": 1.2322162766479489e-06,
+            "CD": -1.4140879196766765e-09,
+            "CDi": 6.867495631722493e-13,
+            "Cm": -3.07370851306216e-07,
+            "efficiency": 0.0011360326169956858,
+            "CLi_from_Cm": 1.229483566392818e-06,
+            "CLprofile": 2.7327102551308324e-09,
+            "CDprofile": -1.41477466894524e-09
+          },
+          "CLi_relative_difference": 0.000577252643519488,
+          "CDi_relative_difference": 2.7636353374660416e-06,
+          "efficiency_relative_difference": 0.0011534461941893337,
+          "profile_lift_fraction_of_total_CL_error": 0.0022177196543489443,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -4.267291000594133e-09,
+              8.954043684891241e-09
+            ],
+            "CDprofile": [
+              -5.141527467319996e-08,
+              4.8585725333574754e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row000:n400",
+          "predicted": {
+            "lift": 17.667162223020394,
+            "drag": 93.24124240121925,
+            "CL": 0.0021297322224161116,
+            "CD": 0.011239998585694699,
+            "CDi": 2.4849547030881356e-07,
+            "Cm": -0.0005327793708512861,
+            "efficiency": 0.9860398914617585
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.0021311176359992525,
+            "CLi_from_efficiency": 0.0021311176359992486,
+            "CLi_route_difference": 3.903127820947816e-18,
+            "CLprofile": -1.3854135831408397e-06,
+            "CDprofile": 0.01123975009022439,
+            "profile_force_angle_degrees": -0.0070622878760538245,
+            "profile_normal_to_wind_ratio": -0.00012326017678504996
+          },
+          "difference_from_native_centers": {
+            "CL": 1.2322224161114524e-06,
+            "CD": -1.414305301344898e-09,
+            "CDi": 4.703088135591672e-13,
+            "Cm": -3.0737085128615827e-07,
+            "efficiency": 0.001136891461758549,
+            "CLi_from_Cm": 1.2294835664236094e-06,
+            "CLprofile": 2.738849687843048e-09,
+            "CDprofile": -1.414775609165364e-09
+          },
+          "CLi_relative_difference": 0.0005772526435339209,
+          "CDi_relative_difference": 1.8926288800624747e-06,
+          "efficiency_relative_difference": 0.0011543182036795052,
+          "profile_lift_fraction_of_total_CL_error": 0.00222269101099953,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -4.261151567881917e-09,
+              8.960183117603457e-09
+            ],
+            "CDprofile": [
+              -5.141527561342008e-08,
+              4.858572439335463e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 1,
+      "line_number": 5,
+      "raw_line": "  2  2.000       1.99710       1201.16       102.782      0.144797      0.123901E-01  0.114998E-02 -0.362109E-01  0.984903    ",
+      "tokens": {
+        "index": "2",
+        "time": "2.000",
+        "alpha": "1.99710",
+        "lift": "1201.16",
+        "drag": "102.782",
+        "CL": "0.144797",
+        "CD": "0.123901E-01",
+        "CDi": "0.114998E-02",
+        "Cm": "-0.362109E-01",
+        "efficiency": "0.984903"
+      },
+      "native": {
+        "index": 2.0,
+        "time": 2.0,
+        "alpha": 1.9971,
+        "lift": 1201.16,
+        "drag": 102.782,
+        "CL": 0.144797,
+        "CD": 0.0123901,
+        "CDi": 0.00114998,
+        "Cm": -0.0362109,
+        "efficiency": 0.984903
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.14489153269982896,
+        "CLi_from_efficiency": 0.14489146913271048,
+        "CLi_route_difference": 6.356711848565233e-08,
+        "CLprofile": -9.453269982895307e-05,
+        "CDprofile": 0.01124012,
+        "profile_force_angle_degrees": -0.48186291847887763,
+        "profile_normal_to_wind_ratio": -0.008410292757457489
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.1448913320633759,
+          0.14489173333628522
+        ],
+        "CLi_from_efficiency": [
+          0.1448911173674043,
+          0.14489182089748245
+        ],
+        "CLi_interval_intersection": [
+          0.1448913320633759,
+          0.14489173333628522
+        ],
+        "CLprofile": [
+          -9.523333628524978e-05,
+          -9.3832063375876e-05
+        ],
+        "CDprofile": [
+          0.011240064999999995,
+          0.011240175000000005
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.03621097213429658,
+          -0.03621079610131633
+        ],
+        "Cm_printed": [
+          -0.036210950000000006,
+          -0.036210849999999996
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4125589184896148068854779951311314076555189143",
+            "8295.5389115068389083990289820541242364283667077588"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4201522983983244754906114938075810220215251631",
+            "8295.5678144963095387024265438799682002897486289402"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row001:n200",
+          "predicted": {
+            "lift": 1201.8584628694605,
+            "drag": 102.78232231229411,
+            "CL": 0.1448810319872067,
+            "CD": 0.012390151907816019,
+            "CDi": 0.001149984374173925,
+            "Cm": -0.036231824891262095,
+            "efficiency": 0.9860390320130832
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.14497528298302065,
+            "CLi_from_efficiency": 0.14497528298302054,
+            "CLi_route_difference": 1.1102230246251565e-16,
+            "CLprofile": -9.425099581394925e-05,
+            "CDprofile": 0.011240167533642095,
+            "profile_force_angle_degrees": -0.4804250202866628,
+            "profile_normal_to_wind_ratio": -0.008385194929866812
+          },
+          "difference_from_native_centers": {
+            "CL": 8.40319872066897e-05,
+            "CD": 5.190781601945027e-08,
+            "CDi": 4.374173924980018e-09,
+            "Cm": -2.09248912620974e-05,
+            "efficiency": 0.0011360320130832102,
+            "CLi_from_Cm": 8.375028319168587e-05,
+            "CLprofile": 2.8170401500382525e-07,
+            "CDprofile": 4.7533642095337614e-08
+          },
+          "CLi_relative_difference": 0.0005780205484138268,
+          "CDi_relative_difference": 3.803695651116712e-06,
+          "efficiency_relative_difference": 0.0011534455810198185,
+          "profile_lift_fraction_of_total_CL_error": 0.003352342653886437,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -4.1893243807324094e-07,
+              9.823404713005384e-07
+            ],
+            "CDprofile": [
+              -7.466357910407286e-09,
+              1.025336420993478e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row001:n400",
+          "predicted": {
+            "lift": 1201.8584663348545,
+            "drag": 102.78231396723359,
+            "CL": 0.1448810324049513,
+            "CD": 0.012390150901839841,
+            "CDi": 0.0011499833725331738,
+            "Cm": -0.0362318248825412,
+            "efficiency": 0.9860398908578751
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.14497528298304319,
+            "CLi_from_efficiency": 0.14497528298304313,
+            "CLi_route_difference": 5.551115123125783e-17,
+            "CLprofile": -9.425057809189785e-05,
+            "CDprofile": 0.011240167529306667,
+            "profile_force_angle_degrees": -0.4804228913197188,
+            "profile_normal_to_wind_ratio": -0.008385157769771386
+          },
+          "difference_from_native_centers": {
+            "CL": 8.403240495127862e-05,
+            "CD": 5.0901839842090735e-08,
+            "CDi": 3.3725331737358144e-09,
+            "Cm": -2.0924882541205336e-05,
+            "efficiency": 0.0011368908578751613,
+            "CLi_from_Cm": 8.37502832142234e-05,
+            "CLprofile": 2.821217370552187e-07,
+            "CDprofile": 4.752930666748756e-08
+          },
+          "CLi_relative_difference": 0.00057802054856948,
+          "CDi_relative_difference": 2.932688545564943e-06,
+          "efficiency_relative_difference": 0.001154317590539522,
+          "profile_lift_fraction_of_total_CL_error": 0.0033572969525124366,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -4.185147160218475e-07,
+              9.827581933519318e-07
+            ],
+            "CDprofile": [
+              -7.470693338257341e-09,
+              1.0252930667149775e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 2,
+      "line_number": 6,
+      "raw_line": "  3  3.000       4.11160       2476.19       133.795      0.298499      0.161287E-01  0.488714E-02 -0.745686E-01  0.984904    ",
+      "tokens": {
+        "index": "3",
+        "time": "3.000",
+        "alpha": "4.11160",
+        "lift": "2476.19",
+        "drag": "133.795",
+        "CL": "0.298499",
+        "CD": "0.161287E-01",
+        "CDi": "0.488714E-02",
+        "Cm": "-0.745686E-01",
+        "efficiency": "0.984904"
+      },
+      "native": {
+        "index": 3.0,
+        "time": 3.0,
+        "alpha": 4.1116,
+        "lift": 2476.19,
+        "drag": 133.795,
+        "CL": 0.298499,
+        "CD": 0.0161287,
+        "CDi": 0.00488714,
+        "Cm": -0.0745686,
+        "efficiency": 0.984904
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.2986927444037015,
+        "CLi_from_efficiency": 0.298693163749257,
+        "CLi_route_difference": -4.193455554468706e-07,
+        "CLprofile": -0.00019374440370151236,
+        "CDprofile": 0.01124156,
+        "profile_force_angle_degrees": -0.9873752162510719,
+        "profile_normal_to_wind_ratio": -0.017234654594336762
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.29869254208096646,
+          0.29869294672644225
+        ],
+        "CLi_from_efficiency": [
+          0.2986929351359285,
+          0.29869339236256565
+        ],
+        "CLi_interval_intersection": [
+          0.2986929351359285,
+          0.29869294672644225
+        ],
+        "CLprofile": [
+          -0.00019444672644231,
+          -0.0001934351359284547
+        ],
+        "CDprofile": [
+          0.011241504999999995,
+          0.011241615000000007
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.07456876202330594,
+          -0.07456864710982927
+        ],
+        "Cm_printed": [
+          -0.07456865000000001,
+          -0.07456854999999998
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4410308894989773852217507902023286471166618370",
+            "8295.5023224572317783841459839831690946520669283095"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4041695729675269317213051228396496938696427187",
+            "8295.5176037672092828600037820896355243619273776789"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row002:n200",
+          "predicted": {
+            "lift": 2477.620210640453,
+            "drag": 133.79510215066,
+            "CL": 0.2986709201455593,
+            "CD": 0.016128664957885966,
+            "CDi": 0.00488714067986293,
+            "Cm": -0.0746116139107687,
+            "efficiency": 0.9860390164324171
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.2988652439623449,
+            "CLi_from_efficiency": 0.29886524396234465,
+            "CLi_route_difference": 2.220446049250313e-16,
+            "CLprofile": -0.00019432381678557986,
+            "CDprofile": 0.011241524278023036,
+            "profile_force_angle_degrees": -0.9903306251418883,
+            "profile_normal_to_wind_ratio": -0.017286251577597816
+          },
+          "difference_from_native_centers": {
+            "CL": 0.00017192014555927893,
+            "CD": -3.5042114033406735e-08,
+            "CDi": 6.798629298421233e-10,
+            "Cm": -4.301391076870498e-05,
+            "efficiency": 0.0011350164324170908,
+            "CLi_from_Cm": 0.00017249955864334643,
+            "CLprofile": -5.794130840675038e-07,
+            "CDprofile": -3.572197696324886e-08
+          },
+          "CLi_relative_difference": 0.0005775150614646396,
+          "CDi_relative_difference": 1.3911263629928783e-07,
+          "efficiency_relative_difference": 0.0011524132630358341,
+          "profile_lift_fraction_of_total_CL_error": -0.003370245425180374,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -8.886808571251509e-07,
+              1.2290965673014624e-07
+            ],
+            "CDprofile": [
+              -9.072197697072849e-08,
+              1.927802304076132e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row002:n400",
+          "predicted": {
+            "lift": 2477.6202177994137,
+            "drag": 133.79506668661878,
+            "CL": 0.29867092100855414,
+            "CD": 0.016128660682784488,
+            "CDi": 0.004887136423182365,
+            "Cm": -0.0746116138348172,
+            "efficiency": 0.9860398752785553
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.2988652439637438,
+            "CLi_from_efficiency": 0.298865243963744,
+            "CLi_route_difference": -1.6653345369377348e-16,
+            "CLprofile": -0.00019432295518967413,
+            "CDprofile": 0.011241524259602124,
+            "profile_force_angle_degrees": -0.9903262366958023,
+            "profile_normal_to_wind_ratio": -0.017286174961877624
+          },
+          "difference_from_native_centers": {
+            "CL": 0.00017192100855412118,
+            "CD": -3.931721551109213e-08,
+            "CDi": -3.5768176346109848e-09,
+            "Cm": -4.3013834817196006e-05,
+            "efficiency": 0.0011358752785552984,
+            "CLi_from_Cm": 0.00017249956004228295,
+            "CLprofile": -5.785514881617715e-07,
+            "CDprofile": -3.574039787561378e-08
+          },
+          "CLi_relative_difference": 0.0005775150661482265,
+          "CDi_relative_difference": -7.318836036107612e-07,
+          "efficiency_relative_difference": 0.0011532852730371523,
+          "profile_lift_fraction_of_total_CL_error": -0.0033652169273986196,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -8.878192612194186e-07,
+              1.2377125263587856e-07
+            ],
+            "CDprofile": [
+              -9.074039788309342e-08,
+              1.9259602128396395e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 3,
+      "line_number": 7,
+      "raw_line": "  4  4.000       6.10870       3686.59       183.134      0.444409      0.220764E-01  0.108327E-01 -0.110832      0.984904    ",
+      "tokens": {
+        "index": "4",
+        "time": "4.000",
+        "alpha": "6.10870",
+        "lift": "3686.59",
+        "drag": "183.134",
+        "CL": "0.444409",
+        "CD": "0.220764E-01",
+        "CDi": "0.108327E-01",
+        "Cm": "-0.110832",
+        "efficiency": "0.984904"
+      },
+      "native": {
+        "index": 4.0,
+        "time": 4.0,
+        "alpha": 6.1087,
+        "lift": 3686.59,
+        "drag": 183.134,
+        "CL": 0.444409,
+        "CD": 0.0220764,
+        "CDi": 0.0108327,
+        "Cm": -0.110832,
+        "efficiency": 0.984904
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.44470033636338924,
+        "CLi_from_efficiency": 0.4446991002930717,
+        "CLi_route_difference": 1.2360703175451349e-06,
+        "CLprofile": -0.0002913363633892385,
+        "CDprofile": 0.011243699999999999,
+        "profile_force_angle_degrees": -1.484263177447448,
+        "profile_normal_to_wind_ratio": -0.02591107583706774
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.44469831638307256,
+          0.4447023563437557
+        ],
+        "CLi_from_efficiency": [
+          0.44469796112464877,
+          0.44470023945961845
+        ],
+        "CLi_interval_intersection": [
+          0.44469831638307256,
+          0.44470023945961845
+        ],
+        "CLprofile": [
+          -0.00029173945961852304,
+          -0.00028881638307248764
+        ],
+        "CDprofile": [
+          0.011243599999999994,
+          0.011243800000000009
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.11083197803923622,
+          -0.11083140743446993
+        ],
+        "Cm_printed": [
+          -0.11083250000000001,
+          -0.11083149999999999
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4684812093350839709772180837718365606495810733",
+            "8295.5096493428906062777827156771303879201230399509"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4234036722389695807070430254864346396272951494",
+            "8295.5062770793179126078359873801602167024893154892"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row003:n200",
+          "predicted": {
+            "lift": 3688.715701043717,
+            "drag": 183.1341592082291,
+            "CL": 0.44466545270120783,
+            "CD": 0.022076364894790014,
+            "CDi": 0.010832682548776607,
+            "Cm": -0.11089526095215414,
+            "efficiency": 0.9860386636487394
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.4449548270789862,
+            "CLi_from_efficiency": 0.44495482707898604,
+            "CLi_route_difference": 1.6653345369377348e-16,
+            "CLprofile": -0.00028937437777837305,
+            "CDprofile": 0.011243682346013407,
+            "profile_force_angle_degrees": -1.4742742446125574,
+            "profile_normal_to_wind_ratio": -0.025736619807742476
+          },
+          "difference_from_native_centers": {
+            "CL": 0.00025645270120783215,
+            "CD": -3.5105209985480945e-08,
+            "CDi": -1.7451223393444293e-08,
+            "Cm": -6.326095215414274e-05,
+            "efficiency": 0.0011346636487393758,
+            "CLi_from_Cm": 0.0002544907155969667,
+            "CLprofile": 1.9619856108654687e-06,
+            "CDprofile": -1.7653986592036652e-08
+          },
+          "CLi_relative_difference": 0.0005722746190797157,
+          "CDi_relative_difference": -1.6109763395499854e-06,
+          "efficiency_relative_difference": 0.001152055072108027,
+          "profile_lift_fraction_of_total_CL_error": 0.007650477462802989,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -5.579947058854106e-07,
+              2.3650818401499954e-06
+            ],
+            "CDprofile": [
+              -1.1765398660185113e-07,
+              8.234601341257365e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": -4.547473508864641e-13,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row003:n400",
+          "predicted": {
+            "lift": 3688.7157121628793,
+            "drag": 183.13408061855233,
+            "CL": 0.44466545404159497,
+            "CD": 0.022076355421001025,
+            "CDi": 0.010832673115806365,
+            "Cm": -0.11089526071525771,
+            "efficiency": 0.986039522530761
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.4449548271355316,
+            "CLi_from_efficiency": 0.44495482713553125,
+            "CLi_route_difference": 3.3306690738754696e-16,
+            "CLprofile": -0.0002893730939366179,
+            "CDprofile": 0.011243682305194659,
+            "profile_force_angle_degrees": -1.4742677120665655,
+            "profile_normal_to_wind_ratio": -0.02573650571778656
+          },
+          "difference_from_native_centers": {
+            "CL": 0.00025645404159496676,
+            "CD": -4.457899897489237e-08,
+            "CDi": -2.6884193635168252e-08,
+            "Cm": -6.326071525770971e-05,
+            "efficiency": 0.0011355225307609906,
+            "CLi_from_Cm": 0.00025449077214234617,
+            "CLprofile": 1.9632694526205974e-06,
+            "CDprofile": -1.7694805339724118e-08
+          },
+          "CLi_relative_difference": 0.0005722747462335587,
+          "CDi_relative_difference": -2.4817629616924464e-06,
+          "efficiency_relative_difference": 0.001152927118542424,
+          "profile_lift_fraction_of_total_CL_error": 0.007655443604672476,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -5.56710864130282e-07,
+              2.366365681905124e-06
+            ],
+            "CDprofile": [
+              -1.1769480534953859e-07,
+              8.230519466488619e-08
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 4,
+      "line_number": 8,
+      "raw_line": "  5  5.000       8.13510       4923.90       253.603      0.593564      0.305712E-01  0.193245E-01 -0.147677      0.984898    ",
+      "tokens": {
+        "index": "5",
+        "time": "5.000",
+        "alpha": "8.13510",
+        "lift": "4923.90",
+        "drag": "253.603",
+        "CL": "0.593564",
+        "CD": "0.305712E-01",
+        "CDi": "0.193245E-01",
+        "Cm": "-0.147677",
+        "efficiency": "0.984898"
+      },
+      "native": {
+        "index": 5.0,
+        "time": 5.0,
+        "alpha": 8.1351,
+        "lift": 4923.9,
+        "drag": 253.603,
+        "CL": 0.593564,
+        "CD": 0.0305712,
+        "CDi": 0.0193245,
+        "Cm": -0.147677,
+        "efficiency": 0.984898
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.593950264189755,
+        "CLi_from_efficiency": 0.5939511162463603,
+        "CLi_route_difference": -8.520566052716561e-07,
+        "CLprofile": -0.00038626418975507004,
+        "CDprofile": 0.011246699999999998,
+        "profile_force_angle_degrees": -1.9670314221495426,
+        "profile_normal_to_wind_ratio": -0.03434466908115893
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.5939482309894124,
+          0.5939522973901616
+        ],
+        "CLi_from_efficiency": [
+          0.5939501970901007,
+          0.5939520354019777
+        ],
+        "CLi_interval_intersection": [
+          0.5939501970901007,
+          0.5939520354019777
+        ],
+        "CLprofile": [
+          -0.0003885354019778076,
+          -0.00038569709010050074
+        ],
+        "CDprofile": [
+          0.01124659999999999,
+          0.01124680000000001
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.1476774415323489,
+          -0.14767698020874012
+        ],
+        "Cm_printed": [
+          -0.14767750000000002,
+          -0.14767649999999996
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4674681521553260007968805412048732698805268846",
+            "8295.4982912527471786927599153249820785813143833811"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4573332788158809338839596025677720080140655027",
+            "8295.5171787780309213097969817949275706016947350688"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row004:n200",
+          "predicted": {
+            "lift": 4926.605315397345,
+            "drag": 253.59504989491296,
+            "CL": 0.5938899498900075,
+            "CD": 0.030570249052373474,
+            "CDi": 0.0193234849619334,
+            "Cm": -0.14775771724158468,
+            "efficiency": 0.9860293994160492
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.5942765602587745,
+            "CLi_from_efficiency": 0.5942765602587745,
+            "CLi_route_difference": 0.0,
+            "CLprofile": -0.00038661036876697086,
+            "CDprofile": 0.011246764090440075,
+            "profile_force_angle_degrees": -1.9687817245642636,
+            "profile_normal_to_wind_ratio": -0.03437525368702236
+          },
+          "difference_from_native_centers": {
+            "CL": 0.0003259498900075597,
+            "CD": -9.509476265254224e-07,
+            "CDi": -1.0150380666019976e-06,
+            "Cm": -8.071724158467686e-05,
+            "efficiency": 0.001131399416049117,
+            "CLi_from_Cm": 0.0003262960690194605,
+            "CLprofile": -3.461790119008157e-07,
+            "CDprofile": 6.409044007657516e-08
+          },
+          "CLi_relative_difference": 0.0005493659801036888,
+          "CDi_relative_difference": -5.2525967895733494e-05,
+          "efficiency_relative_difference": 0.0011487478054064137,
+          "profile_lift_fraction_of_total_CL_error": -0.0010620620608056866,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -9.132786664701175e-07,
+              1.9250332108367565e-06
+            ],
+            "CDprofile": [
+              -3.590955993497403e-08,
+              1.6409044008465492e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row004:n400",
+          "predicted": {
+            "lift": 4926.605348711157,
+            "drag": 253.59491072772494,
+            "CL": 0.5938899539059042,
+            "CD": 0.030570232276117,
+            "CDi": 0.019323468258488293,
+            "Cm": -0.147757717219847,
+            "efficiency": 0.9860302593839682
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.594276562558633,
+            "CLi_from_efficiency": 0.5942765625586337,
+            "CLi_route_difference": -6.661338147750939e-16,
+            "CLprofile": -0.00038660865272888145,
+            "CDprofile": 0.011246764017628707,
+            "profile_force_angle_degrees": -1.968773005393315,
+            "profile_normal_to_wind_ratio": -0.03437510132895941
+          },
+          "difference_from_native_centers": {
+            "CL": 0.00032595390590417495,
+            "CD": -9.677238829997048e-07,
+            "CDi": -1.031741511708234e-06,
+            "Cm": -8.071721984700964e-05,
+            "efficiency": 0.0011322593839681039,
+            "CLi_from_Cm": 0.00032629836887798636,
+            "CLprofile": -3.444629738114102e-07,
+            "CDprofile": 6.401762870852923e-08
+          },
+          "CLi_relative_difference": 0.0005493698522436308,
+          "CDi_relative_difference": -5.339033412032901e-05,
+          "efficiency_relative_difference": 0.0011496209597015028,
+          "profile_lift_fraction_of_total_CL_error": -0.0010567843108242325,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -9.11562628380712e-07,
+              1.926749248926162e-06
+            ],
+            "CDprofile": [
+              -3.598237130301996e-08,
+              1.64017628716609e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 5,
+      "line_number": 9,
+      "raw_line": "  6  6.000       10.1030       6133.65       342.112      0.739397      0.412408E-01  0.299901E-01 -0.183417      0.984786    ",
+      "tokens": {
+        "index": "6",
+        "time": "6.000",
+        "alpha": "10.1030",
+        "lift": "6133.65",
+        "drag": "342.112",
+        "CL": "0.739397",
+        "CD": "0.412408E-01",
+        "CDi": "0.299901E-01",
+        "Cm": "-0.183417",
+        "efficiency": "0.984786"
+      },
+      "native": {
+        "index": 6.0,
+        "time": 6.0,
+        "alpha": 10.103,
+        "lift": 6133.65,
+        "drag": 342.112,
+        "CL": 0.739397,
+        "CD": 0.0412408,
+        "CDi": 0.0299901,
+        "Cm": -0.183417,
+        "efficiency": 0.984786
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.7398797667044786,
+        "CLi_from_efficiency": 0.7398792234494617,
+        "CLi_route_difference": 5.432550169715e-07,
+        "CLprofile": -0.00048276670447866543,
+        "CDprofile": 0.011250700000000002,
+        "profile_force_angle_degrees": -2.457050374614689,
+        "profile_normal_to_wind_ratio": -0.04290992600270786
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.7398776374212535,
+          0.7398818959890208
+        ],
+        "CLi_from_efficiency": [
+          0.7398784188523716,
+          0.7398800280463032
+        ],
+        "CLi_interval_intersection": [
+          0.7398784188523716,
+          0.7398800280463032
+        ],
+        "CLprofile": [
+          -0.0004835280463032499,
+          -0.000480918852371448
+        ],
+        "CDprofile": [
+          0.011250599999999987,
+          0.011250800000000014
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.18341708838909374,
+          -0.18341664419509415
+        ],
+        "Cm_printed": [
+          -0.18341750000000004,
+          -0.18341649999999998
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4635361899384295997754928844092656521018802471",
+            "8295.4882799688665012615017788155610690610518172591"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4522033372251056901106548482875595435108636219",
+            "8295.4965658965949940289640707310124088431951407285"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row005:n200",
+          "predicted": {
+            "lift": 6133.139185485052,
+            "drag": 341.81677599780636,
+            "CL": 0.7393345905247106,
+            "CD": 0.041205157501545964,
+            "CDi": 0.029954209450261483,
+            "Cm": -0.1833998014202928,
+            "efficiency": 0.9857982114832805
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.7398162838790322,
+            "CLi_from_efficiency": 0.7398162838790319,
+            "CLi_route_difference": 3.3306690738754696e-16,
+            "CLprofile": -0.00048169335432157734,
+            "CDprofile": 0.01125094805128448,
+            "profile_force_angle_degrees": -2.451540226469685,
+            "profile_normal_to_wind_ratio": -0.04281357909803735
+          },
+          "difference_from_native_centers": {
+            "CL": -6.240947528934893e-05,
+            "CD": -3.5642498454037386e-05,
+            "CDi": -3.5890549738515354e-05,
+            "Cm": 1.719857970719496e-05,
+            "efficiency": 0.0010122114832804563,
+            "CLi_from_Cm": -6.348282544643702e-05,
+            "CLprofile": 1.0733501570880932e-06,
+            "CDprofile": 2.480512844779681e-07
+          },
+          "CLi_relative_difference": -8.580154276849328e-05,
+          "CDi_relative_difference": -0.0011967465843233382,
+          "efficiency_relative_difference": 0.0010278491807158563,
+          "profile_lift_fraction_of_total_CL_error": -0.017198512759668657,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -7.745019501293459e-07,
+              1.8346919816725749e-06
+            ],
+            "CDprofile": [
+              1.4805128446641888e-07,
+              3.480512844929868e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row005:n400",
+          "predicted": {
+            "lift": 6133.139853561927,
+            "drag": 341.8166031081298,
+            "CL": 0.7393346710597072,
+            "CD": 0.04120513666012784,
+            "CDi": 0.029954188765194154,
+            "Cm": -0.1833998198141753,
+            "efficiency": 0.9857991012210005
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.7398163622990827,
+            "CLi_from_efficiency": 0.7398163622990821,
+            "CLi_route_difference": 5.551115123125783e-16,
+            "CLprofile": -0.0004816912393754702,
+            "CDprofile": 0.011250947894933683,
+            "profile_force_angle_degrees": -2.451529509777805,
+            "profile_normal_to_wind_ratio": -0.042813391713632985
+          },
+          "difference_from_native_centers": {
+            "CL": -6.232894029278846e-05,
+            "CD": -3.566333987216341e-05,
+            "CDi": -3.591123480584449e-05,
+            "Cm": 1.7180185824694494e-05,
+            "efficiency": 0.001013101221000401,
+            "CLi_from_Cm": -6.340440539598369e-05,
+            "CLprofile": 1.0754651031952278e-06,
+            "CDprofile": 2.478949336810754e-07
+          },
+          "CLi_relative_difference": -8.569555250625971e-05,
+          "CDi_relative_difference": -0.0011974363141784572,
+          "efficiency_relative_difference": 0.0010287526640309075,
+          "profile_lift_fraction_of_total_CL_error": -0.017254666903420153,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -7.723870040222113e-07,
+              1.8368069277797095e-06
+            ],
+            "CDprofile": [
+              1.478949336695262e-07,
+              3.478949336960941e-07
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 6,
+      "line_number": 10,
+      "raw_line": "  7  7.000       12.1000       7290.26       446.002      0.878823      0.537644E-01  0.424667E-01 -0.217191      0.982476    ",
+      "tokens": {
+        "index": "7",
+        "time": "7.000",
+        "alpha": "12.1000",
+        "lift": "7290.26",
+        "drag": "446.002",
+        "CL": "0.878823",
+        "CD": "0.537644E-01",
+        "CDi": "0.424667E-01",
+        "Cm": "-0.217191",
+        "efficiency": "0.982476"
+      },
+      "native": {
+        "index": 7.0,
+        "time": 7.0,
+        "alpha": 12.1,
+        "lift": 7290.26,
+        "drag": 446.002,
+        "CL": 0.878823,
+        "CD": 0.0537644,
+        "CDi": 0.0424667,
+        "Cm": -0.217191,
+        "efficiency": 0.982476
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.8793996041752696,
+        "CLi_from_efficiency": 0.879399418994155,
+        "CLi_route_difference": 1.8518111466470089e-07,
+        "CLprofile": -0.0005766041752696127,
+        "CDprofile": 0.011297699999999994,
+        "profile_force_angle_degrees": -2.9216871977606615,
+        "profile_normal_to_wind_ratio": -0.05103730628974154
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.8793974205522588,
+          0.8794017877998617
+        ],
+        "CLi_from_efficiency": [
+          0.8793986775234753,
+          0.8794001604647363
+        ],
+        "CLi_interval_intersection": [
+          0.8793986775234753,
+          0.8794001604647363
+        ],
+        "CLprofile": [
+          -0.000577660464736507,
+          -0.0005751775234752453
+        ],
+        "CDprofile": [
+          0.01129759999999999,
+          0.011297800000000012
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.21719116976024794,
+          -0.21719073970611424
+        ],
+        "Cm_printed": [
+          -0.21719150000000004,
+          -0.21719049999999998
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4711611603467590477496334588230742578003432999",
+            "8295.4919793246076426127005168848089346824870778798"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4721939869188655328939475806039120645705480108",
+            "8295.5062229897692430021008344748890296265090157325"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row006:n200",
+          "predicted": {
+            "lift": 7236.146661513561,
+            "drag": 441.50960021819856,
+            "CL": 0.8722993832633475,
+            "CD": 0.05322287814086754,
+            "CDi": 0.04186069383428604,
+            "Cm": -0.21556452947029592,
+            "efficiency": 0.9819663689944357
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.8728758147120808,
+            "CLi_from_efficiency": 0.872875814712081,
+            "CLi_route_difference": -2.220446049250313e-16,
+            "CLprofile": -0.0005764314487332056,
+            "CDprofile": 0.0113621843065815,
+            "profile_force_angle_degrees": -2.904265336659012,
+            "profile_normal_to_wind_ratio": -0.05073245013278917
+          },
+          "difference_from_native_centers": {
+            "CL": -0.006523616736652471,
+            "CD": -0.0005415218591324558,
+            "CDi": -0.0006060061657139626,
+            "Cm": 0.0016264705297040771,
+            "efficiency": -0.0005096310055643372,
+            "CLi_from_Cm": -0.006523789463188878,
+            "CLprofile": 1.7272653640709734e-07,
+            "CDprofile": 6.448430658150678e-05
+          },
+          "CLi_relative_difference": -0.007418458493971158,
+          "CDi_relative_difference": -0.014270149687024447,
+          "efficiency_relative_difference": -0.0005187210736591341,
+          "profile_lift_fraction_of_total_CL_error": -2.6477112831697443e-05,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -1.2539252579603065e-06,
+              1.229016003301384e-06
+            ],
+            "CDprofile": [
+              6.438430658148828e-05,
+              6.45843065815114e-05
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row006:n400",
+          "predicted": {
+            "lift": 7236.155025499122,
+            "drag": 441.5098805907798,
+            "CL": 0.8723003915208895,
+            "CD": 0.053222911939081026,
+            "CDi": 0.04186073641986028,
+            "Cm": -0.2155647775442495,
+            "efficiency": 0.9819676328339992
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.8728768204248506,
+            "CLi_from_efficiency": 0.8728768204248512,
+            "CLi_route_difference": -5.551115123125783e-16,
+            "CLprofile": -0.0005764289039611459,
+            "CDprofile": 0.011362175519220745,
+            "profile_force_angle_degrees": -2.904254779415019,
+            "profile_normal_to_wind_ratio": -0.05073226539988174
+          },
+          "difference_from_native_centers": {
+            "CL": -0.00652260847911057,
+            "CD": -0.000541488060918971,
+            "CDi": -0.000605963580139722,
+            "Cm": 0.0016262224557505034,
+            "efficiency": -0.0005083671660007782,
+            "CLi_from_Cm": -0.006522783750419037,
+            "CLprofile": 1.7527130846684003e-07,
+            "CDprofile": 6.447551922075107e-05
+          },
+          "CLi_relative_difference": -0.007417314858284896,
+          "CDi_relative_difference": -0.01426914688779024,
+          "efficiency_relative_difference": -0.0005174346915352013,
+          "profile_lift_fraction_of_total_CL_error": -2.6871352010191514e-05,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -1.2513804859005638e-06,
+              1.2315607753611267e-06
+            ],
+            "CDprofile": [
+              6.437551922073256e-05,
+              6.457551922075569e-05
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 7,
+      "line_number": 11,
+      "raw_line": "  8  8.000       14.0970       8093.10       543.232      0.975602      0.654853E-01  0.529425E-01 -0.239950      0.971328    ",
+      "tokens": {
+        "index": "8",
+        "time": "8.000",
+        "alpha": "14.0970",
+        "lift": "8093.10",
+        "drag": "543.232",
+        "CL": "0.975602",
+        "CD": "0.654853E-01",
+        "CDi": "0.529425E-01",
+        "Cm": "-0.239950",
+        "efficiency": "0.971328"
+      },
+      "native": {
+        "index": 8.0,
+        "time": 8.0,
+        "alpha": 14.097,
+        "lift": 8093.1,
+        "drag": 543.232,
+        "CL": 0.975602,
+        "CD": 0.0654853,
+        "CDi": 0.0529425,
+        "Cm": -0.23995,
+        "efficiency": 0.971328
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 0.976306805173977,
+        "CLi_from_efficiency": 0.9763063609037196,
+        "CLi_route_difference": 4.442702574714019e-07,
+        "CLprofile": -0.0007048051739770855,
+        "CDprofile": 0.012542799999999993,
+        "profile_force_angle_degrees": -3.2161829244633062,
+        "profile_normal_to_wind_ratio": -0.05619201246747823
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          0.9763045627616775,
+          0.9763090475881003
+        ],
+        "CLi_from_efficiency": [
+          0.9763056486003346,
+          0.9763070732070596
+        ],
+        "CLi_interval_intersection": [
+          0.9763056486003346,
+          0.9763070732070596
+        ],
+        "CLprofile": [
+          -0.0007055732070596622,
+          -0.000703148600334491
+        ],
+        "CDprofile": [
+          0.012542699999999974,
+          0.012542900000000018
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.2399501087108186,
+          -0.23994967584356416
+        ],
+        "Cm_printed": [
+          -0.23995050000000004,
+          -0.23994949999999998
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4840726627904295038194346570452617741344451249",
+            "8295.5028256926624241557644181563886484389374145079"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4660851625592594374161549109839070876157797126",
+            "8295.4940234632989871765015785997610148850313620243"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row007:n200",
+          "predicted": {
+            "lift": 7951.785974724461,
+            "drag": 535.0946879184512,
+            "CL": 0.9585679127381634,
+            "CD": 0.06450432641744262,
+            "CDi": 0.051271871593403885,
+            "Cm": -0.2357219915559174,
+            "efficiency": 0.9683180854240102
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.959289187232526,
+            "CLi_from_efficiency": 0.9592891872325263,
+            "CLi_route_difference": -3.3306690738754696e-16,
+            "CLprofile": -0.0007212744943625449,
+            "CDprofile": 0.013232454824038738,
+            "profile_force_angle_degrees": -3.119990174874041,
+            "profile_normal_to_wind_ratio": -0.054507988423451226
+          },
+          "difference_from_native_centers": {
+            "CL": -0.017034087261836528,
+            "CD": -0.0009809735825573734,
+            "CDi": -0.0016706284065961183,
+            "Cm": 0.004228008444082609,
+            "efficiency": -0.0030099145759897583,
+            "CLi_from_Cm": -0.01701761794145107,
+            "CLprofile": -1.646932038545934e-05,
+            "CDprofile": 0.0006896548240387448
+          },
+          "CLi_relative_difference": -0.017430604653440374,
+          "CDi_relative_difference": -0.03155552545867912,
+          "efficiency_relative_difference": -0.0030987622883205113,
+          "profile_lift_fraction_of_total_CL_error": 0.0009668448994245497,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -1.812589402805387e-05,
+              -1.570128730288267e-05
+            ],
+            "CDprofile": [
+              0.0006895548240387193,
+              0.0006897548240387634
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row007:n400",
+          "predicted": {
+            "lift": 7951.803837799325,
+            "drag": 535.0954416329039,
+            "CL": 0.9585700660871648,
+            "CD": 0.06450441727583493,
+            "CDi": 0.05127200327339209,
+            "Cm": -0.23572252061665327,
+            "efficiency": 0.9683199367422631
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.9592913361170885,
+            "CLi_from_efficiency": 0.9592913361170881,
+            "CLi_route_difference": 4.440892098500626e-16,
+            "CLprofile": -0.0007212700299237262,
+            "CDprofile": 0.013232414002442842,
+            "profile_force_angle_degrees": -3.1199805073704985,
+            "profile_normal_to_wind_ratio": -0.054507819192369
+          },
+          "difference_from_native_centers": {
+            "CL": -0.017031933912835195,
+            "CD": -0.0009808827241650636,
+            "CDi": -0.0016704967266079132,
+            "Cm": 0.004227479383346722,
+            "efficiency": -0.003008063257736837,
+            "CLi_from_Cm": -0.017015469056888555,
+            "CLprofile": -1.646485594664071e-05,
+            "CDprofile": 0.0006896140024428496
+          },
+          "CLi_relative_difference": -0.017428403619348387,
+          "CDi_relative_difference": -0.031553038232193686,
+          "efficiency_relative_difference": -0.003096856322207131,
+          "profile_lift_fraction_of_total_CL_error": 0.0009667050160541583,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -1.812142958923524e-05,
+              -1.569682286406404e-05
+            ],
+            "CDprofile": [
+              0.0006895140024428241,
+              0.0006897140024428682
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 8,
+      "line_number": 12,
+      "raw_line": "  9  9.000       15.0950       8370.67       594.427       1.00906      0.716566E-01  0.571241E-01 -0.247478      0.963208    ",
+      "tokens": {
+        "index": "9",
+        "time": "9.000",
+        "alpha": "15.0950",
+        "lift": "8370.67",
+        "drag": "594.427",
+        "CL": "1.00906",
+        "CD": "0.716566E-01",
+        "CDi": "0.571241E-01",
+        "Cm": "-0.247478",
+        "efficiency": "0.963208"
+      },
+      "native": {
+        "index": 9.0,
+        "time": 9.0,
+        "alpha": 15.095,
+        "lift": 8370.67,
+        "drag": 594.427,
+        "CL": 1.00906,
+        "CD": 0.0716566,
+        "CDi": 0.0571241,
+        "Cm": -0.247478,
+        "efficiency": 0.963208
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 1.0098813181641082,
+        "CLi_from_efficiency": 1.009882085053405,
+        "CLi_route_difference": -7.668892967327423e-07,
+        "CLprofile": -0.0008213181641081313,
+        "CDprofile": 0.014532500000000004,
+        "profile_force_angle_degrees": -3.2346848957088157,
+        "profile_normal_to_wind_ratio": -0.0565159583078019
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          1.00987904534622,
+          1.0098835909839343
+        ],
+        "CLi_from_efficiency": [
+          1.0098813809706721,
+          1.0098827891361055
+        ],
+        "CLi_interval_intersection": [
+          1.0098813809706721,
+          1.0098827891361055
+        ],
+        "CLprofile": [
+          -0.0008277891361057056,
+          -0.000816380970671826
+        ],
+        "CDprofile": [
+          0.014532399999999978,
+          0.014532600000000022
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.24747840365315385,
+          -0.2474779665607378
+        ],
+        "Cm_printed": [
+          -0.24747850000000002,
+          -0.24747749999999996
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4665953134832741201012818797599758191989614148",
+            "8295.5587158281758675196099320651500661510026708158"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4826942091208561940866618799511280530139212481",
+            "8295.5082263938188483816203822260491190268021555601"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row008:n200",
+          "predicted": {
+            "lift": 8198.412699759647,
+            "drag": 587.344183438495,
+            "CL": 0.988298147655687,
+            "CD": 0.07080287243232147,
+            "CDi": 0.05502272897797131,
+            "Cm": -0.2423378178457432,
+            "efficiency": 0.9593621406681226
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.989152591895982,
+            "CLi_from_efficiency": 0.9891525918959816,
+            "CLi_route_difference": 4.440892098500626e-16,
+            "CLprofile": -0.0008544442402950159,
+            "CDprofile": 0.015780143454350165,
+            "profile_force_angle_degrees": -3.099356389090209,
+            "profile_normal_to_wind_ratio": -0.05414679801655849
+          },
+          "difference_from_native_centers": {
+            "CL": -0.020761852344313048,
+            "CD": -0.0008537275676785278,
+            "CDi": -0.002101371022028689,
+            "Cm": 0.005140182154256795,
+            "efficiency": -0.0038458593318773104,
+            "CLi_from_Cm": -0.020728726268126163,
+            "CLprofile": -3.312607618688457e-05,
+            "CDprofile": 0.0012476434543501613
+          },
+          "CLi_relative_difference": -0.020525903287140213,
+          "CDi_relative_difference": -0.03678606791229422,
+          "efficiency_relative_difference": -0.003992760994382616,
+          "profile_lift_fraction_of_total_CL_error": 0.0015955260464010693,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -3.806326962318985e-05,
+              -2.6655104189310274e-05
+            ],
+            "CDprofile": [
+              0.0012475434543501426,
+              0.001247743454350187
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row008:n400",
+          "predicted": {
+            "lift": 8198.433851198197,
+            "drag": 587.3451674251428,
+            "CL": 0.9883006974087069,
+            "CD": 0.07080299104945104,
+            "CDi": 0.05502289490494825,
+            "Cm": -0.24233844263473484,
+            "efficiency": 0.9593641818197698
+          },
+          "inferred": {
+            "CLi_from_Cm": 0.9891551356111788,
+            "CLi_from_efficiency": 0.9891551356111797,
+            "CLi_route_difference": -8.881784197001252e-16,
+            "CLprofile": -0.0008544382024719965,
+            "CDprofile": 0.015780096144502785,
+            "profile_force_angle_degrees": -3.099343804484866,
+            "profile_normal_to_wind_ratio": -0.05414657772979741
+          },
+          "difference_from_native_centers": {
+            "CL": -0.020759302591293216,
+            "CD": -0.0008536089505489647,
+            "CDi": -0.002101205095051746,
+            "Cm": 0.005139557365265168,
+            "efficiency": -0.003843818180230163,
+            "CLi_from_Cm": -0.02072618255292935,
+            "CLprofile": -3.3120038363865234e-05,
+            "CDprofile": 0.0012475961445027814
+          },
+          "CLi_relative_difference": -0.02052338446126334,
+          "CDi_relative_difference": -0.036783163236738026,
+          "efficiency_relative_difference": -0.003990641876136958,
+          "profile_lift_fraction_of_total_CL_error": 0.0015954311672183202,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -3.8057231800170514e-05,
+              -2.664906636629094e-05
+            ],
+            "CDprofile": [
+              0.0012474961445027627,
+              0.001247696144502807
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 9,
+      "line_number": 13,
+      "raw_line": " 10  10.00       16.0060       8579.17       647.019       1.03420      0.779966E-01  0.605200E-01 -0.252931      0.955258    ",
+      "tokens": {
+        "index": "10",
+        "time": "10.00",
+        "alpha": "16.0060",
+        "lift": "8579.17",
+        "drag": "647.019",
+        "CL": "1.03420",
+        "CD": "0.779966E-01",
+        "CDi": "0.605200E-01",
+        "Cm": "-0.252931",
+        "efficiency": "0.955258"
+      },
+      "native": {
+        "index": 10.0,
+        "time": 10.0,
+        "alpha": 16.006,
+        "lift": 8579.17,
+        "drag": 647.019,
+        "CL": 1.0342,
+        "CD": 0.0779966,
+        "CDi": 0.06052,
+        "Cm": -0.252931,
+        "efficiency": 0.955258
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 1.0351668277257817,
+        "CLi_from_efficiency": 1.035167774337867,
+        "CLi_route_difference": -9.466120853840465e-07,
+        "CLprofile": -0.0009668277257817159,
+        "CDprofile": 0.017476600000000002,
+        "profile_force_angle_degrees": -3.166447736693381,
+        "profile_normal_to_wind_ratio": -0.055321271058542044
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          1.0351645264013476,
+          1.0351691290522567
+        ],
+        "CLi_from_efficiency": [
+          1.0351670758107971,
+          1.0351684728649135
+        ],
+        "CLi_interval_intersection": [
+          1.0351670758107971,
+          1.0351684728649135
+        ],
+        "CLprofile": [
+          -0.0009734728649137826,
+          -0.0009620758107968807
+        ],
+        "CDprofile": [
+          0.017476499999999975,
+          0.017476700000000022
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.25293144836781883,
+          -0.25293100658935097
+        ],
+        "Cm_printed": [
+          -0.25293150000000003,
+          -0.25293049999999995
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4201536445869049173036293578159069043371478575",
+            "8295.5100343745618572899694931806864276079462770561"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4652539564199231633666317720055925478850694229",
+            "8295.4887107186151182327936299746591355643294479051"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row009:n200",
+          "predicted": {
+            "lift": 8383.596865660265,
+            "drag": 642.1913732440946,
+            "CL": 1.0106216357304103,
+            "CD": 0.07741456399678531,
+            "CDi": 0.0580709604272847,
+            "Cm": -0.2471106320958938,
+            "efficiency": 0.9508209827546656
+          },
+          "inferred": {
+            "CLi_from_Cm": 1.0116489268708972,
+            "CLi_from_efficiency": 1.0116489268708975,
+            "CLi_route_difference": -2.220446049250313e-16,
+            "CLprofile": -0.0010272911404869411,
+            "CDprofile": 0.019343603569500614,
+            "profile_force_angle_degrees": -3.039981872573159,
+            "profile_normal_to_wind_ratio": -0.05310753690727453
+          },
+          "difference_from_native_centers": {
+            "CL": -0.023578364269589702,
+            "CD": -0.0005820360032146865,
+            "CDi": -0.002449039572715299,
+            "Cm": 0.005820367904106227,
+            "efficiency": -0.004437017245334407,
+            "CLi_from_Cm": -0.023517900854884477,
+            "CLprofile": -6.0463414705225205e-05,
+            "CDprofile": 0.0018670035695006124
+          },
+          "CLi_relative_difference": -0.022718947540612655,
+          "CDi_relative_difference": -0.04046661554387476,
+          "efficiency_relative_difference": -0.004644836520954931,
+          "profile_lift_fraction_of_total_CL_error": 0.002564360021496833,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -6.521532969006051e-05,
+              -5.381827557315854e-05
+            ],
+            "CDprofile": [
+              0.001866903569500592,
+              0.0018671035695006397
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row009:n400",
+          "predicted": {
+            "lift": 8383.620494628485,
+            "drag": 642.1926337713948,
+            "CL": 1.0106244841434358,
+            "CD": 0.0774147159501989,
+            "CDi": 0.05807115459638897,
+            "Cm": -0.24711132807411748,
+            "efficiency": 0.9508231429385352
+          },
+          "inferred": {
+            "CLi_from_Cm": 1.011651767361793,
+            "CLi_from_efficiency": 1.0116517673617922,
+            "CLi_route_difference": 8.881784197001252e-16,
+            "CLprofile": -0.0010272832183573222,
+            "CDprofile": 0.019343561353809928,
+            "profile_force_angle_degrees": -3.0399650952188573,
+            "profile_normal_to_wind_ratio": -0.05310724326133395
+          },
+          "difference_from_native_centers": {
+            "CL": -0.023575515856564255,
+            "CD": -0.0005818840498010985,
+            "CDi": -0.0024488454036110247,
+            "Cm": 0.005819671925882536,
+            "efficiency": -0.0044348570614648475,
+            "CLi_from_Cm": -0.02351506036398865,
+            "CLprofile": -6.045549257560623e-05,
+            "CDprofile": 0.0018669613538099261
+          },
+          "CLi_relative_difference": -0.02271620354725845,
+          "CDi_relative_difference": -0.040463407197802836,
+          "efficiency_relative_difference": -0.004642575159239493,
+          "profile_lift_fraction_of_total_CL_error": 0.0025643338174835013,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -6.520740756044153e-05,
+              -5.381035344353957e-05
+            ],
+            "CDprofile": [
+              0.0018668613538099057,
+              0.0018670613538099535
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "row_index": 10,
+      "line_number": 14,
+      "raw_line": " 11  11.00       18.0910       8951.11       798.127       1.07903      0.962122E-01  0.672406E-01 -0.262007      0.936853    ",
+      "tokens": {
+        "index": "11",
+        "time": "11.00",
+        "alpha": "18.0910",
+        "lift": "8951.11",
+        "drag": "798.127",
+        "CL": "1.07903",
+        "CD": "0.962122E-01",
+        "CDi": "0.672406E-01",
+        "Cm": "-0.262007",
+        "efficiency": "0.936853"
+      },
+      "native": {
+        "index": 11.0,
+        "time": 11.0,
+        "alpha": 18.091,
+        "lift": 8951.11,
+        "drag": 798.127,
+        "CL": 1.07903,
+        "CD": 0.0962122,
+        "CDi": 0.0672406,
+        "Cm": -0.262007,
+        "efficiency": 0.936853
+      },
+      "native_inferred": {
+        "CLi_from_Cm": 1.0805662821128186,
+        "CLi_from_efficiency": 1.0805688856306523,
+        "CLi_route_difference": -2.6035178337657783e-06,
+        "CLprofile": -0.0015362821128186432,
+        "CDprofile": 0.0289716,
+        "profile_force_angle_degrees": -3.0353904236009472,
+        "profile_normal_to_wind_ratio": -0.05302717533096699
+      },
+      "native_inferred_intervals": {
+        "CLi_from_Cm": [
+          1.0805639123989275,
+          1.080568651828988
+        ],
+        "CLi_from_efficiency": [
+          1.0805681955253161,
+          1.0805695757359763
+        ],
+        "CLi_interval_intersection": [
+          1.0805681955253161,
+          1.080568651828988
+        ],
+        "CLprofile": [
+          -0.001543651828988413,
+          -0.0015331955253159444
+        ],
+        "CDprofile": [
+          0.028971499999999966,
+          0.028971700000000034
+        ],
+        "Cm_implied_by_efficiency": [
+          -0.2620078458422006,
+          -0.2620073915635107
+        ],
+        "Cm_printed": [
+          -0.26200750000000006,
+          -0.2620064999999999
+        ],
+        "moment_efficiency_identity_rounding_compatible": true
+      },
+      "normalization": {
+        "model_qS_decimal": "8295.48524320",
+        "lift": {
+          "implied_qS_decimal_interval": [
+            "8295.4723433438210994082675724142405019299652003874",
+            "8295.5584903037464377563077778550079933273093765205"
+          ],
+          "model_qS_in_printed_intervals": true
+        },
+        "drag": {
+          "implied_qS_decimal_interval": [
+            "8295.4769273143492642568903647924250810057970788543",
+            "8295.4959430799540390688701998656094890302316287496"
+          ],
+          "model_qS_in_printed_intervals": true
+        }
+      },
+      "meshes": [
+        {
+          "panels": 200,
+          "job_id": "SA-1:SA_1_CL:row010:n200",
+          "predicted": {
+            "lift": 8712.17430909733,
+            "drag": 802.0115223626907,
+            "CL": 1.0502308248018282,
+            "CD": 0.09668048328096514,
+            "CDi": 0.06409193043788666,
+            "Cm": -0.25494541940515697,
+            "efficiency": 0.9313797677293851
+          },
+          "inferred": {
+            "CLi_from_Cm": 1.0518795654373168,
+            "CLi_from_efficiency": 1.0518795654373168,
+            "CLi_route_difference": 0.0,
+            "CLprofile": -0.001648740635488588,
+            "CDprofile": 0.032588552843078475,
+            "profile_force_angle_degrees": -2.8962748114284884,
+            "profile_normal_to_wind_ratio": -0.05059263120481787
+          },
+          "difference_from_native_centers": {
+            "CL": -0.028799175198171767,
+            "CD": 0.00046828328096513994,
+            "CDi": -0.003148669562113335,
+            "Cm": 0.00706158059484302,
+            "efficiency": -0.005473232270614914,
+            "CLi_from_Cm": -0.028686716675501822,
+            "CLprofile": -0.00011245852266994483,
+            "CDprofile": 0.0036169528430784748
+          },
+          "CLi_relative_difference": -0.026547854722443365,
+          "CDi_relative_difference": -0.04682691055870014,
+          "efficiency_relative_difference": -0.005842146281876626,
+          "profile_lift_fraction_of_total_CL_error": 0.0039049216477937167,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -0.00011554511017264369,
+              -0.00010508880650017515
+            ],
+            "CDprofile": [
+              0.0036168528430784402,
+              0.0036170528430785093
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 0.0
+          }
+        },
+        {
+          "panels": 400,
+          "job_id": "SA-1:SA_1_CL:row010:n400",
+          "predicted": {
+            "lift": 8712.202343460687,
+            "drag": 802.0137613365516,
+            "CL": 1.05023420427422,
+            "CD": 0.09668075318366465,
+            "CDi": 0.06409218206944427,
+            "Cm": -0.25494623862737925,
+            "efficiency": 0.9313820702580803
+          },
+          "inferred": {
+            "CLi_from_Cm": 1.0518829305434156,
+            "CLi_from_efficiency": 1.0518829305434156,
+            "CLi_route_difference": 0.0,
+            "CLprofile": -0.001648726269195544,
+            "CDprofile": 0.03258857111422038,
+            "profile_force_angle_degrees": -2.8962479966714696,
+            "profile_normal_to_wind_ratio": -0.05059216200111653
+          },
+          "difference_from_native_centers": {
+            "CL": -0.028795795725779838,
+            "CD": 0.0004685531836646495,
+            "CDi": -0.0031484179305557303,
+            "Cm": 0.0070607613726207386,
+            "efficiency": -0.005470929741919761,
+            "CLi_from_Cm": -0.028683351569402937,
+            "CLprofile": -0.00011244415637690075,
+            "CDprofile": 0.0036169711142203798
+          },
+          "CLi_relative_difference": -0.02654474051635103,
+          "CDi_relative_difference": -0.04682316830242039,
+          "efficiency_relative_difference": -0.00583968855510919,
+          "profile_lift_fraction_of_total_CL_error": 0.0039048810266504824,
+          "profile_errors_with_native_rounding": {
+            "CLprofile": [
+              -0.00011553074387959962,
+              -0.00010507444020713107
+            ],
+            "CDprofile": [
+              0.0036168711142203452,
+              0.0036170711142204143
+            ]
+          },
+          "normalized_force_error": {
+            "lift": 0.0,
+            "drag": 1.1368683772161603e-13
+          }
+        }
+      ]
+    }
+  ],
+  "detailed_states": [
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n200-k40.json",
+        "bytes": 388010,
+        "sha256": "950d15135ce80b554c8ea0e8db6236bf958637f7a433c3254b58ab53bf398d4d"
+      },
+      "job_id": "row001-n200-k40",
+      "panels": 200,
+      "alpha": 1.9971,
+      "circulation_modes": {
+        "1": 40
+      },
+      "coefficients": {
+        "CL": 0.14488103315586112,
+        "CD": 0.012390151925568025,
+        "CLi": 0.14497528415227937,
+        "CDi": 0.0011499843919216095,
+        "CDi_near": 0.0011499843919216004,
+        "CDp": 0.011240167533646412,
+        "Cm": -0.03623182518355381,
+        "efficiency": 0.9860390327008246
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.011240167533646418,
+        "basic_CLprofile": -9.425099641826012e-05,
+        "separation_CDprofile": 1.4714988537361616e-23,
+        "separation_CLprofile": -1.4998785646564693e-25,
+        "raw_CDprofile": 0.011240167533646418,
+        "raw_CLprofile": -9.425099641825971e-05
+      },
+      "identities": {
+        "CLi_moment_error": -1.1102230246251565e-16,
+        "CLi_efficiency_error": -2.7755575615628914e-17,
+        "near_far_drag_error": -9.107298248878237e-18,
+        "profile_CD_formula_error": 0.0,
+        "profile_CL_formula_error": -4.0657581468206416e-19,
+        "profile_CD_global_error": 5.204170427930421e-18,
+        "profile_CL_global_error": -1.6073297207097603e-17
+      },
+      "minimum_section_cl": 0.0017714345950864067,
+      "maximum_section_cl": 0.17269175760723868,
+      "minimum_normalized_cp_tangency": -1.6355646004218016e-11,
+      "maximum_normalized_cp_tangency": 7.144181080054324e-12,
+      "minimum_wind_normal_velocity_ratio": -0.013203447002829743,
+      "maximum_wind_normal_velocity_ratio": -0.006374396869476697
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k0.json",
+        "bytes": 745943,
+        "sha256": "53eb985d0ea800863b0d5b80f8915de9303be8a8ab5bce3f34a022e92ae4f774"
+      },
+      "job_id": "row001-n400-k0",
+      "panels": 400,
+      "alpha": 1.9971,
+      "circulation_modes": {},
+      "coefficients": {
+        "CL": 0.1448810324049513,
+        "CD": 0.012390150901839841,
+        "CLi": 0.14497528298304313,
+        "CDi": 0.0011499833725331712,
+        "CDi_near": 0.001149983372533176,
+        "CDp": 0.011240167529306672,
+        "Cm": -0.0362318248825412,
+        "efficiency": 0.9860398908578774
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.01124016752930667,
+        "basic_CLprofile": -9.425057809195004e-05,
+        "separation_CDprofile": 3.127703599570828e-19,
+        "separation_CLprofile": -2.237296958377602e-21,
+        "raw_CDprofile": 0.01124016752930667,
+        "raw_CLprofile": -9.425057809194942e-05
+      },
+      "identities": {
+        "CLi_moment_error": 5.551115123125783e-17,
+        "CLi_efficiency_error": 0.0,
+        "near_far_drag_error": 4.7704895589362195e-18,
+        "profile_CD_formula_error": 0.0,
+        "profile_CL_formula_error": -6.2341624917916505e-19,
+        "profile_CD_global_error": -1.734723475976807e-18,
+        "profile_CL_global_error": -1.0707851706009963e-16
+      },
+      "minimum_section_cl": 0.000885717290547203,
+      "maximum_section_cl": 0.17269313786994706,
+      "minimum_normalized_cp_tangency": 4.2617992468407806e-13,
+      "maximum_normalized_cp_tangency": 3.7962026577798014e-10,
+      "minimum_wind_normal_velocity_ratio": -0.01320377071034891,
+      "maximum_wind_normal_velocity_ratio": -0.006374186649031624
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row001-n400-k40.json",
+        "bytes": 752040,
+        "sha256": "e10d5adc335b435316efc742ac74b33179d9745a5ab1e6ee22752dd56be4ad73"
+      },
+      "job_id": "row001-n400-k40",
+      "panels": 400,
+      "alpha": 1.9971,
+      "circulation_modes": {
+        "1": 40
+      },
+      "coefficients": {
+        "CL": 0.14488103357358328,
+        "CD": 0.012390150919591534,
+        "CLi": 0.14497528415227953,
+        "CDi": 0.001149983390280526,
+        "CDi_near": 0.001149983390280526,
+        "CDp": 0.011240167529310986,
+        "Cm": -0.03623182517482732,
+        "efficiency": 0.9860398915455837
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.011240167529310995,
+        "basic_CLprofile": -9.425057869629431e-05,
+        "separation_CDprofile": 1.547319027290239e-23,
+        "separation_CLprofile": -1.606608979380888e-25,
+        "raw_CDprofile": 0.011240167529310995,
+        "raw_CLprofile": -9.42505786962938e-05
+      },
+      "identities": {
+        "CLi_moment_error": -1.3877787807814457e-16,
+        "CLi_efficiency_error": 0.0,
+        "near_far_drag_error": 0.0,
+        "profile_CD_formula_error": 0.0,
+        "profile_CL_formula_error": -5.149960319306146e-19,
+        "profile_CD_global_error": 8.673617379884035e-18,
+        "profile_CL_global_error": -4.603793474916573e-17
+      },
+      "minimum_section_cl": 0.0008857172937604032,
+      "maximum_section_cl": 0.17269313956483529,
+      "minimum_normalized_cp_tangency": -2.2111715236583507e-11,
+      "maximum_normalized_cp_tangency": 1.064298649211537e-10,
+      "minimum_wind_normal_velocity_ratio": -0.013203770667389574,
+      "maximum_wind_normal_velocity_ratio": -0.006374186738235749
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n200-k40.json",
+        "bytes": 394501,
+        "sha256": "9f8f7c7bd5664021b13364a54a5a930e9f0b409e089501ec2934b2c424d261fe"
+      },
+      "job_id": "row010-n200-k40",
+      "panels": 200,
+      "alpha": 18.091,
+      "circulation_modes": {
+        "1": 40
+      },
+      "coefficients": {
+        "CL": 1.0502308240011196,
+        "CD": 0.0966804830486849,
+        "CLi": 1.0518795646360803,
+        "CDi": 0.06409193024789124,
+        "CDi_near": 0.06409193024789117,
+        "CDp": 0.032588552800793605,
+        "Cm": -0.2549454192000006,
+        "efficiency": 0.9313797690714875
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.011269714101847806,
+        "basic_CLprofile": -0.0007408363139163272,
+        "separation_CDprofile": 0.021318838698945762,
+        "separation_CLprofile": -0.0009079043210446514,
+        "raw_CDprofile": 0.0325885528007936,
+        "raw_CLprofile": -0.0016487406349609823
+      },
+      "identities": {
+        "CLi_moment_error": 0.0,
+        "CLi_efficiency_error": 0.0,
+        "near_far_drag_error": -6.938893903907228e-17,
+        "profile_CD_formula_error": -2.7755575615628914e-17,
+        "profile_CL_formula_error": 3.686287386450715e-18,
+        "profile_CD_global_error": -6.938893903907228e-18,
+        "profile_CL_global_error": -1.942890293094024e-16
+      },
+      "minimum_section_cl": 0.015237212783083008,
+      "maximum_section_cl": 1.1500698725972536,
+      "minimum_normalized_cp_tangency": -1.0574510180827446e-05,
+      "maximum_normalized_cp_tangency": 0.09989447134102564,
+      "minimum_wind_normal_velocity_ratio": -0.1305090387628178,
+      "maximum_wind_normal_velocity_ratio": -0.03490022390666729
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k0.json",
+        "bytes": 755966,
+        "sha256": "cb6f4ff9b297dc63141867d545b839661b89ef162d3a9dffac944d4f289d70b8"
+      },
+      "job_id": "row010-n400-k0",
+      "panels": 400,
+      "alpha": 18.091,
+      "circulation_modes": {},
+      "coefficients": {
+        "CL": 1.05023420427422,
+        "CD": 0.09668075318366465,
+        "CLi": 1.0518829305434156,
+        "CDi": 0.06409218206944427,
+        "CDi_near": 0.06409218206944507,
+        "CDp": 0.03258857111421999,
+        "Cm": -0.25494623862737925,
+        "efficiency": 0.9313820702580803
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.011269713905790875,
+        "basic_CLprofile": -0.0007408334472364107,
+        "separation_CDprofile": 0.021318857208429028,
+        "separation_CLprofile": -0.0009078928219585576,
+        "raw_CDprofile": 0.03258857111422,
+        "raw_CLprofile": -0.001648726269194978
+      },
+      "identities": {
+        "CLi_moment_error": 0.0,
+        "CLi_efficiency_error": 0.0,
+        "near_far_drag_error": 8.049116928532385e-16,
+        "profile_CD_formula_error": -9.71445146547012e-17,
+        "profile_CL_formula_error": 9.75781955236954e-18,
+        "profile_CD_global_error": 6.938893903907228e-18,
+        "profile_CL_global_error": 5.659535340374333e-16
+      },
+      "minimum_section_cl": 0.00761862257142751,
+      "maximum_section_cl": 1.1500713258398392,
+      "minimum_normalized_cp_tangency": 3.693712002927896e-12,
+      "maximum_normalized_cp_tangency": 0.09989701703714388,
+      "minimum_wind_normal_velocity_ratio": -0.13050587731065752,
+      "maximum_wind_normal_velocity_ratio": -0.03489799683548676
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-basis-diagnostic-20261027/row010-n400-k40.json",
+        "bytes": 756729,
+        "sha256": "e8f5c32b5438e8f236870a740c15447085fb732d3d067112f5a5b1568441ac9b"
+      },
+      "job_id": "row010-n400-k40",
+      "panels": 400,
+      "alpha": 18.091,
+      "circulation_modes": {
+        "1": 40
+      },
+      "coefficients": {
+        "CL": 1.0502342034841303,
+        "CD": 0.09668075295437721,
+        "CLi": 1.0518829297527919,
+        "CDi": 0.06409218188196279,
+        "CDi_near": 0.06409218188196335,
+        "CDp": 0.0325885710724146,
+        "Cm": -0.25494623842494046,
+        "efficiency": 0.9313820715824409
+      },
+      "decomposition": {
+        "basic_CDprofile": 0.011269713905853096,
+        "basic_CLprofile": -0.0007408334480873121,
+        "separation_CDprofile": 0.02131885716656135,
+        "separation_CLprofile": -0.0009078928205745242,
+        "raw_CDprofile": 0.032588571072414585,
+        "raw_CLprofile": -0.0016487262686618394
+      },
+      "identities": {
+        "CLi_moment_error": 1.7763568394002505e-15,
+        "CLi_efficiency_error": 0.0,
+        "near_far_drag_error": 5.551115123125783e-16,
+        "profile_CD_formula_error": -1.3877787807814457e-16,
+        "profile_CL_formula_error": 3.0357660829594124e-18,
+        "profile_CD_global_error": -1.3877787807814457e-17,
+        "profile_CL_global_error": -3.126839065448195e-16
+      },
+      "minimum_section_cl": 0.007618625280553465,
+      "maximum_section_cl": 1.1500713432066048,
+      "minimum_normalized_cp_tangency": -1.0833496404460963e-05,
+      "maximum_normalized_cp_tangency": 0.09989697759655733,
+      "minimum_wind_normal_velocity_ratio": -0.1305115758438273,
+      "maximum_wind_normal_velocity_ratio": -0.03489801759091138
+    }
+  ],
+  "checks": {
+    "all_original_lines_tokens_preserved": true,
+    "all_source_pins_match": true,
+    "all_11_moment_efficiency_identities_rounding_compatible": true,
+    "all_11_lift_and_drag_normalizations_rounding_compatible": true,
+    "maximum_six_state_identity_error": 1.7763568394002505e-15
+  },
+  "findings": [
+    "All 11 original native moment/efficiency/induced-drag identities are compatible with their combined printed intervals. Their centered reconstructed CLi values need not be identical.",
+    "All 11 original lift/CL and drag/CD pairs admit the exact unchanged model qS=8295.48524320 within the printed intervals. A single reference-area/density normalization error is not supported.",
+    "At 400 intervals the CLi error is about +0.0577 percent at low incidence, crosses sign between 8.1351 and 10.103 degrees, and reaches -2.6545 percent at 18.091 degrees. The stall-region mismatch is not the same constant factor as the low-incidence bias.",
+    "Inferred profile lift is compatible with native rounding through 12.1 degrees; from 14.097 degrees it is significantly more negative. At 18.091 degrees its center error accounts for only 0.3905 percent of the total CL error.",
+    "Profile CD is significantly high from 10.103 degrees. At 18.091 degrees its +0.0036169711 error offsets the -0.0031484179 induced-drag error, leaving only +0.00046855318 total-CD error. Total drag alone hides these opposing component errors.",
+    "The six retained full states verify the inferred CLi, near/far drag identity and direct Eq70 profile decomposition to 1.8e-15. At 18.091 degrees/400 intervals the basic profile CD is 0.0112697139 and separation contribution is 0.0213188572; no archived separate contributions are available.",
+    "Efficiency error changes from about +0.1154 percent to -0.5840 percent across the curve. Uniform Gamma scaling leaves CLi^2/CDi invariant and cannot reconcile this difference; this diagnostic does not prescribe any scaling.",
+    "The data identify the circulation-lift integral as the dominant high-incidence lift discrepancy. They cannot distinguish a historical Gamma-distribution difference from a force-integration or transfer difference, and do not prove a stall-law implementation defect."
+  ],
+  "qualifications": [
+    "These inferred components are diagnostics, not new archived acceptance targets.",
+    "Native inference assumes the documented straight planar wing identities, zero section Cm and reference at beam origin. Six detailed current states verify the same identities directly.",
+    "Native intervals retain half-last-printed-place uncertainty, including alpha, CDi, efficiency and Cm; displayed center differences are not exact archive identities.",
+    "CLi interval intersection is a conservative necessary range, not a recovered historical circulation distribution.",
+    "Six detailed reference_checks are deliberately unused. Raw fields and strips supply all diagnostic quantities; diagnostic Lift/Drag naming has no effect here.",
+    "No archive strip velocities, local tangency, Gamma or separated drag components exist in these seven-column targets. Their historical distributions and stall defaults cannot be recovered uniquely.",
+    "A coefficient-error trend can distinguish a constant multiplier from nonlinear behavior but cannot identify a source algorithm change or justify fitting parameters."
+  ]
+}

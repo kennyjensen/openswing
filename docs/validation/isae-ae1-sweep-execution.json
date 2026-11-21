@@ -1,0 +1,683 @@
+{
+  "status": "COMPLETED_AUDITED",
+  "run_identity": "9ffb0b0aec7273b8ba5f103d8412e67b4549530907b4fed3c0a0e2107fa81b3d",
+  "native": {
+    "identity": "9ffb0b0aec7273b8ba5f103d8412e67b4549530907b4fed3c0a0e2107fa81b3d",
+    "status": "completed",
+    "requested": 186,
+    "computed": 186,
+    "failed": 0,
+    "unrun": 0,
+    "recorded": 186,
+    "reused": 8,
+    "new_attempted": 178,
+    "seconds": 1018.4916543969994
+  },
+  "environment": {
+    "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+    "platform": "Linux-6.6.127-android15-8-g91d825611104-ab16252310-4k-aarch64-with-glibc2.43",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "numerical_threads": 1,
+    "note": "Native sweep overlapped the browser comparison; timings are not an isolated performance benchmark."
+  },
+  "native_launch": {
+    "session_id": 24890,
+    "launch_chunk": "758d4c",
+    "terminal_chunk": "038894",
+    "exit_code": 0,
+    "reaped": true,
+    "log": {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/native.log",
+      "bytes": 61685,
+      "sha256": "da0fcd82f5a6c86a7a2b96c983c984aa35ec724e3a21d7efdf891b992e340657"
+    }
+  },
+  "reduction": {
+    "session_id": 96656,
+    "launch_chunk": "6b9463",
+    "terminal_chunk": "df3b99",
+    "exit_code": 0,
+    "reaped": true,
+    "log": {
+      "path": "/tmp/openswing-isae-ae1-sweep-20261025/reduction.log",
+      "bytes": 3555,
+      "sha256": "5994abe605f9d5778957964a1217fbe12f8790de271aa3640eb965ade71ca2cd"
+    }
+  },
+  "plots": {
+    "initial_session": 60107,
+    "initial_terminal": "3f3f75",
+    "final_session": 89009,
+    "final_terminal": "1abe6f",
+    "exit_code": 0,
+    "reaped": true,
+    "note": "Y limits adjusted to visible source-control speed range after inspecting initial plot; data unchanged."
+  },
+  "audit": {
+    "status": "PASS",
+    "checks": 829488,
+    "passed": 829488,
+    "failed": 0,
+    "session_id": 54623,
+    "terminal_chunk": "9c2ace",
+    "exit_code": 0,
+    "reaped": true,
+    "evidence": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-sweep-audit.json",
+      "bytes": 551195,
+      "sha256": "3cb76cf7e01ce6200c0639379186e069e897e4886456ee92e45196a7cef75a59"
+    }
+  },
+  "browser": {
+    "schema": "openswing.isae-ae1-browser-evidence.v1",
+    "date": "2026-10-25",
+    "status": "PASS_OFFLINE_CHROMIUM_UI_AND_WORKER",
+    "scope": "Actual existing locally served dist app and Chromium UI, Pyodide worker, mounted structured path, JSON exports, offline execution and progress labels. No source override, no rebuild, no hosted browser or whole-suite claim.",
+    "scientific_limit": "Browser/native agreement for the pinned pilot only. Experimental discrepancies, the processed-measurement axis uncertainty and the ideal-wall assumptions remain as reported in isae-ae1-pilot.md.",
+    "fixture": {
+      "native_report": {
+        "path": "/home/userland/aswing/docs/validation/isae-ae1-pilot.json",
+        "sha256": "8d10cefdafcfc6375dbc34edfb13deaf54db8462c3d24e9547e284974309ba42"
+      },
+      "intervals_per_half": 60,
+      "total_intervals": 120,
+      "total_nodes": 121,
+      "geometry": "Explicit full mirrored wing; no ground image evaluation or production clearance bypass.",
+      "coupled_alpha_deg": [
+        5,
+        7
+      ],
+      "speed_m_s": 30,
+      "density_kg_m3": 1.23,
+      "mach": 0,
+      "gravity_body": [
+        0,
+        0,
+        0
+      ]
+    },
+    "comparison": {
+      "checks": {
+        "passed": 464,
+        "total": 464,
+        "completed_cases": 3,
+        "planned_new_worker_solves": 2,
+        "cumulative_planned_worker_solves": 3
+      },
+      "physical_numeric_comparisons": 43446,
+      "maximum_absolute_physical_error": 5.822009541134321e-13,
+      "gates": {
+        "absolute": 2e-08,
+        "relative": 2e-08,
+        "full_residual": 1e-08
+      },
+      "tolerance_basis": "Same discretization and equations across native BLAS and WASM; 2e-8 absolute+relative is far tighter than 0.7% pilot mesh differences. All native physical fields are compared, with only work counters and the explicitly equal-zero gravity-source label excluded.",
+      "exclusions": [
+        "evaluations",
+        "circulation_solver.evaluations",
+        "gravity_source"
+      ],
+      "declared_equivalences": [
+        "Native mounted run prescribes zero body gravity; UI derives zero Earth gravity from magnitude0 and attitude0.",
+        "UI circulation_modes={1:0} and native empty mapping both use pointwise circulation.",
+        "The structural bridge labels its no-flow result structural_static; the direct native network_result baseline labels the same physical output mounted_static. The baseline comparison explicitly changes only that label."
+      ],
+      "cases": [
+        {
+          "id": "vacuum",
+          "seconds": 2.174271668000001,
+          "result_pin": {
+            "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/vacuum.json",
+            "bytes": 406598,
+            "sha256": "57fa80739c669457a3c538bdefc28601be53af9bc3fa58042045858bb67eb66b"
+          },
+          "physical_comparison": {
+            "scalars": 10462,
+            "leaves": 11347,
+            "maximum_fraction": 1.3510462941227416e-08,
+            "maximum_absolute": 4.440892098500626e-16,
+            "worst": "mesh_discretization.beams[0].nodes[106].theta",
+            "difference": 4.440892098500626e-16,
+            "limit": 3.287002168481707e-08
+          },
+          "observable": {
+            "midchord_m": [
+              0.0059,
+              0.549843728,
+              0
+            ],
+            "twist_deg": 0
+          },
+          "progress_events": 7,
+          "rendered_progress_samples": 8,
+          "specification": {
+            "refinement": 4,
+            "intervals_per_half": 60,
+            "alpha_deg": 0,
+            "speed_m_s": 0
+          },
+          "residual": 0,
+          "baseline_subtracted": null,
+          "vacuum_saved_only_reuse": true
+        },
+        {
+          "id": "alpha5-u30",
+          "seconds": 26.892857598000003,
+          "result_pin": {
+            "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/alpha5-u30.json",
+            "bytes": 766242,
+            "sha256": "6a6290dfbc50e2beb4ef654f8efdd5a9944863d599d6d314aa7c5155155208f8"
+          },
+          "physical_comparison": {
+            "scalars": 16492,
+            "leaves": 17666,
+            "maximum_fraction": 6.4517453006550445e-06,
+            "maximum_absolute": 3.8458125573015423e-13,
+            "worst": "trefftz.velocity_body[116][2]",
+            "difference": 3.8458125573015423e-13,
+            "limit": 5.960887136866791e-08
+          },
+          "observable": {
+            "midchord_m": [
+              0.006086043383918247,
+              0.5469320868092701,
+              0.05284717413709726
+            ],
+            "twist_deg": 0.5786266758580115
+          },
+          "progress_events": 39,
+          "rendered_progress_samples": 40,
+          "specification": {
+            "refinement": 4,
+            "intervals_per_half": 60,
+            "alpha_deg": 5,
+            "speed_m_s": 30
+          },
+          "residual": 2.817695423029229e-14,
+          "baseline_subtracted": {
+            "root_normal_percent": 9.608577115835864,
+            "wind_normal_percent": 9.56906544276342,
+            "twist_deg": 0.5786266758580115
+          },
+          "vacuum_saved_only_reuse": false
+        },
+        {
+          "id": "alpha7-u30",
+          "seconds": 31.651222158999996,
+          "result_pin": {
+            "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/alpha7-u30.json",
+            "bytes": 764794,
+            "sha256": "58d587902178cc44eeb0ba7848006182649972fd72b935bd529a1cbcea0bcd21"
+          },
+          "physical_comparison": {
+            "scalars": 16492,
+            "leaves": 17666,
+            "maximum_fraction": 7.553995491808398e-06,
+            "maximum_absolute": 5.822009541134321e-13,
+            "worst": "trefftz.velocity_body[118][2]",
+            "difference": 5.822009541134321e-13,
+            "limit": 7.707192236807324e-08
+          },
+          "observable": {
+            "midchord_m": [
+              0.006245817327775166,
+              0.5442082784916233,
+              0.07341614883530237
+            ],
+            "twist_deg": 0.785830895565717
+          },
+          "progress_events": 44,
+          "rendered_progress_samples": 45,
+          "specification": {
+            "refinement": 4,
+            "intervals_per_half": 60,
+            "alpha_deg": 7,
+            "speed_m_s": 30
+          },
+          "residual": 2.7887656395504695e-13,
+          "baseline_subtracted": {
+            "root_normal_percent": 13.348390697327703,
+            "wind_normal_percent": 13.241231175296694,
+            "twist_deg": 0.785830895565717
+          },
+          "vacuum_saved_only_reuse": false
+        }
+      ]
+    },
+    "timing": {
+      "analysis_interval": "Measured immediately before saving the SOLVING harness status and clicking Run analysis, through the UI convergence status and re-enabled button, before JSON export. Includes UI and harness overhead.",
+      "accepted_harness_total_seconds": 138.382500132,
+      "limit": "Native full sweep was running concurrently. Browser timings describe these UI solves and include export/setup boundaries as documented; they are not an isolated speed comparison."
+    },
+    "runtime": {
+      "pyodide": "314.0.7",
+      "python": "3.14.2",
+      "numpy": "2.4.6",
+      "scipy": "1.18.0"
+    },
+    "chromium": {
+      "executable": "/tmp/aswing-chromium/chrome-linux/chrome",
+      "arguments": [
+        "--no-sandbox",
+        "--use-gl=angle",
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader"
+      ],
+      "version": "145.0.7632.0"
+    },
+    "parity": {
+      "module_count": 110,
+      "statement": "All110 openswing source modules match public/kernel, dist/kernel and actual worker provenance exactly.",
+      "module_sha256": {
+        "__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+        "aero.py": "d77d81861342d3c75a006c2ab0c1ab30460609d74492a31a2625a294bc1fbe7b",
+        "applied_load_outputs.py": "8f2883b6c61e3a59e99675238c1e93defa996c1cd6e40eb90381c6b7537a2aea",
+        "asw.py": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd",
+        "asw_edit.py": "04f65962813fd63f6c4a98678ba1e09ca87a9f1a8782bdc3675fe1709c3b8131",
+        "atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+        "beam_matching.py": "d72164b87069e8a47a5b2770880e8824e58c304b3b2c863b7b82cd6088011d9a",
+        "body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+        "bridge.py": "aee0537bc901063cc5efdcf4c3eca80f5aeb01d6c9c00567697ed9cd2c42e5b1",
+        "circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+        "circulation_polish.py": "421fe1eca549ca5f2f779dbf021593239218681499bb74b543844a89ca461e69",
+        "circulation_solve.py": "ec550638869cb5e056c83ceeea0749bcf9e11d5734e038aa1825092b7263b50c",
+        "circulation_tangent.py": "fe53bf0546921f31794e73acab1fe8c020d9fc11a037e3363183f7b73b9ecb09",
+        "control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+        "control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+        "control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+        "custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+        "damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+        "derivative_cache.py": "35b784437a38f2169e43fb7d385d2c364b1af9c0d8999548f09c4b91a76e7968",
+        "derivative_circulation.py": "4548a8b392c3501970495e60ffc3eb8730b3c022f9c7e99ae2940e9eec3e8956",
+        "derivatives.py": "977ed42e15536ec861f1b1d985f86a0e01cb8900e78d13d0ee77772907412b6e",
+        "descriptor_mass.py": "6d7ede14c9ee41f2b57b65fa91be91475a2643650c0878f7027163d9220cdb9e",
+        "discretization.py": "a791a07dfaa0972bf46de750196051fe889dbfc947c6bd3202010bf0402d0799",
+        "distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+        "dynamic_inertia.py": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc",
+        "equilibrium_state.py": "c622d4ba34ea399fd7c6fbc8390cca8aa7231befbc89788de0ca549ba975fd5d",
+        "equilibrium_tangent.py": "bfce280c2c3fac061b903c4c8bbb3dedc158a17338eaaa5c5dd512fa3f250138",
+        "factored_influence.py": "9efce2fc6ac5688c064f0fe1d4a4f5abe3f62fe436f95029e359a365a38ab6e2",
+        "feedback.py": "83138eb4d5a574f3f44eff956ce47efa0b1939e9234aa86fd9676d352e5dc9eb",
+        "field_products.py": "79ee0a2d17c2e147788eb514438250f7ae1f601b030b3d4aea5079e8a1e28c7e",
+        "flow_survey.py": "fc03f0545a547e8402ab734a5f5a48faca93d1d091fdfd51ffb12701fc562d40",
+        "forcing.py": "ce2732c205763ae75144d40dddc9f5248d83bd90fc97c03e6123160487bfde79",
+        "frequency_response.py": "65ae04e6e4b00976bfdc1ee7cb2340ba2b2e07832830d47e58211ebe5e78f14c",
+        "frequency_sweep.py": "775401e8b04b2fbb6066ba1f6de21926dae3c98c483567c842decd8bb91f90dc",
+        "frozen_influence.py": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46",
+        "geometry.py": "d85637b0f298aa9f9f3b951083265743178f88bc07b5e140f1b32e6c3a2d35bb",
+        "geometry_field_partials.py": "584c6a0d9b8bbe1454b9b7c3a5cd229675d62d5cee16dfff21e8300cc78cbef8",
+        "geometry_partials.py": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3",
+        "geometry_stencil.py": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e",
+        "geometry_tangent.py": "7fec2507d91c6142e1532c138eba5fc87747944f772e3a17b404dd15ec99e469",
+        "ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+        "gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+        "gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+        "gust_tangent.py": "6f687f23c0329c316c496177626a471934fddad76099e14e05792ed4568b5ebf",
+        "harmonic_structure.py": "6f1cd2e3669097c2b937b57a61b96fe5c01a6f80678c6660a5c1c6608cbf4459",
+        "hinge_history.py": "e58d6996918c14dfbf4087900a4de0c318ef76d3a8792d7f889cc86a08f4b02c",
+        "inertia.py": "d0fa83d7b02f162dd20ab4f412b8c8ebbad039991494a9592ef4f7a6e6163336",
+        "initial_diagnostics.py": "33af88e6a21bb68358cbd2a0ca9d36d1cb6ba2ecd1e6d4fba11f03225de013ff",
+        "initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+        "joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+        "kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+        "legacy_hinge_state.py": "5f1b90213ca651ad00ac4def5f93061df5e6b8402c4c49b261bc73bcb6b0fd2e",
+        "linear_dynamics.py": "a9a80233fae89350e0c8216c3b061553f04c6b030cbf387630c3bef0b53fdcd7",
+        "local_geometry_matrix.py": "2aee6144a758a006cb40b467158f47e80c78e5825c012a7c89688072414f7cc3",
+        "local_motion.py": "b49f5e9f02a5447c5fab5a4ac4263dee8af38bf77d2c24491dd0250a20465ba2",
+        "local_rate_tangent.py": "394c04a27a7699fddc4acc47fb2199ee9f368ab0f1330c56e77b513490ad1a6c",
+        "mechanical_tangent.py": "7b1b0333c8e470c537cf32958a8fe4c9afcd3906cf5aaa67417887b479c36fc9",
+        "network.py": "ce386c2c936d5187552e401c3748f1283f064249486d223ff8127b0e7157a800",
+        "newton_structure.py": "ca7246ea747c7bfb092dac94c5df6a37f4fa6170ed87d1b6f702bf65b9ce6486",
+        "nonlinear_initial.py": "5bceb2ba5b7c9481a612e358666c6f696e88cb0344999f3aa247830731298da0",
+        "operating.py": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d",
+        "output_derivatives.py": "68c60f1be5e701fdcdd438337425b6a545d7c254f2f044294b1cf65f2a5f8dee",
+        "output_fields.py": "aff552e38fcfd1b73a39924cbcb10dd91a21fa0bcc355951c22cb1b09d357bd0",
+        "position_history_checkpoint.py": "9e651bbc73dc018ba898004a01f68475ca8f3e326d45dcdd3329122fe8cd6475",
+        "position_history_lift.py": "cff299c50a837b50ef447fbb849e256ecdde99b96c6884334bb32d5e4743a1ff",
+        "position_history_radau.py": "b072c6136a6a5ae4facbe0e2139fe3445d2f48a19c66ad5bd93513095c0ad0df",
+        "power_tangent.py": "a6073c9f593c978a697e42703e4529c59baaaac1af1dd1cd0b8a0c67570eaf9c",
+        "propulsion.py": "897f91e51216752ad1df521bce919cd1389c4edd623d131d18855bdc3f096318",
+        "quiescent.py": "942f75b7980067b24086dfaf32900d2a9161ee63d504044761d4c09b5b59e911",
+        "radau_tangent.py": "75dce47a2c2b3711f055673af57975267dc5f15978041922e9ce3bdb4b522359",
+        "radau_time.py": "5f525233e6c00e06e94e2baee93fbe514eadb65201dcce8e6715a84dcc7035b2",
+        "recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+        "reduced_model.py": "18bec65c00e631d2e469efc130000ac5a547cf87e75671317b16c4df912fb302",
+        "reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+        "rigid_initial_rank.py": "f2dbee72150a6f448bf509dc935dd237e034ff4c3d86a4563d18ebccbce2bd35",
+        "rom_file.py": "350951d47cb083635658daca1045bc86248ed9e93e0df389551e15bd7537e2a8",
+        "rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+        "rom_outputs.py": "a988e241f1865cd30b6679e154eca77c1393b149bd247be6409890e686888463",
+        "root_diagnostics.py": "f8427e2a77d2cb459c35985494402b955de6657812730b733bc66bf294f28bf9",
+        "seeded_corrector.py": "76571f6ffe45f070ac00f133ad8d4eb23bda0d9a961e7b702409c6adb834a6fa",
+        "sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+        "sparse_rank.py": "d0637c7c8efaf46e6691a520e25df8f2abd9fc311284e31d8e29747441b149e7",
+        "stability.py": "827b9dc26b1973ec42b4dd6484b1bba8add1b3b1565f8d530081ba2112f44361",
+        "steady_feedback.py": "d8a7cedae465bd4e840c7a7f7e38bafc498faad2c8dceebfb4b814e5b54d99a0",
+        "structural_geometry.py": "6f08ad6f39ee6ed72b9195b13be92941ed833d7a011376d46d1c92f1268495cd",
+        "structural_outputs.py": "4e5f255f65030310b9a5393bf5d942d07ec20b0211e7d978dd4a518e24e68ea0",
+        "structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+        "structured_radau.py": "4b6afa6d66489b90fd855bc7afaab53428840c87f9a254694185f2a25fca4be5",
+        "structured_static.py": "4f7b980153c5a50d5477a97277fdc37845dbd5cfaaef697739c4ecb8997ed2a0",
+        "structured_time.py": "dcc870fc836df3108858dd6c6eb968b78fe02017ea0e837d6c114f23a1a3a03c",
+        "struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+        "support_outputs.py": "4a03108550813678bbb06d7a4f8435fbdeec0499c617e73c5ab8a93983b1fbd6",
+        "tangent_influences.py": "4071825dba06c4a3775ee61ca991ba009af959a083621ec24ec4a2c8997ad0e3",
+        "time_acceptance.py": "b7313db674221a2303bdb9385b69e0c7e457307d96871d98d6680836e0081a18",
+        "time_acceptance_validation.py": "81c2fba6c8123b4888d52d7180e9ef32c5082a275ada27283da3767923b5ef31",
+        "time_accuracy.py": "f7895af1b5ffe503567614af5a1d14629972aa065092faebf75787da7ae7ce40",
+        "time_cold_initial.py": "48c5dc9da37a6153d72c5b6343d651ca47ef854f6b684f151d7d32083d3e6593",
+        "time_history.py": "5317ab81c5462538762d5c983b335bc49585bcbee593fd9cab51b47fb901f0fb",
+        "time_initialization.py": "629baa981eff5860b2c717af0caf2c5c48496c5dbcb294382baa7e41df57dc4a",
+        "time_input_transition.py": "a1758b8190f1e1f2b6559091944036c1e814e565394a5903e95dc3b6a8e490fc",
+        "time_integration.py": "8f014cb82fb8632181a7194e7f76d3037e91405be359e5500c7f041ef83d4b16",
+        "time_result_storage.py": "effb6e8e7bf5da5aa4a44e47dd3995197591b348796c398a2112b17cd0b0b75c",
+        "time_saved_history.py": "d05131d02accbd548dc56ac35d431bd28a8af8a668b6717ad169496e4366a209",
+        "time_state.py": "56e93243ab790ba1de0c114f18a32d1211acb92d5c66dc869bec82025b989e3a",
+        "time_transition_initial.py": "bef622587c6b7dec6ce494e9523efe7318b6209f8106cb669709b02975c5038a",
+        "trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+        "vector_ops.py": "bc57df10edf80ac2939ae2176f2eed3d535ca850d4aaf9a452c71b8b1d8d9537",
+        "volume.py": "5b6b68f4eec1c54e3fdf71bee89dec1961cd07a07105ad0361e12d395ed73e53",
+        "volume_tangent.py": "bfa663000a3b04a2defdd87e5195c43a7c33a82771a17e049ea149911bc808cc",
+        "vortex_tangent.py": "2d231aab056b7b9f661f11b0ed9a0c9da8f4cc0a6d3fc29cc10ccfe20a8e64ee"
+      },
+      "serving": {
+        "root": "/home/userland/aswing/dist",
+        "rebuilt": false,
+        "source_override": false,
+        "asset_pins": [
+          {
+            "path": "/home/userland/aswing/dist/index.html",
+            "bytes": 1430,
+            "sha256": "550169bdad8df23f16221b543db6ce9b37ea1dd5b8f9acff33b5caba9b7d282e"
+          },
+          {
+            "path": "/home/userland/aswing/dist/kernel/manifest.json",
+            "bytes": 2308,
+            "sha256": "bc36b30c41ccffad174074f8ff2744a735915fd7db522a095b411826a6b42b71"
+          },
+          {
+            "path": "/home/userland/aswing/dist/assets/index-DjyfO6Aw.js",
+            "bytes": 2994,
+            "sha256": "a3249dbf2578c6bab9ed9c3ce7f09a0c27c0814aed70aded64345e22b48703c5"
+          },
+          {
+            "path": "/home/userland/aswing/dist/assets/main-BC_D9-z6.css",
+            "bytes": 35763,
+            "sha256": "7389bc70a9c311a94508b6559c60bff42e55dff233f430ef39a0df03a344665a"
+          },
+          {
+            "path": "/home/userland/aswing/dist/assets/main-CZTARzqm.js",
+            "bytes": 965385,
+            "sha256": "1286f3477e4f9479609e24b91686f7d5928eff93b2a44151c71f54db9382f6a0"
+          },
+          {
+            "path": "/home/userland/aswing/dist/assets/worker-67FBf-In.js",
+            "bytes": 4037,
+            "sha256": "934dc3206e5480a40a76cfd81f0261256ad08a93c88e3beba5ad68c524fe799d"
+          }
+        ],
+        "url": "http://127.0.0.1:33511"
+      }
+    },
+    "offline": {
+      "after_runtime_ready": true,
+      "http_requests": [],
+      "page_errors": [],
+      "network_failures": []
+    },
+    "execution_counts": {
+      "actual_vacuum_solves": 1,
+      "actual_coupled_solves": 2,
+      "vacuum_repeated": false,
+      "new_native_solves": 0,
+      "full_native_physical_numeric_values_compared": 43446
+    },
+    "first_actual_attempt": {
+      "kind": "Expected API metadata comparison",
+      "session": 65649,
+      "launch_chunk": "2be83c",
+      "terminal_chunk": "58bf36",
+      "exit_code": 1,
+      "reaped": true,
+      "report": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1/report.json",
+        "bytes": 45312,
+        "sha256": "7e5e12da7a49ccd976fda828114c89afa521c13bbe106c27c6274c9f031cb760"
+      },
+      "stdout": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1.log",
+        "bytes": 639,
+        "sha256": "4ea2b585800d23d261e014b41e5b1d42cd90f3a84f2de0f405961b375d01fa1b"
+      },
+      "frozen_harness": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1-harness.mjs",
+        "bytes": 17571,
+        "sha256": "c206c265da3cefea9e48da56cdf9a30cd8d63028cc72bd5078207f098272e67c"
+      },
+      "completed_actual_worker_solves": 1,
+      "cause": "Direct native no-flow network_result analysis=mounted_static versus correct structural bridge analysis=structural_static. Raw result retained; all10462 numeric fields independently checked; later saved-only correction normalizes exactly this label.",
+      "exact_error": {
+        "message": "vacuum:analysis\n+ actual - expected\n\n+ 'structural_static'\n- 'mounted_static'\n",
+        "stack": "AssertionError [ERR_ASSERTION]: vacuum:analysis\n+ actual - expected\n\n+ 'structural_static'\n- 'mounted_static'\n\n    at visit (file:///home/userland/aswing/scripts/test-isae-ae1-browser.mjs:49:33)\n    at visit (file:///home/userland/aswing/scripts/test-isae-ae1-browser.mjs:48:111)\n    at compare (file:///home/userland/aswing/scripts/test-isae-ae1-browser.mjs:51:3)\n    at file:///home/userland/aswing/scripts/test-isae-ae1-browser.mjs:173:31"
+      },
+      "status": "FAIL_RETAINED",
+      "saved_vacuum": {
+        "report": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1/report.json",
+          "bytes": 45312,
+          "sha256": "7e5e12da7a49ccd976fda828114c89afa521c13bbe106c27c6274c9f031cb760"
+        },
+        "result": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1/vacuum.json",
+          "bytes": 406598,
+          "sha256": "57fa80739c669457a3c538bdefc28601be53af9bc3fa58042045858bb67eb66b"
+        },
+        "observed": {
+          "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1/observed.json",
+          "bytes": 124155,
+          "sha256": "841c73b4483728e4dbd96a164e26fe40983c7408165cd1df218f284329e5e705"
+        }
+      },
+      "all_10462_numeric_values_checked_in_accepted_saved_only_comparison": true,
+      "vacuum_solve_repeated": false
+    },
+    "pre_execution_draft_syntax_failure": {
+      "kind": "Source-only syntax check",
+      "tool_chunk": "166653",
+      "source": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/source-before-syntax-fix.mjs",
+        "bytes": 17568,
+        "sha256": "879ff618634b6b573550066326a113a5c9e3097bea3ddc8d25d72742f5e2feaa"
+      },
+      "cause": "Missing function closure in new draft; node --check failed before runtime/physics. Corrected before first browser attempt.",
+      "physics_calls": 0,
+      "note": "node --check failed before runtime or physics. The tool cell also ran ls and returned overall exit 0; this is not recorded as an additional browser session failure."
+    },
+    "accepted_session": {
+      "session": 66088,
+      "launch_chunk": "0a090f",
+      "terminal_chunk": "a4dfb1",
+      "exit_code": 0,
+      "reaped": true,
+      "command": "LD_LIBRARY_PATH=/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu OPENSWING_CHROMIUM_EXECUTABLE=/tmp/aswing-chromium/chrome-linux/chrome node scripts/test-isae-ae1-browser.mjs /tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2 /tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-1 > /tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2.log 2>&1",
+      "completed_actual_worker_solves": 2,
+      "report": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/report.json",
+        "bytes": 153364,
+        "sha256": "1a39cf73789a7a1c58e75d412485683ff3963f762caf394e81fdb38bd4e283c6"
+      },
+      "stdout": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2.log",
+        "bytes": 837,
+        "sha256": "50a1291df562e53892fbcd720036417842dfc97235795370c6cff36149111fd8"
+      }
+    },
+    "project_roundtrip": {
+      "status": "PASS_UI_PROJECT_ROUNDTRIP_ZERO_SOLVES",
+      "session_id": 99990,
+      "launch_chunk": "c8cf8e",
+      "terminal_chunk": "bb2ced",
+      "exit_code": 0,
+      "reaped": true,
+      "command": "LD_LIBRARY_PATH=/tmp/aswing-webgl-mesa/driver/usr/lib/aarch64-linux-gnu:/tmp/aswing-browser-libs/usr/lib/aarch64-linux-gnu node /tmp/openswing-isae-ae1-sweep-20261025/browser/project-roundtrip.mjs /tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/alpha5-u30.json /tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1 > /tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1.log 2>&1",
+      "checks": {
+        "passed": 335,
+        "total": 335,
+        "physics_solves": 0
+      },
+      "worker_actions": [
+        "inspect",
+        "distribution",
+        "inspect",
+        "distribution",
+        "inspect",
+        "distribution",
+        "inspect",
+        "distribution"
+      ],
+      "project": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1/pazy-isae-ae1-project.json",
+        "bytes": 146990,
+        "sha256": "9ec39348b074755e71e51d5cea0cd766f3d63738aa30ebc24c93fccd30346698"
+      },
+      "repository_example": {
+        "path": "/home/userland/aswing/examples/pazy-isae-ae1-project.json",
+        "bytes": 146990,
+        "sha256": "9ec39348b074755e71e51d5cea0cd766f3d63738aa30ebc24c93fccd30346698"
+      },
+      "report": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1/report.json",
+        "bytes": 38321,
+        "sha256": "f2d68792c67317eb42582d53a9e7cf4720a24c31805d2f8c631cec0332693183"
+      },
+      "script": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-roundtrip.mjs",
+        "bytes": 8618,
+        "sha256": "f194ec473fe76ccad76e34a4f5893b5b5ceacecbeacf0fe7a04c8161931f1b17"
+      },
+      "stdout": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1.log",
+        "bytes": 106,
+        "sha256": "006bf17cfcecf4b04cef76ed8f4f316f04a1006f560408531fdd09972160e2e6"
+      },
+      "restored_project": {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1/restored-project.json",
+        "bytes": 146990,
+        "sha256": "5d1a2cfdef96842d4059388e5d285dc8ef77c73ae4485d4d74a1d1de6cd9b4e4"
+      },
+      "scope": "Actual Chromium UI exported and reloaded one editable mounted case with the exact saved physical equilibrium enabled; complete configuration was unchanged after restore/re-export. Contains no computed-solution archive. Eight inspect/distribution worker requests, zero solve requests. No default catalogue or hosted release change.",
+      "project_name": "ISAE AE-1 Pazy ideal-wall pilot",
+      "case_name": "Skin-on 5deg 30m-s 60-half loaded",
+      "saved_computed_solution_count": 0,
+      "equilibrium_enabled": true,
+      "offline_http_requests": [],
+      "page_errors": [],
+      "ui_steps": [
+        "Download examples/pazy-isae-ae1-project.json.",
+        "Open Settings, then Project & saved cases, then Open project; select the JSON file.",
+        "Select Skin-on 5deg 30m-s 60-half loaded and click Load case.",
+        "Confirm mounted mode, 5 degrees, 30 m/s and Start from loaded equilibrium. Click Run analysis when computed results are desired."
+      ],
+      "default_catalogue_changed": false,
+      "hosted_release_published": false
+    },
+    "all_browser_sessions_reaped": true,
+    "receipts": [
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/execution-receipt.json",
+        "bytes": 8962,
+        "sha256": "4974b355a454b06c7c27679fc2e83780b338ef2db620c890111508029ef4273a"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-session-receipt.json",
+        "bytes": 2476,
+        "sha256": "34dc13fb653f01a5bf9b6ba2ab616e0cc04e56ed7b7fdd9b7a4f28521634d615"
+      }
+    ],
+    "evidence_references": [
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/report.json",
+        "bytes": 153364,
+        "sha256": "1a39cf73789a7a1c58e75d412485683ff3963f762caf394e81fdb38bd4e283c6"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1/report.json",
+        "bytes": 38321,
+        "sha256": "f2d68792c67317eb42582d53a9e7cf4720a24c31805d2f8c631cec0332693183"
+      },
+      {
+        "path": "/home/userland/aswing/scripts/test-isae-ae1-browser.mjs",
+        "bytes": 20504,
+        "sha256": "1321faeb4a5dea4394cd76396a245f1e6c0ba1e6cefd2b79fed9ed63c753b137"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/observed.json",
+        "bytes": 308040,
+        "sha256": "ab6db6fe7bfd235349980818e80a54938047e142f4f65a664a2b9ae7030cd7af"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/ae1-mobile.png",
+        "bytes": 788905,
+        "sha256": "353a06532772fb612ff5493c7d0cbbf89bcc302a786ff49446b7ca8e6addf35a"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/alpha5-u30-desktop.png",
+        "bytes": 1019727,
+        "sha256": "648499038689714cd2205f20709f9ad63b3d52634b108d9a4eb4e4ca7a1e70bc"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/attempt-2/alpha7-u30-desktop.png",
+        "bytes": 1019930,
+        "sha256": "33b511c8b0e5f9dc88060134c7c08cf84f6f36b1611beacd584738067fedc819"
+      },
+      {
+        "path": "/tmp/openswing-isae-ae1-sweep-20261025/browser/project-attempt-1/project-restored.png",
+        "bytes": 1001120,
+        "sha256": "489333c3af09090afe879f4737be5c6ced9abfb79994c6202575e0b48b07dd60"
+      }
+    ],
+    "evidence_stage": "/tmp/openswing-isae-ae1-sweep-20261025/browser",
+    "documentation_generation": "Saved JSON and bytes only; no browser, physics or test execution was performed to create this combined receipt."
+  },
+  "frozen_dependencies": 152,
+  "new_native_physics_states": 178,
+  "reused_pilot_states": 8,
+  "new_browser_physics_states": 3,
+  "all_owned_physics_handles_reaped": true,
+  "production_kernel_changes": 0,
+  "experimental_acceptance_threshold": null,
+  "stability_computed": false,
+  "notes": [
+    "All178newnative requests succeeded on their first physics attempt; eight original pilot states were not recomputed.",
+    "Original browser metadata failure and preparation failures are retained in the archive. Browser vacuum reused after metadata-only normalization.",
+    "Statistics and plots use saved results only; no parameter fitting, residual tolerance change or experimental offset fitting."
+  ],
+  "artifacts": {
+    "isae-ae1-sweep.json": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-sweep.json",
+      "bytes": 875878,
+      "sha256": "99565d49d2ae99441bcbc476f147025f916d45038b7f14877b6d7e71784cdd18"
+    },
+    "isae-ae1-sweep.csv": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-sweep.csv",
+      "bytes": 89043,
+      "sha256": "14cc36c3f5c5e6c2aca72ac53e3fb1ba09a38abef8ea35da6633c028a0d238ed"
+    },
+    "isae-ae1-sweep-audit.json": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-sweep-audit.json",
+      "bytes": 551195,
+      "sha256": "3cb76cf7e01ce6200c0639379186e069e897e4886456ee92e45196a7cef75a59"
+    },
+    "isae-ae1-browser.json": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-browser.json",
+      "bytes": 29668,
+      "sha256": "ccd5207c2c0fe09ffab1bfa4d4141d7f256ddff7be5449ccd1b71c502d67029c"
+    },
+    "isae-ae1-source-scope.json": {
+      "path": "/home/userland/aswing/docs/validation/isae-ae1-source-scope.json",
+      "bytes": 64572,
+      "sha256": "92d3ebd24297d6f9d377bdaf70064d812e6a5ac95b22bc41d2c926fbb73ff38f"
+    }
+  }
+}

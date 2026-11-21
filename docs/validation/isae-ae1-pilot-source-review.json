@@ -1,0 +1,68 @@
+{
+  "schema": "openswing-isae-ae1-pilot-source-review-v1",
+  "status": "NO_SOURCE_BLOCKER_WITH_DECLARED_MEASUREMENT_AXIS_LIMIT",
+  "addendum": {
+    "path": "/tmp/openswing-isae-ae1-wall-20261025/plan-addendum.json",
+    "bytes": 19201,
+    "sha256": "bd3dc7b2175ac9cd97b1273b0932639e7a3bd1d9b2c13f3913b69c8a3294e0fa"
+  },
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/scripts/isae_ae1.py",
+      "bytes": 13221,
+      "sha256": "586019076697f4840b8852c3653b4580453a0d18ffb1ed363590cc56d68c1f52"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/compare-isae-ae1.py",
+      "bytes": 9395,
+      "sha256": "0c651b860c022511e873ad5e3056130949724fac0e8dbe2aa10ee8bd93eb42df"
+    },
+    {
+      "path": "/home/userland/aswing/scripts/summarize-isae-ae1.py",
+      "bytes": 5670,
+      "sha256": "9e8c5ad92653aa8fd7882103a956f35cdaac8f1cee8ac6b1fec48680585ceac4"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_isae_ae1.py",
+      "bytes": 15829,
+      "sha256": "dc6a8ca0cdfda15b3f7a057f40f760a398982d053c3371ca104101d87b21c228"
+    }
+  ],
+  "checks": [
+    "Full mirror stiffness parity and mass-tensor mapping derived independently of native tangent.",
+    "No wall-contact production exception or epsilon shift.",
+    "One physical beam retains same-physical influence core policy.",
+    "Full clamp at0, 30/60half intervals, all original material and mass stations.",
+    "Mach0/density1.23/gravity0 are explicit mixed-source settings.",
+    "Eight cold-start states, nominal4load fractions, fixed600s scope; no historical ASWING discrete parity or stability claim.",
+    "Root-normal and wind-normal displacements retained as alternate axis interpretations of the same observations.",
+    "Positive-tip LE/TE/midchord vectors retained; own zero-flow baseline subtracted; twist in degrees and displacement percent nominal0.55m."
+  ],
+  "experimental_axis": {
+    "status": "UNRESOLVED_IN_PROCESSED_EXPORT",
+    "framework_source": "Riso/Cesnik sectionIII.A pp5-7 defines Bx downstream and By right-wingtip, Bz completes triad.",
+    "static_source": "Riso/Cesnik sectionIV.C p18 identifies5/7deg and midchord/differentialLETE recovery, but no explicit statement linking exported experimental vertical axis to root or tunnel.",
+    "file_source": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/README.txt",
+    "native_mapping": "wind=(cosalpha,0,sinalpha); windnormal=(-sinalpha,0,cosalpha).",
+    "formulas": [
+      "root=100*dz/.55",
+      "wind=100*(-sin(alpha)*dx+cos(alpha)*dz)/.55"
+    ],
+    "no_extra_observations": true
+  },
+  "independent_test_notice": {
+    "owner": "/root/free_elastic_aero_review",
+    "passed": 7,
+    "total": 7,
+    "seconds": 6.48,
+    "source": "Parent-team message; independent owner writes execution receipt. This reviewer did not run or recalculate tests."
+  },
+  "lifecycle": {
+    "reviewer_production_imports": 0,
+    "reviewer_physics_calls": 0,
+    "reviewer_tests": 0,
+    "root_pilot_session": 5330,
+    "root_pilot_status": "Root reported launch; not monitored or reaped by this reviewer; no live numerical files read.",
+    "source_freeze": "No further adapter edits after586019076697f4840b8852c3653b4580453a0d18ffb1ed363590cc56d68c1f52"
+  }
+}

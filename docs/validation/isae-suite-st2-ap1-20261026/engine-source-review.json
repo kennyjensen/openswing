@@ -1,0 +1,152 @@
+{
+  "status": "COMPLETE_SOURCE_REVIEW_AND_FOCUSED_ENGINE_VALIDATION",
+  "primary_rules": [
+    {
+      "source": ".reference/asw_theory.txt:933-949",
+      "pages": [
+        19
+      ],
+      "equations": [
+        89,
+        90,
+        93
+      ],
+      "claim": "Pylon follows the attachment translation and actual rotation: r_p=r_i+Q*(r_p0-r_i0)."
+    },
+    {
+      "source": ".reference/asw_theory.txt:971-978",
+      "pages": [
+        20
+      ],
+      "equations": [
+        97,
+        98
+      ],
+      "claim": "Engine force and intrinsic couple transfer to the attachment as F and M+arm cross F."
+    },
+    {
+      "source": ".reference/asw_theory.txt:1004-1063",
+      "pages": [
+        20,
+        21
+      ],
+      "equations": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "claim": "Engine axes rotate with the attachment. Inflow is evaluated at the engine, transformed into its axes, and the resulting force/couple transformed back."
+    },
+    {
+      "source": ".reference/aswing_doc.txt:614-616",
+      "claim": "Engine has no mass, drag area, volume or angular momentum; use a separate Weight for those properties."
+    },
+    {
+      "source": ".reference/aswing_doc.txt:668-684",
+      "claim": "Multiple engine rows may share one power index; each has its own normalized thrust vector carried by deformation."
+    }
+  ],
+  "source_section_compatibility": "No constitutive incompatibility found. Concentrated engine nodal loads are jumps, not distributed interval loads; preserve source ends/couples and separate mass cache.",
+  "reusable_paths": [
+    "network.py:343-350 engine position/rotation forwarding",
+    "network.py:401-404 concentrated nodal engine transfer",
+    "discretization.py:84-87 engine station mandatory node",
+    "circulation_tangent.py:257-260 fixed-geometry engine load derivative transfer",
+    "geometry_tangent.py:174-175,358-371 current mount geometry and engine inflow derivatives"
+  ],
+  "necessary_validation": [
+    "Independent finite-rotation/offset-pylon wrench targets; shared power at distinct attachments; global force and arbitrary-reference moment covariance.",
+    "No engine contamination of source distributed ends/couples or real-mass cache; no engine double counting in global aero/nodal forces.",
+    "Type1 and type2 disk power/torque/P-factor identities with actual rotated axes and current inflow; current/frozen influences; positive/negative radius preserves disk force while enabling/disabling jets.",
+    "Circulation and geometry derivative columns agree with complete physical residual stencils at two step sizes; detailed/compact residual agree; contexts restore.",
+    "Rigid and finite-section mounted equilibria retain force/moment balance and source operator identity on saved restore; unsupported dynamics and no-FlightCondition engine use remain rejected."
+  ],
+  "test_file": "tests/test_source_coupled_engines.py",
+  "test_scope": "Synthetic implementation validation; original ASWING archive agreement remains a separate requirement.",
+  "production_edits_by_reviewer": 0,
+  "test_runs": [
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-tests-first.xml",
+      "totals": {
+        "tests": 8.0,
+        "errors": 0.0,
+        "failures": 8.0,
+        "skipped": 0.0,
+        "time": 24.378
+      },
+      "note": "Fixture error: panels=2 violates existing minimum4; all8 failed before aerodynamic evaluation. Test fixture corrected only."
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-tests-second.xml",
+      "totals": {
+        "tests": 8.0,
+        "errors": 0.0,
+        "failures": 0.0,
+        "skipped": 0.0,
+        "time": 9.851
+      },
+      "note": "All8 new independent engine tests pass."
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-focused-regression.xml",
+      "totals": {
+        "tests": 148.0,
+        "errors": 0.0,
+        "failures": 0.0,
+        "skipped": 0.0,
+        "time": 26.588
+      },
+      "note": "All148 focused new/existing tests pass."
+    }
+  ],
+  "changed_by_reviewer": [
+    "tests/test_source_coupled_engines.py"
+  ],
+  "production_issues_found": [],
+  "test_thresholds": {
+    "full_residual_derivative_scaled_error": 2e-08,
+    "full_residual_stencil_steps": [
+      1e-05,
+      3e-06
+    ],
+    "equilibrium_max_residual": 1e-08,
+    "equilibrium_force_moment_balance_absolute": 2e-08,
+    "point_wrench_absolute": 4e-14
+  },
+  "pins": [
+    {
+      "path": "/home/userland/aswing/tests/test_source_coupled_engines.py",
+      "bytes": 11640,
+      "sha256": "38e088c65f0a68b25b7095e86229114467bfc3fbacc64357fd8abd85585b3cd2"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_discrete.py",
+      "bytes": 26573,
+      "sha256": "71d1dc861f945801576b9e9e1daf81ac09305b3fdd92bce5bac70f712d8af9d0"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-focused-regression.xml",
+      "bytes": 21908,
+      "sha256": "f425ffbacfeb28a135e41f28b65de433ead45742542f8bc865b6d50db3f8f5ac"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-tests-first.xml",
+      "bytes": 13694,
+      "sha256": "297eabbbe3c3dc5bff74ca74e3a2dcdfa6cff442d8a2749b1e61b0dba5ecfbbd"
+    },
+    {
+      "path": "/tmp/openswing-isae-tip-source-audit-20261026/engine-tests-second.xml",
+      "bytes": 1407,
+      "sha256": "5659331ca3691e9e4d14b1a275253f8857b8dc869601ee385d1d5825d9e4895b"
+    }
+  ]
+}

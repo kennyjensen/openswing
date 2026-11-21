@@ -1,0 +1,3525 @@
+{
+  "schema_version": 1,
+  "source_pdf": {
+    "path": "/home/userland/aswing/.reference/isae-st4-primary/NACA-TN-1594.pdf",
+    "sha256": "2e63c2ca3b4a50a0c8c3830b5abb3dd887b6acb0b8f0985b25c5042f6cbc95b9",
+    "title": "NACA TN 1594, Experimental Investigation of the Effects of Concentrated Weights on Flutter Characteristics of a Straight Cantilever Wing",
+    "authors": "Harry L. Runyan and John L. Sewall",
+    "table": "Table II",
+    "table_pdf_pages_1_based": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "method": "Manual transcription by visually inspecting PyMuPDF rendered pages and targeted crops. Embedded OCR was used only to locate surrounding explanatory text. No simulations, mode matching, or upstream data were used to repair unreadable source digits."
+  },
+  "semantics": {
+    "frequency_units": "cycles per second (cps), numerically Hz",
+    "columns": [
+      "f_h1: natural first bending frequency at zero airspeed",
+      "f_h2: natural second bending frequency at zero airspeed",
+      "f_t: natural first torsional frequency at zero airspeed",
+      "f_f: flutter frequency"
+    ],
+    "definitions_source_pdf_pages": [
+      3,
+      4
+    ],
+    "before_after_interpretation": "The report test procedure (PDF page 6 / printed page 5) states natural frequencies were tabulated before and after most runs to determine whether flutter damaged the wing. Row ordering and zero indicated speed distinguish before/after measurements. Absent phase means no corresponding zero-speed observation is printed; it is not a zero frequency.",
+    "dashes": "Dash cells denote an unreported quantity. The number of printed dash segments is not counted; normalized transcription is --- .",
+    "gas": "All weight-7 test rows have percentage of Freon-12 = 0; the test medium is therefore air. The unweighted run 5 test has 90.8% Freon-12. The source table writes zeros in the surrounding zero-speed flow-condition fields; these are not used to infer additional natural-frequency measurement medium details.",
+    "no_flutter": "Printed flutter frequency 0 plus a divergence remark is a no-flutter case, not a 0-Hz natural frequency.",
+    "mode_labels": "Mode columns are preserved as actually printed. No relabeling by ordering or by simulation is performed.",
+    "uncertainty": "Source-says-Not-clear values remain null. Unusual but legible changes remain as printed. No interpolation supplies missing observations."
+  },
+  "records": [
+    {
+      "run": 5,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 90.8,
+      "test_medium_interpretation": "90.8% Freon-12 mixture as printed",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.45",
+              "value_hz": 6.45,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "39.80",
+              "value_hz": 39.8,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "47.3",
+              "value_hz": 47.3,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.43",
+              "value_hz": 6.43,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "39.20",
+              "value_hz": 39.2,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "47.57",
+              "value_hz": 47.57,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 181.8,
+        "flutter_frequency": {
+          "printed": "25.80",
+          "value_hz": 25.8,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode with strong torsion response and 2-inch amplitude on trailing edge at tip.",
+      "source": {
+        "pdf_page_1_based": 10,
+        "printed_page": 9,
+        "full_row_crop_pdf_points": [
+          25,
+          213,
+          657,
+          238
+        ],
+        "crop_file": "run-5-unloaded-page-10.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 34,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.43",
+              "value_hz": 6.43,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "36.11",
+              "value_hz": 36.11,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "45.94",
+              "value_hz": 45.94,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 343.5,
+        "flutter_frequency": {
+          "printed": "22.1",
+          "value_hz": 22.1,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending from 228 to 237 fps (indicated) and in first bending at 331.5 fps (indicated) with 1.5-inch tip amplitude.",
+      "source": {
+        "pdf_page_1_based": 11,
+        "printed_page": 10,
+        "full_row_crop_pdf_points": [
+          25,
+          373,
+          657,
+          398
+        ],
+        "crop_file": "run-34-unloaded-page-11.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 42,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [],
+      "test": {
+        "true_airspeed_fps": 253,
+        "flutter_frequency": {
+          "printed": "37.19",
+          "value_hz": 37.19,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending from 220 to 250 fps.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          143,
+          657,
+          155
+        ],
+        "crop_file": "run-42-unloaded-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 43,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.32",
+              "value_hz": 6.32,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "36.11",
+              "value_hz": 36.11,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "45.2",
+              "value_hz": 45.2,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 326,
+        "flutter_frequency": {
+          "printed": "21.78",
+          "value_hz": 21.78,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode with 3-inch amplitude; end plate installed in tunnel.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          153,
+          657,
+          171
+        ],
+        "crop_file": "run-43-unloaded-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "end_plate_in_test": true
+    },
+    {
+      "run": 44,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": null,
+      "test_medium_interpretation": null,
+      "zero_airspeed_observations": [
+        {
+          "phase": "unloaded_control_after_weight_6_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.3",
+              "value_hz": 6.3,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.93",
+              "value_hz": 35.93,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "44.92",
+              "value_hz": 44.92,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": null,
+      "remarks": "Unloaded zero-speed control line following weight 6 measurements; test remark for weighted run says end plate installed in tunnel.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          169,
+          657,
+          193
+        ],
+        "crop_file": "run-44-unloaded-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "end_plate_in_test": true
+    },
+    {
+      "run": 54,
+      "variant": "7e",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.00",
+              "value_hz": 3.0,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.4",
+              "value_hz": 27.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.44",
+              "value_hz": 21.44,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.01",
+              "value_hz": 3.01,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "28.00",
+              "value_hz": 28.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.78",
+              "value_hz": 21.78,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 338.0,
+        "flutter_frequency": {
+          "printed": "8.85",
+          "value_hz": 8.85,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Probably fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          353,
+          657,
+          378
+        ],
+        "crop_file": "run-54-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "After-run first bending reads 3.01; averaging gives 3.005. Do not silently replace the pair by 3.00."
+      ]
+    },
+    {
+      "run": 55,
+      "variant": "7e",
+      "span_position_in_from_root": 40,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.58",
+              "value_hz": 3.58,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.59",
+              "value_hz": 34.59,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.7",
+              "value_hz": 22.7,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.56",
+              "value_hz": 3.56,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.59",
+              "value_hz": 34.59,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.79",
+              "value_hz": 22.79,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 314.0,
+        "flutter_frequency": {
+          "printed": "11.43",
+          "value_hz": 11.43,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          376,
+          657,
+          398.5
+        ],
+        "crop_file": "run-55-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 56,
+      "variant": "7e",
+      "span_position_in_from_root": 35,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.02",
+              "value_hz": 4.02,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.64",
+              "value_hz": 35.64,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "23.9",
+              "value_hz": 23.9,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.04",
+              "value_hz": 4.04,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.6",
+              "value_hz": 35.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "24.0",
+              "value_hz": 24.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 295.5,
+        "flutter_frequency": {
+          "printed": "13.0",
+          "value_hz": 13.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          396.5,
+          657,
+          420
+        ],
+        "crop_file": "run-56-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 57,
+      "variant": "7e",
+      "span_position_in_from_root": 29,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.67",
+              "value_hz": 4.67,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.2",
+              "value_hz": 30.2,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "25.3",
+              "value_hz": 25.3,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.67",
+              "value_hz": 4.67,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.8",
+              "value_hz": 29.8,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "25.3",
+              "value_hz": 25.3,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 298.0,
+        "flutter_frequency": {
+          "printed": "14.52",
+          "value_hz": 14.52,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          418,
+          657,
+          441
+        ],
+        "crop_file": "run-57-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 58,
+      "variant": "7e",
+      "span_position_in_from_root": 21,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.57",
+              "value_hz": 5.57,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.4",
+              "value_hz": 29.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "29.1",
+              "value_hz": 29.1,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 286.0,
+        "flutter_frequency": {
+          "printed": "17.6",
+          "value_hz": 17.6,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Small-amplitude flutter.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          439,
+          657,
+          457
+        ],
+        "crop_file": "run-58-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 59,
+      "variant": "7e",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.28",
+              "value_hz": 6.28,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "26.7",
+              "value_hz": 26.7,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "37.4",
+              "value_hz": 37.4,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 312.0,
+        "flutter_frequency": {
+          "printed": "23.33",
+          "value_hz": 23.33,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          455,
+          657,
+          471
+        ],
+        "crop_file": "run-59-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Second bending reads 26.7. The scanned 2/6 typeforms are easy to confuse; narrow crop run59-fb2.png is supplied."
+      ]
+    },
+    {
+      "run": 60,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.40",
+              "value_hz": 6.4,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "37.2",
+              "value_hz": 37.2,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "45.5",
+              "value_hz": 45.5,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 338,
+        "flutter_frequency": {
+          "printed": "22.0",
+          "value_hz": 22.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode; check on previous runs for unweighted wing.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          469,
+          657,
+          486
+        ],
+        "crop_file": "run-60-unloaded-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 61,
+      "variant": "7d",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.07",
+              "value_hz": 3.07,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.6",
+              "value_hz": 27.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.7",
+              "value_hz": 20.7,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.97",
+              "value_hz": 2.97,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.4",
+              "value_hz": 27.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.6",
+              "value_hz": 20.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 382.0,
+        "flutter_frequency": {
+          "printed": "9.27",
+          "value_hz": 9.27,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode; very close to divergence.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          484,
+          657,
+          513
+        ],
+        "crop_file": "run-61-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 61,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": null,
+      "test_medium_interpretation": null,
+      "zero_airspeed_observations": [
+        {
+          "phase": "unloaded_control_after_weight_7d_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.3",
+              "value_hz": 6.3,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.6",
+              "value_hz": 35.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "45.0",
+              "value_hz": 45.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": null,
+      "remarks": "Unloaded zero-speed control line following weight 7d at tip.",
+      "source": {
+        "pdf_page_1_based": 12,
+        "printed_page": 11,
+        "full_row_crop_pdf_points": [
+          25,
+          484,
+          657,
+          513
+        ],
+        "crop_file": "run-61-unloaded-page-12.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 62,
+      "variant": "7d",
+      "span_position_in_from_root": 44,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.21",
+              "value_hz": 3.21,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.3",
+              "value_hz": 30.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.8",
+              "value_hz": 21.8,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.21",
+              "value_hz": 3.21,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.3",
+              "value_hz": 30.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.4",
+              "value_hz": 21.4,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 384.4,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          118,
+          657,
+          151
+        ],
+        "crop_file": "run-62-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 63,
+      "variant": "7d",
+      "span_position_in_from_root": 39,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.60",
+              "value_hz": 3.6,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.4",
+              "value_hz": 34.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.5",
+              "value_hz": 22.5,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.59",
+              "value_hz": 3.59,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.0",
+              "value_hz": 34.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.4",
+              "value_hz": 22.4,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 365.0,
+        "flutter_frequency": {
+          "printed": "11.2",
+          "value_hz": 11.2,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode intermittently near top speed.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          149,
+          657,
+          172
+        ],
+        "crop_file": "run-63-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 64,
+      "variant": "7d",
+      "span_position_in_from_root": 33,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.2",
+              "value_hz": 4.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.5",
+              "value_hz": 33.5,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "24.1",
+              "value_hz": 24.1,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.2",
+              "value_hz": 4.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.0",
+              "value_hz": 33.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "23.0",
+              "value_hz": 23.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 343.0,
+        "flutter_frequency": {
+          "printed": "13.2",
+          "value_hz": 13.2,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode with 2-inch tip amplitude.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          170,
+          657,
+          195
+        ],
+        "crop_file": "run-64-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 65,
+      "variant": "7d",
+      "span_position_in_from_root": 27,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.8",
+              "value_hz": 4.8,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.4",
+              "value_hz": 27.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "25.7",
+              "value_hz": 25.7,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.78",
+              "value_hz": 4.78,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.4",
+              "value_hz": 27.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "25.6",
+              "value_hz": 25.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 331.0,
+        "flutter_frequency": {
+          "printed": "15.3",
+          "value_hz": 15.3,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          193,
+          657,
+          218
+        ],
+        "crop_file": "run-65-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 66,
+      "variant": "7d",
+      "span_position_in_from_root": 21,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.4",
+              "value_hz": 5.4,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "23.0",
+              "value_hz": 23.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "26.2",
+              "value_hz": 26.2,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.44",
+              "value_hz": 5.44,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "23.3",
+              "value_hz": 23.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "26.0",
+              "value_hz": 26.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 318.0,
+        "flutter_frequency": {
+          "printed": "17.6",
+          "value_hz": 17.6,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          216,
+          657,
+          240
+        ],
+        "crop_file": "run-66-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Torsion reads 26.2 before and 26.0 after; narrow crop run66-torsion.png is supplied."
+      ]
+    },
+    {
+      "run": 67,
+      "variant": "7d",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.13",
+              "value_hz": 6.13,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "24.0",
+              "value_hz": 24.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "33.3",
+              "value_hz": 33.3,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.05",
+              "value_hz": 6.05,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "25.0",
+              "value_hz": 25.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "33.2",
+              "value_hz": 33.2,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 320.0,
+        "flutter_frequency": {
+          "printed": "20.0",
+          "value_hz": 20.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          238,
+          657,
+          264.5
+        ],
+        "crop_file": "run-67-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 68,
+      "variant": "7c",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.93",
+              "value_hz": 2.93,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "28.0",
+              "value_hz": 28.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "19.6",
+              "value_hz": 19.6,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.99",
+              "value_hz": 2.99,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "28.0",
+              "value_hz": 28.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.0",
+              "value_hz": 20.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 384.6,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          262.5,
+          657,
+          287
+        ],
+        "crop_file": "run-68-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 69,
+      "variant": "7c",
+      "span_position_in_from_root": 44,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.2",
+              "value_hz": 3.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.4",
+              "value_hz": 30.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.63",
+              "value_hz": 20.63,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.19",
+              "value_hz": 3.19,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.4",
+              "value_hz": 30.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.4",
+              "value_hz": 20.4,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 376.6,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          285,
+          657,
+          310
+        ],
+        "crop_file": "run-69-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 70,
+      "variant": "7c",
+      "span_position_in_from_root": 40,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.5",
+              "value_hz": 3.5,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.79",
+              "value_hz": 33.79,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.2",
+              "value_hz": 21.2,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.5",
+              "value_hz": 3.5,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.8",
+              "value_hz": 33.8,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.19",
+              "value_hz": 21.19,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 366.1,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          308,
+          657,
+          333
+        ],
+        "crop_file": "run-70-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 71,
+      "variant": "7c",
+      "span_position_in_from_root": 34,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.02",
+              "value_hz": 4.02,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.6",
+              "value_hz": 34.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.13",
+              "value_hz": 22.13,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.02",
+              "value_hz": 4.02,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.9",
+              "value_hz": 34.9,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.13",
+              "value_hz": 22.13,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 383.0,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          331,
+          657,
+          357
+        ],
+        "crop_file": "run-71-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 72,
+      "variant": "7c",
+      "span_position_in_from_root": 28,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.6",
+              "value_hz": 4.6,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.4",
+              "value_hz": 29.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "23.1",
+              "value_hz": 23.1,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.66",
+              "value_hz": 4.66,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.4",
+              "value_hz": 29.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "23.1",
+              "value_hz": 23.1,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 364.0,
+        "flutter_frequency": {
+          "printed": "14.0",
+          "value_hz": 14.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered intermittently in first bending mode near top speed.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          355,
+          657,
+          380
+        ],
+        "crop_file": "run-72-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 73,
+      "variant": "7c",
+      "span_position_in_from_root": 21,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.39",
+              "value_hz": 5.39,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "22.62",
+              "value_hz": 22.62,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "28.0",
+              "value_hz": 28.0,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.39",
+              "value_hz": 5.39,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "22.4",
+              "value_hz": 22.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "26.0",
+              "value_hz": 26.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 346.0,
+        "flutter_frequency": {
+          "printed": "16.5",
+          "value_hz": 16.5,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          378,
+          657,
+          402
+        ],
+        "crop_file": "run-73-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Torsion reads 28.0 before and 26.0 after, not two identical values; narrow crop run73-torsion.png is supplied."
+      ]
+    },
+    {
+      "run": 74,
+      "variant": "7c",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.19",
+              "value_hz": 6.19,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "26.63",
+              "value_hz": 26.63,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "34.59",
+              "value_hz": 34.59,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.12",
+              "value_hz": 6.12,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "26.73",
+              "value_hz": 26.73,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "34.43",
+              "value_hz": 34.43,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 326.0,
+        "flutter_frequency": {
+          "printed": "19.6",
+          "value_hz": 19.6,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode with 2-inch tip amplitude.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          400,
+          657,
+          425
+        ],
+        "crop_file": "run-74-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 75,
+      "variant": "7b",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.97",
+              "value_hz": 2.97,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "28.82",
+              "value_hz": 28.82,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "18.39",
+              "value_hz": 18.39,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.95",
+              "value_hz": 2.95,
+              "status": "visual_reading_moderate_confidence",
+              "ambiguity_note": "Read 2.95; final digit degraded and could be read as 3. Kept as a transcription, not inferred from any model."
+            },
+            "second_bending": {
+              "printed": "28.45",
+              "value_hz": 28.45,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "18.15",
+              "value_hz": 18.15,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 349.0,
+        "flutter_frequency": {
+          "printed": "21.0",
+          "value_hz": 21.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode; clear response on record.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          423,
+          657,
+          449
+        ],
+        "crop_file": "run-75-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 76,
+      "variant": "7b",
+      "span_position_in_from_root": 44,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.19",
+              "value_hz": 3.19,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "31.02",
+              "value_hz": 31.02,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "19.22",
+              "value_hz": 19.22,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.21",
+              "value_hz": 3.21,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.95",
+              "value_hz": 30.95,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "19.12",
+              "value_hz": 19.12,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 373.4,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 13,
+        "printed_page": 12,
+        "full_row_crop_pdf_points": [
+          25,
+          447,
+          657,
+          472
+        ],
+        "crop_file": "run-76-page-13.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 77,
+      "variant": "7b",
+      "span_position_in_from_root": 38,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.70",
+              "value_hz": 3.7,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.0",
+              "value_hz": 35.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.1",
+              "value_hz": 20.1,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.68",
+              "value_hz": 3.68,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.6",
+              "value_hz": 34.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.28",
+              "value_hz": 20.28,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 369.5,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          113,
+          657,
+          143
+        ],
+        "crop_file": "run-77-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 78,
+      "variant": "7b",
+      "span_position_in_from_root": 28,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.67",
+              "value_hz": 4.67,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.4",
+              "value_hz": 29.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.0",
+              "value_hz": 21.0,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.67",
+              "value_hz": 4.67,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "29.4",
+              "value_hz": 29.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.3",
+              "value_hz": 21.3,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 368.9,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          141,
+          657,
+          166
+        ],
+        "crop_file": "run-78-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 79,
+      "variant": "7b",
+      "span_position_in_from_root": 21,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.33",
+              "value_hz": 5.33,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "25.0",
+              "value_hz": 25.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "28.0",
+              "value_hz": 28.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 370.0,
+        "flutter_frequency": {
+          "printed": "24.5",
+          "value_hz": 24.5,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          164,
+          657,
+          184.5
+        ],
+        "crop_file": "run-79-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 80,
+      "variant": "7b",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.12",
+              "value_hz": 6.12,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "25.57",
+              "value_hz": 25.57,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "33.6",
+              "value_hz": 33.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 325.0,
+        "flutter_frequency": {
+          "printed": "18.54",
+          "value_hz": 18.54,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode; clear response.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          182.5,
+          657,
+          200.5
+        ],
+        "crop_file": "run-80-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 81,
+      "variant": "7f",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.02",
+              "value_hz": 3.02,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "27.27",
+              "value_hz": 27.27,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "20.0",
+              "value_hz": 20.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 268.5,
+        "flutter_frequency": {
+          "printed": "7.5",
+          "value_hz": 7.5,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode with 1.5-inch tip amplitude.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          198.5,
+          657,
+          219
+        ],
+        "crop_file": "run-81-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 82,
+      "variant": "7f",
+      "span_position_in_from_root": 40,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.7",
+              "value_hz": 3.7,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.9",
+              "value_hz": 33.9,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.0",
+              "value_hz": 22.0,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.65",
+              "value_hz": 3.65,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.3",
+              "value_hz": 34.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.0",
+              "value_hz": 22.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 262.5,
+        "flutter_frequency": {
+          "printed": "9.86",
+          "value_hz": 9.86,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode with 1-inch amplitude.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          217,
+          657,
+          242.5
+        ],
+        "crop_file": "run-82-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 83,
+      "variant": "7f",
+      "span_position_in_from_root": 32,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.36",
+              "value_hz": 4.36,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.3",
+              "value_hz": 33.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.0",
+              "value_hz": 21.0,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "4.4",
+              "value_hz": 4.4,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.8",
+              "value_hz": 35.8,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.0",
+              "value_hz": 22.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 246.0,
+        "flutter_frequency": {
+          "printed": "12.0",
+          "value_hz": 12.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          240.5,
+          657,
+          265
+        ],
+        "crop_file": "run-83-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Second bending reads 33.3 before and 35.8 after. These differ from the upstream CSV experimental 34.2."
+      ]
+    },
+    {
+      "run": 84,
+      "variant": "7f",
+      "span_position_in_from_root": 24,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.3",
+              "value_hz": 5.3,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "31.3",
+              "value_hz": 31.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "21.2",
+              "value_hz": 21.2,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.2",
+              "value_hz": 5.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "32.4",
+              "value_hz": 32.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "31.0",
+              "value_hz": 31.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 229.0,
+        "flutter_frequency": {
+          "printed": "14.3",
+          "value_hz": 14.3,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          263,
+          657,
+          288
+        ],
+        "crop_file": "run-84-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Torsion reads 21.2 before and 31.0 after. Preserve the unusually large change exactly as printed; second bending reads 31.3 and 32.4."
+      ]
+    },
+    {
+      "run": 85,
+      "variant": "7f",
+      "span_position_in_from_root": 16,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.0",
+              "value_hz": 6.0,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.3",
+              "value_hz": 35.3,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "34.6",
+              "value_hz": 34.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 252.0,
+        "flutter_frequency": {
+          "printed": "17.15",
+          "value_hz": 17.15,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered intermittently near top speed.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          286,
+          657,
+          308.5
+        ],
+        "crop_file": "run-85-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 86,
+      "variant": "7f",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.2",
+              "value_hz": 6.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "38.2",
+              "value_hz": 38.2,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "34.3",
+              "value_hz": 34.3,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.2",
+              "value_hz": 6.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "38.46",
+              "value_hz": 38.46,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "39.3",
+              "value_hz": 39.3,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 278.0,
+        "flutter_frequency": {
+          "printed": "19.1",
+          "value_hz": 19.1,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          306.5,
+          657,
+          331
+        ],
+        "crop_file": "run-86-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Torsion reads 34.3 before and 39.3 after. Preserve both, even though their average is the upstream CSV value 36.8."
+      ]
+    },
+    {
+      "run": 87,
+      "variant": "7a",
+      "span_position_in_from_root": 48,
+      "position_tip_label": true,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.41",
+              "value_hz": 2.41,
+              "status": "visual_reading_moderate_confidence"
+            },
+            "second_bending": {
+              "printed": "29.6",
+              "value_hz": 29.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.0",
+              "value_hz": 3.0,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30",
+              "value_hz": 30.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 320.0,
+        "flutter_frequency": {
+          "printed": "21.4",
+          "value_hz": 21.4,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode with 1-inch amplitude; clear response.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          329,
+          657,
+          353
+        ],
+        "crop_file": "run-87-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "First bending visibly reads 2.41 before and 3.0 after. The source itself marks torsion Not clear both times. No theoretical frequency was used to repair these values."
+      ]
+    },
+    {
+      "run": 88,
+      "variant": "7a",
+      "span_position_in_from_root": 46,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.16",
+              "value_hz": 3.16,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "31.75",
+              "value_hz": 31.75,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "17.6",
+              "value_hz": 17.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 368.0,
+        "flutter_frequency": {
+          "printed": "21.8",
+          "value_hz": 21.8,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode with strong clear response.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          351,
+          657,
+          376
+        ],
+        "crop_file": "run-88-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Natural frequencies are 3.16, 31.75, 17.6; flutter frequency 21.8 belongs in a separate column."
+      ]
+    },
+    {
+      "run": 89,
+      "variant": "7a",
+      "span_position_in_from_root": 47,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "3.06",
+              "value_hz": 3.06,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.0",
+              "value_hz": 30.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 339.2,
+        "flutter_frequency": {
+          "printed": "21.6",
+          "value_hz": 21.6,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in second bending mode; clear response; possibly two modes visible.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          374,
+          657,
+          392
+        ],
+        "crop_file": "run-89-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 90,
+      "variant": "7a",
+      "span_position_in_from_root": 45,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "2.12",
+              "value_hz": 2.12,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "31.4",
+              "value_hz": 31.4,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "18.0",
+              "value_hz": 18.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 382.8,
+        "flutter_frequency": {
+          "printed": "0",
+          "value_hz": 0.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "No flutter; divergence.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          390,
+          657,
+          408
+        ],
+        "crop_file": "run-90-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "The printed first bending is 2.12; the second bending is 31.4. Flutter frequency is printed 0 because the remark says divergence."
+      ]
+    },
+    {
+      "run": 91,
+      "variant": "7a",
+      "span_position_in_from_root": 8,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.2",
+              "value_hz": 6.2,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "36.0",
+              "value_hz": 36.0,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "27.0",
+              "value_hz": 27.0,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 323.3,
+        "flutter_frequency": {
+          "printed": "19.1",
+          "value_hz": 19.1,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          406,
+          657,
+          426
+        ],
+        "crop_file": "run-91-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 92,
+      "variant": "7a",
+      "span_position_in_from_root": 11,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.1",
+              "value_hz": 6.1,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "33.6",
+              "value_hz": 33.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "22.5",
+              "value_hz": 22.5,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.3",
+              "value_hz": 6.3,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "34.5",
+              "value_hz": 34.5,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "23.1",
+              "value_hz": 23.1,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 325.5,
+        "flutter_frequency": {
+          "printed": "17.4",
+          "value_hz": 17.4,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          424,
+          657,
+          448
+        ],
+        "crop_file": "run-92-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Printed values retained despite disagreement with upstream: 6.1/6.3, 33.6/34.5, and 22.5/23.1."
+      ]
+    },
+    {
+      "run": 93,
+      "variant": "7a",
+      "span_position_in_from_root": 14,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.05",
+              "value_hz": 6.05,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            },
+            "first_torsional": {
+              "printed": "20.6",
+              "value_hz": 20.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 342.3,
+        "flutter_frequency": {
+          "printed": "16.3",
+          "value_hz": 16.3,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          446,
+          657,
+          464
+        ],
+        "crop_file": "run-93-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 94,
+      "variant": "7a",
+      "span_position_in_from_root": 17,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.9",
+              "value_hz": 5.9,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            },
+            "first_torsional": {
+              "printed": "19.7",
+              "value_hz": 19.7,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 381.8,
+        "flutter_frequency": {
+          "printed": "16.0",
+          "value_hz": 16.0,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Flutter debatable; looked closer to divergence.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          462,
+          657,
+          480
+        ],
+        "crop_file": "run-94-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      },
+      "transcription_notes": [
+        "Primary remark explicitly questions flutter. Printed flutter frequency is 16.0, not upstream 26.8."
+      ]
+    },
+    {
+      "run": 95,
+      "variant": "7a",
+      "span_position_in_from_root": 16,
+      "position_tip_label": false,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "before_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "5.85",
+              "value_hz": 5.85,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "Not clear",
+              "value_hz": null,
+              "status": "source_says_not_clear"
+            },
+            "first_torsional": {
+              "printed": "20.0",
+              "value_hz": 20.0,
+              "status": "readable"
+            }
+          }
+        },
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.0",
+              "value_hz": 6.0,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "30.6",
+              "value_hz": 30.6,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "18.5",
+              "value_hz": 18.5,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 375.7,
+        "flutter_frequency": {
+          "printed": "15.5",
+          "value_hz": 15.5,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          478,
+          657,
+          496
+        ],
+        "crop_file": "run-95-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    },
+    {
+      "run": 96,
+      "variant": "unloaded",
+      "span_position_in_from_root": null,
+      "freon_12_percent_at_test": 0,
+      "test_medium_interpretation": "air (0% Freon-12)",
+      "zero_airspeed_observations": [
+        {
+          "phase": "after_run",
+          "indicated_airspeed_fps": 0,
+          "freon_12_percent_as_printed": 0,
+          "frequencies": {
+            "first_bending": {
+              "printed": "6.25",
+              "value_hz": 6.25,
+              "status": "readable"
+            },
+            "second_bending": {
+              "printed": "35.8",
+              "value_hz": 35.8,
+              "status": "readable"
+            },
+            "first_torsional": {
+              "printed": "44.6",
+              "value_hz": 44.6,
+              "status": "readable"
+            }
+          }
+        }
+      ],
+      "test": {
+        "true_airspeed_fps": 333.8,
+        "flutter_frequency": {
+          "printed": "22.1",
+          "value_hz": 22.1,
+          "status": "readable"
+        },
+        "natural_frequency_columns_at_test": [
+          "---",
+          "---",
+          "---"
+        ]
+      },
+      "remarks": "Fluttered in first bending mode.",
+      "source": {
+        "pdf_page_1_based": 14,
+        "printed_page": 13,
+        "full_row_crop_pdf_points": [
+          25,
+          494,
+          657,
+          513
+        ],
+        "crop_file": "run-96-unloaded-page-14.png",
+        "coordinates": "Unrotated PyMuPDF page coordinates, points from top-left, [x0,y0,x1,y1]."
+      }
+    }
+  ]
+}

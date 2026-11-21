@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "name": "actual_candidate_changes_exactly_two_slope_values",
+      "checks": 11,
+      "failures": [],
+      "expected_valid": true,
+      "passed": true
+    },
+    {
+      "name": "reject_extra_CLmax_change",
+      "checks": 11,
+      "failures": [
+        "mutation.changed_indices.length",
+        "mutation.changed_indices.1"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "reject_wrong_slope_value",
+      "checks": 11,
+      "failures": [
+        "mutation.new_value1416"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "unaltered_saved_baseline_control",
+      "checks": 2204,
+      "failures": [],
+      "expected_valid": true,
+      "passed": true
+    },
+    {
+      "name": "reject_changed_saved_tip_pose",
+      "checks": 2204,
+      "failures": [
+        "state.raw_position60.0",
+        "state.mirror_position",
+        "state.mirror_position_gate",
+        "state.observable.trailing_edge_m.0",
+        "state.observable.leading_edge_m.0",
+        "state.observable.midchord_m.0"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "reject_changed_strip_force",
+      "checks": 2204,
+      "failures": [
+        "state.strip_force_sum.2",
+        "state.strip_moment_sum.0",
+        "state.strip_moment_sum.1",
+        "state.applied_force.2",
+        "state.applied_moment.0",
+        "state.applied_moment.1",
+        "state.force_mirror0.2"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "reject_changed_strip_moment",
+      "checks": 2204,
+      "failures": [
+        "state.strip_moment_sum.1",
+        "state.applied_moment.1",
+        "state.moment_mirror0.1"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "unaltered_raw_circulation_control",
+      "checks": 146,
+      "failures": [],
+      "expected_valid": true,
+      "passed": true
+    },
+    {
+      "name": "reject_changed_raw_circulation",
+      "checks": 146,
+      "failures": [
+        "circulation.raw_circulation.59",
+        "circulation.strip_circulation.59"
+      ],
+      "expected_valid": false,
+      "passed": true
+    },
+    {
+      "name": "reject_changed_reported_circulation",
+      "checks": 146,
+      "failures": [
+        "circulation.raw_circulation.0"
+      ],
+      "expected_valid": false,
+      "passed": true
+    }
+  ],
+  "checker_sha256": "8af045cda5646d046269266dd9f8b5f9e2546aa2297de5907b72835351b18fa9",
+  "helper_sha256": "0f8f5f92dc4b816cc492636e91366ac58d27cea675fab22a91ddb3cafe7e9c77",
+  "selfcheck_sha256": "dfcdadf76c70dff1fcc3622a5f017d83404338c3639af1584b9d05bb0926a42a",
+  "production_imports_present": [],
+  "scope": "Synthetic mutations of saved copies only; no production imports or physics calls."
+}

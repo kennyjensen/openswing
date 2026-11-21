@@ -1,0 +1,4285 @@
+{
+  "format": "openswing-seeded-corrector-browser-reference",
+  "version": 1,
+  "origin": "Previously completed Q/wasm baseline, no new numerical call during fixture extraction.",
+  "model": {
+    "file": "seeded-corrector-flexible.asw",
+    "name": "Flexible high aspect ratio wing",
+    "sha256": "1ba30cea974091854f4c60ecc0d0d2cf24da1127001d7ad1bf1a72acf85f4472"
+  },
+  "fixture": {
+    "panels": 4,
+    "speed": 20,
+    "seed_alpha": 2,
+    "target_alpha": 2.05,
+    "mach": 0.1,
+    "beta": 0,
+    "gravity_body": [
+      0,
+      0,
+      0
+    ],
+    "freeze_influences": false
+  },
+  "gates": {
+    "absolute": 2e-08,
+    "relative": 2e-08,
+    "full_residual": 1e-08,
+    "dense_column_scaled_rcond": 1e-10
+  },
+  "parity_exclusions": [
+    "result.evaluations",
+    "result.circulation_solver.evaluations"
+  ],
+  "setup_differences": {
+    "direct_wasm_newton_tolerance": 1e-09,
+    "actual_UI_default_newton_tolerance": 1e-08,
+    "UI_tolerance_not_overridden": true,
+    "gravity_representation": {
+      "result.gravity_source": [
+        "body_vector_override",
+        "Earth_magnitude"
+      ],
+      "result.atmosphere.gravity_magnitude": [
+        9.80665,
+        0
+      ],
+      "state.launch.gravity": [
+        [
+          0,
+          0,
+          0
+        ],
+        null
+      ],
+      "state.launch.condition.gravity_magnitude": [
+        null,
+        0
+      ]
+    },
+    "gravity_equivalence": "Both zero-force descriptions give gravity_body=[0,0,0] at unchanged zero attitude. Only the four named provenance/configuration fields are transformed in expected copies. All other physical gravity/state/load fields retain comparison gates.",
+    "pointwise_mode_representation": {
+      "state.launch.condition.circulation_modes": [
+        {},
+        {
+          "1": 0
+        }
+      ],
+      "proof": "CirculationBasis filters zero counts from modes and selects identity sample/test/encoder for omitted or zero counts. All basis output and circulation values remain in full parity checks."
+    }
+  },
+  "saved_source_pins": {
+    "fixture.asw": {
+      "bytes": 433,
+      "sha256": "1ba30cea974091854f4c60ecc0d0d2cf24da1127001d7ad1bf1a72acf85f4472"
+    },
+    "results/baseline-result.json": {
+      "bytes": 43102,
+      "sha256": "6241c0a252c97682707f1a7ad710d0e3441bdf760e3bc81bd127d9b15687399d"
+    },
+    "results/baseline-state.json": {
+      "bytes": 5846,
+      "sha256": "a395fb493597516d15321b495b51174b345c73f2a967a3c891c70080af68eec4"
+    },
+    "results/seed-result.json": {
+      "bytes": 42975,
+      "sha256": "446e36e3f790d8aabf1ee73eb82efb60deb605cebc3e170b5e9e3696cedde553"
+    },
+    "results/seed-state.json": {
+      "bytes": 5811,
+      "sha256": "a65946168d7504d07ab5afd625855fa91693b0687863250b3d98718fb16e7bb1"
+    },
+    "results/baseline-diagnostics.json": {
+      "bytes": 239,
+      "sha256": "53fb8065b54787b05dff9dad479ff98905c00e7e6d86fa2bf999d8585a2009fc"
+    },
+    "runtime-report.json": {
+      "bytes": 53265,
+      "sha256": "b0a2e45fbb086301d6bd698ba6d7d06798cb6346f16cd5202d3a3c8f39abbab6"
+    },
+    "summary.json": {
+      "bytes": 6196,
+      "sha256": "e98513e830b63b2678dff0f85b22815bb2bc3be87b6be68bb116e4c67fa76cbc"
+    },
+    "session-closeout.json": {
+      "bytes": 939,
+      "sha256": "298b20bd6bdb0410c362215c1b125021168f304596a135a59d26028856bd3440"
+    },
+    "test_runtime.py": {
+      "bytes": 8291,
+      "sha256": "216188a46ed70ae497c8ed18a34e7e512c76825a0f322458ed0fbb42d6e85026"
+    },
+    "plan.json": {
+      "bytes": 81738,
+      "sha256": "ed95cb460859642d7d4f71b93770c94496cf0c724b12b53e1031cea572353926"
+    }
+  },
+  "seed": {
+    "result": {
+      "analysis": "mounted_static",
+      "converged": true,
+      "residual": 9.268150872615905e-13,
+      "evaluations": 188,
+      "circulation_solver": {
+        "method": "prescribed",
+        "evaluations": 0
+      },
+      "circulation_residual": [
+        -1.216494885248013e-13,
+        1.5599542709212243e-13,
+        1.5603428489798428e-13,
+        -1.2167585632163614e-13
+      ],
+      "point_forces": [],
+      "circulation_local_residual": [
+        -1.216494885248013e-13,
+        1.5599542709212243e-13,
+        1.5603428489798428e-13,
+        -1.2167585632163614e-13
+      ],
+      "circulation_discretization": {
+        "lifting_panels": 4,
+        "independent_unknowns": 4,
+        "beams": [
+          {
+            "beam": 1,
+            "representation": "pointwise",
+            "panels": 4,
+            "unknowns": 4,
+            "panel_start": 0,
+            "coefficient_start": 0,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          }
+        ],
+        "convention": "Material arc coordinate s in [-L/2,L/2]; theta=acos(2*arc/L-1), decreasing pi to zero. Gamma=sum A_k sin(k theta). Weighted residual=(2/pi) sum R_i sin(k theta_i) delta_theta_i.",
+        "scope": "Fourier modes are per logical lifting beam; refine mode count and structural intervals independently. Local flow defects need not vanish in a truncated series.",
+        "coefficients": [
+          0.46765793770633196,
+          2.4806765840595526,
+          2.480676584059718,
+          0.4676579377065318
+        ]
+      },
+      "section_output_definitions": {
+        "cm": "Local chord/4 pitching-moment coefficient, including flap mixing and the actual section-normal Mach correction; excludes moment arms and apparent-mass moments.",
+        "f_aero": "Circulatory plus enabled circulation-rate force projected on the physical current section normal, per current length [input F/L]. Profile drag, apparent mass and point loads are excluded.",
+        "f_reac": "Distributed real-mass gravity/inertia plus apparent-mass force projected on the physical current section normal, per current length [input F/L]. Excludes point masses, engines, struts, applied point loads and support reactions.",
+        "f_reac_sampling": "Network analysis: eight-point material mass quadrature with current elastic and rigid kinematics, summed per interval and divided by current length. Point masses excluded.",
+        "da_eff": "(n - n_jig) dot V_relative / |V_relative| [rad], using physical section normals and total relative velocity at the bound-vortex force point. This is the documented linearized incidence change, not an exact angle difference. Undefined at zero relative speed.",
+        "sampling": "Aerodynamic quantities use material Glauert midpoint stations. Inertial forces are interval averages, reported at those stations. No half-interval shift to structural nodes is applied."
+      },
+      "lifting_airflow": {
+        "samples": 4,
+        "maximum": {
+          "beam": 1,
+          "t": -3.0614674589207067,
+          "position": [
+            0.1990251371182573,
+            -3.048202607432592,
+            0.3052075876766752
+          ],
+          "relative_velocity": [
+            19.99687327836823,
+            -0.0054811880723747465,
+            0.6095613889769766
+          ],
+          "normal_speed": 19.90236227957414,
+          "normal_mach": 0.05848578664206287
+        },
+        "sound_speed": 340.294,
+        "speed_unit": "input L/T",
+        "position_unit": "input L",
+        "axes": "Body axes",
+        "scope": "Relative fluid velocity at each lifting force point, including induced flow, gusts, jets and local section motion. Normal speed excludes the component along the current span axis. Local Mach uses atmospheric sound speed, independently of the selected PG Mach.",
+        "sampling": "Current bound-vortex force points; these differ from the reported beam-axis strip positions.",
+        "validity": "Subsonic local Mach is necessary, not sufficient for physical validity or mesh convergence. Swept lifting lines can develop growing force-point velocities under refinement."
+      },
+      "aerodynamic_influences": {
+        "frozen": false,
+        "geometry": "current",
+        "wind_angles": [
+          2.0,
+          0.0
+        ],
+        "pg_mach": 0.1,
+        "volume_geometry": "current",
+        "ground": "Current Earth pose and image plane; coefficients update when the plane changes.",
+        "scope": "Vortex and volume velocity coefficients. Current circulation, section frames, lengths, motion, gusts, jets and loads remain active.",
+        "attached_receivers": "Current positions",
+        "external_receivers": "Requested spatial positions"
+      },
+      "wake_core": {
+        "ratio": 0.25,
+        "rule": "max(ratio * local chord, current interval length)",
+        "minimum_radius": 2.3564712444550246,
+        "maximum_radius": 5.689023289270248,
+        "spacing_limited_panels": 4,
+        "radius_unit": "input L",
+        "scope": "Lifting-surface interactions within one physical beam use zero core. Distinct physical beams and external probes/objects use the configured cores; images inherit the selected influence core."
+      },
+      "aerodynamic_lag": {
+        "enabled": true,
+        "circulation": "differential",
+        "shed_downwash_coefficient": 0.6366197723675814,
+        "circulation_rate_lift": true,
+        "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+      },
+      "CL": 0.18811189687275046,
+      "CY": 8.829671687682111e-16,
+      "CD": 0.00867539340465724,
+      "CDi": 0.0007858820210520159,
+      "CLi": 0.18817198265760263,
+      "CYi": -8.496604780294565e-17,
+      "CDi_near": 0.0007577934223076149,
+      "CDp": 0.007917599982349624,
+      "CDam": 0.0,
+      "CDrate": 0.0,
+      "CDbody": 0.0,
+      "CDeng": 0.0,
+      "Cl": 1.7808883619497408e-16,
+      "Cm": -0.0760133122362607,
+      "Cn": -1.027522738096956e-16,
+      "efficiency": 0.8963605057502582,
+      "trefftz": {
+        "available": true,
+        "reason": null,
+        "CLi": 0.18817198265760263,
+        "CYi": -8.496604780294565e-17,
+        "CDi": 0.0007858820210520159,
+        "efficiency": 0.8963605057502582,
+        "rolling_moment_wind": 9.427481018065009e-11,
+        "Cl": -1.503106029665977e-15,
+        "force_transverse_body": [
+          -25.743061353987322,
+          -3.3306690738754696e-13,
+          737.1848252104173
+        ],
+        "induced_drag": 3.080657522523903,
+        "velocity_body": [
+          [
+            -0.0011210340922233127,
+            0.0096333897200029,
+            0.032102216203690116
+          ],
+          [
+            0.006330039053292461,
+            -0.012478857554394858,
+            -0.18126860162083017
+          ],
+          [
+            0.00633003905329325,
+            0.01247885755439611,
+            -0.18126860162085282
+          ],
+          [
+            -0.001121034092221052,
+            -0.009633389719991621,
+            0.032102216203625446
+          ]
+        ],
+        "strip_induced_drag": [
+          -0.022331908675837356,
+          1.5626606699376466,
+          1.5626606699378975,
+          -0.02233190867580443
+        ],
+        "trace_points_body": [
+          [
+            -0.029042926271819813,
+            -7.344281241110339,
+            0.831680592796874
+          ],
+          [
+            -0.010402694922612088,
+            -3.048202607432592,
+            0.29789420662881955
+          ],
+          [
+            -0.010402694922610978,
+            3.0482026074325037,
+            0.29789420662878696
+          ],
+          [
+            -0.029042926271817482,
+            7.344281241110304,
+            0.8316805927968094
+          ]
+        ],
+        "convention": "Frozen straight wake, infinite trailing filaments, theta-midpoint quadrature; D=-rho/2 sum(Gamma v_wake dot (wind cross delta_r)).",
+        "scope": "Lifting-surface circulation only; no body/profile/engine/apparent-mass drag or shed-wake history.",
+        "efficiency_definition": "(CLi^2+CYi^2)/(pi*(Bref^2/Sref)*CDi)",
+        "influence_geometry": "current; current wind angles"
+      },
+      "efficiency_near": 0.9292235436400116,
+      "coefficient_definitions": {
+        "CDi": "Trefftz-plane induced drag",
+        "CDi_near": "Near-field circulation-force drag projection",
+        "CD": "Total near-field force projection: CDi_near+CDp+CDbody+CDam+CDeng+CDrate",
+        "efficiency": "Trefftz-plane (CLi^2+CYi^2)/(pi*(Bref^2/Sref)*CDi)"
+      },
+      "force": [
+        8.251984413955826,
+        3.461231301571388e-12,
+        738.1362785211262
+      ],
+      "moment": [
+        -1.1169731806148775e-11,
+        -297.972183966142,
+        6.444622613344109e-12
+      ],
+      "mach": 0.1,
+      "panels": 4,
+      "body_shoulders": [],
+      "lifting_panels": 4,
+      "body_added_mass_factor": 1.0,
+      "ground_plane": {
+        "flag": 0,
+        "kind": "off",
+        "normal_body": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal_earth": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "offset": 0.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "minimum_clearance": null,
+        "oblique_compressible": false,
+        "limitations": []
+      },
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "body_to_earth": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "velocity_reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_body": [
+          -19.987816540381914,
+          0.0,
+          -0.6979899340500194
+        ],
+        "velocity_earth": [
+          -19.987816540381914,
+          0.0,
+          -0.6979899340500194
+        ],
+        "velocity_origin_body": [
+          -19.987816540381914,
+          0.0,
+          -0.6979899340500194
+        ],
+        "velocity_origin_earth": [
+          -19.987816540381914,
+          0.0,
+          -0.6979899340500194
+        ],
+        "acceleration_velocity_reference_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_velocity_reference_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_origin_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rates_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_derivative_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_rate": 0.0,
+        "attitude_rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radial_acceleration": 0.0,
+        "flight_path": -2.0
+      },
+      "reference_flow": {
+        "reference_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "still_air_velocity_body": [
+          19.987816540381914,
+          -0.0,
+          0.6979899340500194
+        ],
+        "gust_velocity_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gust_velocity_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_velocity_body": [
+          19.987816540381914,
+          0.0,
+          0.6979899340500194
+        ],
+        "relative_velocity_earth": [
+          19.987816540381914,
+          0.0,
+          0.6979899340500194
+        ],
+        "speed": 20.0,
+        "alpha": 2.0,
+        "beta": -0.0,
+        "equivalent_airspeed": 20.0,
+        "dynamic_pressure": 245.00000000000003,
+        "definition": "Relative air velocity at the fixed body velocity reference: -U_origin - Omega cross r_ref + posed Earth gust. Induced flow and local elastic velocity are excluded.",
+        "angle_convention": "Degrees: alpha=atan2(w,u), beta=atan2(-v,hypot(u,w)); undefined or roundoff-sized directions are null."
+      },
+      "gust": {
+        "type": "none",
+        "time": 0.0,
+        "specification": {
+          "type": "none"
+        },
+        "reference_position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_velocity_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_velocity_body": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "atmosphere": {
+        "model": "US Standard Atmosphere 1976 (lower atmosphere)",
+        "altitude_m": 0.0,
+        "geopotential_altitude_m": 0.0,
+        "temperature_K": 288.15,
+        "molecular_temperature_K": 288.15,
+        "standard_pressure_Pa": 101325.0,
+        "standard_density_ratio": 1.0,
+        "density": 1.225,
+        "density_source": "standard_atmosphere",
+        "density_ratio": 1.0,
+        "sound_speed": 340.294,
+        "gravity_magnitude": 9.80665,
+        "ambient_mach": 0.058772708305171416,
+        "equivalent_airspeed": 20.0,
+        "dynamic_pressure": 245.00000000000003,
+        "load_factor": 1.0
+      },
+      "surface_force": [
+        8.251984413955826,
+        3.461231301571388e-12,
+        738.1362785211262
+      ],
+      "circulation_rate_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "circulation_rate_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "distributed_aero_force": [
+        8.251984413955826,
+        3.461231301571388e-12,
+        738.1362785211262
+      ],
+      "distributed_aero_moment": [
+        -1.1169731806148775e-11,
+        -297.972183966142,
+        6.444622613344109e-12
+      ],
+      "surface_apparent_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "engines": [],
+      "engine_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "engine_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_mass": {
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_tensor": [
+          [
+            0.02058554625547527,
+            -7.851358452271029e-15,
+            -0.5125998322783855
+          ],
+          [
+            -7.854827899222983e-15,
+            0.2084344481876276,
+            1.4099832412739488e-13
+          ],
+          [
+            -0.5125998322783856,
+            1.4097056855177925e-13,
+            14.896568503341417
+          ]
+        ],
+        "inertia_reference": [
+          [
+            280.85233507831816,
+            1.5685230891904212e-12,
+            8.466100455074699
+          ],
+          [
+            1.5649703755116207e-12,
+            5.577185734552049,
+            7.593925488436071e-14
+          ],
+          [
+            8.466100455074699,
+            7.577272143066693e-14,
+            0.3260741961927449
+          ]
+        ],
+        "spatial_matrix": [
+          [
+            0.02058554625547527,
+            -7.851358452271029e-15,
+            -0.5125998322783855,
+            1.9617640845126516e-13,
+            0.323256006521491,
+            8.156669784042947e-15
+          ],
+          [
+            -7.854827899222983e-15,
+            0.2084344481876276,
+            1.4099832412739488e-13,
+            -7.467654485646218,
+            -8.315570454442422e-14,
+            -0.19968425214671182
+          ],
+          [
+            -0.5125998322783856,
+            1.4097056855177925e-13,
+            14.896568503341417,
+            -2.723155034800584e-12,
+            -8.317604948468787,
+            -1.1313172620930345e-13
+          ],
+          [
+            1.9617640845126516e-13,
+            -7.467654485646216,
+            -2.723155034800584e-12,
+            280.85233507831816,
+            1.5685230891904212e-12,
+            8.466100455074699
+          ],
+          [
+            0.323256006521491,
+            -8.31279489688086e-14,
+            -8.317604948468787,
+            1.5649703755116207e-12,
+            5.577185734552049,
+            7.593925488436071e-14
+          ],
+          [
+            8.156669784042947e-15,
+            -0.19968425214671176,
+            -1.1324274851176597e-13,
+            8.466100455074699,
+            7.577272143066693e-14,
+            0.3260741961927449
+          ]
+        ]
+      },
+      "strips": [
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": -7.39103626009031,
+          "length": 2.3564712444550246,
+          "position": [
+            0.7303943176397322,
+            -7.344281241110339,
+            0.8582007257349575
+          ],
+          "circulation": 0.46765793770633196,
+          "cl": 0.05659386386587375,
+          "force": [
+            2.8684362574004703,
+            4.379591171030424,
+            26.628947441191183
+          ],
+          "velocity_position": [
+            0.6469634396057952,
+            -7.344281241110339,
+            0.8552872552746403
+          ],
+          "relative_velocity": [
+            19.992219453406015,
+            0.007849231600121171,
+            0.7283001333192026
+          ],
+          "normal_speed": 19.901069607997766,
+          "normal_mach": 0.05848198795158823,
+          "cm": -0.03506000646797576,
+          "f_aero": 11.397249450281933,
+          "da_eff": -0.029639131902111204,
+          "wake_core_radius": 2.3564712444550246,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "moment": [
+            1.1179828688423068,
+            -11.376138486559796,
+            1.9210240436867334
+          ],
+          "apparent_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": -3.0614674589207067,
+          "length": 5.689023289270248,
+          "position": [
+            0.30420168315188595,
+            -3.048202607432592,
+            0.30888043359665374
+          ],
+          "circulation": 2.4806765840595526,
+          "cl": 0.23811089636245986,
+          "force": [
+            1.2575559495779416,
+            35.4315002009,
+            342.43919181937645
+          ],
+          "velocity_position": [
+            0.1990251371182573,
+            -3.048202607432592,
+            0.3052075876766752
+          ],
+          "relative_velocity": [
+            19.99687327836823,
+            -0.0054811880723747465,
+            0.6095613889769766
+          ],
+          "normal_speed": 19.90236227957414,
+          "normal_mach": 0.05848578664206287,
+          "cm": -0.03506001428371699,
+          "f_aero": 60.47957100900446,
+          "da_eff": -0.014012288826631813,
+          "wake_core_radius": 5.689023289270248,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "moment": [
+            1.6727501179076691,
+            -16.83987157691812,
+            1.795300915716647
+          ],
+          "apparent_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": 3.061467458920663,
+          "length": 5.689023289269526,
+          "position": [
+            0.30420168315187746,
+            3.0482026074325037,
+            0.3088804335966208
+          ],
+          "circulation": 2.480676584059718,
+          "cl": 0.23811089636247523,
+          "force": [
+            1.2575559495773057,
+            -35.43150020089504,
+            342.4391918193559
+          ],
+          "velocity_position": [
+            0.19902513711824862,
+            3.0482026074325037,
+            0.30520758767664224
+          ],
+          "relative_velocity": [
+            19.99687327836823,
+            0.005481188072375413,
+            0.609561388976965
+          ],
+          "normal_speed": 19.90236227957414,
+          "normal_mach": 0.05848578664206287,
+          "cm": -0.03506001428371699,
+          "f_aero": 60.47957100900846,
+          "da_eff": -0.01401228882662892,
+          "wake_core_radius": 5.689023289269526,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "moment": [
+            -1.6727501179072402,
+            -16.839871576913758,
+            -1.7953009157160396
+          ],
+          "apparent_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": 7.391036260090267,
+          "length": 2.356471244455026,
+          "position": [
+            0.7303943176397298,
+            7.344281241110304,
+            0.8582007257348927
+          ],
+          "circulation": 0.4676579377065318,
+          "cl": 0.056593863865897785,
+          "force": [
+            2.868436257400109,
+            -4.379591171031925,
+            26.628947441202577
+          ],
+          "velocity_position": [
+            0.6469634396057926,
+            7.344281241110304,
+            0.8552872552745755
+          ],
+          "relative_velocity": [
+            19.992219453406015,
+            -0.007849231600115449,
+            0.7283001333191714
+          ],
+          "normal_speed": 19.901069607997766,
+          "normal_mach": 0.05848198795158823,
+          "cm": -0.03506000646797576,
+          "f_aero": 11.397249450286807,
+          "da_eff": -0.029639131902105677,
+          "wake_core_radius": 2.356471244455026,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "moment": [
+            -1.117982868842229,
+            -11.376138486558965,
+            -1.9210240436864277
+          ],
+          "apparent_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        }
+      ],
+      "limitations": [
+        "Quasi-steady snapshot with prescribed or force/moment-constrained motion; use time analysis to evolve a trajectory.",
+        "SO(3) midpoint beam discretization; refine the mesh to assess solution accuracy. ASWING discrete parity is unverified.",
+        "Rigid/pinned/roller/sprung joints, axial struts, body/point-volume flow and engine types 0/1/2 are supported.",
+        "Struts use an explicit bilateral or tension-only wire law; buckling loads are not specified by ASW input. See the numerical notes for formula ambiguities.",
+        "CDi and span efficiency use the frozen straight Trefftz wake; total CD and load balance use near-field forces, including CDi_near."
+      ],
+      "sensor_airflow": [],
+      "structural_nodes": 5,
+      "structural_elements": 4,
+      "geometry": [
+        {
+          "index": 1,
+          "name": "Main wing",
+          "lifting": true,
+          "physical_index": 1,
+          "panels": 4,
+          "quads": [
+            [
+              [
+                0.5113977087779843,
+                -7.9750607535803555,
+                0.9455636418261502
+              ],
+              [
+                0.2429915629845853,
+                -5.6655353045247905,
+                0.5598801673508566
+              ],
+              [
+                1.1547054334258335,
+                -5.570703005622586,
+                0.590898606880753
+              ],
+              [
+                1.30595978875876,
+                -7.890411905597226,
+                0.9843666519123893
+              ]
+            ],
+            [
+              [
+                0.2429915629845853,
+                -5.6655353045247905,
+                0.5598801673508566
+              ],
+              [
+                -0.4179185252083755,
+                -0.04173316525719462,
+                0.0015649936971447976
+              ],
+              [
+                0.7761344039584117,
+                0.07750444976336143,
+                -0.002906416866126053
+              ],
+              [
+                1.1547054334258335,
+                -5.570703005622586,
+                0.590898606880753
+              ]
+            ],
+            [
+              [
+                -0.4179185252083755,
+                0.04173316525719462,
+                0.0015649936971447976
+              ],
+              [
+                0.24299156298456576,
+                5.665535304524621,
+                0.5598801673507964
+              ],
+              [
+                1.154705433425823,
+                5.570703005622416,
+                0.5908986068806891
+              ],
+              [
+                0.7761344039584117,
+                -0.07750444976336143,
+                -0.002906416866126053
+              ]
+            ],
+            [
+              [
+                0.24299156298456576,
+                5.665535304524621,
+                0.5598801673507964
+              ],
+              [
+                0.5113977087779866,
+                7.975060753580365,
+                0.9455636418260851
+              ],
+              [
+                1.3059597887587624,
+                7.890411905597237,
+                0.9843666519123209
+              ],
+              [
+                1.154705433425823,
+                5.570703005622416,
+                0.5908986068806891
+              ]
+            ]
+          ],
+          "axis": [
+            [
+              [
+                0.7894944367712557,
+                -7.9454336567862605,
+                0.9591446953563338
+              ],
+              [
+                0.5620914176390222,
+                -5.632343999909019,
+                0.5707366211863203
+              ]
+            ],
+            [
+              [
+                0.5620914176390222,
+                -5.632343999909019,
+                0.5707366211863203
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.5620914176390058,
+                5.63234399990885,
+                0.5707366211862588
+              ]
+            ],
+            [
+              [
+                0.5620914176390058,
+                5.63234399990885,
+                0.5707366211862588
+              ],
+              [
+                0.7894944367712581,
+                7.94543365678627,
+                0.9591446953562677
+              ]
+            ]
+          ]
+        }
+      ],
+      "mesh_discretization": {
+        "settings": 4,
+        "beams": [
+          {
+            "beam": 1,
+            "name": "Main wing",
+            "settings": {
+              "count": 4,
+              "spacing": "cosine"
+            },
+            "panels": 4,
+            "nodes": [
+              {
+                "t": -8.0,
+                "s": 0.0,
+                "fraction": 0.0,
+                "theta": 3.141592653589793,
+                "required": [
+                  "endpoint"
+                ]
+              },
+              {
+                "t": -5.65685424949245,
+                "s": 2.3564711132516036,
+                "fraction": 0.14644660940672624,
+                "theta": 2.356194490192345,
+                "required": []
+              },
+              {
+                "t": 0.0,
+                "s": 8.04549563420441,
+                "fraction": 0.5000000000000224,
+                "theta": 1.5707963267948517,
+                "required": [
+                  "property break / mirror plane",
+                  "ground 1"
+                ]
+              },
+              {
+                "t": 5.656854249492274,
+                "s": 13.734520155156495,
+                "fraction": 0.8535533905932737,
+                "theta": 0.7853981633974483,
+                "required": []
+              },
+              {
+                "t": 8.0,
+                "s": 16.0909912684081,
+                "fraction": 1.0,
+                "theta": 0.0,
+                "required": [
+                  "endpoint"
+                ]
+              }
+            ]
+          }
+        ],
+        "coordinates": "Undeformed material arc length; theta decreases from pi to zero. Rigid position jumps contain no beam material."
+      },
+      "max_displacement": 0.6614828660569122,
+      "max_rotation_deg": 7.530022385994647,
+      "reactions": [
+        {
+          "kind": "ground",
+          "type": 0,
+          "node": 2,
+          "other_node": null,
+          "force": [
+            -8.251984414119917,
+            -4.273880061239735e-12,
+            -738.136278527165
+          ],
+          "moment": [
+            9.97315667249987e-12,
+            297.9721839695777,
+            -6.764184028155984e-12
+          ],
+          "other_force": null,
+          "other_moment": null
+        }
+      ],
+      "applied_force": [
+        8.251984413955826,
+        3.4590108555221377e-12,
+        738.1362785211262
+      ],
+      "applied_moment": [
+        -1.1084466677857563e-11,
+        -297.9721839661419,
+        6.444622613344109e-12
+      ],
+      "struts": [],
+      "strut_mode": "bilateral",
+      "hinges": [],
+      "mass_properties": {
+        "mass": 16.40824467928207,
+        "cg": [
+          0.3557870793390352,
+          -1.703809671877058e-13,
+          0.3761704565216734
+        ],
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "first_moment": [
+          5.837841451522032,
+          -2.7956525983086067e-12,
+          6.172296891724855
+        ],
+        "inertia_reference": [
+          [
+            288.5286182878355,
+            1.2973511154257267e-12,
+            -3.051268860588251
+          ],
+          [
+            1.2973511154257267e-12,
+            6.134270535081028,
+            2.476019389519024e-12
+          ],
+          [
+            -3.051268860588251,
+            2.476019389519024e-12,
+            288.0605031882947
+          ]
+        ],
+        "inertia_cg": [
+          [
+            286.2067825482881,
+            3.0370150838621157e-13,
+            -0.8552453766680598
+          ],
+          [
+            3.0370150838621157e-13,
+            1.7354062358522109,
+            1.420807915764044e-12
+          ],
+          [
+            -0.8552453766680598,
+            1.420807915764044e-12,
+            285.98347462861335
+          ]
+        ],
+        "spin_angular_momentum": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spatial_matrix": [
+          [
+            16.40824467928207,
+            0.0,
+            0.0,
+            -0.0,
+            6.172296891724855,
+            2.7956525983086067e-12
+          ],
+          [
+            0.0,
+            16.40824467928207,
+            0.0,
+            -6.172296891724855,
+            -0.0,
+            5.837841451522032
+          ],
+          [
+            0.0,
+            0.0,
+            16.40824467928207,
+            -2.7956525983086067e-12,
+            -5.837841451522032,
+            -0.0
+          ],
+          [
+            0.0,
+            -6.172296891724855,
+            -2.7956525983086067e-12,
+            288.5286182878355,
+            1.2973511154257267e-12,
+            -3.051268860588251
+          ],
+          [
+            6.172296891724855,
+            0.0,
+            -5.837841451522032,
+            1.2973511154257267e-12,
+            6.134270535081028,
+            2.476019389519024e-12
+          ],
+          [
+            2.7956525983086067e-12,
+            5.837841451522032,
+            0.0,
+            -3.051268860588251,
+            2.476019389519024e-12,
+            288.0605031882947
+          ]
+        ]
+      },
+      "gravity_body": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gravity_source": "body_vector_override",
+      "operating_values": {
+        "rates.x": 0.0,
+        "rates.y": 0.0,
+        "rates.z": 0.0,
+        "acceleration.x": 0.0,
+        "acceleration.y": 0.0,
+        "acceleration.z": 0.0,
+        "angular_acceleration.x": 0.0,
+        "angular_acceleration.y": 0.0,
+        "angular_acceleration.z": 0.0,
+        "speed": 20.0,
+        "alpha": 2.0,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 0.0,
+        "attitude.elevation": 0.0,
+        "attitude.heading": 0.0
+      },
+      "operating_constraints": [],
+      "support_force": [
+        -8.251984414119917,
+        -4.273880061239735e-12,
+        -738.136278527165
+      ],
+      "support_moment": [
+        9.97315667249987e-12,
+        297.9721839695777,
+        -6.764184028155984e-12
+      ],
+      "force_balance": [
+        -1.6409096303959814e-10,
+        -8.148692057175973e-13,
+        -6.0388174460968e-09
+      ],
+      "moment_balance": [
+        -1.1113100053576925e-12,
+        3.435786766203819e-09,
+        -3.195614148118756e-13
+      ],
+      "nodes": [
+        {
+          "index": 0,
+          "beam": 1,
+          "t": -8.0,
+          "position": [
+            0.7894944367712557,
+            -7.9454336567862605,
+            0.9591446953563338
+          ],
+          "jig_position": [
+            0.8,
+            -8.0,
+            0.3
+          ],
+          "rotation": [
+            [
+              0.9995292297249256,
+              0.0018565440448370298,
+              -0.03062469868760211
+            ],
+            [
+              0.002061669501296698,
+              0.9918470959094363,
+              0.12741698416963457
+            ],
+            [
+              0.030611573699570908,
+              -0.12742013804821853,
+              0.9913763361990283
+            ]
+          ]
+        },
+        {
+          "index": 1,
+          "beam": 1,
+          "t": -5.65685424949245,
+          "position": [
+            0.5620914176390222,
+            -5.632343999909019,
+            0.5707366211863203
+          ],
+          "jig_position": [
+            0.565685424949245,
+            -5.65685424949245,
+            0.2121320343559669
+          ],
+          "rotation": [
+            [
+              0.9996706509903264,
+              0.0018692009456880592,
+              -0.025594836127657308
+            ],
+            [
+              0.0013223793051574885,
+              0.9922670218784625,
+              0.12411449796627316
+            ],
+            [
+              0.025628906756829956,
+              -0.12410746706089595,
+              0.9919377479248274
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "beam": 1,
+          "t": 0.0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "jig_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "beam": 1,
+          "t": 5.656854249492274,
+          "position": [
+            0.5620914176390058,
+            5.63234399990885,
+            0.5707366211862588
+          ],
+          "jig_position": [
+            0.5656854249492275,
+            5.656854249492274,
+            0.21213203435596029
+          ],
+          "rotation": [
+            [
+              0.9996706509903266,
+              -0.0018692009456875882,
+              -0.025594836127652003
+            ],
+            [
+              -0.0013223793051569135,
+              0.9922670218784645,
+              -0.12411449796625834
+            ],
+            [
+              0.02562890675682465,
+              0.12410746706088113,
+              0.9919377479248295
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "beam": 1,
+          "t": 8.0,
+          "position": [
+            0.7894944367712581,
+            7.94543365678627,
+            0.9591446953562677
+          ],
+          "jig_position": [
+            0.8,
+            8.0,
+            0.3
+          ],
+          "rotation": [
+            [
+              0.9995292297249259,
+              -0.0018565440448366501,
+              -0.030624698687596548
+            ],
+            [
+              -0.002061669501295967,
+              0.991847095909438,
+              -0.12741698416962163
+            ],
+            [
+              0.030611573699565367,
+              0.1274201380482056,
+              0.9913763361990301
+            ]
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "beam": 1,
+          "t": -6.828427124746223,
+          "t0": -8.0,
+          "t1": -5.65685424949245,
+          "length": 2.3564711132516036,
+          "position": [
+            0.675792927205139,
+            -6.788888828347639,
+            0.7649406582713271
+          ],
+          "frame": [
+            [
+              0.9936620342020502,
+              -0.09650150395902637,
+              -0.05764738952537118
+            ],
+            [
+              0.10460048395042892,
+              0.9815904447465916,
+              0.15980906588652855
+            ],
+            [
+              0.041164311518351954,
+              -0.16482614633557013,
+              0.9854632620962517
+            ]
+          ],
+          "force": [
+            -2.12295396266567,
+            -3.2413725067065933,
+            -19.70830948412622
+          ],
+          "moment": [
+            22.5958166029828,
+            10.247467799143012,
+            -4.249806985141547
+          ],
+          "force_local": [
+            -3.2598268770294596,
+            0.27161267284280566,
+            -19.81743291308636
+          ],
+          "moment_local": [
+            23.349554802603915,
+            8.578765497147854,
+            -3.8529802395296993
+          ],
+          "moment_axes": [
+            23.349554802603915,
+            8.578765497147854,
+            -3.8529802395296993
+          ],
+          "strain": [
+            0.0,
+            5.5673397716173155e-08,
+            0.0
+          ],
+          "curvature_change": [
+            0.0016222405817448333,
+            0.0019867361709745394,
+            -1.3384539786876287e-05
+          ],
+          "axial_strain_tension": 5.5673397716173155e-08,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": -2.82842712474618,
+          "t0": -5.65685424949245,
+          "t1": 0.0,
+          "length": 5.689024520952807,
+          "position": [
+            0.2810457088195111,
+            -2.8161719999545096,
+            0.28536831059316015
+          ],
+          "frame": [
+            [
+              0.9947909966214742,
+              -0.09880279778414569,
+              -0.025077483742972022
+            ],
+            [
+              0.10080882582800293,
+              0.9900370790416573,
+              0.09830647363140782
+            ],
+            [
+              0.015114684119530222,
+              -0.10032242656898072,
+              0.9948401665852048
+            ]
+          ],
+          "force": [
+            -3.549020633075453,
+            -23.5549808951794,
+            -211.95570259367884
+          ],
+          "moment": [
+            648.4545590380972,
+            82.6761946490932,
+            -25.420642751716933
+          ],
+          "force_local": [
+            -9.10872723108793,
+            -1.7057409050728793,
+            -213.08865307801042
+          ],
+          "moment_local": [
+            653.0270221704421,
+            20.333634153614668,
+            -33.42347998293881
+          ],
+          "moment_axes": [
+            653.0270221704421,
+            20.333634153614668,
+            -33.42347998293881
+          ],
+          "strain": [
+            0.0,
+            -2.1650085794242627e-07,
+            0.0
+          ],
+          "curvature_change": [
+            0.02221679221642979,
+            0.002305918487590801,
+            -5.685541981577758e-05
+          ],
+          "axial_strain_tension": -2.1650085794242627e-07,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": 2.828427124746137,
+          "t0": 0.0,
+          "t1": 5.656854249492274,
+          "length": 5.689024520952085,
+          "position": [
+            0.2810457088195029,
+            2.816171999954425,
+            0.2853683105931294
+          ],
+          "frame": [
+            [
+              0.9947909966214745,
+              0.09880279778414587,
+              -0.025077483742968986
+            ],
+            [
+              -0.10080882582800273,
+              0.9900370790416579,
+              -0.09830647363140044
+            ],
+            [
+              0.015114684119527953,
+              0.10032242656897306,
+              0.9948401665852059
+            ]
+          ],
+          "force": [
+            3.5490206330747545,
+            -23.554980895177618,
+            211.95570259367958
+          ],
+          "moment": [
+            648.4545590381039,
+            -82.67619464909117,
+            -25.420642751713306
+          ],
+          "force_local": [
+            9.108727231086583,
+            -1.705740905072748,
+            213.08865307801108
+          ],
+          "moment_local": [
+            653.027022170449,
+            -20.333634153611367,
+            -33.42347998293423
+          ],
+          "moment_axes": [
+            653.027022170449,
+            -20.333634153611367,
+            -33.42347998293423
+          ],
+          "strain": [
+            0.0,
+            -2.1650085794240867e-07,
+            0.0
+          ],
+          "curvature_change": [
+            0.022216792216429897,
+            -0.0023059184875904143,
+            -5.6855419815769486e-05
+          ],
+          "axial_strain_tension": -2.165008579424087e-07,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": 6.8284271247461374,
+          "t0": 5.656854249492274,
+          "t1": 8.0,
+          "length": 2.3564711132516045,
+          "position": [
+            0.675792927205132,
+            6.7888888283475595,
+            0.7649406582712632
+          ],
+          "frame": [
+            [
+              0.9936620342020503,
+              0.09650150395902703,
+              -0.05764738952536539
+            ],
+            [
+              -0.10460048395042805,
+              0.9815904447465937,
+              -0.1598090658865148
+            ],
+            [
+              0.04116431151834764,
+              0.16482614633555584,
+              0.9854632620962542
+            ]
+          ],
+          "force": [
+            2.1229539626654055,
+            -3.241372506707412,
+            19.70830948413472
+          ],
+          "moment": [
+            22.595816602994606,
+            -10.247467799143593,
+            -4.249806985141356
+          ],
+          "force_local": [
+            3.2598268770295444,
+            0.2716126728430903,
+            19.817432913094898
+          ],
+          "moment_local": [
+            23.34955480261572,
+            -8.5787654971472,
+            -3.8529802395301194
+          ],
+          "moment_axes": [
+            23.34955480261572,
+            -8.5787654971472,
+            -3.8529802395301194
+          ],
+          "strain": [
+            0.0,
+            5.567339771623077e-08,
+            0.0
+          ],
+          "curvature_change": [
+            0.0016222405817456174,
+            -0.001986736170974344,
+            -1.3384539786877447e-05
+          ],
+          "axial_strain_tension": 5.5673397716230774e-08,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        }
+      ],
+      "structure": {
+        "sample_location": "material midpoint",
+        "local_axes": [
+          "c",
+          "s",
+          "n"
+        ],
+        "strain_source": "elastic_load_compliance",
+        "shell_reference": "tension axis",
+        "units": {
+          "force": "input F",
+          "moment": "input F L",
+          "strain": "dimensionless",
+          "curvature_change": "rad / input L",
+          "shear_stress": "input F / L^2",
+          "stress_to_pa": 1.0
+        },
+        "summary": {
+          "max_abs_shell_strain": null,
+          "max_shell_strain_bound": null,
+          "max_abs_shear_stress": null,
+          "strain_sections": 0,
+          "stress_sections": 0,
+          "invalid_stress_sections": 0
+        },
+        "limitations": [
+          "Strain uses load-induced curvature relative to the jig; positive axial strain is tension.",
+          "Cshell/Nshell are offsets from the tension axis per steady eq. 28; the user guide labels them relative to the elastic axis. Executable parity is unverified.",
+          "The strain bound sums absolute axial and bending contributions. It bounds the specified rectangular extents, not an unspecified complete cross section.",
+          "Torsional shear stress assumes a thin, closed, uniform shell: torque about the elastic axis divided by twice Atshell. Transverse-shear stress, warping, normal stress and strength margins are not inferred.",
+          "Missing shell arms or nonpositive Atshell produce null material results. Negative Atshell is invalid; shell parameters do not change equilibrium.",
+          "These are element midpoint samples. Peaks at endpoints, joints and concentrated loads require local refinement; no interpolation across jumps is implied."
+        ]
+      },
+      "sensors": [],
+      "sensor_metadata": {
+        "units": {
+          "speed": "input L/T",
+          "alpha": "deg",
+          "beta": "deg",
+          "bank": "deg",
+          "elevation": "deg",
+          "heading": "deg",
+          "air_velocity_sensor": "input L/T",
+          "rates_sensor": "rad/input T",
+          "acceleration_sensor": "input L/T^2",
+          "angular_acceleration_sensor": "rad/input T^2",
+          "position_earth": "input L",
+          "velocity_earth": "input L/T",
+          "anchor_position_body": "input L",
+          "anchor_velocity_body": "input L/T",
+          "position_body": "input L",
+          "displacement_body": "input L",
+          "force_local": "input F",
+          "moment_local": "input F L",
+          "circulation": "input L^2/T",
+          "strain": "dimensionless",
+          "curvature_change": "rad/input L",
+          "shell_strain": "dimensionless",
+          "shell_shear_stress": "input F/L^2"
+        },
+        "limitations": [
+          "Sensor axes and locations follow their rigid pylons. Relative body position/velocity describe the beam anchor; GPS and inertial measurements describe the pylon tip.",
+          "Full airflow includes the implemented regularized lifting-line, volume, propulsive jet and gust fields. Near-filament/core and ASWING sensor-flow parity require independent refinement.",
+          "Structural force/moment use the inward endpoint trace and left trace at an interior anchor, in the anchor csn frame. Both adjacent traces are exported; exact ASWING trace choice at load/property jumps is unverified.",
+          "Mechanical strain and shell stress use the selected adjacent element material midpoint, whose location is reported. They are not exact nodal or pylon-tip strain measurements.",
+          "Zero airspeed makes flow angles undefined. At a vertical sensor V axis, bank/heading are undefined; Euler-angle branches are not a global attitude representation.",
+          "Selected measurements can drive scheduled feedback and differential error integrals. Full control-file index/unit mapping and arbitrary custom controller parity remain unverified."
+        ]
+      },
+      "attachments": []
+    },
+    "state": {
+      "format": "openswing-equilibrium",
+      "version": 1,
+      "identity": {
+        "model_sha256": "1ba30cea974091854f4c60ecc0d0d2cf24da1127001d7ad1bf1a72acf85f4472",
+        "nodes": [
+          [
+            0.8,
+            -8.0,
+            0.3
+          ],
+          [
+            0.565685424949245,
+            -5.65685424949245,
+            0.2121320343559669
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.5656854249492275,
+            5.656854249492274,
+            0.21213203435596029
+          ],
+          [
+            0.8,
+            8.0,
+            0.3
+          ]
+        ],
+        "elements": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "stations": {
+          "1": [
+            [
+              -8.0,
+              -5.65685424949245,
+              0.0,
+              5.656854249492274,
+              8.0
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          ]
+        },
+        "constraints": [
+          {
+            "kind": "ground",
+            "type": 0,
+            "a": 2,
+            "b": null
+          }
+        ],
+        "circulation_count": 4
+      },
+      "positions": [
+        [
+          0.7894944367712557,
+          -7.9454336567862605,
+          0.9591446953563338
+        ],
+        [
+          0.5620914176390222,
+          -5.632343999909019,
+          0.5707366211863203
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.5620914176390058,
+          5.63234399990885,
+          0.5707366211862588
+        ],
+        [
+          0.7894944367712581,
+          7.94543365678627,
+          0.9591446953562677
+        ]
+      ],
+      "rotations": [
+        [
+          -0.1277861010745987,
+          -0.030706454478046777,
+          0.00010285857132588523
+        ],
+        [
+          -0.12444560144189952,
+          -0.025680924291561026,
+          -0.0002741479704659686
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.12444560144188456,
+          -0.025680924291555683,
+          0.00027414797046602067
+        ],
+        [
+          0.12778610107458566,
+          -0.03070645447804119,
+          -0.00010285857132570881
+        ]
+      ],
+      "internal_force": [
+        [
+          -2.12295396266567,
+          -3.2413725067065933,
+          -19.70830948412622
+        ],
+        [
+          -3.549020633075453,
+          -23.5549808951794,
+          -211.95570259367884
+        ],
+        [
+          3.5490206330747545,
+          -23.554980895177618,
+          211.95570259367958
+        ],
+        [
+          2.1229539626654055,
+          -3.241372506707412,
+          19.70830948413472
+        ]
+      ],
+      "internal_moment": [
+        [
+          22.5958166029828,
+          10.247467799143012,
+          -4.249806985141547
+        ],
+        [
+          648.4545590380972,
+          82.6761946490932,
+          -25.420642751716933
+        ],
+        [
+          648.4545590381039,
+          -82.67619464909117,
+          -25.420642751713306
+        ],
+        [
+          22.595816602994606,
+          -10.247467799143593,
+          -4.249806985141356
+        ]
+      ],
+      "reactions": [
+        -8.251984414119917,
+        -4.273880061239735e-12,
+        -738.136278527165,
+        9.97315667249987e-12,
+        297.9721839695777,
+        -6.764184028155984e-12
+      ],
+      "circulation": [
+        0.46765793770633196,
+        2.4806765840595526,
+        2.480676584059718,
+        0.4676579377065318
+      ],
+      "operating_values": {
+        "rates.x": 0.0,
+        "rates.y": 0.0,
+        "rates.z": 0.0,
+        "acceleration.x": 0.0,
+        "acceleration.y": 0.0,
+        "acceleration.z": 0.0,
+        "angular_acceleration.x": 0.0,
+        "angular_acceleration.y": 0.0,
+        "angular_acceleration.z": 0.0,
+        "speed": 20.0,
+        "alpha": 2.0,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 0.0,
+        "attitude.elevation": 0.0,
+        "attitude.heading": 0.0
+      },
+      "feedback": null,
+      "residual": 9.268150872615905e-13,
+      "units": "Physical quantities in ASW input units; spatial rotation vectors in radians. Numerical solver scales are not stored.",
+      "limitations": [
+        "This is a steady state. It contains no unsteady history or derivative state.",
+        "The source and mesh must match. Steady reuse corrects the full equilibrium; time launch validates the saved setup at zero local rates.",
+        "Local correction does not prove that a nonlinear branch is unique or that a fold has been followed."
+      ],
+      "launch": {
+        "version": 1,
+        "panels": 4,
+        "condition": {
+          "speed": 20.0,
+          "alpha": 2.0,
+          "beta": 0.0,
+          "density": null,
+          "mach": 0.1,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {},
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "motion": {
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "loads": [],
+        "strut_mode": "bilateral",
+        "controller": null,
+        "frame": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "attitude": [
+            0,
+            0,
+            0
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "gravity_magnitude": null
+        },
+        "released_constraints": []
+      }
+    }
+  },
+  "target": {
+    "result": {
+      "analysis": "mounted_static",
+      "converged": true,
+      "residual": 1.607047064172672e-11,
+      "evaluations": 105,
+      "circulation_solver": {
+        "method": "prescribed",
+        "evaluations": 0
+      },
+      "circulation_residual": [
+        -3.2054216365619423e-13,
+        -3.4091116086131264e-14,
+        -3.385796925096002e-14,
+        -3.1949300289792347e-13
+      ],
+      "point_forces": [],
+      "circulation_local_residual": [
+        -3.2054216365619423e-13,
+        -3.4091116086131264e-14,
+        -3.385796925096002e-14,
+        -3.1949300289792347e-13
+      ],
+      "circulation_discretization": {
+        "lifting_panels": 4,
+        "independent_unknowns": 4,
+        "beams": [
+          {
+            "beam": 1,
+            "representation": "pointwise",
+            "panels": 4,
+            "unknowns": 4,
+            "panel_start": 0,
+            "coefficient_start": 0,
+            "theta_midpoint": [],
+            "theta_width": [],
+            "sampling_condition": 1.0
+          }
+        ],
+        "convention": "Material arc coordinate s in [-L/2,L/2]; theta=acos(2*arc/L-1), decreasing pi to zero. Gamma=sum A_k sin(k theta). Weighted residual=(2/pi) sum R_i sin(k theta_i) delta_theta_i.",
+        "scope": "Fourier modes are per logical lifting beam; refine mode count and structural intervals independently. Local flow defects need not vanish in a truncated series.",
+        "coefficients": [
+          0.5009344897767486,
+          2.5321749645496228,
+          2.532174964549725,
+          0.5009344897768487
+        ]
+      },
+      "section_output_definitions": {
+        "cm": "Local chord/4 pitching-moment coefficient, including flap mixing and the actual section-normal Mach correction; excludes moment arms and apparent-mass moments.",
+        "f_aero": "Circulatory plus enabled circulation-rate force projected on the physical current section normal, per current length [input F/L]. Profile drag, apparent mass and point loads are excluded.",
+        "f_reac": "Distributed real-mass gravity/inertia plus apparent-mass force projected on the physical current section normal, per current length [input F/L]. Excludes point masses, engines, struts, applied point loads and support reactions.",
+        "f_reac_sampling": "Network analysis: eight-point material mass quadrature with current elastic and rigid kinematics, summed per interval and divided by current length. Point masses excluded.",
+        "da_eff": "(n - n_jig) dot V_relative / |V_relative| [rad], using physical section normals and total relative velocity at the bound-vortex force point. This is the documented linearized incidence change, not an exact angle difference. Undefined at zero relative speed.",
+        "sampling": "Aerodynamic quantities use material Glauert midpoint stations. Inertial forces are interval averages, reported at those stations. No half-interval shift to structural nodes is applied."
+      },
+      "lifting_airflow": {
+        "samples": 4,
+        "maximum": {
+          "beam": 1,
+          "t": -3.0614674589207067,
+          "position": [
+            0.19894444941049022,
+            -3.047611349235697,
+            0.3109749372672301
+          ],
+          "relative_velocity": [
+            19.99665375488424,
+            -0.005675820007979918,
+            0.6255392008333005
+          ],
+          "normal_speed": 19.902403653531696,
+          "normal_mach": 0.05848590822503981
+        },
+        "sound_speed": 340.294,
+        "speed_unit": "input L/T",
+        "position_unit": "input L",
+        "axes": "Body axes",
+        "scope": "Relative fluid velocity at each lifting force point, including induced flow, gusts, jets and local section motion. Normal speed excludes the component along the current span axis. Local Mach uses atmospheric sound speed, independently of the selected PG Mach.",
+        "sampling": "Current bound-vortex force points; these differ from the reported beam-axis strip positions.",
+        "validity": "Subsonic local Mach is necessary, not sufficient for physical validity or mesh convergence. Swept lifting lines can develop growing force-point velocities under refinement."
+      },
+      "aerodynamic_influences": {
+        "frozen": false,
+        "geometry": "current",
+        "wind_angles": [
+          2.05,
+          0.0
+        ],
+        "pg_mach": 0.1,
+        "volume_geometry": "current",
+        "ground": "Current Earth pose and image plane; coefficients update when the plane changes.",
+        "scope": "Vortex and volume velocity coefficients. Current circulation, section frames, lengths, motion, gusts, jets and loads remain active.",
+        "attached_receivers": "Current positions",
+        "external_receivers": "Requested spatial positions"
+      },
+      "wake_core": {
+        "ratio": 0.25,
+        "rule": "max(ratio * local chord, current interval length)",
+        "minimum_radius": 2.3564712431149517,
+        "maximum_radius": 5.689023119037496,
+        "spacing_limited_panels": 4,
+        "radius_unit": "input L",
+        "scope": "Lifting-surface interactions within one physical beam use zero core. Distinct physical beams and external probes/objects use the configured cores; images inherit the selected influence core."
+      },
+      "aerodynamic_lag": {
+        "enabled": true,
+        "circulation": "differential",
+        "shed_downwash_coefficient": 0.6366197723675814,
+        "circulation_rate_lift": true,
+        "apparent_mass": "Retained independently of the aerodynamic-lag setting."
+      },
+      "CL": 0.19265169619486333,
+      "CY": 2.1837407165994405e-15,
+      "CD": 0.008705968527140817,
+      "CDi": 0.0008177845177065009,
+      "CLi": 0.1927156162679987,
+      "CYi": 1.1831805376719525e-15,
+      "CDi_near": 0.0007881553026068145,
+      "CDp": 0.007917813224534002,
+      "CDam": 0.0,
+      "CDrate": 0.0,
+      "CDbody": 0.0,
+      "CDeng": 0.0,
+      "Cl": 2.2453694232725103e-15,
+      "Cm": -0.07740699181293734,
+      "Cn": -1.4495207755182527e-16,
+      "efficiency": 0.903493592010276,
+      "trefftz": {
+        "available": true,
+        "reason": null,
+        "CLi": 0.1927156162679987,
+        "CYi": 1.1831805376719525e-15,
+        "CDi": 0.0008177845177065009,
+        "efficiency": 0.903493592010276,
+        "rolling_moment_wind": -2.2652102416031994e-11,
+        "Cl": 3.611623471943876e-16,
+        "force_transverse_body": [
+          -27.023496413365233,
+          4.638067707674054e-12,
+          754.961723978254
+        ],
+        "induced_drag": 3.205715309409484,
+        "velocity_body": [
+          [
+            -0.0008793161850375815,
+            0.008692864566126885,
+            0.02456566140899619
+          ],
+          [
+            0.006594481419279345,
+            -0.012930192087401739,
+            -0.1842315659264358
+          ],
+          [
+            0.006594481419280002,
+            0.01293019208740129,
+            -0.18423156592645415
+          ],
+          [
+            -0.0008793161850365666,
+            -0.008692864566121198,
+            0.024565661408967848
+          ]
+        ],
+        "strip_induced_drag": [
+          -0.01847214425805711,
+          1.6213297989627151,
+          1.6213297989628657,
+          -0.018472144258039738
+        ],
+        "trace_points_body": [
+          [
+            -0.030375991472609387,
+            -7.342049404486914,
+            0.8486211605974098
+          ],
+          [
+            -0.010862385617699533,
+            -3.047611349235697,
+            0.30346500123496695
+          ],
+          [
+            -0.01086238561769759,
+            3.0476113492355634,
+            0.30346500123491366
+          ],
+          [
+            -0.030375991472604058,
+            7.3420494044866516,
+            0.84862116059726
+          ]
+        ],
+        "convention": "Frozen straight wake, infinite trailing filaments, theta-midpoint quadrature; D=-rho/2 sum(Gamma v_wake dot (wind cross delta_r)).",
+        "scope": "Lifting-surface circulation only; no body/profile/engine/apparent-mass drag or shed-wake history.",
+        "efficiency_definition": "(CLi^2+CYi^2)/(pi*(Bref^2/Sref)*CDi)",
+        "influence_geometry": "current; current wind angles"
+      },
+      "efficiency_near": 0.9370726448985002,
+      "coefficient_definitions": {
+        "CDi": "Trefftz-plane induced drag",
+        "CDi_near": "Near-field circulation-force drag projection",
+        "CD": "Total near-field force projection: CDi_near+CDp+CDbody+CDam+CDeng+CDrate",
+        "efficiency": "Trefftz-plane (CLi^2+CYi^2)/(pi*(Bref^2/Sref)*CDi)"
+      },
+      "force": [
+        7.091021544925816,
+        8.560263609069807e-12,
+        755.9321097948184
+      ],
+      "moment": [
+        -1.4082957022765186e-10,
+        -303.4354079067144,
+        9.091394304050482e-12
+      ],
+      "mach": 0.1,
+      "panels": 4,
+      "body_shoulders": [],
+      "lifting_panels": 4,
+      "body_added_mass_factor": 1.0,
+      "ground_plane": {
+        "flag": 0,
+        "kind": "off",
+        "normal_body": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal_earth": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "offset": 0.0,
+        "position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "minimum_clearance": null,
+        "oblique_compressible": false,
+        "limitations": []
+      },
+      "earth_state": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "body_to_earth": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "velocity_reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_body": [
+          -19.987199818538585,
+          0.0,
+          -0.7154323265069917
+        ],
+        "velocity_earth": [
+          -19.987199818538585,
+          0.0,
+          -0.7154323265069917
+        ],
+        "velocity_origin_body": [
+          -19.987199818538585,
+          0.0,
+          -0.7154323265069917
+        ],
+        "velocity_origin_earth": [
+          -19.987199818538585,
+          0.0,
+          -0.7154323265069917
+        ],
+        "acceleration_velocity_reference_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_velocity_reference_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_origin_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "acceleration_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rates_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_acceleration_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity_derivative_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_rate": 0.0,
+        "attitude_rates": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radial_acceleration": 0.0,
+        "flight_path": -2.05
+      },
+      "reference_flow": {
+        "reference_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "still_air_velocity_body": [
+          19.987199818538585,
+          -0.0,
+          0.7154323265069917
+        ],
+        "gust_velocity_body": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gust_velocity_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_velocity_body": [
+          19.987199818538585,
+          0.0,
+          0.7154323265069917
+        ],
+        "relative_velocity_earth": [
+          19.987199818538585,
+          0.0,
+          0.7154323265069917
+        ],
+        "speed": 20.0,
+        "alpha": 2.05,
+        "beta": -0.0,
+        "equivalent_airspeed": 20.0,
+        "dynamic_pressure": 245.00000000000003,
+        "definition": "Relative air velocity at the fixed body velocity reference: -U_origin - Omega cross r_ref + posed Earth gust. Induced flow and local elastic velocity are excluded.",
+        "angle_convention": "Degrees: alpha=atan2(w,u), beta=atan2(-v,hypot(u,w)); undefined or roundoff-sized directions are null."
+      },
+      "gust": {
+        "type": "none",
+        "time": 0.0,
+        "specification": {
+          "type": "none"
+        },
+        "reference_position_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_velocity_earth": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "reference_velocity_body": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "atmosphere": {
+        "model": "US Standard Atmosphere 1976 (lower atmosphere)",
+        "altitude_m": 0.0,
+        "geopotential_altitude_m": 0.0,
+        "temperature_K": 288.15,
+        "molecular_temperature_K": 288.15,
+        "standard_pressure_Pa": 101325.0,
+        "standard_density_ratio": 1.0,
+        "density": 1.225,
+        "density_source": "standard_atmosphere",
+        "density_ratio": 1.0,
+        "sound_speed": 340.294,
+        "gravity_magnitude": 9.80665,
+        "ambient_mach": 0.058772708305171416,
+        "equivalent_airspeed": 20.0,
+        "dynamic_pressure": 245.00000000000003,
+        "load_factor": 1.0
+      },
+      "surface_force": [
+        7.091021544925816,
+        8.560263609069807e-12,
+        755.9321097948184
+      ],
+      "circulation_rate_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "circulation_rate_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "distributed_aero_force": [
+        7.091021544925816,
+        8.560263609069807e-12,
+        755.9321097948184
+      ],
+      "distributed_aero_moment": [
+        -1.4082957022765186e-10,
+        -303.4354079067144,
+        9.091394304050482e-12
+      ],
+      "surface_apparent_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "engines": [],
+      "engine_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "engine_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_force": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_moment": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "apparent_mass": {
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_tensor": [
+          [
+            0.02057813243801848,
+            -1.0279971318638559e-14,
+            -0.5123700381782538
+          ],
+          [
+            -1.0283440765590512e-14,
+            0.21766850772110047,
+            2.1893598045608087e-13
+          ],
+          [
+            -0.5123700381782538,
+            2.1882495815361835e-13,
+            14.887341496816429
+          ]
+        ],
+        "inertia_reference": [
+          [
+            280.8220019320978,
+            2.9380942123680143e-12,
+            8.346120139843658
+          ],
+          [
+            2.9398705692074145e-12,
+            5.577558667201967,
+            8.58202398035246e-14
+          ],
+          [
+            8.346120139843658,
+            8.565370634983083e-14,
+            0.31841141580931825
+          ]
+        ],
+        "spatial_matrix": [
+          [
+            0.02057813243801848,
+            -1.0279971318638559e-14,
+            -0.5123700381782538,
+            2.531308496145357e-13,
+            0.32322833148964863,
+            8.042178034628478e-15
+          ],
+          [
+            -1.0283440765590512e-14,
+            0.21766850772110047,
+            2.1893598045608087e-13,
+            -7.634881101905782,
+            -1.3433698597964394e-13,
+            -0.20135653406711307
+          ],
+          [
+            -0.5123700381782538,
+            2.1882495815361835e-13,
+            14.887341496816429,
+            -4.552802579382842e-12,
+            -8.314776693131071,
+            -1.187383524836605e-13
+          ],
+          [
+            2.532418719169982e-13,
+            -7.634881101905782,
+            -4.552802579382842e-12,
+            280.8220019320978,
+            2.9380942123680143e-12,
+            8.346120139843658
+          ],
+          [
+            0.32322833148964863,
+            -1.3428147482841268e-13,
+            -8.314776693131071,
+            2.9398705692074145e-12,
+            5.577558667201967,
+            8.58202398035246e-14
+          ],
+          [
+            8.038708587676524e-15,
+            -0.20135653406711307,
+            -1.1857181902996672e-13,
+            8.346120139843658,
+            8.565370634983083e-14,
+            0.31841141580931825
+          ]
+        ]
+      },
+      "strips": [
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": -7.39103626009031,
+          "length": 2.356471243115148,
+          "position": [
+            0.7300516715990384,
+            -7.342049404486914,
+            0.8758403077051011
+          ],
+          "circulation": 0.5009344897767486,
+          "cl": 0.06062106670609939,
+          "force": [
+            2.7802417083594664,
+            4.803926238282734,
+            28.49682669476186
+          ],
+          "velocity_position": [
+            0.6466218965837272,
+            -7.342049404486914,
+            0.8728539785253729
+          ],
+          "relative_velocity": [
+            19.991962028114575,
+            0.0075584804519498484,
+            0.7425001869502956
+          ],
+          "normal_speed": 19.900996098662,
+          "normal_mach": 0.058481771934450796,
+          "cm": -0.03506000602353958,
+          "f_aero": 12.208400250312819,
+          "da_eff": -0.0296467942422205,
+          "wake_core_radius": 2.356471243115148,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "moment": [
+            1.101370610996104,
+            -11.212614642104835,
+            1.9400927754519273
+          ],
+          "apparent_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": -3.0614674589207067,
+          "length": 5.689023119037496,
+          "position": [
+            0.30411904828675607,
+            -3.047611349235697,
+            0.3147396120914491
+          ],
+          "circulation": 2.5321749645496228,
+          "cl": 0.2430535286284188,
+          "force": [
+            0.765269064103844,
+            36.86577165727485,
+            349.4692282026631
+          ],
+          "velocity_position": [
+            0.19894444941049022,
+            -3.047611349235697,
+            0.3109749372672301
+          ],
+          "relative_velocity": [
+            19.99665375488424,
+            -0.005675820007979918,
+            0.6255392008333005
+          ],
+          "normal_speed": 19.902403653531696,
+          "normal_mach": 0.05848590822503981,
+          "cm": -0.03506001453388037,
+          "f_aero": 61.73507170631097,
+          "da_eff": -0.014027888380869708,
+          "wake_core_radius": 5.689023119037496,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "moment": [
+            1.5985719891446886,
+            -16.096592502705256,
+            1.749929878245946
+          ],
+          "apparent_force": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": 3.061467458920663,
+          "length": 5.689023119036688,
+          "position": [
+            0.30411904828674907,
+            3.0476113492355634,
+            0.31473961209139545
+          ],
+          "circulation": 2.532174964549725,
+          "cl": 0.24305352862842816,
+          "force": [
+            0.7652690641034585,
+            -36.865771657266414,
+            349.4692282026281
+          ],
+          "velocity_position": [
+            0.19894444941048303,
+            3.0476113492355634,
+            0.31097493726717645
+          ],
+          "relative_velocity": [
+            19.99665375488424,
+            0.005675820007979702,
+            0.6255392008332913
+          ],
+          "normal_speed": 19.902403653531696,
+          "normal_mach": 0.05848590822503981,
+          "cm": -0.03506001453388037,
+          "f_aero": 61.735071706313484,
+          "da_eff": -0.014027888380867683,
+          "wake_core_radius": 5.689023119036688,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "moment": [
+            -1.5985719891443337,
+            -16.096592502701647,
+            -1.749929878245334
+          ],
+          "apparent_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        },
+        {
+          "beam": 1,
+          "lifting": true,
+          "t": 7.391036260090267,
+          "length": 2.3564712431149517,
+          "position": [
+            0.7300516715990427,
+            7.3420494044866516,
+            0.8758403077049514
+          ],
+          "circulation": 0.5009344897768487,
+          "cl": 0.06062106670611135,
+          "force": [
+            2.780241708359047,
+            -4.8039262382826085,
+            28.49682669476528
+          ],
+          "velocity_position": [
+            0.6466218965837313,
+            7.3420494044866516,
+            0.8728539785252232
+          ],
+          "relative_velocity": [
+            19.991962028114575,
+            -0.0075584804519469705,
+            0.742500186950284
+          ],
+          "normal_speed": 19.900996098662,
+          "normal_mach": 0.058481771934450796,
+          "cm": -0.03506000602353958,
+          "f_aero": 12.208400250315263,
+          "da_eff": -0.029646794242216924,
+          "wake_core_radius": 2.3564712431149517,
+          "circulation_rate": 0.0,
+          "circulation_rate_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "moment": [
+            -1.1013706109959764,
+            -11.212614642103548,
+            -1.9400927754514248
+          ],
+          "apparent_force": [
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "apparent_moment": [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          "stalled": false,
+          "f_reac": 0.0
+        }
+      ],
+      "limitations": [
+        "Quasi-steady snapshot with prescribed or force/moment-constrained motion; use time analysis to evolve a trajectory.",
+        "SO(3) midpoint beam discretization; refine the mesh to assess solution accuracy. ASWING discrete parity is unverified.",
+        "Rigid/pinned/roller/sprung joints, axial struts, body/point-volume flow and engine types 0/1/2 are supported.",
+        "Struts use an explicit bilateral or tension-only wire law; buckling loads are not specified by ASW input. See the numerical notes for formula ambiguities.",
+        "CDi and span efficiency use the frozen straight Trefftz wake; total CD and load balance use near-field forces, including CDi_near."
+      ],
+      "sensor_airflow": [],
+      "structural_nodes": 5,
+      "structural_elements": 4,
+      "geometry": [
+        {
+          "index": 1,
+          "name": "Main wing",
+          "lifting": true,
+          "physical_index": 1,
+          "panels": 4,
+          "quads": [
+            [
+              [
+                0.5109845177008909,
+                -7.972450535242345,
+                0.9657223109708662
+              ],
+              [
+                0.242835734241997,
+                -5.6644522101239145,
+                0.5708282442286595
+              ],
+              [
+                1.1545585744588385,
+                -5.569593030386839,
+                0.6014988931858143
+              ],
+              [
+                1.3055575722731525,
+                -7.887739689666234,
+                1.0041636115405157
+              ]
+            ],
+            [
+              [
+                0.242835734241997,
+                -5.6644522101239145,
+                0.5708282442286595
+              ],
+              [
+                -0.4179185252083755,
+                -0.04173316525719462,
+                0.0015649936971447976
+              ],
+              [
+                0.7761344039584117,
+                0.07750444976336143,
+                -0.002906416866126053
+              ],
+              [
+                1.1545585744588385,
+                -5.569593030386839,
+                0.6014988931858143
+              ]
+            ],
+            [
+              [
+                -0.4179185252083755,
+                0.04173316525719462,
+                0.0015649936971447976
+              ],
+              [
+                0.2428357342419803,
+                5.664452210123661,
+                0.5708282442285603
+              ],
+              [
+                1.1545585744588307,
+                5.569593030386585,
+                0.6014988931857135
+              ],
+              [
+                0.7761344039584117,
+                -0.07750444976336143,
+                -0.002906416866126053
+              ]
+            ],
+            [
+              [
+                0.2428357342419803,
+                5.664452210123661,
+                0.5708282442285603
+              ],
+              [
+                0.5109845177009014,
+                7.972450535242079,
+                0.9657223109706988
+              ],
+              [
+                1.3055575722731634,
+                7.8877396896659695,
+                1.0041636115403476
+              ],
+              [
+                1.1545585744588307,
+                5.569593030386585,
+                0.6014988931857135
+              ]
+            ]
+          ],
+          "axis": [
+            [
+              [
+                0.7890850868011824,
+                -7.942801739290706,
+                0.9791767661702435
+              ],
+              [
+                0.5619387283178915,
+                -5.631251497215938,
+                0.5815629713636636
+              ]
+            ],
+            [
+              [
+                0.5619387283178915,
+                -5.631251497215938,
+                0.5815629713636636
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.561938728317878,
+                5.631251497215684,
+                0.5815629713635639
+              ]
+            ],
+            [
+              [
+                0.561938728317878,
+                5.631251497215684,
+                0.5815629713635639
+              ],
+              [
+                0.7890850868011929,
+                7.942801739290441,
+                0.9791767661700759
+              ]
+            ]
+          ]
+        }
+      ],
+      "mesh_discretization": {
+        "settings": 4,
+        "beams": [
+          {
+            "beam": 1,
+            "name": "Main wing",
+            "settings": {
+              "count": 4,
+              "spacing": "cosine"
+            },
+            "panels": 4,
+            "nodes": [
+              {
+                "t": -8.0,
+                "s": 0.0,
+                "fraction": 0.0,
+                "theta": 3.141592653589793,
+                "required": [
+                  "endpoint"
+                ]
+              },
+              {
+                "t": -5.65685424949245,
+                "s": 2.3564711132516036,
+                "fraction": 0.14644660940672624,
+                "theta": 2.356194490192345,
+                "required": []
+              },
+              {
+                "t": 0.0,
+                "s": 8.04549563420441,
+                "fraction": 0.5000000000000224,
+                "theta": 1.5707963267948517,
+                "required": [
+                  "property break / mirror plane",
+                  "ground 1"
+                ]
+              },
+              {
+                "t": 5.656854249492274,
+                "s": 13.734520155156495,
+                "fraction": 0.8535533905932737,
+                "theta": 0.7853981633974483,
+                "required": []
+              },
+              {
+                "t": 8.0,
+                "s": 16.0909912684081,
+                "fraction": 1.0,
+                "theta": 0.0,
+                "required": [
+                  "endpoint"
+                ]
+              }
+            ]
+          }
+        ],
+        "coordinates": "Undeformed material arc length; theta decreases from pi to zero. Rigid position jumps contain no beam material."
+      },
+      "max_displacement": 0.6816684355783064,
+      "max_rotation_deg": 7.759525806610752,
+      "reactions": [
+        {
+          "kind": "ground",
+          "type": 0,
+          "node": 2,
+          "other_node": null,
+          "force": [
+            -7.091021563768012,
+            8.678313735706346e-11,
+            -755.932109821255
+          ],
+          "moment": [
+            8.914143970033862e-11,
+            303.43540790826677,
+            4.8183459512918996e-11
+          ],
+          "other_force": null,
+          "other_moment": null
+        }
+      ],
+      "applied_force": [
+        7.091021544925816,
+        8.551825914082656e-12,
+        755.9321097948183
+      ],
+      "applied_moment": [
+        -1.405169314239174e-10,
+        -303.4354079067144,
+        9.084288876692881e-12
+      ],
+      "struts": [],
+      "strut_mode": "bilateral",
+      "hinges": [],
+      "mass_properties": {
+        "mass": 16.40824467928207,
+        "cg": [
+          0.35567198155196317,
+          -2.043543136095902e-13,
+          0.38348006603373086
+        ],
+        "reference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "first_moment": [
+          5.83595289886971,
+          -3.3530955789728978e-12,
+          6.292234753108701
+        ],
+        "inertia_reference": [
+          [
+            288.52493249959616,
+            1.5012435738981367e-12,
+            -3.110084820156996
+          ],
+          [
+            1.5012435738981367e-12,
+            6.263559552544968,
+            4.057865155004947e-12
+          ],
+          [
+            -3.110084820156996,
+            4.057865155004947e-12,
+            287.9235865165651
+          ]
+        ],
+        "inertia_cg": [
+          [
+            286.11198590097433,
+            3.0808688933348094e-13,
+            -0.8721132171286966
+          ],
+          [
+            3.0808688933348094e-13,
+            1.774928022138197,
+            2.776334717680129e-12
+          ],
+          [
+            -0.8721132171286966,
+            2.776334717680129e-12,
+            285.8479015847802
+          ]
+        ],
+        "spin_angular_momentum": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "spatial_matrix": [
+          [
+            16.40824467928207,
+            0.0,
+            0.0,
+            -0.0,
+            6.292234753108701,
+            3.3530955789728978e-12
+          ],
+          [
+            0.0,
+            16.40824467928207,
+            0.0,
+            -6.292234753108701,
+            -0.0,
+            5.83595289886971
+          ],
+          [
+            0.0,
+            0.0,
+            16.40824467928207,
+            -3.3530955789728978e-12,
+            -5.83595289886971,
+            -0.0
+          ],
+          [
+            0.0,
+            -6.292234753108701,
+            -3.3530955789728978e-12,
+            288.52493249959616,
+            1.5012435738981367e-12,
+            -3.110084820156996
+          ],
+          [
+            6.292234753108701,
+            0.0,
+            -5.83595289886971,
+            1.5012435738981367e-12,
+            6.263559552544968,
+            4.057865155004947e-12
+          ],
+          [
+            3.3530955789728978e-12,
+            5.83595289886971,
+            0.0,
+            -3.110084820156996,
+            4.057865155004947e-12,
+            287.9235865165651
+          ]
+        ]
+      },
+      "gravity_body": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gravity_source": "body_vector_override",
+      "operating_values": {
+        "rates.x": 0.0,
+        "rates.y": 0.0,
+        "rates.z": 0.0,
+        "acceleration.x": 0.0,
+        "acceleration.y": 0.0,
+        "acceleration.z": 0.0,
+        "angular_acceleration.x": 0.0,
+        "angular_acceleration.y": 0.0,
+        "angular_acceleration.z": 0.0,
+        "speed": 20.0,
+        "alpha": 2.05,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 0.0,
+        "attitude.elevation": 0.0,
+        "attitude.heading": 0.0
+      },
+      "operating_constraints": [],
+      "support_force": [
+        -7.091021563768012,
+        8.678313735706346e-11,
+        -755.932109821255
+      ],
+      "support_moment": [
+        8.914143970033862e-11,
+        303.43540790826677,
+        4.8183459512918996e-11
+      ],
+      "force_balance": [
+        -1.884219624770367e-08,
+        9.533496327114612e-11,
+        -2.643673724378459e-08
+      ],
+      "moment_balance": [
+        -5.1375491723578796e-11,
+        1.5523937690886669e-09,
+        5.726774838961188e-11
+      ],
+      "nodes": [
+        {
+          "index": 0,
+          "beam": 1,
+          "t": -8.0,
+          "position": [
+            0.7890850868011824,
+            -7.942801739290706,
+            0.9791767661702435
+          ],
+          "jig_position": [
+            0.8,
+            -8.0,
+            0.3
+          ],
+          "rotation": [
+            [
+              0.9995299762886927,
+              0.0019756563253508037,
+              -0.030592863259415844
+            ],
+            [
+              0.002065560328361595,
+              0.9913134865196886,
+              0.13150401098334888
+            ],
+            [
+              0.030586924671419862,
+              -0.13150539238473433,
+              0.9908434648383576
+            ]
+          ]
+        },
+        {
+          "index": 1,
+          "beam": 1,
+          "t": -5.65685424949245,
+          "position": [
+            0.5619387283178915,
+            -5.631251497215938,
+            0.5815629713636636
+          ],
+          "jig_position": [
+            0.565685424949245,
+            -5.65685424949245,
+            0.2121320343559669
+          ],
+          "rotation": [
+            [
+              0.9996703164084599,
+              0.001971198301879197,
+              -0.025600251347678977
+            ],
+            [
+              0.0013204067497912322,
+              0.9917826654034718,
+              0.12792732753872502
+            ],
+            [
+              0.025642055647408155,
+              -0.12791895474260176,
+              0.9914530881487714
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "beam": 1,
+          "t": 0.0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "jig_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            [
+              1.0,
+              7.154213961169558e-25,
+              -1.4739492624661703e-23
+            ],
+            [
+              -7.154213961169558e-25,
+              1.0,
+              5.272474195795524e-48
+            ],
+            [
+              1.4739492624661703e-23,
+              5.272474195795524e-48,
+              1.0
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "beam": 1,
+          "t": 5.656854249492274,
+          "position": [
+            0.561938728317878,
+            5.631251497215684,
+            0.5815629713635639
+          ],
+          "jig_position": [
+            0.5656854249492275,
+            5.656854249492274,
+            0.21213203435596029
+          ],
+          "rotation": [
+            [
+              0.9996703164084599,
+              -0.0019711983018784636,
+              -0.025600251347675303
+            ],
+            [
+              -0.0013204067497908586,
+              0.9917826654034749,
+              -0.12792732753870062
+            ],
+            [
+              0.025642055647404446,
+              0.12791895474257736,
+              0.9914530881487746
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "beam": 1,
+          "t": 8.0,
+          "position": [
+            0.7890850868011929,
+            7.942801739290441,
+            0.9791767661700759
+          ],
+          "jig_position": [
+            0.8,
+            8.0,
+            0.3
+          ],
+          "rotation": [
+            [
+              0.9995299762886929,
+              -0.001975656325350751,
+              -0.03059286325941245
+            ],
+            [
+              -0.0020655603283604787,
+              0.9913134865196919,
+              -0.13150401098332548
+            ],
+            [
+              0.030586924671416545,
+              0.13150539238471093,
+              0.990843464838361
+            ]
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "beam": 1,
+          "t": -6.828427124746223,
+          "t0": -8.0,
+          "t1": -5.65685424949245,
+          "length": 2.3564711132516036,
+          "position": [
+            0.6755119075595369,
+            -6.787026618253322,
+            0.7803698687669536
+          ],
+          "frame": [
+            [
+              0.9936735916606769,
+              -0.09639258664179479,
+              -0.05763039542354682
+            ],
+            [
+              0.1046534010339539,
+              0.9809371741030793,
+              0.16373736932872449
+            ],
+            [
+              0.04074872866969843,
+              -0.16873271675395016,
+              0.9848191770110056
+            ]
+          ],
+          "force": [
+            -2.0576804358133156,
+            -3.55542647815349,
+            -21.090742739212114
+          ],
+          "moment": [
+            24.26809383779704,
+            10.284069080615483,
+            -4.222332040529838
+          ],
+          "force_local": [
+            -3.276171135532026,
+            0.2693934582250215,
+            -21.234139148185044
+          ],
+          "moment_local": [
+            25.01877210964374,
+            8.461206880564596,
+            -3.872926992014925
+          ],
+          "moment_axes": [
+            25.01877210964374,
+            8.461206880564596,
+            -3.872926992014925
+          ],
+          "strain": [
+            0.0,
+            5.5218517548983945e-08,
+            0.0
+          ],
+          "curvature_change": [
+            0.0017382116175150251,
+            0.0019595110468173006,
+            -1.3453831110906037e-05
+          ],
+          "axial_strain_tension": 5.5218517548983945e-08,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": -2.82842712474618,
+          "t0": -5.65685424949245,
+          "t1": 0.0,
+          "length": 5.689024520952807,
+          "position": [
+            0.28096936415894574,
+            -2.815625748607969,
+            0.2907814856818318
+          ],
+          "frame": [
+            [
+              0.9947935647880172,
+              -0.09877596145532253,
+              -0.02508132562137829
+            ],
+            [
+              0.10081138578313714,
+              0.9898450717085825,
+              0.1002187532885672
+            ],
+            [
+              0.014927422846307523,
+              -0.1022254540357138,
+              0.9946492490292044
+            ]
+          ],
+          "force": [
+            -3.1944023500385192,
+            -24.755538057741468,
+            -217.6282101292789
+          ],
+          "moment": [
+            668.1636752166888,
+            84.0871820134461,
+            -24.662588862019852
+          ],
+          "force_local": [
+            -8.922039314454958,
+            -1.9414745891041854,
+            -218.86458508828466
+          ],
+          "moment_local": [
+            672.7937207836192,
+            19.755917624938014,
+            -32.86194364827429
+          ],
+          "moment_axes": [
+            672.7937207836192,
+            19.755917624938014,
+            -32.86194364827429
+          ],
+          "strain": [
+            0.0,
+            -2.464213134388758e-07,
+            0.0
+          ],
+          "curvature_change": [
+            0.02288927990987033,
+            0.0022404030359997012,
+            -5.590021155902331e-05
+          ],
+          "axial_strain_tension": -2.464213134388758e-07,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": 2.828427124746137,
+          "t0": 0.0,
+          "t1": 5.656854249492274,
+          "length": 5.689024520952085,
+          "position": [
+            0.280969364158939,
+            2.815625748607842,
+            0.29078148568178197
+          ],
+          "frame": [
+            [
+              0.9947935647880173,
+              0.09877596145532273,
+              -0.025081325621376063
+            ],
+            [
+              -0.10081138578313692,
+              0.9898450717085839,
+              -0.10021875328855495
+            ],
+            [
+              0.014927422846306528,
+              0.10222545403570144,
+              0.9946492490292055
+            ]
+          ],
+          "force": [
+            3.194402350040964,
+            -24.755538057804756,
+            217.62821012925258
+          ],
+          "moment": [
+            668.1636752166503,
+            -84.0871820134487,
+            -24.66258886204479
+          ],
+          "force_local": [
+            8.922039314463156,
+            -1.9414745891720067,
+            218.8645850882647
+          ],
+          "moment_local": [
+            672.7937207835807,
+            -19.755917624946612,
+            -32.861943648297434
+          ],
+          "moment_axes": [
+            672.7937207835807,
+            -19.755917624946612,
+            -32.861943648297434
+          ],
+          "strain": [
+            0.0,
+            -2.4642131344748296e-07,
+            0.0
+          ],
+          "curvature_change": [
+            0.022889279909868894,
+            -0.0022404030360006644,
+            -5.590021155906238e-05
+          ],
+          "axial_strain_tension": -2.4642131344748296e-07,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        },
+        {
+          "beam": 1,
+          "t": 6.8284271247461374,
+          "t0": 5.656854249492274,
+          "t1": 8.0,
+          "length": 2.3564711132516045,
+          "position": [
+            0.6755119075595355,
+            6.787026618253062,
+            0.7803698687668199
+          ],
+          "frame": [
+            [
+              0.993673591660677,
+              0.09639258664179533,
+              -0.05763039542354293
+            ],
+            [
+              -0.10465340103395278,
+              0.9809371741030837,
+              -0.16373736932870078
+            ],
+            [
+              0.04074872866969705,
+              0.1687327167539262,
+              0.9848191770110101
+            ]
+          ],
+          "force": [
+            2.057680435814199,
+            -3.55542647817978,
+            21.09074273920963
+          ],
+          "moment": [
+            24.268093837803193,
+            -10.284069080617407,
+            -4.222332040531647
+          ],
+          "force_local": [
+            3.276171135535521,
+            0.2693934581983797,
+            21.23413914818687
+          ],
+          "moment_local": [
+            25.018772109649976,
+            -8.461206880566127,
+            -3.872926992016914
+          ],
+          "moment_axes": [
+            25.018772109649976,
+            -8.461206880566127,
+            -3.872926992016914
+          ],
+          "strain": [
+            0.0,
+            5.5218517543522356e-08,
+            0.0
+          ],
+          "curvature_change": [
+            0.0017382116175154196,
+            -0.0019595110468176116,
+            -1.3453831110912647e-05
+          ],
+          "axial_strain_tension": 5.5218517543522356e-08,
+          "shell": {
+            "c": 0.0,
+            "n": 0.0,
+            "area_thickness": 0.0,
+            "strain_available": false,
+            "axial_strain": null,
+            "axial_strain_bound": null,
+            "shear_stress": null,
+            "shear_stress_abs": null,
+            "shear_status": "missing"
+          }
+        }
+      ],
+      "structure": {
+        "sample_location": "material midpoint",
+        "local_axes": [
+          "c",
+          "s",
+          "n"
+        ],
+        "strain_source": "elastic_load_compliance",
+        "shell_reference": "tension axis",
+        "units": {
+          "force": "input F",
+          "moment": "input F L",
+          "strain": "dimensionless",
+          "curvature_change": "rad / input L",
+          "shear_stress": "input F / L^2",
+          "stress_to_pa": 1.0
+        },
+        "summary": {
+          "max_abs_shell_strain": null,
+          "max_shell_strain_bound": null,
+          "max_abs_shear_stress": null,
+          "strain_sections": 0,
+          "stress_sections": 0,
+          "invalid_stress_sections": 0
+        },
+        "limitations": [
+          "Strain uses load-induced curvature relative to the jig; positive axial strain is tension.",
+          "Cshell/Nshell are offsets from the tension axis per steady eq. 28; the user guide labels them relative to the elastic axis. Executable parity is unverified.",
+          "The strain bound sums absolute axial and bending contributions. It bounds the specified rectangular extents, not an unspecified complete cross section.",
+          "Torsional shear stress assumes a thin, closed, uniform shell: torque about the elastic axis divided by twice Atshell. Transverse-shear stress, warping, normal stress and strength margins are not inferred.",
+          "Missing shell arms or nonpositive Atshell produce null material results. Negative Atshell is invalid; shell parameters do not change equilibrium.",
+          "These are element midpoint samples. Peaks at endpoints, joints and concentrated loads require local refinement; no interpolation across jumps is implied."
+        ]
+      },
+      "sensors": [],
+      "sensor_metadata": {
+        "units": {
+          "speed": "input L/T",
+          "alpha": "deg",
+          "beta": "deg",
+          "bank": "deg",
+          "elevation": "deg",
+          "heading": "deg",
+          "air_velocity_sensor": "input L/T",
+          "rates_sensor": "rad/input T",
+          "acceleration_sensor": "input L/T^2",
+          "angular_acceleration_sensor": "rad/input T^2",
+          "position_earth": "input L",
+          "velocity_earth": "input L/T",
+          "anchor_position_body": "input L",
+          "anchor_velocity_body": "input L/T",
+          "position_body": "input L",
+          "displacement_body": "input L",
+          "force_local": "input F",
+          "moment_local": "input F L",
+          "circulation": "input L^2/T",
+          "strain": "dimensionless",
+          "curvature_change": "rad/input L",
+          "shell_strain": "dimensionless",
+          "shell_shear_stress": "input F/L^2"
+        },
+        "limitations": [
+          "Sensor axes and locations follow their rigid pylons. Relative body position/velocity describe the beam anchor; GPS and inertial measurements describe the pylon tip.",
+          "Full airflow includes the implemented regularized lifting-line, volume, propulsive jet and gust fields. Near-filament/core and ASWING sensor-flow parity require independent refinement.",
+          "Structural force/moment use the inward endpoint trace and left trace at an interior anchor, in the anchor csn frame. Both adjacent traces are exported; exact ASWING trace choice at load/property jumps is unverified.",
+          "Mechanical strain and shell stress use the selected adjacent element material midpoint, whose location is reported. They are not exact nodal or pylon-tip strain measurements.",
+          "Zero airspeed makes flow angles undefined. At a vertical sensor V axis, bank/heading are undefined; Euler-angle branches are not a global attitude representation.",
+          "Selected measurements can drive scheduled feedback and differential error integrals. Full control-file index/unit mapping and arbitrary custom controller parity remain unverified."
+        ]
+      },
+      "attachments": []
+    },
+    "state": {
+      "format": "openswing-equilibrium",
+      "version": 1,
+      "identity": {
+        "model_sha256": "1ba30cea974091854f4c60ecc0d0d2cf24da1127001d7ad1bf1a72acf85f4472",
+        "nodes": [
+          [
+            0.8,
+            -8.0,
+            0.3
+          ],
+          [
+            0.565685424949245,
+            -5.65685424949245,
+            0.2121320343559669
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.5656854249492275,
+            5.656854249492274,
+            0.21213203435596029
+          ],
+          [
+            0.8,
+            8.0,
+            0.3
+          ]
+        ],
+        "elements": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "stations": {
+          "1": [
+            [
+              -8.0,
+              -5.65685424949245,
+              0.0,
+              5.656854249492274,
+              8.0
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          ]
+        },
+        "constraints": [
+          {
+            "kind": "ground",
+            "type": 0,
+            "a": 2,
+            "b": null
+          }
+        ],
+        "circulation_count": 4
+      },
+      "positions": [
+        [
+          0.7890850868011824,
+          -7.942801739290706,
+          0.9791767661702435
+        ],
+        [
+          0.5619387283178915,
+          -5.631251497215938,
+          0.5815629713636636
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.561938728317878,
+          5.631251497215684,
+          0.5815629713635639
+        ],
+        [
+          0.7890850868011929,
+          7.942801739290441,
+          0.9791767661700759
+        ]
+      ],
+      "rotations": [
+        [
+          -0.13190755341436383,
+          -0.03068360309943764,
+          4.508970754446505e-05
+        ],
+        [
+          -0.12828884324140874,
+          -0.02569439833482651,
+          -0.00032632600585081684
+        ],
+        [
+          0.0,
+          -1.4739492624661703e-23,
+          -7.154213961169558e-25
+        ],
+        [
+          0.12828884324138415,
+          -0.02569439833482278,
+          0.0003263260058506362
+        ],
+        [
+          0.1319075534143402,
+          -0.030683603099434242,
+          -4.508970754393148e-05
+        ]
+      ],
+      "internal_force": [
+        [
+          -2.0576804358133156,
+          -3.55542647815349,
+          -21.090742739212114
+        ],
+        [
+          -3.1944023500385192,
+          -24.755538057741468,
+          -217.6282101292789
+        ],
+        [
+          3.194402350040964,
+          -24.755538057804756,
+          217.62821012925258
+        ],
+        [
+          2.057680435814199,
+          -3.55542647817978,
+          21.09074273920963
+        ]
+      ],
+      "internal_moment": [
+        [
+          24.26809383779704,
+          10.284069080615483,
+          -4.222332040529838
+        ],
+        [
+          668.1636752166888,
+          84.0871820134461,
+          -24.662588862019852
+        ],
+        [
+          668.1636752166503,
+          -84.0871820134487,
+          -24.66258886204479
+        ],
+        [
+          24.268093837803193,
+          -10.284069080617407,
+          -4.222332040531647
+        ]
+      ],
+      "reactions": [
+        -7.091021563768012,
+        8.678313735706346e-11,
+        -755.932109821255,
+        8.914143970033862e-11,
+        303.4354079082668,
+        4.8183459512918996e-11
+      ],
+      "circulation": [
+        0.5009344897767486,
+        2.5321749645496228,
+        2.532174964549725,
+        0.5009344897768487
+      ],
+      "operating_values": {
+        "rates.x": 0.0,
+        "rates.y": 0.0,
+        "rates.z": 0.0,
+        "acceleration.x": 0.0,
+        "acceleration.y": 0.0,
+        "acceleration.z": 0.0,
+        "angular_acceleration.x": 0.0,
+        "angular_acceleration.y": 0.0,
+        "angular_acceleration.z": 0.0,
+        "speed": 20.0,
+        "alpha": 2.05,
+        "beta": 0.0,
+        "position_earth.x": 0.0,
+        "position_earth.y": 0.0,
+        "position_earth.z": 0.0,
+        "attitude.bank": 0.0,
+        "attitude.elevation": 0.0,
+        "attitude.heading": 0.0
+      },
+      "feedback": null,
+      "residual": 1.607047064172672e-11,
+      "units": "Physical quantities in ASW input units; spatial rotation vectors in radians. Numerical solver scales are not stored.",
+      "limitations": [
+        "This is a steady state. It contains no unsteady history or derivative state.",
+        "The source and mesh must match. Steady reuse corrects the full equilibrium; time launch validates the saved setup at zero local rates.",
+        "Local correction does not prove that a nonlinear branch is unique or that a fold has been followed."
+      ],
+      "launch": {
+        "version": 1,
+        "panels": 4,
+        "condition": {
+          "speed": 20.0,
+          "alpha": 2.05,
+          "beta": 0.0,
+          "density": null,
+          "mach": 0.1,
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "controls": {},
+          "powers": {},
+          "body_added_mass_factor": 1.0,
+          "position_earth": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "attitude": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_effect": 0,
+          "ground_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "altitude_m": 0.0,
+          "gravity_magnitude": null,
+          "load_factor": 1.0,
+          "gust": null,
+          "sensor_flow": "full",
+          "time": 0.0,
+          "circulation_modes": {},
+          "aero_lag": true,
+          "wake_core_ratio": 0.25,
+          "freeze_influences": false
+        },
+        "motion": {
+          "rates": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_acceleration": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "gravity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "loads": [],
+        "strut_mode": "bilateral",
+        "controller": null,
+        "frame": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "attitude": [
+            0,
+            0,
+            0
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "gravity_magnitude": null
+        },
+        "released_constraints": []
+      }
+    }
+  },
+  "baseline_diagnostics": {
+    "initialization": "saved physical equilibrium",
+    "newton_iterations": 3,
+    "tangent_builds": 1,
+    "residual": 1.607047064172672e-11,
+    "rank_check": "full-Jacobian SVD",
+    "column_scaled_reciprocal_condition": 0.0009991365204395834
+  }
+}

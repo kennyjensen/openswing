@@ -1,0 +1,1217 @@
+{
+  "status": "SAVED_FIELD_REPLAY_COMPLETE",
+  "new_solves": 0,
+  "production_imports": 0,
+  "script": {
+    "path": "docs/validation/sa1-frozen-influence-20261027/oracle.py",
+    "bytes": 10095,
+    "sha256": "7502d1c485f8b177600c37962bff5383013b487fd37fe514e4a38f2f1a5bdae0"
+  },
+  "cases": [
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row000-frozen-n200-k0.json",
+        "bytes": 378267,
+        "sha256": "7532c7da4f4e2cea859aabf39677b213a1f2c57e27a7b886f48d54ac0f8b5693"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row000-frozen-n200-k0",
+        "row_index": 0,
+        "panels": 200,
+        "condition": {
+          "alpha": 0.029369,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 0,
+          "line_number": 4,
+          "tokens": [
+            "1",
+            "1.000",
+            "0.293690E-01",
+            "17.6570",
+            "93.2413",
+            "0.212850E-02",
+            "0.112400E-01",
+            "0.248495E-06",
+            "-0.532472E-03",
+            "0.984903"
+          ],
+          "fields": {
+            "index": {
+              "token": "1",
+              "value": 1.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "1.000",
+              "value": 1.0,
+              "tolerance": 0.0005
+            },
+            "alpha": {
+              "token": "0.293690E-01",
+              "value": 0.029369,
+              "tolerance": 5e-08
+            },
+            "lift": {
+              "token": "17.6570",
+              "value": 17.657,
+              "tolerance": 5e-05
+            },
+            "drag": {
+              "token": "93.2413",
+              "value": 93.2413,
+              "tolerance": 5e-05
+            },
+            "CL": {
+              "token": "0.212850E-02",
+              "value": 0.0021285,
+              "tolerance": 5e-09
+            },
+            "CD": {
+              "token": "0.112400E-01",
+              "value": 0.01124,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.248495E-06",
+              "value": 2.48495e-07,
+              "tolerance": 5e-13
+            },
+            "Cm": {
+              "token": "-0.532472E-03",
+              "value": -0.000532472,
+              "tolerance": 5e-10
+            },
+            "efficiency": {
+              "token": "0.984903",
+              "value": 0.984903,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row000:n200"
+      },
+      "actual_wind": [
+        0.9999998686279283,
+        0.0,
+        0.0005125857255717306
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 0.0021297318093885078,
+          "retained": 0.0021297318093885065,
+          "absolute_difference": 1.3010426069826053e-18
+        },
+        "CD": {
+          "oracle": 0.011239997165521591,
+          "retained": 0.011239997165521591,
+          "absolute_difference": 0.0
+        },
+        "Cm": {
+          "oracle": -0.0005327792690151456,
+          "retained": -0.0005327792690151456,
+          "absolute_difference": 0.0
+        },
+        "CLi": {
+          "oracle": 0.002131117356029885,
+          "retained": 0.0021311173560298853,
+          "absolute_difference": 4.336808689942018e-19
+        },
+        "CDi": {
+          "oracle": 2.484956214587801e-07,
+          "retained": 2.484956214587802e-07,
+          "absolute_difference": 1.0587911840678754e-22
+        },
+        "CDi_near": {
+          "oracle": 2.4849558881339554e-07,
+          "retained": 2.484955888133948e-07,
+          "absolute_difference": 7.411538288475128e-22
+        },
+        "CDp": {
+          "oracle": 0.011239748669932777,
+          "retained": 0.011239748669932772,
+          "absolute_difference": 5.204170427930421e-18
+        },
+        "efficiency": {
+          "oracle": 0.9860390326170007,
+          "retained": 0.9860390326170007,
+          "absolute_difference": 0.0
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 1.5959455978986625e-16,
+        "hv": 2.220446049250313e-16,
+        "force": 4.440892098500626e-16,
+        "section_moment": 6.938893903907228e-18,
+        "length": 6.938893903907228e-18,
+        "cl": 4.336808689942018e-19,
+        "speed": 7.105427357601002e-15,
+        "integrated_force": 1.0658141036401503e-14,
+        "integrated_moment": 5.0214417042851456e-15,
+        "circulation_local_residual": 1.5138087975315776e-17,
+        "circulation_residual": 1.5138087975315776e-17,
+        "trefftz_velocity": 3.0704605524789486e-15,
+        "trefftz_strip_drag": 1.5687050183149642e-18,
+        "trefftz_transverse_force": 3.552713678800501e-15
+      },
+      "independent_identities": {
+        "near_circulation_CL": 0.002131117228654576,
+        "near_circulation_CL_from_fixed_wake": 0.0021311172286545767,
+        "near_circulation_CD_from_fixed_wake": 2.484955888133955e-07,
+        "Cm_from_fixed_wake": -0.0005327792690151457,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          17.67865257847331
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.002131117076060583
+      },
+      "maximum_absolute_local_residual": 1.617546866757732e-17,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row000-frozen-n400-k0.json",
+        "bytes": 733963,
+        "sha256": "93e27f9660b55025e21a5d30a62498d65652e8eec4653e6297c13b3982229985"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row000-frozen-n400-k0",
+        "row_index": 0,
+        "panels": 400,
+        "condition": {
+          "alpha": 0.029369,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 0,
+          "line_number": 4,
+          "tokens": [
+            "1",
+            "1.000",
+            "0.293690E-01",
+            "17.6570",
+            "93.2413",
+            "0.212850E-02",
+            "0.112400E-01",
+            "0.248495E-06",
+            "-0.532472E-03",
+            "0.984903"
+          ],
+          "fields": {
+            "index": {
+              "token": "1",
+              "value": 1.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "1.000",
+              "value": 1.0,
+              "tolerance": 0.0005
+            },
+            "alpha": {
+              "token": "0.293690E-01",
+              "value": 0.029369,
+              "tolerance": 5e-08
+            },
+            "lift": {
+              "token": "17.6570",
+              "value": 17.657,
+              "tolerance": 5e-05
+            },
+            "drag": {
+              "token": "93.2413",
+              "value": 93.2413,
+              "tolerance": 5e-05
+            },
+            "CL": {
+              "token": "0.212850E-02",
+              "value": 0.0021285,
+              "tolerance": 5e-09
+            },
+            "CD": {
+              "token": "0.112400E-01",
+              "value": 0.01124,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.248495E-06",
+              "value": 2.48495e-07,
+              "tolerance": 5e-13
+            },
+            "Cm": {
+              "token": "-0.532472E-03",
+              "value": -0.000532472,
+              "tolerance": 5e-10
+            },
+            "efficiency": {
+              "token": "0.984903",
+              "value": 0.984903,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row000:n400"
+      },
+      "actual_wind": [
+        0.9999998686279283,
+        0.0,
+        0.0005125857255717306
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 0.002129731815528079,
+          "retained": 0.0021297318155280793,
+          "absolute_difference": 4.336808689942018e-19
+        },
+        "CD": {
+          "oracle": 0.011239997165310508,
+          "retained": 0.01123999716531051,
+          "absolute_difference": 1.734723475976807e-18
+        },
+        "Cm": {
+          "oracle": -0.0005327792690151526,
+          "retained": -0.0005327792690151533,
+          "absolute_difference": 6.505213034913027e-19
+        },
+        "CLi": {
+          "oracle": 0.0021311173560299122,
+          "retained": 0.0021311173560299105,
+          "absolute_difference": 1.734723475976807e-18
+        },
+        "CDi": {
+          "oracle": 2.484954050180902e-07,
+          "retained": 2.4849540501808965e-07,
+          "absolute_difference": 5.293955920339377e-22
+        },
+        "CDi_near": {
+          "oracle": 2.484953723727342e-07,
+          "retained": 2.484953723727355e-07,
+          "absolute_difference": 1.3234889800848443e-21
+        },
+        "CDp": {
+          "oracle": 0.011239748669938134,
+          "retained": 0.011239748669938137,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        "efficiency": {
+          "oracle": 0.9860398914617535,
+          "retained": 0.9860398914617543,
+          "absolute_difference": 7.771561172376096e-16
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 7.667477763817487e-16,
+        "hv": 2.220446049250313e-16,
+        "force": 1.6653345369377348e-16,
+        "section_moment": 3.469446951953614e-18,
+        "length": 3.469446951953614e-18,
+        "cl": 4.336808689942018e-19,
+        "speed": 7.105427357601002e-15,
+        "integrated_force": 1.4210854715202004e-14,
+        "integrated_moment": 2.2450791226091837e-14,
+        "circulation_local_residual": 1.9628812609326725e-17,
+        "circulation_residual": 1.9628812609326725e-17,
+        "trefftz_velocity": 8.767292447586783e-15,
+        "trefftz_strip_drag": 1.8262030342802715e-18,
+        "trefftz_transverse_force": 1.4210854715202004e-14
+      },
+      "independent_identities": {
+        "near_circulation_CL": 0.0021311172286547146,
+        "near_circulation_CL_from_fixed_wake": 0.0021311172286547146,
+        "near_circulation_CD_from_fixed_wake": 2.48495372372734e-07,
+        "Cm_from_fixed_wake": -0.0005327792690151525,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          17.67865257847354
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.00213111707606061
+      },
+      "maximum_absolute_local_residual": 2.3986560413949012e-17,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row001-frozen-n200-k0.json",
+        "bytes": 375191,
+        "sha256": "66795902e214811974aad67f42ab0610f438e69d13b497b90c133850841b0ad0"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row001-frozen-n200-k0",
+        "row_index": 1,
+        "panels": 200,
+        "condition": {
+          "alpha": 1.9971,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 1,
+          "line_number": 5,
+          "tokens": [
+            "2",
+            "2.000",
+            "1.99710",
+            "1201.16",
+            "102.782",
+            "0.144797",
+            "0.123901E-01",
+            "0.114998E-02",
+            "-0.362109E-01",
+            "0.984903"
+          ],
+          "fields": {
+            "index": {
+              "token": "2",
+              "value": 2.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "2.000",
+              "value": 2.0,
+              "tolerance": 0.0005
+            },
+            "alpha": {
+              "token": "1.99710",
+              "value": 1.9971,
+              "tolerance": 5e-06
+            },
+            "lift": {
+              "token": "1201.16",
+              "value": 1201.16,
+              "tolerance": 0.005
+            },
+            "drag": {
+              "token": "102.782",
+              "value": 102.782,
+              "tolerance": 0.0005
+            },
+            "CL": {
+              "token": "0.144797",
+              "value": 0.144797,
+              "tolerance": 5e-07
+            },
+            "CD": {
+              "token": "0.123901E-01",
+              "value": 0.0123901,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.114998E-02",
+              "value": 0.00114998,
+              "tolerance": 5e-09
+            },
+            "Cm": {
+              "token": "-0.362109E-01",
+              "value": -0.0362109,
+              "tolerance": 5e-08
+            },
+            "efficiency": {
+              "token": "0.984903",
+              "value": 0.984903,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row001:n200"
+      },
+      "actual_wind": [
+        0.9993925921612208,
+        0.0,
+        0.03484891294252667
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 0.14475308934982942,
+          "retained": 0.1447530893498295,
+          "absolute_difference": 8.326672684688674e-17
+        },
+        "CD": {
+          "oracle": 0.012381492824640449,
+          "retained": 0.012381492824640452,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        "Cm": {
+          "oracle": -0.0361998045564595,
+          "retained": -0.03619980455645946,
+          "absolute_difference": 4.163336342344337e-17
+        },
+        "CLi": {
+          "oracle": 0.14488722386135033,
+          "retained": 0.1448872238613502,
+          "absolute_difference": 1.3877787807814457e-16
+        },
+        "CDi": {
+          "oracle": 0.0011485877794320158,
+          "retained": 0.0011485877794320176,
+          "absolute_difference": 1.734723475976807e-18
+        },
+        "CDi_near": {
+          "oracle": 0.0011478901182112625,
+          "retained": 0.0011478901182112547,
+          "absolute_difference": 7.806255641895632e-18
+        },
+        "CDp": {
+          "oracle": 0.011233602706429188,
+          "retained": 0.011233602706429192,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        "efficiency": {
+          "oracle": 0.9860390320143055,
+          "retained": 0.986039032014302,
+          "absolute_difference": 3.552713678800501e-15
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 1.9984014443252818e-14,
+        "hv": 2.220446049250313e-16,
+        "force": 3.552713678800501e-15,
+        "section_moment": 4.440892098500626e-16,
+        "length": 6.938893903907228e-18,
+        "cl": 2.7755575615628914e-17,
+        "speed": 7.105427357601002e-15,
+        "integrated_force": 4.547473508864641e-13,
+        "integrated_moment": 4.955753689361853e-13,
+        "circulation_local_residual": 5.562704089977209e-16,
+        "circulation_residual": 5.562704089977209e-16,
+        "trefftz_velocity": 1.254552017826427e-13,
+        "trefftz_strip_drag": 5.370703881624195e-15,
+        "trefftz_transverse_force": 1.1368683772161603e-12
+      },
+      "independent_identities": {
+        "near_circulation_CL": 0.14484719682581804,
+        "near_circulation_CL_from_fixed_wake": 0.14484719682581806,
+        "near_circulation_CD_from_fixed_wake": 0.0011478901182112628,
+        "Cm_from_fixed_wake": -0.0361998045564595,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          1201.9098274700466
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.144799218225838
+      },
+      "maximum_absolute_local_residual": 4.511105631960842e-16,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row001-frozen-n400-k0.json",
+        "bytes": 728232,
+        "sha256": "f4fccdb8bb6b1886c5780d6f5d245272a20647fd43ad9b52ddd27a6f33758a7d"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row001-frozen-n400-k0",
+        "row_index": 1,
+        "panels": 400,
+        "condition": {
+          "alpha": 1.9971,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 1,
+          "line_number": 5,
+          "tokens": [
+            "2",
+            "2.000",
+            "1.99710",
+            "1201.16",
+            "102.782",
+            "0.144797",
+            "0.123901E-01",
+            "0.114998E-02",
+            "-0.362109E-01",
+            "0.984903"
+          ],
+          "fields": {
+            "index": {
+              "token": "2",
+              "value": 2.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "2.000",
+              "value": 2.0,
+              "tolerance": 0.0005
+            },
+            "alpha": {
+              "token": "1.99710",
+              "value": 1.9971,
+              "tolerance": 5e-06
+            },
+            "lift": {
+              "token": "1201.16",
+              "value": 1201.16,
+              "tolerance": 0.005
+            },
+            "drag": {
+              "token": "102.782",
+              "value": 102.782,
+              "tolerance": 0.0005
+            },
+            "CL": {
+              "token": "0.144797",
+              "value": 0.144797,
+              "tolerance": 5e-07
+            },
+            "CD": {
+              "token": "0.123901E-01",
+              "value": 0.0123901,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.114998E-02",
+              "value": 0.00114998,
+              "tolerance": 5e-09
+            },
+            "Cm": {
+              "token": "-0.362109E-01",
+              "value": -0.0362109,
+              "tolerance": 5e-08
+            },
+            "efficiency": {
+              "token": "0.984903",
+              "value": 0.984903,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row001:n400"
+      },
+      "actual_wind": [
+        0.9993925921612208,
+        0.0,
+        0.03484891294252667
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 0.14475308980162852,
+          "retained": 0.14475308980162857,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        "CD": {
+          "oracle": 0.012381491849580166,
+          "retained": 0.012381491849580166,
+          "absolute_difference": 0.0
+        },
+        "Cm": {
+          "oracle": -0.03619980455646511,
+          "retained": -0.036199804556465105,
+          "absolute_difference": 6.938893903907228e-18
+        },
+        "CLi": {
+          "oracle": 0.14488722386137282,
+          "retained": 0.14488722386137265,
+          "absolute_difference": 1.6653345369377348e-16
+        },
+        "CDi": {
+          "oracle": 0.0011485867790076993,
+          "retained": 0.0011485867790077013,
+          "absolute_difference": 1.951563910473908e-18
+        },
+        "CDi_near": {
+          "oracle": 0.001147889118394612,
+          "retained": 0.0011478891183946066,
+          "absolute_difference": 5.421010862427522e-18
+        },
+        "CDp": {
+          "oracle": 0.011233602731185552,
+          "retained": 0.011233602731185548,
+          "absolute_difference": 3.469446951953614e-18
+        },
+        "efficiency": {
+          "oracle": 0.9860398908591,
+          "retained": 0.986039890859096,
+          "absolute_difference": 3.9968028886505635e-15
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 3.530509218307998e-14,
+        "hv": 2.220446049250313e-16,
+        "force": 1.7763568394002505e-15,
+        "section_moment": 2.220446049250313e-16,
+        "length": 3.469446951953614e-18,
+        "cl": 2.7755575615628914e-17,
+        "speed": 7.105427357601002e-15,
+        "integrated_force": 4.547473508864641e-13,
+        "integrated_moment": 3.145021677981863e-13,
+        "circulation_local_residual": 2.211174875766811e-15,
+        "circulation_residual": 2.211174875766811e-15,
+        "trefftz_velocity": 4.2454928461665986e-13,
+        "trefftz_strip_drag": 7.729927808952652e-15,
+        "trefftz_transverse_force": 1.3642420526593924e-12
+      },
+      "independent_identities": {
+        "near_circulation_CL": 0.1448471968607042,
+        "near_circulation_CL_from_fixed_wake": 0.14484719686070424,
+        "near_circulation_CD_from_fixed_wake": 0.0011478891183946119,
+        "Cm_from_fixed_wake": -0.03619980455646511,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          1201.9098274702333
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.14479921822586045
+      },
+      "maximum_absolute_local_residual": 2.377912569473304e-15,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row010-frozen-n200-k0.json",
+        "bytes": 386103,
+        "sha256": "2c32cc622c61ed66f40c85f813854f9a623cba9687de15820049cfbc8f96ed47"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row010-frozen-n200-k0",
+        "row_index": 10,
+        "panels": 200,
+        "condition": {
+          "alpha": 18.091,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 10,
+          "line_number": 14,
+          "tokens": [
+            "11",
+            "11.00",
+            "18.0910",
+            "8951.11",
+            "798.127",
+            "1.07903",
+            "0.962122E-01",
+            "0.672406E-01",
+            "-0.262007",
+            "0.936853"
+          ],
+          "fields": {
+            "index": {
+              "token": "11",
+              "value": 11.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "11.00",
+              "value": 11.0,
+              "tolerance": 0.005
+            },
+            "alpha": {
+              "token": "18.0910",
+              "value": 18.091,
+              "tolerance": 5e-05
+            },
+            "lift": {
+              "token": "8951.11",
+              "value": 8951.11,
+              "tolerance": 0.005
+            },
+            "drag": {
+              "token": "798.127",
+              "value": 798.127,
+              "tolerance": 0.0005
+            },
+            "CL": {
+              "token": "1.07903",
+              "value": 1.07903,
+              "tolerance": 5e-06
+            },
+            "CD": {
+              "token": "0.962122E-01",
+              "value": 0.0962122,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.672406E-01",
+              "value": 0.0672406,
+              "tolerance": 5e-08
+            },
+            "Cm": {
+              "token": "-0.262007",
+              "value": -0.262007,
+              "tolerance": 5e-07
+            },
+            "efficiency": {
+              "token": "0.936853",
+              "value": 0.936853,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row010:n200"
+      },
+      "actual_wind": [
+        0.9505645208405138,
+        0.0,
+        0.3105271191365488
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 1.0074823366368435,
+          "retained": 1.0074823366368437,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        "CD": {
+          "oracle": 0.08601584186113531,
+          "retained": 0.08601584186113526,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        "Cm": {
+          "oracle": -0.24422481528541468,
+          "retained": -0.24422481528541473,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        "CLi": {
+          "oracle": 1.0277043164601378,
+          "retained": 1.0277043164601378,
+          "absolute_difference": 0.0
+        },
+        "CDi": {
+          "oracle": 0.06068230743026058,
+          "retained": 0.0606823074302606,
+          "absolute_difference": 2.0816681711721685e-17
+        },
+        "CDi_near": {
+          "oracle": 0.05768244848594241,
+          "retained": 0.057682448485942436,
+          "absolute_difference": 2.7755575615628914e-17
+        },
+        "CDp": {
+          "oracle": 0.028333393375192927,
+          "retained": 0.028333393375192983,
+          "absolute_difference": 5.551115123125783e-17
+        },
+        "efficiency": {
+          "oracle": 0.9390146987930439,
+          "retained": 0.9390146987930436,
+          "absolute_difference": 3.3306690738754696e-16
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 1.3322676295501878e-13,
+        "hv": 2.220446049250313e-16,
+        "force": 1.2079226507921703e-13,
+        "section_moment": 3.552713678800501e-15,
+        "length": 6.938893903907228e-18,
+        "cl": 4.440892098500626e-16,
+        "speed": 2.842170943040401e-14,
+        "integrated_force": 9.094947017729282e-13,
+        "integrated_moment": 1.0813780426666142e-12,
+        "circulation_local_residual": 7.120261235177519e-15,
+        "circulation_residual": 7.120261235177519e-15,
+        "trefftz_velocity": 1.0444978215673473e-12,
+        "trefftz_strip_drag": 2.1405099914773018e-13,
+        "trefftz_transverse_force": 0.0
+      },
+      "independent_identities": {
+        "near_circulation_CL": 1.0088608143512605,
+        "near_circulation_CL_from_fixed_wake": 1.0088608143512605,
+        "near_circulation_CD_from_fixed_wake": 0.0576824484859424,
+        "Cm_from_fixed_wake": -0.24422481528541468,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          8525.305991568017
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.9768992611416587
+      },
+      "maximum_absolute_local_residual": 7.353434028183776e-15,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    },
+    {
+      "source": {
+        "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/row010-frozen-n400-k0.json",
+        "bytes": 738613,
+        "sha256": "46b9bf55da79a1e83b781a5541b77fb0b88c236cf4083e8086e42db401e54df5"
+      },
+      "model": {
+        "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "bytes": 4427,
+        "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+      },
+      "job": {
+        "id": "row010-frozen-n400-k0",
+        "row_index": 10,
+        "panels": 400,
+        "condition": {
+          "alpha": 18.091,
+          "speed": 47.9,
+          "density": 1.2256,
+          "mach": 0.0,
+          "freeze_influences": true,
+          "beta": 0.0,
+          "stall": true,
+          "stall_factor": 40.0,
+          "stall_width": 0.05,
+          "wake_core_ratio": 0.25,
+          "aero_lag": true,
+          "body_added_mass_factor": 1.0
+        },
+        "model_path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+        "reference_row": {
+          "row_index": 10,
+          "line_number": 14,
+          "tokens": [
+            "11",
+            "11.00",
+            "18.0910",
+            "8951.11",
+            "798.127",
+            "1.07903",
+            "0.962122E-01",
+            "0.672406E-01",
+            "-0.262007",
+            "0.936853"
+          ],
+          "fields": {
+            "index": {
+              "token": "11",
+              "value": 11.0,
+              "tolerance": 0.5
+            },
+            "time": {
+              "token": "11.00",
+              "value": 11.0,
+              "tolerance": 0.005
+            },
+            "alpha": {
+              "token": "18.0910",
+              "value": 18.091,
+              "tolerance": 5e-05
+            },
+            "lift": {
+              "token": "8951.11",
+              "value": 8951.11,
+              "tolerance": 0.005
+            },
+            "drag": {
+              "token": "798.127",
+              "value": 798.127,
+              "tolerance": 0.0005
+            },
+            "CL": {
+              "token": "1.07903",
+              "value": 1.07903,
+              "tolerance": 5e-06
+            },
+            "CD": {
+              "token": "0.962122E-01",
+              "value": 0.0962122,
+              "tolerance": 5e-08
+            },
+            "CDi": {
+              "token": "0.672406E-01",
+              "value": 0.0672406,
+              "tolerance": 5e-08
+            },
+            "Cm": {
+              "token": "-0.262007",
+              "value": -0.262007,
+              "tolerance": 5e-07
+            },
+            "efficiency": {
+              "token": "0.936853",
+              "value": 0.936853,
+              "tolerance": 5e-07
+            }
+          }
+        },
+        "sources": [
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+            "bytes": 4427,
+            "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+            "bytes": 1636,
+            "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+          },
+          {
+            "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+            "bytes": 309,
+            "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+          }
+        ],
+        "current_influence_baseline_job_id": "SA-1:SA_1_CL:row010:n400"
+      },
+      "actual_wind": [
+        0.9505645208405138,
+        0.0,
+        0.3105271191365488
+      ],
+      "influence_wind": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "values": {
+        "CL": {
+          "oracle": 1.0074855847737827,
+          "retained": 1.0074855847737827,
+          "absolute_difference": 0.0
+        },
+        "CD": {
+          "oracle": 0.08601603065155759,
+          "retained": 0.08601603065155772,
+          "absolute_difference": 1.249000902703301e-16
+        },
+        "Cm": {
+          "oracle": -0.244225602176758,
+          "retained": -0.24422560217675818,
+          "absolute_difference": 1.6653345369377348e-16
+        },
+        "CLi": {
+          "oracle": 1.027707627719189,
+          "retained": 1.027707627719189,
+          "absolute_difference": 0.0
+        },
+        "CDi": {
+          "oracle": 0.060682551700212604,
+          "retained": 0.06068255170021299,
+          "absolute_difference": 3.885780586188048e-16
+        },
+        "CDi_near": {
+          "oracle": 0.05768268068029236,
+          "retained": 0.05768268068029253,
+          "absolute_difference": 1.734723475976807e-16
+        },
+        "CDp": {
+          "oracle": 0.028333349971265288,
+          "retained": 0.028333349971265374,
+          "absolute_difference": 8.673617379884035e-17
+        },
+        "efficiency": {
+          "oracle": 0.9390169698962355,
+          "retained": 0.9390169698962294,
+          "absolute_difference": 6.106226635438361e-15
+        }
+      },
+      "maximum_absolute_differences": {
+        "velocity": 4.565237077258644e-13,
+        "hv": 2.220446049250313e-16,
+        "force": 9.414691248821327e-14,
+        "section_moment": 1.7763568394002505e-15,
+        "length": 3.469446951953614e-18,
+        "cl": 6.661338147750939e-16,
+        "speed": 8.526512829121202e-14,
+        "integrated_force": 9.094947017729282e-13,
+        "integrated_moment": 2.3678238189606127e-12,
+        "circulation_local_residual": 2.955650106472753e-14,
+        "circulation_residual": 2.955650106472753e-14,
+        "trefftz_velocity": 3.75699471533153e-12,
+        "trefftz_strip_drag": 4.0900616227190767e-13,
+        "trefftz_transverse_force": 0.0
+      },
+      "independent_identities": {
+        "near_circulation_CL": 1.0088640497578671,
+        "near_circulation_CL_from_fixed_wake": 1.0088640497578674,
+        "near_circulation_CD_from_fixed_wake": 0.0576826806802923,
+        "Cm_from_fixed_wake": -0.244225602176758,
+        "fixed_wake_transverse_force": [
+          0.0,
+          0.0,
+          8525.333460068612
+        ],
+        "fixed_wake_transverse_force_projected_on_actual_lift_axis": 0.976902408707032
+      },
+      "maximum_absolute_local_residual": 1.6926336823492985e-14,
+      "scope": "Saved Gamma replay; no independent solve, historical-setting identification or reference-acceptance decision."
+    }
+  ],
+  "qualifications": [
+    "Actual freestream and force-projection axes retain alpha; the fixed influence wake and coefficient geometry use alpha=beta=0.",
+    "The replay verifies the zero-angle fixed-wake Trefftz diagnostic. The primary K/F description does not explicitly state how historical exported Trefftz axes are handled; this is not recovered ASWING exporter evidence.",
+    "Native reference checks in input packets are not used or reclassified. Local law replay does not identify historical Gamma or discrete force-transfer rules."
+  ]
+}

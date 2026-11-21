@@ -1,0 +1,80 @@
+{
+  "status": "COMPLETE_EXPLORATORY_JVL_ANALOGUE",
+  "regions": [
+    {
+      "name": "interior398",
+      "panels": 398,
+      "delta_CD": 4.447570048033025e-06,
+      "delta_CL": -7.64011452407246e-06,
+      "max_delta_velocity": 2.4925477472313693,
+      "max_curvature_length": 1.6189660770149794,
+      "max_force_point_offset_over_length": 0.20443278135225382
+    },
+    {
+      "name": "inner90",
+      "panels": 278,
+      "delta_CD": 1.5993979746515968e-07,
+      "delta_CL": -4.728598707269425e-06,
+      "max_delta_velocity": 0.001916285844551493,
+      "max_curvature_length": 0.000706758524335214,
+      "max_force_point_offset_over_length": 0.00046785668649227367
+    },
+    {
+      "name": "outer10",
+      "panels": 120,
+      "delta_CD": 4.287630250567865e-06,
+      "delta_CL": -2.9115158168030353e-06,
+      "max_delta_velocity": 2.4925477472313693,
+      "max_curvature_length": 1.6189660770149794,
+      "max_force_point_offset_over_length": 0.20443278135225382
+    }
+  ],
+  "checks": [
+    {
+      "name": "finite interior arithmetic",
+      "passed": true
+    },
+    {
+      "name": "positive areas and lengths",
+      "passed": true
+    },
+    {
+      "name": "exactly two undefined endpoint corrections",
+      "passed": true
+    }
+  ],
+  "endpoint_corrections": "Undefined: no unreferenced endpoint closure was assigned.",
+  "assumptions": [
+    "Area=physical chord times physical arc interval; not an identified ASWING rule.",
+    "Use actual bound endpoint vector oriented a to b.",
+    "Only398 interior elements; two endpoint corrections undefined.",
+    "Hold saved Gamma and all geometry fixed; KJ load delta only.",
+    "No profile-force, circulation or residual recalculation, so this is not a complete changed-state result.",
+    "Inspect shallow-curvature measure and force-point offset; do not assume applicability when force point is off bound segment."
+  ],
+  "operations": {
+    "saved_array_formula_evaluations": 1,
+    "new_field_operators": 0,
+    "solves": 0,
+    "residuals": 0,
+    "production_imports": 0
+  },
+  "applicability": {
+    "max_curvature_length": 1.6189660770149794,
+    "max_force_point_offset_over_length": 0.20443278135225382,
+    "off_segment_force_points": true,
+    "ASWING_self_term_documented": false
+  },
+  "seconds": 1.0712600010010647,
+  "plan": {
+    "path": "/tmp/openswing-isae-sa3-velocity-run-20261025/curvature-plan.json",
+    "bytes": 1718,
+    "sha256": "ecf18954b9a233fa306505f756b779ddc12c6c756c8136e4cb9733d3b7bae05d"
+  },
+  "arrays": {
+    "path": "/tmp/openswing-isae-sa3-velocity-run-20261025/curvature.npz",
+    "bytes": 47205,
+    "sha256": "83922b56c7debbebb360591057122fb2538ab152675c8b9547387e69cb05f02c"
+  },
+  "pins_unchanged": true
+}

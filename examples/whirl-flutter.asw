@@ -1,0 +1,47 @@
+! Original OpenSwing two-axis elastic rotor-mount benchmark. SI input units.
+! Use zero gravity, alpha=beta=0, fixed modal frame, Mach=0 and 4 modes.
+! Speed 10 m/s is stable; 14 m/s has an unstable whirl pair.
+! The root is clamped; the tip is pinned in translation and free in rotation.
+! EIcc=EInn=5 N m2, L=1 m, Iyy=Izz=.2 kg m2, Hx=-1.8 kg m2/s.
+! Axial stiffness is finite to avoid redundant axial support reactions.
+! Engine 1: ideal zero-thrust rotor, Omega=180 rad/s about the -x thrust axis.
+! Blade integrals: 3 blades, constant .06 m chord, R=.5 m; inflow angles at 10 m/s.
+! Those inflow-angle integrals stay fixed in a speed sweep, as in Engine type 2.
+! Negative Rdisk disables its jet. Rotor inertia/spin are in Weight, not Engine.
+! Engine 2/3 settings apply unit y/z torques in N m for response checks.
+Name
+Elastic rotor mount - whirl flutter
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+1 1 1
+1 0 0
+End
+Ground
+1 0 0
+1 1 1
+End
+Weight
+1 1 1 0 0 19.6133 0 0 -17.65197 0 0 0.392266 1.96133 1.96133 0 0 0
+End
+Engine
+1 2 1 1 1 0 0 -1 0 0 0 0 -0.5 180 0 0 5.8 0.11573775943543528 0.3222154055254958 0.035801711725055085 0.17467782723855751 0.019408647470950835 0.1180864898621988 0.01312072109579987 0.08893646409212874
+2 0 1 1 1 0 0 0 1 0 0 1 0 0 0
+3 0 1 1 1 0 0 0 0 1 0 1 0 0 0
+End
+Sensor
+1 1 1 1 0 0
+End
+Beam 1
+Massless elastic bearing mount
+t x EIcc EInn EA
+0 0 5 5 1000
+1 1 5 5 1000
+End

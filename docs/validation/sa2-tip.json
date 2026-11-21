@@ -1,0 +1,411 @@
+{
+  "description": "Independent line-integral diagnosis of the archived SA-2 tip-velocity limit.\n\nCirculation is taken from a low-speed solve at fixed PG Mach 0. The velocity\nintegral uses literal geometry and independent quadrature, not production vortex\nkernels. Speed scaling diagnoses the rejected 49.9 m/s cases; it does not accept\nthem or change the physical validity guard.\n",
+  "source_sha256": {
+    "scripts/verify-sa2-tip.py": "56418ffc57d3e5382c54bbb67f4c91d0c19884f50f7072dccb486c919141285c",
+    "docs/validation/sa2-sources.json": "4c1b2ec7e4d08fcf3003ceb79f6320eb6487a1d4a089875a05a8b43cc0c5fe5d",
+    "openswing/__init__.py": "903c98597c108e9ec78e17dd6f446f97f60ed4cf4c806e8413029d011e4865bf",
+    "openswing/aero.py": "cca186b28cb08c24e4ac88b6384a400094e2dc801e87837d567c0c046bd05c8c",
+    "openswing/asw.py": "97ace71a411371abbb82b9353131c08630f3dc5db0bf0a523d4f07a87ab37f29",
+    "openswing/asw_edit.py": "6f753e10359053d48df8b2ef0088358b4627c299e69db2c2bd1089a0ef6ab4eb",
+    "openswing/atmosphere.py": "936433208a8a074789efe49986d43ee1129d16570ccb6a123129b1a0a366cc26",
+    "openswing/body_shoulders.py": "33d806b354da3130575246bd714c531e49bb657486f5f614cf8eb4698d8b6fef",
+    "openswing/bridge.py": "365877d425ab8b4d0372fe1def59505dea36e1240f4b75ca391c8e04f0571afc",
+    "openswing/circulation.py": "fbc3d25d412e3a361d7169e9837bbf97fc4d54417df46d03da701910258b06f2",
+    "openswing/circulation_solve.py": "e9c0545cf7f834abc6e1803314cc3f2a75492eabb8c59d5ecda6617b155e1a82",
+    "openswing/control_allocation.py": "2922983b20934dc30e26c0c3311c3a97be9027ac057f9e56d33d3b4e1e4a089e",
+    "openswing/control_expressions.py": "0891e593007fb0cf08ff3c462faad4b31987ab51e31b99589f1cf36dd06093ff",
+    "openswing/control_tables.py": "4a943be312e74a0b95f2693784262d9edc3c456d5e74a025c3df151a42d11158",
+    "openswing/custom_constraints.py": "51974a970ba9fdac285f9e700c3379ae6bfa2d498be1947ce117e10fe12a9289",
+    "openswing/damping.py": "cc37895148ff38e60193f1ed455faf8b3563607cf1f49114901bf2cf72a544c1",
+    "openswing/derivatives.py": "d2fa8bae63c15db9b7e66864ef34cbe6c036e040104f987c431ec9b9ccaedfab",
+    "openswing/descriptor_mass.py": "6096039fdbbf5f45d3c08139246d9e8356f0baf14265881e5efdfecdcf188a5f",
+    "openswing/discretization.py": "606ee5010ed5aaa735f627e5de35438a55c3edc49975d73f9f9803b89c4da7f0",
+    "openswing/distribution_curve.py": "d65628bbe0c8363574519ec72c67b3b8b944ffd53f1e476c8a11789aac88693c",
+    "openswing/dynamic_inertia.py": "f6e035173768b83ede3529cea2d78dc89e4fbeae4b20d73364b4e00a5b614045",
+    "openswing/equilibrium_state.py": "d969efaa2df9e86729d03e799605765f62d75795d0a485cead3742dd16ef3102",
+    "openswing/feedback.py": "cbb4664af3c5ab4838b82b0184476a020dde7d03fb234e83d5d5377a0bca3ebb",
+    "openswing/flow_survey.py": "2268afa5e8b2e73cedfe2bba09134869d5adf8f4184bf4f0d42711ff9dee3aab",
+    "openswing/forcing.py": "5769ed4a4c3181a13d1b6c73f51fd7bf1d928d253560a09611d84d56bbd97173",
+    "openswing/frequency_response.py": "814de2b124212ad8527259269509bf1d70095ad9d4a52bdabe8090274a1bf0b4",
+    "openswing/frequency_sweep.py": "35c60fc90bb6d8944caf68e7d466a101c455277d6e166567011763cbd19f11ae",
+    "openswing/frozen_influence.py": "90af0777c501f9649278c56309767f47fbe331b7272f16b8f3cb0b982db81d75",
+    "openswing/geometry.py": "b6822ab5a9e1cdd5503fb0a993f8e48f093d94ce3f5ff2026305da2779f12f12",
+    "openswing/ground.py": "cc82155a8d2df567ec42128029c615130136b268bf9ff1aef0a45fb179228611",
+    "openswing/gust.py": "811d6f6ceacff7855d49402578680ba04a7ab6cd76f68d20e27be521d6e4f6fc",
+    "openswing/gust_file.py": "68f382e80cd5ceb570754de73bf9a0221844a9818e7cef29a7360c8b79f4b2bb",
+    "openswing/inertia.py": "4a0953e2006701c20efb40d3182a246a5f9a7a37bbe798795aeab26e3f7096b9",
+    "openswing/initial_response.py": "6d50e872773dd9681d44330b6e936ba6f0caeba4d3c96d6a269793d5f63a6370",
+    "openswing/joints.py": "1fd80a7659f1e8bc790d490f0e43b3b09ed23666b3f97c1128bd96e5113e5d00",
+    "openswing/kinematics.py": "d0489e06a0fa07863003b950040c43b9f6b0cc36c21bfc2761c70120e1ecaf7f",
+    "openswing/linear_dynamics.py": "2f508b48a0e9ce48df135c4a2f51811e7be7831382d7dda1dffea72be4dc3f2c",
+    "openswing/local_motion.py": "6f41cba2e60738466f9e0251f2c2fc347036886e1a7ec04f923c118c149a137c",
+    "openswing/network.py": "cb2c1bdd9b21122f85be607be93edc65df2a08c700b5db47fcf7cf60fc54480a",
+    "openswing/nonlinear_initial.py": "89c0ab03901c642f5b280513d9b0acd00d119108b073eb5b2c880d947409f230",
+    "openswing/operating.py": "014e510bf7c05199e3e72cb3e4d044e4f5a3c328404d1be914f76f13158050a0",
+    "openswing/propulsion.py": "1aaa62b60bffbd4eabdadf592bd1b8ebadcca927331cfd41d9c6e20f7445e8fb",
+    "openswing/radau_time.py": "8736bcc1ef7848c808c0c555ebf31f10b4342d6d9fd12c4bc1f891556e071cbc",
+    "openswing/recovery.py": "92b756367adf9732e07a955c2ef6eda9bc6aa7dc02b8cc8b01fcedd4ca03630a",
+    "openswing/reduced_model.py": "8af21ab0b99e99e5fa3896ad6839bcf3dca9816a29532dd4dd678cfb8b5ac9c4",
+    "openswing/reference_flow.py": "a5ca0e2e1ac4451086a1f671bdb18cb2b4fa9e36e722640da067c8fff4ac334e",
+    "openswing/rom_file.py": "66fa25fe3a3cca04dd732b8795c2384ba7f634fea9cf71150ae04540de293ded",
+    "openswing/rom_initial.py": "4b1a89ce63f26e10ade7049a37a8c3b8ddcd976f28e4816fc02b29c51295c8a4",
+    "openswing/sensors.py": "8ed4b43af717ce78b6a36d9d7e8f4acb1eb8aba4bd544af3f1136b9b538dc260",
+    "openswing/stability.py": "46e2f837a4c98fd7c0ce4c2e148bb623197007207ccfbf1a44b412ab13c2a6c9",
+    "openswing/steady_feedback.py": "d708e1470a4fdd9af3133b94cdc5c3314a0af623ce15a2eedc5d8009091569fd",
+    "openswing/structure.py": "59c4a6d6e453b0f8c82e0915fd41560767c937a0db016f4990db2d49f2a9f988",
+    "openswing/struts.py": "52c4caad65343148bba1aa8adf5ca3b22f5d2952b0c92fcd190194ccc4e64a28",
+    "openswing/time_initialization.py": "ee7d602262e2ec42a5e1577c0d0b87273a6e4eae932d24427d427a2d7f8e736f",
+    "openswing/time_integration.py": "b328e55ead82d82286f73eefec97f7b55725a4450f1c02561c51a7a0341d1c93",
+    "openswing/time_state.py": "991fca35692626495c7c7974c3d385107907936328bef82f6c4e65ac3d087d7b",
+    "openswing/trefftz.py": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4",
+    "openswing/volume.py": "0c50aac3261391162bd97942e7f279b0a6b4dfd920c063cd0a7afbb9983dbadf"
+  },
+  "cases": [
+    {
+      "panels": 100,
+      "frozen": false,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2444464567866746,
+      "tip_distance": 0.0001535432133252801,
+      "gamma_tail": [
+        0.021285562573496897,
+        0.016603990310038636,
+        0.01188599497251608,
+        0.007141995183105785,
+        0.002382397830408666
+      ],
+      "independent_velocity": [
+        0.25082953998257634,
+        0.17001551287245728,
+        1.3822565584234543
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.002603079501518904
+      ],
+      "independent_wake": [
+        -0.239814658891837,
+        0.17001551287245728,
+        1.2939241107043915
+      ],
+      "independent_normal_speed": 1.386363871170231,
+      "production_normal_speed": 1.386363871168744,
+      "absolute_speed_error": 1.4870327191829347e-12,
+      "inferred_original_speed_tip_Mach": 0.4075023871050913,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5875032617084244,
+        "CD": 0.023531500937059104,
+        "CDi": 0.029037132107668888,
+        "Cm": -0.5747634193183265
+      }
+    },
+    {
+      "panels": 200,
+      "frozen": false,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.244561613604705,
+      "tip_distance": 3.838639529485377e-05,
+      "gamma_tail": [
+        0.0107010487946132,
+        0.00832910363952445,
+        0.005952608931349468,
+        0.00357286495141955,
+        0.0011911715742245646
+      ],
+      "independent_velocity": [
+        -0.0004554984712907828,
+        0.34770778563071636,
+        2.73806995946774
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0026024190845186177
+      ],
+      "independent_wake": [
+        -0.49109969734570413,
+        0.34770778563071636,
+        2.649736851331677
+      ],
+      "independent_normal_speed": 2.7454469456287875,
+      "production_normal_speed": 2.74544694562089,
+      "absolute_speed_error": 7.897682507973514e-12,
+      "inferred_original_speed_tip_Mach": 0.8069859632664494,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5865756017180015,
+        "CD": 0.02354179849692102,
+        "CDi": 0.02903331827220322,
+        "Cm": -0.5732060884472505
+      }
+    },
+    {
+      "panels": 400,
+      "frozen": false,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2445904033641781,
+      "tip_distance": 9.596635821784716e-06,
+      "gamma_tail": [
+        0.005357837959945272,
+        0.004167965397740185,
+        0.0029775242547454284,
+        0.0017866769956349808,
+        0.0005955860720973634
+      ],
+      "independent_velocity": [
+        -0.5030426032623366,
+        0.7031046211070622,
+        5.449787399429807
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.002602334613870433
+      ],
+      "independent_wake": [
+        -0.99368680213675,
+        0.7031046211070622,
+        5.361454206823096
+      ],
+      "independent_normal_speed": 5.510638945539011,
+      "production_normal_speed": 5.510638945581686,
+      "absolute_speed_error": 4.267519670975162e-11,
+      "inferred_original_speed_tip_Mach": 1.6197757107489523,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5856895606801051,
+        "CD": 0.02354903241766495,
+        "CDi": 0.029033353720850384,
+        "Cm": -0.5717127967856054
+      }
+    },
+    {
+      "panels": 512,
+      "frozen": false,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2445941426753984,
+      "tip_distance": 5.85732460156585e-06,
+      "gamma_tail": [
+        0.004186558416366551,
+        0.0032565735821362364,
+        0.0023263176348542556,
+        0.0013958680391976586,
+        0.00046530225602575427
+      ],
+      "independent_velocity": [
+        -0.7844935103297962,
+        0.9021283616740896,
+        6.96836059822081
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0026023386330464183
+      ],
+      "independent_wake": [
+        -1.2751377092042095,
+        0.9021283616740896,
+        6.880027409633275
+      ],
+      "independent_normal_speed": 7.064479173594336,
+      "production_normal_speed": 7.064479173272895,
+      "absolute_speed_error": 3.214406518736723e-10,
+      "inferred_original_speed_tip_Mach": 2.0765054447530455,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5853728422645819,
+        "CD": 0.02355068532256122,
+        "CDi": 0.029033548992914264,
+        "Cm": -0.5711858409468561
+      }
+    },
+    {
+      "panels": 100,
+      "frozen": true,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2444464567866746,
+      "tip_distance": 0.0001535432133252801,
+      "gamma_tail": [
+        0.020783820175428052,
+        0.016211999530486885,
+        0.011605065700605804,
+        0.0069730632514435845,
+        0.0023260247900003315
+      ],
+      "independent_velocity": [
+        0.49064419887441335,
+        0.0,
+        1.4179030526594538
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0025551251996565856
+      ],
+      "independent_wake": [
+        0.0,
+        0.0,
+        1.3295226506385287
+      ],
+      "independent_normal_speed": 1.473408512189292,
+      "production_normal_speed": 1.4734085121894618,
+      "absolute_speed_error": 1.6986412276764895e-13,
+      "inferred_original_speed_tip_Mach": 0.433087949263482,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5775468973990354,
+        "CD": 0.022234472685310216,
+        "CDi": 0.027982089066145244,
+        "Cm": -0.5670638090284219
+      }
+    },
+    {
+      "panels": 200,
+      "frozen": true,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.244561613604705,
+      "tip_distance": 3.838639529485377e-05,
+      "gamma_tail": [
+        0.01044821318428032,
+        0.008132235145807852,
+        0.005811871483464697,
+        0.0034883756441958774,
+        0.001163000665367155
+      ],
+      "independent_velocity": [
+        0.49064419887441335,
+        0.0,
+        2.8098789802971154
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0025544179846155564
+      ],
+      "independent_wake": [
+        0.0,
+        0.0,
+        2.7214978710611497
+      ],
+      "independent_normal_speed": 2.838292349453527,
+      "production_normal_speed": 2.8382923494591243,
+      "absolute_speed_error": 5.597300400950189e-12,
+      "inferred_original_speed_tip_Mach": 0.83427657901106,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5774992881792164,
+        "CD": 0.022250335973636085,
+        "CDi": 0.02797874548052546,
+        "Cm": -0.5670289833047869
+      }
+    },
+    {
+      "panels": 400,
+      "frozen": true,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2445904033641781,
+      "tip_distance": 9.596635821784716e-06,
+      "gamma_tail": [
+        0.005231229469408894,
+        0.004069464781236745,
+        0.0029071520218122127,
+        0.0017444477959813198,
+        0.0005815086955631645
+      ],
+      "independent_velocity": [
+        0.49064419887441335,
+        0.0,
+        5.593965220844936
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0025542769619908367
+      ],
+      "independent_wake": [
+        0.0,
+        0.0,
+        5.505583970586345
+      ],
+      "independent_normal_speed": 5.6082912254155985,
+      "production_normal_speed": 5.6082912255307455,
+      "absolute_speed_error": 1.1514700304360304e-10,
+      "inferred_original_speed_tip_Mach": 1.6484792408852176,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5774991397634944,
+        "CD": 0.022263595585595236,
+        "CDi": 0.02797928108428767,
+        "Cm": -0.5670625824133261
+      }
+    },
+    {
+      "panels": 512,
+      "frozen": true,
+      "alpha_deg": 10.5,
+      "diagnostic_speed": 0.499,
+      "original_speed": 49.9,
+      "fixed_pg_mach": 0.0,
+      "tip_t": 1.2445941426753984,
+      "tip_distance": 5.85732460156585e-06,
+      "gamma_tail": [
+        0.004087640151507707,
+        0.003179624110341812,
+        0.002271346738796276,
+        0.0013628827065081046,
+        0.000454306679287565
+      ],
+      "independent_velocity": [
+        0.49064419887441335,
+        0.0,
+        7.153081027503116
+      ],
+      "independent_bound": [
+        0.0,
+        0.0,
+        -0.0025542653922227612
+      ],
+      "independent_wake": [
+        0.0,
+        0.0,
+        7.0646997656747565
+      ],
+      "independent_normal_speed": 7.164290039011255,
+      "production_normal_speed": 7.164290038898688,
+      "absolute_speed_error": 1.1256684473437417e-10,
+      "inferred_original_speed_tip_Mach": 2.1058434611008656,
+      "coefficients_at_diagnostic_speed": {
+        "CL": 0.5774994440889613,
+        "CD": 0.02226755624077135,
+        "CDi": 0.027979714481656825,
+        "Cm": -0.567080212844321
+      }
+    }
+  ],
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "limitations": [
+    "This checks induced velocity for computed circulation; it is not an independent circulation solution.",
+    "The original-speed Mach follows fixed-PG velocity scaling. No rejected original-speed result is relabelled valid.",
+    "The growing tip velocity is reproduced by independent line integration. A physically justified tip/discretization treatment and ASWING comparison remain open."
+  ]
+}

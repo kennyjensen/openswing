@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openswing"
+version = "0.1.0"
+description = "Independent implementation of the published ASWING aeroelastic formulation"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["numpy>=2.1", "scipy>=1.14"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pypdf>=5"]
+plots = ["matplotlib>=3.10"]
+
+[tool.setuptools]
+packages = ["openswing"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,65 @@
+{
+  "action": "solve",
+  "mode": "mounted",
+  "source": "#============\nName\nPazy Wing (simplified : constant stiffness properties)\nEnd\n#============\nUnits\nL 1.0 m\nT 1.0 s\nF 1.0 N\nEnd\n#============\nConstant\n#   g    rho_SL     V_sound\n   9.8100      1.23       340.21    \nEnd\nSensor\n# KS Nb   t     Xp     Yp     Zp    Vx    Vy    Vz     Ax    Ay    Az\n   1  1   0.55 -0.05   0.55    0   1     0.0   0.0    0.0   0.0   1.0\n   2  1   0.55 0.05   0.55    0   1     0.0   0.0    0.0   0.0   1.0\n   3  1   0.55 0.00   0.55    0   1     0.0   0.0    0.0   0.0   1.0\nEnd\n#============\nWeight\n# Nbeam       t             Xp         Yp         Zp         Mg     \n*             1.            1.0         1.         1.        9.81\n#  MASS1  \n#  MASS2\nend\n#============\nReference\n# Sref   Cref   Bref    Xref   Yref   Zref\n   0.055 0.10  0.55   0.0    0.0    0.0\nEnd\n#============\nGround\n#  Nbeam  t     Kground\n    1   0.0001    0\nEnd\n#============\nBeam 1\nBeam\n#\n   t     x       z      y      chord    Xax     EIcc    GJ\t   EInn      GKc  \tEA \t  GKn    EIcn      EIsn  EIcs    mg       mgcc          mgnn            dCLda     CLmax CLmin\n* 1.0    1.0     1.0    1.0    1.0      1.0     4.4     6.5      3.3E3     0.0       9.6E6     0.0    -0.12       0.0    0.0    9.81     9.81          9.81              6.1185       1.1    -1.1\n0.0001   0.0     0.0    0.0    0.10     0.5     1.0     1.0      1.0       1.0       1.0       1.0    1.0       1.0    1.0    0.6787    6.9567e-05    4.2793e-04       1.0        1.0     1.0 \n0.52     0.0     0      0.52   0.10     0.5     1.0    1.0      1.0       1.0       1.0       1.0    1.0       1.0    1.0    0.6787   6.9567e-05   4.2793e-04       1.0        1.0     1.0\n0.52     0.0     0      0.52   0.10     0.5     1.0     2.6      1.0       1.0       1.0       1.0    1.0       1.0    1.0    0.6787    6.9567e-05     4.2793e-04       1.0        1.0     1.0\n0.55     0.0     0      0.55   0.10     0.5     1.0     2.6      1.0       1.0       1.0       1.0    1.0       1.0    1.0    0.6787   6.9567e-05    0.0041       1.0        1.0     1.0\n#\n t    Cea    Nea   Cta   Nta   Ccg    Ncg\n* 1.0 0.1    0.   0.1   0.0   0.1    0.0\t\n  0.0001  -0.05   0.   -0.05   0.0   -0.05    0.0 \n0.55 -0.05   0.   -0.05   0.0   -0.05    0.0   \nEnd\n\n",
+  "condition": {
+    "speed": 30,
+    "alpha": 5,
+    "beta": 0,
+    "stall": true,
+    "controls": {},
+    "stall_factor": 40,
+    "stall_width": 0.05,
+    "sensor_flow": "full",
+    "aero_lag": true,
+    "freeze_influences": false,
+    "wake_core_ratio": 0.25,
+    "circulation_modes": {
+      "1": 0
+    },
+    "body_added_mass_factor": 1,
+    "altitude_m": 0,
+    "density": 1.23,
+    "gravity_magnitude": 9.81,
+    "mach": 0,
+    "load_factor": 1,
+    "ground_effect": 1,
+    "position_earth": [
+      0,
+      0,
+      0
+    ],
+    "attitude": [
+      0,
+      0,
+      0
+    ],
+    "ground_normal": [
+      0,
+      1,
+      0
+    ],
+    "powers": {},
+    "rates": [
+      0,
+      0,
+      0
+    ],
+    "acceleration": [
+      0,
+      0,
+      0
+    ],
+    "angular_acceleration": [
+      0,
+      0,
+      0
+    ],
+    "gust": null,
+    "time": 0
+  },
+  "operating_constraints": [],
+  "strut_mode": "bilateral",
+  "panels": 120,
+  "controller": null
+}

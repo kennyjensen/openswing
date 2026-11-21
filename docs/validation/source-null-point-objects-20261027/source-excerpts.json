@@ -1,0 +1,2316 @@
+[
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 174,
+        "last_line": 196,
+        "lines": [
+          {
+            "line_number": 174,
+            "text": "A typical global information block is shown below."
+          },
+          {
+            "line_number": 175,
+            "text": ""
+          },
+          {
+            "line_number": 176,
+            "text": "Weight"
+          },
+          {
+            "line_number": 177,
+            "text": "# Nbeam  t    Xo   Yo   Zo   Weight CDA  Vol   Hxo  Hyo  Hzo  Ixx Iyy Izz Ixy Ixz Iyz  ! comment line"
+          },
+          {
+            "line_number": 178,
+            "text": "+        0.   0.   1.5  0.    100.  0.   0.    0.   0.   0.   ! adder line"
+          },
+          {
+            "line_number": 179,
+            "text": "*        1.   1.   1.   1.   1000.  1.   1.    1.   1.   1.   ! multiplier line"
+          },
+          {
+            "line_number": 180,
+            "text": "   1    12.0 -2.5  0.0 -1.5  2.50   0.0  0.01  250. 0.0  10.0 ! data line"
+          },
+          {
+            "line_number": 181,
+            "text": "   3    34.0  0.5  0.0  0.0  0.50   0.1  0.02  0.0  0.0  0.0  !  \"    \"  "
+          },
+          {
+            "line_number": 182,
+            "text": "   4    -2.0  2.0  0.0  0.5  8.20   0.0  0.0   0.0  0.0  0.0  !  \"    \"  "
+          },
+          {
+            "line_number": 183,
+            "text": "End"
+          },
+          {
+            "line_number": 184,
+            "text": ""
+          },
+          {
+            "line_number": 185,
+            "text": "A multiplier line beginning with \"*\" can be placed anywhere in the data, "
+          },
+          {
+            "line_number": 186,
+            "text": "and gives scaling factors which are immediately applied to all data below "
+          },
+          {
+            "line_number": 187,
+            "text": "(no multiplier is specified for the integer beam index, however).  Another "
+          },
+          {
+            "line_number": 188,
+            "text": "multiplier line can be placed again to change these factors.  If such "
+          },
+          {
+            "line_number": 189,
+            "text": "multiplier lines are absent, the factors default to unity."
+          },
+          {
+            "line_number": 190,
+            "text": ""
+          },
+          {
+            "line_number": 191,
+            "text": "An adder line beginning with \"+\" can likewise be placed in the data,"
+          },
+          {
+            "line_number": 192,
+            "text": "and gives constants which are added AFTER the multiplier is applied."
+          },
+          {
+            "line_number": 193,
+            "text": "If such adder line is absent, the constants default to zero.  The "
+          },
+          {
+            "line_number": 194,
+            "text": "final data value is:"
+          },
+          {
+            "line_number": 195,
+            "text": ""
+          },
+          {
+            "line_number": 196,
+            "text": "     F  =  F_input * multiplier  +  adder"
+          }
+        ]
+      },
+      {
+        "first_line": 199,
+        "last_line": 214,
+        "lines": [
+          {
+            "line_number": 199,
+            "text": "The various quantities specified in the global information blocks are "
+          },
+          {
+            "line_number": 200,
+            "text": "assumed to have the following user-specified units (described shortly):"
+          },
+          {
+            "line_number": 201,
+            "text": ""
+          },
+          {
+            "line_number": 202,
+            "text": "Variable     Unit"
+          },
+          {
+            "line_number": 203,
+            "text": "--------     ----"
+          },
+          {
+            "line_number": 204,
+            "text": "Area         L^2     reference area"
+          },
+          {
+            "line_number": 205,
+            "text": "Chord        L       reference chord"
+          },
+          {
+            "line_number": 206,
+            "text": "Span         L       reference span"
+          },
+          {
+            "line_number": 207,
+            "text": "X,Y,Zref     L       reference location"
+          },
+          {
+            "line_number": 208,
+            "text": "t            -       parameter along beam, in arbitrary units"
+          },
+          {
+            "line_number": 209,
+            "text": "Xo,Yo,Zo     L       spatial location in body axes"
+          },
+          {
+            "line_number": 210,
+            "text": "Weight       F       point mass * g"
+          },
+          {
+            "line_number": 211,
+            "text": "CDA          L^2     drag area"
+          },
+          {
+            "line_number": 212,
+            "text": "Vol          L^3     volume"
+          },
+          {
+            "line_number": 213,
+            "text": "Hxo,Hyo,Hzo  FL^2/T  angular momentum * g"
+          },
+          {
+            "line_number": 214,
+            "text": "Ixx,Iyy ...  FL^2    moments of inertia * g"
+          }
+        ]
+      },
+      {
+        "first_line": 437,
+        "last_line": 466,
+        "lines": [
+          {
+            "line_number": 437,
+            "text": "\"Weight\" block (optional)"
+          },
+          {
+            "line_number": 438,
+            "text": "- - - - - - - - - - - - - "
+          },
+          {
+            "line_number": 439,
+            "text": "This allows specification of \"point-masses\", or point-objects to be more"
+          },
+          {
+            "line_number": 440,
+            "text": "precise.  Each point-mass possesses mass, and also angular momentum, "
+          },
+          {
+            "line_number": 441,
+            "text": "aerodynamic drag-area, and aerodynamic volume.  Each is cantilevered from "
+          },
+          {
+            "line_number": 442,
+            "text": "a surface or fuselage beam via a massless rigid pylon.  The pylon attachment "
+          },
+          {
+            "line_number": 443,
+            "text": "point is at location t on the reference axis of beam number \"Nbeam\".  "
+          },
+          {
+            "line_number": 444,
+            "text": "The other free end of the pylon is specified by the cartesian "
+          },
+          {
+            "line_number": 445,
+            "text": "coordinates Xo, Yo, Zo, which is where the point-mass is located "
+          },
+          {
+            "line_number": 446,
+            "text": "in the undeformed state (i.e. when the beam has its jig shape).  "
+          },
+          {
+            "line_number": 447,
+            "text": "The pylon is assumed to be rigid (infinitely stiff), and will wave "
+          },
+          {
+            "line_number": 448,
+            "text": "the point-mass around as the beam section at t moves and rotates "
+          },
+          {
+            "line_number": 449,
+            "text": "during deformation.  The angular momentum vector's direction will "
+          },
+          {
+            "line_number": 450,
+            "text": "also change accordingly."
+          },
+          {
+            "line_number": 451,
+            "text": ""
+          },
+          {
+            "line_number": 452,
+            "text": "One can specify fewer than all the possible data items on one line."
+          },
+          {
+            "line_number": 453,
+            "text": "The missing values will default to zero."
+          },
+          {
+            "line_number": 454,
+            "text": ""
+          },
+          {
+            "line_number": 455,
+            "text": "Note:  The weight (not the mass) of the point-mass is given by the number "
+          },
+          {
+            "line_number": 456,
+            "text": "\"Weight\".  This convention of specifying weight rather than mass was chosen "
+          },
+          {
+            "line_number": 457,
+            "text": "because of the traditional use of English pound-mass rather than the slug to "
+          },
+          {
+            "line_number": 458,
+            "text": "define mass.  This is hardly an inconvenience if using SI units (kilograms)."
+          },
+          {
+            "line_number": 459,
+            "text": "Just include a factor of g (9.81) in the weight's multiplier line."
+          },
+          {
+            "line_number": 460,
+            "text": "                           _"
+          },
+          {
+            "line_number": 461,
+            "text": "The aero drag force vector D on the point mass is calculated from the "
+          },
+          {
+            "line_number": 462,
+            "text": "specified drag area CDA as"
+          },
+          {
+            "line_number": 463,
+            "text": " _             _"
+          },
+          {
+            "line_number": 464,
+            "text": " D = 0.5 rho V V  CDA"
+          },
+          {
+            "line_number": 465,
+            "text": "      _                                                     _"
+          },
+          {
+            "line_number": 466,
+            "text": "where V is the net local relative velocity vector, and V = |V|."
+          }
+        ]
+      },
+      {
+        "first_line": 602,
+        "last_line": 616,
+        "lines": [
+          {
+            "line_number": 602,
+            "text": "\"Engine\" block (optional)  "
+          },
+          {
+            "line_number": 603,
+            "text": "- - - - - - - - - - - - - "
+          },
+          {
+            "line_number": 604,
+            "text": "Engines behave like point masses which have propulsive forces and moments"
+          },
+          {
+            "line_number": 605,
+            "text": "applied to them.  Normally, the force and moment are along the engine axis,"
+          },
+          {
+            "line_number": 606,
+            "text": "although off-axis components can be defined to represent P-factor loads"
+          },
+          {
+            "line_number": 607,
+            "text": "by using the Engine model type 2 described farther below."
+          },
+          {
+            "line_number": 608,
+            "text": ""
+          },
+          {
+            "line_number": 609,
+            "text": "An \"Engine\" is declared separately from a \"Weight\" so that the number"
+          },
+          {
+            "line_number": 610,
+            "text": "of engines can be declared independently of the number of weights present.  "
+          },
+          {
+            "line_number": 611,
+            "text": "The declared number of engines needs to be known to allow calculation "
+          },
+          {
+            "line_number": 612,
+            "text": "of engine-power response curves in the frequency-domain analyses.  "
+          },
+          {
+            "line_number": 613,
+            "text": ""
+          },
+          {
+            "line_number": 614,
+            "text": "An \"Engine\" does not have any mass, drag area, volume, or angular momentum."
+          },
+          {
+            "line_number": 615,
+            "text": "These can be provided by declaring a \"Weight\" with these attributes"
+          },
+          {
+            "line_number": 616,
+            "text": "at the same location as the Engine."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "bytes": 222073,
+      "sha256": "f735309dff805b659d94a2da1c9052e3fe6888071843a23dbfcbd9f40f48f88e"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 2595,
+        "last_line": 2632,
+        "lines": [
+          {
+            "line_number": 2595,
+            "text": "\"Weight\" block (optional)"
+          },
+          {
+            "line_number": 2596,
+            "text": ""
+          },
+          {
+            "line_number": 2597,
+            "text": "This allows specification of \"point-masses\", or point-objects to be more"
+          },
+          {
+            "line_number": 2598,
+            "text": "precise.  Each point-mass possesses mass, and also angular momentum,"
+          },
+          {
+            "line_number": 2599,
+            "text": "aerodynamic drag-area, and aerodynamic volume.  Each is cantilevered from"
+          },
+          {
+            "line_number": 2600,
+            "text": "a surface or fuselage beam via a massless rigid pylon.  The pylon attachment"
+          },
+          {
+            "line_number": 2601,
+            "text": "point is at location t on the reference axis of beam number \"Nbeam\"."
+          },
+          {
+            "line_number": 2602,
+            "text": "The other free end of the pylon is specified by the cartesian"
+          },
+          {
+            "line_number": 2603,
+            "text": "coordinates Xo, Yo, Zo, which is where the point-mass is located"
+          },
+          {
+            "line_number": 2604,
+            "text": "in the undeformed state (i.e. when the beam has its jig shape)."
+          },
+          {
+            "line_number": 2605,
+            "text": "The pylon is assumed to be rigid (infinitely stiff), and will wave"
+          },
+          {
+            "line_number": 2606,
+            "text": "the point-mass around as the beam section at t moves and rotates"
+          },
+          {
+            "line_number": 2607,
+            "text": "during deformation.  The angular momentum vector\u2019s direction will"
+          },
+          {
+            "line_number": 2608,
+            "text": "also change accordingly."
+          },
+          {
+            "line_number": 2609,
+            "text": ""
+          },
+          {
+            "line_number": 2610,
+            "text": ""
+          },
+          {
+            "line_number": 2611,
+            "text": "One can specify fewer than all the possible data items on one line."
+          },
+          {
+            "line_number": 2612,
+            "text": "The missing values will default to zero."
+          },
+          {
+            "line_number": 2613,
+            "text": ""
+          },
+          {
+            "line_number": 2614,
+            "text": ""
+          },
+          {
+            "line_number": 2615,
+            "text": "Note:  The weight (not the mass) of the point-mass is given by the number"
+          },
+          {
+            "line_number": 2616,
+            "text": "\"Weight\".  This convention of specifying weight rather than mass was chosen"
+          },
+          {
+            "line_number": 2617,
+            "text": "because of the traditional use of English pound-mass rather than the slug to"
+          },
+          {
+            "line_number": 2618,
+            "text": "define mass.  This is hardly an inconvenience if using SI units (kilograms)."
+          },
+          {
+            "line_number": 2619,
+            "text": "Just include a factor of g (9.81) in the weight\u2019s multiplier line."
+          },
+          {
+            "line_number": 2620,
+            "text": "                                 _"
+          },
+          {
+            "line_number": 2621,
+            "text": "The aero drag force vector D on the point mass is calculated from the"
+          },
+          {
+            "line_number": 2622,
+            "text": ""
+          },
+          {
+            "line_number": 2623,
+            "text": "PAGE 45"
+          },
+          {
+            "line_number": 2624,
+            "text": "2.3.  GEOMETRY FILE DESCRIPTION                                                    45"
+          },
+          {
+            "line_number": 2625,
+            "text": ""
+          },
+          {
+            "line_number": 2626,
+            "text": "specified drag area CDA as"
+          },
+          {
+            "line_number": 2627,
+            "text": " _             _"
+          },
+          {
+            "line_number": 2628,
+            "text": " D = 0.5 rho V V  CDA"
+          },
+          {
+            "line_number": 2629,
+            "text": "       _                                                     _"
+          },
+          {
+            "line_number": 2630,
+            "text": "where V is the net local relative velocity vector, and V = |V|."
+          },
+          {
+            "line_number": 2631,
+            "text": ""
+          },
+          {
+            "line_number": 2632,
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 891,
+        "last_line": 962,
+        "lines": [
+          {
+            "line_number": 891,
+            "text": "3.3    Point-mass  loads"
+          },
+          {
+            "line_number": 892,
+            "text": ""
+          },
+          {
+            "line_number": 893,
+            "text": "In addition to the continuous mass/span distribution\u00b5, it is useful to also consider point massesmp"
+          },
+          {
+            "line_number": 894,
+            "text": "which are cantilevered from the beam\u2019s structural axis by a rigid pylon with geometric dimensions"
+          },
+          {
+            "line_number": 895,
+            "text": "cp,sp,np  in the local wing-section  coordinates,  as shown in Figure 8.  These pylon dimensions are"
+          },
+          {
+            "line_number": 896,
+            "text": "determined via the transformation tensor."
+          },
+          {
+            "line_number": 897,
+            "text": ""
+          },
+          {
+            "line_number": 898,
+            "text": "                                               {cp spnp }T    =    \u00af\u00afT 0  {\u2206\u20d7rp}0                                                      (87)"
+          },
+          {
+            "line_number": 899,
+            "text": ""
+          },
+          {
+            "line_number": 900,
+            "text": "The ( )0 subscript denotes values for the undeformed state which is known a priori, so thatcp,sp,np"
+          },
+          {
+            "line_number": 901,
+            "text": "are in e\ufb00ect \ufb01xed constants.  Similarly, the undeformed-stat e angular momentum vector \u20d7Hp0 de\ufb01nes"
+          },
+          {
+            "line_number": 902,
+            "text": "its corresponding \ufb01xed c,s,n components."
+          },
+          {
+            "line_number": 903,
+            "text": "                                                                               { \u20d7Hp}"
+          },
+          {
+            "line_number": 904,
+            "text": "                                            {Hcp Hsp Hnp }T    =    \u00af\u00afT 0              0                                                  (88)"
+          },
+          {
+            "line_number": 905,
+            "text": ""
+          },
+          {
+            "line_number": 906,
+            "text": "    The point mass can represent a nacelle, external store, rotor, etc, mounted to the beam.  It must"
+          },
+          {
+            "line_number": 907,
+            "text": "be noted that the assumption that the pylon is rigid does not eliminate the ability  to represent a"
+          },
+          {
+            "line_number": 908,
+            "text": "mass which is mounted on an elastic pylon.  In this case, the elastic pylon would be represented by"
+          },
+          {
+            "line_number": 909,
+            "text": "a fuselage-type beam, and the point mass would be attached to this \ufb02exible beam."
+          },
+          {
+            "line_number": 910,
+            "text": ""
+          },
+          {
+            "line_number": 911,
+            "text": "                                                                 18"
+          },
+          {
+            "line_number": 912,
+            "text": ""
+          },
+          {
+            "line_number": 913,
+            "text": "PAGE 19"
+          },
+          {
+            "line_number": 914,
+            "text": "                                                                                           Hp"
+          },
+          {
+            "line_number": 915,
+            "text": "                      n^                                                                              m"
+          },
+          {
+            "line_number": 916,
+            "text": "                                                                                                         p    pI=,"
+          },
+          {
+            "line_number": 917,
+            "text": "                                                                                                         rp"
+          },
+          {
+            "line_number": 918,
+            "text": ""
+          },
+          {
+            "line_number": 919,
+            "text": "                                               s^                                              np"
+          },
+          {
+            "line_number": 920,
+            "text": "              r                                                       \u2206rp          cp                        1  \u03c1                        D|  |V  V  (C  A)pp     p"
+          },
+          {
+            "line_number": 921,
+            "text": "                i                                                                                            2"
+          },
+          {
+            "line_number": 922,
+            "text": ""
+          },
+          {
+            "line_number": 923,
+            "text": "                                                                                   sp"
+          },
+          {
+            "line_number": 924,
+            "text": "                                                   c^                                                 m  (g \u2212 a )"
+          },
+          {
+            "line_number": 925,
+            "text": "                                                                                                         p           p"
+          },
+          {
+            "line_number": 926,
+            "text": ""
+          },
+          {
+            "line_number": 927,
+            "text": ""
+          },
+          {
+            "line_number": 928,
+            "text": "Figure  8:  Point  mass mp  with  inertia \u00af\u00afIp  and  angular  momentum \u20d7Hp,  cantilevered  from  wing  by"
+          },
+          {
+            "line_number": 929,
+            "text": "rigid pylon, with various applied loads shown.  Pylon endpoint\u20d7rp is de\ufb01ned by the anchor point \u20d7ri,"
+          },
+          {
+            "line_number": 930,
+            "text": "the anchor\u2019s point orientation (\u00af\u00afT ), and the pylon\u2019s \ufb01xedcp,sp,np  components."
+          },
+          {
+            "line_number": 931,
+            "text": ""
+          },
+          {
+            "line_number": 932,
+            "text": ""
+          },
+          {
+            "line_number": 933,
+            "text": "     The location\u20d7rp  of the point mass in airplane axes is given by"
+          },
+          {
+            "line_number": 934,
+            "text": ""
+          },
+          {
+            "line_number": 935,
+            "text": ""
+          },
+          {
+            "line_number": 936,
+            "text": "                                                         T {cp spnp }T   =   \u00af\u00afTT  \u00af\u00afT 0 \u2206\u20d7rp0                                            (89)"
+          },
+          {
+            "line_number": 937,
+            "text": "                                         \u2206\u20d7rp    =    \u00af\u00afT"
+          },
+          {
+            "line_number": 938,
+            "text": "                                           \u20d7rp    = \u20d7ri  +  \u2206\u20d7rp                                                                                 (90)"
+          },
+          {
+            "line_number": 939,
+            "text": ""
+          },
+          {
+            "line_number": 940,
+            "text": "where  \u00af\u00afT  is the transformation tensor at the pylon-attachment location\u20d7ri on the wing/beam at the"
+          },
+          {
+            "line_number": 941,
+            "text": "localc,s,n origin.  Althoughcp,sp,np are \ufb01xed, both\u20d7ri and  \u00af\u00afT  change as the beam deforms, so that"
+          },
+          {
+            "line_number": 942,
+            "text": "the point mass at\u20d7rp  is \u201cwaved around\u201d appropriately in space along with the beam.  The angular"
+          },
+          {
+            "line_number": 943,
+            "text": "momentum vector and inertia tensor are rotated in the same manner."
+          },
+          {
+            "line_number": 944,
+            "text": "                                       \u20d7Hp    =    \u00af\u00afTT {Hcp Hsp Hnp }T   =   \u00af\u00afTT  \u00af\u00afT 0 \u20d7Hp0                                         (91)"
+          },
+          {
+            "line_number": 945,
+            "text": "                                        \u00af\u00afIp    =    \u00af\u00afTT  \u00af\u00afT 0 \u00af\u00afIp0  \u00af\u00afTT"
+          },
+          {
+            "line_number": 946,
+            "text": "                                                                    0  \u00af\u00afT                                                                            (92)"
+          },
+          {
+            "line_number": 947,
+            "text": ""
+          },
+          {
+            "line_number": 948,
+            "text": "     The local relative air velocity at the point mass and the mass\u2019s acceleration follow from relations"
+          },
+          {
+            "line_number": 949,
+            "text": "(64) and (75,76)."
+          },
+          {
+            "line_number": 950,
+            "text": "                                     \u20d7Vp    =  \u20d7V\u221e    \u2212 \u20d7\u2126  \u00d7\u20d7rp  + \u20d7Vind(\u20d7rp)  + \u20d7Vgust(\u20d7rp)                                       (93)"
+          },
+          {
+            "line_number": 951,
+            "text": "                                                                                  (\u20d7\u2126  \u00d7 \u2206\u20d7rp)"
+          },
+          {
+            "line_number": 952,
+            "text": "                                     \u20d7ap    = \u20d7ai  + \u20d7\u03b1o \u00d7 \u2206\u20d7rp  + \u20d7\u2126  \u00d7                                                               (94)"
+          },
+          {
+            "line_number": 953,
+            "text": ""
+          },
+          {
+            "line_number": 954,
+            "text": "The gravitational, inertial-reaction, and aerodynamic drag loads applied to the beam by the point"
+          },
+          {
+            "line_number": 955,
+            "text": "mass are"
+          },
+          {
+            "line_number": 956,
+            "text": ""
+          },
+          {
+            "line_number": 957,
+            "text": "                         \u2206 \u20d7Fpmass    = mp (\u20d7g \u2212\u20d7ap)  +  12\u03c1 |\u20d7Vp|\u20d7Vp (CDA)p                                                   (95)"
+          },
+          {
+            "line_number": 958,
+            "text": "                                                                                                           (\u00af\u00afIp\u20d7\u2126)"
+          },
+          {
+            "line_number": 959,
+            "text": "                        \u2206 \u20d7Mpmass    =     \u2206\u20d7rp \u00d7 \u2206 \u20d7Fpmass  \u2212 \u20d7\u2126  \u00d7 \u20d7Hp  \u2212  \u00af\u00afIp\u20d7\u03b1o  \u2212 \u20d7\u2126  \u00d7                                          (96)"
+          },
+          {
+            "line_number": 960,
+            "text": ""
+          },
+          {
+            "line_number": 961,
+            "text": "with the massmp, undeformed-state angular momentum \u20d7Hp0, and the net drag area (CDA)p of the"
+          },
+          {
+            "line_number": 962,
+            "text": "point mass being speci\ufb01ed."
+          }
+        ]
+      },
+      {
+        "first_line": 1720,
+        "last_line": 1729,
+        "lines": [
+          {
+            "line_number": 1720,
+            "text": "4.4    Point-mass  in\ufb02uence  functions"
+          },
+          {
+            "line_number": 1721,
+            "text": ""
+          },
+          {
+            "line_number": 1722,
+            "text": "A  point  mass  with  signi\ufb01cant  drag and  volume  contributes  to  the  overall  induced  velocity  in  the"
+          },
+          {
+            "line_number": 1723,
+            "text": "\ufb02ow\ufb01eld.  This velocity  has the same form as equation (163),  with the singularity strengths being"
+          },
+          {
+            "line_number": 1724,
+            "text": "given in terms of the drag area (CDA)p  and volume Vp of the point mass."
+          },
+          {
+            "line_number": 1725,
+            "text": "                                 \u222b                                         \u222b"
+          },
+          {
+            "line_number": 1726,
+            "text": "                                    \u03c3d\u2113  =  (CDA)p                            \u20d7\u03bdd\u2113  =  Vp\u20d7\u03be                                    (164)"
+          },
+          {
+            "line_number": 1727,
+            "text": ""
+          },
+          {
+            "line_number": 1728,
+            "text": "A suitable core size is \u03b5 = max[(CDA/\u03c0)1/2, (V/\u03c0)1/3], which is typically comparable to the radius"
+          },
+          {
+            "line_number": 1729,
+            "text": "of the point-mass object."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 460,
+        "last_line": 478,
+        "lines": [
+          {
+            "line_number": 460,
+            "text": "6.3    Point-mass  loads"
+          },
+          {
+            "line_number": 461,
+            "text": ""
+          },
+          {
+            "line_number": 462,
+            "text": "The  local  relative  air  velocity \u20d7Vp  and  the  absolute  acceleration \u20d7ap  of  the  point  mass  follow  from"
+          },
+          {
+            "line_number": 463,
+            "text": "relations  (26)  and  (27)  with  the  usual pylon  o\ufb00set  vector   \u2206\u20d7rp.  The force  and moment  applied  to"
+          },
+          {
+            "line_number": 464,
+            "text": ""
+          },
+          {
+            "line_number": 465,
+            "text": ""
+          },
+          {
+            "line_number": 466,
+            "text": "                                                                      9"
+          },
+          {
+            "line_number": 467,
+            "text": ""
+          },
+          {
+            "line_number": 468,
+            "text": "PAGE 10"
+          },
+          {
+            "line_number": 469,
+            "text": "the beam is then the same as the quasi-steady case."
+          },
+          {
+            "line_number": 470,
+            "text": ""
+          },
+          {
+            "line_number": 471,
+            "text": "                    \u2206 \u20d7Fpmass    = mp (\u20d7g \u2212\u20d7ap)  +  12\u03c1 |\u20d7Vp|\u20d7Vp (CDA)p  + \u20d7Feng                                         (46)"
+          },
+          {
+            "line_number": 472,
+            "text": "                                                                 (\u20d7\u2126 + \u20d7\u03c9i)"
+          },
+          {
+            "line_number": 473,
+            "text": "                   \u2206 \u20d7Mpmass    =    \u2206\u20d7rp \u00d7 \u2206 \u20d7Fpmass  \u2212                      \u00d7 \u20d7Hp"
+          },
+          {
+            "line_number": 474,
+            "text": "                                               (           )      (\u20d7\u2126 + \u20d7\u03c9i)      (\u00af\u00afIp (\u20d7\u2126 + \u20d7\u03c9i))"
+          },
+          {
+            "line_number": 475,
+            "text": "                                        \u2212  \u00af\u00afIp  \u20d7\u03b1o +  \u02d9\u20d7\u03c9i  \u2212                \u00d7                      + \u20d7Meng                   (47)"
+          },
+          {
+            "line_number": 476,
+            "text": ""
+          },
+          {
+            "line_number": 477,
+            "text": "Again,  the  unsteady  e\ufb00ects  are  buried  in \u20d7ap  and \u20d7Vp,  which  now  include  the  e\ufb00ects  of \u20d7ui, \u20d7\u03c9i,  and"
+          },
+          {
+            "line_number": 478,
+            "text": "their rates  \u02d9\u20d7ui,  \u02d9\u20d7\u03c9i."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "bytes": 113163,
+      "sha256": "ee117e282812586936831dbc370678f7c59d77a1e57bb22cfd097b1da0527aa7"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 441,
+        "last_line": 476,
+        "lines": [
+          {
+            "line_number": 441,
+            "text": "Experimental bench:"
+          },
+          {
+            "line_number": 442,
+            "text": "The steady tip and twist deflection is refined with the"
+          },
+          {
+            "line_number": 443,
+            "text": "experimental bench of Avin et al. (2022) denoted as"
+          },
+          {
+            "line_number": 444,
+            "text": "Pazy. The wing is straight with an aspect ratio of"
+          },
+          {
+            "line_number": 445,
+            "text": "5.5. The structure is made of a flat aluminium plate."
+          },
+          {
+            "line_number": 446,
+            "text": "The latter is wrapped with a series of plastic ribs"
+          },
+          {
+            "line_number": 447,
+            "text": "and and shell to recover the shape of a NACA0018."
+          },
+          {
+            "line_number": 448,
+            "text": "The wing was placed in the Technion low-speed wind"
+          },
+          {
+            "line_number": 449,
+            "text": "tunnel. Tip displacement and twist were measured at"
+          },
+          {
+            "line_number": 450,
+            "text": "various speed and angle of attack. For more details on"
+          },
+          {
+            "line_number": 451,
+            "text": "the measurement devices please refer to the author\u2019s"
+          },
+          {
+            "line_number": 452,
+            "text": "work."
+          },
+          {
+            "line_number": 453,
+            "text": "Numerical bench:"
+          },
+          {
+            "line_number": 454,
+            "text": "The Pazy wing bench was reproduced in ASWING"
+          },
+          {
+            "line_number": 455,
+            "text": "using the structural parameters provided by Riso and"
+          },
+          {
+            "line_number": 456,
+            "text": "Cesnik (2023). A numerical sensor was placed at the"
+          },
+          {
+            "line_number": 457,
+            "text": "tip of the wing around the mid-chord."
+          },
+          {
+            "line_number": 458,
+            "text": "Results:"
+          },
+          {
+            "line_number": 459,
+            "text": "Figures 1 (a) to (d) present the ASWING prediction"
+          },
+          {
+            "line_number": 460,
+            "text": "against Avin et al.\u2019s experimental measurements. Fig-"
+          },
+          {
+            "line_number": 461,
+            "text": "ures 1 (a) and (b) present the tip displacement and"
+          },
+          {
+            "line_number": 462,
+            "text": "twist against airspeed for a root angle of attack of"
+          },
+          {
+            "line_number": 463,
+            "text": "\u03b1 = 5\u25e6while figure 1 (c) and (d) present the tip dis-"
+          },
+          {
+            "line_number": 464,
+            "text": "placement and twist against airspeed for a root angle"
+          },
+          {
+            "line_number": 465,
+            "text": "of attack of \u03b1 = 7\u25e6. For tip deflection, ASWING"
+          },
+          {
+            "line_number": 466,
+            "text": "shows good agreement with the experiment until large"
+          },
+          {
+            "line_number": 467,
+            "text": "amplitude. For \u03b1 = 5\u25e6predictions are weaker. For"
+          },
+          {
+            "line_number": 468,
+            "text": "tip twist, the prediction errors vary quite a lot mostly"
+          },
+          {
+            "line_number": 469,
+            "text": "due to the difficulty of Avin et al. to measure it. Nev-"
+          },
+          {
+            "line_number": 470,
+            "text": "ertheless, predictions are satisfactory. Finally, the"
+          },
+          {
+            "line_number": 471,
+            "text": "ASWING predictions have been compared to the ones"
+          },
+          {
+            "line_number": 472,
+            "text": "of UM/NAST provided by Riso and Cesnik (2023)."
+          },
+          {
+            "line_number": 473,
+            "text": "As it can be seen similar results are obtained. The"
+          },
+          {
+            "line_number": 474,
+            "text": "UM/NAST more sophisticated structural model does"
+          },
+          {
+            "line_number": 475,
+            "text": "not show any better performances than ASWING"
+          },
+          {
+            "line_number": 476,
+            "text": "except at very large amplitude when \u03b1 = 5\u25e6."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 28001,
+      "sha256": "e3b352c4427c028f12a1b004340e9904f5d1fa7bf02dc779adb5cc91cc981947"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 325,
+        "last_line": 367,
+        "lines": [
+          {
+            "line_number": 325,
+            "text": "SCHEMAS = {"
+          },
+          {
+            "line_number": 326,
+            "text": "    \"weight\": (17, {0}, 6), \"sensor\": (12, {0, 1}, 6),"
+          },
+          {
+            "line_number": 327,
+            "text": "    \"engine\": (25, {0, 1, 2}, 11), \"strut\": (10, {0}, 10),"
+          },
+          {
+            "line_number": 328,
+            "text": "    \"joint\": (5, {0, 1, 4}, 4), \"ground\": (3, {0, 2}, 2),"
+          },
+          {
+            "line_number": 329,
+            "text": "    \"constant\": (3, set(), 3), \"reference\": (3, set(), 3),"
+          },
+          {
+            "line_number": 330,
+            "text": "}"
+          },
+          {
+            "line_number": 331,
+            "text": ""
+          },
+          {
+            "line_number": 332,
+            "text": ""
+          },
+          {
+            "line_number": 333,
+            "text": "def _table(block, width, integers=(), minimum=None, *, station_keys=None, station_columns=()):"
+          },
+          {
+            "line_number": 334,
+            "text": "    multiplier, adder = np.ones(width), np.zeros(width)"
+          },
+          {
+            "line_number": 335,
+            "text": "    exact_multiplier = dict.fromkeys(station_columns, Fraction(1))"
+          },
+          {
+            "line_number": 336,
+            "text": "    exact_adder = dict.fromkeys(station_columns, Fraction(0))"
+          },
+          {
+            "line_number": 337,
+            "text": "    indices = [i for i in range(width) if i not in integers]"
+          },
+          {
+            "line_number": 338,
+            "text": "    out = []"
+          },
+          {
+            "line_number": 339,
+            "text": "    for line, body in block.lines:"
+          },
+          {
+            "line_number": 340,
+            "text": "        if body[0] in \"*+\":"
+          },
+          {
+            "line_number": 341,
+            "text": "            vals = numbers(body[1:], line)"
+          },
+          {
+            "line_number": 342,
+            "text": "            if len(vals) > len(indices):"
+          },
+          {
+            "line_number": 343,
+            "text": "                raise AswError(\"Too many scaling values (integer columns are not scaled).\", line)"
+          },
+          {
+            "line_number": 344,
+            "text": "            target = multiplier if body[0] == \"*\" else adder"
+          },
+          {
+            "line_number": 345,
+            "text": "            target[:] = 1 if body[0] == \"*\" else 0"
+          },
+          {
+            "line_number": 346,
+            "text": "            target[indices[:len(vals)]] = vals"
+          },
+          {
+            "line_number": 347,
+            "text": "            if station_keys is not None:"
+          },
+          {
+            "line_number": 348,
+            "text": "                exact = exact_multiplier if body[0] == '*' else exact_adder"
+          },
+          {
+            "line_number": 349,
+            "text": "                exact.update(dict.fromkeys(station_columns, Fraction(1 if body[0] == '*' else 0)))"
+          },
+          {
+            "line_number": 350,
+            "text": "                tokens = body[1:].replace(',', ' ').split()"
+          },
+          {
+            "line_number": 351,
+            "text": "                for column, token in zip(indices, tokens):"
+          },
+          {
+            "line_number": 352,
+            "text": "                    if column in exact:"
+          },
+          {
+            "line_number": 353,
+            "text": "                        exact[column] = _exact_number(token)"
+          },
+          {
+            "line_number": 354,
+            "text": "        else:"
+          },
+          {
+            "line_number": 355,
+            "text": "            vals = numbers(body, line)"
+          },
+          {
+            "line_number": 356,
+            "text": "            if len(vals) < (width if minimum is None else minimum) or len(vals) > width:"
+          },
+          {
+            "line_number": 357,
+            "text": "                raise AswError(f\"{block.kind}: expected {minimum or width}\u2013{width} columns, got {len(vals)}.\", line)"
+          },
+          {
+            "line_number": 358,
+            "text": "            row = np.zeros(width)"
+          },
+          {
+            "line_number": 359,
+            "text": "            # Omitted optional values default to zero, without applying an adder."
+          },
+          {
+            "line_number": 360,
+            "text": "            row[:len(vals)] = np.asarray(vals) * multiplier[:len(vals)] + adder[:len(vals)]"
+          },
+          {
+            "line_number": 361,
+            "text": "            if any(row[i] != int(row[i]) for i in integers):"
+          },
+          {
+            "line_number": 362,
+            "text": "                raise AswError(\"Index/type columns must contain integers.\", line)"
+          },
+          {
+            "line_number": 363,
+            "text": "            out.append(row)"
+          },
+          {
+            "line_number": 364,
+            "text": "            if station_keys is not None:"
+          },
+          {
+            "line_number": 365,
+            "text": "                tokens = body.replace(',', ' ').split()"
+          },
+          {
+            "line_number": 366,
+            "text": "                station_keys.append({column: _exact_number(tokens[column])*exact_multiplier[column]+exact_adder[column]"
+          },
+          {
+            "line_number": 367,
+            "text": "                                     for column in station_columns if column < len(vals)})"
+          }
+        ]
+      },
+      {
+        "first_line": 531,
+        "last_line": 557,
+        "lines": [
+          {
+            "line_number": 531,
+            "text": "    refs = {\"weight\": [0], \"sensor\": [1], \"engine\": [2], \"strut\": [0], \"joint\": [0, 1], \"ground\": [0]}"
+          },
+          {
+            "line_number": 532,
+            "text": "    for kind, columns in refs.items():"
+          },
+          {
+            "line_number": 533,
+            "text": "        for row in records.get(kind, []):"
+          },
+          {
+            "line_number": 534,
+            "text": "            if any(int(row[col]) not in beam_ids for col in columns):"
+          },
+          {
+            "line_number": 535,
+            "text": "                raise AswError(f\"{kind} references an undefined beam.\")"
+          },
+          {
+            "line_number": 536,
+            "text": "    # Import locally because the law reuses this module's spline and errors."
+          },
+          {
+            "line_number": 537,
+            "text": "    from .joints import hinge_laws"
+          },
+          {
+            "line_number": 538,
+            "text": "    hinge_laws(records)"
+          },
+          {
+            "line_number": 539,
+            "text": "    for beam in beams:"
+          },
+          {
+            "line_number": 540,
+            "text": "        for key in beam.distributions:"
+          },
+          {
+            "line_number": 541,
+            "text": "            if key not in CANONICAL.values() and not re.fullmatch(r\"dC[LMD]dF\\d+\", key):"
+          },
+          {
+            "line_number": 542,
+            "text": "                diagnostics.append(f\"Unrecognized distribution {key!r} on beam {beam.index}; preserved.\")"
+          },
+          {
+            "line_number": 543,
+            "text": "    system = UnitSystem(units)"
+          },
+          {
+            "line_number": 544,
+            "text": "    try:"
+          },
+          {
+            "line_number": 545,
+            "text": "        system.si_scales()"
+          },
+          {
+            "line_number": 546,
+            "text": "    except AswError as exc:"
+          },
+          {
+            "line_number": 547,
+            "text": "        if \"Unknown SI conversion\" not in str(exc):"
+          },
+          {
+            "line_number": 548,
+            "text": "            raise"
+          },
+          {
+            "line_number": 549,
+            "text": "    model = Model(name, source, system, constants, reference, beams, records, blocks, diagnostics,"
+          },
+          {
+            "line_number": 550,
+            "text": "                  beam_interpolation=beam_interpolation)"
+          },
+          {
+            "line_number": 551,
+            "text": "    model._weight_station_keys = weight_station_keys"
+          },
+          {
+            "line_number": 552,
+            "text": "    from .sensors import validate_sensors"
+          },
+          {
+            "line_number": 553,
+            "text": "    validate_sensors(model)"
+          },
+          {
+            "line_number": 554,
+            "text": "    from .asw_edit import signature"
+          },
+          {
+            "line_number": 555,
+            "text": "    model._parsed_source = source"
+          },
+          {
+            "line_number": 556,
+            "text": "    model._parsed_signature = signature(model)"
+          },
+          {
+            "line_number": 557,
+            "text": "    return model"
+          }
+        ]
+      },
+      {
+        "first_line": 560,
+        "last_line": 615,
+        "lines": [
+          {
+            "line_number": 560,
+            "text": "def weight_station(model, row):"
+          },
+          {
+            "line_number": 561,
+            "text": "    \"\"\"Resolve a Weight station only from exact original decimal equality."
+          },
+          {
+            "line_number": 562,
+            "text": ""
+          },
+          {
+            "line_number": 563,
+            "text": "    Raw record arrays stay unchanged. An original scaled t may have rounded"
+          },
+          {
+            "line_number": 564,
+            "text": "    differently from the same exact decimal beam endpoint/discontinuity. Only"
+          },
+          {
+            "line_number": 565,
+            "text": "    those proven aliases use the beam's existing representation. No distance"
+          },
+          {
+            "line_number": 566,
+            "text": "    threshold applies; edited/replaced station data lose their provenance."
+          },
+          {
+            "line_number": 567,
+            "text": "    Other attachment record types are deliberately outside this correction."
+          },
+          {
+            "line_number": 568,
+            "text": "    \"\"\""
+          },
+          {
+            "line_number": 569,
+            "text": "    raw = float(row[1])"
+          },
+          {
+            "line_number": 570,
+            "text": "    source = next((entry for entry in getattr(model, '_weight_station_keys', ())"
+          },
+          {
+            "line_number": 571,
+            "text": "                   if entry[0] is row and entry[1] == row[0] and entry[2] == raw), None)"
+          },
+          {
+            "line_number": 572,
+            "text": "    if source is None:"
+          },
+          {
+            "line_number": 573,
+            "text": "        return raw"
+          },
+          {
+            "line_number": 574,
+            "text": "    beam = next((b for b in model.beams if b.index == int(row[0])), None)"
+          },
+          {
+            "line_number": 575,
+            "text": "    if beam is None:"
+          },
+          {
+            "line_number": 576,
+            "text": "        return raw"
+          },
+          {
+            "line_number": 577,
+            "text": "    def keys(distribution):"
+          },
+          {
+            "line_number": 578,
+            "text": "        saved = getattr(distribution, '_source_station_values', None)"
+          },
+          {
+            "line_number": 579,
+            "text": "        return (getattr(distribution, '_source_station_keys', None)"
+          },
+          {
+            "line_number": 580,
+            "text": "                if saved is not None and np.array_equal(distribution.t, saved) else None)"
+          },
+          {
+            "line_number": 581,
+            "text": "    candidates = []"
+          },
+          {
+            "line_number": 582,
+            "text": "    domain = beam.distributions.get('chord')"
+          },
+          {
+            "line_number": 583,
+            "text": "    if domain is None:"
+          },
+          {
+            "line_number": 584,
+            "text": "        domain = next((beam.distributions[k] for k in ('x', 'y', 'z') if k in beam.distributions), None)"
+          },
+          {
+            "line_number": 585,
+            "text": "    if domain is None:"
+          },
+          {
+            "line_number": 586,
+            "text": "        # An in-progress invalid edit must reach the existing model validator;"
+          },
+          {
+            "line_number": 587,
+            "text": "        # absence of a domain cannot certify an attachment alias."
+          },
+          {
+            "line_number": 588,
+            "text": "        return raw"
+          },
+          {
+            "line_number": 589,
+            "text": "    domain_keys = keys(domain)"
+          },
+          {
+            "line_number": 590,
+            "text": "    if domain_keys is not None:"
+          },
+          {
+            "line_number": 591,
+            "text": "        candidates.append((domain_keys[-1], float(domain.t[-1])))"
+          },
+          {
+            "line_number": 592,
+            "text": "        if beam.lifting and domain.t[0] == 0 and domain_keys[0] == 0:"
+          },
+          {
+            "line_number": 593,
+            "text": "            candidates.append((-domain_keys[-1], -float(domain.t[-1])))"
+          },
+          {
+            "line_number": 594,
+            "text": "        else:"
+          },
+          {
+            "line_number": 595,
+            "text": "            candidates.append((domain_keys[0], float(domain.t[0])))"
+          },
+          {
+            "line_number": 596,
+            "text": "    for name, distribution in beam.distributions.items():"
+          },
+          {
+            "line_number": 597,
+            "text": "        if name in {'Cshell', 'Nshell', 'Atshell'} or distribution.constant_rigid:"
+          },
+          {
+            "line_number": 598,
+            "text": "            continue"
+          },
+          {
+            "line_number": 599,
+            "text": "        exact = keys(distribution)"
+          },
+          {
+            "line_number": 600,
+            "text": "        if exact is None:"
+          },
+          {
+            "line_number": 601,
+            "text": "            continue"
+          },
+          {
+            "line_number": 602,
+            "text": "        mirror = beam.lifting and distribution.t[0] == 0 and exact[0] == 0"
+          },
+          {
+            "line_number": 603,
+            "text": "        for i in np.flatnonzero(np.diff(distribution.t) == 0):"
+          },
+          {
+            "line_number": 604,
+            "text": "            # Distinct decimal inputs can round to the same binary64 number;"
+          },
+          {
+            "line_number": 605,
+            "text": "            # they do not provide an exact-equivalence certificate."
+          },
+          {
+            "line_number": 606,
+            "text": "            if exact[i] != exact[i+1]:"
+          },
+          {
+            "line_number": 607,
+            "text": "                continue"
+          },
+          {
+            "line_number": 608,
+            "text": "            candidates.append((exact[i], float(distribution.t[i])))"
+          },
+          {
+            "line_number": 609,
+            "text": "            if mirror:"
+          },
+          {
+            "line_number": 610,
+            "text": "                candidates.append((-exact[i], -float(distribution.t[i])))"
+          },
+          {
+            "line_number": 611,
+            "text": "        if mirror:"
+          },
+          {
+            "line_number": 612,
+            "text": "            candidates.append((Fraction(0), 0.))"
+          },
+          {
+            "line_number": 613,
+            "text": "    matches = {value for exact, value in candidates if exact == source[3]}"
+          },
+          {
+            "line_number": 614,
+            "text": "    # Conflicting beam representations require their own geometry diagnosis."
+          },
+          {
+            "line_number": 615,
+            "text": "    return matches.pop() if len(matches) == 1 else raw"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/operating.py",
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 156,
+        "last_line": 175,
+        "lines": [
+          {
+            "line_number": 156,
+            "text": "        if condition is not None:"
+          },
+          {
+            "line_number": 157,
+            "text": "            for name in (\"speed\", \"alpha\", \"beta\"):"
+          },
+          {
+            "line_number": 158,
+            "text": "                self.base[name] = float(getattr(condition, name))"
+          },
+          {
+            "line_number": 159,
+            "text": "                self.scale[name] = speed if name == \"speed\" else 10."
+          },
+          {
+            "line_number": 160,
+            "text": "            for group,axes,factor in [('position_earth','xyz',length),('attitude',('bank','elevation','heading'),10.)]:"
+          },
+          {
+            "line_number": 161,
+            "text": "                for axis,value in zip(axes,getattr(condition,group)):"
+          },
+          {
+            "line_number": 162,
+            "text": "                    self.base[f'{group}.{axis}']=float(value)"
+          },
+          {
+            "line_number": 163,
+            "text": "                    self.scale[f'{group}.{axis}']=factor"
+          },
+          {
+            "line_number": 164,
+            "text": "            for control in model.controls:"
+          },
+          {
+            "line_number": 165,
+            "text": "                self.base[f\"control.{control}\"] = float(condition.controls.get(control, 0.))"
+          },
+          {
+            "line_number": 166,
+            "text": "                self.scale[f\"control.{control}\"] = 1."
+          },
+          {
+            "line_number": 167,
+            "text": "            for control in model.engine_controls:"
+          },
+          {
+            "line_number": 168,
+            "text": "                self.base[f\"power.{control}\"] = float(condition.powers.get(control, 0.))"
+          },
+          {
+            "line_number": 169,
+            "text": "                rows = [r for r in model.records[\"engine\"] if int(r[0]) == control]"
+          },
+          {
+            "line_number": 170,
+            "text": "                gains = [abs(r[10])+abs(r[11])/length for r in rows if int(r[1]) == 0]"
+          },
+          {
+            "line_number": 171,
+            "text": "                self.scale[f\"power.{control}\"] = max(1., abs(self.base[f\"power.{control}\"]),"
+          },
+          {
+            "line_number": 172,
+            "text": "                                                       force/max(sum(gains), 1e-30) if len(gains) == len(rows) and sum(gains) else force*speed)"
+          },
+          {
+            "line_number": 173,
+            "text": "        for name, (value, scale) in self.additional_variables.items():"
+          },
+          {
+            "line_number": 174,
+            "text": "            if name in self.base or not name.startswith('command.') or not np.isfinite(value) or not np.isfinite(scale) or scale <= 0:"
+          },
+          {
+            "line_number": 175,
+            "text": "                raise ValueError('Additional operating variables must be finite controller commands with positive scales.')"
+          }
+        ]
+      },
+      {
+        "first_line": 251,
+        "last_line": 265,
+        "lines": [
+          {
+            "line_number": 251,
+            "text": "        for constraint, value in zip(self.constraints, unknowns):"
+          },
+          {
+            "line_number": 252,
+            "text": "            name = constraint.variable"
+          },
+          {
+            "line_number": 253,
+            "text": "            if name == \"speed\":"
+          },
+          {
+            "line_number": 254,
+            "text": "                values[name] = self.base[name]*float(np.exp(value))"
+          },
+          {
+            "line_number": 255,
+            "text": "            else:"
+          },
+          {
+            "line_number": 256,
+            "text": "                values[name] = self.base[name]+self.scale[name]*float(value)"
+          },
+          {
+            "line_number": 257,
+            "text": "        motion = Motion(*[[values[f\"{name}.{a}\"] for a in \"xyz\"] for name in (\"rates\", \"acceleration\", \"angular_acceleration\")])"
+          },
+          {
+            "line_number": 258,
+            "text": "        condition = None"
+          },
+          {
+            "line_number": 259,
+            "text": "        if prescribed is not None:"
+          },
+          {
+            "line_number": 260,
+            "text": "            controls = dict(prescribed.controls)"
+          },
+          {
+            "line_number": 261,
+            "text": "            controls.update({int(k.split(\".\")[1]): v for k, v in values.items() if k.startswith(\"control.\")})"
+          },
+          {
+            "line_number": 262,
+            "text": "            powers = dict(prescribed.powers)"
+          },
+          {
+            "line_number": 263,
+            "text": "            powers.update({int(k.split(\".\")[1]): v for k, v in values.items() if k.startswith(\"power.\")})"
+          },
+          {
+            "line_number": 264,
+            "text": "            condition = replace(prescribed, speed=values[\"speed\"], alpha=values[\"alpha\"], beta=values[\"beta\"],"
+          },
+          {
+            "line_number": 265,
+            "text": "                                rates=motion.rates.tolist(), acceleration=motion.acceleration.tolist(),"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/local_motion.py",
+      "bytes": 13211,
+      "sha256": "3468ee1102fc898473ca73cf9834d7a28e1b1ff2bff1c4827302bf47810d8484"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 186,
+        "last_line": 193,
+        "lines": [
+          {
+            "line_number": 186,
+            "text": "    def point(self, kind, index):"
+          },
+          {
+            "line_number": 187,
+            "text": "        if kind not in ('weight','engine','sensor'):"
+          },
+          {
+            "line_number": 188,
+            "text": "            raise ValueError('Point motion kind must be weight, engine or sensor.')"
+          },
+          {
+            "line_number": 189,
+            "text": "        rows = self.network.weights if kind == 'weight' else self.network.model.records.get(kind, [])"
+          },
+          {
+            "line_number": 190,
+            "text": "        row = rows[index]"
+          },
+          {
+            "line_number": 191,
+            "text": "        offset = {'weight':0, 'sensor':1, 'engine':2}[kind]"
+          },
+          {
+            "line_number": 192,
+            "text": "        node = self.network.node(*row[offset:offset+2])"
+          },
+          {
+            "line_number": 193,
+            "text": "        return LocalMotion(self.r[node],*(v[node] for v in self.values))"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 72,
+        "last_line": 104,
+        "lines": [
+          {
+            "line_number": 72,
+            "text": "            if condition.freeze_influences and self.frozen_influences is None:"
+          },
+          {
+            "line_number": 73,
+            "text": "                self.frozen_influences = FrozenInfluences(self.model, self.meshes)"
+          },
+          {
+            "line_number": 74,
+            "text": "            engine_nodes = [self.node(*row[2:4]) for row in self.engines]"
+          },
+          {
+            "line_number": 75,
+            "text": "            engine_positions = [r[node]+Q[node]@(row[4:7]-self.rj[node])"
+          },
+          {
+            "line_number": 76,
+            "text": "                for row, node in zip(self.engines, engine_nodes)]"
+          },
+          {
+            "line_number": 77,
+            "text": "            self.aero_cached = evaluate_aerodynamics(self.model, condition, meshes, gamma,"
+          },
+          {
+            "line_number": 78,
+            "text": "                self.point_positions(r, Q), engine_positions, Q[engine_nodes],"
+          },
+          {
+            "line_number": 79,
+            "text": "                circulation_basis=self.circulation_basis,"
+          },
+          {
+            "line_number": 80,
+            "text": "                frozen_influences=self.frozen_influences, _loads_only=_loads_only,"
+          },
+          {
+            "line_number": 81,
+            "text": "                _tangent_influences=self.tangent_influences, _iteration_fields=self.iteration_fields,"
+          },
+          {
+            "line_number": 82,
+            "text": "                sensor_positions=[r[j]+Q[j]@(row[3:6]-self.rj[j])"
+          },
+          {
+            "line_number": 83,
+            "text": "                    for row in self.model.records.get('sensor', []) for j in [self.node(*row[1:3])]])"
+          },
+          {
+            "line_number": 84,
+            "text": "            self.aero_key = key"
+          },
+          {
+            "line_number": 85,
+            "text": "        aero = self.aero_cached"
+          },
+          {
+            "line_number": 86,
+            "text": "        for mesh in meshes:"
+          },
+          {
+            "line_number": 87,
+            "text": "            sl = self.beam_elements[mesh.beam.index]"
+          },
+          {
+            "line_number": 88,
+            "text": "            strips = aero['strips'][sl]"
+          },
+          {
+            "line_number": 89,
+            "text": "            f = np.array([strip['force'] for strip in strips])"
+          },
+          {
+            "line_number": 90,
+            "text": "            m = np.array([strip['moment'] for strip in strips])"
+          },
+          {
+            "line_number": 91,
+            "text": "            for end, (ids, nf, nm) in enumerate(self.steady_lifting_wrenches(mesh, f, m)):"
+          },
+          {
+            "line_number": 92,
+            "text": "                np.add.at(force, ids, nf)"
+          },
+          {
+            "line_number": 93,
+            "text": "                np.add.at(moment, ids, nm)"
+          },
+          {
+            "line_number": 94,
+            "text": "                ends[sl, end] += nf"
+          },
+          {
+            "line_number": 95,
+            "text": "                couples[sl, end] += nm"
+          },
+          {
+            "line_number": 96,
+            "text": "        for row, position, value in zip(self.weights, self.point_positions(r, Q), aero['point_forces']):"
+          },
+          {
+            "line_number": 97,
+            "text": "            node = self.node(*row[:2])"
+          },
+          {
+            "line_number": 98,
+            "text": "            value = np.asarray(value)"
+          },
+          {
+            "line_number": 99,
+            "text": "            force[node] += value"
+          },
+          {
+            "line_number": 100,
+            "text": "            moment[node] += np.cross(position-r[node], value)"
+          },
+          {
+            "line_number": 101,
+            "text": "        # Engines are concentrated loads at their actual rotated pylons, not"
+          },
+          {
+            "line_number": 102,
+            "text": "        # distributed section loads. Transfer the complete engine force/couple"
+          },
+          {
+            "line_number": 103,
+            "text": "        # once to its attachment, preserving moment about every reference."
+          },
+          {
+            "line_number": 104,
+            "text": "        for engine in aero['engines']:"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/source_dynamics.py",
+      "bytes": 13072,
+      "sha256": "58a581bf8fe5251ae2d788d179fab06902f661362082727e512b82e92587630e"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 180,
+        "last_line": 195,
+        "lines": [
+          {
+            "line_number": 180,
+            "text": "        ends = ends+interval_force[:, None, :]/2"
+          },
+          {
+            "line_number": 181,
+            "text": "        couples = couples+interval_moment[:, None, :]/2"
+          },
+          {
+            "line_number": 182,
+            "text": "        for ids in (self.a, self.b):"
+          },
+          {
+            "line_number": 183,
+            "text": "            np.add.at(force, ids, interval_force/2)"
+          },
+          {
+            "line_number": 184,
+            "text": "            np.add.at(moment, ids, interval_moment/2)"
+          },
+          {
+            "line_number": 185,
+            "text": "        positions = self.point_positions(r, Q)"
+          },
+          {
+            "line_number": 186,
+            "text": "        for record in self.inertia_model.point_elements(positions, [Q[self.node(*row[:2])] for row in self.weights]):"
+          },
+          {
+            "line_number": 187,
+            "text": "            index = record['point']"
+          },
+          {
+            "line_number": 188,
+            "text": "            i = self.node(*self.weights[index][:2])"
+          },
+          {
+            "line_number": 189,
+            "text": "            f, m = inertial_wrench(*(record[key] for key in ('mass', 'position', 'inertia', 'spin')),"
+          },
+          {
+            "line_number": 190,
+            "text": "                motion, np.zeros(3), self.model.reference[2], local_motion=local.point('weight', index))"
+          },
+          {
+            "line_number": 191,
+            "text": "            force[i] += f[0]"
+          },
+          {
+            "line_number": 192,
+            "text": "            moment[i] += m[0]+np.cross(positions[index]-r[i], f[0])"
+          },
+          {
+            "line_number": 193,
+            "text": "            records.append(record)"
+          },
+          {
+            "line_number": 194,
+            "text": "        self.mass_cached = (force, moment, records, couples, ends)"
+          },
+          {
+            "line_number": 195,
+            "text": "        return force, moment, aero, records, couples, ends"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/dynamic_inertia.py",
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 54,
+        "last_line": 62,
+        "lines": [
+          {
+            "line_number": 54,
+            "text": "    for record in network.inertia_model.point_elements(point_positions,point_rotations):"
+          },
+          {
+            "line_number": 55,
+            "text": "        index=record['point'];field=local.point('weight',index)"
+          },
+          {
+            "line_number": 56,
+            "text": "        f,m=inertial_wrench(*(record[k] for k in ('mass','position','inertia','spin')),"
+          },
+          {
+            "line_number": 57,
+            "text": "            motion,gravity,network.model.reference[2],local_motion=field)"
+          },
+          {
+            "line_number": 58,
+            "text": "        i=network.node(*network.weights[index][:2])"
+          },
+          {
+            "line_number": 59,
+            "text": "        force[i]+=f[0];moment[i]+=m[0]+cross3(record['position'][0]-local.r[i],f[0])"
+          },
+          {
+            "line_number": 60,
+            "text": "        if not _loads_only:"
+          },
+          {
+            "line_number": 61,
+            "text": "            record.update(relative_velocity=field.velocity_at(record['position']),relative_rates=field.rates[None,:])"
+          },
+          {
+            "line_number": 62,
+            "text": "            records.append(record)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/geometry_partials.py",
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 87,
+        "last_line": 99,
+        "lines": [
+          {
+            "line_number": 87,
+            "text": "        self.budget(width)"
+          },
+          {
+            "line_number": 88,
+            "text": "        pa,pb,ra,rb,oa,ob=self.endpoints"
+          },
+          {
+            "line_number": 89,
+            "text": "        da=dr[n.a]+cross(omega[n.a],oa[...,None])"
+          },
+          {
+            "line_number": 90,
+            "text": "        db=dr[n.b]+cross(omega[n.b],ob[...,None])"
+          },
+          {
+            "line_number": 91,
+            "text": "        dra,drb=rotate(omega[n.a],ra),rotate(omega[n.b],rb)"
+          },
+          {
+            "line_number": 92,
+            "text": "        dpoints=[]"
+          },
+          {
+            "line_number": 93,
+            "text": "        for row in n.weights:"
+          },
+          {
+            "line_number": 94,
+            "text": "            node=n.node(*row[:2]);offset=q[node]@(row[2:5]-n.rj[node])"
+          },
+          {
+            "line_number": 95,
+            "text": "            dpoints.append(dr[node]+cross(omega[node],offset[:,None]))"
+          },
+          {
+            "line_number": 96,
+            "text": "        dengine=[]"
+          },
+          {
+            "line_number": 97,
+            "text": "        for row,node in zip(n.engines,e.engine_nodes):"
+          },
+          {
+            "line_number": 98,
+            "text": "            offset=q[node]@(row[4:7]-n.rj[node])"
+          },
+          {
+            "line_number": 99,
+            "text": "            dengine.append(dr[node]+cross(omega[node],offset[:,None]))"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/geometry_stencil.py",
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 78,
+        "last_line": 86,
+        "lines": [
+          {
+            "line_number": 78,
+            "text": "        for index, row in enumerate(n.weights):"
+          },
+          {
+            "line_number": 79,
+            "text": "            node = n.node(*row[:2]); queries['point', index] = [(node,)]"
+          },
+          {
+            "line_number": 80,
+            "text": "            if row[6] != 0 or row[7] != 0:volume.append((node,))"
+          },
+          {
+            "line_number": 81,
+            "text": "        if evaluator.ground.flag:volume *= 2"
+          },
+          {
+            "line_number": 82,
+            "text": "        for name in ('cp', 'hv', 'axis'):"
+          },
+          {
+            "line_number": 83,
+            "text": "            if name in geometry['queries']:queries[name] = lifting"
+          },
+          {
+            "line_number": 84,
+            "text": "        queries['engine'] = [(i,) for i in evaluator.engine_nodes]"
+          },
+          {
+            "line_number": 85,
+            "text": "        self.support = dict(nodes=[(i,) for i in range(n.nn)], lifting=lifting,"
+          },
+          {
+            "line_number": 86,
+            "text": "                            volume=volume, engine=queries['engine'], queries=queries,"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/userland/aswing/openswing/circulation_tangent.py",
+      "bytes": 16820,
+      "sha256": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966"
+    },
+    "line_number_convention": "1-based LF lines",
+    "excerpts": [
+      {
+        "first_line": 247,
+        "last_line": 250,
+        "lines": [
+          {
+            "line_number": 247,
+            "text": "    for index, (position, velocity, area) in enumerate(data['points']):"
+          },
+          {
+            "line_number": 248,
+            "text": "        dv = flow.velocity(('point', index), position[None, :])[0]"
+          },
+          {
+            "line_number": 249,
+            "text": "        df = .5*data['rho']*area*norm_product(velocity, dv)"
+          },
+          {
+            "line_number": 250,
+            "text": "        node = net.node(*net.weights[index][:2]); force[node] += df; moment[node] += cross(position-r[node], df)"
+          }
+        ]
+      }
+    ]
+  }
+]

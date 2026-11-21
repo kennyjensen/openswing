@@ -1,0 +1,249 @@
+{
+  "status": "IMPLEMENTED_FOCUSED_TESTS_PASSED_FROZEN",
+  "scope": "Null Weight analysis elimination; originals remain unchanged; no ISAE acceptance claim.",
+  "finding": "Exact-zero physical fields define a mathematically null point object. Eliminating its physical attachment, flow queries and inertial contribution is supported by the equations, without inferring legacy executable behavior.",
+  "predicate": {
+    "fields": {
+      "5": "Weight",
+      "6": "CDA",
+      "7": "Vol",
+      "8:11": "Hx,Hy,Hz",
+      "11:17": "Ixx,Iyy,Izz,Ixy,Ixz,Iyz"
+    },
+    "rule": "Finite shape-(17,) scaled row and every row[5:17] exactly zero; no tolerance and no decision from Weight alone.",
+    "geometry": "t and Xo/Yo/Zo define a massless rigid pylon, not independent stiffness or degrees of freedom. They cannot create a load when every physical coefficient vanishes.",
+    "preservation": "Original row objects, .source and lossless dumps remain intact. Analysis lists preserve row identity and order among active objects; raw arrays passed with active point data are rejected by length guards.",
+    "parameter_edits": "The selector is recomputed from current rows, so changing a physical field before constructing a new analysis activates the object and restores ordinary anchor checks."
+  },
+  "mathematical_basis": [
+    "Manual aswing_doc.txt439\u2013453: point object on massless rigid pylon; omitted fields default to zero.174\u2013196 defines scaling then addition.",
+    "Steady Eq95\u201396, asw_theory.txt957\u2013959: mass*(g-a)+drag; arm cross force, spin gyroscopic torque, tensor angular-acceleration and gyroscopic torque. All vanish for zero mass,CDA,H,I regardless of finite pose/motion.",
+    "Steady Eq164,1720\u20131729: point source and doublet strengths are CDA and Vol; Vol must also be zero to eliminate aerodynamic feedback.",
+    "Unsteady Eq46\u201347, asw_uns_theory.txt460\u2013478: same nullity under beam rates/accelerations. Engine force/moment terms belong to separately declared Engine objects, which remain active and separately anchored (manual602\u2013616).",
+    "State, time, circulation, flap and engine-control derivatives of these fixed-zero contributions are zero. Derivatives with respect to the physical Weight coefficients themselves need not be zero; no such design-parameter derivative is discarded. Current operating controls update FlightCondition control/power maps, not Weight records."
+  ],
+  "implementation": {
+    "shared_view": "openswing/point_objects.py: active_weight_items and active_weights; null_weight exact predicate.",
+    "consumers": [
+      "discretization requirements",
+      "geometry attachment rendering",
+      "StaticNetwork and its source/dynamic subclasses",
+      "InertiaModel",
+      "evaluate_aerodynamics point/clearance/force order",
+      "VolumeField source and exclusion order",
+      "wall_root point-mask order"
+    ],
+    "inherited_consumers": [
+      "point_positions",
+      "NetworkMotion.point",
+      "source-discrete/source-coupled/source-dynamic point transfer",
+      "moving_mass_loads",
+      "GeometryPartials",
+      "GeometryStencil",
+      "GeometryFields",
+      "circulation_tangent",
+      "local_rate_tangent"
+    ],
+    "indices": "Internal point arrays use contiguous active ordering. Original record numbers remain in mesh requirement labels and signed-weight diagnostics; InertiaModel.source_point_indices maps internal indices to original rows.",
+    "unused_raw_reads": "asw_edit serialization/provenance and parser beam-reference validation intentionally retain raw records. Aero/quiescent validation still checks all declared physical fields; null rows trivially pass these checks.",
+    "no_anchor_motion": true,
+    "no_original_deletion": true
+  },
+  "original_scope": {
+    "models": 7,
+    "null_models": 3,
+    "null_objects": 6,
+    "active_models": 4,
+    "AE1": "Two null .558 records beyond .55. Original sensors are valid at .55. Literal mesh/network construction and residual evaluation now pass.",
+    "ST2_modal": "Both original modal models have two entirely null rows. SourceDynamicNetwork setup passes; no modal or gravity-equilibrium acceptance asserted.",
+    "ST2_static": "All four static cached model copies carry nonzero weights and remain blocked by .558 beyond .55. No correction, extrapolation or clamp."
+  },
+  "qualifications": [
+    "The documentation does not explicitly promise that legacy ASWING accepts invalid null anchors; this is an equation-based current analysis simplification.",
+    "No native ASWING executable was used. Historical mesh/settings and AE1/ST2 archived-output parity remain separate validation tasks.",
+    "Null objects no longer insert arbitrary interior mesh nodes. Explicit requested load/station, sensor, engine, strut, joint and ground requirements remain effective.",
+    "Existing saved equilibria still undergo their normal identity/node checks; no saved result is relabelled as a new pass.",
+    "All applicable existing nonnegative/PSD/undefined-beam checks remain. Tiny signed nonzero physical fields are never treated as zero."
+  ],
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q tests/test_null_point_objects.py tests/test_asw.py tests/test_inertia.py tests/test_dynamic_inertia.py tests/test_volume.py tests/test_source_coupled.py tests/test_source_dynamic_inertia.py tests/test_steady_mass_loads.py",
+    "cwd": "/home/userland/aswing",
+    "shell_login": false,
+    "exit_code": 0,
+    "passed": 152,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 38.63,
+    "terminal_chunk_id": "23794a",
+    "session_id": 11056,
+    "session_reaped": true,
+    "new_test_count": 43,
+    "standalone_ae1_equilibrium_solves": 0,
+    "scope": "Existing suites include their own bounded synthetic solves. New literal AE1 check constructs 80-interval mesh and a 4-interval source-coupled network and evaluates a finite residual, not an equilibrium acceptance pass.",
+    "prior_run": {
+      "command": ".venv/bin/python -m pytest -q tests/test_null_point_objects.py",
+      "passed": 38,
+      "failed": 2,
+      "exit_code": 1,
+      "duration_seconds": 9.79,
+      "terminal_chunk_id": "e49fc8",
+      "session_id": 23073,
+      "session_reaped": true,
+      "reason": "Two test assertions expected anchor error before existing negative CDA/Vol validation. Corrected assertions preserve both rejection checks; no physical gate was relaxed."
+    }
+  },
+  "changed_files": [
+    {
+      "path": "/home/userland/aswing/openswing/point_objects.py",
+      "bytes": 1719,
+      "sha256": "cc4656460d0f94adf66641a477545bb46f298d2d95ee915ee0453d9d47b91aff"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5761,
+      "sha256": "725b3d8138d7e9f820ca2efbf3a22488240ada237ebd7fbc16a57bf3a4f294f1"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 12918,
+      "sha256": "0fa2612993619710ca7bf19ca066677a2094c6eb81600f2a949af86256b8bdd9"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 65674,
+      "sha256": "19683527744bb76201f2e0f48e452251061c0f96d226e5d74c457e575110cf7e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/inertia.py",
+      "bytes": 11646,
+      "sha256": "e7a74abf6c11e34acc4215ffac8552e0778bb6698c0ab59cf53062e406308e4d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/volume.py",
+      "bytes": 9324,
+      "sha256": "4687fde9e91c921ca832b7a9e9fa47cdb7a4cdae1732c5353540bda0eae4f777"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/wall_root.py",
+      "bytes": 9800,
+      "sha256": "ada712af326b476e562cb6dc800bc7b8f06e8e08a6637f33904de219834cb41e"
+    },
+    {
+      "path": "/home/userland/aswing/tests/test_null_point_objects.py",
+      "bytes": 11743,
+      "sha256": "087ebbfccf2f074b32b2c72afa0ca2dbc1cea03b41a23276900081d0ac3a43a1"
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/ASWING_Extended_User_Manual.txt",
+      "bytes": 222073,
+      "sha256": "f735309dff805b659d94a2da1c9052e3fe6888071843a23dbfcbd9f40f48f88e"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_uns_theory.txt",
+      "bytes": 144192,
+      "sha256": "6e4cc5f2d40f2d7d7961814a6fae1054410334bcf01af2a558734871e820bcb0"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/reports/Experimental_validation_of_ASWING_Part_4_Aeroelasticity_V4.txt",
+      "bytes": 113163,
+      "sha256": "ee117e282812586936831dbc370678f7c59d77a1e57bb22cfd097b1da0527aa7"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 28001,
+      "sha256": "e3b352c4427c028f12a1b004340e9904f5d1fa7bf02dc779adb5cc91cc981947"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/operating.py",
+      "bytes": 26335,
+      "sha256": "3644113d618f7b854cac8b947217062cc9fb465895ef5c1bc0f3c6ac4c5ede3d"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/local_motion.py",
+      "bytes": 13211,
+      "sha256": "3468ee1102fc898473ca73cf9834d7a28e1b1ff2bff1c4827302bf47810d8484"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_coupled.py",
+      "bytes": 6741,
+      "sha256": "6a54d9cbbc9724912f8b35fb3d7c6dc22b46c606b376e425c4509a6061f8f412"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/source_dynamics.py",
+      "bytes": 13072,
+      "sha256": "58a581bf8fe5251ae2d788d179fab06902f661362082727e512b82e92587630e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/dynamic_inertia.py",
+      "bytes": 3845,
+      "sha256": "ee21fe1d9fd48a4a0db6b0088ea4da33cd27308dfc01eeb633ef8e031b3503fc"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_partials.py",
+      "bytes": 17356,
+      "sha256": "2b8673ab6ac4b9d69a3c8fc978bb7225641eb9a569d865c93acbb5d14aa936e3"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry_stencil.py",
+      "bytes": 17207,
+      "sha256": "cb2318404ffbf200f4d0754bbb2b4b5cdbd2199c1e22650d9917d3889baa2b3e"
+    },
+    {
+      "path": "/home/userland/aswing/openswing/circulation_tangent.py",
+      "bytes": 16820,
+      "sha256": "a8a3d0a991f5dd7764431080bcbeb32da584380830cd33c64e58c158ba0ba966"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/01_Modal_Undeformed/Pazy_wing.asw",
+      "bytes": 2268,
+      "sha256": "ad2dccabfc2d527781a97c883f4c6dcda6fd8bb643a06a6768efda3ddc258395"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/02_Modal_Gravity/Pazy_wing.asw",
+      "bytes": 2258,
+      "sha256": "031df5465100c9776e52b58bc745280f56d2426f55109b04037e087208ac12de"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw",
+      "bytes": 1847,
+      "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw",
+      "bytes": 2218,
+      "sha256": "46cb60472c7803f33a4329d3e20d9d2eee66771de2f362e120a76f22c46a158d"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_bending_bench.asw",
+      "bytes": 1847,
+      "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_torsion_bench.asw",
+      "bytes": 2214,
+      "sha256": "c180191f4d3ce2169d3829d85073b0277d6ce6699257a071c7abe58904335aab"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+      "bytes": 2329,
+      "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8"
+    }
+  ]
+}

@@ -1,0 +1,649 @@
+{
+  "status": "SOURCE_REVIEW_COMPLETE_NO_PHYSICS",
+  "conclusion": "The literal input has an out-of-domain pylon anchor under the documented anchor/endpoint distinction. A one-off typo is not established: the same .558 convention is deliberately generated in nonzero-mass ST2 workflows. No reviewed public primary source defines how legacy ASWING handles that out-of-range anchor. AE-1 specifically contains two duplicated, all-zero-load Weight records; an explicitly declared derived comparison omitting only these records is justified without inventing general off-end semantics.",
+  "literal": {
+    "pin": {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+      "bytes": 2329,
+      "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8"
+    },
+    "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-1-S%20Pazy%20Wing%20-%20Steady%20Deflection/Pazy_wing.asw",
+    "weight_rows": [
+      {
+        "line": 27,
+        "literal": "  1         0.558     0.05        0.558        0.0      0.0",
+        "scaled_decimal": [
+          "1",
+          "0.558",
+          "0.050",
+          "0.558",
+          "0.0",
+          "0.000",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "all_load_attributes_zero": true
+      },
+      {
+        "line": 29,
+        "literal": "  1         0.558     0.05        0.558        0.0      0.0",
+        "scaled_decimal": [
+          "1",
+          "0.558",
+          "0.050",
+          "0.558",
+          "0.0",
+          "0.000",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "all_load_attributes_zero": true
+      }
+    ],
+    "beam_parameter_domain": [
+      "0.0001",
+      "0.55"
+    ],
+    "domain_locator": "Pazy_wing.asw:47-50; all literal geometry rows stop at .55; first nonzero t avoids implicit mirroring.",
+    "station_excess_decimal": "0.008",
+    "physical_point": [
+      "0.05",
+      "0.558",
+      "0"
+    ],
+    "sensor_stations": [
+      "0.55",
+      "0.55",
+      "0.55"
+    ],
+    "sensor_locator": "Pazy_wing.asw:18-20",
+    "null_fields": [
+      "weight",
+      "CdA",
+      "volume",
+      "Hx",
+      "Hy",
+      "Hz",
+      "Ixx",
+      "Iyy",
+      "Izz",
+      "Ixy",
+      "Ixz",
+      "Iyz"
+    ],
+    "null_basis": "Weight token is explicitly zero; fields after it are omitted and default to zero. The weight multiplier 9.81 does not make zero nonzero."
+  },
+  "documented_semantics": [
+    {
+      "source": "Drela ASWING 5.97 User Guide, Weight block",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+      "locator": "cached lines442-453; freshly retrieved file is byte-identical",
+      "quote": "The pylon attachment point is at location t on the reference axis of beam number \"Nbeam\".",
+      "interpretation": "t is the beam anchor parameter; XYZ specify the undeformed free pylon end. Omitted fields default to zero. These are distinct quantities even when input authors choose t numerically equal to Y."
+    },
+    {
+      "source": "Drela ASWING 5.99 Steady Technical Description",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf",
+      "locator": "section3.3, printedpage19, Figure8 and equations89-96; section6.1 printedpage45; cachedtextlines927-967 and2273-2284",
+      "interpretation": "The point position uses the anchor translation and orientation plus the rotated fixed pylon offset. Anchor pose is defined on the beam. Forces depend on mass, drag area and acceleration; moments include the force arm, spin and inertia. No off-end interpolation, nearest-node selection, extrapolation or automatic beam extension is specified."
+    },
+    {
+      "source": "Drela User Guide, distribution and Jangle paragraphs",
+      "url": "https://web.mit.edu/drela/Public/web/aswing/aswing_doc.txt",
+      "locator": "cachedlines1058-1079 and923-927",
+      "interpretation": "Cubic interpolation of beam property tables does not define extrapolated structural state outside a beam. The explicit extrapolation statement is for a hinge moment-angle spline and cannot establish an off-end attachment policy."
+    }
+  ],
+  "repeated_nonzero_workflow": {
+    "variants": [
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_bending_bench.asw",
+          "bytes": 1847,
+          "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/Pazy_wing_bending_bench.asw",
+        "rows": [
+          {
+            "line": 26,
+            "literal": "  1         0.558     0.05        0.558        0.0      1.5",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "0.050",
+              "0.558",
+              "0.0",
+              "14.715",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          },
+          {
+            "line": 28,
+            "literal": "  1         0.558     0.05        0.558        0.0      1.5",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "0.050",
+              "0.558",
+              "0.0",
+              "14.715",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          }
+        ],
+        "beam_endpoint": ".55"
+      },
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_torsion_bench.asw",
+          "bytes": 2214,
+          "sha256": "c180191f4d3ce2169d3829d85073b0277d6ce6699257a071c7abe58904335aab"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/Pazy_wing_torsion_bench.asw",
+        "rows": [
+          {
+            "line": 26,
+            "literal": "  1         0.558     -0.09        0.558        0.0      1",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "-0.090",
+              "0.558",
+              "0.0",
+              "9.81",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          },
+          {
+            "line": 28,
+            "literal": "  1         0.558     -0.09        0.558        0.0      1",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "-0.090",
+              "0.558",
+              "0.0",
+              "9.81",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          }
+        ],
+        "beam_endpoint": ".55"
+      },
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw",
+          "bytes": 1847,
+          "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw",
+        "rows": [
+          {
+            "line": 26,
+            "literal": "  1         0.558     0.05        0.558        0.0      1.5",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "0.050",
+              "0.558",
+              "0.0",
+              "14.715",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          },
+          {
+            "line": 28,
+            "literal": "  1         0.558     0.05        0.558        0.0      1.5",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "0.050",
+              "0.558",
+              "0.0",
+              "14.715",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          }
+        ],
+        "beam_endpoint": ".55"
+      },
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw",
+          "bytes": 2218,
+          "sha256": "46cb60472c7803f33a4329d3e20d9d2eee66771de2f362e120a76f22c46a158d"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw",
+        "rows": [
+          {
+            "line": 26,
+            "literal": "  1         0.558     -0.13        0.558        0.0      1.4",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "-0.130",
+              "0.558",
+              "0.0",
+              "13.734",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          },
+          {
+            "line": 28,
+            "literal": "  1         0.558     -0.13        0.558        0.0      1.4",
+            "scaled_decimal": [
+              "1",
+              "0.558",
+              "-0.130",
+              "0.558",
+              "0.0",
+              "13.734",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "all_load_attributes_zero": false
+          }
+        ],
+        "beam_endpoint": ".55"
+      }
+    ],
+    "generators": [
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass.m",
+          "bytes": 894,
+          "sha256": "0d23500d68922ac9eb1a220b1ed506225f56bf5d896238919e8188f9bdb87acc"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass.m",
+        "locator": "lines9-10",
+        "evidence": "Both regenerated rows explicitly set t=.558 and physical Y=.558; m1/m2 are parameters. Chordwise X is .05, -.09 or -.13 depending on the script."
+      },
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass2.m",
+          "bytes": 896,
+          "sha256": "342fa00da2821a9db035534705ada714dd461e79f51cd5d170e31f08b619d77d"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass2.m",
+        "locator": "lines9-10",
+        "evidence": "Both regenerated rows explicitly set t=.558 and physical Y=.558; m1/m2 are parameters. Chordwise X is .05, -.09 or -.13 depending on the script."
+      },
+      {
+        "pin": {
+          "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass3.m",
+          "bytes": 896,
+          "sha256": "0e62701ef9d55f91c79ad2e4a9e264f788a172f8556b31309c2197a215650f39"
+        },
+        "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass3.m",
+        "locator": "lines9-10",
+        "evidence": "Both regenerated rows explicitly set t=.558 and physical Y=.558; m1/m2 are parameters. Chordwise X is .05, -.09 or -.13 depending on the script."
+      }
+    ],
+    "inference": "This is repeated workflow practice, not solely an unused AE-1 placeholder. It weakens a simple single-file typo diagnosis but supplies no legacy resolver algorithm or explanation for the8mm excess."
+  },
+  "primary_model_context": {
+    "readme": {
+      "pin": {
+        "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/README.txt",
+        "bytes": 2366,
+        "sha256": "70e1590dbcf831379555fcbab961cd769b1ccdd6f6dd9ca12d2eb9f7a45cd254"
+      },
+      "url": "https://github.com/UM-A2SRL/AePW3-LDWG/blob/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/README.txt",
+      "locator": "lines11-13,22-23"
+    },
+    "coordinates": {
+      "pin": {
+        "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/01_Coordinates/coordinates.txt",
+        "bytes": 728,
+        "sha256": "87d69a85b1b29c1dd6cd1c89668cc8a06e4cf782e1bfb31f0af760528193f343"
+      },
+      "url": "https://github.com/UM-A2SRL/AePW3-LDWG/blob/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/01_Coordinates/coordinates.txt",
+      "locator": "lastrow,line17",
+      "tip": "0.549843728"
+    },
+    "finding": "The primary equivalent-beam dataset separately defines node-relative CG offsets and permits an extra concentrated mass with a trailing-edge-node offset. It supports the physical notion of an off-axis/off-tip pylon but does not derive the literal .558 station or its exact8mm excess.",
+    "current_adapter": "scripts/isae_ae1.py:80-98 uses actual primary material nodes and separate point positions; its10g Test2 mass is a separate declared primary reconstruction. Do not mix that model into a supposedly literal-input comparison."
+  },
+  "code_availability": {
+    "official_url": "https://web.mit.edu/drela/Public/web/aswing/",
+    "public_source_repo": "https://github.com/LeonardoAVONI/91_ASWING_Public",
+    "findings": "The official site provides guide/theory and software licensing information. The cached public repository states that its dummy tree intentionally omits ASWING implementation code; its cached tree contains no .f/.f90/.for entries. No legacy attachment resolver was available in the inspected source set.",
+    "limitation": "No claim that all possible licensed releases reject, ignore, clamp, snap or extrapolate this record. No executable was requested, searched for or run."
+  },
+  "current_implementation": {
+    "required_stations": "openswing/discretization.py:74-89 includes every Weight attachment, even all-zero records.",
+    "rejection": "openswing/geometry.py:80-82 rejects any required station outside the beam domain.",
+    "default_padding": "openswing/asw.py:258,265-286 defaults omitted point attributes to zero.",
+    "pylon_geometry": "openswing/network.py:265-266 uses a valid node pose plus the rotated offset.",
+    "retained_receipt": {
+      "path": "/tmp/openswing-wall-root-20261025/literal-rejection.json",
+      "bytes": 456,
+      "sha256": "9d16cdafa860811a8e8f30c6791d8f979e25ca83388ae549132f709848e8717c"
+    },
+    "interpretation": "The current diagnostic is an explicit stricter supported-domain boundary, not demonstrated historical-ASWING parity and not proof that the literal file was mistyped."
+  },
+  "recommended_next_action": {
+    "priority1": "Prepare a separate derived AE-1 input which removes only the two completely load-null Weight rows or their now-empty block. Preserve the original source byte-for-byte, record a literal diff and all-zero attribute proof, and label the input as derived-null-object omission. No production guard change is justified by this evidence.",
+    "physical_basis": "For any finite valid attachment kinematics, zero mass, spin, tensor, drag area and volume contribute zero physical loads and zero volume-induced flow. Removing them does not prescribe an extrapolated pose. It does remove inert display/record entries; that metadata change must be disclosed.",
+    "comparison_scope": "If separately authorized, use the literal beam/stiffness/distributed mass/sensors and original G=1 wall setup, with a zero-flow gravity baseline and an explicitly selected5degree30m/s state on two fixed meshes. Preserve literal gravity as its own comparison rather than silently substituting the primary zero-gravity assumption. A complete historical ASWING match remains unestablished because discrete attachment and node placement behavior are unknown.",
+    "implementation_alternative": "If a general explicit preprocessing tool is desired later, it may identify and offer removal of all-zero off-domain Weight objects with provenance; do not silently drop them in parsing, silently move their anchor, or relax the guard for nonzero objects.",
+    "nonzero_mass_followup": "Endpoint t=.55 with physical pointXYZ=(.05,.558,0) is a physically defined rigid-pylon model. It is a declared reconstruction candidate, not a proved correction to the literal source; do not apply it to the nonzero ST2 tests without independent mounting information or documented legacy source semantics.",
+    "rejected_shortcuts": [
+      "Clamping t=.558 to.55 without disclosure",
+      "Extending the elastic/aerodynamic beam to.558",
+      "Treating property spline extrapolation as structural state extrapolation",
+      "Adding or fitting masses/coefficients to recover published curves"
+    ]
+  },
+  "uncertainty": [
+    "Intent behind the8mm excess is not documented in inspected primary material.",
+    "Legacy ASWING may ignore null objects or use an implementation-specific attachment lookup; the inspected sources do not decide this.",
+    "Saved ASWING curves and shell commands indicate use of this workflow but do not prove the exact runtime input/attachment resolution.",
+    "This review does not establish experimental load/mount equivalence, stability, discretization parity, or a new numerical result."
+  ],
+  "source_pins": [
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+      "bytes": 2329,
+      "sha256": "5086107d412ebf8f43ef75173fe553914fb074dd7dca3b93f7bd56ab365c17c8",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-1-S%20Pazy%20Wing%20-%20Steady%20Deflection/Pazy_wing.asw"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/README.txt",
+      "bytes": 1628,
+      "sha256": "233361fa97c12d288f27ae289043db01ca1f3ea296bb7b1d33c64227fab2145a",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-1-S%20Pazy%20Wing%20-%20Steady%20Deflection/README.txt"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha5.sh",
+      "bytes": 628,
+      "sha256": "e3f19c25f2b485105b87179fa4ba11ad12cfed18bdf1f2f59c8ec4fea4490206",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-1-S%20Pazy%20Wing%20-%20Steady%20Deflection/alpha5.sh"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha7.sh",
+      "bytes": 516,
+      "sha256": "a29740d2f8e9ddeb058fd7e3e761383588d98ae58a41ce20727a9bea1d80de56",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/4%20-%20Aeroelasticity/AE%20-%20Aeroelastic%20Cases/AE-1-S%20Pazy%20Wing%20-%20Steady%20Deflection/alpha7.sh"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_bending_bench.asw",
+      "bytes": 1847,
+      "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/Pazy_wing_bending_bench.asw"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_torsion_bench.asw",
+      "bytes": 2214,
+      "sha256": "c180191f4d3ce2169d3829d85073b0277d6ce6699257a071c7abe58904335aab",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/Pazy_wing_torsion_bench.asw"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw",
+      "bytes": 1847,
+      "sha256": "63050f789d1c17bb7d61c2a9c10b30d0bfc2c7ef58b75c443fba817d6b1cf1c1",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw",
+      "bytes": 2218,
+      "sha256": "46cb60472c7803f33a4329d3e20d9d2eee66771de2f362e120a76f22c46a158d",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass.m",
+      "bytes": 894,
+      "sha256": "0d23500d68922ac9eb1a220b1ed506225f56bf5d896238919e8188f9bdb87acc",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass.m"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass2.m",
+      "bytes": 896,
+      "sha256": "342fa00da2821a9db035534705ada714dd461e79f51cd5d170e31f08b619d77d",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass2.m"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass3.m",
+      "bytes": 896,
+      "sha256": "0e62701ef9d55f91c79ad2e4a9e264f788a172f8556b31309c2197a215650f39",
+      "url": "https://github.com/rom1isae/ISAE_Aswing_Experimental_Validation/blob/f62943df20e9e4d7d9f50e070477b22426b5f865/3%20-%20Structure/CASE%20-%20ST2%20Pazy_Wing/03_Static_Structural/change_mass3.m"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/README.txt",
+      "bytes": 2366,
+      "sha256": "70e1590dbcf831379555fcbab961cd769b1ccdd6f6dd9ca12d2eb9f7a45cd254",
+      "url": "https://github.com/UM-A2SRL/AePW3-LDWG/blob/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/README.txt"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/pazy-primary/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/01_Coordinates/coordinates.txt",
+      "bytes": 728,
+      "sha256": "87d69a85b1b29c1dd6cd1c89668cc8a06e4cf782e1bfb31f0af760528193f343",
+      "url": "https://github.com/UM-A2SRL/AePW3-LDWG/blob/396710a19a80004c65c767e9955fe60d59565c39/00_Models/01_Pazy_Technion/02_Models_Beam/01_Coordinates/coordinates.txt"
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/.reference/asw_theory.pdf",
+      "bytes": 460883,
+      "sha256": "ff3aadbf986644697e22d8d4e65ffcd596b279b45f39bba7b61ac0e58d22ee4c",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing-public/readme.md",
+      "bytes": 6323,
+      "sha256": "bc724c39e69b7d61f6cc757a89c0ac16cdcb7ad53da21f6fefa28a356dfbf6bd",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/.reference/aswing-public-tree.json",
+      "bytes": 7889,
+      "sha256": "1c93675c5823bebf4e9ecc2a1d596d3785aded139fe7677695b85425629870cf",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/openswing/asw.py",
+      "bytes": 19292,
+      "sha256": "b3c305ad0051396babcbe89e88919d6862d2c992b587c55ffed1a1e9c30c27bd",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/openswing/discretization.py",
+      "bytes": 5455,
+      "sha256": "a791a07dfaa0972bf46de750196051fe889dbfc947c6bd3202010bf0402d0799",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/openswing/geometry.py",
+      "bytes": 11907,
+      "sha256": "d85637b0f298aa9f9f3b951083265743178f88bc07b5e140f1b32e6c3a2d35bb",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/openswing/network.py",
+      "bytes": 62653,
+      "sha256": "cb5a264ea9ac75632c5bfdcf226c1101398fbcf867bef11b478aae0340df6943",
+      "url": null
+    },
+    {
+      "path": "/home/userland/aswing/scripts/isae_ae1.py",
+      "bytes": 13288,
+      "sha256": "719548c90e2a551b3a8afb8096083b7b07f54995765cc3739d965bc8bb5b562c",
+      "url": null
+    },
+    {
+      "path": "/tmp/openswing-wall-root-20261025/literal-rejection.json",
+      "bytes": 456,
+      "sha256": "9d16cdafa860811a8e8f30c6791d8f979e25ca83388ae549132f709848e8717c",
+      "url": null
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/official-aswing-doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a",
+      "url": null
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/web-retrieval.json",
+      "bytes": 327,
+      "sha256": "c2ffed349c2d9133ff31fbb49179ac49cddd500b9bd0ebd955924c38054c1fd4",
+      "url": null
+    },
+    {
+      "path": "/tmp/openswing-isae-attachment-20261025/write-review.py",
+      "bytes": 13489,
+      "sha256": "7eb1c5d5edd009f5fbdfb4e65582fb261840a98ceae87d87741586d9fc30b74f",
+      "url": null
+    }
+  ],
+  "exact_pinned_ISAE_manifest_checks": [
+    "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/Pazy_wing.asw",
+    "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/README.txt",
+    "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha5.sh",
+    "4 - Aeroelasticity/AE - Aeroelastic Cases/AE-1-S Pazy Wing - Steady Deflection/alpha7.sh",
+    "3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_bending_bench.asw",
+    "3 - Structure/CASE - ST2 Pazy_Wing/Pazy_wing_torsion_bench.asw",
+    "3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_bending_bench.asw",
+    "3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/Pazy_wing_torsion_bench.asw",
+    "3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass.m",
+    "3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass2.m",
+    "3 - Structure/CASE - ST2 Pazy_Wing/03_Static_Structural/change_mass3.m"
+  ],
+  "operations": {
+    "production_imports": 0,
+    "constructors": 0,
+    "residuals": 0,
+    "solves": 0,
+    "tests": 0,
+    "production_edits": 0
+  },
+  "lifecycle": {
+    "official_guide_fetch": {
+      "session_id": 23494,
+      "launch_chunk": "550cb1",
+      "terminal_chunk": "d971c8",
+      "exit_code": 0,
+      "reaped": true
+    },
+    "interrupted_overbroad_local_file_inventory": {
+      "session_id": 9428,
+      "terminal_chunk": "764883",
+      "exit_code": 130,
+      "reaped": true,
+      "reason": "Read-only Path.rglob inventory exceeded useful bound; interrupted and replaced by bounded rg file listing. No physics or output mutation."
+    }
+  }
+}

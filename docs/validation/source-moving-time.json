@@ -1,0 +1,170 @@
+{
+  "status": "IMPLEMENTED_NUMERICAL_BROWSER_CHECKS_PASS_ASWING_PARITY_UNVERIFIED",
+  "updated": "2026-10-26",
+  "scope": "Nonlinear time evolution of the source moving-frame vacuum equations, including cold initialization, saved equilibrium launch, checkpoint continuation and original accepted-step replay.",
+  "structural_operator": "drela-moving-vacuum-v1",
+  "temporal_policies": {
+    "BDF1_BDF2": "drela-euler-bdf-v1",
+    "Radau_IIA": "openswing-so3-radau-iia-3-v1; continuous-equation OpenSwing extension, not claimed as published ASWING time discretization"
+  },
+  "paper_equations": {
+    "url": "https://web.mit.edu/drela/Public/web/aswing/asw_uns_theory.pdf",
+    "material_Euler": "2\u20133",
+    "aircraft_Euler": "14\u201315",
+    "variable_step_BDF": "123\u2013129"
+  },
+  "implementation": [
+    "Shared physical-operator selection for cold time, saved launch, checkpoint restoration and independent accepted-method replay.",
+    "BDF differences of owned physical material/Earth Euler angles; SO(3) remains only the local Newton coordinate chart.",
+    "Saved angle lifts, structural setup and accepted temporal scheme are binding; missing or inconsistent histories are rejected.",
+    "Existing modal source scope and legacy SO(3) time policies retain their equations.",
+    "Physical initial disturbances and Radau use the existing exact continuous SO(3) chart of the same selected network.",
+    "The midpoint rigid-tree rank certificate is not applied to source endpoint compliance."
+  ],
+  "evidence": {
+    "physical": {
+      "path": "/tmp/openswing-source-moving-time-tests-20261026/report.json",
+      "sha256": "4d23622edee57142e9053579ea6594f642ef120a2280c12527c814c21f41cdad",
+      "bytes": 5334
+    },
+    "physical_metrics": {
+      "dt_seconds": [
+        0.02,
+        0.01,
+        0.005
+      ],
+      "axial_continuous_displacement_error_m": [
+        0.00019307427352042127,
+        5.6288511677630645e-05,
+        1.5001517389055807e-05
+      ],
+      "axial_error_ratios": [
+        0.291538124946911,
+        0.26651117505061855
+      ],
+      "Earth_COM_continuous_position_error_m": [
+        0.0008888888889519997,
+        0.00022496570648428138,
+        5.624999871278735e-05
+      ],
+      "Earth_COM_error_ratios": [
+        0.2530864197768475,
+        0.2500381039930529
+      ],
+      "Earth_momentum_max_component_error_kg_m_per_s": [
+        2.8843594179761567e-12,
+        2.291278278221398e-12,
+        1.2402301408087624e-12
+      ],
+      "maximum_original_snapshot_residual": 7.562172652181256e-11,
+      "heading_start_end_degrees": [
+        179.0,
+        181.20097418136717
+      ]
+    },
+    "angle_charts": {
+      "path": "/tmp/openswing-source-time-integration-20261026/chart-tests/receipt.json",
+      "sha256": "199e0c2007e8ba76822440ebc1501c39fdb9cad0ccc751c1fd9d7f38f609695f",
+      "bytes": 2365
+    },
+    "boundary_UI": {
+      "path": "/tmp/openswing-source-time-integration-20261026/ui/receipt.json",
+      "sha256": "dd1c9d5a02db617cff6bb1755d5bb90b2d46cc11b00dec5372b765c01b353d14",
+      "bytes": 5635
+    },
+    "read_only_review": {
+      "path": "/tmp/openswing-source-time-integration-20261026/ui/integration-review/review.json",
+      "sha256": "c0cc7360dbb7ab48d49b27bfc029d62321fc59836a6f36c7cbe5aa29262a87b4",
+      "bytes": 4727
+    },
+    "legacy_regressions": {
+      "path": "/tmp/openswing-source-time-integration-20261026/legacy-partial.json",
+      "sha256": "019eb364d38fee8f8ffbceabcf834708e40ba68a4a055144c061c070c312b580",
+      "bytes": 8961
+    },
+    "browser": {
+      "path": "/tmp/openswing-source-time-integration-20261026/browser-final/report.json",
+      "bytes": 88754,
+      "sha256": "752dd01622dab48f3616eb15ee3f28b6674bb09bd44c9e71bd1ef65190fd9842"
+    },
+    "distribution": "Verified browser kernel and compiled assets; final download packaging verified separately in the integration-stage closeout.",
+    "remaining_modal_regressions": {
+      "path": "/tmp/openswing-source-moving-system-regression-20261026/report.json",
+      "sha256": "1f420a9ca718c17696ee4e44bb66e41f383bcea1c7903a5c08e3d1c16be821e4",
+      "passed": 7
+    },
+    "legacy_regression_total": {
+      "passed": 80,
+      "execution": "73 ordered PASS markers before the original process cap; seven remaining modal tests pass in a separate completed process. No failed check or repeated completed test."
+    },
+    "extensions": {
+      "path": "/tmp/openswing-source-moving-time-extensions-20261026/report.json",
+      "bytes": 4469,
+      "sha256": "57093b6f3dc9d565488113371b80bd1ce46256975f2dc6bd2e1bd0c062c0d491"
+    },
+    "native_browser_reference": {
+      "path": "/tmp/openswing-source-time-integration-20261026/native/report.json",
+      "bytes": 21479,
+      "sha256": "6d35c150f84d8e2b4a83b85d9b38818ac5b4e60e76337a8e35a37887acd3358e"
+    },
+    "browser_save_fix": {
+      "path": "/tmp/openswing-source-time-integration-20261026/ui/browser-save-fix/receipt.json",
+      "bytes": 4004,
+      "sha256": "b6423a2f7abafcc80e0b84a16534be527b1292b04a2f48ccc3ebfe1a26230e0c"
+    },
+    "browser_metrics": {
+      "startup_seconds": 27.799209031,
+      "solve_seconds": 4.195745784999999,
+      "resume_seconds": 2.0604213550000057,
+      "parity": {
+        "cold": {
+          "numeric": 8687,
+          "leaves": 9793,
+          "max_absolute": 1.0333955913210957e-11,
+          "max_fraction": 0.0005021982829557679,
+          "worst": "cold.snapshots[0].force_balance[1]"
+        },
+        "checkpoint": {
+          "numeric": 1005,
+          "leaves": 1057,
+          "max_absolute": 9.714451465470128e-13,
+          "max_fraction": 4.8572257327303456e-05,
+          "worst": "checkpoint.options.local_acceleration[3][1]"
+        },
+        "resume": {
+          "numeric": 3774,
+          "leaves": 4247,
+          "max_absolute": 1.5265566588593685e-12,
+          "max_fraction": 7.632783294285192e-05,
+          "worst": "resume.snapshots[1].local_acceleration[3][1]"
+        }
+      }
+    },
+    "raw_archive": {
+      "bytes": 3428880,
+      "path": "docs/validation/source-moving-time-20261026-evidence.zip",
+      "sha256": "e7b3d80ce8254f8a9f3bde56db27f8d2e647f828204e6b5ac825fad8362a3b0d",
+      "verified_payloads": 325,
+      "all_payload_hashes_match": true
+    }
+  },
+  "limitations": [
+    "No archived ISAE case or overall ASWING parity status changes.",
+    "Circulatory source dynamics, source Bode response and complete ASWING feature parity remain unfinished.",
+    "Source time requires a unique physical material frame at each node; angle-jump topology with differing incident section frames still needs explicit material traces.",
+    "Euler pole/cut restrictions remain; physical matrices alone do not preserve winding.",
+    "No source time airflow, apparent-fluid inertia, controllers, actuator/history constraints, struts, engines or stepped axes.",
+    "Independent component convergence does not establish aircraft-level accuracy or historical executable behavior."
+  ],
+  "ready_project": "examples/source-moving-time-check-project.json",
+  "retained_failures": [
+    "Legacy regression process cap after 73 completed checks; remaining seven pass separately.",
+    "Browser launch omitted existing Chromium runtime library environment; no solve ran.",
+    "Actual transient save validator incorrectly required equilibrium packets; corrected with captured-result regression.",
+    "Mobile harness clicked an intentionally hidden desktop tab; corrected harness, production layout unchanged."
+  ],
+  "screenshots_reviewed": [
+    "desktop.png",
+    "mobile-time.png"
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "status": "PASS_SOURCE_SECTION_IMPLEMENTATION_ARCHIVED_REFERENCE_INCOMPLETE",
+  "date": "2026-10-26",
+  "acceptance": "Reproduce tested archived ASWING outputs with original models/settings; experimental agreement is optional.",
+  "policy": {
+    "beam_interpolation": "drela-segspl-v1",
+    "structural_operator": "drela-steady-section-v1"
+  },
+  "defaults_changed": false,
+  "goal_complete": false,
+  "scope": "Static lifting beams, rigid joints, full section offsets, finite axial/shear stiffness, ordinary/additional CG gravity, concentrated forces/moments and rotating point-weight pylons.",
+  "native": {
+    "status": "PASS_SOURCE_SECTION_INTEGRATION",
+    "policy": {
+      "beam_interpolation": "drela-segspl-v1",
+      "structural_operator": "drela-steady-section-v1"
+    },
+    "operations": {
+      "cold_bridge_solves": 3,
+      "new_policy_fresh_residuals": 3,
+      "old_policy_fresh_residuals": 2
+    },
+    "checks_passed": 124,
+    "checks_total": 124,
+    "cases": {
+      "st3": {
+        "report": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/st3/report.json",
+          "bytes": 8283,
+          "sha256": "615102dc90391ade47143ea6c606f6d2532c57734981750b4586c14b4fd2601a"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/st3/result.json",
+          "bytes": 1657727,
+          "sha256": "46d1efdf6fdf5cb65244ace756d0049f8e9205d62659a3f201d091c28748cf45"
+        },
+        "solve_seconds": 1.4481554180019884,
+        "fresh_residual": 2.59586756709791e-16
+      },
+      "st5": {
+        "report": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/st5/report.json",
+          "bytes": 8370,
+          "sha256": "585b80953c67c9dd99d6f4566f32f5e703a54cc5311578ff31035694bd9a8249"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/st5/result.json",
+          "bytes": 731594,
+          "sha256": "7a15cccb656e110ca7dd50e05343195bf3568ea0527b982e9f7f73adcd03f968"
+        },
+        "solve_seconds": 0.9519235429979744,
+        "fresh_residual": 1.082014889106763e-14
+      },
+      "section": {
+        "report": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/section/report.json",
+          "bytes": 15532,
+          "sha256": "941009ccd08d87c5c962cf5fd971f4374005f59be705fe36d12438917e0eaae5"
+        },
+        "result": {
+          "path": "/tmp/openswing-source-section-integration-20261026-v2/cases/section/result.json",
+          "bytes": 112366,
+          "sha256": "053f03a1ce6ab6ed864f32325bc334ad61d2055bd4a421acb30fb52890e306c1"
+        },
+        "solve_seconds": 0.815335834005964,
+        "fresh_residual": 9.196809980238638e-13
+      }
+    },
+    "seconds": 59.88304559199605,
+    "plan": {
+      "path": "/tmp/openswing-source-section-integration-20261026-v2/plan.json",
+      "bytes": 49893,
+      "sha256": "b96a7cb13d3e9be4adb6291fbfa6ae1b058c58bb1fb39254a9fc062696e30c95"
+    },
+    "scope": "Two original-state regression checks and one synthetic section check. No new reference sweep, fitted parameter, or expanded archived-ASWING acceptance."
+  },
+  "browser": {
+    "status": "PASS_OFFLINE_SOURCE_SECTION_UI_AND_THREE_PROJECT_POLICIES",
+    "startup_seconds": 36.648713752,
+    "solve_seconds": 2.5260363299999953,
+    "total_seconds": 67.668791927,
+    "gates": {
+      "absolute": 2e-08,
+      "relative": 2e-08,
+      "residual": 1e-08
+    },
+    "exclusions": [
+      "evaluations"
+    ],
+    "exclusion_reason": "Execution counter only; no physical outputs excluded.",
+    "parity": {
+      "numeric": 2466,
+      "leaves": 2693,
+      "max_absolute": 5.329070518200751e-15,
+      "max_fraction": 6.661338147673625e-08,
+      "worst": "moment_balance[0]"
+    },
+    "request_counts": {
+      "inspect": 8,
+      "distribution": 8,
+      "solve": 1
+    },
+    "page_errors": [],
+    "network_failures": [],
+    "offline_requests": []
+  },
+  "browser_checks": {
+    "passed": 1111,
+    "total": 1111
+  },
+  "browser_startup_scope": "Verifier preflight plus browser/runtime initialization; separate from solve, one host run.",
+  "tests": {
+    "focused_section": 8,
+    "analytic_solves": 2,
+    "aircraft_solves_in_focused_tests": 0,
+    "earlier_source_recovery_sensors": 58,
+    "earlier_suite_scope": "After general-section implementation, before final general-only reporting/sign guard; final focused section checks cover those final changes.",
+    "python_boundary": 109,
+    "python_boundary_solve_tests_deselected": 5,
+    "javascript": 25,
+    "syntax": 9
+  },
+  "reference_regression": {
+    "cases": [
+      "ST3 n176",
+      "ST5 archived n70"
+    ],
+    "physical_arrays": [
+      "positions",
+      "rotations",
+      "internal_force",
+      "internal_moment",
+      "reactions"
+    ],
+    "all_bit_exact": true,
+    "old_fresh_residuals_and_fields_bit_exact": true
+  },
+  "st3_witness": {
+    "source_policy": "drela-steady-zero-offset-v1",
+    "structural_matches": [
+      269,
+      269,
+      269
+    ],
+    "total_each": 270,
+    "rows_matched_each": 44,
+    "rows_total": 45,
+    "printed_center_matches_each": 220,
+    "conditional_zeros_each": 90,
+    "audit_checks": 930,
+    "cold_solves": 0,
+    "coordinate_searches": 0,
+    "remaining_tip_moment_Nm": 5.59e-09,
+    "scope": "One previously frozen allowed coordinate per row shared across six outputs and three meshes; sided reporting splines. Consistency witness, not a historical-node reconstruction or full reference pass."
+  },
+  "new_terms_archived_acceptance": false,
+  "inventory": {
+    "path": "/tmp/openswing-isae-general-static-candidates-20261026/report.json",
+    "bytes": 16880,
+    "sha256": "27a5e48c9c34cfeba4426090b37dcb362750d50a647af73280dc7745222db2c9"
+  },
+  "receipts": {
+    "primary": {
+      "path": "/tmp/openswing-source-general-primary-20261026/manifest.json",
+      "bytes": 5038,
+      "sha256": "8d6424416b7143efdfea10f1bb3ea9fd5f2af3154a41c1a74cfe1ffdade10db6"
+    },
+    "section_tests": {
+      "path": "/tmp/openswing-source-section-tests-20261026/receipt.json",
+      "bytes": 3283,
+      "sha256": "3e7bfa14b81c390a8066970c3ebd4abc4db3b21d08bf6e5e4b0b50bef416ed0b"
+    },
+    "boundary": {
+      "path": "/tmp/openswing-source-section-boundary-20261026/receipt.json",
+      "bytes": 3206,
+      "sha256": "6182aa12ff87fdf7b1e537e9fbc852cf478c5900afbf6f2dc2a397139915ea2e"
+    },
+    "st3_witness": {
+      "path": "/tmp/openswing-source-st3-rounding-witness-20261026/report.json",
+      "bytes": 227804,
+      "sha256": "12a6cf810651164407cc2e28964150584eb7733d3be4cd6deed4eb918624e7bd"
+    },
+    "native": {
+      "path": "/tmp/openswing-source-section-integration-20261026-v2/owner-closeout.json",
+      "bytes": 24945,
+      "sha256": "1e7a435d8d348a88b8681e12e757c01353d4f584847f968500649ca708b7fa32"
+    },
+    "browser": {
+      "path": "/tmp/openswing-source-section-browser-20261026/report.json",
+      "bytes": 119350,
+      "sha256": "f251b0806c112c74ec7c28d7c716021cb0903450f908e5fc5b386c7fd8ff41ac"
+    }
+  },
+  "retained_failure": "Initial exact float-state assertion failed at 2.78e-17 roundoff; assertion corrected, no physical/reference tolerance changed.",
+  "saved_project": {
+    "path": "/home/userland/aswing/examples/source-section-check-project.json",
+    "bytes": 184486,
+    "sha256": "87bb56e0e1590d027b7d769b6ae28bdde7270be040cae3b79de7f3914010e16e"
+  },
+  "synthetic_input": {
+    "path": "/home/userland/aswing/examples/source-section-check.asw",
+    "bytes": 616,
+    "sha256": "4d4e163233eeff437c0c7108df44a42a340d911db95f88fe0fe7c8c264470845"
+  },
+  "limitations": [
+    "No qualified unchanged static ASWING export found for new section/CG terms; tests are equation/analytic plus zero-offset archive regressions.",
+    "Body charts, stepped axes, nonrigid joints, struts, engines, airflow and motion/dynamics remain unsupported by source policies.",
+    "Scalar EA/GK/offset averaging and unloaded ds, historical interpolation caller and exporter sampling remain interpretations or uncertainties.",
+    "Static mass/first moment only; dynamic inertia/spin explicitly unavailable."
+  ],
+  "evidence": {
+    "path": "/home/userland/aswing/docs/validation/isae-source-section-20261026-evidence.zip",
+    "bytes": 3863794,
+    "sha256": "78f491ab23dae287c9e8aba041e76fa5068be8b364b958530fe5b32aef9e7b20"
+  },
+  "publication": {
+    "path": "/tmp/openswing-source-section-closeout-20261026/publication.json",
+    "bytes": 412,
+    "sha256": "965316381901d8cbf17edc195d0f3e187b5afc8b30fe085d29b19ec961e370f9"
+  }
+}

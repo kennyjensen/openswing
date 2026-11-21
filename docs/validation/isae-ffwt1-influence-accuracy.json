@@ -1,0 +1,587 @@
+{
+  "counting": {
+    "acceptance_threshold_changes": 0,
+    "factorization_control_assertions": 66,
+    "factorization_control_groups": 15,
+    "independent_field_and_load_comparisons": 16,
+    "new_browser_runs": 0,
+    "new_independent_circulation_roots": 2,
+    "new_native_circulation_solves": 0,
+    "new_outer_hinge_solves": 0,
+    "old_saved_Gamma_states_modified": 0,
+    "own_new_Gamma_states": 2,
+    "physical_parameter_changes": 0,
+    "production_source_edits": 0,
+    "saved_accuracy_review_checks": 193
+  },
+  "coverage": {
+    "changed": false,
+    "fully_validated": 0,
+    "partial": 17,
+    "pending": 24
+  },
+  "factorization": {
+    "analytic_cancellation_example": {
+      "expanded_error": 1.095792356853309e-08,
+      "factored_error": 0.0,
+      "gamma": [
+        1.0,
+        1.0000000009313226
+      ],
+      "receiver_y": 9.313225746154785e-10,
+      "reference": [
+        [
+          0.0,
+          0.0,
+          -0.5433889654019901
+        ]
+      ],
+      "scope": "One analytic planar same-geometry example; no universal accuracy or speed claim."
+    },
+    "assertion_checks": 66,
+    "control_groups": 15,
+    "control_status": "PASS_FIFTEEN_FACTORIZATION_CONTROL_GROUPS",
+    "controls": [
+      {
+        "name": "nonuniform shared chain and Decimal100 near-wake analytic value",
+        "status": "PASS"
+      },
+      {
+        "name": "branched endpoint incidence and compensated strength",
+        "status": "PASS"
+      },
+      {
+        "name": "orientation reversal",
+        "status": "PASS"
+      },
+      {
+        "name": "source and receiver permutation",
+        "status": "PASS"
+      },
+      {
+        "name": "own finite-bound exclusion only",
+        "status": "PASS"
+      },
+      {
+        "name": "two physical indices with unequal effective cores",
+        "status": "PASS"
+      },
+      {
+        "name": "no approximate endpoint merging",
+        "status": "PASS"
+      },
+      {
+        "name": "PG mapping and symmetric analytic horseshoe",
+        "status": "PASS"
+      },
+      {
+        "name": "ground image signs and unmasked image bounds",
+        "status": "PASS"
+      },
+      {
+        "name": "exactly representable rigid translation",
+        "status": "PASS"
+      },
+      {
+        "name": "rigid rotation including PG and ground plane",
+        "status": "PASS"
+      },
+      {
+        "name": "length/time/circulation unit covariance",
+        "status": "PASS"
+      },
+      {
+        "name": "factored circulation Jacobian columns and zero-column block",
+        "status": "PASS"
+      },
+      {
+        "name": "frozen F10 independent ordinary fixtures",
+        "status": "PASS"
+      },
+      {
+        "name": "source input immutability and malformed-input rejection",
+        "status": "PASS"
+      }
+    ],
+    "evaluation_accuracy_limits": {
+      "normalized_residual": 1e-13,
+      "velocity_m_s": 2e-12
+    },
+    "group_key": "Exact physical endpoint plus identical complete effective receiver core column, under common wake/PG/image settings; no proximity tolerance.",
+    "identity": "Sum finite bound_i*Gamma_i plus grouped endpoint ray_j*sum(incident signed Gamma_i). Positive bound a->b has +Gamma at b and -Gamma at a.",
+    "normal_first_scope": "Native CP-normal-first ordering is recorded separately; dense_einsum is velocity-first contraction and is not the exact production residual path.",
+    "performance_accounting": {
+      "coldsolve_or_browser_speed_claim_supported": false,
+      "formula": "For each receiver, candidate uses M finite segments plus G grouped rays rather than M segments plus 2M rays; stored bound/ray arrays and dense incidence also cost memory. This operation count is not measured speedup.",
+      "panels_and_distinct_rays": [
+        {
+          "panels": 364,
+          "rays": 365
+        },
+        {
+          "panels": 724,
+          "rays": 725
+        }
+      ],
+      "reported_combined_comparison_seconds": 0.21722075498837512,
+      "scope": "Eight selected-target comparisons, including both CP/HV dense/factored construction, contractions, scalar closures and error bookkeeping. Timer excludes initial file hash/module verification and final report serialization.",
+      "separate_method_timings_available": false
+    },
+    "promoted": false,
+    "real_bound_exclusion": "Only the physical finite bound is excluded; physical wakes and image bounds/wakes remain.",
+    "same_geometry_findings": [
+      "No material source/contract/accounting discrepancy found. Every saved CP/HV vector closure, MP error and target status reproduces exactly from saved scalars.",
+      "MP references use each exact stored rounded geometry, with its own stored live frame/material and the same unchanged stored Gamma.",
+      "Both independent-geometry sampled equation failures remain after factorization; same-geometry arithmetic accuracy is separate from satisfying the equation on changed rounded inputs.",
+      "Dense normal-first contraction is a separate recorded residual-order comparator. The dense_einsum label is velocity-first einsum and must not be presented as the exact production residual path.",
+      "Dense_fsum compensates the summation of binary64-rounded coefficient/Gamma products; it does not provide exact products or high-precision kernels.",
+      "Factored matrix entries equal dense entries for these reported arrays, but stable application contracts endpoint circulation first. Materializing then contracting the matrix would discard that advantage."
+    ],
+    "selected_comparison_targets": 8,
+    "statistics": {
+      "dense_einsum": {
+        "evaluation_accuracy_pass_count": 4,
+        "max_normalized_residual_error": 2.625765223298108e-13,
+        "max_velocity_error_m_s": 5.776663777722703e-12,
+        "sampled_equation_pass_count": 6
+      },
+      "dense_fsum": {
+        "evaluation_accuracy_pass_count": 6,
+        "max_normalized_residual_error": 1.4400675147839534e-13,
+        "max_velocity_error_m_s": 3.1681466140386283e-12,
+        "sampled_equation_pass_count": 6
+      },
+      "factored": {
+        "evaluation_accuracy_pass_count": 8,
+        "max_normalized_residual_error": 2.8039305907943507e-16,
+        "max_velocity_error_m_s": 6.168584930989134e-15,
+        "sampled_equation_pass_count": 6
+      }
+    }
+  },
+  "format": "openswing-recorded-study-summary",
+  "independent_own_roots": {
+    "additional_dimensional_gate_imposed": false,
+    "archived_measurement_fit": false,
+    "bounded_polish_corrections_used": 0,
+    "comparison_tolerance": {
+      "atol": 2e-10,
+      "rtol": 2e-11
+    },
+    "cross_native_geometry_gate_scope": "Diagnostic only; failures are retained and do not undo an own-geometry root.",
+    "cross_native_geometry_selected_MP_passes": 2,
+    "cross_native_geometry_selected_MP_targets": 4,
+    "elapsed_total_seconds": 5.753939717003959,
+    "field_and_load_comparisons_passed": 16,
+    "fixed_pose": true,
+    "float_fullvector_passes": 2,
+    "full_vector_MP_certified": false,
+    "native_data_decoding": "Native Gamma/loads are decoded only after the corresponding own solve completes and its float gate passes.",
+    "operator": "Frozen independent F10 kernels/section law on each independently reconstructed rounded geometry; the factored prototype is not used by these roots.",
+    "own_geometry_selected_MP_passes": 4,
+    "own_geometry_selected_MP_targets": 4,
+    "raw_report_status": "COMPLETED_TWO_OWN_ROOT_ATTEMPTS_WITH_ALL_OUTCOMES_RETAINED",
+    "rows": [
+      {
+        "Gamma_difference_diagnostic_only": {
+          "Euclidean_norm": 2.3686581076002064e-12,
+          "acceptance_threshold": null,
+          "maximum_absolute": 4.900524430695441e-13
+        },
+        "Lift_difference_N": -1.5987211554602254e-13,
+        "case": "fine-pointwise",
+        "field_and_load_comparisons": [
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 5.53423973315148e-12,
+            "maximum_error_over_component_bound": 0.019557961356057835,
+            "name": "velocity",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.0444978215673473e-12,
+            "maximum_error_over_component_bound": 0.0016360459711635778,
+            "name": "section_speed",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 6.119549311733863e-13,
+            "maximum_error_over_component_bound": 0.0027816697193098817,
+            "name": "cl",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 7.216449660063518e-14,
+            "maximum_error_over_component_bound": 0.0003562448181575171,
+            "name": "strip_forces",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.4363510381087963e-15,
+            "maximum_error_over_component_bound": 7.179956493915503e-06,
+            "name": "section_moments",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.5631940186722204e-13,
+            "maximum_error_over_component_bound": 0.0002851810432757447,
+            "name": "force",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 3.3861802251067274e-15,
+            "maximum_error_over_component_bound": 1.6379501467195666e-05,
+            "name": "moment",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.5987211554602254e-13,
+            "maximum_error_over_component_bound": 0.00028848172404363363,
+            "name": "Lift",
+            "passed": true,
+            "rtol": 2e-11
+          }
+        ],
+        "float_fullvector_normalized_residual_inf": 6.710490748932071e-13,
+        "float_fullvector_pass": true,
+        "float_worst_panel": 116,
+        "float_worst_panel_MP_checked": false,
+        "maximum_section_normal_mach": 0.06502376610601295,
+        "own_Lift_N": 17.70922769475694,
+        "own_force_N": [
+          -3.280409634095542,
+          1.318109044785913e-06,
+          17.40704642770982
+        ],
+        "own_moment_Nm": [
+          -1.8050692367503531e-06,
+          0.3366400738400299,
+          -3.075707929587788e-07
+        ],
+        "own_solve_seconds": 0.5318114069959847,
+        "saved_native_Lift_N": 17.7092276947571,
+        "selected_MP": [
+          {
+            "cross_native_geometry_MP_normalized_residual": -3.0080720111488645e-13,
+            "cross_native_sampled_pass_diagnostic": true,
+            "own_geometry_MP_normalized_residual": -3.0080738515098277e-13,
+            "own_geometry_sampled_pass": true,
+            "panel": 0
+          },
+          {
+            "cross_native_geometry_MP_normalized_residual": -2.451527806881188e-12,
+            "cross_native_sampled_pass_diagnostic": false,
+            "own_geometry_MP_normalized_residual": -3.806661430346403e-14,
+            "own_geometry_sampled_pass": true,
+            "panel": 202
+          }
+        ]
+      },
+      {
+        "Gamma_difference_diagnostic_only": {
+          "Euclidean_norm": 3.314238065052549e-12,
+          "acceptance_threshold": null,
+          "maximum_absolute": 5.622169396701793e-13
+        },
+        "Lift_difference_N": -9.201528428093297e-13,
+        "case": "finer-pointwise",
+        "field_and_load_comparisons": [
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.16977538766605e-11,
+            "maximum_error_over_component_bound": 0.04388157352264816,
+            "name": "velocity",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.9113599591946695e-12,
+            "maximum_error_over_component_bound": 0.002975169861603059,
+            "name": "section_speed",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 6.973310817670608e-13,
+            "maximum_error_over_component_bound": 0.00316979391700719,
+            "name": "cl",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 4.145295218194178e-14,
+            "maximum_error_over_component_bound": 0.00020594315405301835,
+            "name": "strip_forces",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 8.23126289350995e-16,
+            "maximum_error_over_component_bound": 4.115116599902357e-06,
+            "name": "section_moments",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 9.023892744153272e-13,
+            "maximum_error_over_component_bound": 0.0016461204596770684,
+            "name": "force",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 1.7041923427996153e-14,
+            "maximum_error_over_component_bound": 8.243420083994064e-05,
+            "name": "moment",
+            "passed": true,
+            "rtol": 2e-11
+          },
+          {
+            "atol": 2e-10,
+            "maximum_absolute_error": 9.201528428093297e-13,
+            "maximum_error_over_component_bound": 0.0016602155186372987,
+            "name": "Lift",
+            "passed": true,
+            "rtol": 2e-11
+          }
+        ],
+        "float_fullvector_normalized_residual_inf": 6.955017370105762e-13,
+        "float_fullvector_pass": true,
+        "float_worst_panel": 215,
+        "float_worst_panel_MP_checked": false,
+        "maximum_section_normal_mach": 0.06502414024420154,
+        "own_Lift_N": 17.711849229206056,
+        "own_force_N": [
+          -3.281119260501343,
+          1.3958861185651509e-06,
+          17.409575924726855
+        ],
+        "own_moment_Nm": [
+          -1.9756236799485408e-06,
+          0.33668262344520034,
+          -3.4350647255442705e-07
+        ],
+        "own_solve_seconds": 3.3855312269879505,
+        "saved_native_Lift_N": 17.711849229206976,
+        "selected_MP": [
+          {
+            "cross_native_geometry_MP_normalized_residual": -1.54859777409442e-11,
+            "cross_native_sampled_pass_diagnostic": false,
+            "own_geometry_MP_normalized_residual": 6.402709048583436e-14,
+            "own_geometry_sampled_pass": true,
+            "panel": 401
+          },
+          {
+            "cross_native_geometry_MP_normalized_residual": -7.396600907564073e-15,
+            "cross_native_sampled_pass_diagnostic": true,
+            "own_geometry_MP_normalized_residual": -7.388418393022475e-15,
+            "own_geometry_sampled_pass": true,
+            "panel": 402
+          }
+        ]
+      }
+    ],
+    "seed": "Each independent CP-normal linear system supplies its own seed, followed by the unchanged F10 nonlinear solve and existing bounded correction policy. No saved native Gamma seed or fitting.",
+    "status": "COMPLETED_TWO_INDEPENDENT_OWN_ROOTS_AND_SELECTED_MP_CHECKS",
+    "strict_normalized_gate": 1e-12,
+    "timing_scope": "Own-root study total includes two solves, selected MP evaluations, saved-native comparisons and logging. Per-case own_solve_seconds excludes the later MP/load comparisons.",
+    "total_helper_residual_evaluations": 1135,
+    "total_hybr_nfev": 1133
+  },
+  "limitations": [
+    "All MP claims concern preselected panels, not a full-vector MP certificate. The new own-root full-float worst panels 116 and 215 were not MP checked.",
+    "An exact stored float64 geometry is a defined input; neither rounded geometry is proved equal to an unrounded physical reference.",
+    "Tiny changes in own Gamma can satisfy each own operator while cross-geometry replay still fails a strict residual gate. Close loads do not retrospectively accept failed saved-state replays.",
+    "No independent outer hinge equilibrium, global root uniqueness, continuum convergence, original ASWING defaults or experimental validation is established.",
+    "The prototype has no integrated general solver/cache/geometric tangent/browser regression acceptance and is not promoted.",
+    "No per-method performance benchmark or cold-solve speedup was measured.",
+    "The archived high-incidence Lift discrepancy remains unresolved."
+  ],
+  "precision_diagnostic": {
+    "decimal_digits": 80,
+    "elapsed_seconds": 1.4148817189998226,
+    "finding": "At fine panel202 and finer panel401, the independent-rounded geometry residual failures persist atMP80. The MP residual shifts between stored geometries are2.41346e-12 and1.55500e-11 normalized; crossed-frame controls attribute essentially those shifts to jig-coordinate inputs. Frame-only shifts are8.35e-18 andzero. These shifts dominate the saved evaluation discrepancies at the two failing targets.",
+    "full_vector_MP_certified": false,
+    "geometry_path_evaluations": 8,
+    "horseshoe_evaluations": 8704,
+    "normalized_gate": 1e-12,
+    "rows": [
+      {
+        "MP_geometry_and_frame_difference": -1.8403609634872978e-19,
+        "MP_independent_geometry_normalized_residual": -1.5806214094354356e-13,
+        "MP_independent_geometry_sampled_pass": true,
+        "MP_independent_minus_saved_independent": -2.625765223298108e-13,
+        "MP_native_geometry_normalized_residual": -1.580619569074472e-13,
+        "MP_native_geometry_sampled_pass": true,
+        "MP_native_minus_saved_native": -2.707717880181905e-13,
+        "beam": 1,
+        "case": "fine-pointwise",
+        "frame_only_difference": 0.0,
+        "independent_material_t": -0.3639775478923475,
+        "independent_worst_target": false,
+        "jig_only_difference": -1.8403609634872978e-19,
+        "native_worst_target": true,
+        "panel": 0,
+        "saved_independent_minus_native": -8.195449724476083e-15,
+        "saved_independent_normalized_residual": 1.0451438138626726e-13,
+        "saved_native_normalized_residual": 1.1270983111074334e-13
+      },
+      {
+        "MP_geometry_and_frame_difference": 2.413461192577288e-12,
+        "MP_independent_geometry_normalized_residual": 2.498754469432052e-12,
+        "MP_independent_geometry_sampled_pass": false,
+        "MP_independent_minus_saved_independent": -2.3017084452468203e-15,
+        "MP_native_geometry_normalized_residual": 8.529327685476415e-14,
+        "MP_native_geometry_sampled_pass": true,
+        "MP_native_minus_saved_native": 1.290733334746745e-13,
+        "beam": 2,
+        "case": "fine-pointwise",
+        "frame_only_difference": 8.351627622331205e-18,
+        "independent_material_t": 0.364026213832317,
+        "independent_worst_target": true,
+        "jig_only_difference": 2.413452840949666e-12,
+        "native_worst_target": false,
+        "panel": 202,
+        "saved_independent_minus_native": 2.5448362344972093e-12,
+        "saved_independent_normalized_residual": 2.501056177877299e-12,
+        "saved_native_normalized_residual": -4.378005661991036e-14
+      },
+      {
+        "MP_geometry_and_frame_difference": 1.5550004831402413e-11,
+        "MP_independent_geometry_normalized_residual": 1.5156772854254005e-11,
+        "MP_independent_geometry_sampled_pass": false,
+        "MP_independent_minus_saved_independent": 1.0113139627288508e-13,
+        "MP_native_geometry_normalized_residual": -3.932319771484069e-13,
+        "MP_native_geometry_sampled_pass": true,
+        "MP_native_minus_saved_native": -4.4127729127511485e-13,
+        "beam": 1,
+        "case": "finer-pointwise",
+        "frame_only_difference": 0.0,
+        "independent_material_t": 0.36399438674015344,
+        "independent_worst_target": true,
+        "jig_only_difference": 1.5550004831402413e-11,
+        "native_worst_target": false,
+        "panel": 401,
+        "saved_independent_minus_native": 1.5007596143854412e-11,
+        "saved_independent_normalized_residual": 1.505564145798112e-11,
+        "saved_native_normalized_residual": 4.804531412670795e-14
+      },
+      {
+        "MP_geometry_and_frame_difference": 8.182514541513351e-18,
+        "MP_independent_geometry_normalized_residual": 7.191411234202812e-13,
+        "MP_independent_geometry_sampled_pass": true,
+        "MP_independent_minus_saved_independent": 6.18467547473529e-14,
+        "MP_native_geometry_normalized_residual": 7.191329409057396e-13,
+        "MP_native_geometry_sampled_pass": true,
+        "MP_native_minus_saved_native": 1.0760375460102302e-12,
+        "beam": 2,
+        "case": "finer-pointwise",
+        "frame_only_difference": 8.351569384409547e-18,
+        "independent_material_t": 0.36400655389014225,
+        "independent_worst_target": false,
+        "jig_only_difference": -1.6905484289619666e-19,
+        "native_worst_target": true,
+        "panel": 402,
+        "saved_independent_minus_native": 1.0141989737774188e-12,
+        "saved_independent_normalized_residual": 6.572943686729282e-13,
+        "saved_native_normalized_residual": -3.5690460510449057e-13
+      }
+    ],
+    "sampled_path_counts": {
+      "independent": {
+        "failed": 2,
+        "passed": 2
+      },
+      "native": {
+        "failed": 0,
+        "passed": 4
+      }
+    },
+    "saved_states": 2,
+    "selected_targets": 4,
+    "status": "COMPLETED_MP80_DIAGNOSTIC_WITH_TWO_INDEPENDENT_GEOMETRY_LOCAL_FAILURES_RETAINED",
+    "timing_scope": "Recorded MP audit computation and logging window; not a solver or method speed benchmark."
+  },
+  "reconstruction_scope": "Standard-library recorded-result summary only; no array/kernel/root replay and no claim of complete historical scientific dependency closure. Direct consumed report/source pins are listed below; historical report references retain their original scope.",
+  "retained_outcomes": {
+    "M14_independent_saved_Gamma_replay": {
+      "failed": 2,
+      "passed": 13
+    },
+    "M14_native": {
+      "failed": 0,
+      "passed": 15
+    },
+    "M14_reclassified": false,
+    "M15_two_saved_Gamma_independent_geometry_MP_failures_preserved": true,
+    "earlier_study_failures_and_dimensional_controls_unchanged": true,
+    "own_root_preexecution_accounting_revision": "influence-accuracy-15/own-roots/preflight-01-case-accounting/finding.json"
+  },
+  "scope": "One supplied folded pose from M14 row11 represented on fine/finer meshes. Diagnose exact stored rounded-input sensitivity, assess standalone horseshoe factorization on the same geometry, and solve two independent circulation roots on their own independently rounded geometry. No outer hinge solve or experimental validation.",
+  "source": {
+    "candidate": "influence-accuracy-15/factored.py",
+    "candidate_scope": "Standalone value/circulation-direction operator; no production installation.",
+    "candidate_sha256": "54ab4e9e6a5dbf93e423b1426fe461c355ae8fdab893334f5a36d7367bb58e56",
+    "frozen_composition": "integrated-09/composition.json",
+    "frozen_composition_sha256": "76b24fc8ab12f0d0d99765b9d72421e48e4a3ac52e2d07fc2dd95058afe60169",
+    "frozen_module_hashes_verified": true,
+    "module_count": 104,
+    "production_installed_changes": false
+  },
+  "source_pins": {
+    "influence-accuracy-15/compare_stored.py": "4f0f96ad73ee07385d73d6dedf1b71a1e372701947f070038d774799e498d857",
+    "influence-accuracy-15/comparison-contract.json": "e04a4be88cb6166be14f539067445f08df211551089a112a4f2fc5ca75aea8ad",
+    "influence-accuracy-15/comparison/report.json": "e02ae303b62175a54ca05403ac614231c0176342006bfba74ce0b832516af294",
+    "influence-accuracy-15/factored.py": "54ab4e9e6a5dbf93e423b1426fe461c355ae8fdab893334f5a36d7367bb58e56",
+    "influence-accuracy-15/factorization-review/manifest.json": "fc959f86f2b11bfe58bcad1b9df53aeb8599f528c6030ae3f4847f9d7e904c8d",
+    "influence-accuracy-15/factorization-review/report.json": "dd9be4b03bd6da3731d0128026ec5e0abbb74c48401729aad46beff652ee16ac",
+    "influence-accuracy-15/own-roots/closeout.json": "5fdb3b2ee0390c3849bef6abeb993681875ab41bbd084d64b08a69413fce6755",
+    "influence-accuracy-15/own-roots/execution-pins.json": "587b5d3cfb5afb95ed837e6673091902daeac34832fb13bc6c1a8f5ee8cdbba2",
+    "influence-accuracy-15/own-roots/manifest.json": "be48d397ae6f713e5a889982ed7cab62db585936b57b4bd438fbb3e953e6a328",
+    "influence-accuracy-15/own-roots/plan.json": "8a3ba61a25c482e949406263031e2133fcd646a377530f5239cda11bda34fa7e",
+    "influence-accuracy-15/own-roots/preflight-01-case-accounting/finding.json": "e2a42be8bfb2e4413d3d92b2389f1633db90d0c345d46b2329cb78d3857f3050",
+    "influence-accuracy-15/own-roots/report.json": "4c635fdc8104ed6ae7fbde79022a06cb68a84b4e194dd7b367677feae7eb78d6",
+    "influence-accuracy-15/own-roots/run.py": "d41d8f5a7dafc3e99674e2331cdbdb970a55f81e83f3ab26bcd9f341f9dc7a7a",
+    "influence-accuracy-15/own-roots/summary.json": "ec3479e69f94c9b35a505a17cf1b9b45f66ff4e989884b284477547da2be21e2",
+    "influence-accuracy-15/precision/closeout.json": "f02d138ec4ba8102e429f0cadd0546b3d3f0b3d70c8fd20dcf6e3d1509959314",
+    "influence-accuracy-15/precision/manifest.json": "e9648b37509596a41b4fd4582412bc4c18bd007b31743b8017049912d40bba0e",
+    "influence-accuracy-15/precision/plan.json": "15e9b177c2385d4c1ee42bd16a6ceea49de31e182dcd147551f9480587753d2d",
+    "influence-accuracy-15/precision/report.json": "ac97439930147a24749d6b69edbf088aedef427dafb340d84a4698e2be0ea94e",
+    "influence-accuracy-15/precision/summary.json": "0bde7c95e93090604dff829546cc1ed6d1ccd46ed8f3f40c29fff6adec104fcd",
+    "influence-accuracy-15/review/actual-closeout.json": "d3987543462061162a63f6cd80e20bf26a23568e259852e47ae2933435dad300",
+    "influence-accuracy-15/review/actual-comparison.json": "e9a52ce119873a4abc29fabe98bb30d8648abe179c377afc616da69354940e53",
+    "influence-accuracy-15/review/actual-manifest.json": "4b3009888ebd35d3b4243f0c68aaf188f675948d52456c5fd6921ad38d9585f6",
+    "influence-accuracy-15/review/check_controls.py": "869094beaa4939cdb1764c9ba5149b85464696e630a8b9ddaf003ae0a24ac1b9",
+    "influence-accuracy-15/review/closeout.json": "c30cb530a2c9bb3be2a69c291ac8c920287f921de15af50543ffd61c48ea8c72",
+    "influence-accuracy-15/review/manifest.json": "c04cf871e2f83d717e358477200ef52671bb5cf467331f3691e876f59251c375",
+    "influence-accuracy-15/review/plan.json": "213cfcbe14f1ab6f9bcf449a81f8d7f0b9409c86534d6318532a41fe23f7ea8c",
+    "influence-accuracy-15/review/report.json": "4aaca4cf95f347fc3f7bc64d0655b2cec2b08f48c5f020e5161c79a284379f79",
+    "influence-accuracy-15/review/review_actual.py": "1072fec22bfe3c35548b8d57e63560710e6c34dcb30ca061b359a75c036ba47b",
+    "influence-accuracy-15/review/summarize_final.py": "4e03409d76520ece1a7d592008f84f00be3f18086d2ed8b0c1ac917234e412f4",
+    "influence-accuracy-15/review/summary.json": "884407839c78154d6dba5b90bccfc0ebb454da163e41b241015d77aa61175b61",
+    "integrated-09/composition.json": "76b24fc8ab12f0d0d99765b9d72421e48e4a3ac52e2d07fc2dd95058afe60169"
+  },
+  "status": "COMPLETED_SCOPED_ACCURACY_STUDY_WITH_PRIOR_FAILURES_RETAINED",
+  "study": "FFWT-1 rounded-input sensitivity and factored influence evaluation",
+  "version": 1
+}

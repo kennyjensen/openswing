@@ -1,0 +1,745 @@
+{
+  "status": "RETAINED32_LINEARIZATION_FAILURE_NO_REFINEMENT_CURVE",
+  "publication_status": "STAGED_NOT_INSTALLED",
+  "archive": "docs/validation/daedalus-rudder-refinement-20261024-evidence.zip",
+  "source_modules": 108,
+  "production_source_changed": false,
+  "condition": {
+    "speed_ft_s": 30,
+    "PG_Mach": 0.1,
+    "gravity": "Earth-following, no override",
+    "ground_effect": 0,
+    "frame": "free",
+    "trim_targets": [
+      {
+        "variable": "alpha",
+        "quantity": "force.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.bank",
+        "quantity": "force.y",
+        "target": 0.0
+      },
+      {
+        "variable": "power.1",
+        "quantity": "force.x",
+        "target": 0.0
+      },
+      {
+        "variable": "beta",
+        "quantity": "moment.x",
+        "target": 0.0
+      },
+      {
+        "variable": "control.2",
+        "quantity": "moment.y",
+        "target": 0.0
+      },
+      {
+        "variable": "control.3",
+        "quantity": "moment.z",
+        "target": 0.0
+      },
+      {
+        "variable": "attitude.elevation",
+        "quantity": "flight_path",
+        "target": 0.0
+      }
+    ]
+  },
+  "expected_mesh": {
+    "nodes": 197,
+    "elements": 192,
+    "circulation_unknowns": 155,
+    "constraint_unknowns": 30,
+    "network_dynamic_unknowns": 2525,
+    "network_trim_unknowns": 2526,
+    "full_dynamic_unknowns": 3719
+  },
+  "initial_guess": {
+    "source": "/tmp/openswing-daedalus-mesh16-20261024/results/trim-coordinates.json",
+    "variables": {
+      "alpha": -1.6777926117334858,
+      "attitude.bank": 0.0016132901937356656,
+      "power.1": 7.9266285521621995,
+      "beta": 0.009011744869333939,
+      "control.2": -2.4670321197521994,
+      "control.3": -0.0023750764422201744,
+      "attitude.elevation": -1.6777923574318174
+    },
+    "scope": "Seven scalar solved16 trim values only; cold new32 physical mesh, no16 physical seed or fitting."
+  },
+  "numerical_failure": {
+    "status": "FAILURE_RETAINED",
+    "error": "GeometryDerivativeUnresolved: Moving-field derivative did not resolve under step refinement (scaled change 2.1e-06); inspect the geometry and difference step.",
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/openswing-daedalus-mesh32-20261024/run.py\", line 61, in <module>\n    analysis=frequency_module.FrequencyAnalysis(parse_asw(request['source']),read_condition(request['condition']),32,\n      inputs=['control.3'],frame='free',step=1e-5,operating_constraints=request['operating_constraints'],gravity=None,progress=progress)\n  File \"/tmp/openswing-daedalus-mesh32-20261024/source/openswing/frequency_response.py\", line 496, in __init__\n    else:a, m = linearize(system, step, None if progress is None else tangent_progress,sparse=use_sparse,_output_fields=use_sparse)\n                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-daedalus-mesh32-20261024/run.py\", line 52, in capture_linearize\n    ops['full_linearizations']+=1;t=time.monotonic();result=original_linearize(*args,**kwargs)\n                                                            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-daedalus-mesh32-20261024/source/openswing/linear_dynamics.py\", line 199, in linearize\n    return _linearize(system, step, progress, sparse=True, stationary=_stationary, output_fields=_output_fields)\n  File \"/tmp/openswing-daedalus-mesh32-20261024/source/openswing/linear_dynamics.py\", line 328, in _linearize\n    geometry,diagnostics=geometry_columns(n,lambda z:checked(z,zero),\n                         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        lambda z:system.unpack(z,zero)[0].x,scales,step,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n        _direct_geometry=True, _rotation_chart='spatial', _strut_tangent=support,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        _direct_structural=True, _structural_system=system)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-daedalus-mesh32-20261024/source/openswing/geometry_tangent.py\", line 552, in geometry_columns\n    derivative,report=refined_field_column(evaluate,h,values,evaluator.condition.speed)\n                      ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/openswing-daedalus-mesh32-20261024/source/openswing/geometry_tangent.py\", line 76, in refined_field_column\n    raise GeometryDerivativeUnresolved(f'Moving-field derivative did not resolve under step refinement (scaled change {last_error:.3g}); inspect the geometry and difference step.')\nopenswing.geometry_tangent.GeometryDerivativeUnresolved: Moving-field derivative did not resolve under step refinement (scaled change 2.1e-06); inspect the geometry and difference step.\n",
+    "operations": {
+      "FrequencyAnalysis_constructions": 1,
+      "make_system_calls": 1,
+      "full_linearizations": 1,
+      "input_partials_calls": 0,
+      "harmonic_calls": 0,
+      "extra_base_residual_calls": 0,
+      "physical_output_stencil_calls": 0,
+      "physical_state_restorations": 0,
+      "retries": 0
+    },
+    "completed_samples": 0,
+    "checks": [
+      {
+        "name": "isolated source __init__.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source aero.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source applied_load_outputs.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source asw.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source asw_edit.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source atmosphere.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source beam_matching.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source body_shoulders.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source bridge.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source circulation.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source circulation_polish.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source circulation_solve.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source circulation_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source control_allocation.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source control_expressions.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source control_tables.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source custom_constraints.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source damping.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source derivative_cache.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source derivative_circulation.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source derivatives.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source descriptor_mass.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source discretization.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source distribution_curve.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source dynamic_inertia.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source equilibrium_state.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source equilibrium_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source factored_influence.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source feedback.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source field_products.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source flow_survey.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source forcing.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source frequency_response.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source frequency_sweep.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source frozen_influence.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source geometry.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source geometry_field_partials.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source geometry_partials.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source geometry_stencil.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source geometry_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source ground.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source gust.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source gust_file.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source gust_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source harmonic_structure.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source hinge_history.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source inertia.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source initial_diagnostics.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source initial_response.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source joints.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source kinematics.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source legacy_hinge_state.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source linear_dynamics.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source local_geometry_matrix.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source local_motion.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source local_rate_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source mechanical_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source network.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source newton_structure.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source nonlinear_initial.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source operating.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source output_derivatives.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source output_fields.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source position_history_checkpoint.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source position_history_lift.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source position_history_radau.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source power_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source propulsion.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source quiescent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source radau_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source radau_time.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source recovery.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source reduced_model.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source reference_flow.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source rigid_initial_rank.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source rom_file.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source rom_initial.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source rom_outputs.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source root_diagnostics.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source seeded_corrector.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source sensors.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source sparse_rank.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source stability.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source steady_feedback.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source structural_geometry.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source structural_outputs.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source structure.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source structured_static.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source structured_time.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source struts.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source support_outputs.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source tangent_influences.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_acceptance.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_acceptance_validation.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_accuracy.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_cold_initial.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_history.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_initialization.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_input_transition.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_integration.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_saved_history.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_state.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source time_transition_initial.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source trefftz.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source vector_ops.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source volume.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source volume_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "isolated source vortex_tangent.py",
+        "pass_": true
+      },
+      {
+        "name": "only scalar previous trim guesses",
+        "pass_": true
+      }
+    ],
+    "plan_pin": {
+      "bytes": 59517,
+      "sha256": "5adeb32ad4ae7827bfb77cb957100c9ab6e1ad5e2b4e8f42d6e3a40bbe865d2f"
+    }
+  },
+  "operation_interpretation": {
+    "full_linearization_attempts": 1,
+    "full_linearizations_completed": 0,
+    "F3_stencils": 0,
+    "harmonic_calls": 0,
+    "extra_fresh_full_residual_checks": 0
+  },
+  "physical_lifecycle": {
+    "status": "FAILURE_RETAINED_REAPED",
+    "session_id": 55806,
+    "launch_chunk": "2115f4",
+    "terminal_chunk": "a5c6a9",
+    "exit_code": 1,
+    "reaped": true,
+    "supervisor": {
+      "status": "FAIL_RETAINED",
+      "supervisor_pid": 32006,
+      "child_pid": 32020,
+      "exit_code": 1,
+      "reaped": true,
+      "timed_out": false,
+      "error": null,
+      "monotonic_seconds": 622.8030471419916,
+      "wall_seconds": 622.8030917644501,
+      "cap_seconds": 1500,
+      "retries": 0,
+      "plan_pin": {
+        "bytes": 59517,
+        "sha256": "5adeb32ad4ae7827bfb77cb957100c9ab6e1ad5e2b4e8f42d6e3a40bbe865d2f"
+      }
+    },
+    "report_path": "failure-report.json",
+    "report_pin": {
+      "bytes": 12582,
+      "sha256": "5e928e020c5de67afb419b79cf51632f2bfc19f3653fabce35030250500d292d"
+    },
+    "plan_pin": {
+      "bytes": 59517,
+      "sha256": "5adeb32ad4ae7827bfb77cb957100c9ab6e1ad5e2b4e8f42d6e3a40bbe865d2f"
+    },
+    "status_pin": {
+      "bytes": 3467,
+      "sha256": "688f8b36ad363e47fbc593bafd721f7c1f66cf0d650b61659b8cbbc00001d5b6"
+    },
+    "execution_pin": {
+      "bytes": 396,
+      "sha256": "c5e3a31947687f2fbc4351c09fa5f90c50aa30e364c4cfb3f13db91174eeca24"
+    },
+    "terminal_summary_pin": {
+      "bytes": 2859,
+      "sha256": "6ac33f876541666a5ed0936e59e9efc2ab056c41f56877057299d9888a49efe7"
+    },
+    "all_frozen_pins_unchanged": true,
+    "no_retries": true,
+    "reporting_drafts_retained": "reporting-drafts"
+  },
+  "timing": {
+    "trim_seconds": 594.8099272769759,
+    "child_seconds": 621.9418409430073,
+    "peak_rss_KiB": 395532
+  },
+  "saved_audit": {
+    "status": "PASS_RETAINED_FAILURE_INTEGRITY",
+    "counts": {
+      "passed": 52,
+      "total": 52
+    },
+    "operations": {
+      "physical_calls": 0,
+      "residual_evaluations": 0,
+      "matrix_products": 0,
+      "factorizations": 0,
+      "linear_solves": 0,
+      "source_imports": 0
+    },
+    "meaning": "Integrity and faithful reporting of a failed physical attempt; not a numerical or experimental pass."
+  },
+  "trim_evidence": {
+    "make_system_returned": true,
+    "continuation_steps": 4,
+    "packet_residual": null,
+    "recorded_rank_or_residual_diagnostics": null,
+    "posttrim_network_residual_evaluations": 6797,
+    "fresh_dynamic_residual_evaluated": false,
+    "interpretation": "The source make_system returned a trim and dynamic raw base; no independent residual or numerical convergence scalar was saved in this capture. The separate full fresh dynamic residual check was not reached."
+  },
+  "returned_trim_coordinates": {
+    "alpha": -1.7024957338691826,
+    "attitude.bank": 0.002136239665117413,
+    "power.1": 7.8088778940564625,
+    "beta": 0.009843301487172775,
+    "control.2": -2.0304413679381526,
+    "control.3": -0.03532731238039357,
+    "attitude.elevation": -1.702495365846794
+  },
+  "failure_location": {
+    "exact_column_captured": false,
+    "last_completed_geometry_batch_end_exclusive": 736,
+    "inferred_failing_batch_zero_based": [
+      736,
+      751
+    ],
+    "basis": "Last geometry progress event736; source iterates groups of16 and reports only after completing each group. Exact per-column exception locals were not captured."
+  },
+  "source_guard": {
+    "exception": "GeometryDerivativeUnresolved",
+    "tolerance": 2e-08,
+    "reported_scaled_change": 2.1e-06,
+    "reported_value_is_rounded": true,
+    "maximum_refinements": 4,
+    "unchanged": true,
+    "explanation": "The moving-field refinement accuracy guard stopped dynamic linearization. Its aggregate discrepancy does not identify an exact column, receiver or field. Unsupported decompositions and unresolved accuracy are distinct source exceptions; this failure is not silently replaced by a lagged-field operator."
+  },
+  "unavailable": [
+    "completed descriptor A/M",
+    "F3 input partial B",
+    "fresh full dynamic residual check",
+    "203-frequency sweep",
+    "32-panel yaw curve",
+    "16-to32 response comparison"
+  ],
+  "unchanged_gates": {
+    "base": 1e-08,
+    "flight_path_degrees": 1e-07,
+    "harmonic_scaled_residual": 1e-07,
+    "backward_error": 1e-09,
+    "reciprocal_condition": 1e-12
+  },
+  "matched_reference": false,
+  "continuum_convergence_established": false,
+  "family_classification_changes": 0,
+  "limitations": [
+    "Three spatial levels at one chosen operating point do not alone establish continuum convergence, stability, or measured validation.",
+    "Primary source research did not identify the published operating speed/trim.30nativeft/s remains fixed for matched study, not selected for agreement.",
+    "All near-pole failures remain explicit gaps; no interpolation, pseudoinverse, adaptive frequency or retry.",
+    "Full constructor retained output-field costs are included. Only the frequency loop omits physical-output recovery and growing rich-output trees.",
+    "Native elapsed time andRSS are descriptive single observations, not controlled performance claims.",
+    "Original full residual, source-owned rank, harmonic conditioning/backward-error gates are unchanged. No source/default/hosted changes.",
+    "Only the 8/16 response evidence exists. The proposed 32-level comparison did not complete."
+  ],
+  "source_pins": {
+    "/tmp/openswing-daedalus-mesh32-20261024/plan.json": {
+      "bytes": 59517,
+      "sha256": "5adeb32ad4ae7827bfb77cb957100c9ab6e1ad5e2b4e8f42d6e3a40bbe865d2f"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/request.json": {
+      "bytes": 16657,
+      "sha256": "a9bd580f5e0b474f3e904fc610ffa3bb1bb68c6d4adedbc860c342a0eb0d21fc"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/failure-report.json": {
+      "bytes": 12582,
+      "sha256": "5e928e020c5de67afb419b79cf51632f2bfc19f3653fabce35030250500d292d"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/terminal-summary.json": {
+      "bytes": 2859,
+      "sha256": "6ac33f876541666a5ed0936e59e9efc2ab056c41f56877057299d9888a49efe7"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/results/status.json": {
+      "bytes": 3467,
+      "sha256": "688f8b36ad363e47fbc593bafd721f7c1f66cf0d650b61659b8cbbc00001d5b6"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/results/post-trim-capture.json": {
+      "bytes": 126263,
+      "sha256": "bd43961523eceb0931b0babd21873d14ea2c62716a517b7ab259a856a7f86132"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/results/post-trim-layout.json": {
+      "bytes": 3018,
+      "sha256": "a08cfd70de9b869bdc7cdaf3f368822728492a19d1e3372b3fc58b3a38f29cc5"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/results/base-unknowns.npz": {
+      "bytes": 20464,
+      "sha256": "9be25a52a63cdf40251f5bdc24fb70b07c5513e8093858a271f3853d4161a849"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/execution.json": {
+      "bytes": 396,
+      "sha256": "c5e3a31947687f2fbc4351c09fa5f90c50aa30e364c4cfb3f13db91174eeca24"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/session-closeout.json": {
+      "bytes": 1381,
+      "sha256": "012c3f1a7ab6336137279c0f695a58585721b7b777b4baea2d41e8b0af07b237"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/review/saved/report.json": {
+      "bytes": 64122,
+      "sha256": "863f5054f765e2a259a944a65585820fb1ec7d85da0b4d9e81e0d9d037daf6ab"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/review/saved/failure-plan.json": {
+      "bytes": 51568,
+      "sha256": "32e2fc0abbe71916b7b70402a38805a01683c72952d4ead86e9eb4df2cfc84d8"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/review/saved/session-closeout.json": {
+      "bytes": 1257,
+      "sha256": "23e43a0e68190a1ec44088bbc7afd4fc82d95db4e6490f3aed56863174eac339"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/review/source-review.json": {
+      "bytes": 4345,
+      "sha256": "7d29b472ca7017c7626663e4fc55fb936fd942f0f51d912fdb3805cbb70e799b"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/review/source-session-closeout.json": {
+      "bytes": 351,
+      "sha256": "090cbe9be5a95e97daf7f78e54875ab810282489d37a4381c3745b5438050ff9"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/source/openswing/geometry_tangent.py": {
+      "bytes": 38029,
+      "sha256": "123bda4604cfc2927792716c3def7d55a45beae12304ba7806e274e27189e2d6"
+    },
+    "/tmp/openswing-daedalus-mesh32-20261024/source/openswing/linear_dynamics.py": {
+      "bytes": 72981,
+      "sha256": "efc2ed0c5cdcbb97b9146a159382fa5995956b574dbdba4951621203423c0f53"
+    }
+  },
+  "physics_calls_by_publication": 0,
+  "matrix_products_by_publication": 0,
+  "linear_solves_by_publication": 0
+}

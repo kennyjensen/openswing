@@ -1,0 +1,171 @@
+Loaded structural tangent: independent energy second variation
+2026-10-10
+
+Finding
+=======
+The scoped check finds the expected axial-force geometric stiffness, including
+finite extension and the opposite signs of tension and compression. Uniformly
+twisted loaded rods show a small finite-mesh nonsymmetric internal tangent after
+the correct SO(3) coordinate pullback. Both that asymmetry and the error against
+the independently derived conservative continuum Hessian decrease approximately
+fourfold on each mesh doubling. This is consistent with the documented
+strong-form midpoint discretization. No nonconvergent structural defect was
+identified, and no production correction is proposed from this check.
+
+This is NOT validation of the actual loaded Durrant wing. There are no
+aerodynamic, equilibrium root-finding, modal, frequency, or flutter solves here.
+In particular, this does not resolve its published flutter discrepancy.
+
+Executed cases and results
+==========================
+The reference rod has length 2 m; (GKc,EA,GKn)=(120,300,80) N and
+(EIcc,GJ,EInn)=(15,6,35) N m^2. All section axes coincide. The stress-free rod is
+straight. The exact loaded base is r(s)=(0,lambda*s,0),
+R(s)=Exp(tau*s*skew(e_s)), lambda=1+P/EA, N=P e_s, M=GJ*tau e_s.
+P=(-40,0,60) N, tau=(0,0.8) rad/m, and uniform meshes N=(4,8,16,32)
+give 24 cases. The nonzero twist case reaches 1.6 rad at the tip. Root position
+and orientation are fixed. Endpoint axial force and torque exactly balance this
+base. The internal-only tangent excludes these external wrenches. Compression
+-40 N need not be stable; a Hessian sign change is not a failed equilibrium.
+
+Four root-clamped smooth virtual fields are used. The first two have transverse
+rotation theta=s/L with matching shear-free translation at the untwisted base;
+the third is a pure twist; the fourth has independent polynomial translation
+and rotation up to degree three. The fourth field produces nonzero torque
+prestress terms, so testing only the first two fields would miss that part.
+Actual field definitions, every 4x4 matrix, derivative steps, and reference
+material/preload decomposition are retained in the scripts and result JSON.
+
+The final executed run passes seven narrowly scoped checks. Maximum errors:
+- Exact loaded base endpoint wrenches: 2.13163e-12 in the stated SI units.
+- Mixed constitutive compatibility: 6.10623e-16 dimensionless residual.
+- Exact finite-mesh axial bending stiffness: 1.79850e-9 N m.
+- Production tangent change between perturbations 2e-5 and 5e-6: 2.69785e-8 N m.
+- Independent analytic Hessian versus nonlinear continuum energy differences
+  at perturbation 1e-4: 1.52337e-6 N m. The full 1e-3,3e-4,1e-4 ladder remains.
+- Worst continuum-relative Frobenius difference at 32 elements: 3.53059e-4.
+
+The four virtual coordinates are dimensionless; their translation fields carry
+meters and their rotation fields radians. Thus their Hessian entries have units
+N m. They are not generalized eigenvalues or flutter damping rates.
+
+Example P=-40 N, tau=0.8 rad/m: continuum relative errors for N=4,8,16,32 are
+0.02252059,0.00564441,0.00141201,0.000353059. The largest antisymmetric entry is
+0.277771,0.0698526,0.0174890,0.00437386 N m. P=60 N at zero twist has the expected
+positive geometric contribution; P=-40 N has the expected negative contribution.
+With no axial force and no twist, the preload contribution is exactly zero.
+
+Independent derivation
+======================
+Let e=R^T r'-e_s, kappa=axial(R^T R'), and K=diag(D,B) where
+D=diag(GKc,EA,GKn), B=diag(EIcc,GJ,EInn). The conservative stored energy is
+
+  U = (1/2) integral [e;kappa]^T K [e;kappa] ds.
+
+For variations r(q)=r0+sum(q_i*u_i) and
+R(q)=Exp(skew(sum(q_i*theta_i))) R0, define
+
+  a_i = R0^T (u_i' - theta_i cross r0'),
+  b_i = R0^T theta_i',
+  a_ij = R0^T [ (theta_i cross (theta_j cross r0')
+                 + theta_j cross (theta_i cross r0'))/2
+                - theta_i cross u_j' - theta_j cross u_i' ],
+  b_ij = -(1/2) R0^T [theta_i cross theta_j' + theta_j cross theta_i'].
+
+Then the internal continuum energy Hessian is
+
+  H_ij = integral ([a_i;b_i]^T K [a_j;b_j] + n dot a_ij + m dot b_ij) ds.
+
+The final two terms are the loaded geometric/prestress terms. They are computed
+and retained separately from material terms. This reference module imports only
+NumPy. It does not call OpenSwing beam kinematics, compliance, residuals,
+linearization, or eigenvalue routines. Its second variation is separately
+checked by central differences of nonlinear continuum energy, using the exact
+right Jacobian in kappa(q)=kappa0+R0^T Jr(w) w'. All integrals use 32-point Gauss
+quadrature over the uniform rod and analytic field derivatives.
+
+For the untwisted base and each shear-free bending field, independent integration
+gives H_infinity=EI/L+P*lambda*L/3. Midpoint integration of its geometric term gives
+
+  H_N = EI/L + P*lambda*L*(1/3 - 1/(12*N^2)).
+
+This distinguishes an omitted axial prestress term from ordinary quadrature
+error. For example, P=60 N adds 48 N m to the continuum bending Hessian, whereas
+P=-40 N contributes -23.111111... N m. Production matches H_N within 1.8e-9.
+
+Production measurement and coordinate caution
+============================================
+check_loaded_tangent.py builds actual StaticNetwork objects from the explicit
+ASW text. Each perturbation exactly eliminates the mixed constitutive equations
+using the actual section compliance; it then calls the unmodified production
+residual. There are no external loads, mass, gravity, aerodynamic conditions,
+or reaction values in this internal-only measurement. The force/moment rows
+therefore give the actual internal restoring wrenches. The retained compatibility
+residual confirms that the condensed tangent lies on the constitutive manifold.
+
+The virtual spatial rotation rate is Jl(w)*delta(w), so the physical moment
+covector is pulled back with Jl(w)^T before finite differentiation. Omitting this
+term at a loaded state can create coordinate-induced antisymmetry even for a
+conservative internal energy. The reported finite-twist antisymmetry remains
+after this correction; it decreases quadratically under mesh refinement.
+An imposed constant spatial dead torque itself is not assumed to arise from a
+global orientation potential. Thus no external-load Hessian or physical dynamic
+stability inference is made from the internal-only symmetry check.
+
+Relationship to primary equations and existing evidence
+======================================================
+ASWING steady formulation equations 16-20 give symmetric section stiffness and
+its compliance form. Equations 46-47 give spatial force and moment equilibrium;
+48-56 describe ASWING's own discrete averaging. The reference energy above is a
+derivation from those continuum constitutive and kinematic relations, not a claim
+that ASWING uses this finite-element energy. Source URL:
+https://web.mit.edu/drela/Public/web/aswing/asw_theory.pdf
+The exact local PDF/text hashes are retained in results-final.json when available.
+Official documents are not redistributed in this archive.
+
+OpenSwing network.py states that its SO(3) midpoint equations differ from the
+documented Euler-angle discrete system. docs/NUMERICS.md already warns that its
+strong-form finite-rotation internal beam equations do not establish nonlinear
+energy conservation merely from mass/load virtual-power consistency. This new
+test quantifies that limitation in a genuinely preloaded continuum limit. It
+does not repeat the earlier external load-transfer virtual-work check or the
+literal aerodynamic tangent reproduction as independent physics proof.
+
+Limitations and next discriminating cases
+=======================================
+Only four smooth virtual fields of these exact uniform loaded rods are checked.
+No complete operator norm, short-wavelength behavior, assembled descriptor,
+eigenvalue, flutter boundary, or dynamic energy conservation claim follows.
+The section is finitely extensible and shearable, with zero axis offsets and
+diagonal stiffness. Actual Durrant beams instead involve axis offsets, coupled
+bending, piecewise mass, rigid compliance directions, nonuniform loaded bending
+and torsion, and aerodynamic feedback. Those are outside this 24-case proof.
+The synthetic high twist cannot quantify actual Durrant discretization error.
+
+An unexecuted next-case specification is in next-cases.json. It defines a
+continuum incremental boundary-value problem about the same exact axial/twist
+base, giving complete six-input tip compliance for an actual loaded cantilever.
+Production condensed matrix solves and all eigenvalue studies remain unexecuted.
+The actual Durrant loaded-state continuum tangent remains a further separate
+task and must preserve its measured preload and all section offsets/rigid limits.
+
+Reproduction
+============
+The archive contains the exact 58 production Python modules, the independent
+reference, the adapter, actual final result, terminal record, and byte manifest.
+Run the pure byte audit first:
+
+  python verify-bundle.py
+
+Then with an environment providing NumPy/SciPy:
+
+  OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  PYTHONDONTWRITEBYTECODE=1 python check_loaded_tangent.py \
+    --repo production --output replay.json
+
+Or supply --repo /path/to/aswing to measure another kernel with newly recorded
+source pins. Missing official reference documents only omit their evidence pins;
+they are not needed by the numerical calculation. This is not a full regression.
+
+No main repository source, test, documentation, or distribution file was edited
+by this investigation. All work remained under its dedicated /tmp directory.

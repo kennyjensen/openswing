@@ -1,0 +1,60 @@
+{
+  "source": "Independent continuous finite-strain rod tangent plus numerical Biot-Savart quadrature; no production imports in the reference",
+  "frequencies_Hz": [
+    0.1,
+    1.0,
+    1.15737773741517
+  ],
+  "relative_limit": 0.01,
+  "groups": 31,
+  "inputs": 2,
+  "fine_checks": 186,
+  "native_state_used_for_expected": false,
+  "production_parameters_fitted": false,
+  "files": {
+    "fixture.json": {
+      "bytes": 6514,
+      "sha256": "cb290c5900cf0732ab490cbdc4a1f18a3fdc5772cb695512f68a9559666c4510"
+    },
+    "model.asw": {
+      "bytes": 2185,
+      "sha256": "3153c31a8912b67f5331f945bff50222c95080a7056fd21fee70577eda36b572"
+    },
+    "manufacture-16.npz": {
+      "bytes": 1959,
+      "sha256": "6088bbf32ad60e7cad1b2258e7ac6f40b251a5e4eac6e5b8e5b17067068a3407"
+    },
+    "expected-16.npz": {
+      "bytes": 154274,
+      "sha256": "bf8edd6207a3271d9eee60395683b5dbf93b9cef13d9319a7dd55d426c33b89e"
+    }
+  },
+  "reference_sources": {
+    "scripts/free_elastic_mechanics.py": {
+      "bytes": 24844,
+      "sha256": "64742ff9c63bddddf70260881fee0a6ff008e7622f81981654f2738cd5f7e0f0"
+    },
+    "scripts/free_elastic_reference.py": {
+      "bytes": 8675,
+      "sha256": "8aa4c0bbde99f97c921c152da7789c7a7874b0b30afccc0c5ab95c6b870f3848"
+    },
+    "scripts/free_elastic_aero.py": {
+      "bytes": 9592,
+      "sha256": "253e365afb2c56d52ffd1dc674ce95687e849b6e1d07a00d2fa8394d04212e15"
+    },
+    "scripts/elastic_fin_aero.py": {
+      "bytes": 16652,
+      "sha256": "f3983491ca86951531e8ba5933de78a0e696883820f61d4162cc5f568ff56703"
+    },
+    "scripts/elastic_fin_kinematics.py": {
+      "bytes": 6454,
+      "sha256": "45fbde915ed61c6be2c26eea8970e53c2d334b798752eb401c3c5dc54bc574be"
+    }
+  },
+  "evidence": "docs/validation/free-elastic-coupling-20261025-evidence.zip",
+  "limitations": [
+    "Straight tensile preload, not finite-curvature preload",
+    "Counterloads manufactured independently per discrete aerodynamic mesh",
+    "Does not validate the Daedalus historical operating point or Bode match"
+  ]
+}

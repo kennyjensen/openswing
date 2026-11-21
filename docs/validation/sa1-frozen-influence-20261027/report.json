@@ -1,0 +1,224 @@
+{
+  "status": "COMPLETE_NO_CONFIRMED_OPERATOR_DEFECT_IN_FROZEN_STRAIGHT_SA1_REPLAY",
+  "scope": {
+    "saved_states": 6,
+    "rows": [
+      0,
+      1,
+      10
+    ],
+    "intervals": [
+      200,
+      400
+    ],
+    "circulation": "pointwise",
+    "PG_Mach": 0,
+    "source_inputs": "unchanged literal SA1",
+    "new_physical_solves": 0,
+    "production_imports": 0,
+    "production_changes": 0,
+    "archived_reference_validation": false
+  },
+  "source_pins": [
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.asw",
+      "bytes": 4427,
+      "sha256": "4c7a55235973171749afac41741e11792fc5b4fbf9e072aaee3bc57c6fc658bd"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1_CL.txt",
+      "bytes": 1636,
+      "sha256": "462010781b4f65aa8f45d70d6923eb90d638e2afdac67b0c6ec84726df4a4f7d"
+    },
+    {
+      "path": ".reference/isae-validation/f62943df20e9e4d7d9f50e070477b22426b5f865/1 - Aerodynamics/SA - Steady Aerodynamics Cases/SA - 1 - Straight Wing - Lift And Drag Up to Stall/Aswing_Simulation_V5_96_Only/SA_1.sh",
+      "bytes": 309,
+      "sha256": "9d7b0dd1817850e22af370c59fc20f4d0f7da7313160fca3cc1e5684e35d6f82"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "bytes": 202732,
+      "sha256": "b86015dbf359c597a1a4a0f831221467c4d12523f87cf9dbf6f880f467916203"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "bytes": 145039,
+      "sha256": "703bdcdee068d25991c37225f1942452e7366d16786f3db8cbc4b934db42269a"
+    },
+    {
+      "path": "openswing/aero.py",
+      "bytes": 62537,
+      "sha256": "46620fa30ea5ccc3515f382f1d8e69c56eaf52a4add5d079f807b7fcdba06533"
+    },
+    {
+      "path": "openswing/frozen_influence.py",
+      "bytes": 7839,
+      "sha256": "ce235e930a906c5807c0bb1be992a02c6a151b264f417a768ce01c262d1e6f46"
+    },
+    {
+      "path": "openswing/trefftz.py",
+      "bytes": 6459,
+      "sha256": "baf4ef52656092dd31aebea514c9ede16106bec5d311e20fe73b79750960a0d4"
+    }
+  ],
+  "source_equations": [
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 16,
+      "equations": "67,69,70",
+      "first_line": 770,
+      "last_line": 787,
+      "excerpt": "The aerodynamic lift vector then follows from the vector form of the Kutta-Joukowsky theorem,\n                                               \u20d7flift    = \u03c1 \u0393 \u20d7V  \u00d7 \u02c6s                                        (surface beam)       (67)\n\nwhere \u20d7V   is  evaluated  using  (64)  at  the  bound  vortex  location \u20d7rh.v.,  de\ufb01ned  later.   The  local  cir-\nculation  \u0393  will  be  determined  via  a  lifting-line  formulation  which  employs  the  Prandtl-Glauert\ntransformation, so that this lift force accounts  for compressibility.  For a fuselage beam with local\nradiusR, the lift force is determined from slender-body theory using the beam-normal velocity \u20d7V\u22a5 .\n\n                                              \u20d7flift    = \u03c1\u20d7V\u22a5  (\u20d7V  \u00b7\u02c6s) 2\u03c0RdRds                         (fuselage beam)      (68)\n\n                                               \u20d7V\u22a5     =  \u20d7V  \u2212  (\u20d7V  \u00b7\u02c6s) \u02c6s                                                                   (69)\n\nIn  this  case \u20d7V  is  evaluated  at \u20d7ra  at  the  center  of  the  cylindrical  beam.   The  pro\ufb01le  drag  force  is\nresolved  into  a  friction-drag  contribution  acting  along  the  local  net  velocity,  and  a  pressure-drag\ncontribution acting perpendicular to the beam\u2019s spanwise axis.\n      \u20d7fdrag    =    1                                                                (\u20d7V  \u00b7\u02c6n)2\n                     2\u03c1 |\u20d7V |\u20d7V   \u00afc cdf   +   12\u03c1 |\u20d7V\u22a5 |\u20d7V\u22a5   \u00afc cdp  +  2\u03c1 \u20d7V\u22a5|\u20d7V\u22a5 |          c.p. \u00afc         (surface beam) (70)\n      \u20d7fdrag    =    12\u03c1 |\u20d7V |\u20d7V  2Rcdf  +  12\u03c1 |\u20d7V\u22a5 |\u20d7V\u22a5  2Rcdp                                               (fuselage beam)  (71)"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 17,
+      "equations": "72",
+      "first_line": 790,
+      "last_line": 812,
+      "excerpt": "section pro\ufb01le drag.  For a fuselage, cdf  is comparable to the skin friction coe\ufb03cient Cf , and cdp  is\nthe drag coe\ufb03cient of a circular cylinder, typically 1.2 for   subcritical \ufb02ow, and 0.4 for supercritical\n\ufb02ow.  The third term in the surface-beam drag force enters in only when the \ufb02ow-tangency velocity\n\u20d7V  \u00b7\u02c6n is nonzero, which occurs when the local c\u2113  exceeds the stall limits.  This constitutes a simple\npost-stall model, and gives fdrag \u2243\u03c1V 2\u22a5  \u00afc when the local incidence angle approaches 90\u25e6.\n    Excluding the deep-stall condition, the drag forces controlled bycdf  andcdp  usually contribute\nvery little to structural loads, but are included here since they do not impact the calculation  cost\nsigni\ufb01cantly, and can give overall aircraft drag estimates.  The fuselage lift forces can have signi\ufb01cant\nimpact on the overall aircraft pitching moment.\n    The aerodynamic pro\ufb01le moment vector is approximated by assuming that it is in\ufb02uenced only\nby the velocity component \u20d7V\u22a5   perpendicular to the wing\u2019s spanwise axis.\n\n                   \u20d7mlift  =  (\u00afc/4 \u2212 \u00afxo) \u02c6c \u00d7 \u20d7flift  +  12\u03c1 |\u20d7V\u22a5 |2 \u00afc2cm \u02c6s                     (surface beam)              (72)\n\n                                                                  16\n\nPAGE 17\nThe  \ufb01rst term  is  simply  the  contribution  of  the  lift  force  acting  at  the  quarter-chord  point,  with\n\u00afxo  being  the  chordwise  location  of  the c,s,n  origin,  as  shown  in  Figure  16.   The  second  term\ninvolves  the 2-D section pitching moment coe\ufb03cient cm, which is de\ufb01ned as a constant part, plus\ncontributions from control surface or \ufb02ap de\ufb02ections \u03b4F .  Unsteady Theodorsen-type terms will be\nincluded in the apparent-mass contributions.\n                                          (                                           )       1"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 32,
+      "equations": "155-157",
+      "first_line": 1615,
+      "last_line": 1629,
+      "excerpt": "    The location  of  the bound vortex  segment  midpoint \u20d7rh.v.,  where the lift force  is  de\ufb01ned to  be\nlocated, is at the quarter-chord point along the \u03be  axis,\n\n                                                   \u20d7rh.v.  = \u20d7ra  +  \u00afc/4\u2212\u00afxo     \u20d7\u03be                                                        (155)\n                                                                        |\u20d7\u03be\u00d7\u02c6s|\n\nThe location of the control point\u20d7rc.p. is then directly \u201cdownstream\u201d along the same \u20d7\u03be  direction,\n\n                                                   \u20d7rc.p.  = \u20d7rh.v.  + h \u00afca      \u20d7\u03be                                                        (156)\n                                                                          |\u20d7\u03be\u00d7\u02c6s|\n\nwhere h is chosen so that the local incompressible 2-D section lift-curve slope is reproduced.\n                                                           h  =    1   dc\u2113\n                                                                   4\u03c0  d\u03b1                                                                   (157)\nFor a thin airfoil, h = 1/2, which is also the value used by the standard vortex-lattice method."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 33,
+      "equations": "160-161",
+      "first_line": 1658,
+      "last_line": 1682,
+      "excerpt": "    The  overall  in\ufb02uence  coe\ufb03cient  function  for  the k\u2032th  circulation  mode  is  then  obtained  from\nthe Biot-Savart law applied to all the horseshoe vortices with strengths corresponding to unit Ak.\n                        \uf8ee            \uf8f9 \uf8f1\uf8f4\uf8f2         \uf8fc\uf8f4\uf8fd          \uf8ee            \uf8f9 {   1                              }\n                        \uf8ef\uf8f0     \u00af\u00afPT  \uf8fa\uf8fb   \u2202\u03c6/\u2202\u03be                 \uf8ef\uf8f0     \u00af\u00afPT  \uf8fa\uf8fb       I\u22121\u2211            \u222b d\u20d7\u2113 \u00d7\u20d7\u03b4\n               \u20d7vk  =                  \uf8f4\uf8f3\u2202\u03c6/\u2202\u03b7     \uf8f4\uf8fe (\u20d7r)  =                     4\u03c0       sin(k\u03b8a)         \u03b43               (160)\n                                          \u2202\u03c6/\u2202\u03b6       k                               i=1\n\nThe  vortex  element d\u20d7\u2113  belongs  to  the  horseshoe  vortex  spanning  the i...i+1  stations,  and \u20d7\u03b4  ex-\ntends  from  the  vortex  element  to  the  \ufb01eld  point,  as  shown  in  Figure  15.  Both  are de\ufb01ned  in  the\ntransformed Prandtl-Glauert space.\n\n                        d\u20d7\u2113  = d\u20d7rP   =   \u00af\u00afPd\u20d7r          \u20d7\u03b4  = \u20d7rP \u2212\u20d7rP (\u2113)  =   \u00af\u00afP {\u20d7r \u2212\u20d7r(\u2113)}\n\n    For evaluating the righthand side integrals for surfaces which do not contain the control point\nin  question,  the  induced  velocity  expression  for \u20d7vk  is  modi\ufb01ed  by  incorporation  of  a  \ufb01nite  vortex\ncore size \u03b5.                             \uf8ee           \uf8f9 {   1                  \u222b   d\u20d7\u2113 \u00d7\u20d7\u03b4        }\n                                                              I\u22121\u2211\n                                \u20d7vk   =  \uf8f0    \u00af\u00afPT   \uf8fb             sin(k\u03b8a)                                                  (161)\n                                                          4\u03c0  i=1                (\u03b42 +\u03b52)3/2\n\nChoosing \u03b5 = max (\u00afca/4,  \u2206s)  results  in  the singular  velocity  \ufb01eld  of  the  trailing  vortex  \ufb01laments\nbeing  smeared  into  a  continuous  vortex  sheet  whose  thickness  is  some  reasonable  fraction  of  the\nchord.  This is essential to produce well-behaved lift forces on any surface immersed in the vortex\nwake of another upstream surface.  It also weakens the dependence of the local wake velocity  \ufb01eld\non its geometry, justifying the lagging of the wake geometry in the Newton iteration cycle."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 36,
+      "equations": "176 and fixed-jig option",
+      "first_line": 1801,
+      "last_line": 1826,
+      "excerpt": "4.6    Linearization\n\nUsing  the wind-aligned  Prandtl-Glauert  transformation  results  in  overall  induced velocity  having\nthe following dependence:\n\n                 K\u2211\n                     \u20d7vkAk  + \u20d7wvolV\u221e     =  \u20d7Vind(\u20d7r  ; Ak V\u221e  \u03b1wind \u03b2wind MPG xi yi zi )             (176)\n                k=1\nIn  practice,  only  the  dependence  on Ak  needs  to  be  implicitly  treated  in  the  coupled  struc-\ntural/aerodynamic  solution  procedure  for  an  isolated  wing.   This  is  because \u20d7vk  hardly  changes\nbetween  Newton  iterations,  and  so  all  variables  besides Ak  have  a  very  weak  in\ufb02uence.   These\nother  variables  can then be safely  lagged  by one Newton  iteration  with little  e\ufb00ect  on the overall\nquadratic convergence.  Without the implicit  treatment the 12I \u00d7 12I  structural Jacobian  matrix\nhas  a  bandwidth  of  at  most  24,  and  is  very  rapidly  solved  by  a  block-tridiagonal  solver.   With\nthe exact  implicit treatment  the matrix  would become 1/4 full (the 3 xi,yi,zi  variables out of 12\nfor  each  beam  would  have  global  in\ufb02uence  on  all  beams),  resulting  in  an  enormous  increase  in\ncomputational cost.  Hence, a full implicit treatment would be counterproductive.\n    For multiple-surface con\ufb01gurations, the dependence on \u20d7r, V\u221e  , \u03b1wind, \u03b2wind, MPG, xi, yi, zi  can\nbe considerably greater, since these quantities then have in\ufb02uence on the relative spacing between\nthe  vortex  wake  and  the  downstream  surface  which  is  immersed  in  the  wake\u2019s  velocity  \ufb01eld.   As\na  compromise,  only  the  dependence  on Ak  and  on  the  freestream V\u221e  , \u03b1wind, \u03b2wind  is  taken  into\naccount, which still retains near-quadratic convergence for typical cases.  Only the e\ufb00ect of  relative\nde\ufb02ections between  aerodynamically  interacting surfaces  is lagged  in the iteration  scheme.  In the\nmost-simpli\ufb01ed case, the\u20d7vk and \u20d7wvol in\ufb02uence functions can be precomputed using the jig geometry\nx0i,y0i,z0i, and\u03b1wind =\u03b2wind =0, which is equivalent to the standard prescribed-wake vortex lattice\nmethod, and is appropriate for benign \ufb02ow conditions and small deformations."
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 40,
+      "equations": "202-204",
+      "first_line": 2041,
+      "last_line": 2055,
+      "excerpt": "5.7    Separation  and  stall  modeling\n\nThe local \ufb02ow tangency  requirement (200)  must be modi\ufb01ed if local stall occurs.  An appropriate\nmodi\ufb01cation  is  to  introduce  a  \ufb02ow  tangency  \u201cleakage\u201d  velocity \u20d7Vc.p. \u00b7\u02c6nc.p.  \u2044=  0  which  models  the\nsuction-side displacement e\ufb00ect of the separating boundary  layer, as illustrated in Figure 18.\n     In  accordance  with  in\ufb01nite  swept-wing  theory,  the  leakage  velocity  is  made  a  function  of  the\nlocal section lift coe\ufb03cient\n                                                              c\u2113  =   2\u0393\u00afcV\u22a5                                                                      (202)\n\nbased on the section-normal relative speed \u00afcV\u22a5 .  The modi\ufb01cation occurs only outside the speci\ufb01ed\nc\u2113min and c\u2113max  limits.  A suitable form for the modi\ufb01ed equation which replaces (200) is\n\n                                \u20d7V (\u20d7rc.p.) \u00b7\u02c6nc.p.    \u2212  V\u22a54\u03c0h Ksfstall(c\u2113)   =   0                                                  (203)\n\n                                            fstall    =    \u2206 c\u2113  log 1 + exp[(c\u2113 \u2212c\u2113max)/\u2206 c\u2113]1 + exp[(c\u2113min \u2212c\u2113)/\u2206 c\u2113]                               (204)"
+    },
+    {
+      "path": ".reference/asw_theory.txt",
+      "page": 49,
+      "equations": "207-211",
+      "first_line": 2474,
+      "last_line": 2495,
+      "excerpt": "    It is useful to  compute the total  induced drag, lift,  side force, and rolling moment coe\ufb03cients\nin the \u03b7-\u03b6  Tre\ufb00tz Plane oriented perpendicular to the wind direction  \u02c6\u03be.\n                                                                \u222b\n                                        CLi    =          2\u03c1V 2\u221e Sref\u03c1\u0393 V\u221e   \u02c6\u03b6 \u00b7d\u20d7A                                                      (207)\n                                                                \u222b\n                                        CY i    =          2\u03c1V 2\u221e Sref\u03c1\u0393 V\u221e   \u02c6\u03b7 \u00b7d\u20d7A                                                      (208)\n                                                                \u222b\n                                        CDi    =          2\u03c1V 2\u221e Sref\u03c1\u0393 \u20d7Vind \u00b7d\u20d7A                                                       (209)\n                                                                \u222b\n                                       CM i    =          2\u03c1V 2\u221e Sref\u03c1\u0393  \u02c6\u03be \u00b7 {0 \u03b7 \u03b6}T\u00d7d\u20d7A                                         (210)\n\n\nwith d\u20d7A  being  the  wake  trace  area  element  with \u03b7  and \u03b6  components.   In  general, CY i  and CLi\nwill  be  quite  close  to  the  force  coe\ufb03cients  obtained  via  inte gration  of \u20d7flift  on  the  con\ufb01guration.\nHowever, the total force also includes \u20d7fdrag  contributions if these are not aligned with \u20d7V\u221e  , such as\nin  the  case  of  a  fuselage  beam  at  an  angle  of  attack.   The  latter  will  in  reality  deposit  a  vortex\nwake in the Tre\ufb00tz Plane, but representing this is beyond the scope of the ASWING formulation,\nso that its contribution does not appear in the Tre\ufb00tz Plane calculation.\n    The span e\ufb03ciency e is de\ufb01ned from the Tre\ufb00tz Plane forces using the same referenc e areaSref\nand  some  reference  span bref.   Inclusion  of  the  side  force CY  makes e  independent  of  coordinate\norientation.                                                  Sref   CL2i  +CY 2i\n                                                   e  =   1\u03c0  b2ref      CDi                                                               (211)"
+    },
+    {
+      "path": ".reference/aswing_doc.txt",
+      "page": null,
+      "equations": "K/F",
+      "first_line": 2293,
+      "last_line": 2310,
+      "excerpt": "Fast,Slow Vortex-Lattice Model - \"F\"\n------------------------------\nThe \"F\" command toggles the \"fast\" and \"slow\" options.  In the \"fast\"\noption, the VL influence matrices are held frozen at their values based \non the undeformed-state geometry and zero alpha and beta.  This is roughly \nequivalent to the treatment used by most standard panel and vortex lattice \nmethods with fixed wake geometries.  Here, this \"fast\" option may give\nconsiderable speedup in the calculation compared to the \"slow\" option \nwhich uses wind-aligned trailing vorticity.  The aligning consists of\nrecalculation of the influence matrices based on the latest geometry, \nalpha, beta (and perhaps Mach number -- see below) after every Newton \niteration.  This requires significant extra CPU time.  The recalculation \nalso prevents true quadratic convergence, and hence requires somewhat \nmore Newton iterations for any given situation.\n\nThe \"slow\" option, which is physically more realistic, might be appropriate \nif extreme deformations and/or flight conditions are being computed, or if \nthere is significant nearby interaction between surfaces and wakes, as in "
+    }
+  ],
+  "evidence_pins": [
+    {
+      "path": "docs/validation/sa1-frozen-influence-20261027/oracle.py",
+      "bytes": 10095,
+      "sha256": "7502d1c485f8b177600c37962bff5383013b487fd37fe514e4a38f2f1a5bdae0"
+    },
+    {
+      "path": "docs/validation/sa1-frozen-influence-20261027/oracle-tests.py",
+      "bytes": 3833,
+      "sha256": "42993cd77603655b470f835335077940fb6afd67e4a62be0a6132ffeb00a64f0"
+    },
+    {
+      "path": "docs/validation/sa1-frozen-influence-20261027/replay.json",
+      "bytes": 44296,
+      "sha256": "08f45a172c4fe93b5514996052b46c33d4571d134e6690e0ac92266f87b275c7"
+    },
+    {
+      "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/protocol.json",
+      "bytes": 34701,
+      "sha256": "e528a1a1d258e5080196f2dbd6d954312f67fb904c398f69ac53f3ab3186a3f7"
+    },
+    {
+      "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/driver.py",
+      "bytes": 4434,
+      "sha256": "995a62a1b5e819526b171fbca588abc5115a5f3c2bde68360409cb7236b26e03"
+    },
+    {
+      "path": "artifacts/isae/sa1-frozen-diagnostic-20261027/summary.json",
+      "bytes": 2578,
+      "sha256": "e0515083df094e89a4d9afd7bf173660e401f67c9e2abb535f4a52f6d10cb879"
+    }
+  ],
+  "verification": {
+    "all_six_packets_match_prospective_job_declarations": true,
+    "all_original_input_pins_match": true,
+    "all_frozen_kernel_pins_match_current": true,
+    "kernel_file_count": 123,
+    "five_scalar_sanity_checks": {
+      "status": "passed",
+      "count": 5,
+      "seconds": 0.017,
+      "terminal_exit": 0,
+      "terminal_chunk": "5d690b",
+      "scope": "Independent Biot-Savart line integration, actual/fixed wind distinction, projected-force identities, reflection/residual parity, profile direction. No Gamma solve."
+    },
+    "saved_field_replay": {
+      "terminal_exit": 0,
+      "terminal_chunk": "ee677b",
+      "seconds": 1.182767553
+    }
+  },
+  "maximum_absolute_differences": {
+    "velocity": 4.565237077258644e-13,
+    "hv": 2.220446049250313e-16,
+    "force": 1.2079226507921703e-13,
+    "section_moment": 3.552713678800501e-15,
+    "length": 6.938893903907228e-18,
+    "cl": 6.661338147750939e-16,
+    "speed": 8.526512829121202e-14,
+    "integrated_force": 9.094947017729282e-13,
+    "integrated_moment": 2.3678238189606127e-12,
+    "circulation_local_residual": 2.955650106472753e-14,
+    "circulation_residual": 2.955650106472753e-14,
+    "trefftz_velocity": 3.75699471533153e-12,
+    "trefftz_strip_drag": 4.0900616227190767e-13,
+    "trefftz_transverse_force": 1.3642420526593924e-12
+  },
+  "maximum_coefficient_difference": 6.106226635438361e-15,
+  "definitions": {
+    "actual_wind": "e=(cos(alpha),0,sin(alpha))",
+    "actual_lift_axis": "l=(-sin(alpha),0,cos(alpha))",
+    "fixed_influence_wind": "e0=(1,0,0)",
+    "geometry": "r_hv=(c/4,y,0); r_cp=(c/4+c*a0/(4*pi),y,0)",
+    "scalar_kernel": "w(d)=[(1+hypot(d,y-b)/d)/(y-b)-(1+hypot(d,y-a)/d)/(y-a)]/(4*pi); w(0)=[1/(y-b)-1/(y-a)]/(4*pi)",
+    "velocities": "V_hv=(U*cos(alpha),0,U*sin(alpha)+sum(Gamma*w(0))); V_cp dot n=U*sin(alpha)+sum(Gamma*w(h))",
+    "local_cl": "2*Gamma/(c*norm(V_hv))",
+    "residual": "(V_cp dot n - norm(V_hv)/a0*Ks*fstall)/U",
+    "lift": "rho*Gamma*(-V_hv_z,0,V_hv_x)*ds",
+    "profile": "rho*c*(.5*(Cdf+Cdp)*norm(V_hv)+2*(V_cp dot n)^2/norm(V_hv))*V_hv*ds",
+    "moment": "section My=-(c/4)*lift_z; total moment includes beam position cross total force",
+    "fixed_wake_CLi": "2*sum(Gamma*ds)/(U*S)",
+    "fixed_wake_CDi": "-2*sum(Gamma*w_hv*ds)/(U^2*S)",
+    "fixed_wake_velocity": "(0,0,2*w_hv)",
+    "near_circulation_CL": "CLi-sin(alpha)*CDi",
+    "near_circulation_CD": "cos(alpha)*CDi",
+    "Cm": "-cos(alpha)*CLi/4"
+  },
+  "findings": [
+    "The fixed-wake velocity and actual freestream are kept distinct. All six retained velocities, local residuals, physical force/moment laws and integrated coefficients agree with an independent scalar replay to roundoff.",
+    "Under frozen influences the current-wake identities CDi_near=CDi and CL_circulation=CLi do not hold. The derived cosine/sine identities explain their differences without an operator defect.",
+    "The fixed-wake transverse-force vector can be projected onto actual wind axes as a separate diagnostic; it is not silently relabelled as the reported fixed-wake CLi.",
+    "Steady section4.6 and guide K/F explicitly freeze the influence functions at zero wind angles. Section8.1 does not separately prescribe the historical exporter convention under that switch. The oracle reproduces the explicitly reported zero-angle wake diagnostic but does not authenticate archived ASWING exporter axes.",
+    "This is saved-field consistency evidence, not a new circulation solution or archived-reference pass; no target-dependent adjustment was made."
+  ]
+}

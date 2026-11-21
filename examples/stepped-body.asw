@@ -1,0 +1,38 @@
+! Original OpenSwing verification geometry: a concentric stepped slender body.
+! Radius jumps are weak limits of smooth transitions in the documented body law.
+! This verifies source/force integration, not separated flow over blunt faces.
+! With Cdf=Cdp=0 in uniform flow: zero net force, M_y=rho*Vol*V_x*V_z.
+Name
+Stepped slender-body verification
+End
+Unit
+L 1 m
+T 1 s
+F 1 N
+End
+Constant
+9.80665 1.225 340.294
+End
+Reference
+4 1 4
+0 0 0
+End
+Ground
+1 0 0
+End
+Beam 1
+Stepped body
+ t x
+0 0
+4 4
+ t radius
+0 0
+1 0
+1 .2
+3 .2
+3 0
+4 0
+ t Cdf Cdp
+0 0 0
+4 0 0
+End

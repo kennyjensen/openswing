@@ -1,0 +1,121 @@
+{
+  "status": "COMPLETE_WITH_RETAINED_CAPTURE_HARNESS_FAILURE",
+  "updated_utc": "2026-10-25T12:36:37.540250+00:00",
+  "first_attempt": {
+    "status": "RETAINED_CAPTURE_HARNESS_FAILURE",
+    "session": 17380,
+    "terminal_chunk": "e4ee01",
+    "exit_code": 1,
+    "reaped": true,
+    "completed_aerodynamic_calls": 1,
+    "retained_states": 0,
+    "post_solve_field_products": 0,
+    "error": "TypeError: bad operand type for abs(): 'list'",
+    "cause": "Apparent-force output is a JSON list; diagnostic assertion needed np.asarray.",
+    "correction": "Convert to NumPy array only in the diagnostic assertion; production source and physics unchanged.",
+    "script_source_sha256": "ed19c39a8e1c261b7153e9aec0b9185b757fc18b72ae578df64ce3a3a0346bf5",
+    "plan": ".reference/isae-sa6-local/65df37b5ffffeda2c740e631a4b2c119cfe4d0b06fc93e570bbf7cc1a56ce8e0/plan.json"
+  },
+  "first_attempt_source": "\"\"\"Retain local fields at a bounded subset of the corrected SA-6 comparison.\n\nThe public aerodynamic evaluator and its existing read-only capture hook are\nused without equation changes. All five coefficients must reproduce the prior\nsingle-aileron calculation. Saved CP and force-point fields allow a separate\nreader to reconstruct the documented sectional loads without an aircraft solve.\n\"\"\"\nfrom pathlib import Path\nimport hashlib\nimport importlib.util\nimport json\nimport sys\nimport time\n\nimport numpy as np\n\nROOT = Path(__file__).resolve().parents[1]\nsys.path[:0] = [str(ROOT), str(ROOT/'scripts')]\nfrom openswing.aero import FlightCondition, evaluate_aerodynamics\nfrom openswing.geometry import model_meshes\nfrom openswing.structured_static import IterationFields\n\nspec = importlib.util.spec_from_file_location('single_aileron', ROOT/'scripts/compare-isae-sa6-single-aileron.py')\nSINGLE = importlib.util.module_from_spec(spec)\nspec.loader.exec_module(SINGLE)\nDEST = ROOT/'docs/validation'\nSHA = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()\n\n\ndef write(path, value):\n    path.write_text(json.dumps(value, indent=2, allow_nan=False)+'\\n')\n\n\ndef solve(model, sign, condition_spec, baseline):\n    condition = FlightCondition(speed=20, alpha=condition_spec['body_pitch_deg'],\n                                mach=0., controls={1: sign*condition_spec['right_deflection_deg']},\n                                freeze_influences=False)\n    meshes = model_meshes(model, 160)\n    fields = IterationFields()\n    fields.capture_circulation = True\n    started = time.monotonic()\n    result = evaluate_aerodynamics(model, condition, meshes, _iteration_fields=fields)\n    seconds = time.monotonic()-started\n    assert result['converged'] and result['residual'] < 1e-8\n    parity = max(abs(result[k]-baseline[k]) for k in ('Cl', 'Cn', 'CL', 'CD', 'Cm'))\n    assert parity < 2e-10\n    captured = fields.circulation_aero\n    p, gamma = captured['p'], captured['gamma']\n    assert len(result['strips']) == 164\n    assert not captured['engine_rows'] and not captured['bodies']\n    assert np.max(abs(captured['lag_rate'])) == 0\n    assert np.max(abs(captured['rates'])) == 0\n    assert np.max(abs(result['apparent_force'])) == 0\n    wind = np.array(captured['direction'])\n    locations = {}\n    for name in ('cp', 'hv'):\n        volume = fields.values['volume', name]\n        jet = fields.values['jet', name]\n        assert np.max(abs(volume)) == 0 and np.max(abs(jet)) == 0\n        free = np.broadcast_to(condition.speed*wind, p[name].shape).copy()\n        induced = fields.values['vortex', name].apply(gamma)\n        locations[name] = dict(free=free.tolist(), induced=induced.tolist(),\n                               velocity=(free+induced).tolist())\n    cp_velocity = np.array(locations['cp']['velocity'])\n    cp_tangency = np.sum(cp_velocity*p['normal'], axis=1)\n    field_error = max(float(np.max(abs(cp_tangency-captured['tangency']))),\n                      float(np.max(abs(np.array(locations['hv']['velocity'])-captured['velocity']))))\n    assert field_error < 2e-12\n    beam = model.beams[0]\n    material_names = ('alpha', 'twist', 'chord', 'dCLda', 'dCLdF1', 'CLmin',\n                      'CLmax', 'Cdf', 'Cdp', 'dCDdF1', 'Cm', 'dCMdF1', 'Xax')\n    raw = dict(parameters={k: v.tolist() for k, v in p.items()},\n               material={k: beam.value(k, p['t']).tolist() for k in material_names},\n               reference=model.reference.tolist(), density=captured['rho'],\n               F1=condition.controls[1], speed=condition.speed,\n               stall_factor=condition.stall_factor, stall_width=condition.stall_width,\n               cp=locations['cp'], hv=locations['hv'],\n               tangency=captured['tangency'].tolist(),\n               circulation=gamma.tolist())\n    return dict(status='computed', specification=condition_spec, seconds=seconds,\n                baseline_coefficient_error=parity, captured_field_error=field_error,\n                raw=raw, result=result)\n\n\ndef main():\n    baseline_path = DEST/'isae-sa6-single-aileron.json'\n    baseline = json.loads(baseline_path.read_text())\n    for name, digest in baseline['plan']['source_sha256'].items():\n        assert SHA(ROOT/name) == digest, 'Baseline source changed: '+name\n    sources = json.loads((DEST/'isae-sa6-sources.json').read_text())\n    entry = next(v for v in sources['models'] if v['id'] == '20b_35c')\n    source = SINGLE.CACHE/entry['path']\n    model, sign, changes = SINGLE.one_aileron(source.read_text())\n    pins = dict(baseline['plan']['source_sha256'])\n    pins[str(Path(__file__).relative_to(ROOT))] = SHA(Path(__file__))\n    pins[str(baseline_path.relative_to(ROOT))] = SHA(baseline_path)\n    plan = dict(source_sha256=pins, case='20b_35c_literal', panels=160,\n                body_pitch_deg=[0, 8, 12], right_deflection_deg=[0, 4, -4, 20, -20, 44, -44],\n                requested_states=21, speed=20, pg_mach=0, frozen_influences=False,\n                residual_limit=1e-8, baseline_coefficient_limit=2e-10,\n                captured_field_limit=2e-12,\n                purpose='Resolve local terms at existing comparison conditions; no fitted inputs or equation changes.')\n    identity = hashlib.sha256(json.dumps(plan, sort_keys=True).encode()).hexdigest()\n    cache = ROOT/'.reference/isae-sa6-local'/identity\n    cache.mkdir(parents=True, exist_ok=True)\n    write(cache/'plan.json', plan)\n    previous = {(r['specification']['body_pitch_deg'], r['specification']['right_deflection_deg']):r['result']\n                for r in baseline['states'] if r['specification']['case']==plan['case']\n                and r['specification']['panels']==plan['panels']}\n    rows = []\n    new_count = 0\n    for pitch in plan['body_pitch_deg']:\n        for delta in plan['right_deflection_deg']:\n            specification = dict(case=plan['case'], panels=160,\n                                 body_pitch_deg=pitch, right_deflection_deg=delta)\n            key = hashlib.sha256(json.dumps(specification, sort_keys=True).encode()).hexdigest()\n            path = cache/(key+'.json')\n            if path.exists():\n                row = json.loads(path.read_text())\n                assert row['specification'] == specification and row['identity'] == identity\n            else:\n                row = solve(model, sign, specification, previous[pitch, delta])\n                row['identity'] = identity\n                write(path, row)\n                new_count += 1\n            rows.append(row)\n            print(f'pitch={pitch}, right deflection={delta}: residual={row[\"result\"][\"residual\"]:.3g}, '\n                  f'baseline error={row[\"baseline_coefficient_error\"]:.3g}', flush=True)\n    assert len(rows) == 21\n    assert all(SHA(ROOT/p) == h for p, h in pins.items())\n    report = dict(status='LOCAL_FIELDS_RETAINED', full_suite_validated=False,\n                  identity=identity, plan=plan, control_changes=changes, states=rows,\n                  accounting=dict(requested=21, completed=len(rows), newly_computed=new_count,\n                                  reused=len(rows)-new_count),\n                  scope=['Same source, inputs, conditions and five output coefficients as the corrected comparison.',\n                         'CP velocity is retained separately from force-point velocity; own bound segment is excluded only at the force point.',\n                         'The existing capture hook observes the unmodified aerodynamic evaluator.',\n                         'No new experimental observations or mesh-convergence claim.'])\n    write(DEST/'isae-sa6-local.json', report)\n    print(json.dumps(report['accounting']), flush=True)\n\n\nif __name__ == '__main__':\n    main()\n",
+  "terminal_receipts": [
+    {
+      "session": 17380,
+      "chunk": "e4ee01",
+      "exit_code": 1,
+      "reaped": true,
+      "role": "initial diagnostic assertion failure"
+    },
+    {
+      "session": 15697,
+      "chunk": "63796f",
+      "exit_code": 0,
+      "reaped": true,
+      "role": "21 retained states"
+    },
+    {
+      "session": 66959,
+      "chunk": "934988",
+      "exit_code": 0,
+      "reaped": true,
+      "role": "saved-field plot"
+    },
+    {
+      "session": 10642,
+      "chunk": "5662f2",
+      "exit_code": 0,
+      "reaped": true,
+      "role": "independent staged reduction"
+    },
+    {
+      "session": 24611,
+      "chunk": "9be023",
+      "exit_code": 0,
+      "reaped": true,
+      "role": "portable saved-data reducer"
+    }
+  ],
+  "all_owned_processes_reaped": true,
+  "accounting": {
+    "aerodynamic_solves": 22,
+    "retained_states": 21,
+    "additional_capture_field_products": 42,
+    "saved_only_reductions": 2,
+    "production_edits": 0,
+    "browser_builds": 0
+  },
+  "portable_reducer": {
+    "command": "python3 scripts/check-isae-sa6-local.py",
+    "cwd": "/home/userland/aswing",
+    "session_id": 24611,
+    "launch_chunk": "956e88",
+    "terminal_chunk": "9be023",
+    "exit_code": 0,
+    "reaped": true,
+    "status": "PASS",
+    "checks": 109418,
+    "passed": 109418,
+    "source_changes_only": "Portable ROOT/OUT and three output filenames; numerical code and gates unchanged.",
+    "numerical_source_unchanged": true,
+    "output_byte_equalities": [
+      {
+        "original": "/tmp/openswing-isae-sa6-local-20261025/decomposition.json",
+        "portable": "/home/userland/aswing/docs/validation/isae-sa6-local-decomposition.json",
+        "byte_identical": true
+      },
+      {
+        "original": "/tmp/openswing-isae-sa6-local-20261025/strips.csv",
+        "portable": "/home/userland/aswing/docs/validation/isae-sa6-local-strips.csv",
+        "byte_identical": true
+      }
+    ],
+    "audit_results_equal_except_artifact_paths_and_pins": true,
+    "artifacts": [
+      {
+        "path": "/home/userland/aswing/scripts/check-isae-sa6-local.py",
+        "bytes": 21071,
+        "sha256": "620eef7070c6c7c0801537a619fb48ed3b525d33475121992839b6c182e37aa2"
+      },
+      {
+        "path": "/home/userland/aswing/docs/validation/isae-sa6-local-audit.json",
+        "bytes": 33881,
+        "sha256": "7d60ae1f6ecae40cfd628b9a0d3dd304b2e27b6c7f7e1753204c9deafde4dd3f"
+      },
+      {
+        "path": "/home/userland/aswing/docs/validation/isae-sa6-local-decomposition.json",
+        "bytes": 21189111,
+        "sha256": "f2ce4c63f3a9348fd99578223d2e12fdfc763e32ac728d0b9119bcfe6071f8bc"
+      },
+      {
+        "path": "/home/userland/aswing/docs/validation/isae-sa6-local-strips.csv",
+        "bytes": 2058129,
+        "sha256": "747d69c97548be2dd045e9c1f3d45b99d0fe93ffa33e9553aaf4bf385e208f70"
+      }
+    ],
+    "operations": {
+      "production_imports": 0,
+      "aircraft_evaluations": 0,
+      "solves": 0,
+      "builds": 0
+    }
+  }
+}
