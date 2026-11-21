@@ -1,0 +1,73 @@
+name: OpenSwing analysis checks
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Check to run
+        type: choice
+        options:
+          - startup
+          - examples
+          - wasm-gust
+        default: startup
+
+permissions:
+  contents: read
+
+env:
+  OPENBLAS_NUM_THREADS: "1"
+  OMP_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install Python dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install ".[plots]"
+      - name: Run native example analyses
+        if: inputs.suite == 'examples'
+        run: |
+          failed=0
+          for aircraft in dae usa fw; do
+            for mode in rigid structural mounted modes frequency time; do
+              timeout 180 .venv/bin/python scripts/check-example-analysis.py "$aircraft" "$mode" || failed=1
+            done
+          done
+          exit "$failed"
+      - name: Install web dependencies
+        if: inputs.suite != 'examples'
+        run: npm ci
+      - name: Build static application
+        if: inputs.suite != 'examples'
+        run: npm run build
+      - name: Run sailplane gust in WebAssembly
+        if: inputs.suite == 'wasm-gust'
+        run: node scripts/test-sailplane-gust-wasm.mjs
+      - name: Install Chromium
+        if: inputs.suite == 'startup'
+        run: npx playwright install --with-deps chromium
+      - name: Measure production startup
+        if: inputs.suite == 'startup'
+        env:
+          OPENSWING_STATIC_APP: dist
+        run: npm run test:browser -- example-readiness.spec.js
+      - name: Upload startup measurements
+        if: always() && inputs.suite == 'startup'
+        uses: actions/upload-artifact@v4
+        with:
+          name: startup-measurements
+          path: test-results/
+          if-no-files-found: ignore

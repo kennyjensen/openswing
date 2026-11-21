@@ -14,11 +14,11 @@ async function initialize() {
   // cacheable, but a new UI must not combine with cached older Python modules.
   // Download sources while the larger runtime and libraries initialize.
   const {py,sources} = await loadKernelDependencies({
-    loadRuntime: async () => {
+    loadRuntime: async (options) => {
       const { loadPyodide } = await import(/* @vite-ignore */ runtimeURL);
-      return loadPyodide({ indexURL: '/runtime/' });
+      return loadPyodide({ indexURL: '/runtime/', ...options });
     },
-    loadSources: loadKernelSources,
+    loadSources: () => loadKernelSources(fetch, __OPENSWING_KERNEL_URL__),
     onStatus: message => self.postMessage({type:'status',message}),
   });
   py.FS.mkdirTree('/home/pyodide/openswing');
@@ -38,7 +38,15 @@ json.dumps(dict(format='openswing-kernel-provenance',version=1,fingerprint=_fing
   return py;
 }
 let queue = Promise.resolve();
-self.onmessage = event => { queue = queue.then(() => handle(event)); };
+self.onmessage = event => {
+  if (event.data?.type === 'prewarm') {
+    ready ??= initialize();
+    // The first real request receives any initialization error.
+    ready.catch(() => {});
+    return;
+  }
+  queue = queue.then(() => handle(event));
+};
 async function handle(event) {
   const { id, request } = event.data;
   let phase = 'Loading the browser solver';

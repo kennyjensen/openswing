@@ -34,6 +34,20 @@ def test_complete_complex_gust_column_matches_refined_physical_stencils(name,fra
  np.testing.assert_array_equal(s.residual(z,z),before)
  assert n.iteration_fields is None
 
+def test_analytic_gust_does_not_evaluate_an_extra_base_residual(monkeypatch):
+ n=StaticNetwork(model_for('wing-body'),4,FlightCondition(speed=30,alpha=7),None,[])
+ s=DynamicSystem(n,state_for(n,.08));channel=HarmonicInput(s,dict(kind='gust',span_mode=1),0)
+ expected,_=gust_column(s,channel,17.,1e-5)
+ original=s.residual
+ calls=[]
+ def residual(*args,**kwargs):
+  calls.append(n.iteration_fields)
+  return original(*args,**kwargs)
+ monkeypatch.setattr(s,'residual',residual)
+ actual,_,_=input_partials(s,[channel],17.,1e-5)
+ np.testing.assert_array_equal(actual[:,0],expected)
+ assert len(calls)==1 and calls[0] is not None
+
 @pytest.mark.parametrize('stage',['capture','late'])
 def test_failed_gust_partial_restores_full_input_stencil(stage,monkeypatch):
  import openswing.gust_tangent as gust

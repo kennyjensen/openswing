@@ -1,4 +1,4 @@
-"""General-section policy boundary checks; no equilibrium solves or residuals."""
+"""General-section policy boundary and structural-only checks."""
 from copy import deepcopy
 
 import pytest
@@ -17,6 +17,14 @@ SECTION_SOURCE = SOURCE.replace('t EA EIcc GJ EInn', '''t Cea Nea Cta Nta Ccg Nc
 1 .02 .01 -.01 .03 .04 -.02 -.03 .01 4000 5000
 3 .02 .01 -.01 .03 .04 -.02 -.03 .01 4000 5000
 t EA EIcc GJ EInn''')
+
+
+def test_structural_only_keeps_engine_geometry_without_applying_thrust():
+    engine = '\nEngine\n1 0 1 2 0 1 0 -1 0 0 1 0 0 0 0\nEnd\n'
+    result = bridge.dispatch(request('solve', SOURCE + engine, mode='structural', numerics=SECTION))
+    assert result['converged']
+    assert any(item['kind'] == 'engine' for item in result['attachments'])
+    assert all(component == 0 for component in result['applied_force'])
 
 
 @pytest.mark.parametrize('policy', POLICIES)

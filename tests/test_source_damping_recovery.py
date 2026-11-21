@@ -138,6 +138,9 @@ def test_sensor_interval_strain_is_sided_and_separate_from_anchor_stress(fields)
     n, data = fields
     elements, _ = recover_source_structure(n, data)
     sensors = network_sensors(n, data, elements)
+    reduced, _ = recover_source_structure(n, data, sensor_traces_only=True)
+    assert sum(len(item['endpoint_traces']) for item in reduced) < 2*n.ne
+    assert network_sensors(n, data, reduced) == sensors
     for sensor, j, end, side in zip(sensors, [0, 1, 3], [0, 1, 1], ['right', 'left', 'left']):
         interval, trace = elements[j], elements[j]['endpoint_traces'][end]
         for key in ['strain', 'curvature_change']:
@@ -190,7 +193,7 @@ def test_modal_output_stencil_keeps_complex_interval_rate_strain(fields, monkeyp
     rate_shape = np.array([.12, .18, -.15])
     calls = []
 
-    def snapshot(z, zdot, **kwargs):
+    def snapshot(z, zdot, *, forcing=None, linear_output=False):
         calls.append((z.copy(), zdot.copy()))
         d = deepcopy(data)
         # Manufactured source law: corrected mechanical strain has both state
@@ -198,7 +201,7 @@ def test_modal_output_stencil_keeps_complex_interval_rate_strain(fields, monkeyp
         change = shape*z[0]-rate_shape*zdot[0]
         d['source_discrete']['translation_strain'] += change
         d['source_discrete']['curvature_change'] += change/3
-        elements, structure = recover_source_structure(n, d)
+        elements, structure = recover_source_structure(n, d, sensor_traces_only=linear_output)
         sensors = network_sensors(n, d, elements)
         return state, dict(geometry=[], attachments=[], operating_values={}, strips=[],
             elements=elements, structure=structure, sensors=sensors)
@@ -207,6 +210,7 @@ def test_modal_output_stencil_keeps_complex_interval_rate_strain(fields, monkeyp
     calls.clear()
     system = SimpleNamespace(network=n, size=12*n.nn, L=n.L, V=1., W=1.,
         velocity_start=6*n.nn, frame_start=12*n.nn, frame='fixed', feedback=None,
+        base=np.zeros(n.size), condition=None, motion=n.motion,
         _section_output_mask=[], _sensor_output_mask=[{key:s.get(key) is not None for key in UNITS}
             for s in base['sensors']], snapshot=snapshot)
     v = np.zeros(system.size, dtype=complex);v[0] = .7+.2j

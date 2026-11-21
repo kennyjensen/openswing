@@ -125,7 +125,7 @@ class DynamicSystem:
         state.commands=options.pop('feedback_commands',{})
         return state, attitude, options
 
-    def snapshot(self, z, zdot, *, forcing=None):
+    def snapshot(self, z, zdot, *, forcing=None, linear_output=False):
         """One load evaluation for physical outputs and controller recovery."""
         n = self.network
         state, _, options = self.physical_state(z, zdot, forcing)
@@ -134,7 +134,7 @@ class DynamicSystem:
             _, state.feedback_report = self.feedback.evaluate(state, data,
                 self.feedback.scales*zdot[self.feedback_start:])
         result = network_snapshot(n, residual, data, sensor_frame=dict(body_to_earth=state.orientation,
-            position_earth=state.position, velocity_origin_body=state.U))
+            position_earth=state.position, velocity_origin_body=state.U), linear_output=linear_output)
         if self.feedback is not None:result['feedback']=state.feedback_report
         return state, result
 
@@ -1185,10 +1185,10 @@ def output_perturbation(system, vector, rate, step=1e-5, *, forcing=None, input_
         for sign in (1, -1):
             z, zdot = sign*step*part(v), sign*step*part(rate)
             applied = None if forcing is None else forcing(component, sign*step)
-            if _field_tangent is None:state,snapshot=system.snapshot(z,zdot,forcing=applied)
+            if _field_tangent is None:state,snapshot=system.snapshot(z,zdot,forcing=applied,linear_output=True)
             else:
                 delta=0. if forcing is None else sign*step*part(field_input)
-                state,snapshot=_field_tangent.snapshot(z,zdot,forcing=applied,input_delta=delta)
+                state,snapshot=_field_tangent.snapshot(z,zdot,forcing=applied,input_delta=delta,linear_output=True)
             def earth(points):
                 if not np.size(points):
                     return []

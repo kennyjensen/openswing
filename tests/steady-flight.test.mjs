@@ -85,8 +85,8 @@ test('fresh aircraft imports clear previous equilibrium and targets; mesh edits 
   const start=main.indexOf('  if(freshMesh){',main.indexOf('async function inspect('));
   const end=main.indexOf('  const sameSource=',start);
   assert.ok(start>=0&&end>start);
-  const setup=new Function('freshMesh','source','nodeView','equilibriumView','daedalusDefaultMesh','$','allocationView','customView',main.slice(start,end));
-  for(const mesh of [null,{default:48}]){
+  const setup=new Function('freshMesh','source','nodeView','equilibriumView','daedalusDefaultMesh','$','allocationView','customView','exampleKey','sailplaneMesh',main.slice(start,end));
+  for(const [mesh,exampleKey] of [[null,''],[{default:48},''],[{default:32},'usa']]){
     const calls=[];
     let targets=[{variable:'control.3',quantity:'user.trim1',expression:'sensor("8.displacement_body.y")',target:0}];
     const $=id=>{assert.equal(id,'constraint-rows');return {replaceChildren:()=>{targets=[];calls.push('clear targets');}};};
@@ -94,7 +94,7 @@ test('fresh aircraft imports clear previous equilibrium and targets; mesh edits 
     const custom={refresh:()=>{assert.deepEqual(targets,[]);calls.push('clear custom targets');}};
     const nodes={clear:()=>calls.push('clear mesh'),restore:value=>{assert.equal(value,mesh);calls.push('restore mesh');}};
     const equilibrium={restore:value=>{assert.deepEqual(value,{state:null,enabled:false,label:''});calls.push('clear equilibrium');}};
-    setup(true,'aircraft',nodes,equilibrium,()=>mesh,$,allocation,custom);
+    setup(true,'aircraft',nodes,equilibrium,()=>exampleKey==='usa'?null:mesh,$,allocation,custom,exampleKey,mesh);
     const cleared=['clear mesh','clear equilibrium','clear targets','clear allocation','clear custom targets'];
     assert.deepEqual(calls,mesh?[...cleared,'restore mesh']:cleared);
     calls.length=0;

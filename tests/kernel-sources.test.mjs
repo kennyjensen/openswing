@@ -29,6 +29,9 @@ test('worker loads one fresh bundle and fails explicitly instead of mixing older
   const calls=[];
   assert.deepEqual(await loadKernelSources(async(...args)=>{calls.push(args);return {ok:true,text:async()=>JSON.stringify(bundle)};}),bundle.sources);
   assert.deepEqual(calls,[['/kernel/sources.json',{cache:'no-store'}]]);
+  const versioned=`/kernel/sources-${'a'.repeat(64)}.json`;
+  await loadKernelSources(async(...args)=>{calls.push(args);return {ok:true,text:async()=>JSON.stringify(bundle)};},versioned);
+  assert.deepEqual(calls.at(-1),[versioned,{cache:'force-cache'}]);
   await assert.rejects(loadKernelSources(async()=>({ok:false,status:404})),/HTTP 404/);
   await assert.rejects(loadKernelSources(async()=>({ok:true,text:async()=>'{truncated'})),/Loading the solver source bundle: invalid JSON/);
   for(const invalid of [null,{}, {...bundle,version:2}, {...bundle,sources:[]},

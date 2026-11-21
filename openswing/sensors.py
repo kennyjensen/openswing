@@ -187,25 +187,25 @@ def network_sensors(network, data, elements, frame=None):
         return sensors
     n, c, motion = network, data['condition'], data['motion']
     local = data['local_motion']
-    pa, pb, *_ = n.geometry(data['r'], data['Q'])
+    source = 'source_discrete' in data
+    if not source:
+        pa, pb, *_ = n.geometry(data['r'], data['Q'])
     for k, row in enumerate(n.model.records.get('sensor', [])):
         i = n.node(*row[1:3]); beam = next(b for b in n.model.beams if b.index == int(row[1]))
         field = LocalMotion(data['r'][i], *([np.zeros(3)]*4 if local is None else [v[i] for v in local.values]))
         airflow = None if data['aero'] is None else data['aero']['sensor_airflow'][k]['relative_velocity']
         out = measure_sensor(row, data['r'][i], data['Q'][i], field, motion, model=n.model, condition=c,
                              gravity=data['gravity'], airflow=airflow, frame=frame)
-        # Anchor frame is unique; traces on both sides use these same axes.
-        axes = data['Q'][i]@surface_frame(beam, row[2])
+        # The midpoint law uses one anchor frame; source recovery has already
+        # resolved the axes and resultants on each side.
+        if not source:
+            axes = data['Q'][i]@surface_frame(beam, row[2])
         traces = []
         sl = n.beam_elements[beam.index]
         for side, ids, end, sign in [('left', n.b, 1, -1), ('right', n.a, 0, 1)]:
             for j in range(sl.start, sl.stop):
                 if ids[j] != i: continue
-                offset = (pb[j] if end else pa[j])-data['r'][i]
-                force = data['N'][j]+sign*data['element_forces'][j, end]
-                moment = data['M'][j]+sign*np.cross(pb[j]-pa[j], data['N'][j])/2+np.cross(offset, data['N'][j])
-                moment += sign*data['element_moments'][j, end]
-                if 'source_discrete' in data:
+                if source:
                     endpoint = next(v for v in elements[j]['endpoint_traces'] if v['side'] == side)
                     traces.append(dict(side=side, element=j, force_local=endpoint['force_local'],
                         moment_local=endpoint['moment_local'], section_axes_body=endpoint['frame'],
@@ -214,16 +214,21 @@ def network_sensors(network, data, elements, frame=None):
                         traces[-1].update(strain_source=endpoint['strain_source'],
                             strain_unavailable_reason=endpoint['strain_unavailable_reason'])
                 else:
+                    offset = (pb[j] if end else pa[j])-data['r'][i]
+                    force = data['N'][j]+sign*data['element_forces'][j, end]
+                    moment = data['M'][j]+sign*np.cross(pb[j]-pa[j], data['N'][j])/2+np.cross(offset, data['N'][j])
+                    moment += sign*data['element_moments'][j, end]
                     traces.append(dict(side=side, element=j, force_local=(axes.T@force).tolist(), moment_local=(axes.T@moment).tolist()))
         selected = traces[0]  # left interior/end; right at the first endpoint
         section = elements[selected['element']]
         out.update(force_local=selected['force_local'], moment_local=selected['moment_local'],
-            load_trace=selected['side'], section_traces=traces, section_axes_body=axes.tolist(),
+            load_trace=selected['side'], section_traces=traces,
+            section_axes_body=selected['section_axes_body'] if source else axes.tolist(),
             strain=section['strain'], curvature_change=section['curvature_change'],
             shell_strain=section['shell']['axial_strain'], shell_shear_stress=section['shell']['shear_stress'],
             strain_sample_t=section['t'], strain_axes_body=section['frame'], circulation=None, circulation_sample_t=None)
-        if 'source_discrete' in data:
-            out.update(section_axes_body=selected['section_axes_body'], strain=selected['strain'],
+        if source:
+            out.update(strain=selected['strain'],
                 curvature_change=selected['curvature_change'], shell_strain=selected['shell']['axial_strain'],
                 shell_shear_stress=selected['shell']['shear_stress'], strain_sample_t=float(row[2]),
                 strain_axes_body=selected['section_axes_body'], strain_sample_location='one-sided sensor anchor section')

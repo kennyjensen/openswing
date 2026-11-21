@@ -69,9 +69,9 @@ class StaticNetwork:
             raise AnalysisError("Strut mode must be bilateral or wire.")
         self.tension_only = strut_mode == "wire"
         self.struts = model.records.get("strut", [])
-        self.engines = model.records.get("engine", [])
-        if self.engines and condition is None:
-            raise AnalysisError("Engines require a FlightCondition with engine power settings.")
+        # Structural-only loads have no engine operating point. Keep the
+        # engine records in the model for attachment geometry and meshing.
+        self.engines = model.records.get("engine", []) if condition is not None else []
         for row in self.struts:
             strut_load(row, row[2:5], tension_only=self.tension_only)
         self.hinges = hinge_laws(model.records)
@@ -918,11 +918,12 @@ def network_result(network, x, *, sensor_frame=None, **residual_options):
     return network_snapshot(network, residual, data, sensor_frame=sensor_frame)
 
 
-def network_snapshot(network, residual, data, *, sensor_frame=None):
+def network_snapshot(network, residual, data, *, sensor_frame=None, linear_output=False):
     """Recover outputs from one explicitly supplied physical evaluation.
 
     Data belongs to this evaluation, not a last-state cache. Callers that also
     need controller outputs can use the same loads without evaluating twice.
+    Linear output stencils only need endpoint traces at sensor anchors.
     """
     model = network.model
     r, Q = data["r"], data["Q"]
@@ -938,8 +939,17 @@ def network_snapshot(network, residual, data, *, sensor_frame=None):
     for strut in data["struts"]:
         support_force += strut["force"]
         support_moment += cross3(np.asarray(strut["anchor"])-model.reference[1], strut["force"])
-    result = {} if data["aero"] is None else deepcopy(data["aero"])
-    if data['aero'] is not None:
+    aero = data['aero']
+    if aero is None:
+        result = {}
+    elif linear_output:
+        # These stencils read aerodynamic outputs and discard the snapshot.
+        # Only section-reaction recovery writes into the aerodynamic data.
+        result = dict(aero, strips=[row.copy() for row in aero['strips']],
+                      section_output_definitions=aero['section_output_definitions'].copy())
+    else:
+        result = deepcopy(aero)
+    if aero is not None:
         reaction_sampling = ('Network analysis: eight-point material mass quadrature with current elastic and rigid kinematics, summed per interval and divided by current length. Point masses excluded.'
             if 'source_discrete' not in data else
             'Source mounted analysis: endpoint-averaged distributed gravity force per interval divided by current aerodynamic interval length. Point masses excluded.')
@@ -947,11 +957,12 @@ def network_snapshot(network, residual, data, *, sensor_frame=None):
             {mesh.beam.index:data['distributed_mass_force'][network.beam_elements[mesh.beam.index]]
              for mesh in data['meshes']},
             reaction_sampling)
-    elements, structure = recover_structure(network, data)
+    elements, structure = recover_structure(network, data, sensor_traces_only=linear_output)
     result.update(analysis="constrained_static" if network.operating.count else "mounted_static", converged=True, residual=float(np.max(abs(residual))),
                   evaluations=network.nfev, structural_nodes=network.nn,
                   structural_elements=network.ne, geometry=geometry_summary(model, meshes=data["meshes"]),
-                  mesh_discretization=mesh_report(model, network.meshes, network.panels, network.loads),
+                  **({} if linear_output else dict(mesh_discretization=mesh_report(
+                      model, network.meshes, network.panels, network.loads))),
                   max_displacement=float(np.max(np.linalg.norm(r-network.rj, axis=1))),
                   max_rotation_deg=float(np.rad2deg(np.max(np.linalg.norm(log(Q), axis=1)))),
                   reactions=data["reactions"], applied_force=applied_force.tolist(), applied_moment=applied_moment.tolist(),

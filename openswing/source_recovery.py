@@ -55,12 +55,14 @@ def source_static_distributed_gravity(network, data):
             for f, n in zip(density, normal)]
 
 
-def recover_source_structure(network, data):
+def recover_source_structure(network, data, *, sensor_traces_only=False):
     source = data['source_discrete']
     damping = source_damping_elements(network)
     gravity = source_static_distributed_gravity(network, data)
     pa, pb, ra, rb, *_ = network.geometry(data['r'], data['Q'])
     elements = []
+    sensor_nodes = {(int(row[1]), network.node(*row[1:3]))
+                    for row in network.model.records.get('sensor', [])} if sensor_traces_only else None
     for mesh in network.meshes:
         beam = mesh.beam
         endpoints = []
@@ -83,6 +85,10 @@ def recover_source_structure(network, data):
             for end, side, t, sign, node, position, frame in (
                     (0, 'right', mesh.t0[i], 1, network.a[j], pa[j], ra[j]),
                     (1, 'left', mesh.t1[i], -1, network.b[j], pb[j], rb[j])):
+                # Linear outputs differentiate interval values and sensor
+                # measurements. Full snapshots still export every trace.
+                if sensor_nodes is not None and (beam.index, node) not in sensor_nodes:
+                    continue
                 force = data['N'][j]+sign*data['element_forces'][j, end]
                 moment = data['M'][j]+sign*np.cross(pb[j]-pa[j], data['N'][j])/2
                 moment += np.cross(position-data['r'][node], data['N'][j])+sign*data['element_moments'][j, end]

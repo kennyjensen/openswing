@@ -18,10 +18,13 @@ import './asw-editor.css';
 document.documentElement.style.setProperty('--plot-color', plotColors[0]);
 import { createAswEditor } from './asw-editor.js';
 import {createAircraftLoader} from './aircraft-loader.js';
+import {takeSolverWorker} from './solver-worker.js';
 import { createResponsiveWorkbench } from './responsive-workbench.js';
 import { nodePane, createNodeEditor } from './node-editor.js';
 import {daedalusDefaultMesh} from './daedalus-mesh.js';
+import sailplaneMesh from './sailplane-mesh.json' with {type:'json'};
 import daedalusPreview from './daedalus-preview.json' with {type:'json'};
+import daedalusSource from '../examples/dae.asw?raw';
 import { distributionPane, createDistributionEditor } from './distribution-editor.js';
 import {massPane,createMassEditor} from './mass-editor.js';
 import { createTimeCheckpoints } from './time-checkpoint.js';
@@ -331,7 +334,7 @@ function status(message, loading=false, detail='') {
   $('runtime-detail').hidden = !detail;
 }
 function startWorker() {
-worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
+worker = takeSolverWorker();
 worker.onmessage = ({data}) => {
   if (data.type === 'status') { status(data.message, true); return; }
   if (data.type === 'ready') { status('Numerical kernel ready'); return; }
@@ -551,7 +554,9 @@ async function inspect(source, filename=state.filename, exampleKey='', prepared=
     // use the non-fresh path and retain their own targets.
     $('constraint-rows').replaceChildren();
     allocationView.refresh(false);customView.refresh();
-    const mesh=daedalusDefaultMesh(source);
+    // Match the approximate drawing density of Drela's gust animation.
+    // The mesher retains required stations even if they raise the panel count.
+    const mesh=exampleKey==='usa'?sailplaneMesh:daedalusDefaultMesh(source);
     if(mesh)nodeView.restore(mesh);
   }
   const sameSource=source===state.source;
@@ -1355,7 +1360,7 @@ $('close-error').onclick=()=>$('error').hidden=true;
 document.addEventListener('dragover',e=>e.preventDefault());
 document.addEventListener('drop',async e=>{e.preventDefault();const file=e.dataTransfer.files[0];if(file)await loadAircraftFile(file);});
 steadyFlightView=createSteadyFlight({getState:()=>state,capture:captureCase,load:loadCase,run,accept:acceptFlightTrim,showError});
-// Draw the bundled example before fetching or inspecting its ASW input.
+// Draw the preview and inspect the bundled input without a separate fetch.
 // The preview is display-only; normal inspection still owns the model and mesh.
 if($('example').value==='dae'){
   const beams=daedalusPreview.beams.map(beam=>({
@@ -1364,8 +1369,10 @@ if($('example').value==='dae'){
   viewer.update(beams,daedalusPreview.attachments);
   startupPreviewVisible=true;
   $('geometry-label').textContent=daedalusPreview.name;
+  loadAircraft(()=>({source:daedalusSource,filename:'dae.asw',example:'dae'}));
+} else {
+  $('example').onchange();
 }
-$('example').onchange();
 
 // Load the same widget as VibeFoil after the workbench is ready. The repository
 // link remains usable if the widget cannot be downloaded.

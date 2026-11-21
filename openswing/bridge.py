@@ -5,11 +5,16 @@ from .asw import parse_asw
 from .geometry import geometry_summary, model_meshes, attachment_geometry
 from .discretization import normalize as normalize_discretization, report as mesh_report
 from .aero import AnalysisError, FlightCondition, solve_rigid
-from .network import solve_static
 from .inertia import InertiaModel
 from .operating import free_flight_constraints, steady_turn_constraints
 from .reference_flow import reference_airflow_constraints
 from .numerical_policy import request_policy, validate_saved_policy, validate_source_request, SOURCE_OPERATORS, SOURCE_SECTION, SOURCE_COUPLED, SOURCE_MODAL, SOURCE_AIRFLOW
+
+
+def solve_static(*args, **kwargs):
+    """Load the network solver on demand, after startup inspection."""
+    from .network import solve_static as solve
+    return solve(*args, **kwargs)
 
 
 def dispatch(request, progress=None, *, _copy_frequency_result=True):

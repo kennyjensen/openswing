@@ -51,7 +51,10 @@ test('normal desktop and mobile workbenches replace the startup screen without a
   await page.addInitScript(()=>{
     const NativeWorker=window.Worker;window.__startupActions=[];
     window.Worker=class extends NativeWorker{
-      postMessage(message,...args){window.__startupActions.push(message.request?.action);return super.postMessage(message,...args);}
+      postMessage(message,...args){
+        if(message.request)window.__startupActions.push(message.request.action);
+        return super.postMessage(message,...args);
+      }
     };
   });
   await page.goto('/',{waitUntil:'domcontentloaded'});

@@ -96,11 +96,13 @@ def _lift(principal, previous, periodic):
 
 
 class SourceTimeChart:
-    """Physical, uniquely oriented material nodes and owned Euler lifts.
+    """Owned Euler lifts for the shared nodal rotations.
 
-    A single-Q node with distinct incident jig frames is not a single csn_i
-    node of the source time equations. No frame averaging or topology repair
-    is performed. Newton's spatial rotation increments remain external.
+    At a jig-frame break, use the outgoing element's frame as the fixed
+    reference for the shared rotation Q. Both incident material frames are
+    still rotated by Q in the element equations and retain their relative
+    orientation. This extends the source time chart to OpenSwing's shared
+    nodes without adding a hinge or averaging the incident frames.
     """
     def __init__(self, network):
         self.nn = int(network.nn)
@@ -108,6 +110,7 @@ class SourceTimeChart:
             raise AnalysisError('Source time requires at least one material node.')
         self.jig_frames = np.empty((self.nn, 3, 3))
         self.fuselage = np.zeros(self.nn, dtype=bool)
+        self.frame_break_count = 0
         element_fuselage = np.asarray(getattr(network, 'source_fuselage',
             np.zeros(len(network.a), dtype=bool)), dtype=bool)
         if element_fuselage.shape != (len(network.a),):
@@ -121,12 +124,10 @@ class SourceTimeChart:
             for node, frame, body in zip(ids, frames, element_fuselage):
                 if node < 0 or node >= self.nn:
                     raise AnalysisError('Invalid source time endpoint node index.')
-                if present[node] and np.max(abs(frame-self.jig_frames[node])) > _JIG_TOL:
-                    raise AnalysisError('Source Euler time integration requires one physical material frame per node; '
-                                        f'node {node} has different incident jig frames. The shared-node material '
-                                        'orientation break is unsupported by this time formulation.')
                 if present[node] and self.fuselage[node] != body:
                     raise AnalysisError('Source time node has inconsistent surface/fuselage material charts.')
+                if present[node] and np.max(abs(frame-self.jig_frames[node])) > _JIG_TOL:
+                    self.frame_break_count += 1
                 if not present[node]:
                     self.jig_frames[node] = frame
                     self.fuselage[node] = body

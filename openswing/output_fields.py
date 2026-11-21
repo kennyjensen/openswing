@@ -193,14 +193,14 @@ class FieldTangent:
         if packet is None or packet[0] is not self or packet[1]!=self.step:return None
         return packet[2]
 
-    def snapshot(self,z,rate,*,forcing=None,input_delta=0.):
-        if not self.active or self.matrix is None:return self.owner.snapshot(z,rate,forcing=forcing)
+    def snapshot(self,z,rate,*,forcing=None,input_delta=0.,linear_output=False):
+        if not self.active or self.matrix is None:return self.owner.snapshot(z,rate,forcing=forcing,linear_output=linear_output)
         try:
             fields=Replay(self,z,rate,forcing,self.matrix@z+input_delta)
-            with context(self.owner,fields):return self.owner.snapshot(z,rate,forcing=forcing)
+            with context(self.owner,fields):return self.owner.snapshot(z,rate,forcing=forcing,linear_output=linear_output)
         except FieldUnavailable as exc:
             self.disable(exc)
-            return self.owner.snapshot(z,rate,forcing=forcing)
+            return self.owner.snapshot(z,rate,forcing=forcing,linear_output=linear_output)
 
     def report(self):
         return dict(method='retained full moving-source derivatives with local physical output stencils' if self.active and self.matrix is not None else 'full physical output stencils',

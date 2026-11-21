@@ -368,10 +368,7 @@ def _input_partials(system, channels, omega, step, *, constant_inputs=None, fiel
     """
     zero = np.zeros(system.size)
     n = system.network
-    pending = any(c.kind != 'initial' and (c.kind == 'gust' or constant_inputs is None
-        or index not in constant_inputs) for index,c in enumerate(channels))
-    baseline = system.residual(zero, zero) if pending else None
-    clips = () if not pending or n.aero_cached is None else tuple(e['power_clipped'] for e in n.aero_cached['engines'])
+    baseline = None
     columns, forcings, profiles = [], [], []
     for index,channel in enumerate(channels):
         if constant_inputs is not None and index in constant_inputs:
@@ -406,6 +403,11 @@ def _input_partials(system, channels, omega, step, *, constant_inputs=None, fiel
             column=channel.rhs.astype(complex);forcing=None
             profile=dict(kind='initial', laplace_shift=channel.shift)
         else:
+            # Analytic gust and power inputs own their load capture. Only a
+            # physical stencil needs this separate baseline for branch checks.
+            if baseline is None:
+                baseline = system.residual(zero, zero)
+                clips = () if n.aero_cached is None else tuple(e['power_clipped'] for e in n.aero_cached['engines'])
             forcing, profile = channel.at_frequency(omega)
             h = step*channel.scale
             parts = [];field_parts=[]

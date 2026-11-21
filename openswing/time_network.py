@@ -75,4 +75,8 @@ def source_time_result(system, result, order):
         result['limitations'][3] = ('Prescribed, free and mixed canonical frame loads, aerodynamic controls, engine settings and gusts are supported. '
             'Feedback actuator equations and error integrals are supported; actuator/history constraints and stepped axes remain unavailable. '
             'Fluid quadrature differs from the stationary source still-air policy.')
+    if system.source_time.frame_break_count:
+        result['limitations'].append(
+            'At a shared node with different incident jig frames, the outgoing frame defines the Euler coordinates. '
+            'Both element frames retain their original relative orientation. This chart choice extends the published time formulation.')
     return result

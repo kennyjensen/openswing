@@ -53,7 +53,11 @@
         detail.textContent = 'Still loading the workbench. The first development launch may take longer while dependencies are prepared. If this continues, reload the page and check the server terminal.';
         retry.hidden = false;
       }, 15000);
-      import('/web/main.js').catch(error => {
+      const workbench = import('/web/main.js');
+      const solverWorker = import('/web/solver-worker.js');
+      solverWorker.then(module => module.prewarmSolver()).catch(() => {});
+      workbench.catch(error => {
+        solverWorker.then(module => module.discardPrewarmedSolver()).catch(() => {});
         // Keep initialization failures visible even if main.js has already replaced the loading screen.
         document.getElementById('app').replaceChildren(startup);
         title.textContent = 'OpenSwing could not start';

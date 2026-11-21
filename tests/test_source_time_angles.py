@@ -158,15 +158,21 @@ def test_saved_history_is_owned_and_does_not_regenerate_or_ignore_branch_data():
         chart.rates(tampered, s, None, [1., -1., 0.])
 
 
-def test_distinct_incident_material_frames_are_rejected_without_averaging():
+def test_distinct_incident_material_frames_keep_a_shared_rotation_without_averaging():
     n = network()
-    n.R0b[0] = axis(0, .001)[0]@n.R0b[0]
-    with pytest.raises(AnalysisError, match='different incident jig frames'):
-        SourceTimeChart(n)
+    n.R0b[0] = axis(0, .2)[0]@n.R0b[0]
+    chart = SourceTimeChart(n)
+    assert chart.frame_break_count == 1
+    np.testing.assert_array_equal(chart.jig_frames[1], n.R0a[1])
+    s = chart.bind(state(chart, [.31, -.22, .14], [.23, -.17, .41]))
+    outgoing = surface_frame_from_angles(s.source_angles[1])
+    incoming = s.Q[1]@n.R0b[0]
+    np.testing.assert_allclose(outgoing.T@incoming, n.R0a[1].T@n.R0b[0], atol=5e-16)
     # Mere independent floating point evaluation roundoff remains acceptable.
     n = network()
     n.R0b[0] = axis(0, 4*np.finfo(float).eps)[0]@n.R0b[0]
     chart = SourceTimeChart(n)
+    assert chart.frame_break_count == 0
     np.testing.assert_array_equal(chart.jig_frames[1], n.R0a[1])
     assert not chart.jig_frames.flags.writeable
 

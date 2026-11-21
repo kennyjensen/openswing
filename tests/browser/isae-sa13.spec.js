@@ -22,7 +22,7 @@ test('SA-13 outline imports and body loads reproduce offline, with endpoint fail
  if(candidatePath){
   candidate=await readFile(candidatePath);modules['asw.py']=sha(candidate);
   await context.route('**/kernel/asw.py',route=>route.fulfill({status:200,contentType:'text/plain',body:candidate}));
-  await context.route('**/kernel/sources.json',async route=>{
+  await context.route(/\/kernel\/sources(?:-[0-9a-f]{64})?\.json$/,async route=>{
     const response=await route.fetch(),bundle=await response.json();
     const entry=bundle.sources.find(([name])=>name==='asw.py');
     expect(entry).toBeDefined();entry[1]=candidate.toString('utf8');

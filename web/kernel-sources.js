@@ -15,8 +15,9 @@ export function decodeKernelSources(bundle){
   return bundle.sources;
 }
 
-export async function loadKernelSources(fetcher=fetch){
-  const response=await fetcher('/kernel/sources.json',{cache:'no-store'});
+export async function loadKernelSources(fetcher=fetch,url='/kernel/sources.json'){
+  const cache=/^\/kernel\/sources-[0-9a-f]{64}\.json$/.test(url)?'force-cache':'no-store';
+  const response=await fetcher(url,{cache});
   if(!response.ok)throw new Error(`Could not load solver sources (HTTP ${response.status}). Reload the application to retry.`);
   return decodeKernelSources(parseSolverJSON(await response.text(), 'Loading the solver source bundle'));
 }

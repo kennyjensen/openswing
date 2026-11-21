@@ -41,7 +41,7 @@ def recover_section(section: Section, force, moment, *, cshell=None, nshell=None
                            shear_status='available' if atshell > 0 else 'missing' if atshell == 0 else 'invalid_negative_area_thickness'))
 
 
-def recover_structure(network, data):
+def recover_structure(network, data, *, sensor_traces_only=False):
     """Recover at each constitutive/material midpoint, using the residual's frame.
 
     Midpoint values do not resolve load jumps or endpoint extrema; report that
@@ -49,7 +49,7 @@ def recover_structure(network, data):
     """
     if 'source_discrete' in data:
         from .source_recovery import recover_source_structure
-        return recover_source_structure(network, data)
+        return recover_source_structure(network, data, sensor_traces_only=sensor_traces_only)
     frame = data['section_frame']
     force = np.einsum('nji,nj->ni', frame, data['N'])
     moment = np.einsum('nji,nj->ni', frame, data['M'])

@@ -8,7 +8,6 @@ in network.py; both share this section constitutive law.
 from dataclasses import dataclass
 from collections.abc import Callable
 import numpy as np
-from scipy.integrate import solve_bvp, solve_ivp
 
 
 def skew(v):
@@ -90,6 +89,8 @@ def solve_cantilever(length: float, section: Section | Callable[[float], Section
     A callable section or rest curvature supports nonuniform/curved beams.
     The local undeformed tangent is +s, the second frame column.
     """
+    from scipy.integrate import solve_bvp, solve_ivp
+
     if not np.isfinite(length) or length <= 0 or tolerance <= 0:
         raise ValueError("Positive finite length and positive tolerance required.")
     if continuation_steps < 1 or samples < 2:

@@ -45,7 +45,10 @@ test('cold local kernel loads complete sources and preserves an offline aerodyna
   expect(result.software_provenance.modules).toEqual(modules);
   const kernelRequests=requests.filter(url=>new URL(url).pathname.startsWith('/kernel/'));
   if(process.env.OPENSWING_LEGACY_KERNEL==='1')expect(kernelRequests).toHaveLength(Object.keys(modules).length+1);
-  else expect(kernelRequests.map(url=>new URL(url).pathname)).toEqual(['/kernel/sources.json']);
+  else {
+    expect(kernelRequests).toHaveLength(1);
+    expect(new URL(kernelRequests[0]).pathname).toMatch(/^\/kernel\/sources(?:-[0-9a-f]{64})?\.json$/);
+  }
   const boots=await page.evaluate(()=>window.kernelBoots);
   expect(boots).toHaveLength(1);expect(boots[0].ready_ms).toBeGreaterThan(0);
   expect(errors).toEqual([]);expect(blocked).toEqual([]);

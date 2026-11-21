@@ -16,7 +16,7 @@ test('literal SA-3/4 inputs solve and export offline with Fortran numeric syntax
     }
     await context.route('**/kernel/**',async route=>{
       const name=new URL(route.request().url()).pathname.split('/').pop();
-      if(name==='sources.json'){
+      if(/^sources(?:-[0-9a-f]{64})?\.json$/.test(name)){
         names.forEach(name=>served.add(name));
         return route.fulfill({contentType:'application/json',body:JSON.stringify({format:'openswing-kernel-sources',version:1,
           sources:names.map(name=>[name,sources.get(name).toString('utf8')])})});
