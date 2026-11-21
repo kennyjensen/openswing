@@ -207,9 +207,17 @@ class Beam:
     def value(self, name, t, *, side="right", derivative=0):
         name = canonical(name)
         if name in self.distributions:
-            val = self.distributions[name].evaluate(t, mirror=self.lifting, side=side, derivative=derivative)
+            distribution = self.distributions[name]
+            val = distribution.evaluate(t, mirror=self.lifting, side=side, derivative=derivative)
             if name in RIGID and derivative == 0:
                 val = np.where(val == 0, np.inf, val)
+            elif name in ("mg", "Dmg") and derivative == 0 and np.any(val < 0):
+                # A spline can evaluate a zero weight as a tiny negative
+                # number (e.g. extrapolation to the fw.asw tip). Preserve
+                # signed input and any negative sample beyond roundoff.
+                if np.all(distribution.values >= 0):
+                    tolerance = 4 * np.finfo(float).eps * np.max(distribution.values)
+                    val = np.where((val < 0) & (val >= -tolerance), 0.0, val)
             return val
         default = DEFAULTS.get(name)
         if re.fullmatch(r"dC[LMD]dF[1-9]\d*", name):

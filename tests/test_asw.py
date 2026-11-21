@@ -94,3 +94,13 @@ def test_bundled_official_sample(name, beams):
     assert len(model.beams) == beams
     assert not model.diagnostics
     assert model.dumps() == file.read_text()
+
+
+def test_flying_wing_zero_tip_weight_is_not_a_signed_load():
+    model = parse_asw(Path("examples/fw.asw").read_text(), beam_interpolation="drela-segspl-v1")
+    wing = model.beams[0]
+    left, right = wing.domain
+    assert wing.value("mg", left, side="right") == 0
+    assert wing.value("mg", right, side="left") == 0
+    assert wing.value("mg", right - 0.01) > 0
+    assert wing.value("mg", right + 0.01) < 0
