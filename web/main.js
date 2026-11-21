@@ -21,6 +21,7 @@ import {createAircraftLoader} from './aircraft-loader.js';
 import { createResponsiveWorkbench } from './responsive-workbench.js';
 import { nodePane, createNodeEditor } from './node-editor.js';
 import {daedalusDefaultMesh} from './daedalus-mesh.js';
+import daedalusPreview from './daedalus-preview.json' with {type:'json'};
 import { distributionPane, createDistributionEditor } from './distribution-editor.js';
 import {massPane,createMassEditor} from './mass-editor.js';
 import { createTimeCheckpoints } from './time-checkpoint.js';
@@ -293,6 +294,7 @@ steadyProgressView = createSteadyProgress({getState:()=>state,run:action=>run(ac
 const frequencyView = createFrequencyResults(fit=>{updateGeometry(fit);renderPlot();},resetResult,download,()=>state.model,refineFrequency,()=>!state.busy&&!state.dirty,showError);
 const gustView = createGustSettings(rpc,resetResult,download,showError,()=>state.busy,()=>state.revision);
 let viewer;
+let startupPreviewVisible=false;
 viewer = createViewer($('viewport'));
 aircraftDownload=createAircraftDownload({button:$('download-aircraft'),viewer,
   getPlayback:()=>state.frequency?frequencyView.playback():state.modal?modeView.playback():state.trajectory?timeView.playback():{playing:false},
@@ -344,9 +346,16 @@ worker.onerror = event => {
   pending.clear(); status('Kernel unavailable');
 };
 }
-startWorker();
 const currentNumerics=()=>selectedNumerics(structuralSelection);
-function rpc(request) { return new Promise((resolve,reject) => { request=numericalRequest(request,currentNumerics());const id = ++requestId; pending.set(id,{resolve,reject,request}); worker.postMessage({id,request}); }); }
+function rpc(request) {
+  return new Promise((resolve,reject) => {
+    request=numericalRequest(request,currentNumerics());
+    if(!worker)startWorker();
+    const id=++requestId;
+    pending.set(id,{resolve,reject,request});
+    worker.postMessage({id,request});
+  });
+}
 function showError(error) { $('error').hidden=false; $('error').querySelector('p').textContent = error.message.split('\n').filter(Boolean).slice(-1)[0]; }
 function download(name, text, type='text/plain') { const url=URL.createObjectURL(new Blob([text],{type})); const a=document.createElement('a'); a.href=url; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000); }
 function resetResult() {
@@ -618,7 +627,10 @@ async function inspect(source, filename=state.filename, exampleKey='', prepared=
     const scales=model.si;
     $('speed-unit').textContent = scales && Math.abs(scales.L/scales.T-1)<1e-9 ? 'm/s' : scales && Math.abs(scales.L/scales.T-0.3048)<1e-9 ? 'ft/s' : 'input L/T';
     $('unit-note').textContent=scales ? `One input length unit = ${scales.L.toPrecision(5)} m. Airspeed uses input L/T; flap settings use the file’s derivative units.` : 'Custom unit labels. Calculations use consistent file input units.';
-    viewer?.update(model.beams,model.attachments); refreshPlotOverlays(); status(model.diagnostics.length ? 'Loaded with input warnings' : 'Configuration ready');
+    const preservePreviewCamera=startupPreviewVisible&&exampleKey==='dae'&&freshMesh;
+    startupPreviewVisible=false;
+    viewer?.update(model.beams,model.attachments,null,{fit:!preservePreviewCamera});
+    refreshPlotOverlays(); status(model.diagnostics.length ? 'Loaded with input warnings' : 'Configuration ready');
     if (model.diagnostics.length) showError(new Error(model.diagnostics.join(' ')));
     $('solve').disabled=state.busy;
   } catch (error) { if(inspection===state.inspection) { showError(error); status('Configuration needs attention'); } }
@@ -1333,4 +1345,14 @@ $('close-error').onclick=()=>$('error').hidden=true;
 document.addEventListener('dragover',e=>e.preventDefault());
 document.addEventListener('drop',async e=>{e.preventDefault();const file=e.dataTransfer.files[0];if(file)await loadAircraftFile(file);});
 steadyFlightView=createSteadyFlight({getState:()=>state,capture:captureCase,load:loadCase,run,accept:acceptFlightTrim,showError});
+// Draw the bundled example before fetching or inspecting its ASW input.
+// The preview is display-only; normal inspection still owns the model and mesh.
+if($('example').value==='dae'){
+  const beams=daedalusPreview.beams.map(beam=>({
+    ...beam,quads:beam.streamwise_quads??beam.quads,
+  }));
+  viewer.update(beams,daedalusPreview.attachments);
+  startupPreviewVisible=true;
+  $('geometry-label').textContent=daedalusPreview.name;
+}
 $('example').onchange();
