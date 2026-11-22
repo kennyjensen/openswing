@@ -48,12 +48,15 @@ function fixture(mobile){
     add(nav,'workspace-tab-'+name,'','button',{'data-workspace':name,'aria-controls':'workspace-'+name});
   }
   add(compact,'mobile-action-bar');
-  for(const id of ['analysis-settings','analysis-actions']){assert.ok(main.includes(`id="${id}"`));add(desktop,id);}
+  add(desktop,'analysis-settings');
   for(const [,id,open,label] of main.matchAll(/<details id="([^"]+)" class="settings-panel"( open)?>\s*<summary>([^<]+)<\/summary>/g)){
     const panel=add($('analysis-settings'),id,'settings-panel','details');panel.open=!!open;
     const summary=add(panel,'','','summary');summary.textContent=label;
   }
-  add($('solution-type-panel'),'mode','','select').value='mounted';
+  const solutionContent=add($('solution-type-panel'),'solution-content','settings-panel-content');
+  add(solutionContent,'mode','','select').value='mounted';
+  assert.match(main, /<select id="mode">.*<\/select>\s*<div id="analysis-actions">/);
+  add(solutionContent,'analysis-actions');
   for(const cls of ['viewport-header','viewport-container','results-panel']){assert.ok(main.includes(`class="${cls}"`));add(desktop,'',cls);}
   add(desktop,'flow-failure');
   for(const id of ['time-transport','mode-transport','frequency-transport','solution-provenance'])add(desktop,id);
@@ -126,7 +129,7 @@ test('desktop/mobile resizing retains each pane once and restores desktop anchor
         assert.equal(card.open,cycle===0);card.open=false;
       }
       f.resize(false);assert.equal(view.current(),null);assert.equal(f.desktop.hidden,false);
-      assert.equal(f.$('analysis-actions').parentNode,f.desktop);
+      assert.equal(f.$('analysis-actions').parentNode,f.$('solution-content'));
       assert.equal(f.compact.querySelectorAll('.workspace-card').length,0);
       assert.equal(f.$('asw-panel').open,false);assert.equal(f.$('nodes-panel').open,true);
       assert.equal(f.$('editor'),editor);assert.equal(editor.value,'unsaved ASW edit');

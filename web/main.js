@@ -78,7 +78,7 @@ document.querySelector('#app').innerHTML = `
 <header class="topbar">
   <div class="brand-lockup">
     <img class="brand-mark" src="/openswing-logo.svg" alt="" width="818" height="310">
-    <a href="/" class="brand"><span>Open<span class="brand-accent">Swing</span></span><span class="version">0.1 / DEV</span></a>
+    <a href="/" class="brand"><span>Open<span class="brand-accent">Swing</span></span></a>
     <span class="brand-subtitle">A coupled aerodynamic and structural solver inspired by <a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank" rel="noreferrer">ASWING</a>.</span>
   </div>
     <nav class="related-apps" aria-label="Related airfoil and flight tools">
@@ -105,6 +105,12 @@ document.querySelector('#app').innerHTML = `
         <div class="settings-panel-content">
           <label class="field-label" for="mode">Analysis</label>
           <select id="mode"><option value="rigid">Rigid steady aerodynamics</option><option value="mounted" selected>Steady aeroelastic equilibrium</option><option value="structural">Structural static · no airflow</option><option value="time">Nonlinear time response</option><option value="modes">Coupled eigenmodes</option><option value="frequency">Frequency response · Bode</option></select>
+          <div id="analysis-actions">
+            <button id="solve" class="primary" disabled>${icon('play')}<span>Run analysis</span><kbd>⌘ ↵</kbd></button>
+            <button id="cancel" class="full-width" hidden>Cancel analysis</button>
+            <div id="runtime-status" class="runtime-status" role="status"><span class="spinner"></span>Starting the numerical kernel…</div>
+            <p id="runtime-detail" class="runtime-detail" hidden></p>
+          </div>
               <p id="static-weight-note" class="small muted" hidden>This model contains signed Weight, mg or Dmg loads. Structural static analysis applies them at the rotating pylons or section centroids; negative entries cannot represent physical mass in dynamic analyses.</p>
           ${timeSettings}
           ${modeSettings}
@@ -200,12 +206,6 @@ document.querySelector('#app').innerHTML = `
           </details>
         </div>
       </details>
-    </div>
-    <div id="analysis-actions">
-    <button id="solve" class="primary" disabled>${icon('play')}<span>Run analysis</span><kbd>⌘ ↵</kbd></button>
-    <button id="cancel" class="full-width" hidden>Cancel analysis</button>
-    <div id="runtime-status" class="runtime-status" role="status"><span class="spinner"></span>Starting the numerical kernel…</div>
-    <p id="runtime-detail" class="runtime-detail" hidden></p>
     </div>
   </aside>
   <section class="center-panel">
