@@ -231,7 +231,7 @@ document.querySelector('#app').innerHTML = `
           <summary>File</summary>
           <div id="model-configuration" class="editor-panel-content">
             <div class="file-actions"><button id="open">${icon('upload')} Load</button><button id="save" title="Download the current ASW document">${icon('download')} Save</button></div>
-            <input type="file" id="file" accept=".asw,text/plain" hidden>
+            <input type="file" id="file" hidden>
             <label class="field-label" for="example">Example</label>
             <select id="example"><optgroup label="Drela’s ASWING examples"><option value="dae" selected>Daedalus human-powered aircraft</option><option value="usa">Ultralight sailplane</option><option value="fw">Swept flying wing UAV</option></optgroup><option value="" disabled>Custom .asw file</option></select>
             <h2 id="model-name">Aircraft workspace</h2>
