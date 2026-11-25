@@ -254,3 +254,16 @@ def test_fuselage_chart_is_not_silently_treated_as_surface_chart():
     body = network(parse_asw(text))
     assert np.all(body.source_fuselage)
     np.testing.assert_allclose(body.residual(np.zeros(body.size)), 0., atol=1e-14)
+
+
+def test_vertical_nonlifting_beam_can_extend_under_tip_load():
+    text = aircraft().dumps().replace('t x y z chord\n1 0 0 0 .2\n3 0 2 0 .2',
+                                     't x y z\n1 0 0 0\n3 0 0 2')
+    model = parse_asw(text)
+    body = network(model)
+    assert not np.any(body.source_fuselage)
+    np.testing.assert_allclose(body.residual(np.zeros(body.size)), 0., atol=1e-14)
+    result = solve_source_discrete(model, panels=grid(), gravity=[0, 0, 0],
+                                   loads=[dict(beam=1, t=3, force=[0, 0, 10])])
+    assert_balanced(result)
+    np.testing.assert_allclose(result['nodes'][-1]['position'], [0, 0, 2.02], atol=2e-10)

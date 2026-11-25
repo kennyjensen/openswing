@@ -49,6 +49,11 @@ def source_output_metadata(network=None):
             'Element constitutive estimates use averaged shell properties. Endpoint traces and sensor strains use their one-sided section properties; exact ASWING output sampling remains unverified.',
             'Mass properties are static bookkeeping for the endpoint load rule, not a validated dynamic inertia model.'
         ])
+    alternate_charts = getattr(network, 'alternate_chart_beams', ())
+    if alternate_charts:
+        result['output_scope']['material_charts'] += (
+            ' The surface chart is used throughout each non-lifting beam whose jig geometry '
+            f'reaches the fuselage pole. Affected beams: {", ".join(map(str, alternate_charts))}.')
     if general:
         result['output_scope']['strain_components'] = ('source_discrete_elements.axial_strain is reference-axis epsilon_s; '
             'elements.axial_strain_tension is Fs/EA. Closed-shell shear uses the translated elastic-axis torque.')
@@ -198,8 +203,29 @@ class SourceDiscreteNetwork(StaticNetwork):
         if np.any(self.offa) or np.any(self.offb):
             raise AnalysisError('Source-discrete static analysis does not yet support stepped beam axes.')
         self.source_sections, self.source_endpoint_sections = [], []
-        self.source_fuselage = np.concatenate([
-            np.full(len(mesh.length), not mesh.beam.lifting, dtype=bool) for mesh in self.meshes])
+        self.source_fuselage = np.zeros(self.ne, dtype=bool)
+        alternate_charts = []
+        for mesh in self.meshes:
+            if mesh.beam.lifting:
+                continue
+            elements = self.beam_elements[mesh.beam.index]
+            frames = np.concatenate((self.R0a[elements], self.R0b[elements]))
+            span = frames[..., :, 1]
+            if np.all(np.hypot(span[:, 0], span[:, 1]) >= 1e-8):
+                self.source_fuselage[elements] = True
+            else:
+                # Choose a fixed, nonsingular chart for the entire beam.
+                # Only the Euler coordinates change; the physical material
+                # frames and section properties remain those of the input.
+                try:
+                    angles_from_frame(frames)
+                except AnalysisError as error:
+                    raise AnalysisError(
+                        f'Beam {mesh.beam.index} ({mesh.beam.name}) has jig orientations at both '
+                        'Euler chart poles and requires more than one material chart.'
+                    ) from error
+                alternate_charts.append(mesh.beam.index)
+        self.alternate_chart_beams = tuple(alternate_charts)
         self.source_fuselage.setflags(write=False)
         compliance, axial, weights = [], [], []
         for mesh in self.meshes:
