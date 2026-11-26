@@ -252,7 +252,8 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                           *, local_motion=None, circulation_rate=None, sensor_positions=None, circulation_basis=None,
                           survey_positions=None, circulation_method='auto', initial_circulation=None,
                           frozen_influences=None, fourier_wake_diagnostic=False,
-                          _loads_only=False, _tangent_influences=None, _iteration_fields=None):
+                          _loads_only=False, _tangent_influences=None, _iteration_fields=None,
+                          _circulation_progress=None):
     """Evaluate the aerodynamic residual and loads on supplied geometry.
 
     If circulation is supplied, no inner aerodynamic solve is performed. This
@@ -347,7 +348,10 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
     def volume_velocity(points, reference=None, *, cache_name=None, **exclusions):
         compute = lambda: (frozen.volume(points if reference is None else reference, **exclusions) if frozen else
                 volume.velocity(points, _tangent=_tangent_influences, _cache_name=cache_name, **exclusions))
-        return compute() if _iteration_fields is None else _iteration_fields.get(("volume",cache_name),compute)
+        if _iteration_fields is None or (frozen and reference is not None
+                and getattr(_iteration_fields, 'reuse_frozen_influences', False)):
+            return compute()
+        return _iteration_fields.get(("volume",cache_name),compute)
     arrays = {k: [] for k in ("normal", "section_normal", "jig_normal", "s", "c", "slope", "clmax", "clmin", "cdf", "cdp", "cm", "xax", "beam", "t", "profile_arm")}
     for mesh in meshes:
         beam = mesh.beam
@@ -408,7 +412,22 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
 
     def influences(points, physical=None, *, reference=None, exclude_bound=None, cache_name=None):
         compute = lambda: original_influences(points,physical,reference=reference,exclude_bound=exclude_bound,cache_name=cache_name)
-        return compute() if _iteration_fields is None else _iteration_fields.get(('vortex',cache_name),compute)
+        if _iteration_fields is None:
+            return compute()
+        if frozen and reference is not None and getattr(_iteration_fields, 'reuse_frozen_influences', False):
+            return _iteration_fields.frozen_vortex(cache_name, len(points), compute)
+        return _iteration_fields.get(('vortex',cache_name),compute)
+
+    def induced_velocity(points, physical=None, *, reference=None, exclude_bound=None, cache_name=None):
+        def compute():
+            return influences(points, physical, reference=reference, exclude_bound=exclude_bound,
+                              cache_name=cache_name).apply(gamma)
+        if frozen and reference is not None and getattr(_iteration_fields, 'reuse_frozen_influences', False):
+            # Geometry perturbations hold Gamma fixed, so these attached
+            # receivers can reuse the velocity instead of the full map.
+            if _iteration_fields.phase != 'circulation':
+                return _iteration_fields.get(('fixed-vortex-velocity',cache_name),compute)
+        return compute()
 
     from .propulsion import jet_velocity as original_jet_velocity
     def jet_velocity(points, engines, direction, density, *, cache_name=None):
@@ -450,6 +469,13 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
             engine_rates[i] += mount.rates
     engine_aic = influences(engine_points, reference=engine_reference, cache_name='engine')
     flow_key, flow_cache = None, None
+    # A plume is identically zero on and upstream of its disk. Only jets
+    # with a downstream circulation receiver can affect this Jacobian.
+    receivers = np.concatenate((p["cp"], p["hv"])) if circulation is None else None
+    jet_feedback = receivers is not None and any(
+        row[12] > 0 and np.any((receivers-position)@jet_direction > 0.)
+        for row, position in zip(engine_rows, engine_points))
+    evaluate_trial_jets = circulation is not None or jet_feedback
 
     def engine_flow(gamma):
         nonlocal flow_key, flow_cache
@@ -484,7 +510,9 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
         key = gamma.tobytes()
         if key == velocity_key:
             return velocity_cache
-        v = hv_free + vhv.apply(gamma) + engine_flow(gamma)[2]
+        v = hv_free + vhv.apply(gamma)
+        if evaluate_trial_jets:
+            v += engine_flow(gamma)[2]
         vperp = v - np.sum(v * p["s"], axis=-1)[:, None] * p["s"]
         speed = np.linalg.norm(vperp, axis=-1)
         velocity_key = key
@@ -496,10 +524,17 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
         cl = 2 * gamma / (p["chord"] * speed)
         fstall, _ = _stall_leakage(cl, p['clmin'], p['clmax'], condition.stall_width)
         leakage = speed / p["slope"] * condition.stall_factor * fstall if condition.stall else 0.
-        jet_normal = np.sum(engine_flow(gamma)[1]*p["normal"], axis=-1)
+        jet_normal = np.sum(engine_flow(gamma)[1]*p["normal"], axis=-1) if evaluate_trial_jets else 0.
         return (normal_velocity(gamma) - rhs + jet_normal - leakage - 2/np.pi*lag_rate/speed) / condition.speed
 
+    evaluations = 0
+    tracing = False
     def residual(gamma):
+        nonlocal evaluations
+        if _circulation_progress is not None and circulation is None:
+            evaluations += 1
+            if not tracing and (evaluations == 1 or evaluations % 16 == 0):
+                _circulation_progress('static_circulation_residual', evaluations, 0)
         value = local_residual(gamma)
         if getattr(_iteration_fields, 'capture_local_flow', False):
             _iteration_fields.local_flow_residual = value
@@ -534,7 +569,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
         coefficient_scale = float(np.max(.5*p['chord']*condition.speed)) if basis.size else 1.
         def seeded_gamma(increment):
             return basis.decode(initial_coefficients+coefficient_scale*increment)
-        attempt = dict(method='direct', derivative='numerical engine feedback' if engine_rows else 'analytic',
+        attempt = dict(method='direct', derivative='numerical engine feedback' if jet_feedback else 'analytic',
             evaluations=0, accepted=False)
         initialization = dict(kind='provided circulation', initial_circulation=initial_circulation.tolist(),
             initial_coefficients=initial_coefficients.tolist(), seed_attempt=attempt, cold_fallback=False,
@@ -546,7 +581,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
         try:
             if basis.size:
                 solution = root(seeded_residual, np.zeros(basis.size),
-                    jac=None if engine_rows else lambda x: circulation_jacobian(seeded_gamma(x))*coefficient_scale,
+                    jac=None if jet_feedback else lambda x: circulation_jacobian(seeded_gamma(x))*coefficient_scale,
                     method='hybr', options={'xtol': 1e-10})
                 gamma = seeded_gamma(solution.x)
                 attempt.update(reported_success=bool(solution.success), message=str(solution.message),
@@ -577,7 +612,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                     return residual(basis.decode(coefficient_scale*z))
                 try:
                     refined = root(absolute_residual, coefficients/coefficient_scale,
-                        jac=None if engine_rows else lambda z:
+                        jac=None if jet_feedback else lambda z:
                         circulation_jacobian(basis.decode(coefficient_scale*z))*coefficient_scale,
                         method='hybr', options={'xtol': 1e-10})
                     candidate_coefficients = coefficient_scale*refined.x
@@ -641,7 +676,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
             if not continuation:
                 direct_attempted = True
                 solution = root(lambda x: residual(basis.decode(x)), coefficients0,
-                    jac=None if engine_rows else lambda x: circulation_jacobian(basis.decode(x)),
+                    jac=None if jet_feedback else lambda x: circulation_jacobian(basis.decode(x)),
                     method="hybr", options={"xtol": 1e-10})
                 gamma = basis.decode(solution.x)
                 iterations = int(solution.nfev)
@@ -661,11 +696,14 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                     continuation_evaluations += 1
                     return residual(basis.decode(z*coefficient_scale))
                 try:
+                    tracing = True
                     z, solver_report = continue_circulation(
                         continuation_residual, regularizer,
-                        derivative=None if engine_rows else lambda z:
-                        circulation_jacobian(basis.decode(z*coefficient_scale))*coefficient_scale)
+                        derivative=None if jet_feedback else lambda z:
+                        circulation_jacobian(basis.decode(z*coefficient_scale))*coefficient_scale,
+                        progress=_circulation_progress)
                 except CirculationContinuationError as exc:
+                    tracing = False
                     if (circulation_method != 'auto' or direct_attempted or linear_error is not None
                             or not np.all(np.isfinite(coefficients0))):
                         raise AnalysisError(str(exc)) from exc
@@ -675,7 +713,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                     direct_attempted = True
                     fallback = dict(seed='original linear circulation coefficients',
                         initial_coefficients=coefficients0.tolist(), evaluations=0,
-                        derivative='numerical engine feedback' if engine_rows else 'analytic',
+                        derivative='numerical engine feedback' if jet_feedback else 'analytic',
                         scope='A root of the unchanged equations; uniqueness and stability are not established.')
                     solver_report = dict(method='direct', trigger='failed automatic continuation',
                         failed_continuation=dict(error=str(exc), evaluations=continuation_evaluations),
@@ -685,7 +723,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                         return residual(basis.decode(x))
                     try:
                         solution = root(fallback_residual, coefficients0.copy(),
-                            jac=None if engine_rows else lambda x: circulation_jacobian(basis.decode(x)),
+                            jac=None if jet_feedback else lambda x: circulation_jacobian(basis.decode(x)),
                             method='hybr', options={'xtol': 1e-10})
                     except (ValueError, FloatingPointError, OverflowError, np.linalg.LinAlgError) as direct_error:
                         fallback.update(error_type=type(direct_error).__name__, error=str(direct_error))
@@ -702,6 +740,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                             f'Direct fallback after: {exc} '
                             f"Fallback evaluations={fallback['evaluations']}.", details=solver_report) from exc
                 else:
+                    tracing = False
                     gamma = basis.decode(z*coefficient_scale)
                     iterations += solver_report['evaluations']
                     solver_report['evaluations'] = iterations
@@ -745,6 +784,8 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
             message += (f" Direct fallback after: {solver_report['failed_continuation']['error']} "
                         f"Fallback evaluations={solver_report['fallback']['evaluations']}.")
         raise AnalysisError(message, details=solver_report if 'fallback' in solver_report or initialization is not None else None)
+    if _circulation_progress is not None and circulation is None:
+        _circulation_progress('static_circulation_loads', evaluations, 0)
     v, vp, vp_speed = velocities(gamma)
     v_speed = np.linalg.norm(v, axis=-1)
     cl = 2 * gamma / (p["chord"] * vp_speed)
@@ -809,7 +850,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
         axis_velocity -= surface_motion.velocity_at(p['rm'])
     if (np.any(omega) or (surface_motion is not None and np.any(surface_motion.rates))
             or getattr(_iteration_fields,'capture_rate_fields',False)):
-        axis_velocity += influences(p["rm"], p["physical"], reference=ig['rm'], cache_name='axis', exclude_bound=np.eye(len(p["t"]), dtype=bool)).apply(gamma)
+        axis_velocity += induced_velocity(p["rm"], p["physical"], reference=ig['rm'], cache_name='axis', exclude_bound=np.eye(len(p["t"]), dtype=bool))
         axis_velocity += condition.speed*volume_velocity(p["rm"], ig['rm'], cache_name='axis')
         axis_velocity += jet_velocity(p["rm"], engines, jet_direction, rho, cache_name="axis")
     if incident is not None:axis_velocity = incident('axis', axis_velocity)
@@ -836,7 +877,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
             velocity -= body_motion.velocity.reshape(-1,3)
         body_reference = frozen.body_points[mesh.beam.index] if frozen else locations
         velocity += condition.speed*volume_velocity(locations,body_reference,exclude_body=mesh.beam.physical_index,cache_name=('body',mesh.beam.index))
-        velocity += influences(locations,np.full(len(locations),mesh.beam.physical_index),reference=body_reference,cache_name=('body',mesh.beam.index)).apply(gamma)
+        velocity += induced_velocity(locations,np.full(len(locations),mesh.beam.physical_index),reference=body_reference,cache_name=('body',mesh.beam.index))
         velocity += jet_velocity(locations,engines,jet_direction,rho,cache_name=("body",mesh.beam.index))
         if incident is not None:velocity = incident(('body', mesh.beam.index), velocity)
         loads = body_loads(mesh,rho,velocity.reshape(positions.shape),motion_state,model.reference[2],condition.body_added_mass_factor,local_motion=body_motion)
@@ -863,7 +904,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
                 velocity-=local_motion.station(mesh.beam.index,shoulder['t']).velocity_at(position)
             reference = next(s['position'] for s in frozen.volume_field.body_shoulders[mesh.beam.index] if s['t']==shoulder['t']) if frozen else position
             velocity+=condition.speed*volume_velocity(position,reference,exclude_body=mesh.beam.physical_index,cache_name=("shoulder",mesh.beam.index,shoulder["t"]))
-            velocity+=influences(position[None,:],np.array([mesh.beam.physical_index]),reference=reference[None,:],cache_name=("shoulder",mesh.beam.index,shoulder["t"])).apply(gamma)[0]
+            velocity+=induced_velocity(position[None,:],np.array([mesh.beam.physical_index]),reference=reference[None,:],cache_name=("shoulder",mesh.beam.index,shoulder["t"]))[0]
             velocity+=jet_velocity(position[None,:],engines,jet_direction,rho,cache_name=("shoulder",mesh.beam.index,shoulder["t"]))[0]
             if incident is not None:velocity = incident(('shoulder', mesh.beam.index, shoulder['t']), velocity)
             along=velocity@tangent;normal=velocity-along*tangent
@@ -887,7 +928,7 @@ def evaluate_aerodynamics(model: Model, condition: FlightCondition, meshes,
             vel -= local_motion.point('weight',point_index).velocity_at(r)
         # Evaluate the induced field with inter-object finite cores.
         reference = np.asarray(row[2:5])[None,:]
-        vel += influences(np.asarray(r)[None,:],reference=reference,cache_name=("point",point_index)).apply(gamma)[0]
+        vel += induced_velocity(np.asarray(r)[None,:],reference=reference,cache_name=("point",point_index))[0]
         vel += condition.speed*volume_velocity(np.asarray(r)[None,:],reference,exclude_point=point_index,cache_name=("point",point_index))[0]
         vel += jet_velocity(np.asarray(r)[None, :], engines, jet_direction, rho,cache_name=("point",point_index))[0]
         if incident is not None:vel = incident(('point', point_index), vel)

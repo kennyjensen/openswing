@@ -15,12 +15,37 @@ SOURCE = Path('examples/stall-branch.asw').read_text()
 def test_continuation_recovers_independent_nonlinear_roots_and_removes_regularization():
     # R = [2-sinh(x), 3-y^3] has exactly these real roots. Its homotopy
     # preserves positive x,y from zero and has no fold along that path.
-    z, report = continue_circulation(lambda z: np.array([2-np.sinh(z[0]), 3-z[1]**3]), np.diag([2., .7]))
+    events = []
+    z, report = continue_circulation(lambda z: np.array([2-np.sinh(z[0]), 3-z[1]**3]),
+                                    np.diag([2., .7]), progress=lambda *event: events.append(event))
     np.testing.assert_allclose(z, [np.arcsinh(2), np.cbrt(3)], atol=2e-10)
     assert report['final_regularization'] == 0
     assert report['trace'][-1]['parameter'] == 1
     assert all(a['parameter'] < b['parameter'] for a,b in zip(report['trace'], report['trace'][1:]))
     assert report['physical_residual'] < 1e-10
+    assert events[-1] == ('static_circulation_continuation', report['attempts'], 600)
+
+
+@pytest.mark.parametrize('radius', [0, .15])
+def test_engine_without_a_plume_at_lifting_sections_uses_analytic_jacobian(monkeypatch, radius):
+    from openswing import aero
+    source = Path('examples/rectangular.asw').read_text()
+    model = parse_asw(source + f'\nEngine\n1 0 1 0 4 0 0 -1 0 0 1 0 {radius} 0 0\nEnd\n')
+    condition = FlightCondition(speed=30, alpha=4, powers={1:2})
+    native_root = aero.root
+    seen = []
+
+    def checked_root(function, guess, *, jac, **options):
+        assert jac is not None
+        seen.append(True)
+        return native_root(function, guess, jac=jac, **options)
+
+    monkeypatch.setattr(aero, 'root', checked_root)
+    result = solve_rigid(model, condition, 8, circulation_method='direct')
+    assert seen
+    assert result['residual'] < 1e-8
+    assert result['engines'][0]['thrust'] == 2
+    assert result['engines'][0]['jet_enabled'] == (radius > 0)
 
 
 def test_regularized_zero_branch_selects_first_of_three_known_roots():

@@ -60,11 +60,16 @@ def test_mounted_progress_reports_real_columns_and_loads_without_changing_any_ou
     assert loads[-1] == 1.
     assert any(0 < value < 1 for value in loads)
     assert all(0 <= value <= 1 for value in loads)
+    stages = [stage for stage, _, _ in events]
+    startup = ('static_initial_airflow', 'static_circulation_residual',
+               'static_circulation_loads', 'static_rank_assembly', 'static_tangent', 'static_rank')
+    positions = [stages.index(stage) for stage in startup]
+    assert positions == sorted(positions)
     tangents = []
     for stage,done,total in events:
-        assert stage in ('static_load','static_tangent')
         if stage == 'static_load':
             assert total == 1
+        if stage != 'static_tangent':
             continue
         assert isinstance(done,int) and isinstance(total,int) and total > 0
         if done == 0:

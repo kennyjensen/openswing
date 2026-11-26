@@ -68,7 +68,8 @@ def _newton_corrector(function, derivative, predicted, tolerance):
     return None
 
 
-def continue_circulation(residual, regularizer, *, derivative=None, tolerance=1e-11, max_step=.04):
+def continue_circulation(residual, regularizer, *, derivative=None, tolerance=1e-11, max_step=.04,
+                         progress=None):
     """Pseudo-arclength predictor/corrector, rollback and exact endpoint solve.
 
     The metric uses the mean square of dimensionless circulation coordinates
@@ -85,6 +86,9 @@ def continue_circulation(residual, regularizer, *, derivative=None, tolerance=1e
     if not n:
         return np.empty(0), dict(method='continuation', path='pseudo-arclength', steps=0,
             attempts=0, evaluations=0, trace=[], final_regularization=0., physical_residual=0.)
+    attempt_limit = 600
+    if progress is not None:
+        progress('static_circulation_continuation', 0, attempt_limit)
     singular = np.linalg.svd(d, compute_uv=False)
     if singular[-1] <= 1e-12*singular[0]:
         raise CirculationContinuationError('Circulation continuation has an unresolved coordinate scaling.')
@@ -113,7 +117,9 @@ def continue_circulation(residual, regularizer, *, derivative=None, tolerance=1e
     trace = []
     correctors = dict(newton=0, hybrid=0)
     reason = 'step search exhausted'
-    for attempt in range(600):
+    for attempt in range(attempt_limit):
+        if progress is not None:
+            progress('static_circulation_continuation', attempt+1, attempt_limit)
         # A fixed 1e-7 floor can stop before closely spaced stall corners,
         # even when the unchanged predictor/corrector checks resolve them.
         # Bound refinement by floating-point resolution in the same metric;

@@ -824,6 +824,8 @@ def _equilibrate_full(network, tolerance=1e-8, continuation_steps=4, *, initial_
         raise AnalysisError('A controller equilibrium seed requires the matching controller definition.')
     if progress is not None:
         progress('static_load', 0., 1.)
+    from .rigid_initial_rank import reject_redundant_rigid_constraints
+    reject_redundant_rigid_constraints(network)
     if network.operating.minimum_indices:
         from .control_allocation import equilibrate_allocation
         return equilibrate_allocation(network,tolerance,continuation_steps,initial_state,residual_options)
@@ -836,7 +838,9 @@ def _equilibrate_full(network, tolerance=1e-8, continuation_steps=4, *, initial_
     model, condition = network.model, network.condition
     x = np.zeros(network.size)
     if condition is not None:
-        initial = evaluate_aerodynamics(model, condition, network.meshes, frozen_influences=network.frozen_influences)
+        if progress is not None: progress('static_initial_airflow',0,network.ng)
+        initial = evaluate_aerodynamics(model, condition, network.meshes, frozen_influences=network.frozen_influences,
+                                        _circulation_progress=progress)
         physical = np.array([s["circulation"] for s in initial["strips"] if s["lifting"]])
         x[network.gamma_start:network.operating_start] = network.circulation_basis.encode(physical)/network.gamma_scale
     # Explicit tangent rank check catches unrestrained mechanisms even when
@@ -844,7 +848,9 @@ def _equilibrate_full(network, tolerance=1e-8, continuation_steps=4, *, initial_
     from .tangent_influences import TangentLoads
     initial_loads = TangentLoads() if not network.operating.constraints and not residual_options else None
     initial_x = x.copy()
+    if progress is not None: progress('static_rank_assembly',0,network.size)
     jac = network.jacobian(x, 0., progress=progress, _load_cache=initial_loads, **residual_options)
+    if progress is not None: progress('static_rank_svd',0,network.size)
     norms = np.linalg.norm(jac, axis=0)
     singular = np.linalg.svd(jac/np.maximum(norms, 1e-30), compute_uv=False)
     if singular[-1] < 1e-10*singular[0]:

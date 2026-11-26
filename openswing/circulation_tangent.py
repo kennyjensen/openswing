@@ -104,20 +104,23 @@ class EngineDerivative:
         return derivative[..., None]*self.axial_gradient
 
 
+_COLUMN_BUDGET = 128*1024**2
+
+
 class FlowDerivative:
-    def __init__(self, net, fields, data):
+    def __init__(self, net, fields, data, columns=slice(None)):
         self.fields, self.data = fields, data
-        self.sample = net.gamma_scale*data['basis'].sample
+        self.sample = net.gamma_scale*data['basis'].sample[:, columns]
         # Includes temporary flow/load matrices and the returned residual block.
-        receivers = sum(value.shape[0] for (kind, _), value in fields.values.items() if kind == 'vortex')
-        estimate = 8*net.ng*(net.size+18*receivers)
-        if estimate > 128*1024**2:
+        receivers = fields.vortex_receiver_count()
+        estimate = 8*self.sample.shape[1]*(net.size+18*receivers)
+        if estimate > _COLUMN_BUDGET:
             raise CirculationDerivativeUnavailable('Direct circulation derivative storage exceeds its budget.')
         engine_inflow = self.vortex('engine')
         self.engines = [EngineDerivative(data, i, engine_inflow[i]) for i in range(len(data['engines']))]
 
     def vortex(self, name):
-        return self.fields.values['vortex', name].apply_columns(self.sample)
+        return self.fields.vortex_column_map(name).apply_columns(self.sample)
 
     def velocity(self, name, points):
         result = self.vortex(name)
@@ -229,8 +232,23 @@ def circulation_columns(net, fields, factor, *, circulation_rate_factor=0.):
     data, mechanics = fields.circulation_aero, fields.circulation_mechanics
     if data is None or mechanics is None:
         raise CirculationDerivativeUnavailable('Missing fixed-geometry circulation capture.')
-    flow = FlowDerivative(net, fields, data)
-    return flow_load_columns(net, fields, flow, factor, circulation_rate_factor=circulation_rate_factor)
+    bytes_per_column = 8*(net.size+18*fields.vortex_receiver_count())
+    if bytes_per_column*net.ng <= _COLUMN_BUDGET:
+        flow = FlowDerivative(net, fields, data)
+        return flow_load_columns(net, fields, flow, factor, circulation_rate_factor=circulation_rate_factor)
+
+    # Retain the same direct derivative on larger meshes by limiting the
+    # temporary flow and load matrices to a group of circulation columns.
+    width = (_COLUMN_BUDGET-8*net.size*net.ng)//bytes_per_column
+    if width < 1:
+        raise CirculationDerivativeUnavailable('Direct circulation derivative storage exceeds its budget.')
+    result = np.empty((net.size, net.ng))
+    for first in range(0, net.ng, width):
+        columns = slice(first, first+width)
+        flow = FlowDerivative(net, fields, data, columns)
+        result[:, columns] = flow_load_columns(net, fields, flow, factor,
+                                               circulation_rate_factor=circulation_rate_factor)
+    return result
 
 
 def circulation_residual_columns(net, fields):

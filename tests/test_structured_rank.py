@@ -25,6 +25,17 @@ def test_coupled_mechanisms_and_redundant_reactions_are_rejected(ground):
         check_initial_rank(net, np.zeros(net.size))
 
 
+def test_redundant_joint_cycle_is_rejected_before_matrix_assembly(monkeypatch):
+    from test_network import beam, model
+    m = model(''.join(beam(index) for index in (1, 2, 3)),
+              'Ground\n1 0 0\nEnd\nJoint\n1 2 0 0 0\n2 3 0 0 0\n3 1 0 0 0\nEnd\n')
+    net = StaticNetwork(m, 4, None, None, [])
+    monkeypatch.setattr('openswing.structured_static.jacobian',
+                        lambda *args, **kwargs: pytest.fail('Redundant rigid joints reached matrix assembly'))
+    with pytest.raises(AnalysisError, match='Joint 3 closes a loop'):
+        check_initial_rank(net, np.zeros(net.size))
+
+
 def test_inconclusive_certificate_uses_exact_full_check(monkeypatch):
     import openswing.structured_static as module
     model = parse_asw(Path('examples/flexible.asw').read_text())

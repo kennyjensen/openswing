@@ -23,6 +23,26 @@ class _Forest:
         return True
 
 
+def reject_redundant_rigid_constraints(net):
+    """Detect closed paths of exact ties without treating beams as rigid."""
+    from .aero import AnalysisError
+    ground = net.nn
+    forest = _Forest(ground + 1)
+    counts = {'ground': 0, 'joint': 0}
+    for constraint in net.constraints:
+        kind = constraint['kind']
+        counts[kind] += 1
+        if constraint['type'] != 0:
+            continue
+        a, b = constraint['a'], constraint['b']
+        if not forest.join(a, ground if b is None else b):
+            raise AnalysisError(
+                f'Constraints leave a mechanism or redundant reactions: {kind.title()} '
+                f'{counts[kind]} closes a loop of rigid joints or full ground restraints. '
+                'Check for a duplicate rigid joint or ground restraint.'
+            )
+
+
 def _source_rigid_scope(net):
     """Check the *source* constitutive law, without enabling midpoint tangents.
 

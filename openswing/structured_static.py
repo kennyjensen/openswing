@@ -76,6 +76,21 @@ class IterationFields:
         self.local_flow_residual = None
         self.circulation_aero = None
         self.circulation_mechanics = None
+        self.frozen_vortices = {}
+
+    def frozen_vortex(self, name, receiver_count, compute):
+        if self.phase == 'capture' and self.capture_circulation:
+            self.frozen_vortices[name] = (receiver_count, compute)
+        return compute()
+
+    def vortex_column_map(self, name):
+        if name in self.frozen_vortices:
+            return self.frozen_vortices[name][1]()
+        return self.values['vortex', name]
+
+    def vortex_receiver_count(self):
+        return (sum(value.shape[0] for (kind, _), value in self.values.items() if kind == 'vortex')
+                + sum(count for count, _ in self.frozen_vortices.values()))
 
     def fixed_geometry(self, key, compute):
         """Read-only setup reuse for the base geometry's circulation columns.
@@ -124,6 +139,9 @@ class IterationFields:
 def linearization(network, x, factor, *, capture_circulation=False, capture_mechanics=False,
                   capture_local_flow=False):
     fields = IterationFields()
+    # The bounded frozen-influence cache already owns these immutable maps.
+    # The tangent only needs separate captures for fields that can change.
+    fields.reuse_frozen_influences = True
     fields.capture_circulation = capture_circulation
     fields.capture_local_flow = capture_local_flow
     fields.capture_frame_loads = bool(network.operating.count)
@@ -618,7 +636,11 @@ def check_initial_rank(net, x, progress=None, *, retain_matrix=False):
     check before the full-Jacobian SVD. Its rank gate stays at 1e-10.
     """
     from .aero import AnalysisError
+    from .rigid_initial_rank import reject_redundant_rigid_constraints
+    reject_redundant_rigid_constraints(net)
+    if progress is not None: progress('static_rank_assembly',0,net.size)
     matrix, counts = jacobian(net, x, 0., progress=progress)
+    if progress is not None: progress('static_rank',0,net.size)
     def result(report):
         return (report, matrix) if retain_matrix else report
     d = matrix.circulation
@@ -664,12 +686,13 @@ def check_initial_rank(net, x, progress=None, *, retain_matrix=False):
                 mechanical_svd=refined_svd,initial_mechanical_svd=svd,
                 physical_certificate=physical,**counts))
     full = net.jacobian(x, 0., progress=progress)
-    norms = np.linalg.norm(full, axis=0)
-    original = np.linalg.svd(full/np.maximum(norms,1e-30), compute_uv=False)
+    if progress is not None: progress('static_rank_svd',0,net.size)
     balanced, scaling = equilibrate_rank_matrix(full)
     singular = None if balanced is None else np.linalg.svd(balanced,compute_uv=False)
     if singular is None or singular[0] <= 0 or singular[-1] < 1e-10*singular[0]:
         raise AnalysisError('Constraints leave a mechanism or redundant reactions/operating targets; check Ground, Joint and operating definitions.')
+    norms = np.linalg.norm(full, axis=0)
+    original = np.linalg.svd(full/np.maximum(norms,1e-30), compute_uv=False)
     return result(dict(method='full-Jacobian SVD fallback',rank_scaling=scaling,physical_certificate=physical,
                 original_column_singular_ratio=float(original[-1]/original[0]) if original[0] else 0.,
                 equilibrated_singular_ratio=float(singular[-1]/singular[0]),**counts))
@@ -856,7 +879,11 @@ def equilibrate(net, tolerance=1e-8, continuation_steps=4, *, initial_state=None
     if progress is not None: progress('static_load',0.,1.)
     x = np.zeros(net.size)
     if net.condition is not None:
-        initial = evaluate_aerodynamics(net.model,net.condition,net.meshes,frozen_influences=net.frozen_influences)
+        from .rigid_initial_rank import reject_redundant_rigid_constraints
+        reject_redundant_rigid_constraints(net)
+        if progress is not None: progress('static_initial_airflow',0,net.ng)
+        initial = evaluate_aerodynamics(net.model,net.condition,net.meshes,frozen_influences=net.frozen_influences,
+                                        _circulation_progress=progress)
         physical = np.array([s['circulation'] for s in initial['strips'] if s['lifting']])
         x[net.gamma_start:net.operating_start] = net.circulation_basis.encode(physical)/net.gamma_scale
     initial_matrix = None

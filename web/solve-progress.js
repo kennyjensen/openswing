@@ -16,6 +16,30 @@ export function mountedProgress() {
 }
 
 export function mountedStatus(data) {
+  if (data.stage === 'static_initial_airflow') return {
+    message: 'Building the initial airflow model…',
+    detail: 'Preparing aerodynamic influences on the unloaded geometry.',
+  };
+  if (data.stage === 'static_circulation_residual') return {
+    message: `Solving initial circulation · ${data.time} evaluations…`,
+    detail: 'Checking the airflow equations on the unloaded geometry. The count is work done, not a percent complete.',
+  };
+  if (data.stage === 'static_circulation_continuation') return {
+    message: `Tracing initial circulation · attempt ${data.time}/${data.steps}…`,
+    detail: 'Following the flow solution through nonlinear section loads. Attempts include retries.',
+  };
+  if (data.stage === 'static_circulation_loads') return {
+    message: 'Recovering initial aerodynamic loads…',
+    detail: 'Circulation has converged. Checking the airflow and recovering loads before the constraint check.',
+  };
+  if (data.stage === 'static_rank_assembly') return {
+    message: 'Assembling the initial constraint matrix…',
+    detail: 'Building the unloaded equations before checking constraint independence.',
+  };
+  if (data.stage === 'static_rank' || data.stage === 'static_rank_svd') return {
+    message: data.stage === 'static_rank_svd' ? 'Checking constraints with the full matrix…' : 'Checking initial constraint independence…',
+    detail: `Checking ${data.steps} equations for unrestrained motion or redundant restraints.`,
+  };
   if (data.stage === 'equilibrium_iteration') return {
     message: `Correcting saved equilibrium · iteration ${data.time + 1} · residual ${Number(data.steps).toExponential(2)}…`,
     detail: 'Balancing the full equations from the saved state. Iterations and residuals describe the current correction, not overall completion.',

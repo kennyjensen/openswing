@@ -85,6 +85,21 @@ def test_zero_load_and_no_circulation_retain_their_exact_zero_blocks(factor):
         np.testing.assert_allclose(np.r_[direct.force_circulation, direct.circulation], expected, rtol=2e-7, atol=2e-7)
 
 
+def test_frozen_circulation_columns_keep_direct_derivative_under_storage_limit(monkeypatch):
+    from openswing import circulation_tangent
+    net = StaticNetwork(model_for('stepped-wing-body'), 8,
+                        FlightCondition(alpha=5, freeze_influences=True), None, [])
+    x = state_for(net)
+    with linearization(net, x, .6, capture_circulation=True) as (fields, _):
+        expected = circulation_tangent.circulation_columns(net, fields, .6)
+        bytes_per_column = 8*(net.size + 18*fields.vortex_receiver_count())
+        budget = expected.nbytes + 2*bytes_per_column
+        assert budget < net.ng*bytes_per_column
+        monkeypatch.setattr(circulation_tangent, '_COLUMN_BUDGET', budget)
+        actual = circulation_tangent.circulation_columns(net, fields, .6)
+    np.testing.assert_allclose(actual, expected, rtol=1e-13, atol=1e-14)
+
+
 def test_engine_jet_feedback_is_observable_and_not_frozen(monkeypatch):
     from openswing.circulation_tangent import EngineDerivative
     net = StaticNetwork(model_for('jet-2'), 8, FlightCondition(mach=.1, alpha=7, beta=3, powers={1:50000.}), None, [])
