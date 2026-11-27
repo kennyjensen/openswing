@@ -80,6 +80,24 @@ test('failed or cancelled trim never reports success or adopts a state',async()=
   }finally{f.restore();}
 });
 
+test('split horizontal foils use sideslip for yaw and retain independent pitch and roll',async()=>{
+  const f=fixture(()=>undefined);
+  try{
+    const foilModel={controls:[1,2,3],engine_controls:[{index:1}],reference:[[1,1,1],[0,0,0]],
+      distributions:[1,2,3].map(beam=>({beam,lifting:true,properties:[`dCLdF${beam}`]})),
+      beams:[[-1,1],[-2,-.1],[.1,2]].map(([start,end],i)=>({index:i+1,axis:[[[0,start,0],[0,end,0]]]}))};
+    f.state.model=foilModel;f.view.setModel(foilModel,'split foils');
+    assert.equal(f.$('flight-trim-pitch').value,'1');
+    assert.equal(f.$('flight-trim-roll').value,'2');
+    assert.equal(f.$('flight-trim-yaw').value,'');
+    await f.$('trim-steady-flight').onclick();
+    const targets=f.calls[0][1].constraints;
+    for(const [variable,quantity] of [['control.2','moment.x'],['control.1','moment.y'],['beta','moment.z']])
+      assert.ok(targets.some(target=>target.variable===variable&&target.quantity===quantity));
+    assert.throws(()=>steadyFlightConfiguration(configuration,foilModel,{...choices,pitch:'1',yaw:'',roll:''}),/either roll or yaw/);
+  }finally{f.restore();}
+});
+
 test('fresh aircraft imports clear previous equilibrium and targets; mesh edits preserve them',()=>{
   const main=readFileSync(new URL('../web/main.js',import.meta.url),'utf8');
   const start=main.indexOf('  if(freshMesh){',main.indexOf('async function inspect('));
@@ -120,8 +138,8 @@ test('accepting trim preserves fractional controls, releases targets and retains
   const elements=new Map(),$=id=>{if(!elements.has(id))elements.set(id,{value:'',replaceChildren(){this.cleared=true;}});return elements.get(id);};
   const document={querySelector:selector=>$(selector)};let saved;
   const noop=()=>{};
-  const accept=new Function('$','document','equilibriumView','allocationView','customView','status','projectView',source+'return acceptFlightTrim;')
-    ($,document,{restore:value=>{saved=value;}},{refresh:noop},{refresh:noop},noop,null);
+  const accept=new Function('$','document','equilibriumView','allocationView','customView','status','projectView','setFieldValue',source+'return acceptFlightTrim;')
+    ($,document,{restore:value=>{saved=value;}},{refresh:noop},{refresh:noop},noop,null,(field,value)=>{field.value=String(value);});
   const result={equilibrium_state:configuration.equilibrium.state,operating_values:{alpha:3.087143345018976,'attitude.elevation':3.0871450932,'control.2':-8.825752955534778,'power.1':6.01740609,'position_earth.z':-100,'rates.z':Math.PI/180,'angular_acceleration.x':Math.PI/90}};
   accept(result);
   assert.equal($('alpha').value,String(result.operating_values.alpha));
@@ -165,13 +183,13 @@ test('steady, Bode and mode result captures save solved conditions and retain th
   const solved={...initial,alpha:3,controls:{'2':-8},powers:{'1':6}};
   const request={mode:'mounted',condition:initial};
   const base={operating_values:{alpha:3,'control.2':-8,'power.1':6},request,software_provenance:{version:1}};
-  const state={model:{name:'Aircraft'}},noop=()=>{},view={capture:()=>null};
-  const present=new Function('state','equilibriumView','checkpointView','solvedFlightCondition',
+  const state={model:{name:'Aircraft'}},noop=()=>{};
+  const present=new Function('state','equilibriumView','checkpointView','solvedFlightCondition','renderFlightOutput',
     prefix('function presentResult(', '    const map=')+'return state.result;} return presentResult;')
-    (state,{setComputed:noop},{refresh:noop},solvedFlightCondition);
-  const capture=new Function('state','captureCase','hasComputedSolution','resultViewFields','document','workbenchView','archivedTimeHistory','portableResult','romView','stabilityView','flowView','frequencyView','structuredClone',
+    (state,{setComputed:noop},{refresh:noop},solvedFlightCondition,noop);
+  const capture=new Function('state','captureCase','hasComputedSolution','resultViewFields','document','workbenchView','archivedTimeHistory','portableResult','modeView','savedModalSupplements','frequencyView','structuredClone',
     prefix('function captureComputedSolution(', '\nasync function restoreComputedSolution(')+'return captureComputedSolution;')
-    (state,()=>configuration,()=>true,()=>[],{querySelector:()=>null},{current:()=>null},()=>false,portableResult,view,view,view,{captureComparison:()=>null},structuredClone);
+    (state,()=>configuration,()=>true,()=>[],{querySelector:()=>null},{current:()=>null},()=>false,portableResult,{selectedIndex:()=>0},new WeakMap(),{captureComparison:()=>null},structuredClone);
   for(const mode of ['mounted','rigid']){
     present(base,mode,initial);
     const saved=JSON.parse(JSON.stringify(capture()));

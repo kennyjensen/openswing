@@ -7,15 +7,27 @@ export function progressBoundary(stage, current, total, previousStage) {
 }
 
 export function mountedProgress() {
-  let load = null, update = 0;
+  let load = null, update = 0, cacheLimitBytes = null;
   return (stage, current, total) => {
     if (stage === 'static_load') { load = current / total; update = 0; }
     if (stage === 'static_tangent' && current === 0) update++;
-    return { load, update };
+    if (stage === 'static_cache_pressure') cacheLimitBytes = current;
+    return { load, update, ...(cacheLimitBytes == null ? {} : {cacheLimitBytes}) };
   };
 }
 
+export function frozenCacheWarning(bytes) {
+  return `Frozen influence cache limit (${Math.round(bytes / 1048576)} MiB) reached. Recomputing influence maps can slow this solve.`;
+}
+
 export function mountedStatus(data) {
+  const status = mountedStage(data);
+  if (status && data.cacheLimitBytes)
+    status.detail = `${frozenCacheWarning(data.cacheLimitBytes)} ${status.detail}`;
+  return status;
+}
+
+function mountedStage(data) {
   if (data.stage === 'static_initial_airflow') return {
     message: 'Building the initial airflow model…',
     detail: 'Preparing aerodynamic influences on the unloaded geometry.',

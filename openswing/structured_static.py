@@ -47,6 +47,30 @@ def load_kinematic_constraints(net):
                     for c in net.operating.constraints))
 
 
+def structured_steady_constraints(net):
+    """The sparse steady matrix also supports source-airflow force/moment trim."""
+    return (acceleration_load_constraints(net)
+            or (getattr(net, 'source_airflow', False) and getattr(net, 'steady_trim', False)
+                and load_kinematic_constraints(net)))
+
+
+def steady_cache_progress(net, observer):
+    if observer is None:
+        return None
+    reported = False
+
+    def report(stage, current, total):
+        nonlocal reported
+        cache = net.frozen_influences
+        warning = None if cache is None or reported else cache.capacity_warning()
+        if warning is not None:
+            reported = True
+            observer('static_cache_pressure', warning['limit_bytes'], 0)
+        observer(stage, current, total)
+
+    return report
+
+
 def frame_load_pattern(net, rows, *, constraints=None):
     """Disjoint nodal supports and scaling for grouped global load derivatives.
 
@@ -261,8 +285,8 @@ def jacobian(net, x, factor, *, grouped=True, progress=None, direct_circulation=
 
 
 def _jacobian(net, x, factor, *, grouped=True, progress=None, direct_circulation=True, direct_mechanics=True):
-    if not acceleration_load_constraints(net):
-        raise StructuredTangentUnavailable('Structured steady tangents require prescribed or load-constrained frame accelerations.')
+    if not structured_steady_constraints(net):
+        raise StructuredTangentUnavailable('Structured steady tangent does not support these operating targets.')
     # Fourier projection couples every mode row to every strip. The physical
     # tangency residual remains local when induced fields are held fixed.
     # Color that local stencil first, then project each recovered column.
@@ -272,7 +296,10 @@ def _jacobian(net, x, factor, *, grouped=True, progress=None, direct_circulation
         rows = structural_column_rows(net, local_flow=local_flow)
         setattr(net, pattern_key, (rows, coloring(rows)))
     rows, groups = getattr(net, pattern_key)
-    load_nodes,load_components,load_scales = frame_load_pattern(net,rows)
+    load_constraints = [c for c in net.operating.constraints if c.quantity != 'flight_path']
+    load_rows = np.array([net.operating_start+i for i,c in enumerate(net.operating.constraints)
+                          if c.quantity != 'flight_path'], dtype=int)
+    load_nodes,load_components,load_scales = frame_load_pattern(net,rows,constraints=load_constraints)
     split = net.gamma_start
     triplet_rows, triplet_columns, triplet_values = [], [], []
     force_circulation = np.empty((split, net.size-split))
@@ -352,7 +379,7 @@ def _jacobian(net, x, factor, *, grouped=True, progress=None, direct_circulation
                     values = difference/step
                 if grouped and load_difference is not None:
                     wrench=load_difference[load_nodes[column]].sum(axis=0)
-                    support=np.r_[support,np.arange(net.operating_start,net.size)]
+                    support=np.r_[support,load_rows]
                     values=np.r_[values,wrench[load_components]/load_scales/step]
                 nonzero = values != 0
                 triplet_rows.append(support[nonzero])
@@ -374,8 +401,8 @@ def _jacobian(net, x, factor, *, grouped=True, progress=None, direct_circulation
                 circulation[:, column-split] = values[split:]
                 done += 1
                 if progress is not None: progress('static_tangent', done, total)
-        # Frame accelerations affect every inertial load. Keep the exact pair
-        # cache, but remove all geometry-lagged fields for their full columns.
+        # Operating variables can change loads, flow and attitude. Remove
+        # geometry-lagged fields for these full residual differences.
         if net.operating.count:
             with full_fields(net):
                 base=net.residual(x,factor)
@@ -851,7 +878,7 @@ def _polish_fixed_geometry_circulation(net, x, factor, residual, target_error):
 
 def equilibrate(net, tolerance=1e-8, continuation_steps=4, *, initial_state=None, progress=None,
                 reuse_matrices=True, full_structure=True, checkpoint=None, max_load_steps=None, **options):
-    """Prescribed or load-constrained acceleration solve with full acceptance.
+    """Structured steady solve with full physical residual acceptance.
 
     Unsupported operating/state contexts use the full-Jacobian solver. A failed
     approximate Newton direction gets a full Jacobian before load refinement.
@@ -859,11 +886,14 @@ def equilibrate(net, tolerance=1e-8, continuation_steps=4, *, initial_state=None
     from .network import _equilibrate_full as original_equilibrate
     from .aero import evaluate_aerodynamics, AnalysisError
     from .ground import GroundIntersectionError
+    from .propulsion import PropulsionFlowError
     bounded = checkpoint is not None or max_load_steps is not None
-    if options or initial_state is not None or not acceleration_load_constraints(net):
+    supported = acceleration_load_constraints(net) if bounded else structured_steady_constraints(net)
+    if options or initial_state is not None or not supported:
         if bounded:
             raise AnalysisError('Continuation jobs require the structured steady route without warm states or residual overrides.')
         return original_equilibrate(net,tolerance,continuation_steps,initial_state=initial_state,progress=progress,**options)
+    progress = steady_cache_progress(net, progress)
     if not np.isfinite(tolerance) or not 0 < tolerance <= 1e-5:
         raise AnalysisError('Equilibrium tolerance must be positive and no greater than 1e-5.')
     if not isinstance(continuation_steps,int) or continuation_steps < 1:
@@ -918,9 +948,9 @@ def equilibrate(net, tolerance=1e-8, continuation_steps=4, *, initial_state=None
             old=before[i].T@before[j];new=after[i].T@after[j]
             values.append(np.linalg.norm(log(old.T@new)))
         return float(max(values,default=0.))
-    # Resolve load/stress recovery as well as the normalized equations. A
-    # default residual threshold alone can leave small recovery differences.
-    target_error = min(tolerance,1e-12)
+    # Preserve the tighter recovery threshold of the acceleration path and
+    # the requested residual tolerance used by the full trim solver.
+    target_error = min(tolerance,1e-12) if acceleration_load_constraints(net) else tolerance
     if initial_matrix is not None:
         if saved is None:
             increment, prediction = initial_load_step(net, x, initial_matrix, increment, target_error, rotation_limit)
@@ -1046,7 +1076,7 @@ def equilibrate(net, tolerance=1e-8, continuation_steps=4, *, initial_state=None
                             trial_merit = float(correction@correction)
                         else:
                             trial_merit = float(value@value)
-                    except (AnalysisError, GroundIntersectionError):
+                    except (AnalysisError, GroundIntersectionError, PropulsionFlowError):
                         trial_merit = np.inf
                     if np.isfinite(trial_merit) and trial_merit < merit*(1-1e-4*alpha):
                         state = trial; improved = True; record['alpha'] = alpha

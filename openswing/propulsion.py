@@ -8,6 +8,10 @@ import numpy as np
 from scipy.optimize import brentq
 
 
+class PropulsionFlowError(ValueError):
+    """The current flow state is outside the propulsion model's domain."""
+
+
 def engine_axes(thrust, rotation=None):
     thrust = np.asarray(thrust, dtype=float)
     xe = -thrust/np.linalg.norm(thrust) if np.any(thrust) else np.array([1., 0., 0.])
@@ -38,7 +42,7 @@ The swirl-loss cubic's actual minimum replaces the ideal Betz clipping value
 when swirl is finite. Selecting its monotone branch avoids spurious cubic roots.
 """
     if velocity < 0:
-        raise ValueError("Actuator-disk reverse flow is outside the documented forward-flow model.")
+        raise PropulsionFlowError("Actuator-disk reverse flow is outside the documented forward-flow model.")
     radius = abs(radius)
     if radius <= 0 or omega == 0 or density <= 0 or drag_area < 0:
         raise ValueError("Invalid actuator-disk radius, rotation rate, density or blade drag area.")
@@ -79,7 +83,7 @@ def engine_load(row, power, density, position, velocity, mount_rate=(0., 0., 0.)
         dv = 0.
         if row[12] > 0:
             if axial < 0 or axial**2+2*thrust/(density*np.pi*radius**2) < 0:
-                raise ValueError("Proportional-engine jet has no forward-flow momentum solution; check thrust and Rdisk.")
+                raise PropulsionFlowError("Proportional-engine jet has no forward-flow momentum solution; check thrust and Rdisk.")
             # Rationalized quadratic avoids cancellation at small thrust.
             denominator = np.sqrt(axial**2+2*thrust/(density*np.pi*radius**2))+axial
             dv = 2*thrust/(density*np.pi*radius**2)/denominator if denominator else 0.
@@ -113,7 +117,7 @@ def jet_profile(engine, downstream, density):
     if v+dv <= 0:
         if v == dv == 0 and engine["thrust"] == engine["torque"] == 0:
             return np.full_like(x, radius), np.full_like(x, radius), np.zeros_like(x), np.zeros_like(x)
-        raise ValueError("Engine jet requires positive downstream convection velocity.")
+        raise PropulsionFlowError("Engine jet requires positive downstream convection velocity.")
     contracted = radius*np.sqrt((v+dv/2)/(v+dv))
     inner = np.maximum(0., contracted-.11*abs(dv)/(v+dv)*x)
     outer = contracted+.11*abs(dv)/(v+dv/2)*x
@@ -122,7 +126,7 @@ def jet_profile(engine, downstream, density):
     k2 = inner**2+243/385*inner*d+243/1820*d**2
     discriminant = (k1*v)**2+4*k2*engine["thrust"]/(np.pi*density)
     if np.any(discriminant < -1e-12*np.maximum((k1*v)**2, 1.)):
-        raise ValueError("Engine wake has no real momentum-conserving velocity profile.")
+        raise PropulsionFlowError("Engine wake has no real momentum-conserving velocity profile.")
     denominator = k1*v+np.sqrt(np.maximum(discriminant, 0.))
     center = np.divide(2*engine["thrust"]/(np.pi*density), denominator,
                        out=np.zeros_like(x), where=denominator != 0)
@@ -133,7 +137,7 @@ def jet_profile(engine, downstream, density):
     transport = np.pi*density*(k3*v+k4*center)
     swirl = np.divide(-engine["torque"], transport, out=np.zeros_like(x), where=transport != 0)
     if engine["torque"] != 0 and np.any(transport == 0):
-        raise ValueError("Engine jet cannot carry nonzero torque with zero convection.")
+        raise PropulsionFlowError("Engine jet cannot carry nonzero torque with zero convection.")
     return inner, outer, center, swirl
 
 

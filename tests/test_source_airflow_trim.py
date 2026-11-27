@@ -35,6 +35,18 @@ def launch_request(source, saved, dt):
             forcing='time +E1\n0 0\n.01 0\n.01 3\n.2 3\n'))
 
 
+def test_structured_trim_balances_load_and_flight_path_targets():
+    request = trim_request()
+    request['condition']['attitude'] = [0., 3., 0.]
+    request['operating_constraints'].append(
+        dict(variable='attitude.elevation', quantity='flight_path', target=0.))
+    result = dispatch(request)
+    assert result['operating_values']['power.1'] == pytest.approx(5., abs=1e-9)
+    assert result['operating_values']['attitude.elevation'] == pytest.approx(0., abs=1e-9)
+    assert result['nodes'][-1]['position'][1] == pytest.approx(2.01, abs=1e-9)
+    assert result['residual'] < request['tolerance']
+
+
 def test_trim_launch_releases_force_target_and_refines_to_damped_oscillator(monkeypatch):
     value=trim_request(); original=deepcopy(value); trimmed=dispatch(value)
     retain('engine-trim',dict(request=value,result=trimmed))

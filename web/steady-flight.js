@@ -49,10 +49,11 @@ export const steadyFlightSettings=`
 export function steadyFlightConfiguration(configuration,model,{kind,pitch,yaw,roll='',power}){
   if(!['level','glide'].includes(kind))throw new Error('Select level flight or an unpowered glide.');
   const controls=model.controls.map(String),engines=model.engine_controls.map(e=>String(e.index));
-  if(!controls.includes(pitch)||!controls.includes(yaw)||pitch===yaw)
-    throw new Error('Choose distinct pitch and yaw controls under Trim controls.');
+  if(!controls.includes(pitch)||(yaw!==''&&!controls.includes(yaw))||pitch===yaw)
+    throw new Error('Choose a pitch control and a separate yaw control or sideslip.');
   if(roll!==''&&(!controls.includes(roll)||[pitch,yaw].includes(roll)))
     throw new Error('Choose a separate roll control, or use sideslip for roll balance.');
+  if(roll===''&&yaw==='')throw new Error('Sideslip can balance either roll or yaw. Choose a flap for the other axis.');
   if(kind==='level'&&!engines.includes(power))throw new Error('Level-flight trim needs a thrust control. Select an unpowered glide for an aircraft without an engine.');
   if(!configuration.fields.speed.trim()||!Number.isFinite(Number(configuration.fields.speed))||Number(configuration.fields.speed)<=0)
     throw new Error('Enter a positive airspeed before trimming.');
@@ -61,7 +62,7 @@ export function steadyFlightConfiguration(configuration,model,{kind,pitch,yaw,ro
   if(!['midpoint','aswing-coupled','aswing-airflow'].includes(numericalSelection(result.numerics)))
     result.numerics=selectedNumerics('aswing-airflow');
   for(const kind of ['rates','acceleration','angular_acceleration'])for(const axis of ['x','y','z'])f[`${kind}-${axis}`]='0';
-  if(roll!=='')f.beta='0';
+  if(roll!==''&&yaw!=='')f.beta='0';
   f['attitude-bank']='0';f['attitude-elevation']=f.alpha;
   f['feedback-enabled']=false;f['derivatives-enable']=false;
   f['modal-vacuum']=false;f['modal-quiescent']=false;
@@ -74,9 +75,37 @@ export function steadyFlightConfiguration(configuration,model,{kind,pitch,yaw,ro
   result.constraints=[target('alpha','force.z'),target('attitude.bank','force.y'),
     target(kind==='level'?`power.${power}`:'attitude.elevation','force.x'),
     target(roll===''?'beta':`control.${roll}`,'moment.x'),
-    target(`control.${pitch}`,'moment.y'),target(`control.${yaw}`,'moment.z')];
+    target(`control.${pitch}`,'moment.y'),target(yaw===''?'beta':`control.${yaw}`,'moment.z')];
   if(kind==='level')result.constraints.push(target('attitude.elevation','flight_path'));
   return result;
+}
+
+function splitFoilControls(model,controls){
+  // A center-spanning horizontal flap and two independent half-span flaps
+  // give pitch and roll authority. Use sideslip when there is no yaw flap.
+  if(controls.length!==3||!model.distributions||!model.beams||!model.reference)return null;
+  const center=model.reference[1][1];
+  const roles=controls.map(id=>{
+    const members=model.distributions.filter(beam=>beam.lifting&&
+      beam.properties.some(name=>name===`dCLdF${id}`||name===`dCMdF${id}`||name===`dCDdF${id}`));
+    let min=Infinity,max=-Infinity;
+    for(const member of members){
+      const axis=model.beams.find(beam=>beam.index===member.beam)?.axis;
+      if(!axis?.length)return null;
+      let span=0,height=0;
+      for(const [start,end] of axis){
+        span+=Math.abs(end[1]-start[1]);height+=Math.abs(end[2]-start[2]);
+        min=Math.min(min,start[1],end[1]);max=Math.max(max,start[1],end[1]);
+      }
+      if(span<=height)return null;
+    }
+    if(min<center&&max>center)return 'pitch';
+    if(min<center&&max<=center)return 'left';
+    if(min>=center&&max>center)return 'right';
+    return null;
+  });
+  return roles.includes('pitch')&&roles.includes('left')&&roles.includes('right')
+    ?{pitch:controls[roles.indexOf('pitch')],yaw:'',roll:controls[roles.indexOf('left')]}:null;
 }
 
 export function createSteadyFlight({getState,capture,load,run,accept,showError}){
@@ -97,10 +126,13 @@ export function createSteadyFlight({getState,capture,load,run,accept,showError})
     const controls=model.controls.map(String),engines=model.engine_controls.map(e=>String(e.index));
     const pitch=controls.includes('2')?'2':controls[0]??'';
     const yaw=controls.includes('3')?'3':controls.find(id=>id!==pitch)??'';
-    for(const [name,ids,selected] of [['pitch',controls,pitch],['yaw',controls,yaw],
-      ['roll',controls,controls.includes('1')&&![pitch,yaw].includes('1')?'1':''],['power',engines,engines[0]??'']]){
+    const roll=controls.includes('1')&&![pitch,yaw].includes('1')?'1':'';
+    const defaults=splitFoilControls(model,controls)??{pitch,yaw,roll};
+    for(const [name,ids,selected] of [['pitch',controls,defaults.pitch],['yaw',controls,defaults.yaw],
+      ['roll',controls,defaults.roll],['power',engines,engines[0]??'']]){
       const select=$(`flight-trim-${name}`);select.replaceChildren();
-      if(name==='roll'||!ids.length){const option=document.createElement('option');option.value='';option.textContent=name==='roll'?'Use sideslip':'Unavailable';select.append(option);}
+      const sideslip=name==='roll'||name==='yaw';
+      if(sideslip||!ids.length){const option=document.createElement('option');option.value='';option.textContent=sideslip?'Use sideslip':'Unavailable';select.append(option);}
       for(const id of ids){const option=document.createElement('option');option.value=id;option.textContent=`${name==='power'?'Engine':'Flap'} ${id}`;select.append(option);}
       select.value=selected;
     }

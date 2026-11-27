@@ -11,6 +11,11 @@ from .geometry import surface_frame, undeformed_mesh
 from .volume import VolumeField, body_quadrature
 
 
+# Leave room for a full pass of attached lifting and body maps. A cyclic
+# sequence just larger than the limit can otherwise miss on every receiver.
+_CACHE_BYTES = 72*1024**2
+
+
 def lifting_geometry(meshes, direction, *, _material=None):
     """Bound endpoints and force/control points, steady equations 155–157."""
     arrays = {key: [] for key in ('a', 'b', 'hv', 'cp', 'rm', 'chord', 'ds', 'physical')}
@@ -72,6 +77,9 @@ class FrozenInfluences:
         self.key = None
         self.cache = OrderedDict()
         self.cache_bytes = 0
+        self._evicted = OrderedDict()
+        self._capacity_rebuilds = 0
+        self._largest_uncached_map = 0
 
     @staticmethod
     def signature(meshes):
@@ -85,6 +93,7 @@ class FrozenInfluences:
         if key != self.key:
             self.cache.clear()
             self.cache_bytes = 0
+            self._evicted.clear()
             self.pg = np.diag([1/np.sqrt(1-mach*mach), 1., 1.])
             self.ground = ground
             with np.errstate(over='ignore'):
@@ -108,13 +117,30 @@ class FrozenInfluences:
             return self.cache[key]
         value = compute()
         value.setflags(write=False)
+        if self._evicted.pop(hash(key), None) is not None:
+            self._capacity_rebuilds += 1
+        if value.nbytes > _CACHE_BYTES:
+            self._largest_uncached_map = max(self._largest_uncached_map, value.nbytes)
+            return value
         # Bound large external surveys without limiting the physical model.
-        while self.cache and (len(self.cache) >= 256 or self.cache_bytes+value.nbytes > 64*1024**2):
-            self.cache_bytes -= self.cache.popitem(last=False)[1].nbytes
-        if value.nbytes <= 64*1024**2:
-            self.cache[key] = value
-            self.cache_bytes += value.nbytes
+        while self.cache and (len(self.cache) >= 256 or self.cache_bytes+value.nbytes > _CACHE_BYTES):
+            byte_limited = self.cache_bytes+value.nbytes > _CACHE_BYTES
+            retired, removed = self.cache.popitem(last=False)
+            self.cache_bytes -= removed.nbytes
+            # Retain only bounded fingerprints, since keys include geometry.
+            if byte_limited:
+                self._evicted[hash(retired)] = True
+                if len(self._evicted) > 256:
+                    self._evicted.popitem(last=False)
+        self.cache[key] = value
+        self.cache_bytes += value.nbytes
         return value
+
+    def capacity_warning(self):
+        if self._capacity_rebuilds or self._largest_uncached_map:
+            return dict(limit_bytes=_CACHE_BYTES, rebuilds=self._capacity_rebuilds,
+                        largest_uncached_map_bytes=self._largest_uncached_map)
+        return None
 
     def vortex(self, points, physical=None, *, exclude_bound=None):
         from .aero import horseshoe_velocity

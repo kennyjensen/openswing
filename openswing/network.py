@@ -799,9 +799,9 @@ class StaticNetwork:
 
 
 def equilibrate(network, tolerance=1e-8, continuation_steps=4, *, initial_state=None, progress=None, **residual_options):
-    """Use sparse mechanics for prescribed or load-constrained accelerations."""
-    from .structured_static import acceleration_load_constraints
-    if (acceleration_load_constraints(network) and initial_state is None
+    """Use sparse mechanics for supported steady operating targets."""
+    from .structured_static import steady_cache_progress, structured_steady_constraints
+    if (structured_steady_constraints(network) and initial_state is None
             and not residual_options):
         from .structured_static import equilibrate as structured_equilibrate, StructuredTangentUnavailable
         try:
@@ -810,7 +810,7 @@ def equilibrate(network, tolerance=1e-8, continuation_steps=4, *, initial_state=
         except StructuredTangentUnavailable:
             pass
     return _equilibrate_full(network, tolerance, continuation_steps,
-                            initial_state=initial_state, progress=progress,
+                            initial_state=initial_state, progress=steady_cache_progress(network, progress),
                             **residual_options)
 
 
@@ -921,7 +921,12 @@ def _equilibrate_full(network, tolerance=1e-8, continuation_steps=4, *, initial_
 def network_result(network, x, *, sensor_frame=None, **residual_options):
     """Independent, JSON-ready snapshot of the common network state."""
     residual, data = network.residual(x, detail=True, **residual_options)
-    return network_snapshot(network, residual, data, sensor_frame=sensor_frame)
+    result = network_snapshot(network, residual, data, sensor_frame=sensor_frame)
+    if network.frozen_influences is not None:
+        warning = network.frozen_influences.capacity_warning()
+        if warning is not None:
+            result['frozen_influence_cache_warning'] = warning
+    return result
 
 
 def network_snapshot(network, residual, data, *, sensor_frame=None, linear_output=False):

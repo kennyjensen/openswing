@@ -95,3 +95,15 @@ def test_progress_callback_failure_propagates_before_any_solve_is_reported_compl
     assert events[0] == ('static_load',0.,1.)
     assert events[-1][0:2] == ('static_tangent',0)
     assert not any(stage == 'static_load' and value == 1 for stage,value,_ in events)
+
+
+def test_cache_limit_reports_progress_warning_and_keeps_converged_result(monkeypatch):
+    from openswing import frozen_influence
+    monkeypatch.setattr(frozen_influence, '_CACHE_BYTES', 512)
+    events = []
+    result = json.loads(run_json(request(), progress=lambda *event: events.append(event)))
+    assert result['converged']
+    assert result['residual'] < 1e-8
+    assert result['frozen_influence_cache_warning']['largest_uncached_map_bytes'] > 512
+    assert [event for event in events if event[0] == 'static_cache_pressure'] == [
+        ('static_cache_pressure', 512, 0)]

@@ -52,6 +52,16 @@ test('each request starts independently and other analyses keep their own labels
   assert.equal(mountedStatus({ stage: 'linearizing', time: 10, steps: 300 }), null);
 });
 
+test('a cache warning stays beside solver progress and clears for the next request', () => {
+  const track = mountedProgress();
+  track('static_cache_pressure', 72 * 1048576, 0);
+  const stage = 'static_tangent', time = 3, steps = 31;
+  const status = mountedStatus({stage, time, steps, ...track(stage, time, steps)});
+  assert.match(status.message, /3\/31 columns/);
+  assert.match(status.detail, /cache limit \(72 MiB\).*Recomputing influence maps/);
+  assert.doesNotMatch(mountedStatus({stage, time, steps, ...mountedProgress()(stage, time, steps)}).detail, /cache limit/);
+});
+
 test('time startup, matrix rebuilds and retries are distinct from accepted physical time', async () => {
   const {timeProgress,timeStatus}=await import('../web/solve-progress.js');
   const track=timeProgress();

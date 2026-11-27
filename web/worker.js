@@ -70,6 +70,10 @@ async function handle(event) {
       const stage=reportedStage?.startsWith('operating_point/')?reportedStage.slice('operating_point/'.length):reportedStage;
       if(timeRequest&&(stage===null||stage==='time_step'))phase=`Integrating time response after t = ${Number(time).toPrecision(6)}`;
       const mounted = trackMounted(stage,time,steps), timing = trackTime(stage,time,steps);
+      if(stage==='static_cache_pressure'){
+        lastStage=stage; // Forward the next solver update even inside the throttle interval.
+        return;
+      }
       const boundary = progressBoundary(stage,time,steps,lastStage);
       lastStage=stage;
       if(!boundary&&performance.now()-lastProgress<500)return;

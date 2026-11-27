@@ -1,6 +1,6 @@
 import {quiescentCondition,isQuiescentResult} from './quiescent-settings.js';
 import {timeInitializationSummary} from './time-target-results.js';
-import {mountedStatus, timeStatus, frequencyStatus} from './solve-progress.js';
+import {mountedStatus, timeStatus, frequencyStatus, frozenCacheWarning} from './solve-progress.js';
 import {beamColor, colorBeamPlot, plotColors} from './plot-colors.js';
 import {timePhase} from './time-timeline.js';
 import {shareTimeHistoryMetadata} from './time-history-metadata.js';
@@ -423,7 +423,8 @@ function acceptFlightTrim(result){
   allocationView.refresh(false);customView.refresh();
   equilibriumView.restore({state:result.equilibrium_state,enabled:true,label:'Steady flight trim'});
   $('result-state').textContent='Converged · steady flight';
-  status('Steady flight trimmed · ready for response analysis');
+  const cacheWarning=result.frozen_influence_cache_warning;
+  status('Steady flight trimmed · ready for response analysis',false,cacheWarning?frozenCacheWarning(cacheWarning.limit_bytes):'');
   
 }
 async function loadCase(configuration,solution=null){
@@ -779,7 +780,9 @@ async function run(equilibriumJob=null) {
       presentResult({...result,request,requested_operating_constraints:operating_constraints},mode,condition);
     }
     if(bounded)steadyProgressView.complete();
-    status(mode==='time'?'Time integration converged':mode==='frequency'&&!result.converged?'Frequency response finished with gaps':'Analysis converged');
+    const cacheWarning=result.frozen_influence_cache_warning;
+    status(mode==='time'?'Time integration converged':mode==='frequency'&&!result.converged?'Frequency response finished with gaps':'Analysis converged',
+      false,cacheWarning?frozenCacheWarning(cacheWarning.limit_bytes):'');
     return result;
   } catch(error) { if(revision===state.revision) {
     resetResult(); showError(error); status('Analysis stopped');
@@ -988,6 +991,12 @@ function presentResult(result,mode,condition,fit=true) {
     const strutReport=result.struts?.length?`\nAXIAL BRACES · ${result.strut_mode==='wire'?'TENSION ONLY':'TENSION AND COMPRESSION'}\n${result.struts.map((s,i)=>`${i+1}: beam ${s.beam}, t=${s.t}\n  tension [F] ${s.tension.toPrecision(7)}, strain ${s.strain.toPrecision(7)}${s.slack?' · slack':''}`).join('\n')}\n`:'';
     const report=document.createElement('pre'); report.textContent=`${result.analysis==='constrained_static'?'CONSTRAINED AEROELASTIC EQUILIBRIUM':mode==='mounted'?'MOUNTED AEROELASTIC EQUILIBRIUM':'RIGID STEADY ANALYSIS'}\n\nNormalized residual    ${result.residual.toExponential(5)}\nResidual evaluations  ${result.evaluations}\nAerodynamic panels    ${result.panels}\nPG Mach               ${result.mach.toFixed(6)}\n\nAero force [input F]    ${result.force.map(x=>x.toFixed(5)).join(', ')}\nAero moment [input F·L] ${result.moment.map(x=>x.toFixed(5)).join(', ')}\n${structure}${inertiaReport}${constraintReport}\n${result.limitations.join('\n\n')}`;
     report.textContent+=engineReport+strutReport+allocationReport(result.control_allocation)+customReport(result);
+    if(result.frozen_influence_cache_warning){
+      const cache=result.frozen_influence_cache_warning;
+      report.textContent+=`\nSOLVER PERFORMANCE\n${frozenCacheWarning(cache.limit_bytes)}\nMaps rebuilt after eviction: ${cache.rebuilds}.\n`;
+      if(cache.largest_uncached_map_bytes)
+        report.textContent+=`Largest map too large to cache: ${(cache.largest_uncached_map_bytes/1048576).toFixed(1)} MiB.\n`;
+    }
     if(result.coefficient_normalization?.available===false)report.textContent+='\n'+result.coefficient_normalization.reason+'\n';
     if(result.moment_origin&&result.moment_definitions){
       const reference=result.moment_definitions.reference;

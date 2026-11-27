@@ -100,6 +100,22 @@ def test_cache_reuses_only_matching_coefficients_and_rebuilds_for_mach_core_and_
         evaluate_aerodynamics(model, c, model_meshes(model, 8), frozen_influences=cache)
 
 
+def test_cache_capacity_warning_requires_rebuild_or_oversized_map(monkeypatch):
+    from openswing import frozen_influence
+    model, _, meshes = STUDY['setup'](dict(panels=4))
+    cache = FrozenInfluences(model, meshes)
+    monkeypatch.setattr(frozen_influence, '_CACHE_BYTES', 32)
+    cache.cached(('first',), lambda: np.arange(3, dtype=float))
+    cache.cached(('second',), lambda: np.arange(3, dtype=float))
+    assert cache.capacity_warning() is None
+    original = np.arange(3, dtype=float)
+    np.testing.assert_array_equal(cache.cached(('first',), lambda: original), original)
+    assert cache.capacity_warning() == dict(limit_bytes=32, rebuilds=1, largest_uncached_map_bytes=0)
+    cache.cached(('large',), lambda: np.arange(5, dtype=float))
+    assert cache.cache_bytes == 24
+    assert cache.capacity_warning()['largest_uncached_map_bytes'] == 40
+
+
 def test_frozen_volume_sources_and_attached_receivers_use_jig_but_gust_uses_current_position():
     source = '''Name
 Frozen body and point volumes
